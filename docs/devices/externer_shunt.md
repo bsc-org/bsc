@@ -1,0 +1,59 @@
+# Externe Shunts
+
+## Victron SmartShunt
+
+### Hardwareverbindung
+
+Damit die Verbindung vom SmartShunt zum BSC hergestellt werden kann, muss zwischen dem VE.Direct Port (UART 3,3V) und dem BSC (RS485) ein entsprechender 3,3V kompatibler Konverter verwendet werden.<br>
+Ein galvanisch getrennter Typ ist hierbei nicht notwendig, da diese Trennung am BSC ohnehin vorliegt. Der Anschluss erfolgt über A/B/GND.
+
+#### Der zu verwendende Stecker
+Hersteller: JST<br>
+Serie: PH<br>
+Pol-Anzahl: 4<br>
+Rastermaß: 2.0mm<br>
+Bestellnr.: JST PHR-4<br>
+<br>
+<img src="../../img/devices/devices_shunt_smartshunt_vedirect_stecker.png" width="550">
+
+#### Aderfarben eines original VE.Direct Kabels. (Ohne Gewähr der Information auf Ihr verwendetes Kabel)<br>
+
+|  PinNr | Aderfarbe  |
+| :------------ | :------------ |
+| 1  | rot  |
+| 2  |  grün |
+|  3 |  weiß |
+|  4 | schwarz  |
+
+#### Beispiel eines einzusetzenden UART/RS485 Konverters
+<img src="../../img/devices/devices_shunt_smartshunt_rs485_converter.png" width="300">
+
+Es hat sich herausgestellt, dass der SmartShunt nicht alle Typen der UART/RS485 Wandler mit Strom versorgen kann.<br>
+Der Konverter sollte nicht mehr wie 10mA (Puls max. 20mA/5ms) aufnehmen.<br>
+Ansonsten muss eine externe Spannungsversorgung für den Konverter verwendet werden!
+
+#### Anschlusstabelle
+
+| SmartShunt | Adapter UART Seite | Adapter RS485 Seite | BSC (Serial 0) |
+| ------------ | ------------ | ------------ | ------------ |
+| Pin1(GND) | GND | GND | S0 GND |
+| Pin2(Rx) | TxD | A+ | S0 Rx/A |
+| Pin3(Tx) | RxD | B- | S0 Tx/B |
+| Pin4(3V3) | VCC |  |  |
+
+Verschiedene, vorzugsweise chinesische Konverter, haben eine falsche TxD/RxD-Bedruckung. Bei diesen müssen die beiden Signale dann invertiert angeschlossen werden.
+
+### Einstellungen BSC
+
+#### Definition der seriellen Schnittstelle
+Einstellungen -> Schnittstellen -> Serial -> Auswahl des Victron SmartShunt
+
+#### Benötigtes Valuehandling
+<img src="../../img/devices/devices_shunt_smartshunt_bsc_settings.png" width="500">
+
+Einstellungen sind zu finden wie folgt
+- Einstellungen -> Wechselrichter & Laderegelung -> Allgemein -> Valuehandling Multi-BMS -> SoC<br>Selektion: BMS<br>
+
+- Einstellungen -> Wechselrichter & Laderegelung -> Allgemein -> Valuehandling Multi-BMS -> BMS für SOC<br>Selektion: Auswahl der Schnittstelle, wo der Smartshunt angeschlossen ist.<br>
+
+Hierdurch wird nur noch der SoC des SmartShunt genutzt und an den Wechselrichter weiter geleitet.

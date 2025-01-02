@@ -1,0 +1,174 @@
+# Unterstützte BMS
+
+## Serial BMS
+### Jiabaida/JBD
+| Typ | HW-Version | SW-Version |
+| ------------ | ------------ | ------------ |
+| JBD-DP24S002 |  |  |
+
+### JK
+#### Smart-BMS
+| Typ | HW-Version | SW-Version |
+| ------------ | ------------ | ------------ |
+| JK-B2A20S20P | V11.XW | 11.25H |
+| JK-B2A24S20P | V10.XW | V10.09 |
+
+#### Inverter-BMS
+| Typ | HW-Version | SW-Version |
+| ------------ | ------------ | ------------ |
+| JK-PB1A16S15P | V14 | V14.20 |
+| JK-PB1A16S15P | V15 | V15.17 |
+| JK-PB2A16S20P | V15 | V15.17 |
+
+### Seplos
+| Typ | HW-Version | SW-Version |
+| ------------ | ------------ | ------------ |
+| Seplos       | 10C |  |
+| Seplos       | 10E | 16.4 |
+| Seplos V3    |  |  |
+
+### Sylcin (z.B. Taico Akku)
+| Typ | HW-Version | SW-Version |
+| ------------ | ------------ | ------------ |
+| Sylcin       |  |  |
+
+### Gobel
+| Typ | HW-Version | SW-Version |
+| ------------ | ------------ | ------------ |
+| GP-SR1-RN150 |  | |
+| GP-SR1-PC200<br>(needs testing) |  | | 
+
+### DALY
+| Typ | HW-Version | SW-Version |
+| ------------ | ------------ | ------------ |
+|  |  | |
+
+### Victron
+| Typ | HW-Version | SW-Version |
+| ------------ | ------------ | ------------ |
+| SmartShunt |  | |
+
+## Bluetooth Devices
+
+### NEEY
+| Typ | HW-Version | SW-Version |
+| ------------ | ------------ | ------------ |
+| NEEY Balancer 4A | 2.8.0 | 1.2.1 |
+| NEEY Balancer 4A | 2.8.0 | 1.2.3 |
+
+Anbei die Auflösung der Statusmeldungen des NEEY:
+
+<img src="../../img/devices/devices_neey_status.png" width="520">
+
+
+# Anbindungs-Beispiele
+
+## Seplos
+
+Der BSC unterstützt sowohl den Anschluss eines einzigen Seplos Gerätes als auch die Seplos Daisy-Chain, in der mehrere Systeme parallel geschaltet werden können. Dabei wird nur ein serieller Anschluss am BSC verbraucht. 
+
+#### Bedingungen / Tipps für einen MultiPack Daisy-Chain-Verbund:
+* In der Seplos Software ist die automatische Adressierung deaktiviert (Upload Parameter -> auf der rechten Seite ganz nach unten)
+* Die DIP Switch sind auf RS485 Konfiguration zu schalten
+* Serial 2 am BSC ist zu verwenden.<br>Für die Benutzung dieser Schnittstelle muss JP6 geschlossen sein.
+  * HW 2.3: PINs X2.6, X2.7 und X2.8 benutzen
+  * HW 2.4: Hierzu den RJ45 Port oder die PINs X2.7, X2.8 und X2.9 benutzen
+* Falls es zu einem Problem im Verbund mit plötzlich nicht mehr antwortenden Seplos-BMS kommt, kann die Firmware 16.06.04 (oder evtl auch neuere) evtl. Abhilfe schaffen. Bei dem teilweise vorkommenden Problem lassen die BMS keine serielle Verbindung mehr zu, was nur mit einem BMS-Reboot wieder zu beheben ist.
+* Jedes Seplos Pack erhält im BSC eine fortlaufende Nummer beginnend mit serial2(Pack1), serial3(Pack2) und so weiter.
+
+#### Anschlussmöglichkeiten grafisch dargestellt
+
+**Bei einer Kontaktierung über den RJ45 Anschluss muss [dieser](../../hardware/#j6-fur-den-regularen-betrieb) Jumper gesetzt werden.**
+
+![BSC-Seplos-Single-Config](../../img/devices/devices_seplos_config_single.png)
+
+![BSC-Seplos-Multi-Config](../../img/devices/devices_seplos_config_multi.png)
+
+<br>
+
+#### Besonderheiten
+
+##### Zuordnung der Temperatursensoren in MQTT
+
+| Datentopic  |Sensorname   |
+| :------------ | :------------ |
+|0-3   |Externe Kabelsensoren   |
+|4   |Mosfet   |
+|5   |Umgebung   |
+
+##### Errorhandling
+- Eine BSC-Warning ist im Seplos BMS eine "Warning" oder ein "Alarm"
+- Ein BSC-Alarm ist im Seplos BMS eine "Protection"
+
+## Sylcin
+
+Anschluss von mehreren Akkus über Serial 2 vom BSC ist möglich. 
+
+* Die Adressierung 1 aufwärts (ohne lücken) über die Dipschalter einstellen. Hierbei beachten, dass 0000 = Adresse 1, 0001 = Adresse 2 ist!
+* BSC mit der Schnittstelle RS485-1 (nicht RS485-2) verbinden. 
+* Jeder weitere Akku muss auch parallel an den jeweiligen RS485-1 angeklemmt werden. 
+* Beim RS485-1 wird immer Pin 4 und 5 verwendet. 
+* Beim RS485 Anfang und Ende des Bus mit einem 120Ohm Widerstand terminieren. 
+* Bei einer Kontaktierung über den RJ45 Anschluss muss [dieser](../../hardware/#j6-fur-den-regularen-betrieb) Jumper gesetzt werden
+* Einstellen des Sylcin BMS unter Serial 2
+* Anzahl der Packs in den Einstellungen festlegen (siehe Bilder Seplos BMS)
+
+Danach ist jedes Pack im BSC zu finden. Akku 1 -> BMS(2), Akku 2 -> BMS(3), ... 
+
+## JK Inverter
+
+Das JK Inverter BMS kann mit einem handelsüblichen RJ45-Patchkabel mit dem BSC verbunden werden.<br>
+Dieser BSC-Port wird in der Software mit "Serial 2" benannt. Für die Benutzung dieser Schnittstelle muss JP6 geschlossen sein.<br>
+Einzelne BMS, wie auch eine MultiPack-Konfiguration über DaisyChain ist möglich.<br>
+
+#### Einstellung für DaisyChain in der JK App
+* Bei einem DaisyChain-Verbund muss das UART Protokoll auf allen BMSen auf Protokoll 1  (JK BMS RS485 Modbus V1.0) umgestellt werden. 
+
+#### Adressierung
+Das BSC übernimmt die Rolle des Masters, die DIP Adresse 0 darf dadurch also nicht mehr an ein BMS vergeben werden.
+
+##### Einzel-Pack-Konfiguration
+* Das einzelne Pack bekommt die Adresse 1
+
+##### MultiPack-Konfiguration
+* Bei dieser Konfiguration werden alle BMS als Slaves fortlaufend adressiert - Erstes Pack bekommt DIP Adresse 1.<br>
+Keine Adresse darf hierbei übersprungen werden.
+
+#### Physikalische Verbindung 
+
+![grafik](../../img/devices/devices_sylcin_config_multi.png)
+
+##### Einzel-Pack-Konfiguration
+* Das JK BMS wird mit einem Patchkabel von einem rechten RJ45-Anschluss mit dem BSC verbunden.
+
+##### MultiPack-Konfiguration als in Reihe geschalteten DaisyChain-Verbund
+* Alle AkkuPacks über die rechten RJ45-Buchsen miteinander in Reihe verbinden
+* Den BSC mit einem Patchkabel zu einem der freien rechten RJ45-Anschlüsse des JK-BMS verbinden
+
+#### RS485 Datenübertragung (BMS) in der BSC-Software konfigurieren 
+* Im BSC unter Einstellungen -> Schnittstellen ->  Serial2 das "JK Inverter BMS" auswählen. Da nur eine Schnittstelle für mehrere Packs als DaisyChain genutzt wird, ist auch bei mehreren BMS nur die Konfiguration für Serial2 nötig. 
+
+* Auf der gleichen Seite, etwas weiter unten, ist die Anzahl der angeschlossenen Packs zu definieren. <br>
+Ein Beispiel für 3 Packs mit der DIP-Adresse 1,2,3:<br><img src="https://github.com/user-attachments/assets/1b4076ab-c2f3-49ba-a09f-5b3d56f3837b" width="550">
+
+* Danach sollte jedes Pack im BSC z.B. unter den Livedaten -> BMS Daten zu finden sein.<br>Akku 1 -> BMS(2), Akku 2 -> BMS(3)... 
+
+#### CAN Datenübertragung (Inverter) konfigurieren
+Für die Übertragung der Daten per CAN an z.B. ein Victron CerboGX, müssen Sie unter "Einstellungen -> Wechselrichter & Laderegelung -> Allgemein" folgende Einstellungen vornehmen:
+ 1. BMS Canbus enable selektieren
+ 2. CAN Protokoll auswählen z.B. VICTRON
+ 3. Nun die "Datenquelle (Master)" auf Serial 2 definieren
+ 4. Unter "Valuehandling Multi-BMS" festlegen, wie der SoC zu übertragen / berechnen ist. "Mittelwert" z.B. übergibt den Mittelwert über alle angeschlossenen BMS.
+ 5. Datenquelle (Master) auswählen (darauf bezieht sich z.B. die Temperatur unter dem Punkt "Battery Temperature" an Victron gesendet werden, die Max und Min Temperaturen über alle Packs hinweg, bleiben davon unberührt) und für jedes weitere BMS unter "+Datenquelle" eine weitere Serielle Schnittstelle entsprechend auswählen.<br> 
+<img src="../../img/settings/settings_inverter_datquelle.png" width="550">
+
+#### Besonderheiten
+##### Zuordnung der Temperatursensoren
+
+Das JK-Inverter BMS besitzt vier anschließbare Temperatursensoren. Diese werden in der BSC-Software wie folgt zugeordnet:
+
+| BSC ID| BMS |Info|
+| ------------ | ------------ | ------------ |
+| 0 | T1 | |
+| 1 | T2 | |
+| 2 | T4 / T5 | Dieser Wert entspricht immer dem höheren Wert von T4 und T5 |

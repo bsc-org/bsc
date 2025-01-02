@@ -1,0 +1,119 @@
+#### BSC Inverter
+
+    - state_topic: bsc/inverter/chargeCurrentSoll
+      name: DC-Ladestrom Soll
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement      
+      device_class: current
+      icon: mdi:current-dc
+      unit_of_measurement: "A"
+      device:
+        {
+          identifiers: ["BSC-Inverter"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Inverter",
+        }
+
+    - state_topic: bsc/inverter/dischargeCurrentSoll
+      name: DC-Entladestrom Soll
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement      
+      device_class: current
+      icon: mdi:current-dc
+      unit_of_measurement: "A"
+      device:
+        {
+          identifiers: ["BSC-Inverter"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Inverter",
+        }
+
+    - state_topic: bsc/inverter/chargeVoltage
+      name: DC-Ladespannung Soll
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement      
+      device_class: voltage
+      icon: mdi:battery-charging-outline
+      unit_of_measurement: "V"
+      device:
+        {
+          identifiers: ["BSC-Inverter"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Inverter",
+        }
+
+    - state_topic: bsc/inverter/SoC
+      name: SOC
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement      
+      device_class: battery
+      icon: mdi:battery-high
+      unit_of_measurement: "%"
+      device:
+        {
+          identifiers: ["BSC-Inverter"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Inverter",
+        }
+
+    - state_topic: bsc/inverter/totalVoltage
+      name: DC-Gesamtspannung
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement      
+      device_class: voltage
+      icon: mdi:battery-charging-outline
+      unit_of_measurement: "V"
+      device:
+        {
+          identifiers: ["BSC-Inverter"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Inverter",
+        }
+
+    - state_topic: bsc/inverter/totalCurrent
+      name: DC-Strom gesamt
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement      
+      device_class: current
+      icon: mdi:current-dc
+      unit_of_measurement: "A"
+      device:
+        {
+          identifiers: ["BSC-Inverter"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Inverter",
+        }
+
+    - state_topic: bsc/inverter/temperature
+      name: Temperatur
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: temperature
+      icon: mdi:thermometer
+      unit_of_measurement: "°C"
+      device:
+        {
+          identifiers: ["BSC-Inverter"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Inverter",
+        }
+
+    - state_topic: bsc/inverter/autoBalState
+      name: Autobalance state
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      icon: mdi:state-machine
+      device:
+        {
+          identifiers: ["BSC-Inverter"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Inverter",
+        }

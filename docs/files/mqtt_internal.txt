@@ -1,0 +1,121 @@
+#### BSC Internal
+
+    - state_topic: bsc/trigger/1
+      name: Trigger 1     
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-lock
+      device:
+        {
+          identifiers: ["BSC-Intern"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Intern",
+        }
+
+    - state_topic: bsc/trigger/2
+      name: Trigger 2      
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-lock
+      device:
+        {
+          identifiers: ["BSC-Intern"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Intern",
+        }
+      
+    - state_topic: bsc/trigger/3
+      name: Trigger 3      
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-lock
+      device:
+        {
+          identifiers: ["BSC-Intern"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Intern",
+        }
+      
+    - state_topic: bsc/trigger/4
+      name: Trigger 4      
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-lock
+      device:
+        {
+          identifiers: ["BSC-Intern"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Intern",
+        }
+      
+    - state_topic: bsc/trigger/5
+      name: Trigger 5      
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-lock
+      device:
+        {
+          identifiers: ["BSC-Intern"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Intern",
+        }
+      
+    - state_topic: bsc/trigger/6
+      name: Trigger 6      
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-lock
+      device:
+        {
+          identifiers: ["BSC-Intern"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Intern",
+        }
+      
+    - state_topic: bsc/trigger/7
+      name: Trigger 7      
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-lock
+      device:
+        {
+          identifiers: ["BSC-Intern"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Intern",
+        }
+      
+    - state_topic: bsc/trigger/8
+      name: Trigger 8      
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-lock
+      device:
+        {
+          identifiers: ["BSC-Intern"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Intern",
+        }
+      
+    - state_topic: bsc/trigger/9
+      name: Trigger 9      
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-lock
+      device:
+        {
+          identifiers: ["BSC-Intern"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Intern",
+        }
+      
+    - state_topic: bsc/trigger/10
+      name: Trigger 10      
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-lock
+      device:
+        {
+          identifiers: ["BSC-Intern"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Intern",
+        }
