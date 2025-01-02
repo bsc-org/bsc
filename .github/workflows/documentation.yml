@@ -44,11 +44,6 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get install pngquant
 
-      - name: Install Python dependencies
-        run: |
-          pip install mkdocs-material
-          pip install mkdocs-mermaid2-plugin
-
       - name: Build documentation
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
