@@ -1,0 +1,421 @@
+####   BSC Neey1 -> BLE
+
+    - state_topic: bsc/bms/bt/0/cellVoltage/0
+      name: Zelle 1
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/1
+      name: Zelle 2
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/2
+      name: Zelle 3
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+
+    - state_topic: bsc/bms/bt/0/cellVoltage/3
+      name: Zelle 4
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/4
+      name: Zelle 5
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/5
+      name: Zelle 6
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/6
+      name: Zelle 7
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/7
+      name: Zelle 8
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/8
+      name: Zelle 9
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/9
+      name: Zelle 10
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/10
+      name: Zelle 11
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/11
+      name: Zelle 12
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/12
+      name: Zelle 13
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/13
+      name: Zelle 14
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/14
+      name: Zelle 15
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltage/15
+      name: Zelle 16
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/totalVoltage
+      name: Gesamtspannung
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "V"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/cellVoltageMax
+      name: Zellspannung maximal
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+
+    - state_topic: bsc/bms/bt/0/cellVoltageMin
+      name: Zellspannung minimal
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/maxCellDifferenceVoltage
+      name: Differenzspannung Zellen
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/balancingActive
+      name: Balancing aktiv
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:rotate-360
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/balancingCurrent
+      name: Balancing Strom
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement      
+      device_class: current
+      icon: mdi:current-dc
+      unit_of_measurement: "A"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/valid
+      name: Valid
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:rotate-360
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/stateDischarge
+      name: Entladen     
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-arrow-down
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+
+    - state_topic: bsc/bms/bt/0/stateCharge
+      name: Laden      
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-arrow-up
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/errors
+      name: Fehler     
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-check
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+      
+    - state_topic: bsc/bms/bt/0/temperature/0
+      name: Temperatur 1
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: temperature
+      icon: mdi:thermometer
+      unit_of_measurement: "°C"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+
+    - state_topic: bsc/bms/bt/0/temperature/1
+      name: Temperatur 2
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: temperature
+      icon: mdi:thermometer
+      unit_of_measurement: "°C"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }
+
+    - state_topic: bsc/bms/bt/0/temperature/2
+      name: Temperatur 3
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: temperature
+      icon: mdi:thermometer
+      unit_of_measurement: "°C"
+      device:
+        {
+          identifiers: ["BSC-Neey1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-Neey1",
+        }

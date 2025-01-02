@@ -1,0 +1,519 @@
+####   BSC BMS 1 -> Serial 2
+
+    - state_topic: bsc/bms/serial/2/totalVoltage
+      name: Gesamtspannung
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "V"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/totalCurrent
+      name: Strom
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement      
+      device_class: current
+      icon: mdi:current-dc
+      unit_of_measurement: "A"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/SoC
+      name: SoC
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement      
+      device_class: battery
+      icon: mdi:battery-high
+      unit_of_measurement: "%"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/stateDischarge
+      name: Entladen erlaubt  
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-arrow-down
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/stateCharge
+      name: Laden erlaubt     
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-arrow-up
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/errors
+      name: Fehler     
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:alert
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/cellVoltage/0
+      name: Zellspannung 1
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltage/1
+      name: Zellspannung 2
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltage/2
+      name: Zellspannung 3
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltage/3
+      name: Zellspannung 4
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltage/4
+      name: Zellspannung 5
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltage/5
+      name: Zellspannung 6
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltage/6
+      name: Zellspannung 7
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltage/7
+      name: Zellspannung 8
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltage/8
+      name: Zellspannung 9
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltage/9
+      name: Zellspannung 10
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltage/10
+      name: Zellspannung 11
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltage/11
+      name: Zellspannung 12
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/cellVoltage/12
+      name: Zellspannung 13
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/cellVoltage/13
+      name: Zellspannung 14
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/cellVoltage/14
+      name: Zellspannung 15
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/cellVoltage/15
+      name: Zellspannung 16
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltageMax
+      name: Zellspannung maximal
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/cellVoltageMin
+      name: Zellspannung minimal
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/maxCellDifferenceVoltage
+      name: Differenzspannung Zellen
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: voltage
+      icon: mdi:battery-charging
+      unit_of_measurement: "mV"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/temperature/0
+      name: Temperatur1
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: temperature
+      icon: mdi:thermometer
+      unit_of_measurement: "°C"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/temperature/1
+      name: Temperatur2
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: temperature
+      icon: mdi:thermometer
+      unit_of_measurement: "°C"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+
+    - state_topic: bsc/bms/serial/2/temperature/2
+      name: Temperatur3
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: temperature
+      icon: mdi:thermometer
+      unit_of_measurement: "°C"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/temperature/3
+      name: Temperatur4
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: temperature
+      icon: mdi:thermometer
+      unit_of_measurement: "°C"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/temperature/4
+      name: Temperatur Umfeld
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: temperature
+      icon: mdi:thermometer
+      unit_of_measurement: "°C"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/temperature/5
+      name: Temperatur PowerFets
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      state_class: measurement
+      device_class: temperature
+      icon: mdi:thermometer
+      unit_of_measurement: "°C"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/Cycle
+      name: Ladezyklen
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-sync
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/FullCapacity
+      name: Gesamtkapazität
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-100
+      unit_of_measurement: "Ah"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/BalanceCapacity
+      name: Restkapazität
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:battery-50
+      unit_of_measurement: "Ah"
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/valid
+      name: Valid
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:rotate-360
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }
+      
+    - state_topic: bsc/bms/serial/2/warnings
+      name: Warnings
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      icon: mdi:alert-outline
+      device:
+        {
+          identifiers: ["BSC-BMS1"],
+          manufacturer: "BSC",
+          model: "BSC",
+          name: "BSC-BMS1",
+        }

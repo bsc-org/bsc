@@ -1,0 +1,71 @@
+site_name: Battery Satey Contoller
+repo_url: https://github.com/shining-man/bsc_fw
+
+theme:
+  name: mkdocs
+#  name: readthedocs
+#  name: material
+#  name: windmill
+  locale: de
+  highlightjs: true
+#  language: de
+#  features:
+#    - navigation.path
+  navigation_depth: 3
+
+plugins:
+  - search:
+      indexing: 'full'
+  - mermaid2
+
+extra_css:
+  - css/extra.css
+
+#extra:
+#  alternate:
+#    - name: Deutsch
+#      link: /
+#      lang: de
+#    - name: English
+#      link: /en/ 
+#      lang: en
+
+markdown_extensions:
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  #- pymdownx.superfences:
+  #      # make exceptions to highlighting of code:
+  #    custom_fences:
+  #      - name: mermaid
+  #        class: mermaid
+  #        format: !!python/name:mermaid2.fence_mermaid_custom
+      
+nav:
+  - Home: index.md
+  - User Guide:
+    - Erste Schritte: first_steps.md
+    - Hardware: hardware.md
+    - BSC Konfiguration:
+      - Allgemein: settings_bsc.md
+      - Wechselrichter: settings_inverter.md
+      - Beispielkonfigurationen: beispiel_konfigurationen.md
+    - Unterstüzte Geräte:
+      - BMS: devices/bms.md
+      - Wechselrichter: devices/wechselrichter.md
+      - Externe Shunts: devices/externer_shunt.md
+    - MQTT: mqtt.md
+    - Troubleshooting: troubleshooting.md 
+    - Sonstiges: 
+      - Test ohne BSC Hardware: BSC_ohne_orig_hardware.md
+      - Bestückung Varianten: bestückung_varianten.md
+  - Issues:
+    - Issues: https://github.com/shining-man/bsc_fw/issues
+    - Issues Sponsoren: https://github.com/bsc-org/bsc_fw_insider/issues
+  - Sponsor: sponsor.md
+  #- About:
+  #  - License: license.md
+  #  - Release Notes: release-notes.md
+  - Shop: http://www.bsc-shop.com
