@@ -43,7 +43,6 @@ markdown_extensions:
   #        format: !!python/name:mermaid2.fence_mermaid_custom
       
 nav:
-  - Home: index.md
   - User Guide:
     - Systemübersicht: system_overview.md
     - Erste Schritte: first_steps.md
