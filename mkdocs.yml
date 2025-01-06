@@ -5,7 +5,6 @@ theme:
   name: mkdocs
 #  name: readthedocs
 #  name: material
-#  name: windmill
   locale: de
   highlightjs: true
 #  language: de
@@ -67,5 +66,4 @@ nav:
     - Issues (Nur für Sponsoren): https://github.com/bsc-org/bsc_fw_insider/issues
   #- Sponsor: sponsor.md
   - About:
-  #  - License: license.md
     - Release Notes: https://github.com/shining-man/bsc_fw/releases
