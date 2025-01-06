@@ -1,58 +1,42 @@
 # Unterstützte BMS
+In diesem Abschnitt finden Sie eine Übersicht über die unterstützten Battery Management Systeme (BMS). Die Tabelle enthält wichtige Informationen zu den Adressen, die für die Konfiguration erforderlich sind.  
+Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen des BMS und DDM (Data-Device-Mapping) angegeben. Diese Adressen sind durch ein / getrennt.
+
+- **Adresse Singlepack**: Diese Adresse ist diejenige, die sowohl am BMS als auch im Device-Data-Mapping eingestellt werden muss. Sie repräsentiert die spezifische Adresse für ein einzelnes BMS in einem System.
+
+- **Adresse Multipack**: Diese Adresse ist die Start-Adresse, die am BMS sowie im Device-Data-Mapping konfiguriert wird. Sie gibt die Adresse des ersten BMS in einem Multipack-System an. Weitere BMS in der Kette erhalten automatisch fortlaufende Adressen basierend auf dieser Start-Adresse.
 
 ## Serial BMS
-### Jiabaida/JBD
-| Typ | HW-Version | SW-Version |
-| ------------ | ------------ | ------------ |
-| JBD-DP24S002 |  |  |
+| Typ | HW-Version | SW-Version | Adresse Singlepack<br>BMS / DDM| Adresse Multipack<br>BMS / DDM |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| **Jiabaida/JBD** |
+| JBD-DP24S002 |  |  | - | - |
+| **JK Smart-BMS** |
+| JK-B2A20S20P | V11.XW | 11.25H | - | - |
+| JK-B2A24S20P | V10.XW | V10.09 | - | - |
+| **JK Inverter-BMS** |
+| JK-PB1A16S15P | V14 | V14.20 | 1 / 1 | 1 / 1 |
+| JK-PB1A16S15P | V15 | V15.17 | 1 / 1 | 1 / 1 |
+| JK-PB2A16S20P | V15 | V15.17 | 1 / 1 | 1 / 1 |
+| **Seplos** |
+| Seplos       | 10C |  | 0 / 0 | 1 / 1 |
+| Seplos       | 10E | 16.4 | 0 / 0 | 1 / 1 |
+| Seplos V3    |  |  | ? | ? |
+| **Sylcin (z.B. Taico Akku)** |
+| Sylcin       |  |  | 0 / 1 | 0 / 1 |
+| **Gobel** |
+| GP-SR1-RN150 |  | | ? | ? |
+| GP-SR1-PC200<br>(needs testing) |  | |  ? | ? |
 
-### JK
-#### Smart-BMS
+## Shunts (Serial)
 | Typ | HW-Version | SW-Version |
 | ------------ | ------------ | ------------ |
-| JK-B2A20S20P | V11.XW | 11.25H |
-| JK-B2A24S20P | V10.XW | V10.09 |
-
-#### Inverter-BMS
-| Typ | HW-Version | SW-Version |
-| ------------ | ------------ | ------------ |
-| JK-PB1A16S15P | V14 | V14.20 |
-| JK-PB1A16S15P | V15 | V15.17 |
-| JK-PB2A16S20P | V15 | V15.17 |
-
-### Seplos
-| Typ | HW-Version | SW-Version |
-| ------------ | ------------ | ------------ |
-| Seplos       | 10C |  |
-| Seplos       | 10E | 16.4 |
-| Seplos V3    |  |  |
-
-### Sylcin (z.B. Taico Akku)
-| Typ | HW-Version | SW-Version |
-| ------------ | ------------ | ------------ |
-| Sylcin       |  |  |
-
-### Gobel
-| Typ | HW-Version | SW-Version |
-| ------------ | ------------ | ------------ |
-| GP-SR1-RN150 |  | |
-| GP-SR1-PC200<br>(needs testing) |  | | 
-
-### DALY
-| Typ | HW-Version | SW-Version |
-| ------------ | ------------ | ------------ |
-|  |  | |
-
-### Victron
-| Typ | HW-Version | SW-Version |
-| ------------ | ------------ | ------------ |
-| SmartShunt |  | |
+| Victron SmartShunt |  | |
 
 ## Bluetooth Devices
-
-### NEEY
 | Typ | HW-Version | SW-Version |
 | ------------ | ------------ | ------------ |
+|NEEY |
 | NEEY Balancer 4A | 2.8.0 | 1.2.1 |
 | NEEY Balancer 4A | 2.8.0 | 1.2.3 |
 
