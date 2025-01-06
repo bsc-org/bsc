@@ -124,13 +124,13 @@ Der "Plausibility Check" bietet so eine frühzeitige Warnung bei Unregelmäßigk
 **Funktionsweise des Plausibility checks**:
 ```mermaid
 flowchart TD
-	n1["Plausibility check"] --> n7["Ist Strom &lt; 2A"]
-	n7 --> n8["Zellspannungen ändern sich 240s nicht"]
+	n1["Plausibility check"] --> n7["Ist Strom &lt; 'Strom Schwellwert'"]
+	n7 --> n8["Zellspannungen ändern sich 'Zeit 2' nicht"]
 	n8 --> n4["Trigger wird aktiv"]
-	n1 --> n6["Ist Strom >= 2A"]
-	n6 --> n10["Zellspannungen ändern sich 30s nicht"]
+	n1 --> n6["Ist Strom >= 'Strom Schwellwert'"]
+	n6 --> n10["Zellspannungen ändern sich 'Zeit 1' nicht"]
 	n10 --> n4
-	n1 --> n2["Letzte Stromänderung > 60s"]
+	n1 --> n2["Letzte Stromänderung > 'Zeit 1'"]
 	n2 --> n4
 ```
 <br>
