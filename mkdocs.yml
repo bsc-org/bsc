@@ -1,4 +1,4 @@
-site_name: Battery Satey Contoller
+site_name: Battery Safety Contoller
 repo_url: https://github.com/shining-man/bsc_fw
 
 theme:
@@ -46,6 +46,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - User Guide:
+    - Systemübersicht: system_overview.md
     - Erste Schritte: first_steps.md
     - Hardware: hardware.md
     - BSC Konfiguration:
@@ -63,9 +64,8 @@ nav:
       - Bestückung Varianten: bestückung_varianten.md
   - Issues:
     - Issues: https://github.com/shining-man/bsc_fw/issues
-    - Issues Sponsoren: https://github.com/bsc-org/bsc_fw_insider/issues
-  - Sponsor: sponsor.md
-  #- About:
+    - Issues (Nur für Sponsoren): https://github.com/bsc-org/bsc_fw_insider/issues
+  #- Sponsor: sponsor.md
+  - About:
   #  - License: license.md
-  #  - Release Notes: release-notes.md
-  - Shop: http://www.bsc-shop.com
+    - Release Notes: https://github.com/shining-man/bsc_fw/releases
