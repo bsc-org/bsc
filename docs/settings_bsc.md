@@ -114,7 +114,7 @@ Die Funktion „Anzahl RX Fehler“ ermöglicht es, die Schwelle festzulegen, ab
 Durch diese Funktionen wird eine präzisere und stabilere Datenverarbeitung gewährleistet, indem temporäre Spannungssprünge gefiltert und eine Verwertung von fehlerhaften Paketen verhindert wird.
 
 #### Plausibility check
-<img src="../img/settings/settings_schnittstelle_plausibility_check.png" width="400">  
+<img src="../img/settings/settings_schnittstelle_plausibility_check.png" width="500">  
 Der "Plausibility Check" ist eine wichtige Funktion, die kontinuierlich den Stromfluss sowie die Zellspannungen der an das System angeschlossenen Data-Devices überwacht.  
 
 Wenn sich die Werte für Strom und Zellspannungen über einen längeren Zeitraum hinweg nicht mehr regelmäßig ändern, deutet dies darauf hin, dass das BMS keine gültigen Daten mehr sendet. In diesem Fall kann davon ausgegangen werden, dass ein Problem im BMS vorliegt.
