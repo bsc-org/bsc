@@ -7,7 +7,7 @@ Alle prozentualen Limitierungen werden auf die in der Kategorie "Basisdaten" ein
 ### CAN-Bus
 Hier kann man das in Richtung Inverter zu nutzende Protokoll definieren.  
 Das "Pylontech" genannte CAN-Bus-Protokoll wird bei vielen Invertern unterstützt und ist z.B. mit Deye, Growatt nutzbar.  
-Die Einstellung "Send extended data" ist nur unter Umständen für eine angeschlossene Victron Anlage nutzbar. Weitere Informationen sind [hier](../devices/wechselrichter/#einstellungen-bsc) einsehbar.
+Die Einstellung "Send extended data" ist nur unter Umständen für eine angeschlossene Victron Anlage nutzbar. Weitere Informationen sind [hier](devices/wechselrichter.md#einstellungen-bsc) einsehbar.
 
 ### Valuehandling Multi-BMS
 <img src="../img/settings/settings_inverter_soc.png" width="450">  

@@ -24,7 +24,7 @@ BSC (CAN) <-> RaspberryPi+CAN-Shild <br> <br>
 
 ### Einstellungen BSC
 Einstellungen -> Wechselrichter & Laderegelung (Inverter) -> Allgemein<br>
-![image](../../img/devices/devices_inverter_canbus.png)
+![image](../img/devices/devices_inverter_canbus.png)
 <br>
 Die Option "Send extended data" hat nur in Verbindung mit dem [dbus-bsc-can](https://github.com/shining-man/dbus-bsc-can) eine Funktion.<br>
 <br>
@@ -33,16 +33,16 @@ Die Probleme können sein, dass bei gesetzter Funktion in seltenen Fällen ein S
 
 ### Einstellungen VenusOs
 Menü -> Settings -> Services -> can[0,1,2,3,...] -> Can Bus-Profile<br>
-![image](../../img/devices/devices_inverter_venus_canbus.png)
+![image](../img/devices/devices_inverter_venus_canbus.png)
 <br><br>
 Network status wenn alles klappt<br>
-![image](../../img/devices/devices_inverter_venus_canbus2.png)
+![image](../img/devices/devices_inverter_venus_canbus2.png)
 <br><br>
 Alles wird erkannt<br>
-![image](../../img/devices/devices_inverter_venus_canbus_devicelist.png)
+![image](../img/devices/devices_inverter_venus_canbus_devicelist.png)
 
 ### BSC Log-Ausgabe wenn Inverter erkannt wurde
-![image](../../img/devices/devices_inverter_can_log.png)
+![image](../img/devices/devices_inverter_can_log.png)
 
 ### Bekannte Besonderheiten
 #### Akku wird in das Netz entladen
@@ -66,7 +66,7 @@ Dann bestätigen und im darauf folgenden PRG 36: "L52" definieren.<br>
 
 Nun sollte der SOC usw. abrufbar sein.
 
-![Growatt](../../img/devices/devices_inverter_growatt_spf5000es.jpg)
+![Growatt](../img/devices/devices_inverter_growatt_spf5000es.jpg)
 
 
 ##  Goodwe GW5048ES
@@ -109,13 +109,13 @@ Advanced Settings -> Storage Energy Set -> Battery Select -> Battery Module -> P
 Die Anbindung BSC <> Wechselrichter (CAN-Bus) erfolgt über den "BMS Port" des Wechselrichters (siehe Manual Seite 10).<br>
 Dieser Port wird mit einem handelsüblichen Netzwerkkabel mit der RJ45 Buchse (Serial2) des BSC verbunden.<br>
 <br>
-<img src="../../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu.png" width="450">
+<img src="../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu.png" width="450">
 
 #### Einstellung am Wechselrichter
 "Bat Set 1: Batt Mode "Lithium", Bat Set 3: "Lithium Mode 00"<br> 
-![SystemSetup](../../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu_settings1.png)
-![BatterySettings](../../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu_settings2.png)
-![BatterySettings3](../../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu_settings3.png)
+![SystemSetup](../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu_settings1.png)
+![BatterySettings](../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu_settings2.png)
+![BatterySettings3](../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu_settings3.png)
 
 #### Einstellungen im BSC
 Einstellungen -> Wechselrichter & Laderegelung -> Allgemein<br>

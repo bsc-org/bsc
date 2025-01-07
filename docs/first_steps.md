@@ -5,15 +5,15 @@ Das im Video erwähnte "neue WebUi" steht aktuell nicht zur Verfügung. Auch nic
 
 ## Weiterführende Informationen
 Für erste Informationen und die Inbetriebnahme zuerst folgende weitere Kapitel lesen:   
-[Hardware](../hardware)   
-[Konfiguration des BSC](../settings_bsc)
+[Hardware](hardware.md)   
+[Konfiguration des BSC](settings_bsc.md)
 <br>
 <br>
 Wer die BSC Software ohne orginale Hardware testen möchte, sollte das Kapitel 
-[Test ohne orig. Hardware](../BSC_ohne_orig_hardware) lesen.
+[Test ohne orig. Hardware](BSC_ohne_orig_hardware.md) lesen.
 <br>
 <br>
-Hochrüstungen oder häufige Probleme sind im Kapitel [Troubleshooting](../troubleshooting) beschrieben.
+Hochrüstungen oder häufige Probleme sind im Kapitel [Troubleshooting](troubleshooting.md) beschrieben.
 
 ## Installation der Firmware
 ### Flashen einer Platine von Lilygo
@@ -46,8 +46,8 @@ Bei den ESP32-Dev-Boards ist meistens direkt ein USB-Port vorhanden. Spätere Up
 * Die Software zum Flashen (Flash Download Tools) kann von der Hersteller-Webseite des ESP32 bezogen werden.<br>
 Link: https://www.espressif.com/en/support/download/other-tools
   * Die Einstellungen in dem Download-Tool wie in den folgenden Screenshot zu sehen vornehmen:<br>
-![bsc](/img/download_tool_mode.png)<br>
-![bsc](/img/download_tool.png)
+![bsc](img/download_tool_mode.png)<br>
+![bsc](img/download_tool.png)
   * Den Upload-Vorgang mit einem Klick auf "Start" starten
 
 #### Flashen mit dem esptool (Linux, Windows) inkl. zuvorigen Löschen

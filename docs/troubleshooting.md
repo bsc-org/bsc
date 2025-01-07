@@ -11,7 +11,7 @@ Hier gibt es drei Möglichkeiten, die dies "verursachen" können.<br>
 3) Der Betriebsmodus 2 der SoC-Value Adjustments ist aktiv geschaltet und linearisiert den SoC zwischen den eingestellten Spannungswerten.<br>
 Bitte wechseln Sie im Menü auf /Einstellungen/Schnittstellen/Serial und scrollen zu den "Value adjustments".<br>
 Hier sollten keine zwei Werte pro Schnittstelle gesetzt sein, wenn ein BMS mit SoC-Kalkulation genutzt wird.<br>
-Weitere Informationen finden Sie [hier](../settings_bsc/#serial) unter "Betriebsmodus 2: Lineare SoC-Berechnung zwischen zwei Zellspannungsschwellen".
+Weitere Informationen finden Sie [hier](settings_bsc.md#serial) unter "Betriebsmodus 2: Lineare SoC-Berechnung zwischen zwei Zellspannungsschwellen".
 
 ## Serial Debugging
 Bei schwierig nachvollziehbaren Fehlern können spezielle Firmware-Versionen zur Fehlersuche bereit gestellt werden.<br>
@@ -37,7 +37,7 @@ Die Datenverbindungs-Parameter sind 115200baud, 8bit, keine Parität, Ein Stoppb
 Zum Testen der Verbindung kann das BSC einmal aus und wieder eingeschaltet werden. Dabei werden Informationen an den PC gesendet.<br>
 <br>
 
-Ein kurzes **Video** dazu findet Ihr im Übrigen [hier](../mov/serial_debugging.mp4).<br>
+Ein kurzes **Video** dazu findet Ihr im Übrigen [hier](mov/serial_debugging.mp4).<br>
 
 # Hardware
 
@@ -64,7 +64,7 @@ Weiterhin ist das GND-Signal beidseitig zu kontaktieren.
 
 ### Serial 2 ohne Funktion / keine Datenverbindung möglich (Nur Timeouts im Log)
 Bitte schauen Sie, ob der Jumper J6 auf der Platine gesetzt wurde.<br>
-Weitere Infos [hier](../hardware/#j6-fur-den-regularen-betrieb).
+Weitere Infos [hier](hardware.md#j6-fur-den-regularen-betrieb).
 
 ## Sporadische CRC Fehler an den seriellen Schnittstellen (HW2.3 und HW2.4)
 Aufgrund fehlender Pullups an den RX-Signalen der seriellen Schnittstellen, kann es zu einem Floaten des Signals kommen. Abhilfe schafft hierbei das Einfügen von 10kOhm Pullup-Widerständen.<br>

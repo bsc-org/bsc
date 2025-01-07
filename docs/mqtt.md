@@ -1,8 +1,8 @@
-# Virtual Trigger
+## Virtual Trigger
 
-Es gibt 10 virtuelle Trigger (vTrigger) die per MQTT gesteuert werden können. Die virtuellen Trigger Daten gehen 1:1 auf die normalen Trigger über.<br>
-Um einen vTrigger "speichernd" zu erhalten, also über einen Reboot des BSC hinaus, kann dieser als "retain" an das BSC gesendet werden. Sobald das BSC wieder am Broker angemeldet wurde, wird der Trigger-Zustand dadurch direkt wieder mit dem BSC aktualisiert.<br>
-<br>
+Es gibt 10 virtuelle Trigger (vTrigger) die per MQTT gesteuert werden können. Die virtuellen Trigger Daten gehen 1:1 auf die normalen Trigger über.<  
+Um einen vTrigger "speichernd" zu erhalten, also über einen Reboot des BSC hinaus, kann dieser als "retain" an das BSC gesendet werden. Sobald das BSC wieder am Broker angemeldet wurde, wird der Trigger-Zustand dadurch direkt wieder mit dem BSC aktualisiert.
+
 ## Beispiel
 Wird der vtrigger 1 aktiviert, dann wird auch Trigger 1 aktiv.
 
@@ -28,7 +28,7 @@ mqtt:
 Die einzelnen MQTT-Konfigurationen werden dann in einem Unterverzeichnis namens "mqtts" hinterlegt.
 Dieses muss händisch erstellt werden.
 
-![](../img/mqtt/mqtt_files.png)
+![](img/mqtt/mqtt_files.png)
 
 Nun müssen die .yaml Dateien an dieser Stelle abgelegt werden.
 HomeAssistant wird jede der Dateien beim Boot einlesen und auswerten.
@@ -42,33 +42,33 @@ Folgend findet Ihr Beispielkonfigurationen für verschiedene Hardware:
 * Neey-Balancer
 
 Die Dateien müssen zur Integration statt ".txt" in ".yaml" umbenannt werden.
-Leider unterstützt Github .yaml nicht.<br>
+Leider unterstützt Github .yaml nicht.  
 
-Innerhalb der Dateien gibt es pro Sensorwert eine UniqueID welche von jedem definiert werden muss.<br>
+Innerhalb der Dateien gibt es pro Sensorwert eine UniqueID welche von jedem definiert werden muss.  
 Generieren kann man diese beispielsweise mit der "Version 1" auf https://www.uuidgenerator.net/version1 .
 
 Alternativ kann man sehr komfortabel über das Addon namens "Visual Studio Code Server" innerhalb Home-Assistant alle zu ersetzende UUIDs auf einmal ändern.
 Die selbe Vorgehensweise funktioniert über VisualStudioCode mit dem Addon "UUID Generator von netcorext".
 
 - Markieren des temporären Strings "xxxxx-xxx-xxx-xxx-xxxxx"
-- Rechtsklick -> "Change all Occurrences"<br>
-![](../img/mqtt/mqtt_uuid_generator.jpg)<br>
-- Rechtsklick -> "Generate UUID at Cursor"<br>
-![](../img/mqtt/mqtt_uuid_generator_2.jpg)
-![](../img/mqtt/mqtt_uuid_generator_3.jpg)<br>
+- Rechtsklick -> "Change all Occurrences"  
+![](img/mqtt/mqtt_uuid_generator.jpg)  
+- Rechtsklick -> "Generate UUID at Cursor"  
+![](img/mqtt/mqtt_uuid_generator_2.jpg)
+![](img/mqtt/mqtt_uuid_generator_3.jpg)  
 => Speichern
 
 ### Dateien
 
-[BSC-Internal.txt](../files/mqtt_internal.txt)
-[BSC-Inverter.txt](../files/mqtt_inverter.txt)
-[BSC-BMS1_serial2.txt](../files/mqtt_bms1_serial2.txt)
-[BSC-Neey1_BLE.txt](../files/mqtt_neey1_ble.txt)
+[BSC-Internal.txt](files/mqtt_internal.txt)  
+[BSC-Inverter.txt](files/mqtt_inverter.txt)  
+[BSC-BMS1_serial2.txt](files/mqtt_bms1_serial2.txt)  
+[BSC-Neey1_BLE.txt](files/mqtt_neey1_ble.txt)
 
 ## Vorhandene MQTT-Konfiguration in neuem Verzeichnis integrieren
-Wenn im Vorhinein eine dedizierte mqtt.yaml im Config-Hauptverzeichnis verwendet wurde, kann diese einfach in das soeben erzeugte Verzeichnis kopiert und genutzt werden.<br>
-Hierbei ist zu beachten, dass in den ausgegliederten Konfigurationsdateien der Befehl "sensor:" nicht mehr vorhanden sein darf.<br>
-Weiterhin müssen die Definitionen nun eine Tabulatorstelle nach links gerückt werden.<br>
+Wenn im Vorhinein eine dedizierte mqtt.yaml im Config-Hauptverzeichnis verwendet wurde, kann diese einfach in das soeben erzeugte Verzeichnis kopiert und genutzt werden.  
+Hierbei ist zu beachten, dass in den ausgegliederten Konfigurationsdateien der Befehl "sensor:" nicht mehr vorhanden sein darf.  
+Weiterhin müssen die Definitionen nun eine Tabulatorstelle nach links gerückt werden.  
 ```yaml
 #### BSC Inverter
 
