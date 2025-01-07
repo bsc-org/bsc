@@ -3,7 +3,7 @@ Um alle Funktionen der Firmware nutzen zu können ist die zum BSC zugehörige Ha
 
 Wir empfehlen, dass die originale BSC Hardware benutzt wird. Damit werden alle Funktionen getestet und Anschlüsse sind galvanisch getrennt, und somit ist ein stabilerer Betrieb möglich.
 Alternativ zur BSC Hardware kann zum erstmaligen Testen auch ein ESP32-Dev-Kit genutzt werden.
-Weitere Infos finden Sie über folgenden [Link](../BSC_ohne_orig_hardware).
+Weitere Infos finden Sie über folgenden [Link](BSC_ohne_orig_hardware.md).
 
 # Anschlüsse
 Ein Techtalk über die Anschlussmöglichkeiten kann auf [Youtube](https://youtu.be/zwu_jJifkF4?si=2ktcM57JjkR39Dph) angesehen werden.

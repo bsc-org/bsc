@@ -62,11 +62,11 @@ Der BSC unterstützt sowohl den Anschluss eines einzigen Seplos Gerätes als auc
 
 #### Anschlussmöglichkeiten grafisch dargestellt
 
-**Bei einer Kontaktierung über den RJ45 Anschluss muss [dieser](../../hardware/#j6-fur-den-regularen-betrieb) Jumper gesetzt werden.**
+**Bei einer Kontaktierung über den RJ45 Anschluss muss [dieser](../hardware.md#j6-fur-den-regularen-betrieb) Jumper gesetzt werden.**
 
-![BSC-Seplos-Single-Config](../../img/devices/devices_seplos_config_single.png)
+![BSC-Seplos-Single-Config](../img/devices/devices_seplos_config_single.png)
 
-![BSC-Seplos-Multi-Config](../../img/devices/devices_seplos_config_multi.png)
+![BSC-Seplos-Multi-Config](../img/devices/devices_seplos_config_multi.png)
 
 <br>
 
@@ -93,7 +93,7 @@ Anschluss von mehreren Akkus über Serial 2 vom BSC ist möglich.
 * Jeder weitere Akku muss auch parallel an den jeweiligen RS485-1 angeklemmt werden. 
 * Beim RS485-1 wird immer Pin 4 und 5 verwendet. 
 * Beim RS485 Anfang und Ende des Bus mit einem 120Ohm Widerstand terminieren. 
-* Bei einer Kontaktierung über den RJ45 Anschluss muss [dieser](../../hardware/#j6-fur-den-regularen-betrieb) Jumper gesetzt werden
+* Bei einer Kontaktierung über den RJ45 Anschluss muss [dieser](../hardware.md#j6-fur-den-regularen-betrieb) Jumper gesetzt werden
 * Einstellen des Sylcin BMS unter Serial 2
 * Anzahl der Packs in den Einstellungen festlegen (siehe Bilder Seplos BMS)
 
@@ -120,7 +120,7 @@ Keine Adresse darf hierbei übersprungen werden.
 
 #### Physikalische Verbindung 
 
-![grafik](../../img/devices/devices_sylcin_config_multi.png)
+![grafik](../img/devices/devices_sylcin_config_multi.png)
 
 ##### Einzel-Pack-Konfiguration
 * Das JK BMS wird mit einem Patchkabel von einem rechten RJ45-Anschluss mit dem BSC verbunden.
@@ -151,8 +151,20 @@ Für die Übertragung der Daten per CAN an z.B. ein Victron CerboGX, müssen Sie
 
 Das JK-Inverter BMS besitzt vier anschließbare Temperatursensoren. Diese werden in der BSC-Software wie folgt zugeordnet:
 
-| BSC ID| BMS |Info|
-| ------------ | ------------ | ------------ |
-| 0 | T1 | |
-| 1 | T2 | |
-| 2 | T4 / T5 | Dieser Wert entspricht immer dem höheren Wert von T4 und T5 |
+| BSC ID| BMS
+| ------------ | ------------ |
+| 0 | T1 |
+| 1 | T2 |
+| 2 | MOS |
+| 3 | T4 |
+| 4 | T5 |
+
+Ab V0.7.2_T4:
+
+| BSC ID| BMS
+| ------------ | ------------ |
+| 0 | MOS |
+| 1 | T1 |
+| 2 | T2 |
+| 3 | T4 |
+| 4 | T5 |

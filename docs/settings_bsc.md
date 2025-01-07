@@ -75,7 +75,7 @@ Sobald MQTT aktiviert ist und die zugehörige IP-Adresse und der Port eingestell
 
 **vTrigger**  
 Mit "Remanenze vTrigger" kann welcher vTrigger als speichernd definiert werden soll. Ein speichernder vTrigger stellt sicher, dass seine Werte auch nach einem Neustart (Reboot) oder einem Spannungsausfall automatisch wiederhergestellt werden.  
-Mehr zum Thema vTrigger unter [MQTT](../mqtt/#virtual-trigger).
+Mehr zum Thema vTrigger unter [MQTT](mqtt.md#virtual-trigger).
 
 ### Zeitserver
 Falls Sie einen externen NTP-Server verwenden und mit der Zeitsynchronisierung Probleme haben, können Sie auch den Router Ihres Netzwerkes hierzu verwenden - Dies funktioniert oft stabiler.  
