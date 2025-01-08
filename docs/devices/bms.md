@@ -82,8 +82,9 @@ Der BSC unterstützt sowohl den Anschluss eines einzigen Seplos Gerätes als auc
 - Eine BSC-Warning ist im Seplos BMS eine "Warning" oder ein "Alarm"
 - Ein BSC-Alarm ist im Seplos BMS eine "Protection"
 
-#### Firmware Update
-[Anleitung Firmware Update](../files/SEPLOS_BatteryMonitor_Firmware_updating_Guide.pdf)
+#### Weiterführende Informationen
+[Anleitung Firmware Update](../files/SEPLOS_BatteryMonitor_Firmware_updating_Guide.pdf)  
+[FAQ Sammlung](https://akkudoktor.net/t/seplos-bms-faq-sammlung/8843) (Akkudoktor)
 
 ### Sylcin
 
