@@ -45,9 +45,9 @@ Anbei die Auflösung der Statusmeldungen des NEEY:
 <img src="../../img/devices/devices_neey_status.png" width="520">
 
 
-# Anbindungs-Beispiele
+## Anbindungs-Beispiele
 
-## Seplos
+### Seplos
 
 Der BSC unterstützt sowohl den Anschluss eines einzigen Seplos Gerätes als auch die Seplos Daisy-Chain, in der mehrere Systeme parallel geschaltet werden können. Dabei wird nur ein serieller Anschluss am BSC verbraucht. 
 
@@ -68,8 +68,6 @@ Der BSC unterstützt sowohl den Anschluss eines einzigen Seplos Gerätes als auc
 
 ![BSC-Seplos-Multi-Config](../img/devices/devices_seplos_config_multi.png)
 
-<br>
-
 #### Besonderheiten
 
 ##### Zuordnung der Temperatursensoren in MQTT
@@ -84,7 +82,10 @@ Der BSC unterstützt sowohl den Anschluss eines einzigen Seplos Gerätes als auc
 - Eine BSC-Warning ist im Seplos BMS eine "Warning" oder ein "Alarm"
 - Ein BSC-Alarm ist im Seplos BMS eine "Protection"
 
-## Sylcin
+#### Firmware Update
+[Anleitung Firmware Update](../files/SEPLOS_BatteryMonitor_Firmware_updating_Guide.pdf)
+
+### Sylcin
 
 Anschluss von mehreren Akkus über Serial 2 vom BSC ist möglich. 
 
@@ -99,7 +100,7 @@ Anschluss von mehreren Akkus über Serial 2 vom BSC ist möglich.
 
 Danach ist jedes Pack im BSC zu finden. Akku 1 -> BMS(2), Akku 2 -> BMS(3), ... 
 
-## JK Inverter
+### JK Inverter
 
 Das JK Inverter BMS kann mit einem handelsüblichen RJ45-Patchkabel mit dem BSC verbunden werden.<br>
 Dieser BSC-Port wird in der Software mit "Serial 2" benannt. Für die Benutzung dieser Schnittstelle muss JP6 geschlossen sein.<br>
