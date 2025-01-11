@@ -46,7 +46,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          pip install mkdocs-material mkdocs-mermaid2-plugin
+          pip install mkdocs-material mkdocs-mermaid2-plugin mkdocs-git-revision-date-localized-plugin
 
       - name: Build documentation
         env:
