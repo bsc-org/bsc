@@ -9,7 +9,7 @@ Der BSC ist ein frei konfigurierbarer Controller, welcher eine Schnittstelle zwi
 
 
 flowchart TD
-    BMS[BMS] -- "RS485,<br>CAN,<br>Bluetooth" --> BSC[Serial 0-2]
+    BMS[BMS] -- "RS485" --> BSC[Serial 0-2]
     TEMP_SENSOR[Temperature<br>Sensors] -- Onewire --> BSC
     NEEY[NEEY<br>Balancer] <-- Bluetooth --> BSC[Bluetooth]
     VICTRON_SHUNT[Victron<br>SmartShunt] --> VICTRON_SHUNT_CONV[RS485<br>Converter] -- RS485 --> BSC
