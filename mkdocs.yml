@@ -12,13 +12,9 @@ theme:
   features:
     - content.action.edit
     
-  icon:
-    repo: fontawesome/brands/github
-
 
 plugins:
-  - search:
-#      indexing: 'full'
+  - search
   - mermaid2
 
   - git-revision-date-localized:
