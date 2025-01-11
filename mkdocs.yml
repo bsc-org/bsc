@@ -4,6 +4,8 @@ edit_uri: https://github.com/bsc-org/bsc/edit/main/docs
 
 theme:
   name: material
+  logo: img/favicon.png
+  favicon: img/favicon.png
   locale: de
   highlightjs: true
   features:
