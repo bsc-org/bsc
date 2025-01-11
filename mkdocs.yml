@@ -1,5 +1,6 @@
 site_name: Battery Safety Contoller
 repo_url: https://github.com/shining-man/bsc_fw
+repo_name: shining-man/bsc_fw
 edit_uri: https://github.com/bsc-org/bsc/edit/main/docs
 
 theme:
@@ -8,13 +9,21 @@ theme:
   favicon: img/favicon.png
   language: de
   highlightjs: true
+
   features:
     - content.action.edit
+    
+  icon:
+    repo: fontawesome/brands/github
+
 
 plugins:
   - search:
 #      indexing: 'full'
   - mermaid2
+
+  - git-revision-date-localized:
+      enable_creation_date: false
 
 extra_css:
   - css/extra.css
