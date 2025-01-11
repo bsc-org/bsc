@@ -32,6 +32,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - toc:
+      permalink: true
       
 nav:
   - User Guide:
