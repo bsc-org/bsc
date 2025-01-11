@@ -32,9 +32,9 @@ Diese Einstellungen ermöglichen eine flexible Anpassung der SoC-Daten, die an d
 
 ### Basisdaten
 #### Absorption Ladespannung
-Die **Absorption Ladespannung** bezeichnet die Spannung, die erforderlich ist, um Akkus in einen (nahezu) vollständig geladenen Zustand zu bringen. Es ist wichtig zu beachten, dass diese Spannung nicht dauerhaft anliegen sollte, da dies das Risiko birgt, die Akkuzellen zu überladen.
+Die **Absorption Ladespannung** bezeichnet die Spannung, die erforderlich ist, um Akkus in einen (nahezu) vollständig geladenen Zustand zu bringen. Dabei ist zu beachten, dass diese Spannung nicht dauerhaft anliegen sollte, da dies die Lebensdauer und Leistung des Akkus negativ beeinflussen kann.
 
-Der **richtige Zeitpunkt zum Abbruch der Ladung** wird bei LiFePo4-Zellen anhand des Stroms definiert, der auf **0,05C** fällt. Für Akkuzellen mit einer Kapazität von **280 Ah** entspricht dies einem Ladestrom von **14 A**. Sobald dieser Wert erreicht ist, muss die Soll-Spannung des Akkus auf die niedrigere **Float-Spannung** abgesenkt werden, um eine Überladung zu vermeiden und die Lebensdauer der Zellen zu maximieren.
+Ein geeigneter Zeitpunkt, um von der **Absorptionsladespannung** zur **Float-Spannung** zu wechseln, liegt vor, wenn der Strom bei LiFePo4-Zellen über einen längeren Zeitraum hinweg sehr niedrig bleibt.
 
 Um diesen Übergang automatisch zu steuern, steht die Funktion "**Charge-Current Cut-Off**" zur Verfügung, die im Folgenden beschrieben wird. Ohne diese Funktion bleibt der Akku dauerhaft auf der Absorptions-Spannung, was langfristig zu Schäden führen kann.
 
