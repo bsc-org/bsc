@@ -40,7 +40,7 @@ style BSC fill:#ffdbaa
 * **Serial Extension:** der BSC besitzt 3 RS485 Schnittstellen für den Anschluss von BMS. Falls weitere benötigt werden, kann das Serial Extension Board an den BSC angeschlossen werden um 8 weitere RS485 Schnittstellen zu erhalten. Siehe [das entsprechende Github-Repo](https://github.com/shining-man/bsc_extension_serial)
 * **BMS:** Verschiedene BMS können über RS485, CAN, oder Bluetooth verbunden werden. Von diesen werden dann aktuelle Zustandsinformationen der Batterien, wie Zellspannungen, SOC oder Temperaturen abgerufen. Siehe [hier im Wiki](devices/bms.md)
 * **Temperatursensoren:** Es können zusätzliche Temperatursensoren über Onewire oder Digital- bzw. Analogeingänge angeschlossen werden, welche die Informationen des angeschlossenen BMS ergänzen.
-* **Balancer:** Balancer von NEEY können vom BSC angesteuert werden, inklusive Abruf der aktuellen Zustandsinformationen und Steuerung des Balancers. Siehe **TODO**
+* **Balancer:** Balancer von NEEY können vom BSC angesteuert werden, inklusive Abruf der aktuellen Zustandsinformationen und Steuerung des Balancers.
 * **Shunt:** Der BSC kann den SoC einer Batterie von einem externen Shunt abrufen. Derzeit wird ein Victron SmartShunt unterstützt. Da dieser nur über UART kommuniziert, wird ein zusätzlicher RS485/UART Konverter benötigt. <br>
 Siehe [hier im Wiki](devices/externer_shunt.md)
 * **Inverter:** Der BSC kommuniziert mit verschiedenen Wechselrichtern über CAN-Bus, wie z.B. Victron, Solis oder DEYE. Dabei kann der aktuelle Batteriezustand gemeldet werden, und auch Konfigurationsparameter, wie z.B. zur Ladesteuerung, gesetzt werden. <br>

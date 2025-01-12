@@ -1,6 +1,6 @@
-# Software
+## Software
 
-## Der SoC Wert des BMS und der zum Inverter übertragene Wert stimmen nicht überein
+### Der SoC Wert des BMS und der zum Inverter übertragene Wert stimmen nicht überein
 Hier gibt es drei Möglichkeiten, die dies "verursachen" können.<br>
 
 1) Die Einstellung der SoC-Quelle ist falsch definiert.<br>
@@ -13,7 +13,7 @@ Bitte wechseln Sie im Menü auf /Einstellungen/Schnittstellen/Serial und scrolle
 Hier sollten keine zwei Werte pro Schnittstelle gesetzt sein, wenn ein BMS mit SoC-Kalkulation genutzt wird.<br>
 Weitere Informationen finden Sie [hier](settings_bsc.md#serial) unter "Betriebsmodus 2: Lineare SoC-Berechnung zwischen zwei Zellspannungsschwellen".
 
-## Serial Debugging
+### Serial Debugging
 Bei schwierig nachvollziehbaren Fehlern können spezielle Firmware-Versionen zur Fehlersuche bereit gestellt werden.<br>
 Diese Versionen geben über die am BSC verbaute Programmier-Schnittstelle erweiterte Informationen zur Fehlereingrenzung aus.<br>
 Hierzu wird die Serial0 verwendet, an die bei dem Prozess kein externes Gerät über RS485 angeschlossen werden darf.<br>
@@ -39,14 +39,14 @@ Zum Testen der Verbindung kann das BSC einmal aus und wieder eingeschaltet werde
 
 Ein kurzes **Video** dazu findet Ihr im Übrigen [hier](mov/serial_debugging.mp4).<br>
 
-# Hardware
+## Hardware
 
-## Kommunikation mit externer Hardware funktioniert nicht
+### Kommunikation mit externer Hardware funktioniert nicht
 Bitte prüfen Sie nochmals alle angeschlossenen Verbindungen.<br>
 Jeder Stecker hat eine **auf der Leiterplatte aufgedruckte** Pin1 Markierung.<br>
 Diese muss mit der abgedruckten Signal-Information und der angeschlossenen Leitung überein stimmen!
 
-### CAN-Kontaktierung prüfen
+#### CAN-Kontaktierung prüfen
 **1)**<br>
 Bei einer CAN-Verbindung sollte zwischen beiden Datenleitungen (L / H) pro angeschlossener Seite ein Widerstand von 120Ohm zu messen sein.<br>
 Dies kann man überprüfen, in dem man die Geräte beider Seiten stromlos schaltet und ohne angeschlossener Verbindung mit einem Multimeter den Widerstand zwischen CAN_L und CAN_H pro Seite misst.<br>
@@ -62,11 +62,11 @@ Bei einer CAN-Schnittstelle müssen immer "CAN_H mit der Gegenseite CAN_H" und "
 Dies ist zu prüfen.<br>
 Weiterhin ist das GND-Signal beidseitig zu kontaktieren.
 
-### Serial 2 ohne Funktion / keine Datenverbindung möglich (Nur Timeouts im Log)
+#### Serial 2 ohne Funktion / keine Datenverbindung möglich (Nur Timeouts im Log)
 Bitte schauen Sie, ob der Jumper J6 auf der Platine gesetzt wurde.<br>
 Weitere Infos [hier](hardware.md#j6-fur-den-regularen-betrieb).
 
-## Sporadische CRC Fehler an den seriellen Schnittstellen (HW2.3 und HW2.4)
+### Sporadische CRC Fehler an den seriellen Schnittstellen (HW2.3 und HW2.4)
 Aufgrund fehlender Pullups an den RX-Signalen der seriellen Schnittstellen, kann es zu einem Floaten des Signals kommen. Abhilfe schafft hierbei das Einfügen von 10kOhm Pullup-Widerständen.<br>
 <br>
 Bezüglich der Baugrößen verwendbarer Widerstände kommt es sehr auf das eigene Können des Lötens an.<br>
@@ -74,7 +74,7 @@ Bezüglich der Baugrößen verwendbarer Widerstände kommt es sehr auf das eigen
 - Vertikal zu dem Lötpad würde 1206 sehr gut funktionieren, 0805 ist aber auch möglich
 - Zwischen den THT-Pins von J3 funktioniert 0805 genau so wie 1206
 
-### HW2.3
+#### HW2.3
 **Serial 0+1+2**<br>
 Bei Serial 0, 1, 2 muss der 10kOhm Widerstand an U4, U5 und U6 jeweils zwischen Pin 7 und 8 eingelötet werden.<br>
 Für einfacheres Löten kann bei allen ICs die Kontaktierung etwas weiter oben genutzt werden.<br>
@@ -82,7 +82,7 @@ Für einfacheres Löten kann bei allen ICs die Kontaktierung etwas weiter oben g
 Platinenansicht von unten:<br>
 <img src="../img/troubleshooting/troubleshooting_hw_23.png" width="800">
 
-### HW2.4
+#### HW2.4
 **Serial 0+1**<br>
 Bei Serial 0 und 1 muss der 10kOhm Widerstand an U4 und U6 jeweils zwischen Pin 7 und 8 eingelötet werden.<br>
 Bei U4 ist es evtl. einfacher dies wie im Bild zu kontaktieren.
@@ -94,7 +94,7 @@ Dies lässt sich auch ganz gut mit einem bedrahteten Widerstand (THT) tätigen.<
 Platinenansicht von unten:<br>
 <img src="../img/troubleshooting/troubleshooting_hw_24.png" width="800">
 
-## CAN_GND Kontaktierung (HW2.3)
+### CAN_GND Kontaktierung (HW2.3)
 Über die Schraubklemmen der Hardware ist CAN_L & CAN_H kontaktierbar.<br>
 Der dazugehörige CAN_GND fehlt hier und muss daher auf der Leiterplatten-Unterseite über die Pins des Spannungsreglers abgegriffen werden.<br>
 <br>

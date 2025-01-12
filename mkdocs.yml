@@ -12,6 +12,8 @@ theme:
   features:
     - content.action.edit
     
+  icon:
+    repo: fontawesome/brands/github
 
 plugins:
   - search
