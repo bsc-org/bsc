@@ -130,8 +130,6 @@ flowchart TD
 	n1 --> n6["Ist Strom >= 'Strom Schwellwert'"]
 	n6 --> n10["Zellspannungen ändern sich 'Zeit 1' nicht"]
 	n10 --> n4
-	n1 --> n2["Letzte Stromänderung > 'Zeit 1'"]
-	n2 --> n4
 ```
 <br>
 #### Value Adjustment für SoC-Übermittlung an den Wechselrichter
