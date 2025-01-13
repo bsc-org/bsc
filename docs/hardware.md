@@ -1,22 +1,31 @@
 ## Hardwarevoraussetzungen
-Um alle Funktionen der Firmware nutzen zu können ist die zum BSC zugehörige Hardware erforderlich. Eine Beschreibung der Hardware ist auf einem weiteren [Github-Repo](https://github.com/shining-man/bsc_hw) inklusive [Stromlaufplan](https://github.com/shining-man/bsc_hw/blob/main/circuit.pdf?raw=true "Stromlaufplan") zu finden. 
+Um sämtliche Funktionen der Firmware nutzen zu können, wird die zum BSC-System gehörige Hardware benötigt. Eine detaillierte Beschreibung dieser Hardware, einschließlich des [Stromlaufplans](https://github.com/shining-man/bsc_hw/blob/main/circuit.pdf?raw=true), finden Sie in einem separaten [GitHub-Repository](https://github.com/shining-man/bsc_hw).
 
-Wir empfehlen, dass die originale BSC Hardware benutzt wird. Damit werden alle Funktionen getestet und Anschlüsse sind galvanisch getrennt, und somit ist ein stabilerer Betrieb möglich.
-Alternativ zur BSC Hardware kann zum erstmaligen Testen auch ein ESP32-Dev-Kit genutzt werden.
-Weitere Infos finden Sie über folgenden [Link](BSC_ohne_orig_hardware.md).
+Wir empfehlen ausdrücklich die Verwendung der originalen BSC-Hardware. Diese wurde umfassend getestet und bietet galvanisch getrennte Anschlüsse, wodurch ein stabilerer Betrieb gewährleistet wird.
+
+Falls die originale BSC-Hardware nicht verfügbar ist, können Sie für erste Tests alternativ ein ESP32-Dev-Kit verwenden. Beachten Sie jedoch, dass einige Funktionen möglicherweise eingeschränkt oder nicht getestet sind. Weitere Informationen finden Sie unter folgendem [Link](BSC_ohne_orig_hardware.md).
 
 ## Anschlüsse
 Ein Techtalk über die Anschlussmöglichkeiten kann auf [Youtube](https://youtu.be/zwu_jJifkF4?si=2ktcM57JjkR39Dph) angesehen werden.
 
 **Korrektes Kontaktieren der Schraubklemmen:**
-Alle Schraubklemmen haben eine Markierung mit der Ziffer "1", welche den Pin 1 der entsprechenden Klemme kennzeichnet.
-Die daneben stehende Beschriftung repräsentiert die jeweiligen Funktionen der einzelnen Kontaktstellen.
-Bitte achten Sie unbedingt auf richtiges Anschließen, da sonst der BSC oder extern angeschlossene Komponenten zu Schaden kommen können.
-Die folgenden Bilder dienen nur der Illustration, bitte schauen Sie auf Ihrer Platine nach der jeweiligen Stecker-Markierung.
+Um eine fehlerfreie Installation zu gewährleisten, beachten Sie bitte folgende Hinweise zum Anschluss der Schraubklemmen:
 
-<img src="../img/hardware/hw_stecker_9pol.png" height="250">
-<img src="../img/hardware/hw_stecker_6pol.png" height="250">
+  1. **Markierung von Pin 1:**  
+  Jede Schraubklemme ist mit einer Ziffer "1" gekennzeichnet, die den Pin 1 der jeweiligen Klemme angibt. Diese Markierung dient als Referenz für den korrekten Anschluss.
 
+  2. **Beschriftung der Funktionen:**  
+  Neben der Markierung von Pin 1 befindet sich eine Beschriftung, die die jeweilige Funktion der einzelnen Kontaktstellen beschreibt. Lesen Sie diese sorgfältig, um die richtigen Verbindungen herzustellen.
+
+  3. **Wichtige Sicherheitshinweise:**  
+  Achten Sie unbedingt darauf, die Anschlüsse korrekt vorzunehmen!  
+  Falsche Verbindungen können Schäden am BSC oder an extern angeschlossenen Komponenten verursachen.
+
+  4. **Illustrationen und praktische Hinweise:**  
+  Die in dieser Dokumentation enthaltenen Abbildungen dienen lediglich der Veranschaulichung. Überprüfen Sie daher immer die Markierungen und Beschriftungen auf Ihrer Platine, um die korrekten Anschlüsse sicherzustellen.
+
+<img src="../img/hardware/hw_stecker_9pol.png" width="300">
+<img src="../img/hardware/hw_stecker_6pol.png" width="300">
 
 ## Stromversorgung
 Die jeweils zu nutzenden Pins finden Sie als "V IN1" für "+" und GND für "-" aufgedruckt auf Ihrer PCB. Der Betrieb der BSC-Hardware ist in der Standard-Auslieferung für 5V (>=1,5A) ausgelegt. Als stabile Lösung in Sachen Netzteile haben sich Hutschienen-Typen der Firma Meanwell bewährt (z.B. SDR- & DDR-Typen).
