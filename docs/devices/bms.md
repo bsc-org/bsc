@@ -49,16 +49,13 @@ Anbei die Auflösung der Statusmeldungen des NEEY:
 
 ### Seplos
 
-Der BSC unterstützt sowohl den Anschluss eines einzigen Seplos Gerätes als auch die Seplos Daisy-Chain, in der mehrere Systeme parallel geschaltet werden können. Dabei wird nur ein serieller Anschluss am BSC verbraucht. 
+Der BSC unterstützt die Integration eines einzelnen Seplos BMS sowie mehrerer Seplos BMS, die in einer Daisy-Chain-Konfiguration parallel geschaltet werden können. In beiden Fällen wird lediglich ein einzelner serieller Anschluss am BSC benötigt.
 
 #### Bedingungen / Tipps für einen MultiPack Daisy-Chain-Verbund:
 * In der Seplos Software ist die automatische Adressierung deaktiviert (Upload Parameter -> auf der rechten Seite ganz nach unten)
 * Die DIP Switch sind auf RS485 Konfiguration zu schalten
-* Serial 2 am BSC ist zu verwenden.<br>Für die Benutzung dieser Schnittstelle muss JP6 geschlossen sein.
-  * HW 2.3: PINs X2.6, X2.7 und X2.8 benutzen
-  * HW 2.4: Hierzu den RJ45 Port oder die PINs X2.7, X2.8 und X2.9 benutzen
+* Verbinden des BMS mit einem beliebigen Serialport des BSC<br>Hinweis: [JP6](../hardware.md#j6-fur-den-regularen-betrieb) muss geschlossen sein.
 * Falls es zu einem Problem im Verbund mit plötzlich nicht mehr antwortenden Seplos-BMS kommt, kann die Firmware 16.06.04 (oder evtl auch neuere) evtl. Abhilfe schaffen. Bei dem teilweise vorkommenden Problem lassen die BMS keine serielle Verbindung mehr zu, was nur mit einem BMS-Reboot wieder zu beheben ist.
-* Jedes Seplos Pack erhält im BSC eine fortlaufende Nummer beginnend mit serial2(Pack1), serial3(Pack2) und so weiter.
 
 #### Anschlussmöglichkeiten grafisch dargestellt
 
@@ -74,7 +71,7 @@ Der BSC unterstützt sowohl den Anschluss eines einzigen Seplos Gerätes als auc
 
 | Datentopic  |Sensorname   |
 | :------------ | :------------ |
-|0-3   |Externe Kabelsensoren   |
+|0-3 |Externe Kabelsensoren   |
 |4   |Mosfet   |
 |5   |Umgebung   |
 
