@@ -4,7 +4,7 @@
 Hier gibt es drei Möglichkeiten, die dies "verursachen" können.<br>
 
 1) Die Einstellung der SoC-Quelle ist falsch definiert.<br>
-<img src="../img/troubleshooting/troubleshooting_soc_quelle.png" width="400"><br>
+<img src="../docs/img/troubleshooting/troubleshooting_soc_quelle.png" width="400"><br>
 
 2) Wenn die Masterquelle 5s ausgefallen ist, wird der SoC von einem noch verfügbaren Gerät übernommen. Sobald die Masterquelle wieder zur Verfügung steht, wird auf dieses wieder zurück geschaltet.
 
@@ -12,6 +12,11 @@ Hier gibt es drei Möglichkeiten, die dies "verursachen" können.<br>
 Bitte wechseln Sie im Menü auf /Einstellungen/Schnittstellen/Serial und scrollen zu den "Value adjustments".<br>
 Hier sollten keine zwei Werte pro Schnittstelle gesetzt sein, wenn ein BMS mit SoC-Kalkulation genutzt wird.<br>
 Weitere Informationen finden Sie [hier](settings_bsc.md#serial) unter "Betriebsmodus 2: Lineare SoC-Berechnung zwischen zwei Zellspannungsschwellen".
+
+### Log-Eintrag: "MQTT Queue ist voll"
+Dieses Problem kann vor kommen, wenn der Broker nicht in einer gewissen Zeit es schafft alle Daten aus der Queue abzurufen.<br>
+Ein User berichtete von Problemen diesbezüglich, bei Nutzung eines Docker-Containers mit einigen integrierten Applikationen.<br>
+Eine Splittung auf mehrere LXCs eliminierte das Problem.
 
 ### Serial Debugging
 Bei schwierig nachvollziehbaren Fehlern können spezielle Firmware-Versionen zur Fehlersuche bereit gestellt werden.<br>
@@ -29,7 +34,7 @@ Die jeweilige Signalbezeichnung der Pins ist an der linken oberen Ecke der Plati
 - RX an TX
 - GND an GND
 <br>
-<img src="../img/troubleshooting/troubleshooting_serial_debug_j2.png" width="400"><br>
+<img src="../docs/img/troubleshooting/troubleshooting_serial_debug_j2.png" width="400"><br>
 <br>
 Als PC-Programm unter Windows hat sich "Putty", "YAT" und "HTERM" bewährt.<br>
 Die serielle Schnittstelle wird als "COM-Port" bezeichnet. Die richtige Nummer derer finden Sie im Windows-Gerätemanager unter "Anschlüsse (COM & LPT)".<br>
@@ -80,7 +85,7 @@ Bei Serial 0, 1, 2 muss der 10kOhm Widerstand an U4, U5 und U6 jeweils zwischen 
 Für einfacheres Löten kann bei allen ICs die Kontaktierung etwas weiter oben genutzt werden.<br>
 <br>
 Platinenansicht von unten:<br>
-<img src="../img/troubleshooting/troubleshooting_hw_23.png" width="800">
+<img src="../docs/img/troubleshooting/troubleshooting_hw_23.png" width="800">
 
 #### HW2.4
 **Serial 0+1**<br>
@@ -92,11 +97,11 @@ Bei Serial 2 muss der 10kOhm Widerstand zwischen Pin 6 und Pin 7 des Steckers J3
 Dies lässt sich auch ganz gut mit einem bedrahteten Widerstand (THT) tätigen.<br>
 <br>
 Platinenansicht von unten:<br>
-<img src="../img/troubleshooting/troubleshooting_hw_24.png" width="800">
+<img src="../docs/img/troubleshooting/troubleshooting_hw_24.png" width="800">
 
 ### CAN_GND Kontaktierung (HW2.3)
 Über die Schraubklemmen der Hardware ist CAN_L & CAN_H kontaktierbar.<br>
 Der dazugehörige CAN_GND fehlt hier und muss daher auf der Leiterplatten-Unterseite über die Pins des Spannungsreglers abgegriffen werden.<br>
 <br>
 Platinenansicht von unten:<br>
-<img src="../img/troubleshooting/troubleshooting_hw_23_cangnd.png" width="800">
+<img src="../docs/img/troubleshooting/troubleshooting_hw_23_cangnd.png" width="800">
