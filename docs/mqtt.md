@@ -72,7 +72,7 @@ Die selbe Vorgehensweise funktioniert über VisualStudioCode mit dem Addon "UUID
 
 [BSC-Internal.txt](files/mqtt_internal.txt)  
 [BSC-Inverter.txt](files/mqtt_inverter.txt)  
-[BSC-BMS1_serial2.txt](files/mqtt_bms1_serial2.txt)  
+[BSC-BMS-DataDevice.txt](https://github.com/user-attachments/files/18416502/mqtt_bms-datadevice.txt)  
 [BSC-Neey1_BLE.txt](files/mqtt_neey1_ble.txt)
 
 ## Vorhandene MQTT-Konfiguration in neuem Verzeichnis integrieren
