@@ -42,7 +42,7 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 
 Anbei die Auflösung der Statusmeldungen des NEEY:
 
-<img src="../../img/devices/devices_neey_status.png" width="520">
+<img src="../docs/img/devices/devices_neey_status.png" width="520">
 
 
 ## Anbindungs-Beispiele
@@ -108,14 +108,8 @@ Einzelne BMS, wie auch eine MultiPack-Konfiguration über DaisyChain ist möglic
 * Bei einem DaisyChain-Verbund muss das UART Protokoll auf allen BMSen auf Protokoll 1  (JK BMS RS485 Modbus V1.0) umgestellt werden. 
 
 #### Adressierung
-Das BSC übernimmt die Rolle des Masters, die DIP Adresse 0 darf dadurch also nicht mehr an ein BMS vergeben werden.
-
-##### Einzel-Pack-Konfiguration
-* Das einzelne Pack bekommt die Adresse 1
-
-##### MultiPack-Konfiguration
-* Bei dieser Konfiguration werden alle BMS als Slaves fortlaufend adressiert - Erstes Pack bekommt DIP Adresse 1.<br>
-Keine Adresse darf hierbei übersprungen werden.
+Das BSC übernimmt die Rolle des Masters, die DIP Adresse 0 darf dadurch also nicht mehr an ein BMS vergeben werden.<br>
+Jedes Pack bekommt eine eigene ID, welche über die DIP-Schalter zu definieren ist. Keine Adresse darf doppelt vergeben werden.<br>
 
 #### Physikalische Verbindung 
 
@@ -129,12 +123,9 @@ Keine Adresse darf hierbei übersprungen werden.
 * Den BSC mit einem Patchkabel zu einem der freien rechten RJ45-Anschlüsse des JK-BMS verbinden
 
 #### RS485 Datenübertragung (BMS) in der BSC-Software konfigurieren 
-* Im BSC unter Einstellungen -> Schnittstellen ->  Serial2 das "JK Inverter BMS" auswählen. Da nur eine Schnittstelle für mehrere Packs als DaisyChain genutzt wird, ist auch bei mehreren BMS nur die Konfiguration für Serial2 nötig. 
-
-* Auf der gleichen Seite, etwas weiter unten, ist die Anzahl der angeschlossenen Packs zu definieren. <br>
-Ein Beispiel für 3 Packs mit der DIP-Adresse 1,2,3:<br><img src="https://github.com/user-attachments/assets/1b4076ab-c2f3-49ba-a09f-5b3d56f3837b" width="550">
-
-* Danach sollte jedes Pack im BSC z.B. unter den Livedaten -> BMS Daten zu finden sein.<br>Akku 1 -> BMS(2), Akku 2 -> BMS(3)... 
+* Bei Direktanschluss über Serial2: Im BSC unter Einstellungen -> Schnittstellen ->  Serial2 das "JK Inverter BMS" auswählen, da nur eine Schnittstelle für mehrere Packs im DaisyChain-Verbund genutzt werden muss. 
+* Die Device-Mapping-Konfiguration der angeschlossenen Geräte wird [hier](#data-device-mapping) erläutert<br>
+* Danach sollte jedes Pack im BSC z.B. unter den Livedaten -> BMS Daten zu finden sein.<br>
 
 #### CAN Datenübertragung (Inverter) konfigurieren
 Für die Übertragung der Daten per CAN an z.B. ein Victron CerboGX, müssen Sie unter "Einstellungen -> Wechselrichter & Laderegelung -> Allgemein" folgende Einstellungen vornehmen:
@@ -143,7 +134,7 @@ Für die Übertragung der Daten per CAN an z.B. ein Victron CerboGX, müssen Sie
  3. Nun die "Datenquelle (Master)" auf Serial 2 definieren
  4. Unter "Valuehandling Multi-BMS" festlegen, wie der SoC zu übertragen / berechnen ist. "Mittelwert" z.B. übergibt den Mittelwert über alle angeschlossenen BMS.
  5. Datenquelle (Master) auswählen (darauf bezieht sich z.B. die Temperatur unter dem Punkt "Battery Temperature" an Victron gesendet werden, die Max und Min Temperaturen über alle Packs hinweg, bleiben davon unberührt) und für jedes weitere BMS unter "+Datenquelle" eine weitere Serielle Schnittstelle entsprechend auswählen.<br> 
-<img src="../../img/settings/settings_inverter_datquelle.png" width="550">
+<img src="../img/settings/settings_inverter_datquelle.png" width="550">
 
 #### Besonderheiten
 ##### Zuordnung der Temperatursensoren
