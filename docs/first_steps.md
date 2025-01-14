@@ -43,12 +43,16 @@ Bei den ESP32-Dev-Boards ist meistens direkt ein USB-Port vorhanden. Spätere Up
 
 ### Flash-Möglichkeiten
 #### Nutzen des Hersteller-Download-Tools (only Windows)
-* Die Software zum Flashen (Flash Download Tools) kann von der Hersteller-Webseite des ESP32 bezogen werden.<br>
-Link: https://www.espressif.com/en/support/download/other-tools
-  * Die Einstellungen in dem Download-Tool wie in den folgenden Screenshot zu sehen vornehmen:<br>
+Die Software zum Flashen (Flash Download Tools) kann von der Hersteller-Webseite des ESP32 über [diesen Link](https://www.espressif.com/en/support/download/other-tools) bezogen werden.<br>
+In dieser Software müssen die Einstellungen, wie in den folgenden Screenshots gezeigt, vorgenommen werden:<br>
+
 ![bsc](img/download_tool_mode.png)<br>
+<br>
+Im folgenden Bildschirm müssen die Firmware-Dateien hinterlegt und noch ein paar Einstellungen getätigt werden.<br>
+Dabei darauf achten, dass die Häkchen neben den einzelnen Dateien gesetzt sind und die jeweilige Zeile grün hinterlegt wurde.<br>
 ![bsc](img/download_tool.png)
-  * Den Upload-Vorgang mit einem Klick auf "Start" starten
+<br><br>
+➔ Nun können Sie den Upload-Vorgang mit einem Klick auf "Start" starten.
 
 #### Flashen mit dem esptool (Linux, Windows) inkl. zuvorigen Löschen
 `esptool.py  --port /dev/ttyUSB0 --chip auto write_flash -e -ff 80m -fm dio 0x01000 bootloader.bin 0x08000 partitions.bin  0x0e000 boot_app0.bin 0x10000 firmware.bin`
