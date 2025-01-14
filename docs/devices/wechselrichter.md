@@ -90,7 +90,7 @@ Angeschlossen an BSC über Serial2 Schnittstelle.
 
 Belegung CAN Anschluss Solis<br>
 
-| Signal  | Anschluss | Aderfarbe RJ45 |
+| Signal  | Anschluss | Aderfarbe RJ45 (T568A)|
 | ------------- | ------------- | ------------- |
 | CAN-L  | Pin 5  | Blau/Weiß |
 | CAN-H  | Pin 4  | Blau |
@@ -106,10 +106,23 @@ Advanced Settings -> Storage Energy Set -> Battery Select -> Battery Module -> P
 
 ## Deye SUN-12K-SG04LP3-EU
 
+#### CAN-Verbindung
 Die Anbindung BSC <> Wechselrichter (CAN-Bus) erfolgt über den "BMS Port" des Wechselrichters (siehe Manual Seite 10).<br>
-Dieser Port wird mit einem handelsüblichen Netzwerkkabel mit der RJ45 Buchse (Serial2) des BSC verbunden.<br>
+Dieser Port wird mit einem handelsüblichen Netzwerkkabel verbunden. Drei einzelne Adern dieses Kabels müssen mit der CAN-Schnittstelle, zu finden auf den Schraubklemmen des BSCs, verbunden werden.<br>
+
+* CAN-H auf CAN-H
+* CAN-L auf CAN-L
+* GND auf GND
 <br>
-<img src="../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu.png" width="450">
+
+| Signal  | RJ45-Anschluss | Aderfarbe RJ45 (T568A) |
+| ------------- | ------------- | ------------- |
+| CAN-H  | Pin 4  | Blau |
+| CAN-L  | Pin 5  | Weiß/Blau |
+| CAN-GND  | Pin 6  | Orange |
+
+<br>
+<img src="https://github.com/user-attachments/assets/be00e6c9-a8d3-440e-8858-03fcc53b8436" width="600">
 
 #### Einstellung am Wechselrichter
 "Bat Set 1: Batt Mode "Lithium", Bat Set 3: "Lithium Mode 00"<br> 
