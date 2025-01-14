@@ -42,7 +42,7 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 
 Anbei die Auflösung der Statusmeldungen des NEEY:
 
-<img src="../docs/img/devices/devices_neey_status.png" width="520">
+<img src="../img/devices/devices_neey_status.png" width="520">
 
 
 ## Anbindungs-Beispiele
