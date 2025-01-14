@@ -44,9 +44,16 @@ Folgend findet Ihr Beispielkonfigurationen für verschiedene Hardware:
 * Inverter
 * Neey-Balancer
 
+### Konfiguration anpassen
 Die Dateien müssen zur Integration statt ".txt" in ".yaml" umbenannt werden.
 Leider unterstützt Github .yaml nicht.  
 
+#### DataDevices
+Der DataDeviceName muss von Ihnen, je nach BSC-Konfiguration, korrekt in den Dateien benamt werden.<br>
+Die Stelle hierzu ist mit dem Kürzel "{DataDeviceName}" markiert.<br>
+{DataDeviceName} = Definierter Klartext-Name im Data device mapping.
+
+#### UniqueID
 Innerhalb der Dateien gibt es pro Sensorwert eine UniqueID welche von jedem definiert werden muss.  
 Generieren kann man diese beispielsweise mit der "Version 1" auf https://www.uuidgenerator.net/version1 .
 
