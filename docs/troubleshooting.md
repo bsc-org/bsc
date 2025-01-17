@@ -14,9 +14,13 @@ Hier sollten keine zwei Werte pro Schnittstelle gesetzt sein, wenn ein BMS mit S
 Weitere Informationen finden Sie [hier](settings_bsc.md#serial) unter "Betriebsmodus 2: Lineare SoC-Berechnung zwischen zwei Zellspannungsschwellen".
 
 ### Log-Eintrag: "MQTT Queue ist voll"
-Dieses Problem kann vor kommen, wenn der Broker nicht in einer gewissen Zeit es schafft alle Daten aus der Queue abzurufen.<br>
-Ein User berichtete von Problemen diesbezüglich, bei Nutzung eines Docker-Containers mit einigen integrierten Applikationen.<br>
-Eine Splittung auf mehrere LXCs eliminierte das Problem.
+Dieses Problem kann auftreten, wenn der Broker nicht innerhalb einer bestimmten Zeit alle Daten aus der Queue abrufen kann.
+
+**Mögliche Ursache:**  
+Ein Benutzer berichtete von Schwierigkeiten in einer Umgebung mit einem Docker-Container, der mehrere integrierte Applikationen enthielt.
+
+**Lösung:**  
+Die Aufteilung auf mehrere Docker-Container eliminierte das Problem. Es kann daher hilfreich sein, die Last durch eine solche Architekturänderung zu verteilen.
 
 ### Serial Debugging
 Bei schwierig nachvollziehbaren Fehlern können spezielle Firmware-Versionen zur Fehlersuche bereit gestellt werden.<br>
