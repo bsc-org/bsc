@@ -1,3 +1,15 @@
+p, ul, ol {
+    font-size: 16px;
+}
+
+.md-main__inner.md-grid {
+    max-width: 67rem;
+}
+
+.md-grid {
+    max-width: 67rem;
+}
+
 h2:not(:first-of-type), h3:not(:first-of-type) {
     position: relative;
     padding-bottom: 10px;
