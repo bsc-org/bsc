@@ -1,6 +1,6 @@
-####   BSC BMS 1 -> Serial 2
+####   BSC BMS-DataDevice
 
-    - state_topic: bsc/bms/serial/2/totalVoltage
+    - state_topic: bsc/DataDevice/{DataDeviceName}/totalVoltage
       name: Gesamtspannung
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -9,13 +9,13 @@
       unit_of_measurement: "V"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/totalCurrent
+    - state_topic: bsc/DataDevice/{DataDeviceName}/totalCurrent
       name: Strom
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement      
@@ -24,13 +24,13 @@
       unit_of_measurement: "A"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/SoC
+    - state_topic: bsc/DataDevice/{DataDeviceName}/SoC
       name: SoC
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement      
@@ -39,49 +39,49 @@
       unit_of_measurement: "%"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/stateDischarge
+    - state_topic: bsc/DataDevice/{DataDeviceName}/stateDischarge
       name: Entladen erlaubt  
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       icon: mdi:battery-arrow-down
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/stateCharge
+    - state_topic: bsc/DataDevice/{DataDeviceName}/stateCharge
       name: Laden erlaubt     
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       icon: mdi:battery-arrow-up
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/errors
+    - state_topic: bsc/DataDevice/{DataDeviceName}/errors
       name: Fehler     
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       icon: mdi:alert
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/cellVoltage/0
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/0
       name: Zellspannung 1
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -90,13 +90,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltage/1
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/1
       name: Zellspannung 2
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -105,13 +105,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltage/2
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/2
       name: Zellspannung 3
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -120,13 +120,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltage/3
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/3
       name: Zellspannung 4
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -135,13 +135,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltage/4
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/4
       name: Zellspannung 5
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -150,13 +150,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltage/5
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/5
       name: Zellspannung 6
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -165,13 +165,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltage/6
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/6
       name: Zellspannung 7
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -180,13 +180,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltage/7
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/7
       name: Zellspannung 8
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -195,13 +195,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltage/8
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/8
       name: Zellspannung 9
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -210,13 +210,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltage/9
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/9
       name: Zellspannung 10
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -225,13 +225,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltage/10
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/10
       name: Zellspannung 11
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -240,13 +240,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltage/11
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/11
       name: Zellspannung 12
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -255,13 +255,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/cellVoltage/12
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/12
       name: Zellspannung 13
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -270,13 +270,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/cellVoltage/13
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/13
       name: Zellspannung 14
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -285,13 +285,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/cellVoltage/14
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/14
       name: Zellspannung 15
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -300,13 +300,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/cellVoltage/15
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltage/15
       name: Zellspannung 16
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -315,13 +315,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltageMax
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltageMax
       name: Zellspannung maximal
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -330,13 +330,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/cellVoltageMin
+    - state_topic: bsc/DataDevice/{DataDeviceName}/cellVoltageMin
       name: Zellspannung minimal
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -345,13 +345,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/maxCellDifferenceVoltage
+    - state_topic: bsc/DataDevice/{DataDeviceName}/maxCellDifferenceVoltage
       name: Differenzspannung Zellen
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -360,13 +360,13 @@
       unit_of_measurement: "mV"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/temperature/0
+    - state_topic: bsc/DataDevice/{DataDeviceName}/temperature/0
       name: Temperatur1
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -375,13 +375,13 @@
       unit_of_measurement: "°C"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/temperature/1
+    - state_topic: bsc/DataDevice/{DataDeviceName}/temperature/1
       name: Temperatur2
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -390,13 +390,13 @@
       unit_of_measurement: "°C"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
 
-    - state_topic: bsc/bms/serial/2/temperature/2
+    - state_topic: bsc/DataDevice/{DataDeviceName}/temperature/2
       name: Temperatur3
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -405,13 +405,13 @@
       unit_of_measurement: "°C"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/temperature/3
+    - state_topic: bsc/DataDevice/{DataDeviceName}/temperature/3
       name: Temperatur4
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -420,13 +420,13 @@
       unit_of_measurement: "°C"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/temperature/4
+    - state_topic: bsc/DataDevice/{DataDeviceName}/temperature/4
       name: Temperatur Umfeld
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -435,13 +435,13 @@
       unit_of_measurement: "°C"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/temperature/5
+    - state_topic: bsc/DataDevice/{DataDeviceName}/temperature/5
       name: Temperatur PowerFets
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       state_class: measurement
@@ -450,70 +450,70 @@
       unit_of_measurement: "°C"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/Cycle
+    - state_topic: bsc/DataDevice/{DataDeviceName}/Cycle
       name: Ladezyklen
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       icon: mdi:battery-sync
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/FullCapacity
+    - state_topic: bsc/DataDevice/{DataDeviceName}/FullCapacity
       name: Gesamtkapazität
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       icon: mdi:battery-100
       unit_of_measurement: "Ah"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/BalanceCapacity
+    - state_topic: bsc/DataDevice/{DataDeviceName}/BalanceCapacity
       name: Restkapazität
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       icon: mdi:battery-50
       unit_of_measurement: "Ah"
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/valid
+    - state_topic: bsc/DataDevice/{DataDeviceName}/valid
       name: Valid
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       icon: mdi:rotate-360
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
       
-    - state_topic: bsc/bms/serial/2/warnings
+    - state_topic: bsc/DataDevice/{DataDeviceName}/warnings
       name: Warnings
       unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
       icon: mdi:alert-outline
       device:
         {
-          identifiers: ["BSC-BMS1"],
+          identifiers: ["BSC-{DataDeviceName}"],
           manufacturer: "BSC",
           model: "BSC",
-          name: "BSC-BMS1",
+          name: "BSC-{DataDeviceName}",
         }
