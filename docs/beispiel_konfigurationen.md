@@ -12,7 +12,7 @@ Wir raten dringend davon ab, die dargestellten Einstellungen unreflektiert zu ü
 
 #### BSC - Einstellungen Serielle Schnittstelle
 
-<img src="../img/beispielconfig/beispielcfg_serial.png" width="450">
+![](img/beispielconfig/beispielcfg_serial.png){ width="450" }
 
 
 #### BSC - Einstellungen Inverter
@@ -20,44 +20,43 @@ Wir raten dringend davon ab, die dargestellten Einstellungen unreflektiert zu ü
 Serial 6 wurde hier als Datenquelle (Master) BMS gesetzt, da hier durch die höchste Position im Stack, die höchsten Temperaturen auftreten.<br>
 Diese Temperatur wird genutzt für die Übertragung der "Batterie Temperatur" an Venus OS. Sensor Nummer 1 hatte in dieser Umgebung in der Regel die höchste Temperatur.
 <br>
-<img src="../img/beispielconfig/beispielcfg_inverter_general_1.png" width="450">
+![](img/beispielconfig/beispielcfg_inverter_general_1.png){ width="450" }
 <br>
-<img src="../img/beispielconfig/beispielcfg_inverter_general_2.png" width="450">
+![](img/beispielconfig/beispielcfg_inverter_general_2.png){ width="450" }
 
 ##### Laden
-<img src="../img/beispielconfig/beispielcfg_inverter_charge_1.png" width="450">
-<img src="../img/beispielconfig/beispielcfg_inverter_charge_2.png" width="450">
-
+![](img/beispielconfig/beispielcfg_inverter_charge_1.png){ width="450" }
+![](img/beispielconfig/beispielcfg_inverter_charge_2.png){ width="450" }
 
 ##### Entladen
-<img src="../img/beispielconfig/beispielcfg_inverter_discharge_1.png" width="450">
+![](img/beispielconfig/beispielcfg_inverter_discharge_1.png){ width="450" }
 
 #### BMS
 ##### Settings
-<img src="../img/beispielconfig/beispielcfg_bms_settings_jk_1.png" width="350">
-<img src="../img/beispielconfig/beispielcfg_bms_settings_jk_2.png" width="350">
-<img src="../img/beispielconfig/beispielcfg_bms_settings_jk_3.png" width="350">
-<img src="../img/beispielconfig/beispielcfg_bms_settings_jk_4.png" width="350">
+![](img/beispielconfig/beispielcfg_bms_settings_jk_1.png){ width="350" }
+![](img/beispielconfig/beispielcfg_bms_settings_jk_2.png){ width="350" }
+![](img/beispielconfig/beispielcfg_bms_settings_jk_3.png){ width="350" }
+![](img/beispielconfig/beispielcfg_bms_settings_jk_4.png){ width="350" }
 
 ##### Control
-<img src="../img/beispielconfig/beispielcfg_bms_settings_jk_5.png" width="350">
+![](img/beispielconfig/beispielcfg_bms_settings_jk_5.png){ width="350" }
 
 
 ### 1x Seplos 10E 200A (16S); 3x Growatt SPF5000ES
 
 #### BSC - Einstellungen Inverter
 ##### Allgemein
-<img src="../img/beispielconfig/beispielcfg_inverter_general_seplos.png" width="1050">
+![](img/beispielconfig/beispielcfg_inverter_general_seplos.png){ width="1050" }
 
 ##### Laden
-<img src="../img/beispielconfig/beispielcfg_inverter_charge_seplos.png" width="1050">
+![](img/beispielconfig/beispielcfg_inverter_charge_seplos.png){ width="1050" }
 
 ##### Entladen
-<img src="../img/beispielconfig/beispielcfg_inverter_discharge_seplos.png" width="350">
+![](img/beispielconfig/beispielcfg_inverter_discharge_seplos.png){ width="350" }
 
 #### BMS
 ##### Parameter
-<img src="../img/beispielconfig/beispielcfg_bms_seplos_parameter.png" width="1050">
+![](img/beispielconfig/beispielcfg_bms_seplos_parameter.png){ width="1050" }
 
 ##### Switches
-<img src="../img/beispielconfig/beispielcfg_bms_switches.png" width="1050">
+![](img/beispielconfig/beispielcfg_bms_switches.png){ width="1050" }

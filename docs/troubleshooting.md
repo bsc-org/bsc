@@ -4,7 +4,7 @@
 Hier gibt es drei Möglichkeiten, die dies "verursachen" können.<br>
 
 1) Die Einstellung der SoC-Quelle ist falsch definiert.<br>
-<img src="../docs/img/troubleshooting/troubleshooting_soc_quelle.png" width="400"><br>
+![](img/troubleshooting/troubleshooting_soc_quelle.png){  width="400" }  
 
 2) Wenn die Masterquelle 5s ausgefallen ist, wird der SoC von einem noch verfügbaren Gerät übernommen. Sobald die Masterquelle wieder zur Verfügung steht, wird auf dieses wieder zurück geschaltet.
 
@@ -34,7 +34,7 @@ Die jeweilige Signalbezeichnung der Pins ist an der linken oberen Ecke der Plati
 - RX an TX
 - GND an GND
 <br>
-<img src="../docs/img/troubleshooting/troubleshooting_serial_debug_j2.png" width="400"><br>
+![](img/troubleshooting/troubleshooting_serial_debug_j2.png){  width="400" }  
 <br>
 Als PC-Programm unter Windows hat sich "Putty", "YAT" und "HTERM" bewährt.<br>
 Die serielle Schnittstelle wird als "COM-Port" bezeichnet. Die richtige Nummer derer finden Sie im Windows-Gerätemanager unter "Anschlüsse (COM & LPT)".<br>
@@ -85,7 +85,7 @@ Bei Serial 0, 1, 2 muss der 10kOhm Widerstand an U4, U5 und U6 jeweils zwischen 
 Für einfacheres Löten kann bei allen ICs die Kontaktierung etwas weiter oben genutzt werden.<br>
 <br>
 Platinenansicht von unten:<br>
-<img src="../docs/img/troubleshooting/troubleshooting_hw_23.png" width="800">
+![](img/troubleshooting/troubleshooting_hw_23.png){  width="800" }
 
 #### HW2.4
 **Serial 0+1**<br>
@@ -97,11 +97,11 @@ Bei Serial 2 muss der 10kOhm Widerstand zwischen Pin 6 und Pin 7 des Steckers J3
 Dies lässt sich auch ganz gut mit einem bedrahteten Widerstand (THT) tätigen.<br>
 <br>
 Platinenansicht von unten:<br>
-<img src="../docs/img/troubleshooting/troubleshooting_hw_24.png" width="800">
+![](img/troubleshooting/troubleshooting_hw_24.png){  width="800" }
 
 ### CAN_GND Kontaktierung (HW2.3)
 Über die Schraubklemmen der Hardware ist CAN_L & CAN_H kontaktierbar.<br>
 Der dazugehörige CAN_GND fehlt hier und muss daher auf der Leiterplatten-Unterseite über die Pins des Spannungsreglers abgegriffen werden.<br>
 <br>
 Platinenansicht von unten:<br>
-<img src="../docs/img/troubleshooting/troubleshooting_hw_23_cangnd.png" width="800">
+![](img/troubleshooting/troubleshooting_hw_23_cangnd.png){  width="800" }

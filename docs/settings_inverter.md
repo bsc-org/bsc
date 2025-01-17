@@ -1,7 +1,7 @@
 # Wechselrichter
 In dieser Sektion können Sie neben der Definierung des angeschlossenen Inverters, das Lade- und Entladehandling definieren.  
 Alle prozentualen Limitierungen werden auf die in der Kategorie "Basisdaten" eingestellten Werte angewendet.  
-<img src="../docs/img/settings/settings_inverter_basisdaten.png" width="950">  
+![](img/settings/settings_inverter_basisdaten.png){  width="950" }  
 
 ## General
 ### CAN-Bus
@@ -9,7 +9,7 @@ Hier kann man das in Richtung Inverter zu nutzende Protokoll definieren.
 Die Einstellung "Send extended data" ist nur unter Umständen für eine angeschlossene Victron Anlage nutzbar. Weitere Informationen sind [hier](devices/wechselrichter.md#einstellungen-bsc) einsehbar.
 
 ### Valuehandling Multi-BMS
-<img src="../docs/img/settings/settings_inverter_soc.png" width="450">  
+![](img/settings/settings_inverter_soc.png){  width="450" }  
 Mit dem "Valuehandling Multi-BMS" haben Sie die Möglichkeit, den State of Charge (SoC) für die Übermittlung an den Inverter zu konfigurieren. Dies ermöglicht eine präzise Steuerung, welcher SoC-Wert verwendet wird, basierend auf den verschiedenen Quellen und Berechnungsmethoden. Die verfügbaren Optionen sind:
 
 - **Masterquelle**  
@@ -58,10 +58,10 @@ Diese Funktion gewährleistet, dass Ihr System auch bei Ausfall von einzelnen Pa
 
 ### Trigger bei SoC
 Mit dieser Funktion kann man beispielsweise externe Gerät je nach SoC-Wert schalten.  
-<img src="../docs/img/settings/settings_inverter_trigger_soc.png" width="950">    
+![](img/settings/settings_inverter_trigger_soc.png){  width="950" }  
 
 **Zwei Beispiele hierzu:**    
-<img src="../docs/img/settings/settings_inverter_trigger_soc_beispiel.png" width="450">  
+![](img/settings/settings_inverter_trigger_soc_beispiel.png){  width="450" }  
 
 
 Hier triggert...  
@@ -79,14 +79,14 @@ Somit hat man eine Hysterese von 15%.
 
 ## Charge
 Beispiel eines Ladezyklus inkl. Balancing-, Float- und Absorption-Voltage mit Hilfe des BSC und einer Visualisierung über HomeAssistant/Grafana:  
-<img src="../docs/img/settings/settings_inverter_charge_beispiel.png" width="1300">  
+![](img/settings/settings_inverter_charge_beispiel.png){  width="1300" }   
 
 ### Ladestrom pro Pack zu groß
-<img src="../docs/img/settings/settings_inverter_current_per_pack.png" width="450">  
+![](img/settings/settings_inverter_current_per_pack.png){  width="450" }  
 Mit dieser Funktion wird der Ladestrom automatisch und dynamisch angepasst, um sicherzustellen, dass der maximale Ladewert eines jeden Batterie-Packs nicht überschritten wird. Diese intelligente Regelung schützt die Batterie vor Überstrom.
 
 Die folgende Grafik veranschaulicht die Ströme von drei Batteriepacks während eines Ladeprozesses:
-<img src="../docs/img/settings/settings_inverter_current_per_pack_example_1.png" width="600"><br>
+![](img/settings/settings_inverter_current_per_pack_example_1.png){  width="600" }  
 Grün zeigt den Stromverlauf für Pack 1, Gelb von Pack 2 und Blau von Pack 3.
 
 In der Darstellung ist zu erkennen, dass der maximale Laststrom für Pack 1 (grün) für eine kurze Zeit auf 50A reduziert wurde (dies ist in der Mitte des Diagramms sichtbar). Nachdem der Wert reduzierte wurde, regelt das (BSC) den Ladestrom dynamisch herunter und hält ihn auf den eingestellten Wert von 50A.
@@ -125,7 +125,7 @@ Diese experimentelle Funktion begrenzt die Ladespannung basierend auf der Zellsp
 
 ### Autobalance
 Das Autobalance-Feature übernimmt die vollständige Balancierung Ihrer Akkuzellen, um eine optimale Leistung und Lebensdauer des Akkus sicherzustellen. Im Folgenden werden die wichtigsten Einstellungen und Abläufe beschrieben:
-<img src="../docs/img/settings/settings_inverter_charge_autobalance.png" width="950">    
+![](img/settings/settings_inverter_charge_autobalance.png){  width="950" }  
 
 **Balance-Intervall**   
 Mit dem Parameter Balance-Intervall kann festgelegt werden, in welchen zeitlichen Abständen ein Balancing der Akkuzellen durchgeführt werden soll. Dieser Wert bestimmt, wie häufig die Balancierung aktiviert wird, um die Zellspannungen anzugleichen.
@@ -189,7 +189,7 @@ Diese Funktion steuert das Nachladen der Zellen basierend auf der Zellspannung.
 
 ## Discharge
 ### Entladestrom Zell-Spannungsabhängig drosseln
-<img src="../docs/img/settings/settings_inverter_discharge_cellvoltage.png" width="450"> 
+![](img/settings/settings_inverter_discharge_cellvoltage.png){  width="450" }  
 
 Diese Funktion dient der Anpassung des Entladestroms basierend auf der Zellspannung, um die Lebensdauer der Batteriezellen zu verlängern und deren Sicherheit zu gewährleisten.
 

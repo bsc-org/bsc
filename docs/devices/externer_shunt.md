@@ -14,7 +14,7 @@ Pol-Anzahl: 4<br>
 Rastermaß: 2.0mm<br>
 Bestellnr.: JST PHR-4<br>
 <br>
-<img src="../../img/devices/devices_shunt_smartshunt_vedirect_stecker.png" width="550">
+![](../img/devices/devices_shunt_smartshunt_vedirect_stecker.png){  width="550" }
 
 #### Aderfarben eines original VE.Direct Kabels. (Ohne Gewähr der Information auf Ihr verwendetes Kabel)<br>
 
@@ -26,7 +26,7 @@ Bestellnr.: JST PHR-4<br>
 |  4 | schwarz  |
 
 #### Beispiel eines einzusetzenden UART/RS485 Konverters
-<img src="../../img/devices/devices_shunt_smartshunt_rs485_converter.png" width="300">
+![](../img/devices/devices_shunt_smartshunt_rs485_converter.png){  width="300" }
 
 Es hat sich herausgestellt, dass der SmartShunt nicht alle Typen der UART/RS485 Wandler mit Strom versorgen kann.<br>
 Der Konverter sollte nicht mehr wie 10mA (Puls max. 20mA/5ms) aufnehmen.<br>
@@ -49,7 +49,7 @@ Verschiedene, vorzugsweise chinesische Konverter, haben eine falsche TxD/RxD-Bed
 Einstellungen -> Schnittstellen -> Serial -> Auswahl des Victron SmartShunt
 
 #### Benötigtes Valuehandling
-<img src="../../img/devices/devices_shunt_smartshunt_bsc_settings.png" width="500">
+![](../img/devices/devices_shunt_smartshunt_bsc_settings.png){  width="400" }
 
 Einstellungen sind zu finden wie folgt
 - Einstellungen -> Wechselrichter & Laderegelung -> Allgemein -> Valuehandling Multi-BMS -> SoC<br>Selektion: BMS<br>

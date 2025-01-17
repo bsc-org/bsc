@@ -35,6 +35,7 @@ extra_css:
 #      lang: en
 
 markdown_extensions:
+  - attr_list
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys

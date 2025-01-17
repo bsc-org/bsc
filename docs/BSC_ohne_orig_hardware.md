@@ -45,11 +45,11 @@ Ein galvanisch getrennter und getesteter RS485 Adapter ist z.B. folgender.<br>
 Zu haben von unterschiedlichen Quellen.<br>
 Anzuschließen ist dreiadrig (A / B / GND).<br>
 
-<img src="../img/bsc_ohne_org_hw_rs485_converter.jpg" width="450"><br>
+![](img/bsc_ohne_org_hw_rs485_converter.jpg){ width="450" }
 
 ### CAN-Konverter
 Für die CAN-Schnittstelle funktioniert in einem Prototypen beispielsweise folgender bisher zuverlässig.<br>
 Zu haben von unterschiedlichen Quellen.<br>
 Anzuschließen ist dreiadrig (CANH / CANL / GND).<br>
 
-<img src="../img/bsc_ohne_org_hw_can_converter.jpg" width="450"><br>
+![](img/bsc_ohne_org_hw_can_converter.jpg){ width="450" }

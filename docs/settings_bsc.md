@@ -47,7 +47,7 @@ Diese Kombination aus flexiblen Trigger-Quellen und konfigurierbaren Zielaktione
 Nach dem Aufrufen der Webseite über das integrierte WLAN-Modul (IP oder bsc.info) kommt als Startseite das Dashboard mit ein paar grundlegenden Informationen.  
 Über das seitliche Menü kann man zu den jeweiligen Funktionen navigieren.
 
-<img src="../img/settings/settings_dashboard.png" width="950">    
+![](img/settings/settings_dashboard.png){ width="950" }    
 
 | Kachel  | Beschreibung |
 | ------------- | ------------- |
@@ -58,19 +58,19 @@ Nach dem Aufrufen der Webseite über das integrierte WLAN-Modul (IP oder bsc.inf
 | Trigger | Status der zehn möglichen Trigger; 0=kein Trigger, 1=Trigger |
 
 ## Livedaten
-<img src="../img/settings/settings_livedaten.png" width="950">    
+![](img/settings/settings_livedaten.png){ width="950" }  
 "FET state" beschreibt den aktuellen FET Lade-/Entladezustand.  
 
-<img src="../img/settings/settings_fet_state.png" width="300">
+![](img/settings/settings_fet_state.png){ width="300" }  
 
 ## System
-<img src="../img/settings/settings_system.png" width="950">
+![](img/settings/settings_system.png){ width="950" }  
 
 Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzernamen und Passwörter zu den WLAN und MQTT Logins.  
 Bitte beachten Sie, dass das Tilde-Zeichen (~) derzeit als Passwort-Zeichen <u>nicht unterstützt</u> wird.  
 
 ### MQTT
-<img src="../img/settings/settings_system_mqtt.png" width="300">  
+![](img/settings/settings_system_mqtt.png){ width="300" }    
 Sobald MQTT aktiviert ist und die zugehörige IP-Adresse und der Port eingestellt ist, sendet der BSC zyklisch die Daten an den MQTT-Broker.
 
 **vTrigger**  
@@ -84,14 +84,15 @@ Als Zeitserver können Sie beispielsweise folgendes definieren: "ntp1.t-online.d
 Im BSC muss dann dessen IP-Adresse angegeben werden.
 
 ## Schnittstellen
-In den Schnittstellen Einstellungen wird eingestellt was an welcher Schnittstelle angeschlossen ist.  
-Hier wird **nicht** eingestellt was z.B. mit den Daten von einem BMS oder Balancer passieren soll, oder wann der Relais-Ausgang 
-schalten soll. Dies wird dann bei den Einstellungen zu den Alarmregeln oder dem Wechselrichter gemacht.
+In den Schnittstellen Einstellungen wird eingestellt was an welcher Schnittstelle angeschlossen ist. Hier wird **nicht** eingestellt was z.B. mit den Daten von einem BMS oder Balancer passieren soll, oder wann der Relais-Ausgang schalten soll. Dies wird dann bei den Einstellungen zu den Alarmregeln oder dem Wechselrichter gemacht.
 
 ### Serial
-<img src="../img/settings/settings_serial.png" width="950">  
-Hier wird erst einmal nur eingestellt, was an welchem seriellen Port angeschlossen ist.  
-Die Daten stehen dem System jetzt intern zur Verfügung und es kann z.B. bei den Alarmregeln darauf zugegriffen werden.  
+![](img/settings/settings_serial.png){ width="950" }  
+In diesem Abschnitt legen Sie fest, welche Hardware an welchen seriellen Port angeschlossen ist. Darüber hinaus ist es erforderlich, im Abschnitt "Data Device Mapping" zu konfigurieren, welche serielle Schnittstelle welchem internen Daten-Device zugeordnet wird.
+
+Detaillierte Informationen zur Einrichtung des Data Device Mapping finden sie im Kapitel [Data device mapping](http://192.168.178.242:8080/settings_bsc/#data-device-mapping). 
+
+Diese Konfiguration stellt sicher, dass die angeschlossene Hardware korrekt erkannt und mit den entsprechenden internen Daten-Devices verknüpft wird.
 
 **Zuordnung (Software => Hardware):**
 
@@ -102,11 +103,11 @@ Die Daten stehen dem System jetzt intern zur Verfügung und es kann z.B. bei den
 Alle weiteren dargestellten Schnittstellen sind nur mit angeschlossener Serial-Extension nutzbar.  
 
 **Unterstütze Hardware**  
-<img src="../img/settings/settings_unterstuetze_bms.png" width="400">  
+![](img/settings/settings_unterstuetze_bms.png){ width="400" }  
 Die Liste der verfügbaren Hardware wird kontinuierlich erweitert, um den Anforderungen und Bedürfnissen unserer Nutzer gerecht zu werden. Das dargestellte Bild dient lediglich zur Veranschaulichung und stellt ein Beispiel dar.
 
 #### Filter
-<img src="../img/settings/settings_schnittstelle_filter.png" width="400">  
+![](img/settings/settings_schnittstelle_filter.png){ width="400" }  
 Dieser Filter dient dazu, Sprünge in den Zellspannungen zu erkennen und herauszufiltern. Die Ansprechschwelle des Filters wird als Prozentsatz im Vergleich zum vorherigen gültigen Wert eingestellt. Sobald die Zellspannung den festgelegten Prozentsatz überschreitet, wird der neue Wert nicht übernommen, jedoch auch nicht als Fehler gewertet.
 
 Die Funktion „Anzahl RX Fehler“ ermöglicht es, die Schwelle festzulegen, ab wann eine Zellspannungsabweichung als Fehler betrachtet wird. Sobald die eingestellte Anzahl an Fehlern überschritten wird, erfolgt keine Aktualisierung des Zeitstempels für das letzte gültige Paket mehr im System.
@@ -114,7 +115,7 @@ Die Funktion „Anzahl RX Fehler“ ermöglicht es, die Schwelle festzulegen, ab
 Durch diese Funktionen wird eine präzisere und stabilere Datenverarbeitung gewährleistet, indem temporäre Spannungssprünge gefiltert und eine Verwertung von fehlerhaften Paketen verhindert wird.
 
 #### Plausibility check
-<img src="../img/settings/settings_schnittstelle_plausibility_check.png" width="500">  
+![](img/settings/settings_schnittstelle_plausibility_check.png){ width="500" }  
 Der "Plausibility Check" ist eine wichtige Funktion, die kontinuierlich den Stromfluss sowie die Zellspannungen der an das System angeschlossenen Data-Devices überwacht.  
 
 Wenn sich die Werte für Strom und Zellspannungen über einen längeren Zeitraum hinweg nicht mehr regelmäßig ändern, deutet dies darauf hin, dass das BMS keine gültigen Daten mehr sendet. In diesem Fall kann davon ausgegangen werden, dass ein Problem im BMS vorliegt.
@@ -133,7 +134,7 @@ flowchart TD
 ```
 <br>
 #### Value Adjustment für SoC-Übermittlung an den Wechselrichter
-<img src="../img/settings/settings_value_adjustment_soc.png" width="500">  
+![](img/settings/settings_value_adjustment_soc.png){ width="500" }  
 Der "Value Adjustment" ermöglicht es, dem Wechselrichter abhängig von der Zellspannung einen angepassten State of Charge (SoC) zu übermitteln. Dabei stehen zwei Betriebsmodi zur Verfügung, die unterschiedliche Anforderungen und Verhaltensweisen abdecken.  
 
 ##### Betriebsmodus 1: Feste SoC-Übermittlung bei definierter Zellspannung
@@ -161,7 +162,7 @@ Dieser Modus ist besonders nützlich für BMS-Systeme, die keinen eigenen SoC me
 **Wichtiger Hinweis:** Stellen Sie sicher, dass die eingetragenen Zellspannungen den Spezifikationen des verwendeten Batteriesystems entsprechen, um eine optimale Funktion und Sicherheit zu gewährleisten.
 
 ### Data device mapping
-<img src="../img/settings/settings_data_device_mapping.png" width="950"> 
+![](img/settings/settings_data_device_mapping.png){ width="950" } 
 
 Die Data Device Mappings dienen dazu, die Zuordnung der seriellen Schnittstelle oder des Bluetooth-Geräts zu dem internen, im BSC (Battery System Controller) verwendeten Data-Device vorzunehmen.
 
@@ -176,7 +177,7 @@ Falls mehrere Geräte an einer seriellen Schnittstelle angeschlossen sind und da
 > **Hinweis:** Die korrekte Konfiguration der Data Device Mappings ist essenziell, um eine störungsfreie Funktionalität zu gewährleisten. Beachten Sie die Adressierungsregeln Ihres BMS-Systems.
 
 ### Relaisausgänge
-<img src="../img/settings/settings_relais.png" width="950">  
+![](img/settings/settings_relais.png){ width="950" }  
 Hier können die grundlegenden Einstellungen zu den Relaisausgängen vorgenommen werden.
 
 * **Auslösung bei**
@@ -194,7 +195,7 @@ Hier können die grundlegenden Einstellungen zu den Relaisausgängen vorgenommen
 Die Logik mit den Triggern zieht sich durch das gesamte System. Es gibt Trigger-Geber, z.B. die Digitaleingänge  und es gibt Trigger-Nehmer, z.B. die Relaisausgänge.
 
 ### Digitaleingänge
-<img src="../img/settings/settings_di.png" width="950">  
+![](img/settings/settings_di.png){ width="950" }  
 Hier können die grundlegenden Einstellungen zu den Digitaleingängen vorgenommen werden.
 
 * **Eingang invertieren**
@@ -203,22 +204,22 @@ Hier können die grundlegenden Einstellungen zu den Digitaleingängen vorgenomme
   Hier kann der Trigger eingestellt werden, auf den der Eingang geht.   Wenn der Eingang High wird, dann wird der hier eingestellte Trigger aktiv.  Ist der Eingang invertiert, dann wird bei einem Low am Eingang der Trigger aktiv.
  
 ### Onewire
-<img src="../img/settings/settings_onewire1_1.png" width="950">  
+![](img/settings/settings_onewire1_1.png){ width="950" }  
 Hier werden die Adressen der Onewire Temperatursensoren festgelegt.    
 
 Der Controller scannt, sobald diese Onewire- Konfigurationsseite aufgerufen ist, zyklisch den Bus nach Onewire-Devices und zeigt diese am  unteren Ende der Seite an.  
 Die Fett dargestellten Devices am unteren Rand sind neue Devices, die noch nicht in der Onewire-Konfigurationsseite gespeichert sind.  
 Dadurch lassen sich neu angeschlossene Sensoren leichter identifizieren.  
 
-<img src="../img/settings/settings_onewire1_2.png" width="950">  
+![](img/settings/settings_onewire1_2.png){ width="950" }  
 
 ### Onewire II
-<img src="../img/settings/settings_onewire2_1.png" width="950">  
+![](img/settings/settings_onewire2_1.png){ width="950" }  
 Hier kann ein Offset zu den jeweiligen Onewire-Temperatursensoren eingestellt werden.
 
 ### Bluetooth
 **Bluetooth steht aktuell nicht zu Verfügung!**  
-<img src="../img/settings/settings_onewire2_2.png" width="950">  
+![](img/settings/settings_onewire2_2.png){ width="950" }  
 Hier können bis zu 7 Bluetooth Devices festgelegt werden, von denen der Controller Daten holt.  
 Dazu muss der Device-Typ und die MAC-Adresse (in Kleinbuchstaben) eingestellt werden.  
 
@@ -226,13 +227,13 @@ Der Controller scannt, sobald diese Konfigurationsseite aufgerufen ist, zyklisch
 und zeigt die letzten 5 gefundenen am unteren Ende der Seite an.  
 
 **Unterstützte Hardware**  
-<img src="../img/settings/settings_unterstuetze_bms_bt.png" width="400">  
+![](img/settings/settings_unterstuetze_bms_bt.png){ width="400" }  
 
 ## Alarmregeln 
 In den Alarmregeln kann eingestellt werden, welche Daten von welchen Devices überwacht werden sollen.  
 
 ### BMS
-<img src="../img/settings/settings_alarmrules_bms.png" width="950">   
+![](img/settings/settings_alarmrules_bms.png){ width="950" }   
 Die BMS Alarmregeln ermöglichen die Überwachung der konfigurierten Data-Devices. Es können verschiedene Parameter des Data-Device überwacht werden, um Alarme zu konfigurieren und automatische Aktionen auszulösen, wenn bestimmte Schwellenwerte erreicht werden.
   
 Der Spannungs-Trigger wird ausgelöst, wenn die Spannung unter den festgelegten "Min"-Wert fällt oder den "Max"-Wert überschreitet. Um unnötige Alarme aufgrund kleiner Schwankungen zu vermeiden, kann eine einstellbare Hysterese hinzugefügt werden, die den Trigger "beruhigt" und erst bei signifikanten Änderungen aktiviert wird.
@@ -257,7 +258,7 @@ Die folgenden Überwachungsfunktionen stehen zur Verfügung:
 |  | Spannung Max | Überwachungs-Obergrenze |
 
 ### Temperatur
-<img src="../img/settings/settings_alarmrules_temperatur.png" width="950">  
+![](img/settings/settings_alarmrules_temperatur.png){ width="950" }  
 An dieser Stelle können die Einstellungen für die Überwachung der Temperaturwerte der Data-Devices und Onewire-Temperatursensoren konfiguriert werden. 
 
 | Option | Beschreibung |
@@ -309,7 +310,7 @@ Hierzu nach der IP-Adresse des BSC "/restapi" hinzufügen (z.B. 192.168.1.100/re
 
 Die dargestellten "cc_"-Werte und "dcc_"-Werte stellen den durch die jeweilige Laderegelung limitierten Strom dar.
 
-<img src="../img/settings/settings_restapi_aktive_drosselung.png" width="250">  
+![](img/settings/settings_restapi_aktive_drosselung.png){ width="250" }  
 
 Falls es nicht möglich ist, die Daten während eines Drosselungs-Events direkt anzuzeigen, besteht die Möglichkeit, diese temporär über eine alternative Plattform wie Home Assistant aufzeichnen zu lassen. Dabei ist zu beachten, dass jede Abfrage der REST-API alle verfügbaren Daten umfasst.
 
@@ -332,4 +333,4 @@ Ein Firmware-Update kann direkt über das Menü angestoßen werden.
 Informationen zum aktuellen Release-Stand, wie auch die dazu passende Beschreibung der Änderungen wird live angezeigt.  
 Korrekt gesetztes Netzwerk-Gateway ist für die Live-Infos vorausgesetzt.
 
-<img src="../img/settings/settings_ota_update.png" width="400">  
+![](img/settings/settings_ota_update.png){ width="400" }  

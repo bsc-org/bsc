@@ -24,8 +24,8 @@ Um eine fehlerfreie Installation zu gewährleisten, beachten Sie bitte folgende 
   4. **Illustrationen und praktische Hinweise:**  
   Die in dieser Dokumentation enthaltenen Abbildungen dienen lediglich der Veranschaulichung. Überprüfen Sie daher immer die Markierungen und Beschriftungen auf Ihrer Platine, um die korrekten Anschlüsse sicherzustellen.
 
-<img src="../img/hardware/hw_stecker_9pol.png" width="300">
-<img src="../img/hardware/hw_stecker_6pol.png" width="300">
+![](img/hardware/hw_stecker_9pol.png){ width="300" }
+![](img/hardware/hw_stecker_6pol.png){ width="300" }
 
 ## Stromversorgung
 Die jeweils zu nutzenden Pins finden Sie als "V IN1" für "+" und GND für "-" aufgedruckt auf Ihrer PCB. Der Betrieb der BSC-Hardware ist in der Standard-Auslieferung für 5V (>=1,5A) ausgelegt. Als stabile Lösung in Sachen Netzteile haben sich Hutschienen-Typen der Firma Meanwell bewährt (z.B. SDR- & DDR-Typen).
@@ -50,10 +50,8 @@ Bei Bedarf ist es möglich die Spannungsversorgung auf mehr als 5V zu erweitern 
 * ansonsten ist ein passender DC-DC Wandler abhängig von der Eingangsspannung zu verwenden
 * Der viereckige Lötpunkt bei U19 ist der 5V Ausgang des DC/DC Wandlers. Auf Polarität achten!
   * Wenn 5V Relais verwendet werden, bitte beachten, dass diese durch den Spannungsregler U19 mitversorgt werden, daher >=1A DC-DC Wandler verwenden
-  * Hier ein Beispiel der U19 Bestückung:<br>
-_<img src="../img/hardware/hw_bestueckung_u19.png" width="600">
-
-
+  * Hier ein Beispiel der U19 Bestückung:  
+![](img/hardware/hw_bestueckung_u19.png){ width="600" }
 
 ## CAN/RS485
 Alle Schnittstellen sind galvanisch getrennt und können somit ohne jegliche Adapter direkt an ein BMS (RS485 -> Serial0-10) oder Inverter (CAN) angeschlossen werden.<br>
@@ -74,28 +72,28 @@ Bitte packen Sie die Platine nicht unnötig ein und sorgen Sie für eine kontinu
 Hierzu müssen teilweise die in der Auslieferung gesetzten Lötjumper mechanisch entfernt werden.<br>
 Dies geschieht am Besten mit einem "Dremel", der nur an der Oberfläche die Kupferschicht entfernt.<br>
 Vorsicht! Es gibt weitere Kupferschichten innerhalb der Platine, diese dürfen natürlich nicht verletzt werden.<br>
-<img src="../img/hardware/hw_trennen_loetjumper.jpg" width="600">
+![](img/hardware/hw_trennen_loetjumper.jpg){ width="600" }
 
 # Jumper Konfiguration
 
 ## J6 für den regulären Betrieb
 Das Öffnen von Jumper J6 wird zur Programmierung einer unprogrammierten Platine benötigt.<br>
 Für den normalen Betrieb ist dieser zu setzen.<br>
-<img src="../img/hardware/hw_jumper_j6.png" height="400">
+![](img/hardware/hw_jumper_j6.png){ width="400" }
 
 ## J4 zur Programmierung
 Das setzen von Jumper J4 wird zur Programmierung einer unprogrammierten Platine benötigt.<br>
 Für den normalen Betrieb bleibt dieser offen.<br>
-<img src="../img/hardware/hw_jumper_j4.png" height="400">
+![](img/hardware/hw_jumper_j4.png){ width="400" }
 
 ## Mittelabgriffe der Relais mit Vin verbinden
 Die Mittelabgriffe (COM) der Relais können durch setzen der jeweiligen Jumper mit dem Vin der Platine verbunden werden.<br>
-<img src="../img/hardware/hw_relais_vin.png" width="600">
+![](img/hardware/hw_relais_vin.png){ width="600" }
 
 ## J14-J16 Aktivieren der Ausgänge
 Diese Relais haben weitere Funktionalitäten, die derzeit nicht mit der Firmware abgebildet sind.<br>
 Daher müssen die Jumper auf die blau markierten Positionen gesetzt werden.<br>
-<img src="../img/hardware/hw_relais_jumper_j14_j16.png" width="600">
+![](img/hardware/hw_relais_jumper_j14_j16.png){ width="600" }
 
 # BSC Display
 Das Display für den BSC wurde in ein [separates Projekt](https://github.com/shining-man/bsc_display) ausgegliedert in dem auch die Firmware zu finden ist.
@@ -103,15 +101,15 @@ Das Display für den BSC wurde in ein [separates Projekt](https://github.com/shi
 ## Unterstützes Display
 Hardware-Version 3.3 des Displays wurde getestet.<br>
 Erhältlich beispielweise über Aliexpress von verschiedenen Versendern.<br>
-<img src="../img/hardware/hw_display.png" width="500">
+![](img/hardware/hw_display.png){ width="500" }
 
 ## Anschluss an das BSC-Mainboard
 Der Anschluss dessen erfolgt über den Extension-Port "J3":
 
 * Die Datenverbindung über den hier kontaktierbaren I²C-Bus der Pins "SCL/SDA", welche 1:1 anzuschließen sind.
 * Eine 5V Spannungsversorgung für das Display ist auch abgreifbar. Diese muss, zusammen mit GND, mit dem dazu passenden Anschluss Ihres Displays verbunden werden.
-<img src="../img/hardware/hw_display_stecker_j3.png" height="400"> 
-<img src="../img/hardware/hw_display_stecker_j3_2.png" height="400">
+![](img/hardware/hw_display_stecker_j3.png){ width="400" }
+![](img/hardware/hw_display_stecker_j3_2.png){ width="400" }
 
 ## Pinout des Displays "WT32-SC01"<br>
-<img src="../img/hardware/hw_pinout_display_wt32sc01.png" width="700">
+![](img/hardware/hw_pinout_display_wt32sc01.png){ width="700" }
