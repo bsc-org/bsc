@@ -132,7 +132,7 @@ flowchart TD
 	n6 --> n10["Zellspannungen ändern sich 'Zeit 1' nicht"]
 	n10 --> n4
 ```
-<br>
+
 #### Value Adjustment für SoC-Übermittlung an den Wechselrichter
 ![](img/settings/settings_value_adjustment_soc.png){ width="500" }  
 Der "Value Adjustment" ermöglicht es, dem Wechselrichter abhängig von der Zellspannung einen angepassten State of Charge (SoC) zu übermitteln. Dabei stehen zwei Betriebsmodi zur Verfügung, die unterschiedliche Anforderungen und Verhaltensweisen abdecken.  
@@ -275,28 +275,28 @@ An dieser Stelle können die Einstellungen für die Überwachung der Temperaturw
 Die Überwachung ist deaktiviert
 
 * **Maximalwert-Überschreitung**  
-Es wird überwacht ob einer der Sensoren den maximal erlaubten Temperaturwert überschreitet.<br>
+Es wird überwacht ob einer der Sensoren den maximal erlaubten Temperaturwert überschreitet.  
 Die maximale erlaubte Temperatur wird mit dem "Wert 1" festgelegt.
   * Referenzsensor: -
   * Wert 1: Maximal erlaubte Temperatur
   * Wert 2: -
 
 * **Minimalwert-Unterchreitung**  
-Es wird überwacht ob einer der Sensoren den minimal erlaubten Temperaturwert unterschreitet.<br>
+Es wird überwacht ob einer der Sensoren den minimal erlaubten Temperaturwert unterschreitet.  
 Die minimal erlaubte Temperatur wird mit dem "Wert 1" festgelegt.
   * Referenzsensor: -
   * Wert 1: Minimal erlaubte Temperatur
   * Wert 2: -
 
 * **Maximalwert-Überschreitung (Referenz)**  
-Es wird überwacht ob einer der Sensoren den maximal erlaubten Temperaturwert überschreitet.<br>
+Es wird überwacht ob einer der Sensoren den maximal erlaubten Temperaturwert überschreitet.  
 Die maximale erlaubte Temperatur gibt der unter "Referenzsensor" festgelegte Sensor vor.
   * Referenzsensor:  Sensornummer des Onewire-Temperatursensors
   * Wert 1: Maximal erlaubte Temperaturdifferenz
   * Wert 2: -
 
 * **Differenzwert-Überwachung**  
-Es wird die maximale Temperaturabweichung der Sensoren untereinander überwacht.<br>
+Es wird die maximale Temperaturabweichung der Sensoren untereinander überwacht.  
 Ist die Differenz zwischen dem Niedrigsten und höchsten Wert zu groß, wird der Trigger ausgelöst.
   * Referenzsensor: -
   * Wert 1: Maximal erlaubte Temperaturdifferenz

@@ -3,7 +3,7 @@
 Pos. | Reichelt Best.Nr. | LCSC Best.Nr. | Anzahl | Einbauplatz | Bemerkung/Hinweis
 -- | -- | -- | -- | -- | --
 1 | LMO78_03-0.5 | C86736 | 1 |   |  
-2 | LMO78_05-0.5 | C909664 | 1 (optional) |   | Wird benötigt bei 12V Versorgungsspannung;<br>
+2 | LMO78_05-0.5 | C909664 | 1 (optional) |   | Wird benötigt bei 12V Versorgungsspannung
   |   |   |   |    |  
   | **Relais** |   |   |   |   
 3 | HJR-4102-L 5V | C396938 | 0-6 |   | bei 5V Versorgungsspannung

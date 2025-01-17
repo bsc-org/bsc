@@ -41,7 +41,7 @@ Bei Bedarf ist es möglich die Spannungsversorgung auf mehr als 5V zu erweitern 
   * Beim Einsatz von 5V Relais ist keine Änderung an diesen Jumpern notwendig
   * Wenn eine höhere Versorgungsspannung > 5V ohne Belastung von U19 für die Relais gewünscht ist
     * Hw-Rev < 2.5
-      * Beim Einsatz von Relais höherer Spannung, die Verbindung 2-1 trennen und 3-2 mit dem Lötkolben überbrücken<br>
+      * Beim Einsatz von Relais höherer Spannung, die Verbindung 2-1 trennen und 3-2 mit dem Lötkolben überbrücken  
       Hinweis: Beim BSC V2.3 ist die Beschriftung der Jumper von JP29 falsch! Aufgedruckt ist 1 links, aber 1 ist auf der rechten Seite.
     * Hw-Rev >= 2.5
       * Beim Einsatz von Relais höherer Spannung, Widerstand R91 entfernen und Lötjumper JP25 setzen.
@@ -54,53 +54,53 @@ Bei Bedarf ist es möglich die Spannungsversorgung auf mehr als 5V zu erweitern 
 ![](img/hardware/hw_bestueckung_u19.png){ width="600" }
 
 ## CAN/RS485
-Alle Schnittstellen sind galvanisch getrennt und können somit ohne jegliche Adapter direkt an ein BMS (RS485 -> Serial0-10) oder Inverter (CAN) angeschlossen werden.<br>
-Die Spannungs-Pegel der genannten Schnittstellen sind "genormt".<br>
+Alle Schnittstellen sind galvanisch getrennt und können somit ohne jegliche Adapter direkt an ein BMS (RS485 -> Serial0-10) oder Inverter (CAN) angeschlossen werden.  
+Die Spannungs-Pegel der genannten Schnittstellen sind "genormt".  
 Ein Seplos-BMS kann direkt über die RJ45-Buchse kontaktiert werden.
 
 ## OneWire
-An die OneWire-Schnittstelle können, ohne zusätzliche weitere Hardware, Temperatursensoren angeschlossen werden.<br>
+An die OneWire-Schnittstelle können, ohne zusätzliche weitere Hardware, Temperatursensoren angeschlossen werden.  
 Die dafür normalerweise notwendigen Pullup-Widerstände sind auf der BSC-Platine schon integriert.
 
 
 # Temperaturmanagement
-Das BSC benötigt eine leichte Thermik zur Kühlung der Platinen-Oberseite.<br>
+Das BSC benötigt eine leichte Thermik zur Kühlung der Platinen-Oberseite.  
 Bitte packen Sie die Platine nicht unnötig ein und sorgen Sie für eine kontinuierliche Belüftung.
 
 
 # Wie trennt man Lötjumper
-Hierzu müssen teilweise die in der Auslieferung gesetzten Lötjumper mechanisch entfernt werden.<br>
-Dies geschieht am Besten mit einem "Dremel", der nur an der Oberfläche die Kupferschicht entfernt.<br>
-Vorsicht! Es gibt weitere Kupferschichten innerhalb der Platine, diese dürfen natürlich nicht verletzt werden.<br>
+Hierzu müssen teilweise die in der Auslieferung gesetzten Lötjumper mechanisch entfernt werden.  
+Dies geschieht am Besten mit einem "Dremel", der nur an der Oberfläche die Kupferschicht entfernt.  
+Vorsicht! Es gibt weitere Kupferschichten innerhalb der Platine, diese dürfen natürlich nicht verletzt werden.  
 ![](img/hardware/hw_trennen_loetjumper.jpg){ width="600" }
 
 # Jumper Konfiguration
 
 ## J6 für den regulären Betrieb
-Das Öffnen von Jumper J6 wird zur Programmierung einer unprogrammierten Platine benötigt.<br>
-Für den normalen Betrieb ist dieser zu setzen.<br>
+Das Öffnen von Jumper J6 wird zur Programmierung einer unprogrammierten Platine benötigt.  
+Für den normalen Betrieb ist dieser zu setzen.  
 ![](img/hardware/hw_jumper_j6.png){ width="400" }
 
 ## J4 zur Programmierung
-Das setzen von Jumper J4 wird zur Programmierung einer unprogrammierten Platine benötigt.<br>
-Für den normalen Betrieb bleibt dieser offen.<br>
+Das setzen von Jumper J4 wird zur Programmierung einer unprogrammierten Platine benötigt.  
+Für den normalen Betrieb bleibt dieser offen.  
 ![](img/hardware/hw_jumper_j4.png){ width="400" }
 
 ## Mittelabgriffe der Relais mit Vin verbinden
-Die Mittelabgriffe (COM) der Relais können durch setzen der jeweiligen Jumper mit dem Vin der Platine verbunden werden.<br>
+Die Mittelabgriffe (COM) der Relais können durch setzen der jeweiligen Jumper mit dem Vin der Platine verbunden werden.  
 ![](img/hardware/hw_relais_vin.png){ width="600" }
 
 ## J14-J16 Aktivieren der Ausgänge
-Diese Relais haben weitere Funktionalitäten, die derzeit nicht mit der Firmware abgebildet sind.<br>
-Daher müssen die Jumper auf die blau markierten Positionen gesetzt werden.<br>
+Diese Relais haben weitere Funktionalitäten, die derzeit nicht mit der Firmware abgebildet sind.  
+Daher müssen die Jumper auf die blau markierten Positionen gesetzt werden.  
 ![](img/hardware/hw_relais_jumper_j14_j16.png){ width="600" }
 
 # BSC Display
 Das Display für den BSC wurde in ein [separates Projekt](https://github.com/shining-man/bsc_display) ausgegliedert in dem auch die Firmware zu finden ist.
 
 ## Unterstützes Display
-Hardware-Version 3.3 des Displays wurde getestet.<br>
-Erhältlich beispielweise über Aliexpress von verschiedenen Versendern.<br>
+Hardware-Version 3.3 des Displays wurde getestet.  
+Erhältlich beispielweise über Aliexpress von verschiedenen Versendern.  
 ![](img/hardware/hw_display.png){ width="500" }
 
 ## Anschluss an das BSC-Mainboard
@@ -109,7 +109,7 @@ Der Anschluss dessen erfolgt über den Extension-Port "J3":
 * Die Datenverbindung über den hier kontaktierbaren I²C-Bus der Pins "SCL/SDA", welche 1:1 anzuschließen sind.
 * Eine 5V Spannungsversorgung für das Display ist auch abgreifbar. Diese muss, zusammen mit GND, mit dem dazu passenden Anschluss Ihres Displays verbunden werden.
 ![](img/hardware/hw_display_stecker_j3.png){ width="400" }
-![](img/hardware/hw_display_stecker_j3_2.png){ width="400" }
+![](img/hardware/hw_display_stecker_j3_2.png){ width="200" }
 
-## Pinout des Displays "WT32-SC01"<br>
+## Pinout des Displays "WT32-SC01"
 ![](img/hardware/hw_pinout_display_wt32sc01.png){ width="700" }
