@@ -42,7 +42,7 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 
 Anbei die Auflösung der Statusmeldungen des NEEY:
 
-<img src="../img/devices/devices_neey_status.png" width="520">
+![](../img/devices/devices_neey_status.png){  width="520" }
 
 
 ## Anbindungs-Beispiele
@@ -61,9 +61,9 @@ Der BSC unterstützt die Integration eines einzelnen Seplos BMS sowie mehrerer S
 
 **Bei einer Kontaktierung über den RJ45 Anschluss muss [dieser](../hardware.md#j6-fur-den-regularen-betrieb) Jumper gesetzt werden.**
 
-![BSC-Seplos-Single-Config](../img/devices/devices_seplos_config_single.png)
+![](../img/devices/devices_seplos_config_single.png)
 
-![BSC-Seplos-Multi-Config](../img/devices/devices_seplos_config_multi.png)
+![](../img/devices/devices_seplos_config_multi.png)
 
 #### Besonderheiten
 
@@ -124,7 +124,7 @@ Jedes Pack bekommt eine eigene ID, welche über die DIP-Schalter zu definieren i
 
 #### RS485 Datenübertragung (BMS) in der BSC-Software konfigurieren 
 * Bei Direktanschluss über Serial2: Im BSC unter Einstellungen -> Schnittstellen ->  Serial2 das "JK Inverter BMS" auswählen, da nur eine Schnittstelle für mehrere Packs im DaisyChain-Verbund genutzt werden muss. 
-* Die Device-Mapping-Konfiguration der angeschlossenen Geräte wird [hier](#data-device-mapping) erläutert<br>
+* Die Device-Mapping-Konfiguration der angeschlossenen Geräte wird [hier](../settings_bsc.md/#data-device-mapping) erläutert<br>
 * Danach sollte jedes Pack im BSC z.B. unter den Livedaten -> BMS Daten zu finden sein.<br>
 
 #### CAN Datenübertragung (Inverter) konfigurieren
@@ -134,7 +134,7 @@ Für die Übertragung der Daten per CAN an z.B. ein Victron CerboGX, müssen Sie
  3. Nun die "Datenquelle (Master)" auf Serial 2 definieren
  4. Unter "Valuehandling Multi-BMS" festlegen, wie der SoC zu übertragen / berechnen ist. "Mittelwert" z.B. übergibt den Mittelwert über alle angeschlossenen BMS.
  5. Datenquelle (Master) auswählen (darauf bezieht sich z.B. die Temperatur unter dem Punkt "Battery Temperature" an Victron gesendet werden, die Max und Min Temperaturen über alle Packs hinweg, bleiben davon unberührt) und für jedes weitere BMS unter "+Datenquelle" eine weitere Serielle Schnittstelle entsprechend auswählen.<br> 
-<img src="../img/settings/settings_inverter_datquelle.png" width="550">
+![](../img/settings/settings_inverter_datquelle.png){  width="550" }
 
 #### Besonderheiten
 ##### Zuordnung der Temperatursensoren

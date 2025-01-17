@@ -122,7 +122,7 @@ Dieser Port wird mit einem handelsüblichen Netzwerkkabel verbunden. Drei einzel
 | CAN-GND  | Pin 6  | Orange |
 
 <br>
-<img src="https://github.com/user-attachments/assets/be00e6c9-a8d3-440e-8858-03fcc53b8436" width="600">
+![](../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu.png){ width="450" }
 
 #### Einstellung am Wechselrichter
 "Bat Set 1: Batt Mode "Lithium", Bat Set 3: "Lithium Mode 00"<br> 
