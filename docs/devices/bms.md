@@ -54,7 +54,8 @@ Der BSC unterstützt die Integration eines einzelnen Seplos BMS sowie mehrerer S
 #### Bedingungen / Tipps für einen MultiPack Daisy-Chain-Verbund:
 * In der Seplos Software ist die automatische Adressierung deaktiviert (Upload Parameter -> auf der rechten Seite ganz nach unten)
 * Die DIP Switch sind auf RS485 Konfiguration zu schalten
-* Verbinden des BMS mit einem beliebigen Serialport des BSC<br>Hinweis: [JP6](../hardware.md#j6-fur-den-regularen-betrieb) muss geschlossen sein.
+* Verbinden des BMS mit einem beliebigen Serialport des BSC  
+Hinweis: [JP6](../hardware.md#j6-fur-den-regularen-betrieb) muss geschlossen sein.
 * Falls es zu einem Problem im Verbund mit plötzlich nicht mehr antwortenden Seplos-BMS kommt, kann die Firmware 16.06.04 (oder evtl auch neuere) evtl. Abhilfe schaffen. Bei dem teilweise vorkommenden Problem lassen die BMS keine serielle Verbindung mehr zu, was nur mit einem BMS-Reboot wieder zu beheben ist.
 
 #### Anschlussmöglichkeiten grafisch dargestellt
@@ -100,16 +101,16 @@ Danach ist jedes Pack im BSC zu finden. Akku 1 -> BMS(2), Akku 2 -> BMS(3), ...
 
 ### JK Inverter
 
-Das JK Inverter BMS kann mit einem handelsüblichen RJ45-Patchkabel mit dem BSC verbunden werden.<br>
-Dieser BSC-Port wird in der Software mit "Serial 2" benannt. Für die Benutzung dieser Schnittstelle muss JP6 geschlossen sein.<br>
-Einzelne BMS, wie auch eine MultiPack-Konfiguration über DaisyChain ist möglich.<br>
+Das JK Inverter BMS kann mit einem handelsüblichen RJ45-Patchkabel mit dem BSC verbunden werden.  
+Dieser BSC-Port wird in der Software mit "Serial 2" benannt. Für die Benutzung dieser Schnittstelle muss JP6 geschlossen sein.  
+Einzelne BMS, wie auch eine MultiPack-Konfiguration über DaisyChain ist möglich.  
 
 #### Einstellung für DaisyChain in der JK App
 * Bei einem DaisyChain-Verbund muss das UART Protokoll auf allen BMSen auf Protokoll 1  (JK BMS RS485 Modbus V1.0) umgestellt werden. 
 
 #### Adressierung
-Das BSC übernimmt die Rolle des Masters, die DIP Adresse 0 darf dadurch also nicht mehr an ein BMS vergeben werden.<br>
-Jedes Pack bekommt eine eigene ID, welche über die DIP-Schalter zu definieren ist. Keine Adresse darf doppelt vergeben werden.<br>
+Das BSC übernimmt die Rolle des Masters, die DIP Adresse 0 darf dadurch also nicht mehr an ein BMS vergeben werden.  
+Jedes Pack bekommt eine eigene ID, welche über die DIP-Schalter zu definieren ist. Keine Adresse darf doppelt vergeben werden.  
 
 #### Physikalische Verbindung 
 
@@ -124,8 +125,8 @@ Jedes Pack bekommt eine eigene ID, welche über die DIP-Schalter zu definieren i
 
 #### RS485 Datenübertragung (BMS) in der BSC-Software konfigurieren 
 * Bei Direktanschluss über Serial2: Im BSC unter Einstellungen -> Schnittstellen ->  Serial2 das "JK Inverter BMS" auswählen, da nur eine Schnittstelle für mehrere Packs im DaisyChain-Verbund genutzt werden muss. 
-* Die Device-Mapping-Konfiguration der angeschlossenen Geräte wird [hier](../settings_bsc.md/#data-device-mapping) erläutert<br>
-* Danach sollte jedes Pack im BSC z.B. unter den Livedaten -> BMS Daten zu finden sein.<br>
+* Die Device-Mapping-Konfiguration der angeschlossenen Geräte wird [hier](../settings_bsc.md/#data-device-mapping) erläutert  
+* Danach sollte jedes Pack im BSC z.B. unter den Livedaten -> BMS Daten zu finden sein.  
 
 #### CAN Datenübertragung (Inverter) konfigurieren
 Für die Übertragung der Daten per CAN an z.B. ein Victron CerboGX, müssen Sie unter "Einstellungen -> Wechselrichter & Laderegelung -> Allgemein" folgende Einstellungen vornehmen:
@@ -133,7 +134,8 @@ Für die Übertragung der Daten per CAN an z.B. ein Victron CerboGX, müssen Sie
  2. CAN Protokoll auswählen z.B. VICTRON
  3. Nun die "Datenquelle (Master)" auf Serial 2 definieren
  4. Unter "Valuehandling Multi-BMS" festlegen, wie der SoC zu übertragen / berechnen ist. "Mittelwert" z.B. übergibt den Mittelwert über alle angeschlossenen BMS.
- 5. Datenquelle (Master) auswählen (darauf bezieht sich z.B. die Temperatur unter dem Punkt "Battery Temperature" an Victron gesendet werden, die Max und Min Temperaturen über alle Packs hinweg, bleiben davon unberührt) und für jedes weitere BMS unter "+Datenquelle" eine weitere Serielle Schnittstelle entsprechend auswählen.<br> 
+ 5. Datenquelle (Master) auswählen (darauf bezieht sich z.B. die Temperatur unter dem Punkt "Battery Temperature" an Victron gesendet werden, die Max und Min Temperaturen über alle Packs hinweg, bleiben davon unberührt) und für jedes weitere BMS unter "+Datenquelle" eine weitere Serielle Schnittstelle entsprechend auswählen.  
+
 ![](../img/settings/settings_inverter_datquelle.png){  width="550" }
 
 #### Besonderheiten

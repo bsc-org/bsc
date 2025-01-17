@@ -41,13 +41,13 @@ style BSC fill:#ffdbaa
 * **BMS:** Verschiedene BMS können über RS485, CAN, oder Bluetooth verbunden werden. Von diesen werden dann aktuelle Zustandsinformationen der Batterien, wie Zellspannungen, SOC oder Temperaturen abgerufen. Siehe [hier im Wiki](devices/bms.md)
 * **Temperatursensoren:** Es können zusätzliche Temperatursensoren über Onewire oder Digital- bzw. Analogeingänge angeschlossen werden, welche die Informationen des angeschlossenen BMS ergänzen.
 * **Balancer:** Balancer von NEEY können vom BSC angesteuert werden, inklusive Abruf der aktuellen Zustandsinformationen und Steuerung des Balancers.
-* **Shunt:** Der BSC kann den SoC einer Batterie von einem externen Shunt abrufen. Derzeit wird ein Victron SmartShunt unterstützt. Da dieser nur über UART kommuniziert, wird ein zusätzlicher RS485/UART Konverter benötigt. <br>
+* **Shunt:** Der BSC kann den SoC einer Batterie von einem externen Shunt abrufen. Derzeit wird ein Victron SmartShunt unterstützt. Da dieser nur über UART kommuniziert, wird ein zusätzlicher RS485/UART Konverter benötigt.  
 Siehe [hier im Wiki](devices/externer_shunt.md)
-* **Inverter:** Der BSC kommuniziert mit verschiedenen Wechselrichtern über CAN-Bus, wie z.B. Victron, Solis oder DEYE. Dabei kann der aktuelle Batteriezustand gemeldet werden, und auch Konfigurationsparameter, wie z.B. zur Ladesteuerung, gesetzt werden. <br>
+* **Inverter:** Der BSC kommuniziert mit verschiedenen Wechselrichtern über CAN-Bus, wie z.B. Victron, Solis oder DEYE. Dabei kann der aktuelle Batteriezustand gemeldet werden, und auch Konfigurationsparameter, wie z.B. zur Ladesteuerung, gesetzt werden.  
 Siehe [hier im Wiki](devices/wechselrichter.md)
-* **MQTT Broker:** Alle Zustandsdaten können zusätzlich über WLAN an einen MQTT Broker gesendet werden, um diese langfristig zu speichern und zu visualisieren (z.B. über Grafana). <br>
+* **MQTT Broker:** Alle Zustandsdaten können zusätzlich über WLAN an einen MQTT Broker gesendet werden, um diese langfristig zu speichern und zu visualisieren (z.B. über Grafana).  
 Siehe [hier im Wiki](mqtt.md)
-* **REST Client:** Zustandsdaten über die überwachten Batterien oder über den BSC können über eine HTTP REST API abgerufen werden.<br>
+* **REST Client:** Zustandsdaten über die überwachten Batterien oder über den BSC können über eine HTTP REST API abgerufen werden.  
 Siehe [hier im Wiki](settings_bsc.md#derzeit-aktive-inverter-drosselung)
 
 ## Verfügbare Schnittstellen

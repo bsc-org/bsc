@@ -11,16 +11,16 @@ Wird der vtrigger 1 aktiviert, dann wird auch Trigger 1 aktiv.
 
 `{Device Name}/input/vtrigger/{Trigger Nummer}`
 
-{Device Name}: Der Device Name aus den System-Settings<br>
+{Device Name}: Der Device Name aus den System-Settings  
 {Trigger Nummer}: Triggernummer von 1 bis 10
 
-Payload:<br>
-0 -> Trigger Low<br>
+Payload:  
+0 -> Trigger Low  
 1 -> Trigger High
 
 # MQTT in Home-Assistant integrieren
-Um die Übersichtlichkeit der configuration.yaml zu wahren, können getrennte MQTT-Config-Dateien genutzt werden.<br>
-Sinnvoll ist es z.B. pro angebundener Hardware eine Datei zu generieren.<br>
+Um die Übersichtlichkeit der configuration.yaml zu wahren, können getrennte MQTT-Config-Dateien genutzt werden.  
+Sinnvoll ist es z.B. pro angebundener Hardware eine Datei zu generieren.  
 
 Folgende Programmzeile ist in der "config/configuration.yaml" zu hinterlegen:
 
@@ -49,8 +49,8 @@ Die Dateien müssen zur Integration statt ".txt" in ".yaml" umbenannt werden.
 Leider unterstützt Github .yaml nicht.  
 
 #### DataDevices
-Der DataDeviceName muss von Ihnen, je nach BSC-Konfiguration, korrekt in den Dateien benamt werden.<br>
-Die Stelle hierzu ist mit dem Kürzel "{DataDeviceName}" markiert.<br>
+Der DataDeviceName muss von Ihnen, je nach BSC-Konfiguration, korrekt in den Dateien benamt werden.  
+Die Stelle hierzu ist mit dem Kürzel "{DataDeviceName}" markiert.  
 {DataDeviceName} = Definierter Klartext-Name im Data device mapping.
 
 #### UniqueID
