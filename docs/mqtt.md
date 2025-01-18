@@ -18,7 +18,7 @@ Payload:
 0 -> Trigger Low  
 1 -> Trigger High
 
-# MQTT in Home-Assistant integrieren
+## MQTT in Home-Assistant integrieren
 Um die Übersichtlichkeit der configuration.yaml zu wahren, können getrennte MQTT-Config-Dateien genutzt werden.  
 Sinnvoll ist es z.B. pro angebundener Hardware eine Datei zu generieren.  
 
@@ -36,7 +36,7 @@ Dieses muss händisch erstellt werden.
 Nun müssen die .yaml Dateien an dieser Stelle abgelegt werden.
 HomeAssistant wird jede der Dateien beim Boot einlesen und auswerten.
 
-## Beispielkonfigurationen
+### Beispielkonfigurationen
 Folgend findet Ihr Beispielkonfigurationen für verschiedene Hardware:
 
 * BSC intern
@@ -44,16 +44,16 @@ Folgend findet Ihr Beispielkonfigurationen für verschiedene Hardware:
 * Inverter
 * Neey-Balancer
 
-### Konfiguration anpassen
+#### Konfiguration anpassen
 Die Dateien müssen zur Integration statt ".txt" in ".yaml" umbenannt werden.
 Leider unterstützt Github .yaml nicht.  
 
-#### DataDevices
+##### DataDevices
 Der DataDeviceName muss von Ihnen, je nach BSC-Konfiguration, korrekt in den Dateien benamt werden.  
 Die Stelle hierzu ist mit dem Kürzel "{DataDeviceName}" markiert.  
 {DataDeviceName} = Definierter Klartext-Name im Data device mapping.
 
-#### UniqueID
+##### UniqueID
 Innerhalb der Dateien gibt es pro Sensorwert eine UniqueID welche von jedem definiert werden muss.  
 Generieren kann man diese beispielsweise mit der "Version 1" auf https://www.uuidgenerator.net/version1 .
 
@@ -68,14 +68,14 @@ Die selbe Vorgehensweise funktioniert über VisualStudioCode mit dem Addon "UUID
 ![](img/mqtt/mqtt_uuid_generator_3.jpg)  
 => Speichern
 
-### Dateien
+#### Dateien
 
 [BSC-Internal.txt](files/mqtt_internal.txt)  
 [BSC-Inverter.txt](files/mqtt_inverter.txt)  
 [BSC-BMS-DataDevice.txt](files/bsc_bms_datadevice.txt)  
 [BSC-Neey1_BLE.txt](files/mqtt_neey1_ble.txt)
 
-## Vorhandene MQTT-Konfiguration in neuem Verzeichnis integrieren
+### Vorhandene MQTT-Konfiguration in neuem Verzeichnis integrieren
 Wenn im Vorhinein eine dedizierte mqtt.yaml im Config-Hauptverzeichnis verwendet wurde, kann diese einfach in das soeben erzeugte Verzeichnis kopiert und genutzt werden.  
 Hierbei ist zu beachten, dass in den ausgegliederten Konfigurationsdateien der Befehl "sensor:" nicht mehr vorhanden sein darf.  
 Weiterhin müssen die Definitionen nun eine Tabulatorstelle nach links gerückt werden.  
@@ -112,3 +112,6 @@ Weiterhin müssen die Definitionen nun eine Tabulatorstelle nach links gerückt 
           name: "BSC-Inverter",
         }
 ```
+
+### Nützliche Tools
+Automatische Erstellung des BSC in HA: <a href="https://github.com/dominikfe/ha_bsc_discovery_automation" target="_blank">https://github.com/dominikfe/ha_bsc_discovery_automation</a> 
