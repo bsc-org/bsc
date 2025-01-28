@@ -74,7 +74,7 @@ Bitte beachten Sie, dass das Tilde-Zeichen (~) derzeit als Passwort-Zeichen <u>n
 Sobald MQTT aktiviert ist und die zugehörige IP-Adresse und der Port eingestellt ist, sendet der BSC zyklisch die Daten an den MQTT-Broker.
 
 **vTrigger**  
-Mit "Remanenze vTrigger" kann welcher vTrigger als speichernd definiert werden soll. Ein speichernder vTrigger stellt sicher, dass seine Werte auch nach einem Neustart (Reboot) oder einem Spannungsausfall automatisch wiederhergestellt werden.  
+Mit "Remanenze vTrigger" kann festgelegt werden, welcher vTrigger als speichernd definiert werden soll. Ein speichernder vTrigger stellt sicher, dass seine Werte auch nach einem Neustart (Reboot) oder einem Spannungsausfall automatisch wiederhergestellt werden.  
 Mehr zum Thema vTrigger unter [MQTT](mqtt.md#virtual-trigger).
 
 ### Zeitserver
