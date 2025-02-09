@@ -162,13 +162,13 @@ Dieses Autobalance-Feature bietet eine automatisierte Lösung, um die Akkuzellen
 Den genauen Ablauf des Balance-Vorgangs kann mit dem MQTT-Topic "/Inverter/autoBalState" visualisiert werden.  
 Funktion der fünf verfügbaren States:  
 
-0) Autobalancing ist deaktiviert
-1) BSC wartet auf den nächsten Startzeitpunkt
-2) Balancing wurde nicht fertig und es wird am nächsten Tag wiederholt
-3) Startzeitpunkt erreicht; BSC wartet auf die Start-Zellspannung
-4) Start-Zellspannung erreicht; Autoblancing ist jetzt aktiv
-5) Celldif. fertig wurde erreicht, aber die Balance-Ladespannung ist noch nicht erreicht
-6) Balance-Ladespannung erreicht; warten bis Mindestzeit abgelaufen
+  0) Autobalancing ist deaktiviert
+  1) BSC wartet auf den nächsten Startzeitpunkt
+  2) Balancing wurde nicht fertig und es wird am nächsten Tag wiederholt
+  3) Startzeitpunkt erreicht; BSC wartet auf die Start-Zellspannung
+  4) Start-Zellspannung erreicht; Autoblancing ist jetzt aktiv
+  5) Celldif. fertig wurde erreicht, aber die Balance-Ladespannung ist noch nicht erreicht
+  6) Balance-Ladespannung erreicht; warten bis Mindestzeit abgelaufen
 
 ### Charge-Current Cut-Off
 Diese Funktion unterbricht den Ladestrom, wenn er für eine bestimmte Zeitspanne unterhalb einem eingestellten Strom-Wert liegt.  
