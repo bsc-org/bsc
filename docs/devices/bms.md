@@ -7,7 +7,7 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 - **Adresse Multipack**: Diese Adresse ist die Start-Adresse, die am BMS sowie im Device-Data-Mapping konfiguriert wird. Sie gibt die Adresse des ersten BMS in einem Multipack-System an. Weitere BMS in der Kette erhalten automatisch fortlaufende Adressen basierend auf dieser Start-Adresse.
 
 ## Serial BMS
-| Typ | HW-Version | SW-Version | Adresse Singlepack<br>BMS / DDM| Adresse Multipack<br>BMS / DDM |
+| Typ | HW-Version | SW-Version | Adresse Singlepack<br>BMS / BSC| Adresse Multipack<br>BMS / BSC |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 | **Jiabaida/JBD** |
 | JBD-DP24S002 |  |  | - | - |
@@ -26,7 +26,7 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 | Sylcin       |  |  | 0 / 1 | 0 / 1 |
 | **Gobel** |
 | GP-SR1-RN150 |  | | ? | ? |
-| GP-SR1-PC200<br>(needs testing) |  | |  ? | ? |
+| GP-SR1-PC200<br>(needs testing) |  | |  ? | 2 / 2 |
 
 ## Shunts (Serial)
 | Typ | HW-Version | SW-Version |
