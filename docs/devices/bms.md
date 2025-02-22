@@ -26,7 +26,7 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 | Sylcin       |  |  | 0 / 1 | 0 / 1 |
 | **Gobel** |
 | GP-SR1-RN150 |  | | ? | ? |
-| GP-SR1-PC200<br>(needs testing) |  | |  ? | 2 / 2 | RS485B |
+| GP-SR1-PC200 |  | |  2 / 2 | 2 / 2 | RS485B |
 
 ## Shunts (Serial)
 | Typ | HW-Version | SW-Version |
