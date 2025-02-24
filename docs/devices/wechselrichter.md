@@ -5,11 +5,11 @@
 
 ### Physische Verbindung der Komponenten
 
-* Victron Intern  
-MP2 <-> MK3-USB-Adapter <-> VenusOS (z.B. RaspberryPi+CAN,RS485-Shild)   
+* Victron interne Verkabelung   
+MP2 <-> MK3-USB-Adapter <-> VenusOS (z.B. CerboGX, RaspberryPi + CAN-Shield)   
 
-* BSC  
-BSC (CAN) <-> RaspberryPi+CAN-Shild    
+* Anschluss des BSC  
+BSC (CAN-Anschluss) <-> CerboGX / RaspberryPi + CAN-Shield    
 
 ### CAN-Verbindung
 * H auf H
