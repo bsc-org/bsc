@@ -90,9 +90,7 @@ In den Schnittstellen Einstellungen wird eingestellt was an welcher Schnittstell
 ![](img/settings/settings_serial.png){ width="950" }  
 In diesem Abschnitt legen Sie fest, welche Hardware an welchen seriellen Port angeschlossen ist. Darüber hinaus ist es erforderlich, im Abschnitt "Data Device Mapping" zu konfigurieren, welche serielle Schnittstelle welchem internen Daten-Device zugeordnet wird.
 
-Detaillierte Informationen zur Einrichtung des Data Device Mapping finden sie im Kapitel  
-Test1: [Data device mapping](#data-device-mapping).  
-Test2: [Data device mapping](settings_bsc.md/#data-device-mapping).
+Detaillierte Informationen zur Einrichtung des Data Device Mapping finden sie im Kapitel [Data device mapping](#data-device-mapping)  
 
 Diese Konfiguration stellt sicher, dass die angeschlossene Hardware korrekt erkannt und mit den entsprechenden internen Daten-Devices verknüpft wird.
 
