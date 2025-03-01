@@ -15,18 +15,18 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 | JK-B2A20S20P | V11.XW | 11.25H | - | - |
 | JK-B2A24S20P | V10.XW | V10.09 | - | - |
 | **JK Inverter-BMS** |
-| JK-PB1A16S15P | V14 | V14.20 | 1 / 1 | 1 / 1 |
-| JK-PB1A16S15P | V15 | V15.17 | 1 / 1 | 1 / 1 |
-| JK-PB2A16S20P | V15 | V15.17 | 1 / 1 | 1 / 1 |
+| [JK-PB1A16S15P](#jk-inverter) | V14 | V14.20 | 1 / 1 | 1 / 1 |
+| [JK-PB1A16S15P](#jk-inverter) | V15 | V15.17 | 1 / 1 | 1 / 1 |
+| [JK-PB2A16S20P](#jk-inverter) | V15 | V15.17 | 1 / 1 | 1 / 1 |
 | **Seplos** |
-| Seplos       | 10C |  | 0 / 0 | 1 / 1 |
-| Seplos       | 10E | 16.4 | 0 / 0 | 1 / 1 |
+| [Seplos](#seplos)| 10C |  | 0 / 0 | 1 / 1 |
+| [Seplos](#seplos) | 10E | 16.4 | 0 / 0 | 1 / 1 |
 | Seplos V3    |  |  | ? | ? |
 | **Sylcin (z.B. Taico Akku)** |
-| Sylcin       |  |  | 0 / 1 | 0 / 1 |
+| [Sylcin](#sylcin) |  |  | 0 / 1 | 0 / 1 |
 | **Gobel** |
 | GP-SR1-RN150 |  | | ? | ? |
-| GP-SR1-PC200 |  | |  2 / 2 | 2 / 2 | RS485B |
+| [GP-SR1-PC200](#pace-pc200) |  | |  2 / 2 | 2 / 2 | RS485B |
 
 ## Shunts (Serial)
 | Typ | HW-Version | SW-Version |
