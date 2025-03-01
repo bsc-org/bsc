@@ -28,11 +28,6 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 | GP-SR1-RN150 |  | | ? | ? |
 | [GP-SR1-PC200](#pace-pc200) |  | |  2 / 2 | 2 / 2 | RS485B |
 
-## Shunts (Serial)
-| Typ | HW-Version | SW-Version |
-| ------------ | ------------ | ------------ |
-| Victron SmartShunt |  | |
-
 ## Bluetooth Devices
 | Typ | HW-Version | SW-Version |
 | ------------ | ------------ | ------------ |
