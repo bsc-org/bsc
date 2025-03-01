@@ -160,3 +160,23 @@ Ab V0.7.2_T4:
 | 2 | T2 |
 | 3 | T4 |
 | 4 | T5 |
+
+### Pace PC200
+
+Das Pace PC200 BMS ist beispielsweise in den von Gobel Power verkauften GP-SR1-PC200 Akkupacks verbaut.  
+Der BSC unterstützt hier das einzelne Pack, wie auch die Anbindung mehrerer Packs als DaisyChain-Verbund. In beiden Fällen wird lediglich ein einzelner serieller Anschluss am BSC benötigt.  
+Als Verkabelung zum BSC kann ein handelsübliches RJ45-Kabel verwendet werden. Der Port am Akku-Pack ist auf den folgenden Bildern ersichtlich und mit RS485-B auf dem Pack gekennzeichnet.  
+Die jeweilige Schnittstelle ist unter den seriellen Port-Einstellungen, wie auch im DeviceMapping zu definieren.  
+
+#### Einzel-Pack-Konfiguration
+
+Bei einer Einzel-Pack-Konfiguration fungiert das BSC als Master (Adresse 1), daher bekommt das angeschlossene Akku-Pack per Dipswitch die Adresse 2 zugeteilt.
+
+![](../img/devices/devices_Pace_PC200-Singlepack.png)
+
+#### Multi-Pack-Konfiguration
+
+Auch bei einer Multi-Pack-Konfiguration fungiert das BSC als Master (Adresse 1).  
+Die weiteren angeschlossenen Packs erhalten aufsteigend die Adressen 2 und folgende.
+
+![](../img/devices/devices_Pace_PC200-Multipack.png)
