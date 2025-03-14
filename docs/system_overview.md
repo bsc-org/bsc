@@ -52,7 +52,7 @@ Siehe [hier im Wiki](settings_bsc.md#derzeit-aktive-inverter-drosselung)
 
 ## Verfügbare Schnittstellen
 * **WLAN:** Zugriff auf das BSC-Webinterface, Übertragung von MQTT-Daten
-* **Bluetooth:** Abruf von BMS-Daten (JK), Kommunikation mit NEEY-Balancer
+* **Bluetooth:** ~~Kommunikation mit NEEY-Balancer~~
 * **RS485:** Abruf von BMS-Daten
 * **CAN Bus:** Abruf von BMS-Daten, Kommunikation mit Wechselrichtern
 * **HTTP REST:** Abruf von Batterie- und BSC-Zustandsinformationen
