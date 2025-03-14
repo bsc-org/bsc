@@ -62,6 +62,7 @@ nav:
     - Sonstiges: 
       - Test ohne BSC Hardware: BSC_ohne_orig_hardware.md
       - Bestückung Varianten: bestückung_varianten.md
+  - Insider: insider.md
   - Issues:
     - Issues: https://github.com/shining-man/bsc_fw/issues
     - Issues (Nur für Sponsoren): https://github.com/bsc-org/bsc_fw_insider/issues
