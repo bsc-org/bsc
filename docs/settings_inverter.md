@@ -123,6 +123,24 @@ Diese experimentelle Funktion begrenzt die Ladespannung basierend auf der Zellsp
 * **Start-Zellspannung:** Zellspannung, ab der die Begrenzung aktiv wird.
 * **Spannungs-Delta Min/Max:** Der maximale Unterschied zwischen der niedrigsten und höchsten Zellspannung.
 
+### Spannungsregelung zur Ladestrombegrenzung
+> Diese Funktionen steht nur Sponsoren zur Verfügung  
+
+Sobald die Funktion aktiviert ist, wird die Ladespannung dynamisch angepasst, um den Ladestrom innerhalb des konfigurierten Korridors zu halten. Sollte der Ladestrom den definierten Bereich überschreiten oder unterschreiten, greift die Spannungsregelung ein und korrigiert die Spannung entsprechend. Zusätzlich wird der an den Wechselrichter übermittelte Ladestrom auf 0 A gesetzt.  
+
+Die Regelung tritt ausschließlich in Kraft, wenn der Autobalancer nicht aktiv ist.   
+
+**Einstellmöglichkeiten:**
+
+* **Ein/Aus:** Die Regelung kann entweder dauerhaft aktiviert oder deaktiviert werden.  
+Alternativ ist es möglich, sie nur dann zu aktivieren, wenn eine definierte Triggerbedingung erfüllt ist. Dadurch lässt sich die Regelung beispielsweise in ein Home-Automation-System integrieren, sodass sie nur im Sommer aktiv ist und im Winter die volle Kapazität der Batterie zur Verfügung steht.
+* **Aktiv ab (SoC):** Hier kann festgelegt werden, ab welchem Ladezustand (State of Charge, SoC) die Regelung in Kraft tritt. Dies ermöglicht eine gezielte Anpassung an verschiedene Anforderungen.
+* **Regelungskorridor (±):** Definiert den zulässigen Schwankungsbereich für den Ladestrom. Innerhalb dieses Korridors erfolgt keine Regelung. Über- oder Unterschreitet der Ladestrom diesen Bereich, wird die Ladespannung automatisch angepasst.
+
+**Anwendungsbereiche:**  
+Die Funktion ermöglicht es, den Akku nur bis zu einem bestimmten SoC zu laden, um seine Lebensdauer zu verlängern.
+
+
 ### Autobalance
 Das Autobalance-Feature übernimmt die vollständige Balancierung Ihrer Akkuzellen, um eine optimale Leistung und Lebensdauer des Akkus sicherzustellen. Im Folgenden werden die wichtigsten Einstellungen und Abläufe beschrieben:
 ![](img/settings/settings_inverter_charge_autobalance.png){  width="950" }  
