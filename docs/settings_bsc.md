@@ -143,6 +143,7 @@ In diesem Modus wird die Zellspannung definiert, bei der der Wechselrichter eine
 **Hinweis:** Für diesen Modus muss das Feld "Cellvoltage for SoC 0%" leer bleiben. Dies stellt sicher, dass nur die obere Schwelle (für 100% SoC) berücksichtigt wird und die Berechnung des SoC allein durch das BMS erfolgt, wenn die Zellspannung unter die festgelegte Schwelle sinkt.  
 
 **Beispiel:**  
+
 - Cellvoltage für SoC 100%: 3,5 V
   - Bei einer Zellspannung von 3,5 V oder höher wird dem Wechselrichter ein SoC von 100% übermittelt.
   - Fällt die Zellspannung unter 3,5 V, erfolgt die SoC-Übermittlung wieder regulär durch das BMS.
@@ -151,6 +152,7 @@ In diesem Modus wird die Zellspannung definiert, bei der der Wechselrichter eine
 In diesem Modus werden zwei Zellspannungsschwellen definiert: Eine obere Schwelle für 100% SoC und eine untere Schwelle für 0% SoC. Wenn die Zellspannung die obere Schwelle erreicht oder überschreitet, wird dem Wechselrichter ein SoC von 100% übermittelt. Erreicht oder unterschreitet die Zellspannung die untere Schwelle, wird ein SoC von 0% übermittelt. Für Zellspannungen zwischen diesen beiden Werten wird der SoC linear berechnet und entsprechend an den Wechselrichter gesendet.  
 
 **Beispiel:**
+
 - Cellvoltage für SoC 100%: 3,5 V
 - Cellvoltage für SoC 0%: 2,9 V
   - Bei einer Zellspannung von 3,5 V oder höher wird dem Wechselrichter ein SoC von 100% übermittelt.
