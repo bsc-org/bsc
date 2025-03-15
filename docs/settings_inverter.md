@@ -128,7 +128,11 @@ Diese experimentelle Funktion begrenzt die Ladespannung basierend auf der Zellsp
 
 Sobald die Funktion aktiviert ist, wird die Ladespannung dynamisch angepasst, um den Ladestrom innerhalb des konfigurierten Korridors zu halten. Sollte der Ladestrom den definierten Bereich überschreiten oder unterschreiten, greift die Spannungsregelung ein und korrigiert die Spannung entsprechend. Zusätzlich wird der an den Wechselrichter übermittelte Ladestrom auf 0 A gesetzt.  
 
-Die Regelung tritt ausschließlich in Kraft, wenn der Autobalancer nicht aktiv ist.   
+Die Regelung tritt ausschließlich in Kraft, wenn der Autobalancer nicht aktiv ist.  
+
+Die Diagramme zeigen eine Victron-Anlage mit aktivierter Spannungsregelung. Deutlich erkennbar ist, dass der Ladestrom begrenzt wird und keine Energie in den Akku fließt. Stattdessen wird die überschüssige Energie ins Netz eingespeist, während der SoC (State of Charge) über die Zeit nahezu konstant bleibt.
+![](img/settings/settings_inverter_SpgRegLadestrombegrenzungGrafana.png){ width="950" }  
+![](img/settings/settings_inverter_SpgRegLadestrombegrenzungVrm.png){ width="950" }  
 
 **Einstellmöglichkeiten:**
 
