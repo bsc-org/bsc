@@ -12,6 +12,9 @@ MP2 <-> MK3-USB-Adapter <-> VenusOS (z.B. CerboGX, RaspberryPi + CAN-Shield)
 BSC (CAN-Anschluss) <-> CerboGX / RaspberryPi + CAN-Shield    
 
 ### CAN-Verbindung
+
+Bitte darauf achten, dass der bei Victron beiliegende RJ45-Abschlusswiderstand am Anschlussende, zumeist der Cerbo, gesetzt ist.  
+
 * H auf H
 * L auf L
 * GND auf GND
