@@ -200,8 +200,10 @@ Nach diesem Abbruch wird die bisher verwendete Soll-Lade-Spannung von der Absorp
 
 * **Ein/Aus:** Aktivieren oder Deaktivieren der Funktion.
 * **Cut-Off Time:** Zeitspanne, in der der Ladestrom unter einem bestimmten Wert liegen muss, bevor er auf 0 A gesetzt wird.
-* **Cut-Off Strom:** Der Gesamt-Ladestrom, unterhalb dessen die Cut-Off-Zeit zu zählen beginnt.
-* **Start-Zellspannung:** Zellspannung, ab der die Cut-Off-Regelung aktiv wird.
+* **Cut-Off Strom:** Der Cut-Off-Strom ist der Gesamt-Ladestrom, unterhalb dessen die Cut-Off-Zeit beginnt. Der Gesamt-Ladestrom wird als Mittelwert berechnet, seit die eingestellte Start-Zellspannung (falls vorhanden) überschritten wurde.  
+Überschreitet während des Prozesses der Mittelwert des Gesamt-Ladestroms erneut den Cut-Off-Strom, setzt sich sowohl der Timer als auch der Mittelwert zurück.
+* **Start-Zellspannung:** Die Start-Zellspannung ist die Spannung, ab der die Cut-Off-Regelung aktiv wird. Sobald diese überschritten wurde und der Cut-Off-Strom unterschritten ist, bleibt der Timer aktiv.  
+Ein erneutes Unterschreiten der Start-Zellspannung führt nicht zum Abbruch des Timers. Der Timer wird ausschließlich zurückgesetzt, wenn der Cut-Off-Strom erneut überschritten wird.
 
 ### SoC beim Unterschreiten der Zellspannung
 Diese Funktion steuert das Nachladen der Zellen basierend auf der Zellspannung.
