@@ -145,7 +145,7 @@ Alternativ ist es möglich, sie nur dann zu aktivieren, wenn eine definierte Tri
 Die Funktion ermöglicht es, den Akku nur bis zu einem bestimmten SoC zu laden, um seine Lebensdauer zu verlängern.
 
 
-### Autobalance
+### Autobalancer
 Das Autobalance-Feature übernimmt die vollständige Balancierung Ihrer Akkuzellen, um eine optimale Leistung und Lebensdauer des Akkus sicherzustellen. Im Folgenden werden die wichtigsten Einstellungen und Abläufe beschrieben:
 ![](img/settings/settings_inverter_charge_autobalance.png){  width="950" }  
 
@@ -176,6 +176,7 @@ Der Vorgang wird automatisch beendet, sobald die Differenz zwischen den Zellspan
 Mit dem Parameter Timeout wird festgelegt, nach welcher maximalen Zeit der Balancierungsprozess automatisch abgebrochen wird, falls die Zellspannungen nicht innerhalb des vorgesehenen Zeitrahmens ausgeglichen werden konnten. Dies schützt das System vor endlosen Balancierungszyklen.
 
 **Erweiterte Optionen**  
+> Hinweis: Die Erweiterten Optionen sind nur in der [Insider Version](insider.md) verfügbar
 
 - **Ballance-Spg. senden, sobald Startzeitpunkt erreicht**  
 Wenn diese Option aktiviert ist, wird die Balance-Spannung gesendet, sobald der festgelegte Startzeitpunkt erreicht ist.  
