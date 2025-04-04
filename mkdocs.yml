@@ -50,14 +50,17 @@ nav:
     - Erste Schritte: first_steps.md
     - Hardware: hardware.md
     - BSC Konfiguration:
+      - Dashboard: dashboard.md
       - Allgemein: settings_bsc.md
       - Wechselrichter: settings_inverter.md
       - Beispielkonfigurationen: beispiel_konfigurationen.md
+      - Das Log des BSC: log.md
     - Unterstüzte Geräte:
       - BMS: devices/bms.md
       - Wechselrichter: devices/wechselrichter.md
       - Externe Shunts: devices/externer_shunt.md
     - MQTT: mqtt.md
+    - REST-API: restapi.md
     - Troubleshooting: troubleshooting.md 
     - Sonstiges: 
       - Test ohne BSC Hardware: BSC_ohne_orig_hardware.md
