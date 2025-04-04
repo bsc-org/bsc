@@ -124,7 +124,7 @@ Diese experimentelle Funktion begrenzt die Ladespannung basierend auf der Zellsp
 * **Spannungs-Delta Min/Max:** Der maximale Unterschied zwischen der niedrigsten und höchsten Zellspannung.
 
 ### Spannungsregelung zur Ladestrombegrenzung
-> Diese Funktionen steht nur Sponsoren zur Verfügung  
+> Diese Funktionen steht nur Insidern zur Verfügung  
 
 Sobald die Funktion aktiviert ist, wird die Ladespannung dynamisch angepasst, um den Ladestrom innerhalb des konfigurierten Korridors zu halten. Sollte der Ladestrom den definierten Bereich überschreiten oder unterschreiten, greift die Spannungsregelung ein und korrigiert die Spannung entsprechend. Zusätzlich wird der an den Wechselrichter übermittelte Ladestrom auf 0 A gesetzt.  
 
@@ -149,6 +149,9 @@ Die Funktion ermöglicht es, den Akku nur bis zu einem bestimmten SoC zu laden, 
 Das Autobalance-Feature übernimmt die vollständige Balancierung Ihrer Akkuzellen, um eine optimale Leistung und Lebensdauer des Akkus sicherzustellen. Im Folgenden werden die wichtigsten Einstellungen und Abläufe beschrieben:
 ![](img/settings/settings_inverter_charge_autobalance.png){  width="950" }  
 
+**Autobal. starten (Trigger)** *(Diese Option steht nur Insidern zur Verfügung)*  
+Der hier konfigurierte Trigger ermöglicht es, den Autobalancer unmittelbar zu starten, wenn er sich aktuell in der Wartezeit bis zum nächsten Intervall befindet. Zu beachten ist, dass der Trigger nach dem Starten des Autobalancers manuell wieder auf „Low“ gesetzt werden muss.
+
 **Balance-Intervall**   
 Mit dem Parameter Balance-Intervall kann festgelegt werden, in welchen zeitlichen Abständen ein Balancing der Akkuzellen durchgeführt werden soll. Dieser Wert bestimmt, wie häufig die Balancierung aktiviert wird, um die Zellspannungen anzugleichen.
 
@@ -171,6 +174,15 @@ Der Vorgang wird automatisch beendet, sobald die Differenz zwischen den Zellspan
 
 **Timeout**   
 Mit dem Parameter Timeout wird festgelegt, nach welcher maximalen Zeit der Balancierungsprozess automatisch abgebrochen wird, falls die Zellspannungen nicht innerhalb des vorgesehenen Zeitrahmens ausgeglichen werden konnten. Dies schützt das System vor endlosen Balancierungszyklen.
+
+**Erweiterte Optionen**  
+
+- **Ballance-Spg. senden, sobald Startzeitpunkt erreicht**  
+Wenn diese Option aktiviert ist, wird die Balance-Spannung gesendet, sobald der festgelegte Startzeitpunkt erreicht ist.  
+- **Bei Start-Zellspg.-Unterschreitung → Step 'Warte auf Start-Zellspg.'**  
+Ist diese Option aktiv, wird bei Unterschreiten der definierten Start-Zellspannung erneut in den Schritt *„Warte auf Start-Zellspg.“* gewechselt. Dadurch werden auch die laufenden Timer zurückgesetzt.  
+- **CutOff ab Step 'Warte auf Start-Zellspg.' deaktivieren**  
+Mit dieser Option wird die CutOff-Funktion bereits im Schritt *„Warte auf Start-Zellspg.“* deaktiviert.  
 
 **Nach dem Balancing**   
 Nach Abschluss des Balancierungsprozesses wird die Ladespannung auf das Floating-Niveau abgesenkt, um den Akku im geladenen Zustand zu halten, ohne ihn weiter zu belasten.
