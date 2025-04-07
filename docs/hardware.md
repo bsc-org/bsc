@@ -28,15 +28,16 @@ Um eine fehlerfreie Installation zu gewährleisten, beachten Sie bitte folgende 
 ![](img/hardware/hw_stecker_6pol.png){ width="300" }
 
 ## Stromversorgung
-Die jeweils zu nutzenden Pins finden Sie als "V IN1" für "+" und GND für "-" aufgedruckt auf Ihrer PCB. Der Betrieb der BSC-Hardware ist in der Standard-Auslieferung für 5V (>=1,5A) ausgelegt. Als stabile Lösung in Sachen Netzteile haben sich Hutschienen-Typen der Firma Meanwell bewährt (z.B. SDR- & DDR-Typen).
+Die jeweils zu nutzenden Pins finden Sie als "V IN1" für "+" und GND für "-" aufgedruckt auf Ihrer PCB. Der Betrieb der BSC-Hardware ist in der Standard-Auslieferung für 5V (>=1,5A) ausgelegt. Als stabile Lösung in Sachen Netzteile haben sich Hutschienen-Varianten der Firma Meanwell bewährt, welche man über den BSC-Shop erwerben kann.
 
-Die Spannungsversorgung sollte redundant erfolgen, d.h. eine Ausfallsicherheit der Versorgung hergestellt werden. In diesem Fall wird, falls ein Netzteil keine Spannung mehr liefert, das Zweite einschreiten und die Platine ohne Unterbrechnung weiterversorgen. Somit könnte die Platine an ein direkt aus dem Akku versorgten DC/DC Netzteil und ein an das EVU-Netz angeschlossenen AC/DC Netzteil angeschlossen werden. Hierfür bietet das BSC zwei separate Eingänge an. Um zu definieren welche Spannungsquelle die Primärspannungsquelle ist, sollte diese 0,1V/0,2V höher eingestellt werden. Dann übernimmt die Stromversorgung des BSCs das Netzteil mit der höher eingestellten Spannung.
+Die Spannungsversorgung sollte redundant erfolgen, d.h. eine Ausfallsicherheit der Versorgung hergestellt werden. In diesem Fall wird, falls ein Netzteil keine Spannung mehr liefert, das Zweite einschreiten und die Platine ohne Unterbrechnung weiterversorgen. Somit könnte die Platine an ein direkt aus dem Akku versorgten DC/DC Netzteil und ein an das EVU-Netz angeschlossenen AC/DC Netzteil angeschlossen werden. Hierfür bietet das BSC zwei separate Eingänge an. Um zu definieren welche Spannungsquelle die Primärspannungsquelle ist, sollte diese ca. 0,2V höher eingestellt werden. Dann übernimmt die Stromversorgung des BSCs das Netzteil mit der höher eingestellten Spannung.
 
 **Erhöhung der Spannungsversorgung:** 
 
 Bei Bedarf ist es möglich die Spannungsversorgung auf mehr als 5V zu erweitern (z.B. 12V / 24V). Dabei sind folgende Bedingungen zu beachten (Achtung, die Platinenkennzeichnung hat sich zwischen verschiedenen Hardwarerevisionen geändert. Angegeben sind diese wie folgt immer als HwRev < 2.5 / HwRev >= 2.5):
 
-* JP28 / R61 (Versorgungsspannung für die BSC-Komponenten): ist im Normalfall gebrückt und muss für höhere Versorgungsspannungen größer 5V getrennt werden
+* JP28 / R61 (Versorgungsspannung für die BSC-Komponenten): ist im Normalfall gebrückt und muss für höhere Versorgungsspannungen größer 5V getrennt werden.  
+Das Bauteil ist durch seine Bedruckung auf der Rückseite der Platine, direkt neben den Lötanschlüssen von U19 zu finden.
 * JP29 / R91 & JP25 (Relais-Spannungsversorgung):
   * Beim Einsatz von 5V Relais ist keine Änderung an diesen Jumpern notwendig
   * Wenn eine höhere Versorgungsspannung > 5V ohne Belastung von U19 für die Relais gewünscht ist
@@ -46,12 +47,12 @@ Bei Bedarf ist es möglich die Spannungsversorgung auf mehr als 5V zu erweitern 
     * Hw-Rev >= 2.5
       * Beim Einsatz von Relais höherer Spannung, Widerstand R91 entfernen und Lötjumper JP25 setzen.
 * U19 ist für eine **höhere Versorgungsspannung** größer 5V mit einem DC-DC Wandler zu bestücken 
-  * bis 27V Eingangsspannung kann z.B. "LMO78_05-1.0" oder ein "Murata OKI-78SR-5/1.5-W36-C" verwendet werden. 
+  * bis 27V Eingangsspannung werden im BSC-Shop passende DCDC-Module angeboten.
 * ansonsten ist ein passender DC-DC Wandler abhängig von der Eingangsspannung zu verwenden
-* Der viereckige Lötpunkt bei U19 ist der 5V Ausgang des DC/DC Wandlers. Auf Polarität achten!
+* Der viereckige Lötpunkt bei U19 ist der 5V Ausgang des DC/DC Wandlers. Hierbei unbedingt auf Polarität achten!
   * Wenn 5V Relais verwendet werden, bitte beachten, dass diese durch den Spannungsregler U19 mitversorgt werden, daher >=1A DC-DC Wandler verwenden
   * Hier ein Beispiel der U19 Bestückung:  
-![](img/hardware/hw_bestueckung_u19.png){ width="600" }
+![](img/hardware/hw_bestueckung_u19.jpg){ width="600" }
 
 ## CAN/RS485
 Alle Schnittstellen sind galvanisch getrennt und können somit ohne jegliche Adapter direkt an ein BMS (RS485 -> Serial0-10) oder Inverter (CAN) angeschlossen werden.  
