@@ -52,7 +52,7 @@ Das Bauteil ist durch seine Bedruckung auf der Rückseite der Platine, direkt ne
 * Der viereckige Lötpunkt bei U19 ist der 5V Ausgang des DC/DC Wandlers. Hierbei unbedingt auf Polarität achten!
   * Wenn 5V Relais verwendet werden, bitte beachten, dass diese durch den Spannungsregler U19 mitversorgt werden, daher >=1A DC-DC Wandler verwenden
   * Hier ein Beispiel der U19 Bestückung:  
-![](img/hardware/hw_bestueckung_u19.jpg){ width="600" }
+![](img/hardware/hw_bestueckung_u19.jpg){ width="400" }
 
 ## CAN/RS485
 Alle Schnittstellen sind galvanisch getrennt und können somit ohne jegliche Adapter direkt an ein BMS (RS485 -> Serial0-10) oder Inverter (CAN) angeschlossen werden.  
