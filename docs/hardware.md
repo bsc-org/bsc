@@ -28,7 +28,8 @@ Um eine fehlerfreie Installation zu gewährleisten, beachten Sie bitte folgende 
 ![](img/hardware/hw_stecker_6pol.png){ width="300" }
 
 ## Stromversorgung
-Die jeweils zu nutzenden Pins finden Sie als "V IN1" für "+" und GND für "-" aufgedruckt auf Ihrer PCB. Der Betrieb der BSC-Hardware ist in der Standard-Auslieferung für 5V (>=1,5A) ausgelegt. Als stabile Lösung in Sachen Netzteile haben sich Hutschienen-Varianten der Firma Meanwell bewährt, welche man über den BSC-Shop erwerben kann.
+Die jeweils zu nutzenden Pins finden Sie als "V IN1" für "+" und GND für "-" aufgedruckt auf Ihrer PCB. Der Betrieb der BSC-Hardware ist in der Standard-Auslieferung für 5V (>=1,5A) ausgelegt. Als stabile Lösung in Sachen Netzteile haben sich Hutschienen-Varianten der Firma Meanwell bewährt, welche man über den <a href="https://bsc-shop.com" target="_blank">BSC-Shop</a>
+ erwerben kann.
 
 Die Spannungsversorgung sollte redundant erfolgen, d.h. eine Ausfallsicherheit der Versorgung hergestellt werden. In diesem Fall wird, falls ein Netzteil keine Spannung mehr liefert, das Zweite einschreiten und die Platine ohne Unterbrechnung weiterversorgen. Somit könnte die Platine an ein direkt aus dem Akku versorgten DC/DC Netzteil und ein an das EVU-Netz angeschlossenen AC/DC Netzteil angeschlossen werden. Hierfür bietet das BSC zwei separate Eingänge an. Um zu definieren welche Spannungsquelle die Primärspannungsquelle ist, sollte diese ca. 0,2V höher eingestellt werden. Dann übernimmt die Stromversorgung des BSCs das Netzteil mit der höher eingestellten Spannung.
 
@@ -47,7 +48,8 @@ Das Bauteil ist durch seine Bedruckung auf der Rückseite der Platine, direkt ne
     * Hw-Rev >= 2.5
       * Beim Einsatz von Relais höherer Spannung, Widerstand R91 entfernen und Lötjumper JP25 setzen.
 * U19 ist für eine **höhere Versorgungsspannung** größer 5V mit einem DC-DC Wandler zu bestücken 
-  * bis 27V Eingangsspannung werden im BSC-Shop passende DCDC-Module angeboten.
+  * bis 27V Eingangsspannung werden im <a href="https://bsc-shop.com" target="_blank">BSC-Shop</a>
+ passende DCDC-Module angeboten.
 * ansonsten ist ein passender DC-DC Wandler abhängig von der Eingangsspannung zu verwenden
 * Der viereckige Lötpunkt bei U19 ist der 5V Ausgang des DC/DC Wandlers. Hierbei unbedingt auf Polarität achten!
   * Wenn 5V Relais verwendet werden, bitte beachten, dass diese durch den Spannungsregler U19 mitversorgt werden, daher >=1A DC-DC Wandler verwenden
