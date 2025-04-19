@@ -59,7 +59,10 @@ Das Bauteil ist durch seine Bedruckung auf der Rückseite der Platine, direkt ne
 ## CAN/RS485
 Alle Schnittstellen sind galvanisch getrennt und können somit ohne jegliche Adapter direkt an ein BMS (RS485 -> Serial0-10) oder Inverter (CAN) angeschlossen werden.  
 Die Spannungs-Pegel der genannten Schnittstellen sind "genormt".  
-Ein Seplos-BMS kann direkt über die RJ45-Buchse kontaktiert werden.
+
+### RS485 (BMS)
+Einige übliche BMS-Typen können direkt über die RJ45-Buchse kontaktiert werden.  
+Wenn Sie mehrere Geräte direkt mit RJ45 anschließen möchten, kann dies teilweise als DaisyChain, oder mit Hilfe des RJ45-Serial-Distributor aus dem <a href="https://bsc-shop.com" target="_blank">BSC-Shop</a> erfolgen.
 
 ## OneWire
 An die OneWire-Schnittstelle können, ohne zusätzliche weitere Hardware, Temperatursensoren angeschlossen werden.  
