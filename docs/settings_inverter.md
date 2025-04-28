@@ -55,6 +55,7 @@ Beispiel: Angenommen, Sie haben einen maximalen Ladestrom von 180A definiert und
 
 Diese Funktion gewährleistet, dass Ihr System auch bei Ausfall von einzelnen Packs stets sicher arbeitet und keine Überstromsituationen entstehen.
 
+<span id="a_ladespannungsrampe"></span>
 ### Ladespannungsrampe
 <div class="bsc_content"><div class="content"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>Ladespannungsrampe</b></td></tr>
