@@ -6,11 +6,11 @@ Im folgenden ist das WebUI V2 abgebildet, welches so aktuell nicht zur Verfügun
 **Speichern der Einstellungen**  
 Das Speichern unterscheidet sich in den WebUI's.  
 
-Classic WebUI:  
+**Classic WebUI:**  
 Die geänderten Einstellungen können mit dem „S"-Button, der in jeder Zeile der Einstellungen ist, gespeichert werden.
 Zu beachten ist, dass auch nur die Einstellung in der jeweiligen Zeile des „S"-Button gespeichert wird.  
 
-WebUI V2  
+**Insider & WebUI V2**:  
 Hier können alle Änderungen über den "Save"-Button in der Headline gespeichert werden. Es muss nicht jeder Änderung einzeln gespeichert werden.
 
 ### Funktionsprinzip der Überwachungsfunktionen
@@ -66,8 +66,26 @@ Nach dem Aufrufen der Webseite über das integrierte WLAN-Modul (IP oder bsc.inf
 ## System
 ![](img/settings/settings_system.png){ width="950" }  
 
-Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzernamen und Passwörter zu den WLAN und MQTT Logins.  
-Bitte beachten Sie, dass das Tilde-Zeichen (~) derzeit als Passwort-Zeichen <u>nicht unterstützt</u> wird.  
+Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzernamen und Passwörter zu den WLAN und MQTT Logins.
+
+### WLAN
+<div class="bsc_content"><div class="content"><form><table>
+<tr class='Ctr'><td class='sep' colspan='3'><b>WLAN</b></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>WLAN SSID</b></td>
+<td class='Ctd'><input type='text' value='SSID' name='34359740928' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2560'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>WLAN Passwort</b></td>
+<td class='Ctd'><input type='password' value='123456' name='34359740992' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2624'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>WLAN connect Timeout</b></td>
+<td class='Ctd'><input type='number' min='0' max='3600' value='30' name='12884908032'></td><td class='t1'>s</td><td class='Ctd'><span class='secVal' id='s6144'></span></td></tr>
+<tr><td colspan='3' class='td0'></td></tr>
+</table></form></div></div>
+
+**Hinweis:** Bitte beachten Sie, dass das Tilde-Zeichen (~) derzeit als Passwort-Zeichen **nicht unterstützt** wird.  
+
+Unter **WLAN Connect Timeout** kann eingestellt werden, nach welcher Zeit ein Verbindungsversuch mit einem WLAN-Netzwerk abgebrochen wird. Wird innerhalb dieser Zeit keine Verbindung hergestellt, erstellt das Gerät automatisch einen eigenen Access Point (AP).  
+Wird der Wert auf **0** gesetzt, ist der Timeout deaktiviert und der Verbindungsversuch wird unbegrenzt fortgesetzt.  
+
+Verliert der BSC die WLAN-Verbindung und erstellt nach dem eingestellten Timeout einen Access Point, versucht er alle **5 Minuten**, die Verbindung mit dem ursprünglichen WLAN-Netzwerk erneut herzustellen.
 
 ### MQTT
 ![](img/settings/settings_system_mqtt.png){ width="300" }    
