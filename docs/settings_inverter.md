@@ -55,6 +55,33 @@ Beispiel: Angenommen, Sie haben einen maximalen Ladestrom von 180A definiert und
 
 Diese Funktion gewährleistet, dass Ihr System auch bei Ausfall von einzelnen Packs stets sicher arbeitet und keine Überstromsituationen entstehen.
 
+### Ladespannungsrampe
+<div class="bsc_content"><div class="content"><form><table>
+<tr class='Ctr'><td class='sep' colspan='3'><b>Ladespannungsrampe</b></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Mit der Funktion wird Ladespannung langsam auf den neuen Wert geändert. Die Ladespannung wird pro Schritt um 100 mV geändert.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox' checked name='38654717824'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s12160'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Zeit pro Spannungsschritt</b></td>
+<td class='Ctd'><input type='number' min='1' max='240' value='5' name='4294979520'></td><td class='t1'>s</td><td class='Ctd'><span class='secVal' id='s12224'></span></td></tr>
+</table></form></div></div>
+
+Die Funktion **Ladespannungsrampe** sorgt dafür, dass Änderungen der Ladespannung – beispielsweise beim Übergang von Float auf Absorption – nicht sprunghaft, sondern in definierten Schritten erfolgen.
+
+**Funktionsweise**:
+
+- Die Ladespannung wird in festen Schritten von 100 mV angepasst.
+- Die Zeitdauer pro 100 mV-Schritt ist konfigurierbar.
+- Die Spannung wird kontinuierlich geändert, bis die Zielspannung erreicht ist.
+
+**Parameter**:
+
+- Zeit pro 100 mV-Schritt (einstellbar)
+
+**Ziel**:
+
+- Vermeidung abrupter Spannungsänderungen
+- Reduzierung von Belastungsspitzen an Batterie und System
+
+**Hinweis**: Die Ladespannungsrampe wird bei jeder Änderung der Sollspannung aktiv, sofern diese Funktion aktiviert ist.
+> Diese Funktionen steht nur Insidern zur Verfügung  
 
 ### Trigger bei SoC
 Mit dieser Funktion kann man beispielsweise externe Gerät je nach SoC-Wert schalten.  
