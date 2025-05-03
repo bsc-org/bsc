@@ -23,7 +23,7 @@ Erst wenn ein vTrigger einmal von extern gesetzt wurde, wird dieser durch ein Ec
 
 | Platzhalter  |Beschreibung   |
 | ------------ | ------------ |
-| {Device Name} |  Der BSC-Device-Name aus den System-Settings|
+| {Device Name} |  "MQTT Device Name" aus den System-Settings|
 | {Trigger Nummer} | Trigger-ID von 1 bis 10 |
 
 #### Zu sendende Payload  
