@@ -4,13 +4,16 @@ Es gibt zu jedem der 10 internen Trigger, einen von ausserhalb ansteuerbaren vir
 Diese können per MQTT oder der [Restapi](restapi.md/#5-vtrigger-post) gesetzt werden.  
 Jeder vTrigger setzt intern seinen korrespondierenden Trigger auf den gesendeten boolschen Wert (0/1).  
 
-Um einen vTrigger "speichernd" über einen Reboot hinaus zu erhalten, kann dieser mit MQTT als "retain" an das BSC gesendet werden.  
+### Zustands-Speicherung
+
+Es gibt zwei Möglichkeiten die vTrigger "speichernd" über einen Reboot hinaus zu erhalten:  
+1) Das Setzen der Trigger mit MQTT kann mit der Option "retain" erfolgen.    
 Sobald das BSC wieder am Broker angemeldet wurde, wird der bisherige Trigger-Zustand durch diesen im BSC automatisch aktualisiert.  
 
-Zusätzlich kann für jeden vTrigger über das BSC-Menü festgelegt werden, ob er speichernd angelegt werden soll.  
+2) Für jeden vTrigger kann über das BSC-Menü festgelegt werden, ob er speichernd angelegt werden soll.  
 Diese Einstellungen der Remanenz befindet sich unter „System“ bei den [MQTT-Optionen](settings_bsc.md/#mqtt).
 
-### MQTT Beispiel
+### MQTT-Beispiel
 Die vTrigger sind erst einmal nicht über z.B. den MQTT-Explorer sichtbar.  
 Erst wenn ein vTrigger einmal von extern gesetzt wurde, wird dieser durch ein Echo auch dargestellt.  
 
