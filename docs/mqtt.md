@@ -6,7 +6,7 @@ Um einen vTrigger "speichernd" zu erhalten, also über einen Reboot des BSC hina
 
 Zusätzlich kann für jeden vTrigger festgelegt werden, ob er speichernd sein soll. Diese Einstellungen befinden sich unter „System“ bei den [MQTT-Optionen](settings_bsc.md/#mqtt).
 
-## Beispiel
+### Beispiel
 Wird der vtrigger 1 aktiviert, dann wird auch Trigger 1 aktiv.
 
 `{Device Name}/input/vtrigger/{Trigger Nummer}`
