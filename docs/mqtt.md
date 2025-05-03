@@ -14,7 +14,7 @@ Diese Einstellungen der Remanenz befindet sich unter „System“ bei den [MQTT-
 Die vTrigger sind erst einmal nicht über z.B. den MQTT-Explorer sichtbar.  
 Erst wenn ein vTrigger einmal von extern gesetzt wurde, wird dieser durch ein Echo auch dargestellt.  
 
-Adresse der vTrigger in MQTT:  
+#### Adresse der vTrigger in MQTT:  
 `{Device Name}/input/vtrigger/{Trigger Nummer}`
 
 | Platzhalter  |Beschreibung   |
