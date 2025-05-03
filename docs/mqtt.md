@@ -7,6 +7,7 @@ Jeder vTrigger setzt intern seinen korrespondierenden Trigger auf den gesendeten
 ### Zustands-Speicherung
 
 Es gibt zwei Möglichkeiten die vTrigger "speichernd" über einen Reboot hinaus zu erhalten:  
+  
 1) Das Setzen der Trigger mit MQTT kann mit der Option "retain" erfolgen.    
 Sobald das BSC wieder am Broker angemeldet wurde, wird der bisherige Trigger-Zustand durch diesen im BSC automatisch aktualisiert.  
 
