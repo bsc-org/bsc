@@ -23,7 +23,9 @@ Für jeden zu überwachenden Wert kann ein Trigger konfiguriert werden, der bei 
   - der Wechselrichter angewiesen werden, seinen Ladestrom auf 0 A zu reduzieren.
 
 
-Diese Logik ermöglicht es, Trigger (als Signalgeber) und verbundene Aktionen (als Signalnehmer) in flexibler Weise zu kombinieren. Es stehen bis zu 10 interne Trigger zur Verfügung.
+Diese Logik ermöglicht es, Trigger (als Signalgeber) und verbundene Aktionen (als Signalnehmer) in flexibler Weise zu kombinieren. Es stehen bis zu 10 interne Trigger zur Verfügung.  
+  
+Ein Setzen dieser Trigger ist auch von einer externen Datenverbindung mit Hilfe der [vTrigger](mqtt.md#virtual-trigger) möglich.  
 
 **Funktionsweise bei mehreren Quellen**  
 Wenn mehrere Quellen mit einem Trigger verbunden sind, gilt folgende Regel:
@@ -31,7 +33,7 @@ Wenn mehrere Quellen mit einem Trigger verbunden sind, gilt folgende Regel:
   - Aktivierung (High): Der Trigger wird aktiv geschaltet, sobald mindestens eine der verbundenen Quellen den definierten Grenzwert überschreitet.
   - Deaktivierung (Low): Der Trigger wird erst deaktiviert, wenn alle verbundenen Quellen wieder in den Normalzustand zurückgekehrt sind.
 
-> **Hinweis:** Insbesondere bei der Verwendung von virtuellen Triggern (vTrigger) ist darauf zu achten, dass diese durch Automatisierungen gezielt deaktiviert werden müssen, um die Trigger-Funktionalität erneut nutzen zu können.
+> **Hinweis:** Insbesondere bei der Verwendung von [virtuellen Triggern (vTrigger)](mqtt.md#virtual-trigger) ist darauf zu achten, dass diese durch Automatisierungen gezielt deaktiviert werden müssen, um die Trigger-Funktionalität erneut nutzen zu können.
 
 **Beispielanwendung**
 
