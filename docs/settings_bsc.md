@@ -102,7 +102,7 @@ Mehr zum Thema vTrigger unter [MQTT](mqtt.md#virtual-trigger).
 Falls Sie einen externen NTP-Server verwenden und mit der Zeitsynchronisierung Probleme haben, können Sie auch den Router Ihres Netzwerkes hierzu verwenden - Dies funktioniert oft stabiler.  
 Am Beispiel einer AVM FritzBox können Sie den Zeitserver im Menü unter Heimnetz/Netzwerk/Netzwerkeinstellungen aktivieren.  
 Als Zeitserver können Sie beispielsweise folgendes definieren: "ntp1.t-online.de; 2.europe.pool.ntp.org".  
-Im BSC muss dann dessen IP-Adresse angegeben werden.
+Im BSC muss dann dessen IP-Adresse angegeben werden. Die Verwendung des Hostname, statt der IP-Adresse, kann zu Problemen führen.
 
 ## Schnittstellen
 In den Schnittstellen Einstellungen wird eingestellt was an welcher Schnittstelle angeschlossen ist. Hier wird **nicht** eingestellt was z.B. mit den Daten von einem BMS oder Balancer passieren soll, oder wann der Relais-Ausgang schalten soll. Dies wird dann bei den Einstellungen zu den Alarmregeln oder dem Wechselrichter gemacht.
