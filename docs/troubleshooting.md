@@ -1,5 +1,17 @@
 ## Software
 
+### Neustart des Gerätes
+Neben dem Geräteneustart durch Abziehen der Spannungsversorgung gibt es die Möglichkeit, den BSC aus Software-Seite neu zu starten.  
+
+Um dies zu erreichen, geben sie bitte die folgende Zeile in die Adresszeile Ihres Webbrowser ein:  
+`BSCIP/restart/`  
+
+`BSCIP` stellt hierbei die aktuelle IP-Adresse Ihres BSC dar - Bitte diese daher ergänzen. 
+
+Falls es derzeit keine WLAN-Verbindung des BSC in Ihr Netz gibt, könnte der interne AccessPoint gestartet worden sein.  
+Dieser wird alle fünf Minuten versuchen, sich in das ursprüngliche Netz wieder einzuwählen.  
+Falls Sie den Neustart trotzdem ausführen möchten, verbinden Sie sich bitte wie [hier](first_steps.md#verbinden-mit-dem-bsc) beschrieben mit dem AccessPoint und führen den Reset durch.
+
 ### Der SoC Wert des BMS und der zum Inverter übertragene Wert stimmen nicht überein
 Hier gibt es drei Möglichkeiten, die dies "verursachen" können.  
 
