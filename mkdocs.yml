@@ -29,6 +29,9 @@ plugins:
 extra_css:
   - css/extra.css
 
+extra_javascript:
+  - js/external-links.js
+
 #extra:
 #  alternate:
 #    - name: Deutsch
