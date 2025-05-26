@@ -1,20 +1,32 @@
 ## Virtual Trigger
 
-Es gibt 10 virtuelle Trigger (vTrigger) die per MQTT gesteuert werden können. Die virtuellen Trigger Daten gehen 1:1 auf die normalen Trigger über.
+Es gibt zu jedem der 10 internen Trigger, einen von ausserhalb ansteuerbaren virtuellen Trigger, die "vTrigger".  
+Diese können per MQTT oder der [Restapi](restapi.md/#5-vtrigger-post) gesetzt werden.  
+Jeder vTrigger setzt intern seinen korrespondierenden Trigger auf den gesendeten boolschen Wert (0/1).  
 
-Um einen vTrigger "speichernd" zu erhalten, also über einen Reboot des BSC hinaus, kann dieser als "retain" an das BSC gesendet werden. Sobald das BSC wieder am Broker angemeldet wurde, wird der Trigger-Zustand dadurch direkt wieder mit dem BSC aktualisiert.  
+### Zustands-Speicherung
 
-Zusätzlich kann für jeden vTrigger festgelegt werden, ob er speichernd sein soll. Diese Einstellungen befinden sich unter „System“ bei den [MQTT-Optionen](settings_bsc.md/#mqtt).
+Es gibt zwei Möglichkeiten die vTrigger "speichernd" über einen Reboot hinaus zu erhalten:  
+  
+1) Das Setzen der Trigger mit MQTT kann mit der Option "retain" erfolgen.    
+Sobald das BSC wieder am Broker angemeldet wurde, wird der bisherige Trigger-Zustand durch diesen im BSC automatisch aktualisiert.  
 
-## Beispiel
-Wird der vtrigger 1 aktiviert, dann wird auch Trigger 1 aktiv.
+2) Für jeden vTrigger kann über das BSC-Menü festgelegt werden, ob er speichernd angelegt werden soll.  
+Diese Einstellungen der Remanenz befindet sich unter „System“ bei den [MQTT-Optionen](settings_bsc.md/#mqtt).
 
+### MQTT-Beispiel
+Die vTrigger sind erst einmal nicht über z.B. den MQTT-Explorer sichtbar.  
+Erst wenn ein vTrigger einmal von extern gesetzt wurde, wird dieser auch im MQTT-Explorer dargestellt.  
+
+#### Adresse der vTrigger in MQTT  
 `{Device Name}/input/vtrigger/{Trigger Nummer}`
 
-{Device Name}: Der Device Name aus den System-Settings  
-{Trigger Nummer}: Triggernummer von 1 bis 10
+| Platzhalter  |Beschreibung   |
+| ------------ | ------------ |
+| {Device Name} |  "MQTT Device Name" aus den System-Settings|
+| {Trigger Nummer} | Trigger-ID von 1 bis 10 |
 
-Payload:  
+#### Zu sendende Payload  
 0 -> Trigger Low  
 1 -> Trigger High
 
