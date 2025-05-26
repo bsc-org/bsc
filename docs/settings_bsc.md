@@ -23,7 +23,9 @@ Für jeden zu überwachenden Wert kann ein Trigger konfiguriert werden, der bei 
   - der Wechselrichter angewiesen werden, seinen Ladestrom auf 0 A zu reduzieren.
 
 
-Diese Logik ermöglicht es, Trigger (als Signalgeber) und verbundene Aktionen (als Signalnehmer) in flexibler Weise zu kombinieren. Es stehen bis zu 10 interne Trigger zur Verfügung.
+Diese Logik ermöglicht es, Trigger (als Signalgeber) und verbundene Aktionen (als Signalnehmer) in flexibler Weise zu kombinieren. Es stehen bis zu 10 interne Trigger zur Verfügung.  
+  
+Ein Setzen dieser Trigger ist auch von einer externen Datenverbindung mit Hilfe der [vTrigger](mqtt.md#virtual-trigger) möglich.  
 
 **Funktionsweise bei mehreren Quellen**  
 Wenn mehrere Quellen mit einem Trigger verbunden sind, gilt folgende Regel:
@@ -31,7 +33,7 @@ Wenn mehrere Quellen mit einem Trigger verbunden sind, gilt folgende Regel:
   - Aktivierung (High): Der Trigger wird aktiv geschaltet, sobald mindestens eine der verbundenen Quellen den definierten Grenzwert überschreitet.
   - Deaktivierung (Low): Der Trigger wird erst deaktiviert, wenn alle verbundenen Quellen wieder in den Normalzustand zurückgekehrt sind.
 
-> **Hinweis:** Insbesondere bei der Verwendung von virtuellen Triggern (vTrigger) ist darauf zu achten, dass diese durch Automatisierungen gezielt deaktiviert werden müssen, um die Trigger-Funktionalität erneut nutzen zu können.
+> **Hinweis:** Insbesondere bei der Verwendung von [virtuellen Triggern (vTrigger)](mqtt.md#virtual-trigger) ist darauf zu achten, dass diese durch Automatisierungen gezielt deaktiviert werden müssen, um die Trigger-Funktionalität erneut nutzen zu können.
 
 **Beispielanwendung**
 
@@ -92,14 +94,15 @@ Verliert der BSC die WLAN-Verbindung und erstellt nach dem eingestellten Timeout
 Sobald MQTT aktiviert ist und die zugehörige IP-Adresse und der Port eingestellt ist, sendet der BSC zyklisch die Daten an den MQTT-Broker.
 
 **vTrigger**  
-Mit "Remanenze vTrigger" kann festgelegt werden, welcher vTrigger als speichernd definiert werden soll. Ein speichernder vTrigger stellt sicher, dass seine Werte auch nach einem Neustart (Reboot) oder einem Spannungsausfall automatisch wiederhergestellt werden.  
+Mit "Remanenz vTrigger" kann festgelegt werden, welcher vTrigger als speichernd definiert werden soll.  
+Ein speichernder vTrigger stellt sicher, dass seine Werte auch nach einem Neustart (Reboot) oder einem Spannungsausfall automatisch wiederhergestellt werden.  
 Mehr zum Thema vTrigger unter [MQTT](mqtt.md#virtual-trigger).
 
 ### Zeitserver
 Falls Sie einen externen NTP-Server verwenden und mit der Zeitsynchronisierung Probleme haben, können Sie auch den Router Ihres Netzwerkes hierzu verwenden - Dies funktioniert oft stabiler.  
 Am Beispiel einer AVM FritzBox können Sie den Zeitserver im Menü unter Heimnetz/Netzwerk/Netzwerkeinstellungen aktivieren.  
 Als Zeitserver können Sie beispielsweise folgendes definieren: "ntp1.t-online.de; 2.europe.pool.ntp.org".  
-Im BSC muss dann dessen IP-Adresse angegeben werden.
+Im BSC muss dann dessen IP-Adresse angegeben werden. Die Verwendung des Hostname, statt der IP-Adresse, kann zu Problemen führen.
 
 ## Schnittstellen
 In den Schnittstellen Einstellungen wird eingestellt was an welcher Schnittstelle angeschlossen ist. Hier wird **nicht** eingestellt was z.B. mit den Daten von einem BMS oder Balancer passieren soll, oder wann der Relais-Ausgang schalten soll. Dies wird dann bei den Einstellungen zu den Alarmregeln oder dem Wechselrichter gemacht.
