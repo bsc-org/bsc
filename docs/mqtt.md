@@ -1,10 +1,10 @@
-## Virtual Trigger
+# Virtual Trigger
 
 Es gibt zu jedem der 10 internen Trigger, einen von ausserhalb ansteuerbaren virtuellen Trigger, die "vTrigger".  
 Diese können per MQTT oder der [Restapi](restapi.md/#5-vtrigger-post) gesetzt werden.  
 Jeder vTrigger setzt intern seinen korrespondierenden Trigger auf den gesendeten boolschen Wert (0/1).  
 
-### Zustands-Speicherung
+## Zustands-Speicherung
 
 Es gibt zwei Möglichkeiten die vTrigger "speichernd" über einen Reboot hinaus zu erhalten:  
   
@@ -14,11 +14,11 @@ Sobald das BSC wieder am Broker angemeldet wurde, wird der bisherige Trigger-Zus
 2) Für jeden vTrigger kann über das BSC-Menü festgelegt werden, ob er speichernd angelegt werden soll.  
 Diese Einstellungen der Remanenz befindet sich unter „System“ bei den [MQTT-Optionen](settings_bsc.md/#mqtt).
 
-### MQTT-Beispiel
+## MQTT-Beispiel
 Die vTrigger sind erst einmal nicht über z.B. den MQTT-Explorer sichtbar.  
 Erst wenn ein vTrigger einmal von extern gesetzt wurde, wird dieser auch im MQTT-Explorer dargestellt.  
 
-#### Adresse der vTrigger in MQTT  
+### Adresse der vTrigger in MQTT  
 `{Device Name}/input/vtrigger/{Trigger Nummer}`
 
 | Platzhalter  |Beschreibung   |
@@ -26,11 +26,13 @@ Erst wenn ein vTrigger einmal von extern gesetzt wurde, wird dieser auch im MQTT
 | {Device Name} |  "MQTT Device Name" aus den System-Settings|
 | {Trigger Nummer} | Trigger-ID von 1 bis 10 |
 
-#### Zu sendende Payload  
+### Zu sendende Payload  
 0 -> Trigger Low  
 1 -> Trigger High
 
-## MQTT in Home-Assistant integrieren
+# MQTT in Verbindung mit Home-Assistant
+
+## Integration
 Um die Übersichtlichkeit der configuration.yaml zu wahren, können getrennte MQTT-Config-Dateien genutzt werden.  
 Sinnvoll ist es z.B. pro angebundener Hardware eine Datei zu generieren.  
 
@@ -124,6 +126,30 @@ Weiterhin müssen die Definitionen nun eine Tabulatorstelle nach links gerückt 
           name: "BSC-Inverter",
         }
 ```
+
+### Generieren eines vTrigger-Schalters
+Folgend finden Sie einen Beispielcode, der in die HA configuration.yaml zu integrieren ist.  
+Mit diesem Code können Sie aus der GUI heraus einen vTrigger des BSC schalten.  
+Im folgendem Beispiel wird vTrigger 1 verwendet- Der Code ist nach Ihren Bedürfnissen anzugleichen:
+
+```yaml
+mqtt:
+  - switch:
+      unique_id: xxxxx-xxx-xxx-xxx-xxxxxxx
+      name: "BSC Autobalance"
+      state_topic: "bsc/trigger/1"
+      command_topic: "bsc/input/vtrigger/1"
+      payload_on: "1"
+      payload_off: "0"
+      state_on: "1"
+      state_off: "0"
+      qos: 0
+      retain: false
+      optimistic: false
+```
+
+Der optische Status des Schalters wird hierbei von dem internen Trigger1-Status gezogen.  
+Wenn Sie stattdessen den Status des vTriggers verwenden möchten, müssen Sie bei "state_topic:" statt dem Topic-Pfad "trigger", "vtrigger" nutzen.
 
 ### Nützliche Tools
 Automatische Erstellung der BSC MQTT-Topics in HA: <a href="https://github.com/dominikfe/ha_bsc_discovery_automation" target="_blank">https://github.com/dominikfe/ha_bsc_discovery_automation</a> 
