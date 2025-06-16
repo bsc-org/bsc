@@ -1,10 +1,10 @@
-# Virtual Trigger
+## Virtual Trigger
 
 Es gibt zu jedem der 10 internen Trigger, einen von ausserhalb ansteuerbaren virtuellen Trigger, die "vTrigger".  
 Diese können per MQTT oder der [Restapi](restapi.md/#5-vtrigger-post) gesetzt werden.  
 Jeder vTrigger setzt intern seinen korrespondierenden Trigger auf den gesendeten boolschen Wert (0/1).  
 
-## Zustands-Speicherung
+### Zustands-Speicherung
 
 Es gibt zwei Möglichkeiten die vTrigger "speichernd" über einen Reboot hinaus zu erhalten:  
   
@@ -14,11 +14,11 @@ Sobald das BSC wieder am Broker angemeldet wurde, wird der bisherige Trigger-Zus
 2) Für jeden vTrigger kann über das BSC-Menü festgelegt werden, ob er speichernd angelegt werden soll.  
 Diese Einstellungen der Remanenz befindet sich unter „System“ bei den [MQTT-Optionen](settings_bsc.md/#mqtt).
 
-## MQTT-Beispiel
+### MQTT-Beispiel
 Die vTrigger sind erst einmal nicht über z.B. den MQTT-Explorer sichtbar.  
 Erst wenn ein vTrigger einmal von extern gesetzt wurde, wird dieser auch im MQTT-Explorer dargestellt.  
 
-### Adresse der vTrigger in MQTT  
+#### Adresse der vTrigger in MQTT  
 `{Device Name}/input/vtrigger/{Trigger Nummer}`
 
 | Platzhalter  |Beschreibung   |
@@ -26,13 +26,13 @@ Erst wenn ein vTrigger einmal von extern gesetzt wurde, wird dieser auch im MQTT
 | {Device Name} |  "MQTT Device Name" aus den System-Settings|
 | {Trigger Nummer} | Trigger-ID von 1 bis 10 |
 
-### Zu sendende Payload  
+#### Zu sendende Payload  
 0 -> Trigger Low  
 1 -> Trigger High
 
-# MQTT in Verbindung mit Home-Assistant
+## MQTT in Verbindung mit Home-Assistant
 
-## Integration
+### Integration
 Um die Übersichtlichkeit der configuration.yaml zu wahren, können getrennte MQTT-Config-Dateien genutzt werden.  
 Sinnvoll ist es z.B. pro angebundener Hardware eine Datei zu generieren.  
 
@@ -50,7 +50,7 @@ Dieses muss händisch erstellt werden.
 Nun müssen die .yaml Dateien an dieser Stelle abgelegt werden.
 HomeAssistant wird jede der Dateien beim Boot einlesen und auswerten.
 
-### Beispielkonfigurationen
+#### Beispielkonfigurationen
 Folgend findet Ihr Beispielkonfigurationen für verschiedene Hardware:
 
 * BSC intern
@@ -58,16 +58,16 @@ Folgend findet Ihr Beispielkonfigurationen für verschiedene Hardware:
 * Inverter
 * Neey-Balancer
 
-#### Konfiguration anpassen
+##### Konfiguration anpassen
 Die Dateien müssen zur Integration statt ".txt" in ".yaml" umbenannt werden.
 Leider unterstützt Github .yaml nicht.  
 
-##### DataDevices
+###### DataDevices
 Der DataDeviceName muss von Ihnen, je nach BSC-Konfiguration, korrekt in den Dateien benamt werden.  
 Die Stelle hierzu ist mit dem Kürzel "{DataDeviceName}" markiert.  
 {DataDeviceName} = Definierter Klartext-Name im Data device mapping.
 
-##### UniqueID
+###### UniqueID
 Innerhalb der Dateien gibt es pro Sensorwert eine UniqueID welche von jedem definiert werden muss.  
 Generieren kann man diese beispielsweise mit der "Version 1" auf https://www.uuidgenerator.net/version1 .
 
@@ -82,19 +82,19 @@ Die selbe Vorgehensweise funktioniert über VisualStudioCode mit dem Addon "UUID
 ![](img/mqtt/mqtt_uuid_generator_3.jpg)  
 => Speichern
 
-#### Dateien
+##### Dateien
 
 [BSC-Internal.txt](files/mqtt_internal.txt)  
 [BSC-Inverter.txt](files/mqtt_inverter.txt)  
 [BSC-BMS-DataDevice.txt](files/bsc_bms_datadevice.txt)  
 [BSC-Neey1_BLE.txt](files/mqtt_neey1_ble.txt)
 
-### Vorhandene MQTT-Konfiguration in neuem Verzeichnis integrieren
+#### Vorhandene MQTT-Konfiguration in neuem Verzeichnis integrieren
 Wenn im Vorhinein eine dedizierte mqtt.yaml im Config-Hauptverzeichnis verwendet wurde, kann diese einfach in das soeben erzeugte Verzeichnis kopiert und genutzt werden.  
 Hierbei ist zu beachten, dass in den ausgegliederten Konfigurationsdateien der Befehl "sensor:" nicht mehr vorhanden sein darf.  
 Weiterhin müssen die Definitionen nun eine Tabulatorstelle nach links gerückt werden.  
 ```yaml
-#### BSC Inverter
+##### BSC Inverter
 
     - state_topic: bsc/inverter/chargeCurrentSoll
       name: DC-Ladestrom Soll
@@ -127,7 +127,7 @@ Weiterhin müssen die Definitionen nun eine Tabulatorstelle nach links gerückt 
         }
 ```
 
-### Generieren eines vTrigger-Schalters
+#### Generieren eines vTrigger-Schalters
 Folgend finden Sie einen Beispielcode, der in die HA configuration.yaml zu integrieren ist.  
 Mit diesem Code können Sie aus der GUI heraus einen vTrigger des BSC schalten.  
 Im folgendem Beispiel wird vTrigger 1 verwendet- Der Code ist nach Ihren Bedürfnissen anzugleichen:
@@ -151,5 +151,5 @@ mqtt:
 Der optische Status des Schalters wird hierbei von dem internen Trigger1-Status gezogen.  
 Wenn Sie stattdessen den Status des vTriggers verwenden möchten, müssen Sie bei "state_topic:" statt dem Topic-Pfad "trigger", "vtrigger" nutzen.
 
-### Nützliche Tools
+#### Nützliche Tools
 Automatische Erstellung der BSC MQTT-Topics in HA: <a href="https://github.com/dominikfe/ha_bsc_discovery_automation" target="_blank">https://github.com/dominikfe/ha_bsc_discovery_automation</a> 
