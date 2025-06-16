@@ -126,4 +126,4 @@ Weiterhin müssen die Definitionen nun eine Tabulatorstelle nach links gerückt 
 ```
 
 ### Nützliche Tools
-Automatische Erstellung des BSC in HA: <a href="https://github.com/dominikfe/ha_bsc_discovery_automation" target="_blank">https://github.com/dominikfe/ha_bsc_discovery_automation</a> 
+Automatische Erstellung der BSC MQTT-Topics in HA: <a href="https://github.com/dominikfe/ha_bsc_discovery_automation" target="_blank">https://github.com/dominikfe/ha_bsc_discovery_automation</a> 
