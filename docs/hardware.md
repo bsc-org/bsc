@@ -43,7 +43,7 @@ Dabei sind folgende Bedingungen zu beachten:
 * JP28 / R61 (Versorgungsspannung für die BSC-Komponenten):
    * Dieses ist im Normalfall gebrückt und muss für höhere Versorgungsspannungen größer 5V getrennt werden.  
      Das Bauteil ist durch seine Bedruckung auf der Rückseite der Platine, direkt neben den Lötanschlüssen von U19 zu finden.
-* JP29 / R91 & JP25 (Relais-Spannungsversorgung)
+* JP29 / R91 & JP25 (Relais-Spannungsversorgung):
    * Beim Einsatz von 5V Relais ist keine Änderung an diesen Jumpern notwendig
    * Wenn JP25 zur Schleiferkontaktierung der Relais genutzt wird, dürfen Spannungen nur bis 24V genutzt werden.
    * Wenn eine höhere Versorgungsspannung > 5V ohne Belastung von U19 für die Relais gewünscht ist
