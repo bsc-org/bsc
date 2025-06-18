@@ -48,12 +48,14 @@ Das Bauteil ist durch seine Bedruckung auf der Rückseite der Platine, direkt ne
     * Hw-Rev >= 2.5
       * Beim Einsatz von Relais höherer Spannung, Widerstand R91 entfernen und Lötjumper JP25 setzen.
 * U19 ist für eine **höhere Versorgungsspannung** größer 5V mit einem DC-DC Wandler zu bestücken 
-  * bis 27V Eingangsspannung werden im <a href="https://bsc-shop.com" target="_blank">BSC-Shop</a>
+  * bis 34V Eingangsspannung werden im <a href="https://bsc-shop.com" target="_blank">BSC-Shop</a>
  passende DCDC-Module angeboten.
-* ansonsten ist ein passender DC-DC Wandler abhängig von der Eingangsspannung zu verwenden
-* Der viereckige Lötpunkt bei U19 ist der 5V Ausgang des DC/DC Wandlers. Hierbei unbedingt auf Polarität achten!
-  * Wenn 5V Relais verwendet werden, bitte beachten, dass diese durch den Spannungsregler U19 mitversorgt werden, daher >=1A DC-DC Wandler verwenden
-  * Hier ein Beispiel der U19 Bestückung:  
+  * Zur rendundanten Spannungsversorgung, oder Spannungen über dem genannten Wert, werden getrennte 5V Netzteile im <a href="https://bsc-shop.com" target="_blank">BSC-Shop</a> angeboten.
+  * Bei Versorgungsspannungen größer 19V können Bauteildefekte durch verpoltes Anschliessen entstehen. Bitte achten Sie hier explizit die Anschlusspolarität um Probleme zu vermeiden.
+  * Wenn JP25 zur Schleiferkontaktierung der Relais genutzt wird, dürfen Spannungen nur bis 24Vdc genutzt werden.
+  * Der viereckige Lötpunkt bei U19 ist der 5V Ausgang des DC/DC Wandlers. Hierbei unbedingt auf Polarität achten!
+    * Wenn 5V Relais verwendet werden, bitte beachten, dass diese durch den Spannungsregler U19 mitversorgt werden, daher >=1A DC-DC Wandler verwenden
+    * Hier ein Beispiel der U19 Bestückung:  
 ![](img/hardware/hw_bestueckung_u19.jpg){ width="400" }
 
 ## CAN/RS485
