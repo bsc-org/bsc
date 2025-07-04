@@ -144,6 +144,89 @@ Der Ladestrom wird reduziert, wenn der Ladezustand (State of Charge, SoC) einen 
 * **Pro 1% um x A reduzieren:** Gibt an, um wie viel der Strom pro 1% SoC reduziert werden soll.
 * **Mindest-Ladestrom:** Der niedrigste Strom, der beim Laden verwendet wird.
 
+### Ladestrom reduzieren - Temperatur
+Die temperaturgesteuerte Ladestromregelung ermöglicht es, den Ladestrom automatisch basierend auf der gemessenen Temperatur zu regulieren. Die Funktion nutzt die Data Devices, die unter "Datenquelle" konfiguriert wurden, um kontinuierlich die Temperaturwerte zu überwachen und den Ladestrom entsprechend anzupassen.
+
+**Wichtig:** Die Regelung kann in beide Richtungen konfiguriert werden - sowohl für Drosselung bei steigenden Temperaturen als auch für Drosselung bei fallenden Temperaturen.
+
+#### Konfiguration
+**Sensoren**  
+In diesem Bereich können die spezifischen Temperatursensoren ausgewählt werden, die für die Regelung verwendet werden sollen. Es können ein oder mehrere Sensoren aus den verfügbaren Data Devices gewählt werden.
+
+**Reduzieren Start**  
+Hier wird die Temperatur definiert, ab der die Stromreduzierung beginnt. Diese kann sowohl höher als auch niedriger als die Endtemperatur sein.
+
+**Reduzieren Ende**  
+Diese Einstellung legt die Temperatur fest, bei der der Ladestrom vollständig auf 0 A reduziert wird. Liegt dieser Wert unter der Starttemperatur, wird bei fallenden Temperaturen gedrosselt.
+
+#### Funktionsweise
+Die Regelung erfolgt linear zwischen den beiden konfigurierten Temperaturschwellen. Je nach Konfiguration wird der Ladestrom bei steigenden oder fallenden Temperaturen gedrosselt.
+
+**Zwei Betriebsarten:**
+
+1. **Drosselung bei steigender Temperatur:** Reduzieren Start < Reduzieren Ende (z.B. 20 °C → 40 °C)
+2. **Drosselung bei fallender Temperatur:** Reduzieren Start > Reduzieren Ende (z.B. 40 °C → 20 °C)
+
+**Regelungsverhalten bei steigender Temperatur (Start < Ende):**
+
+- **Unterhalb der Starttemperatur:** Ladung mit maximalem Strom
+- **Zwischen Start- und Endtemperatur:** Lineare Stromreduzierung bei steigender Temperatur
+- **Oberhalb der Endtemperatur:** Ladestrom auf 0 A (Ladung gestoppt)
+
+**Regelungsverhalten bei fallender Temperatur (Start > Ende):**
+
+- **Oberhalb der Starttemperatur:** Ladung mit maximalem Strom
+- **Zwischen Start- und Endtemperatur:** Lineare Stromreduzierung bei fallender Temperatur
+- **Unterhalb der Endtemperatur:** Ladestrom auf 0 A (Ladung gestoppt)
+
+**Regelungsverhalten:**
+
+- **Unterhalb der Starttemperatur:** Ladung mit maximalem Strom
+- **Zwischen Start- und Endtemperatur:** Lineare Stromreduzierung
+- **Oberhalb der Endtemperatur:** Ladestrom auf 0 A (Ladung gestoppt)
+
+#### Praxisbeispiel
+**Beispiel 1: Drosselung bei steigender Temperatur**
+**Konfiguration:**
+
+- Maximaler Ladestrom: 100 A
+- Reduzieren Start: 20 °C
+- Reduzieren Ende: 40 °C
+
+**Regelungsverhalten:**
+
+- Bei Temperaturen bis 20 °C: Ladung mit voller Leistung (100 A)
+- Bei 30 °C (Mitte zwischen Start und Ende): Ladestrom auf 50 A reduziert
+- Bei 40 °C und darüber: Ladestrom auf 0 A (Ladung gestoppt)
+
+**Beispiel 2: Drosselung bei fallender Temperatur**
+**Konfiguration:**
+
+- Maximaler Ladestrom: 100 A
+- Reduzieren Start: 40 °C
+- Reduzieren Ende: 20 °C
+
+**Regelungsverhalten:**
+
+- Bei Temperaturen ab 40 °C: Ladung mit voller Leistung (100 A)
+- Bei 30 °C (Mitte zwischen Start und Ende): Ladestrom auf 50 A reduziert
+- Bei 20 °C und darunter: Ladestrom auf 0 A (Ladung gestoppt)
+
+**Berechnung des aktuellen Ladestroms:**
+```
+Aktueller Ladestrom = Maximaler Ladestrom × |Endtemperatur - Aktuelle Temperatur| / |Endtemperatur - Starttemperatur|
+```
+
+Beispiel 1 bei 35 °C (Start: 20 °C, Ende: 40 °C):
+```
+Ladestrom = 100 A × |40 °C - 35 °C| / |40 °C - 20 °C| = 100 A × 5/20 = 25 A
+```
+
+Beispiel 2 bei 25 °C (Start: 40 °C, Ende: 20 °C):
+```
+Ladestrom = 100 A × |20 °C - 25 °C| / |20 °C - 40 °C| = 100 A × 5/20 = 25 A
+```
+
 ### Dynamische Ladespannungsbegrenzung (Beta!) 
 Diese experimentelle Funktion begrenzt die Ladespannung basierend auf der Zellspannung und dem Spannungsunterschied zwischen den Zellen.
 
