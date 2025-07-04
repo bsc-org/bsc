@@ -145,6 +145,8 @@ Der Ladestrom wird reduziert, wenn der Ladezustand (State of Charge, SoC) einen 
 * **Mindest-Ladestrom:** Der niedrigste Strom, der beim Laden verwendet wird.
 
 ### Ladestrom reduzieren - Temperatur
+> Diese Funktionen steht nur Insidern zur Verfügung  
+
 Die temperaturgesteuerte Ladestromregelung ermöglicht es, den Ladestrom automatisch basierend auf der gemessenen Temperatur zu regulieren. Die Funktion nutzt die Data Devices, die unter "Datenquelle" konfiguriert wurden, um kontinuierlich die Temperaturwerte zu überwachen und den Ladestrom entsprechend anzupassen.
 
 **Wichtig:** Die Regelung kann in beide Richtungen konfiguriert werden - sowohl für Drosselung bei steigenden Temperaturen als auch für Drosselung bei fallenden Temperaturen.
