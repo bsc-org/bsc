@@ -164,55 +164,44 @@ Diese Einstellung legt die Temperatur fest, bei der der Ladestrom vollständig a
 #### Funktionsweise
 Die Regelung erfolgt linear zwischen den beiden konfigurierten Temperaturschwellen. Je nach Konfiguration wird der Ladestrom bei steigenden oder fallenden Temperaturen gedrosselt.
 
-**Zwei Betriebsarten:**
+1. **Regelungsverhalten bei steigender Temperatur (Start < Ende)** (z.B. 20 °C → 40 °C)
 
-1. **Drosselung bei steigender Temperatur:** Reduzieren Start < Reduzieren Ende (z.B. 20 °C → 40 °C)
-2. **Drosselung bei fallender Temperatur:** Reduzieren Start > Reduzieren Ende (z.B. 40 °C → 20 °C)
+    - Unterhalb der Starttemperatur: Ladung mit maximalem Strom
+    - Zwischen Start- und Endtemperatur: Lineare Stromreduzierung bei steigender Temperatur
+    - Oberhalb der Endtemperatur: Ladestrom auf 0 A (Ladung gestoppt)
 
-**Regelungsverhalten bei steigender Temperatur (Start < Ende):**
+    **Beispiel**:  
+    **Konfiguration:**
 
-- **Unterhalb der Starttemperatur:** Ladung mit maximalem Strom
-- **Zwischen Start- und Endtemperatur:** Lineare Stromreduzierung bei steigender Temperatur
-- **Oberhalb der Endtemperatur:** Ladestrom auf 0 A (Ladung gestoppt)
+    - Maximaler Ladestrom: 100 A
+    - Reduzieren Start: 20 °C
+    - Reduzieren Ende: 40 °C
 
-**Regelungsverhalten bei fallender Temperatur (Start > Ende):**
+    **Regelungsverhalten:**
 
-- **Oberhalb der Starttemperatur:** Ladung mit maximalem Strom
-- **Zwischen Start- und Endtemperatur:** Lineare Stromreduzierung bei fallender Temperatur
-- **Unterhalb der Endtemperatur:** Ladestrom auf 0 A (Ladung gestoppt)
+    - Bei Temperaturen bis 20 °C: Ladung mit voller Leistung (100 A)
+    - Bei 30 °C (Mitte zwischen Start und Ende): Ladestrom auf 50 A reduziert
+    - Bei 40 °C und darüber: Ladestrom auf 0 A (Ladung gestoppt)
+<br><br>
 
-**Regelungsverhalten:**
+2. **Regelungsverhalten bei fallender Temperatur (Start > Ende)** (z.B. 40 °C → 20 °C)
 
-- **Unterhalb der Starttemperatur:** Ladung mit maximalem Strom
-- **Zwischen Start- und Endtemperatur:** Lineare Stromreduzierung
-- **Oberhalb der Endtemperatur:** Ladestrom auf 0 A (Ladung gestoppt)
+    - Oberhalb der Starttemperatur: Ladung mit maximalem Strom
+    - Zwischen Start- und Endtemperatur: Lineare Stromreduzierung bei fallender Temperatur
+    - Unterhalb der Endtemperatur: Ladestrom auf 0 A (Ladung gestoppt)
 
-#### Praxisbeispiel
-**Beispiel 1: Drosselung bei steigender Temperatur**
-**Konfiguration:**
+    **Beispiel:**  
+    **Konfiguration:**
 
-- Maximaler Ladestrom: 100 A
-- Reduzieren Start: 20 °C
-- Reduzieren Ende: 40 °C
+    - Maximaler Ladestrom: 100 A
+    - Reduzieren Start: 40 °C
+    - Reduzieren Ende: 20 °C
 
-**Regelungsverhalten:**
+    **Regelungsverhalten:**
 
-- Bei Temperaturen bis 20 °C: Ladung mit voller Leistung (100 A)
-- Bei 30 °C (Mitte zwischen Start und Ende): Ladestrom auf 50 A reduziert
-- Bei 40 °C und darüber: Ladestrom auf 0 A (Ladung gestoppt)
-
-**Beispiel 2: Drosselung bei fallender Temperatur**
-**Konfiguration:**
-
-- Maximaler Ladestrom: 100 A
-- Reduzieren Start: 40 °C
-- Reduzieren Ende: 20 °C
-
-**Regelungsverhalten:**
-
-- Bei Temperaturen ab 40 °C: Ladung mit voller Leistung (100 A)
-- Bei 30 °C (Mitte zwischen Start und Ende): Ladestrom auf 50 A reduziert
-- Bei 20 °C und darunter: Ladestrom auf 0 A (Ladung gestoppt)
+    - Bei Temperaturen ab 40 °C: Ladung mit voller Leistung (100 A)
+    - Bei 30 °C (Mitte zwischen Start und Ende): Ladestrom auf 50 A reduziert
+    - Bei 20 °C und darunter: Ladestrom auf 0 A (Ladung gestoppt)
 
 **Berechnung des aktuellen Ladestroms:**
 ```
