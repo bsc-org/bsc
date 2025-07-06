@@ -179,7 +179,7 @@ Die Regelung erfolgt linear zwischen den beiden konfigurierten Temperaturschwell
 
     **Regelungsverhalten:**
 
-    - Bei Temperaturen bis 20 °C: Ladung mit voller Leistung (100 A)
+    - Bei Temperaturen bis 20 °C: Ladung mit vollem Strom (100 A)
     - Bei 30 °C (Mitte zwischen Start und Ende): Ladestrom auf 50 A reduziert
     - Bei 40 °C und darüber: Ladestrom auf 0 A (Ladung gestoppt)
 <br><br>
@@ -199,7 +199,7 @@ Die Regelung erfolgt linear zwischen den beiden konfigurierten Temperaturschwell
 
     **Regelungsverhalten:**
 
-    - Bei Temperaturen ab 40 °C: Ladung mit voller Leistung (100 A)
+    - Bei Temperaturen ab 40 °C: Ladung mit vollem Strom (100 A)
     - Bei 30 °C (Mitte zwischen Start und Ende): Ladestrom auf 50 A reduziert
     - Bei 20 °C und darunter: Ladestrom auf 0 A (Ladung gestoppt)
 
