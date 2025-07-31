@@ -93,6 +93,11 @@ Verliert der BSC die WLAN-Verbindung und erstellt nach dem eingestellten Timeout
 ![](img/settings/settings_system_mqtt.png){ width="300" }    
 Sobald MQTT aktiviert ist und die zugehörige IP-Adresse und der Port eingestellt ist, sendet der BSC zyklisch die Daten an den MQTT-Broker.
 
+**MQTT Sendeintervall**  
+Durch die Vielzahl der zu übertragenen Daten, gibt es im BSC zwei unterschiedlich priorisierte Nachrichtenintervalle.  
+Die wichtigsten Nachrichten, wie z.B. totalVoltage und totalCurrent werden sekündlich via MQTT übertragen.  
+Andere, niedriger priorisierte Daten werden in einem vom Benutzer einstellbaren Intervall übertragen.
+
 **vTrigger**  
 Mit "Remanenz vTrigger" kann festgelegt werden, welcher vTrigger als speichernd definiert werden soll.  
 Ein speichernder vTrigger stellt sicher, dass seine Werte auch nach einem Neustart (Reboot) oder einem Spannungsausfall automatisch wiederhergestellt werden.  
