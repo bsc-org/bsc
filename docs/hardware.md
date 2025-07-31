@@ -3,9 +3,15 @@ Um sämtliche Funktionen der Firmware nutzen zu können, wird die zum BSC-System
 
 Wir empfehlen ausdrücklich die Verwendung der originalen BSC-Hardware. Diese wurde umfassend getestet und bietet galvanisch getrennte Anschlüsse, wodurch ein stabilerer Betrieb gewährleistet wird.
 
-Falls die originale BSC-Hardware nicht verfügbar ist, können Sie für erste Tests alternativ ein ESP32-Dev-Kit verwenden. Beachten Sie jedoch, dass einige Funktionen möglicherweise eingeschränkt oder nicht getestet sind. Weitere Informationen finden Sie unter folgendem [Link](BSC_ohne_orig_hardware.md).
+Falls die originale BSC-Hardware nicht verfügbar ist, ist die Empfehung als Alternative das T-CONNECT von Lilygo einzusetzen. Auch hier sind die RS485 Anschlüsse und der CANBUS galvanisch getrennt. Bitte beachten Sie, dass in diesem Fall bestimmte Funktionen eingeschränkt sind.  
+**Wichtig:** Beim Kauf unbedingt darauf achten, dass die **Variante mit 3× RS485 und 1× CAN-Schnittstelle** gewählt wird!  
+Weitere Informationen zur Hardware des Lilygo T-CONNECT siehe [hier](#lilygo-t-connect).  
+Das T-CONNECT kann z.B. hier bezogen werden: [LILYGO T-CONNECT auf AliExpress](https://de.aliexpress.com/item/1005007619430455.html)  
 
-## Anschlüsse
+Für erste Tests kann alternativ ein ESP32-Dev-Kit verwenden. Beachten Sie jedoch, dass einige Funktionen eingeschränkt oder nicht getestet sind. Weitere Informationen finden Sie unter folgendem [Link](BSC_ohne_orig_hardware.md).
+
+## Orginale BSC Hardware
+### Anschlüsse
 Ein Techtalk über die Anschlussmöglichkeiten kann auf [Youtube](https://youtu.be/zwu_jJifkF4?si=2ktcM57JjkR39Dph) angesehen werden.
 
 **Korrektes Kontaktieren der Schraubklemmen:**
@@ -27,7 +33,7 @@ Um eine fehlerfreie Installation zu gewährleisten, beachten Sie bitte folgende 
 ![](img/hardware/hw_stecker_9pol.png){ width="300" }
 ![](img/hardware/hw_stecker_6pol.png){ width="300" }
 
-## Stromversorgung
+### Stromversorgung
 Die jeweils zu nutzenden Pins finden Sie als "V IN1" für "+" und GND für "-" aufgedruckt auf Ihrer PCB. Der Betrieb der BSC-Hardware ist in der Standard-Auslieferung für 5V (>=1,5A) ausgelegt. Als stabile Lösung in Sachen Netzteile haben sich Hutschienen-Varianten der Firma Meanwell bewährt, welche man über den <a href="https://bsc-shop.com" target="_blank">BSC-Shop</a>
  erwerben kann.
 
@@ -61,7 +67,7 @@ Dabei sind folgende Bedingungen zu beachten:
         * Hier ein Beispiel der U19 Bestückung:  
 ![](img/hardware/hw_bestueckung_u19.jpg){ width="400" }
 
-## CAN/RS485
+### CAN/RS485
 Alle Schnittstellen sind galvanisch getrennt und können somit ohne jegliche Adapter direkt an ein BMS (RS485 -> Serial0-10) oder Inverter (CAN) angeschlossen werden.  
 Die Spannungs-Pegel der genannten Schnittstellen sind "genormt".  
 
@@ -69,52 +75,97 @@ Die Spannungs-Pegel der genannten Schnittstellen sind "genormt".
 Einige übliche BMS-Typen können direkt über die RJ45-Buchse kontaktiert werden.  
 Wenn Sie mehrere Geräte direkt mit RJ45 anschließen möchten, kann dies teilweise als DaisyChain, oder mit Hilfe des RJ45-Serial-Distributor aus dem <a href="https://bsc-shop.com" target="_blank">BSC-Shop</a> erfolgen.
 
-## OneWire
+### OneWire
 An die OneWire-Schnittstelle können, ohne zusätzliche weitere Hardware, Temperatursensoren angeschlossen werden.  
 Die dafür normalerweise notwendigen Pullup-Widerstände sind auf der BSC-Platine schon integriert.
 
 
-# Temperaturmanagement
+### Temperaturmanagement
 Das BSC benötigt eine leichte Thermik zur Kühlung der Platinen-Oberseite.  
 Bitte packen Sie die Platine nicht unnötig ein und sorgen Sie für eine kontinuierliche Belüftung.
 
 
-# Wie trennt man Lötjumper
+### Wie trennt man Lötjumper
 Hierzu müssen teilweise die in der Auslieferung gesetzten Lötjumper mechanisch entfernt werden.  
 Dies geschieht am Besten mit einem "Dremel", der nur an der Oberfläche die Kupferschicht entfernt.  
 Vorsicht! Es gibt weitere Kupferschichten innerhalb der Platine, diese dürfen natürlich nicht verletzt werden.  
 ![](img/hardware/hw_trennen_loetjumper.jpg){ width="600" }
 
-# Jumper Konfiguration
+### Jumper Konfiguration
 
-## J6 für den regulären Betrieb
+#### J6 für den regulären Betrieb
 Das Öffnen von Jumper J6 wird zur Programmierung einer unprogrammierten Platine benötigt.  
 Für den normalen Betrieb ist dieser zu setzen.  
 ![](img/hardware/hw_jumper_j6.png){ width="400" }
 
-## J4 zur Programmierung
+#### J4 zur Programmierung
 Das setzen von Jumper J4 wird zur Programmierung einer unprogrammierten Platine benötigt.  
 Für den normalen Betrieb bleibt dieser offen.  
 ![](img/hardware/hw_jumper_j4.png){ width="400" }
 
-## Mittelabgriffe der Relais mit Vin verbinden
+#### Mittelabgriffe der Relais mit Vin verbinden
 Die Mittelabgriffe (COM) der Relais können durch setzen der jeweiligen Jumper mit dem Vin der Platine verbunden werden.  
 ![](img/hardware/hw_relais_vin.png){ width="600" }
 
-## J14-J16 Aktivieren der Ausgänge
+#### J14-J16 Aktivieren der Ausgänge
 Diese Relais haben weitere Funktionalitäten, die derzeit nicht mit der Firmware abgebildet sind.  
 Daher müssen die Jumper auf die blau markierten Positionen gesetzt werden.  
 ![](img/hardware/hw_relais_jumper_j14_j16.png){ width="600" }
 
-# BSC Display
+
+## Lilygo T-CONNECT
+![T-CONNECT](img/hardware/t-connect_connectors.jpg){ width="400" }
+
+#### Funktion der LEDs  
+
+| LED            | Farbe          | Funktion                              |
+|----------------|----------------|---------------------------------------|
+|  System        | Blau           | System bootet                         |
+|  System        | Grün - blinken | System ist fehlerfrei                 |
+|  System        | Rot - blinken  | Einer der System-Task antwortet nicht |
+|  Serial RX/TX  | Rot - blinken  | Kommunikation mit einem BMS           |
+|  CAN RX/TX     | Rot - blinken  | Versenden einer CAN Nachricht         |
+
+#### Belegung des Pin-Headers
+Mit der Standard Firmware Version kann nur Onewire genutzt werden. Alle weiteren Funktionen (Relais, Digitaleingänge, I²C) können nur mit der Insider Version genutzt werden.
+
+| PIN | GPIO | Funktion         |
+|-----|------|------------------|
+|  1  |      | 5V               |
+|  2  |      | 3.3V             |
+|  3  |      | GND              |
+|  4  |      | GND              |
+|  5  |  46  | ---              |
+|  6  |      | GND              |
+|  7  |  12  | I²C SCL          |
+|  8  |  11  | I²C SDA          |
+|  9  |  14  |                  |
+| 10  |  13  |                  |
+| 11  |  47  | ---              |
+| 12  |  21  | Onewire          |
+| 13  |  45  | ---              |
+| 14  |  48  | ---              |
+| 15  |  36  | Digitaleingang 1 |
+| 16  |  35  | Digitaleingang 2 |
+| 17  |  38  | Digitaleingang 3 |
+| 18  |  37  | Digitaleingang 4 |
+| 19  |  40  | Relais 1         |
+| 20  |  39  | Relais 2         |
+| 21  |  42  | Relais 3         |
+| 22  |  41  | Relais 4         |
+| 23  |   1  | Relais 5         |
+| 24  |   2  | Relais 6         |
+
+
+## BSC Display
 Das Display für den BSC wurde in ein [separates Projekt](https://github.com/shining-man/bsc_display) ausgegliedert in dem auch die Firmware zu finden ist.
 
-## Unterstützes Display
+### Unterstützes Display
 Hardware-Version 3.3 des Displays wurde getestet.  
 Erhältlich beispielweise über Aliexpress von verschiedenen Versendern.  
 ![](img/hardware/hw_display.png){ width="500" }
 
-## Anschluss an das BSC-Mainboard
+### Anschluss an das BSC-Mainboard
 Der Anschluss dessen erfolgt über den Extension-Port "J3":
 
 * Die Datenverbindung über den hier kontaktierbaren I²C-Bus der Pins "SCL/SDA", welche 1:1 anzuschließen sind.
@@ -122,5 +173,5 @@ Der Anschluss dessen erfolgt über den Extension-Port "J3":
 ![](img/hardware/hw_display_stecker_j3.png){ width="400" }
 ![](img/hardware/hw_display_stecker_j3_2.png){ width="200" }
 
-## Pinout des Displays "WT32-SC01"
+### Pinout des Displays "WT32-SC01"
 ![](img/hardware/hw_pinout_display_wt32sc01.png){ width="700" }
