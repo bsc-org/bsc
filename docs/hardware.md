@@ -1,7 +1,8 @@
 ## Hardwarevoraussetzungen
 Um sämtliche Funktionen der Firmware nutzen zu können, wird die zum BSC-System gehörige Hardware benötigt. Eine detaillierte Beschreibung dieser Hardware, einschließlich des [Stromlaufplans](https://github.com/shining-man/bsc_hw/blob/main/circuit.pdf?raw=true), finden Sie in einem separaten [GitHub-Repository](https://github.com/shining-man/bsc_hw).
 
-Wir empfehlen ausdrücklich die Verwendung der originalen BSC-Hardware. Diese wurde umfassend getestet und bietet galvanisch getrennte Anschlüsse, wodurch ein stabilerer Betrieb gewährleistet wird.
+Wir empfehlen ausdrücklich die Verwendung der originalen BSC-Hardware. Diese wurde umfassend getestet und bietet galvanisch getrennte Anschlüsse, wodurch ein stabilerer Betrieb gewährleistet wird.  
+Gerne besuchen Sie hierzu unseren Webshop unter <a href="https://bsc-shop.com" target="_blank">www.BSC-Shop.com</a>.
 
 Falls die originale BSC-Hardware nicht verfügbar ist, ist die Empfehung als Alternative das T-CONNECT von Lilygo einzusetzen. Auch hier sind die RS485 Anschlüsse und der CANBUS galvanisch getrennt. Bitte beachten Sie, dass in diesem Fall bestimmte Funktionen eingeschränkt sind.  
 **Wichtig:** Beim Kauf unbedingt darauf achten, dass die **Variante mit 3× RS485 und 1× CAN-Schnittstelle** gewählt wird!  
