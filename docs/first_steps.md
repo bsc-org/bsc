@@ -3,6 +3,7 @@
 **Bitte beachten: Aufgrund der Weiterentwicklung des BSC, ist nicht mehr alles im Video aktuell!  
 Das im Video erwähnte "neue WebUi" steht aktuell nicht zur Verfügung. Auch nicht für Sponsoren!**
 
+
 ## Weiterführende Informationen
 Für erste Informationen und die Inbetriebnahme zuerst folgende weitere Kapitel lesen:   
 [Hardware](hardware.md)   
@@ -13,8 +14,103 @@ Wer die BSC Software ohne orginale Hardware testen möchte, sollte das Kapitel
 
 Hochrüstungen oder häufige Probleme sind im Kapitel [Troubleshooting](troubleshooting.md) beschrieben.
 
+
+## Beschaffung der Hardware
+Für den Betrieb des BSC-Systems kann entweder die **originale BSC-Hardware** oder alternativ ein **kompatibles Drittanbieter-Board** verwendet werden.
+
+#### Originale BSC-Hardware
+Die ursprüngliche BSC-Hardware wurde speziell für das Projekt entwickelt. Aktuell ist diese jedoch **nicht als fertig montierte Hardware im Handel verfügbar**. Der Selbstbau ist zwar grundsätzlich möglich, jedoch mit höherem Aufwand verbunden.
+
+#### Alternative: LILYGO T-CONNECT 
+Als empfohlene Alternative kann das **LILYGO T-CONNECT Board** verwendet werden. Dieses ist kompatibel mit der Firmware und den Funktionen des BSC-Systems.  
+
+Eine Bezugsquelle ist beispielsweise:  
+🔗 [LILYGO T-CONNECT auf AliExpress](https://de.aliexpress.com/item/1005007619430455.html)
+
+**Wichtig:** Beim Kauf unbedingt darauf achten, dass die **Variante mit 3× RS485 und 1× CAN-Schnittstelle** gewählt wird!  
+
+**Hinweise zur Funktionalität**  
+Da das T-CONNECT Board **keine integrierten Relais oder Digitaleingänge** besitzt, kommt es im Vergleich zur originalen BSC-Hardware zu funktionalen Einschränkungen.
+
+Mit der **Insider-Firmware** lassen sich diese Einschränkungen jedoch teilweise kompensieren:
+
+- Die Signale für **Relaisausgänge**, **Digitaleingänge** sowie **I²C-Kommunikation** werden auf den **Pin-Header** herausgeführt. Die Belegung des Pin-Headers ist [hier](hardware.md/#belegung-des-pin-headers) zu finden.
+- Darüber können externe Module oder Relais direkt angesteuert werden.
+- Zusätzlich ermöglicht die Insider-Version den Anschluss des **Displays** über den Header.
+
+Damit bietet die Insider-Firmware eine flexible Erweiterungsmöglichkeit, um das T-CONNECT Board näher an den Funktionsumfang der originalen BSC-Hardware heranzuführen.
+
+
 ## Installation der Firmware
-### Flashen einer Platine von Lilygo
+### Flashanleitung – LILYGO T-CONNECT
+Für die **Erstinbetriebnahme** des LILYGO T-CONNECT Boards muss die Firmware manuell geflasht werden. Es stehen zwei Firmware-Versionen zur Verfügung:
+
+- **Standard-Version**
+- **Sponsoren-Version (Insider)**
+
+Die benötigten Dateien sind auf GitHub in den entsprechenden Repositories unter den Releases zu finden:
+
+- [Standard-Firmware](https://github.com/shining-man/bsc_fw/releases)
+- [Insider-Firmware](https://github.com/bsc-org/bsc_fw_insider/releases)
+
+#### 📥 Schritt 1: Firmware herunterladen
+Laden Sie die Datei `firmware_tconnect_**full**_xx_xx.bin` herunter.  
+Dabei steht `xx_xx` für die gewünschte Sprache (z. B. `de_DE`, `en_US`).
+
+> **Wichtig:** Verwenden Sie **ausschließlich** die Datei mit dem Zusatz `full`.
+
+#### 🔧 Schritt 2: Board vorbereiten
+Verbinden Sie das T-CONNECT Board per USB mit dem Computer.
+
+Um das Gerät in den **Download-Modus** zu versetzen:
+
+1. **BOOT-Taste gedrückt halten**
+2. **RESET-Taste kurz drücken**
+3. **BOOT-Taste loslassen**
+
+Das Board befindet sich nun im Flash-Modus.
+
+#### 🪟 Schritt 3a: Flashen mit dem Espressif Flash Download Tool (nur Windows)
+Das offizielle Tool kann hier heruntergeladen werden:  
+👉 [ESP Flash Download Tool](https://www.espressif.com/en/support/download/other-tools)
+
+##### Konfiguration:
+
+1. Starten Sie das Tool und wählen Sie **ESP32-S3** als Zielgerät
+![Download Tool Modus](img/tconnect_flash_download_tool_1.png)
+2. Tragen Sie die Firmware-Dateien ein und setzen sie die Einstellungen wie im Screenshot gezeigt.
+![Firmware Einstellungen](img/tconnect_flash_download_tool_2.png)
+3. Stellen Sie sicher, dass:
+    - Der richtige COM-Port ausgewählt ist
+    - Die Checkboxen aktiviert sind
+    - Die Zeilen grün hinterlegt sind
+
+➤ Starten Sie den Vorgang mit einem Klick auf **„START“**.
+
+#### 🐧 Schritt 3b: Flashen mit dem esptool.py (Linux & Windows)
+Das Flashen kann alternativ über das Python-Tool `esptool.py` erfolgen.
+
+##### Beispielbefehl (inkl. Flash löschen):
+
+```bash
+esptool.py --chip esp32s3 --port /dev/ttyUSB0 --baud 921600 write_flash -e 0x0 firmware_tconnect_full_xx_xx.bin 
+```
+
+> **Hinweis:** Stellen Sie sicher, dass die `.bin`-Datei im aktuellen Arbeitsverzeichnis liegt.
+
+#### 🔄 Schritt 4: Neustart des Boards
+Nach erfolgreichem Flashvorgang muss das Board neu gestartet werden.  
+Drücken Sie dazu einmal kurz die **RESET-Taste** auf dem T-CONNECT Board.
+
+Damit wird die neue Firmware geladen und das System startet im Normalbetrieb.
+
+Sie können Sich nun wie [hier](#verbinden-mit-dem-bsc) beschrieben mit dem BSC verbinden um Ihre Konfigurationen vorzunehmen.
+
+#### ✅ Hinweis
+Bei Problemen oder Rückfragen wenden Sie sich bitte an das entsprechende GitHub-Repository oder die Community-Supportkanäle.
+
+
+### Flashen einer BSC Platine von Lilygo
 Der derzeitige Platinen-Lieferant versendet diese mit einer speziellen Firmware, die beim Kunden auf die aktuelle Release gebracht werden muss.  
 Laden Sie dazu zuerst das aktuelle Release (bsc_firmware.zip) von [hier](https://github.com/shining-man/bsc_fw/releases) herunter um dieses zu entpacken.  Nun findet man eine Datei namens "firmware.bin", die die zu flashende Firmware repräsentiert.  
 
@@ -27,7 +123,8 @@ Falls ein Smartphone verwendet wird, könnte es sein, dass die Webadresse nicht 
 4. Nun dauert es ein paar Sekunden, bis das Gerät neu gestartet hat.
 5. War der Prozess erfolgreich, blinkt eine LED auf der Platine. Sie können Sich nun wie [hier](#verbinden-mit-dem-bsc) beschrieben mit dem BSC verbinden um Ihre Konfigurationen vorzunehmen.
 
-### Flashen einer unprogrammierten Platine
+
+### Flashen einer unprogrammierten BSC Platine
 * Für die Erstinbetriebnahme einer unprogrammierten Platine müssen die vier herunterladbaren Dateien manuell geflasht werden.  
 Die aktuellen Releases findet man [hier](https://github.com/shining-man/bsc_fw/releases).  
 Bei der BSC-Hardware muss hierzu auf der dreipoligen Stiftleiste J2 (links oben auf dem Board; mit "Prog" beschriftet) ein USB-Seriell Konverter mit **3,3V-Pegel** angeschlossen werden.  
@@ -40,8 +137,8 @@ Bei den ESP32-Dev-Boards ist meistens direkt ein USB-Port vorhanden. Spätere Up
 * Als Baudrate können Sie 921600baud verwenden. Wenn dies zu Problemen führt, kann diese auch auf 230400baud herab gesetzt werden
 * Bitte löschen Sie den aktuellen Speicher des Moduls vor der Programmierung mit Hilfe der folgenden Tools.
 
-### Flash-Möglichkeiten
-#### Nutzen des Hersteller-Download-Tools (only Windows)
+#### Flash-Möglichkeiten
+##### Nutzen des Hersteller-Download-Tools (only Windows)
 Die Software zum Flashen (Flash Download Tools) kann von der Hersteller-Webseite des ESP32 über [diesen Link](https://www.espressif.com/en/support/download/other-tools) bezogen werden.  
 In dieser Software müssen die Einstellungen, wie in den folgenden Screenshots gezeigt, vorgenommen werden:  
 
@@ -53,10 +150,10 @@ Dabei darauf achten, dass die Häkchen neben den einzelnen Dateien gesetzt sind 
 
 ➔ Nun können Sie den Upload-Vorgang mit einem Klick auf "Start" starten.
 
-#### Flashen mit dem esptool (Linux, Windows) inkl. zuvorigen Löschen
+##### Flashen mit dem esptool (Linux, Windows) inkl. zuvorigen Löschen
 `esptool.py  --port /dev/ttyUSB0 --chip auto write_flash -e -ff 80m -fm dio 0x01000 bootloader.bin 0x08000 partitions.bin  0x0e000 boot_app0.bin 0x10000 firmware.bin`
 
-#### Flashen über den Browser
+##### Flashen über den Browser
 Bei Verwendung eines Chrome Browsers kann auch das durch Adafruit zu Verfügung gestelltes [Online-Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) zum Flashen verwendet werden.  
 
 Nach erfolgreicher Verbindung zu dem Controller können die 4 Dateien der aktuellen Firmware mit den passenden Zieladressen geflashed werden:
@@ -66,10 +163,10 @@ Nach erfolgreicher Verbindung zu dem Controller können die 4 Dateien der aktuel
 * boot_app0.bin - 0xe000
 * firmware.bin - 0x10000
 
-##### Beta-Versionen flashen
-Für das Flashen von Beta-Versionen gibt es zwei Möglichkeiten:
+### Test-Versionen flashen
+Für das Flashen von Test-Versionen gibt es zwei Möglichkeiten:
 
-1. Sie können das einzelne Beta-Firmware-File "firmware.bin" direkt über den Web-Browser und der OTA-Funktionalität innerhalb des BSC-Webfrontend flashen.  
+1. Sie können das einzelne Test-Firmware-File "firmware.bin" direkt über den Web-Browser und der OTA-Funktionalität innerhalb des BSC-Webfrontend flashen.  
 Diese finden Sie im Menü /Einstellungen/Update.
 2. Andernfalls können Sie die jeweilige "firmware.bin" zusammen mit den drei weiteren Dateien aus dem Release hierzu verwenden.  
 Das weiter oben beschriebene Gesamt-Flash-Prozedere bleibt hierbei unverändert.

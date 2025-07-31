@@ -1,11 +1,13 @@
 # Battery Safety Controller (BSC) – <br>Der flexible Controller für DIY-Batterien
 <img src="img/bsc_display.png" width="600">
 
-Der **Battery Safety Controller (BSC)** ist ein frei konfigurierbarer Controller, der für eine Vielzahl von Steuerungs- und Überwachungsaufgaben in DIY-Batteriesystemen eingesetzt werden kann. Der BSC übernimmt die zentrale Steuerung des Energy-Sorange-Systems und kann als zusätzliches Sicherheitslevel neben dem BMS fungieren.
+Der **Battery Safety Controller (BSC)** ist ein frei konfigurierbarer Controller, der für eine Vielzahl von Steuerungs- und Überwachungsaufgaben in DIY-Batteriesystemen eingesetzt werden kann. Der BSC übernimmt die zentrale Steuerung des Energy-Sorange-Systems.
 
 ## Der BSC besteht aus zwei Komponenten:
 1. **BSC-Hardware** – Sie fungiert als Middleware zwischen dem BMS und dem Wechselrichter. Ein Vorteil der BSC-Hardware ist ihr sicherer Betrieb: Alle physischen Schnittstellen sind galvanisch isoliert.
-2. **BSC-Software** – Diese macht die BSC-Hardware zu einem frei konfigurierbaren Controller, der für eine Vielzahl von Steuerungs- und Überwachungsaufgaben in DIY-Batteriesystemen verwendet werden kann.
+2. **BSC-Software** – Diese macht die BSC-Hardware zu einem frei konfigurierbaren Controller, der für eine Vielzahl von Steuerungs- und Überwachungsaufgaben in DIY-Batteriesystemen verwendet werden kann.  
+
+[Hier](#informationen-zu-beschaffung-und-inbetriebnahme) gehts zum Kapitel "**Informationen zu Beschaffung und Inbetriebnahme**".
 
 ## Einsatzmöglichkeiten des BSC
 
@@ -22,8 +24,8 @@ Der BSC nutzt die Daten der angeschlossenen Geräte, um den Wechselrichter (Vict
 - Zusammenführung der Daten aus den einzelnen physischen Batteriepaketen zu einem virtuellen Gesamtbatteriepaket unter Berücksichtigung zahlreicher Parameter, z.B. ob das Batteriepaket überhaupt lädt oder entlädt.
 - Und noch einges mehr ...
 
-### 3. Zweites Sicherheitslevel neben dem BMS
-Der BSC kann verschiedene konfigurierbare Parameter auf den angeschlossenen Geräten überwachen, um ein zusätzliches Sicherheitslevel zu schaffen. Überwachte Parameter umfassen:
+### 3. Überwachung der Werte des BMS
+Der BSC kann verschiedene konfigurierbare Parameter auf den angeschlossenen Geräten überwachen und darauf reagieren. Überwachte Parameter umfassen z.B.:
 
 - Regelmäßige Antwort des angeschlossenen BMS
 - Zellspannungen (min/max)
@@ -42,4 +44,9 @@ Es können bis zu **64 OneWire-Temperatursensoren** (DS18B20) angeschlossen und 
 
 Alle Einstellungen können flexibel über eine Web-Oberfläche parametriert werden.
 
-Der **Battery Safety Controller** bietet eine vielseitige und anpassbare Lösung für die Überwachung und Steuerung von DIY-Batteriesystemen. Ideal für anspruchsvolle Anwendungen, die eine zusätzliche Sicherheitsebene und umfangreiche Steuerungsmöglichkeiten benötigen.
+Der **Battery Safety Controller** bietet eine vielseitige und anpassbare Lösung für die Überwachung und Steuerung von DIY-Batteriesystemen. Ideal für anspruchsvolle Anwendungen, die umfangreiche Steuerungsmöglichkeiten benötigen.
+
+## Informationen zu Beschaffung und Inbetriebnahme
+Detaillierte Informationen zur Beschaffung sowie zur Inbetriebnahme finden Sie in den folgenden Kapiteln dieses Handbuchs:  
+[Erste Schritte](first_steps.md)  
+[Hardware](hardware.md)  
