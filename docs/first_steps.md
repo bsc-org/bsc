@@ -16,6 +16,8 @@ Hochrüstungen oder häufige Probleme sind im Kapitel [Troubleshooting](troubles
 
 
 ## Beschaffung der Hardware
+Kompatible Hardware – darunter Gehäuse, Erweiterungen und Zubehör – sind über unseren Webshop unter <a href="https://bsc-shop.com" target="_blank">www.BSC-Shop.com</a> erhältlich.  
+
 Für den Betrieb des BSC-Systems kann entweder die **originale BSC-Hardware** oder alternativ ein **kompatibles Drittanbieter-Board** verwendet werden.
 
 #### Originale BSC-Hardware
