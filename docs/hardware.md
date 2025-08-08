@@ -140,8 +140,8 @@ Mit der Standard Firmware Version kann nur Onewire genutzt werden. Alle weiteren
 |  6  |      | GND              |
 |  7  |  12  | I²C SCL          |
 |  8  |  11  | I²C SDA          |
-|  9  |  14  |                  |
-| 10  |  13  |                  |
+|  9  |  14  | SE RX            |
+| 10  |  13  | SE TX            |
 | 11  |  47  | ---              |
 | 12  |  21  | Onewire          |
 | 13  |  45  | ---              |
