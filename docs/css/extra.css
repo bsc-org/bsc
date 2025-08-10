@@ -74,3 +74,7 @@ img {
     .toggle:checked+.lbl-toggle{border-bottom-right-radius:0 !important;border-bottom-left-radius:0 !important}
     .collapsible-content .content-inner{background:#f3f3f3 !important;border-bottom:1px solid #eaeaea !important;border-bottom-left-radius:7px !important;border-bottom-right-radius:7px !important;padding:.5rem 1rem !important}
  }
+
+ .content.bsc_content_left {
+    margin: 20px 0 20px 0 !important;
+  }

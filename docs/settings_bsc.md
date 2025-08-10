@@ -87,6 +87,7 @@ Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzerna
 Unter **WLAN Connect Timeout** kann eingestellt werden, nach welcher Zeit ein Verbindungsversuch mit einem WLAN-Netzwerk abgebrochen wird. Wird innerhalb dieser Zeit keine Verbindung hergestellt, erstellt das Gerät automatisch einen eigenen Access Point (AP).  
 Wird der Wert auf **0** gesetzt, ist der Timeout deaktiviert und der Verbindungsversuch wird unbegrenzt fortgesetzt.  
 
+**Insider Version:**  
 Verliert der BSC die WLAN-Verbindung und erstellt nach dem eingestellten Timeout einen Access Point, versucht er alle **5 Minuten**, die Verbindung mit dem ursprünglichen WLAN-Netzwerk erneut herzustellen.
 
 ### MQTT

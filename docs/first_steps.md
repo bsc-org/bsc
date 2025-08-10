@@ -5,7 +5,11 @@ Das im Video erwähnte "neue WebUi" steht aktuell nicht zur Verfügung. Auch nic
 
 
 ## Weiterführende Informationen
-Für erste Informationen und die Inbetriebnahme zuerst folgende weitere Kapitel lesen:   
+Für erste Informationen und die Inbetriebnahme zuerst folgende weitere Kapitel lesen:  
+[Hardware anschließen](first_steps_hardware.md)  
+[Einstellungen für den Betrieb des BSC](first_steps_settings.md)  
+
+Weiterführende Informationen:   
 [Hardware](hardware.md)   
 [Konfiguration des BSC](settings_bsc.md)  
 
@@ -76,7 +80,7 @@ Das Board befindet sich nun im Flash-Modus.
 Das offizielle Tool kann hier heruntergeladen werden:  
 👉 [ESP Flash Download Tool](https://www.espressif.com/en/support/download/other-tools)
 
-##### Konfiguration:
+**Konfiguration:**
 
 1. Starten Sie das Tool und wählen Sie **ESP32-S3** als Zielgerät
 ![Download Tool Modus](img/tconnect_flash_download_tool_1.png)
@@ -92,7 +96,7 @@ Das offizielle Tool kann hier heruntergeladen werden:
 #### 🐧 Schritt 3b: Flashen mit dem esptool.py (Linux & Windows)
 Das Flashen kann alternativ über das Python-Tool `esptool.py` erfolgen.
 
-##### Beispielbefehl (inkl. Flash löschen):
+**Beispielbefehl (inkl. Flash löschen):**
 
 ```bash
 esptool.py --chip esp32s3 --port /dev/ttyUSB0 --baud 921600 write_flash -e 0x0 firmware_tconnect_full_xx_xx.bin 
@@ -112,7 +116,7 @@ Sie können Sich nun wie [hier](#verbinden-mit-dem-bsc) beschrieben mit dem BSC 
 Bei Problemen oder Rückfragen wenden Sie sich bitte an das entsprechende GitHub-Repository oder die Community-Supportkanäle.
 
 
-### Flashen einer BSC Platine von Lilygo
+### Flashanleitung - Orginal BSC von Lilygo
 Der derzeitige Platinen-Lieferant versendet diese mit einer speziellen Firmware, die beim Kunden auf die aktuelle Release gebracht werden muss.  
 Laden Sie dazu zuerst das aktuelle Release (bsc_firmware.zip) von [hier](https://github.com/shining-man/bsc_fw/releases) herunter um dieses zu entpacken.  Nun findet man eine Datei namens "firmware.bin", die die zu flashende Firmware repräsentiert.  
 
@@ -126,7 +130,7 @@ Falls ein Smartphone verwendet wird, könnte es sein, dass die Webadresse nicht 
 5. War der Prozess erfolgreich, blinkt eine LED auf der Platine. Sie können Sich nun wie [hier](#verbinden-mit-dem-bsc) beschrieben mit dem BSC verbinden um Ihre Konfigurationen vorzunehmen.
 
 
-### Flashen einer unprogrammierten BSC Platine
+### Flashanleitung - Flashen eines unprogrammierten orginal BSC
 * Für die Erstinbetriebnahme einer unprogrammierten Platine müssen die vier herunterladbaren Dateien manuell geflasht werden.  
 Die aktuellen Releases findet man [hier](https://github.com/shining-man/bsc_fw/releases).  
 Bei der BSC-Hardware muss hierzu auf der dreipoligen Stiftleiste J2 (links oben auf dem Board; mit "Prog" beschriftet) ein USB-Seriell Konverter mit **3,3V-Pegel** angeschlossen werden.  
