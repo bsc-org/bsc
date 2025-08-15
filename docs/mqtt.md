@@ -12,7 +12,7 @@ Es gibt zwei Möglichkeiten die vTrigger "speichernd" über einen Reboot hinaus 
 Sobald das BSC wieder am Broker angemeldet wurde, wird der bisherige Trigger-Zustand durch diesen im BSC automatisch aktualisiert.  
 
 2) Für jeden vTrigger kann über das BSC-Menü festgelegt werden, ob er speichernd angelegt werden soll.  
-Diese Einstellungen der Remanenz befindet sich unter „System“ bei den [MQTT-Optionen](settings_bsc.md/#mqtt).
+Diese Einstellungen der Remanenz befindet sich unter „System“ bei den [MQTT-Optionen](settings_bsc.md/#mqtt-einstellungen).
 
 ### MQTT-Beispiel
 Die vTrigger sind erst einmal nicht über z.B. den MQTT-Explorer sichtbar.  

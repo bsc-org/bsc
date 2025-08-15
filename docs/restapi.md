@@ -125,3 +125,27 @@ curl -L -X POST "http://[BSC IP]/restapi/vTrigger" \
 -d "{\"id\":6,\"value\":0}"
 ```
 
+## Derzeit aktive Inverter-Drosselung
+Welche eingestellte Drosselung gerade aktiv ist, können Sie mit Hilfe der Restapi einsehen.  
+Hierzu nach der IP-Adresse des BSC "/restapi" hinzufügen (z.B. 192.168.1.100/restapi).  
+
+Die dargestellten "cc_"-Werte und "dcc_"-Werte stellen den durch die jeweilige Laderegelung limitierten Strom dar.
+
+![](img/settings/settings_restapi_aktive_drosselung.png){ width="250" }  
+
+Falls es nicht möglich ist, die Daten während eines Drosselungs-Events direkt anzuzeigen, besteht die Möglichkeit, diese temporär über eine alternative Plattform wie Home Assistant aufzeichnen zu lassen. Dabei ist zu beachten, dass jede Abfrage der REST-API alle verfügbaren Daten umfasst.
+
+Für die Übertragung der Daten kann mit einer Dauer von etwa 0,5 bis 1 Sekunde pro Paket gerechnet werden. Diese Zeitangabe dient als Orientierung.
+
+Nachfolgend finden Sie ein Beispiel für einen YAML-Code, der für die Erstellung eines Sensors zur Anzeige des Werts von "setpoint_cc" in Home Assistant verwendet werden kann:
+
+```yaml
+platform: rest
+name: bscapi_setpoint_cc
+resource: http://192.x.x.x/restapi
+value_template: "{{ value_json['inverter']['setpoint_cc'] }}"
+unit_of_measurement: "A"
+state_class: "measurement"
+icon: "mdi:api"
+```
+

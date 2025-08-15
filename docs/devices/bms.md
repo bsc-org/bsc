@@ -120,7 +120,7 @@ Jedes Pack bekommt eine eigene ID, welche über die DIP-Schalter zu definieren i
 
 #### RS485 Datenübertragung (BMS) in der BSC-Software konfigurieren 
 * Bei Direktanschluss über Serial2: Im BSC unter Einstellungen -> Schnittstellen ->  Serial2 das "JK Inverter BMS" auswählen, da nur eine Schnittstelle für mehrere Packs im DaisyChain-Verbund genutzt werden muss. 
-* Die Device-Mapping-Konfiguration der angeschlossenen Geräte wird [hier](../settings_bsc.md/#data-device-mapping) erläutert  
+* Die Device-Mapping-Konfiguration der angeschlossenen Geräte wird [hier](../settings_bsc_interfaces.md/#data-devices) erläutert  
 * Danach sollte jedes Pack im BSC z.B. unter den Livedaten -> BMS Daten zu finden sein.  
 
 #### CAN Datenübertragung (Inverter) konfigurieren

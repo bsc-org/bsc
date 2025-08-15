@@ -47,7 +47,7 @@ Siehe [hier](devices/wechselrichter.md)
 * **MQTT Broker:** Alle Zustandsdaten können zusätzlich über WLAN an einen MQTT Broker gesendet werden, um diese langfristig zu speichern und zu visualisieren (z.B. über Grafana).  
 Siehe [hier](mqtt.md)
 * **REST Client:** Zustandsdaten über die überwachten Batterien oder über den BSC können über eine HTTP REST API abgerufen werden.  
-Siehe [hier](settings_bsc.md#derzeit-aktive-inverter-drosselung)
+Siehe [hier](restapi.md#derzeit-aktive-inverter-drosselung)
 
 ## Verfügbare Schnittstellen
 * **WLAN:** Zugriff auf das BSC-Webinterface, Übertragung von MQTT-Daten
