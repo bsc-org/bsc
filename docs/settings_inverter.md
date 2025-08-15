@@ -1,94 +1,482 @@
 # Wechselrichter
-In dieser Sektion können Sie neben der Definierung des angeschlossenen Inverters, das Lade- und Entladehandling definieren.  
-Alle prozentualen Limitierungen werden auf die in der Kategorie "Basisdaten" eingestellten Werte angewendet.  
-![](img/settings/settings_inverter_basisdaten.png){  width="950" }  
+In diesem Abschnitt werden die Einstellungen für die Kommunikation mit dem Wechselrichter über den CAN-Bus sowie die Verarbeitung der bereitgestellten Messwerte konfiguriert. Über die CAN-Bus-Schnittstelle werden Betriebsdaten wie Ladezustand, Gesamtspannung, Strom und Temperatur an den Wechselrichter übertragen. Die Wahl der Datenquelle legt fest, welche Geräte als Referenz für einzelne Messgrößen dienen. Bei Bedarf können Werte aus mehreren Quellen zusammengefasst werden.  
+
 
 ## General
-### CAN-Bus
-Hier kann man das in Richtung Inverter zu nutzende Protokoll definieren.  
-Die Einstellung "Send extended data" ist nur unter Umständen für eine angeschlossene Victron Anlage nutzbar. Weitere Informationen sind [hier](devices/wechselrichter.md#einstellungen-bsc) einsehbar.
 
-### Valuehandling Multi-BMS
-![](img/settings/settings_inverter_soc.png){  width="450" }  
-Mit dem "Valuehandling Multi-BMS" haben Sie die Möglichkeit, den State of Charge (SoC) für die Übermittlung an den Inverter zu konfigurieren. Dies ermöglicht eine präzise Steuerung, welcher SoC-Wert verwendet wird, basierend auf den verschiedenen Quellen und Berechnungsmethoden. Die verfügbaren Optionen sind:
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
+<tr class='Ctr'><td class='Ctd'><b>BMS Canbus enable</b></td><td class='Ctd'><input type='checkbox' checked name='38654709504'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s3840'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Canbus protocol</b></td>
+<td class='Ctd'><select name='4294967424'>
+<option value='0' >nicht belegt</option>
+<option value='1' >Solis RHI</option>
+<option value='2' >Pylontech</option>
+<option value='3' selected>VICTRON</option>
+<option value='4' >VICTRON 250k</option>
+<option value='5' >BYD</option>
+</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s128'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Send extended data</b></td><td class='Ctd'><input type='checkbox'  name='38654713664'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s8000'></span></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Nicht in Verbindung mit einem CerboGX aktivieren!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Datenquelle</b></td>
+<td class='Ctd'>
+<input id='t360168061' class='toggle' type='checkbox'>
+<label for='t360168061' class='lbl-toggle'>Datenquelle</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='21474841792' value='0' checked>Data device 0<br>
+<input type='checkbox' name='21474841792' value='1' checked>Data device 1<br>
+<input type='checkbox' name='21474841792' value='2' checked>Data device 2<br>
+<input type='checkbox' name='21474841792' value='3' >Data device 3<br>
+<input type='checkbox' name='21474841792' value='4' >Data device 4<br>
+<input type='checkbox' name='21474841792' value='5' >Data device 5<br>
+<input type='checkbox' name='21474841792' value='6' >Data device 6<br>
+<input type='checkbox' name='21474841792' value='7' >Data device 7<br>
+<input type='checkbox' name='21474841792' value='8' >Data device 8<br>
+<input type='checkbox' name='21474841792' value='9' >Data device 9<br>
+<input type='checkbox' name='21474841792' value='10' >Data device 10<br>
+<input type='checkbox' name='21474841792' value='11' >Data device 11<br>
+<input type='checkbox' name='21474841792' value='12' >Data device 12<br>
+<input type='checkbox' name='21474841792' value='13' >Data device 13<br>
+<input type='checkbox' name='21474841792' value='14' >Data device 14<br>
+<input type='checkbox' name='21474841792' value='15' >Data device 15<br>
+<input type='checkbox' name='21474841792' value='16' >Data device 16<br>
+<input type='checkbox' name='21474841792' value='17' >Data device 17<br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+</table></form></div></div>
 
-- **Masterquelle**  
-Der SoC des Geräts, das unter der "Datenquelle (Master)" ausgewählt wurde, wird an den Inverter übermittelt.
+**BMS Canbus enable**  
+Aktiviert oder deaktiviert die generelle CAN-Bus-Kommunikation des BMS.  
+Wenn deaktiviert, werden keine Daten über den CAN-Bus an Wechselrichter gesendet.
 
-- **SoC Mittelwert**  
-Der Mittelwert des SoC aus allen unter "BMS für SoC" ausgewählten Geräten wird berechnet und an den Inverter übermittelt.
+**Canbus protocol**  
+Legt fest, welches Kommunikationsprotokoll für den angeschlossenen Wechselrichter verwendet wird.  
+Für die meisten Wechselrichter sollte das Protokoll **Pylontech** gewählt werden.  
 
-- **SoC Minimalwert**  
-Der niedrigste SoC-Wert der unter "BMS für SoC" ausgewählten Geräte wird an den Inverter übermittelt.
+**Send extended data**  
+Steuert, ob erweiterte Datenpakete zusätzlich über den CAN-Bus gesendet werden.  
 
-- **SoC Maximalwert**  
-Der höchste SoC-Wert der unter "BMS für SoC" ausgewählten Geräte wird an den Inverter übermittelt.
+Diese Option kann **nur** in Verbindung mit einer **Victron-Anlage** genutzt werden und erfordert dort einen entsprechenden Treiber, der [hier](https://github.com/shining-man/dbus-bsc-can) verfügbar ist.  
+**Nicht** empfohlen für den Einsatz in Verbindung mit einem **CerboGX**, da dies zu Kommunikationsproblemen führen kann.
 
-- **BMS**  
-Der SoC eines einzelnen, unter "BMS für SoC" ausgewählten Geräts wird verwendet. Falls mehrere Geräte ausgewählt wurden, wird der SoC des ersten ausgewählten Geräts übermittelt.
+**Datenquelle**  
+Hier werden die Date-Devices ausgewählt von denen die Daten genommen und aufbereitet werden, um sie an den Wechselrichter zu übermitteln. 
 
-Diese Einstellungen ermöglichen eine flexible Anpassung der SoC-Daten, die an den Inverter gesendet werden.
+Bei der **Standard-Firmware** muss hier **zusätzlich** eine **Master-Datenquelle** festgelegt werden.  
+Von dieser wird die **Batteriespannung** übernommen, die anschließend an den Wechselrichter übermittelt wird.
 
-### Basisdaten
-#### Absorption Ladespannung
+
+## Valuehandling
+In diesem Abschnitt werden die Quellen und Methoden zur Verarbeitung zentraler Batteriewerte festgelegt. Dabei kann für jeden Messwerttyp – Ladezustand (SoC), Gesamtspannung und Gesamtstrom – eine spezifische Datenquelle ausgewählt werden. Die verfügbaren Datenquellen stammen aus den angeschlossenen Data Devices und liefern die Rohwerte für die weitere Verarbeitung.  
+
+Zusätzlich kann eingestellt werden, wie die Werte bei der Auswahl von mehreren Data Devices aggregiert werden sollen.  
+
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
+<tr class='Ctr'><td class='sep' colspan='3'><b>Valuehandling</b></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Quelle SoC</b></td>
+<td class='Ctd'>
+<input id='t388335136' class='toggle' type='checkbox'>
+<label for='t388335136' class='lbl-toggle'>Quelle SoC</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='21474845568' value='0' >Data device 0<br>
+<input type='checkbox' name='21474845568' value='1' checked>Data device 1<br>
+<input type='checkbox' name='21474845568' value='2' >Data device 2<br>
+<input type='checkbox' name='21474845568' value='3' >...<br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Aggregation SoC</b></td>
+<td class='Ctd'><select name='4294974720'>
+<option value='1' selected>Mittelwert</option>
+<option value='4' >Minimalwert</option>
+<option value='2' >Maximalwert</option>
+<option value='3' >BMS</option>
+</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s7424'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Quelle Gesamtspannung</b></td>
+<td class='Ctd'>
+<input id='t388335278' class='toggle' type='checkbox'>
+<label for='t388335278' class='lbl-toggle'>Quelle Gesamtspannung</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='21474847552' value='0' checked>Data device 0<br>
+<input type='checkbox' name='21474847552' value='1' checked>Data device 1<br>
+<input type='checkbox' name='21474847552' value='2' checked>Data device 2<br>
+<input type='checkbox' name='21474847552' value='3' >...<br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Aggregation Spannung</b></td>
+<td class='Ctd'><select name='4294978496'>
+<option value='1' >Mittelwert</option>
+<option value='4' >Minimalwert</option>
+<option value='2' selected>Maximalwert</option>
+</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s11200'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Quelle Gesamtstrom</b></td>
+<td class='Ctd'>
+<input id='t388335397' class='toggle' type='checkbox'>
+<label for='t388335397' class='lbl-toggle'>Quelle Gesamtstrom</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='21474847616' value='0' checked>Data device 0<br>
+<input type='checkbox' name='21474847616' value='1' checked>Data device 1<br>
+<input type='checkbox' name='21474847616' value='2' checked>Data device 2<br>
+<input type='checkbox' name='21474847616' value='3' >...<br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Aggregation Strom</b></td>
+<td class='Ctd'><select name='4294978560'>
+<option value='1' >Mittelwert</option>
+<option value='4' >Minimalwert</option>
+<option value='2' >Maximalwert</option>
+<option value='5' selected>Summe</option>
+</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s11264'></span></td></tr>
+</table></form></div></div>
+
+!!! note "Hinweis"
+    Bei der **Standard-Firmware** kann hier nur für den **SoC** die Aggregation eingestellt werden.
+
+**Quelle SoC**  
+Legt fest, von welchem angeschlossenen Gerät (Data Device) der Ladezustand der Batterie (State of Charge, SoC) übernommen wird.  
+Wird nur ein Gerät als Quelle verwendet, bestimmt ausschließlich dessen Wert den SoC im System.
+
+**Aggregation SoC**  
+Definiert die Methode, mit der der SoC berechnet wird, wenn mehrere Datenquellen gleichzeitig ausgewählt wurden.  
+Mögliche Aggregationsmethoden können z. B. **Mittelwert**, **höchster Wert**, **niedrigster Wert** oder **BMS** sein. Bei der Auswahl **BMS** wird der SoC des ersten ausgewählte Data-Device an den Wechselrichter übermittelt.   
+
+**Quelle Gesamtspannung**  
+Bestimmt, von welchem Data Device der Wert für die Gesamtbatteriespannung übernommen wird.  
+Bei nur einer Quelle wird der angezeigte Spannungswert direkt von diesem Gerät übernommen.
+
+**Aggregation Spannung**  
+Legt die Berechnungsart fest, wenn mehrere Spannungsquellen ausgewählt wurden.  
+Mögliche Auswahloptionen sind der **Mittelwert** oder die Auswahl des **höchsten** bzw. **niedrigsten** Wertes.  
+Der so ermittelte Wert wird anschließend an den Wechselrichter übermittelt.
+
+**Quelle Gesamtstrom**  
+Gibt an, von welchem Data Device der aktuelle Gesamtstromwert der Batterie übernommen wird.  
+Bei einer einzigen Quelle wird deren Wert direkt übernommen.
+
+**Aggregation Strom**  
+Definiert, wie der Gesamtstrom berechnet wird, wenn mehrere Stromquellen ausgewählt wurden.  
+Mögliche Auswahloptionen sind **Summierung**, **Mittelwert** oder die Auswahl des **höchsten** bzw. **niedrigsten** Wertes.  
+Der so ermittelte Wert wird anschließend an den Wechselrichter übermittelt.
+
+
+## Basisdaten
+
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
+<tr class='Ctr'><td class='sep' colspan='3'><b>Basisdaten</b></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Absorption Ladespannung</b></td>
+<td class='Ctd'><input type='number' step='0.1' min='12' max='66' value='54.40' name='12884905856' class='fl1'></td><td class='t1'>V</td><td class='Ctd'><span class='secVal' id='s3968'></span></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Die Absorption Ladespannung entspricht einer erhöhten Spannung zum Erreichen des Voll-Zustandes.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Float Ladespannung</b></td>
+<td class='Ctd'><input type='number' step='0.1' min='12' max='66' value='54.40' name='12884911872' class='fl1'></td><td class='t1'>V</td><td class='Ctd'><span class='secVal' id='s9984'></span></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Die Floatspannung wird nach Erreichen der einstellbaren Cutoff-Funktion angewendet.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Float Ladespannung SoC</b></td>
+<td class='Ctd'><input type='number' min='1' max='100' value='95' name='4294972736'></td><td class='t1'>%</td><td class='Ctd'><span class='secVal' id='s5440'></span></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Beim Unterschreiten des eingestellten SoC wird von der Float in die Absorption Ladespannung gewechselt.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Max. Ladestrom</b></td>
+<td class='Ctd'><input type='number' min='0' max='1000' value='100' name='12884905984'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s4096'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Max. Entladestrom</b></td>
+<td class='Ctd'><input type='number' min='0' max='1000' value='100' name='12884906048'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s4160'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Ladeleistung auf 0</b></td>
+<td class='Ctd'>
+<input id='t388335673' class='toggle' type='checkbox'>
+<label for='t388335673' class='lbl-toggle'>Ladeleistung auf 0</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='12884906112' value='0' >Trigger 1 <br>
+<input type='checkbox' name='12884906112' value='1' >Trigger 2 <br>
+<input type='checkbox' name='12884906112' value='2' >Trigger 3 <br>
+<input type='checkbox' name='12884906112' value='3' >Trigger 4 <br>
+<input type='checkbox' name='12884906112' value='4' >Trigger 5<br>
+<input type='checkbox' name='12884906112' value='5' >Trigger 6<br>
+<input type='checkbox' name='12884906112' value='6' >Trigger 7<br>
+<input type='checkbox' name='12884906112' value='7' >Trigger 8<br>
+<input type='checkbox' name='12884906112' value='8' >Trigger 9<br>
+<input type='checkbox' name='12884906112' value='9' >Trigger 10<br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Entladeleistung auf 0</b></td>
+<td class='Ctd'>
+<input id='t388335747' class='toggle' type='checkbox'>
+<label for='t388335747' class='lbl-toggle'>Entladeleistung auf 0</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='12884906176' value='0' >Trigger 1 <br>
+<input type='checkbox' name='12884906176' value='1' >Trigger 2 <br>
+<input type='checkbox' name='12884906176' value='2' >Trigger 3 <br>
+<input type='checkbox' name='12884906176' value='3' >Trigger 4 <br>
+<input type='checkbox' name='12884906176' value='4' >Trigger 5<br>
+<input type='checkbox' name='12884906176' value='5' >Trigger 6<br>
+<input type='checkbox' name='12884906176' value='6' >Trigger 7<br>
+<input type='checkbox' name='12884906176' value='7' >Trigger 8<br>
+<input type='checkbox' name='12884906176' value='8' >Trigger 9<br>
+<input type='checkbox' name='12884906176' value='9' >Trigger 10<br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>SOC auf 100</b></td>
+<td class='Ctd'>
+<input id='t388335835' class='toggle' type='checkbox'>
+<label for='t388335835' class='lbl-toggle'>SOC auf 100</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='12884906816' value='0' >Trigger 1 <br>
+<input type='checkbox' name='12884906816' value='1' >Trigger 2 <br>
+<input type='checkbox' name='12884906816' value='2' >Trigger 3 <br>
+<input type='checkbox' name='12884906816' value='3' >Trigger 4 <br>
+<input type='checkbox' name='12884906816' value='4' >Trigger 5<br>
+<input type='checkbox' name='12884906816' value='5' >Trigger 6<br>
+<input type='checkbox' name='12884906816' value='6' >Trigger 7<br>
+<input type='checkbox' name='12884906816' value='7' >Trigger 8<br>
+<input type='checkbox' name='12884906816' value='8' >Trigger 9<br>
+<input type='checkbox' name='12884906816' value='9' >Trigger 10<br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+</table><details><summary><b>Batterypack settings</b></summary><table>
+<tr><td colspan='3'><b>Data device 0</b></td></tr><tr class='Ctr'><td class='Ctd'><b>Charge current per pack</b></td>
+<td class='Ctd'><input type='number' min='0' max='500' value='280' name='12884909440'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s7552'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Discharge current per pack</b></td>
+<td class='Ctd'><input type='number' min='0' max='500' value='280' name='12884909504'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s7616'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Kapazität</b></td>
+<td class='Ctd'><input type='number' min='1' max='1000' value='280' name='12884912320'></td><td class='t1'>Ah</td><td class='Ctd'><span class='secVal' id='s10432'></span></td></tr>
+<tr><td colspan='3'><hr style='border:none; border-top:1px dashed black; height:1px; color:#000000; background:transparent'></td></tr><tr><td colspan='3'><b>Data device 1</b></td></tr><tr class='Ctr'><td class='Ctd'><b>Charge current per pack</b></td>
+<td class='Ctd'><input type='number' min='0' max='500' value='280' name='12884909441'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s7553'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Discharge current per pack</b></td>
+<td class='Ctd'><input type='number' min='0' max='500' value='280' name='12884909505'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s7617'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Kapazität</b></td>
+<td class='Ctd'><input type='number' min='1' max='1000' value='280' name='12884912321'></td><td class='t1'>Ah</td><td class='Ctd'><span class='secVal' id='s10433'></span></td></tr>
+</table></details><table>
+</table></form></div></div>
+
+**Absorption Ladespannung**  
 Die **Absorption Ladespannung** bezeichnet die Spannung, die erforderlich ist, um Akkus in einen (nahezu) vollständig geladenen Zustand zu bringen. Dabei ist zu beachten, dass diese Spannung nicht dauerhaft anliegen sollte, da dies die Lebensdauer und Leistung des Akkus negativ beeinflussen kann.
 
 Ein geeigneter Zeitpunkt, um von der **Absorptionsladespannung** zur **Float-Spannung** zu wechseln, liegt vor, wenn der Strom bei LiFePo4-Zellen über einen längeren Zeitraum hinweg sehr niedrig bleibt.
 
-Um diesen Übergang automatisch zu steuern, steht die Funktion "**Charge-Current Cut-Off**" zur Verfügung, die im Folgenden beschrieben wird. Ohne diese Funktion bleibt der Akku dauerhaft auf der Absorptions-Spannung, was langfristig zu Schäden führen kann.
+Um diesen Übergang automatisch zu steuern, steht die Funktion "**Charge-Current Cut-Off**" zur Verfügung, die [hier](settings_inverter_charge.md#charge-current-cut-off) beschrieben wird. Ohne diese Funktion bleibt der Akku dauerhaft auf der Absorptions-Spannung, was langfristig zu Schäden führen kann.
 
 Diese Einstellung ist daher essenziell, um den Ladeprozess korrekt zu beenden und den Akku optimal zu schützen.
 
-#### Float Ladespannung
+**Float Ladespannung**  
 Die Float Ladespannung gibt die Open-Circuit Voltage (OCV) an, also die Spannung, die eine Batterie erreicht, wenn sie sich im unbelasteten Zustand befindet und nicht geladen wird. 
 
 Im Wesentlichen entspricht die Float Ladespannung dem Spannungswert, bei dem die Batterie in einem stabilen, ungenutzten Zustand verweilt, ohne zu entladen oder weiter aufgeladen zu werden. Dieser Zustand tritt auf, wenn keine Last auf der Batterie liegt und keine Energie in oder aus der Zelle fließt. 
 
-#### Batterypack Settings
+!!! note "Hinweis"
+    Der Wechsel in die Float-Phase erfolgt nur durch den [Charge-Current Cut-Off](settings_inverter_charge.md#charge-current-cut-off) oder den [Autobalancer](settings_inverter_charge.md#autobalance).
+
+**Float Ladespannung SoC**  
+Legt den Ladezustand (State of Charge) fest, bei dessen Unterschreiten von der Float-Ladespannung zurück auf die Absorptionsladespannung gewechselt wird.  
+Diese Funktion sorgt dafür, dass bei sinkendem Ladezustand erneut eine vollständige Ladung initiiert wird.
+
+**Max. Ladestrom**  
+Dies ist der **maximale Strom**, der an den Wechselrichter übermittelt wird und den dieser als **Begrenzung für den Ladevorgang** verwendet.  
+Damit wird sichergestellt, dass die Ladeleistung nicht über die zulässigen Werte hinausgeht und Batterie sowie Ladegeräte vor Überlastung geschützt werden.
+
+**Max. Entladestrom**  
+Dies ist der **maximale Strom**, der an den Wechselrichter übermittelt wird und den dieser als **Begrenzung für den Entladevorgang** verwendet.  
+So wird verhindert, dass die Batterie mit zu hohen Strömen belastet werden.
+
+**Ladeleistung auf 0**  
+Setzt den Ladestrom auf 0 A, wenn einer der zugeordneten Trigger aktiviert wird.  
+
+**Entladeleistung auf 0**  
+Setzt den Entladestrom auf 0 A, wenn einer der zugeordneten Trigger aktiviert wird.  
+
+**SOC auf 100**  
+Setzt den Ladezustand im System auf 100 %, wenn einer der definierten Trigger aktiviert wird.  
+
+**Batterypack Settings**  
 Mit dieser Funktion können Sie einen Lade- oder Entlade-Überstrom vermeiden, wenn einzelne Battery-Packs im System abgeschaltet werden. 
 
-Das Battery-Safety-Controller (BSC) sorgt dafür, dass der zuvor definierte maximale Lade- und Entladestrom an den Inverter übermittelt wird. Je nach Anzahl der parallel geschalteten Packs müssen Sie diesen Stromwert individuell festlegen. Sollte nun ein Battery Management System (BMS) eines Packs eingreifen und das Pack vom Netz nehmen, besteht die Möglichkeit, dass die verbleibenden Packs den vollen Strom des ausgefallenen Packs übernehmen. Dies könnte zu einem Überstrom führen.
+Das Battery System Controller (BSC) sorgt dafür, dass der zuvor definierte maximale Lade- und Entladestrom an den Inverter übermittelt wird. Je nach Anzahl der parallel geschalteten Packs müssen Sie diesen Stromwert individuell festlegen. Sollte nun ein Battery Management System (BMS) eines Packs eingreifen und das Pack vom Netz nehmen, besteht die Möglichkeit, dass die verbleibenden Packs den vollen Strom des ausgefallenen Packs übernehmen. Dies könnte zu einem Überstrom führen.
 
-Um dies zu verhindern, können Sie mit dieser Funktion einen maximalen Strom pro Pack definieren. Das BSC reagiert automatisch auf den Ausfall eines Packs und passt den maximalen Strom an die verbleibenden Packs an, sodass der Strom nie den festgelegten Wert überschreitet.
+Um dies zu verhindern, können Sie mit dieser Funktion einen maximalen Strom pro Pack definieren. Das BSC reagiert automatisch auf den Ausfall eines Packs und passt den maximalen Strom an die verbleibenden Packs an.
 
 Beispiel: Angenommen, Sie haben einen maximalen Ladestrom von 180A definiert und drei Packs, bei denen jeweils ein maximaler Strom von 100A festgelegt ist. Sollte nun ein Pack ausfallen, würde der verbleibende Strom von 200A noch innerhalb des zulässigen Rahmens liegen. Fällt ein weiteres Pack aus, würde der Ladecontroller den Strom automatisch auf 100A begrenzen, um das verbleibende Pack vor einem Überstrom zu schützen.
 
-Diese Funktion gewährleistet, dass Ihr System auch bei Ausfall von einzelnen Packs stets sicher arbeitet und keine Überstromsituationen entstehen.
 
 <span id="a_ladespannungsrampe"></span>
-### Ladespannungsrampe
-<div class="bsc_content"><div class="content"><form><table>
+## Ladespannungsrampe
+
+Die Funktion **Ladespannungsrampe** sorgt dafür, dass Änderungen der Ladespannung – beispielsweise beim Übergang von Float auf Absorption – nicht sprunghaft, sondern in langsamen, definierten Schritten erfolgen. Damit werden abrupte Spannungsänderungen vermieden und Belastungsspitzen an Batterie und System reduziert.
+
+!!! note "Hinweis"
+    Diese Funktion steht nur in der **Sponsoren Version** zur Verfügung
+
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>Ladespannungsrampe</b></td></tr>
 <tr><td colspan='3' class='td0'><div class='help'>Mit der Funktion wird Ladespannung langsam auf den neuen Wert geändert. Die Ladespannung wird pro Schritt um 100 mV geändert.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox' checked name='38654717824'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s12160'></span></td></tr>
 <tr class='Ctr'><td class='Ctd'><b>Zeit pro Spannungsschritt</b></td>
 <td class='Ctd'><input type='number' min='1' max='240' value='5' name='4294979520'></td><td class='t1'>s</td><td class='Ctd'><span class='secVal' id='s12224'></span></td></tr>
 </table></form></div></div>
 
-Die Funktion **Ladespannungsrampe** sorgt dafür, dass Änderungen der Ladespannung – beispielsweise beim Übergang von Float auf Absorption – nicht sprunghaft, sondern in definierten Schritten erfolgen.
+**Funktionsweise**:  
+Die Ladespannung wird in festen Schritten von 100 mV angepasst.  
+Die Zeitdauer pro 100 mV-Schritt ist konfigurierbar und bestimmt damit die Geschwindigkeit der Spannungsänderung.  
+Die Anpassung erfolgt kontinuierlich, bis die eingestellte Zielspannung erreicht ist.
 
-**Funktionsweise**:
+**Parameter**:  
+**Zeit pro Spannungsschritt**: Bestimmt, in welchem Intervall die Ladespannung in 100 mV-Schritten angepasst wird. Alle x Sekunden wird die Spannung um 100 mV erhöht oder verringert, bis die Zielspannung erreicht ist.
 
-- Die Ladespannung wird in festen Schritten von 100 mV angepasst.
-- Die Zeitdauer pro 100 mV-Schritt ist konfigurierbar.
-- Die Spannung wird kontinuierlich geändert, bis die Zielspannung erreicht ist.
+**Hinweis**:   
+Die Ladespannungsrampe wird bei jeder Änderung der Sollspannung aktiv, sofern diese Funktion aktiviert ist.
 
-**Parameter**:
 
-- Zeit pro 100 mV-Schritt (einstellbar)
+## Batterietemperatur
 
-**Ziel**:
+Hier wird festgelegt, von welchem Data Device oder Onewire-Sensor die Batterietemperatur übernommen und an den Wechselrichter übermittelt werden soll.  
 
-- Vermeidung abrupter Spannungsänderungen
-- Reduzierung von Belastungsspitzen an Batterie und System
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
+<tr class='Ctr'><td class='sep' colspan='3'><b>Batterietemperatur</b></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Quelle</b></td>
+<td class='Ctd'><select name='4294973504'>
+<option value='0' >Data device 0</option>
+<option value='1' selected>Data device 1</option>
+<option value='2' >Data device 2</option>
+<option value='3' >Data device 3</option>
+<option value='4' >Data device 4</option>
+<option value='5' >Data device 5</option>
+<option value='6' >Data device 6</option>
+<option value='7' >Data device 7</option>
+<option value='8' >Data device 8</option>
+<option value='9' >Data device 9</option>
+<option value='10' >Data device 10</option>
+<option value='11' >Data device 11</option>
+<option value='12' >Data device 12</option>
+<option value='13' >Data device 13</option>
+<option value='14' >Data device 14</option>
+<option value='15' >Data device 15</option>
+<option value='16' >Data device 16</option>
+<option value='17' >Data device 17</option>
+<option value='128' >Onewire</option>
+</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s6208'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Sensornummer</b></td>
+<td class='Ctd'><input type='number' min='0' max='64' value='0' name='4294973568'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s6272'></span></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Mögliche Werte:<br>Data device:0-2<br>Onewire:0-63</div></td></tr>
+</table></form></div></div>
 
-**Hinweis**: Die Ladespannungsrampe wird bei jeder Änderung der Sollspannung aktiv, sofern diese Funktion aktiviert ist.
-> Diese Funktionen steht nur Insidern zur Verfügung  
 
-### Trigger bei SoC
-Mit dieser Funktion kann man beispielsweise externe Gerät je nach SoC-Wert schalten.  
-![](img/settings/settings_inverter_trigger_soc.png){  width="950" }  
+**Hinweis:** Bei der Standard-Firmware wird die Temperatur stets von der Masterquelle übernommen.
 
-**Zwei Beispiele hierzu:**    
+
+## Zelltemperatur
+
+Hier wird festgelegt, von welchen Sensoren der als Datenquelle ausgewählten Data Devices die minimale und maximale Zelltemperatur ermittelt und an den Wechselrichter übermittelt wird.  
+
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
+<tr class='Ctr'><td class='sep' colspan='3'><b>Zelltemperatur</b></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Es werden die Data Devices genommen, die unter 'Datenquelle' ausgewählt sind.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Sensoren</b></td>
+<td class='Ctd'>
+<input id='t388336656' class='toggle' type='checkbox'>
+<label for='t388336656' class='lbl-toggle'>Sensoren</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='21474848192' value='0' >0<br>
+<input type='checkbox' name='21474848192' value='1' >1<br>
+<input type='checkbox' name='21474848192' value='2' >2<br>
+<input type='checkbox' name='21474848192' value='3' >3<br>
+<input type='checkbox' name='21474848192' value='4' >4<br>
+<input type='checkbox' name='21474848192' value='5' >5<br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+</table></form></div></div>
+
+!!! note "Hinweis"
+    Diese Funktion steht nur in der **Sponsoren Version** zur Verfügung
+
+
+## Alarme (Inverter)
+
+Über diese Einstellungen können Alarme im Wechselrichter über Trigger ausgelöst werden.  
+
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
+<tr class='Ctr'><td class='sep' colspan='3'><b>Alarme (Inverter)</b></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>High battery voltage</b></td>
+<td class='Ctd'>
+<input id='t388336727' class='toggle' type='checkbox'>
+<label for='t388336727' class='lbl-toggle'>High battery voltage</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='21474843648' value='0' >Trigger 1 <br>
+<input type='checkbox' name='21474843648' value='1' >Trigger 2 <br>
+<input type='checkbox' name='21474843648' value='2' >Trigger 3 <br>
+<input type='checkbox' name='21474843648' value='3' >Trigger 4 <br>
+<input type='checkbox' name='21474843648' value='4' >Trigger 5<br>
+<input type='checkbox' name='21474843648' value='5' >Trigger 6<br>
+<input type='checkbox' name='21474843648' value='6' >Trigger 7<br>
+<input type='checkbox' name='21474843648' value='7' >Trigger 8<br>
+<input type='checkbox' name='21474843648' value='8' >Trigger 9<br>
+<input type='checkbox' name='21474843648' value='9' >Trigger 10<br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Low battery voltage</b></td>
+<td class='Ctd'>
+<input id='t388336817' class='toggle' type='checkbox'>
+<label for='t388336817' class='lbl-toggle'>Low battery voltage</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='21474843712' value='0' >Trigger 1 <br>
+<input type='checkbox' name='21474843712' value='1' >Trigger 2 <br>
+<input type='checkbox' name='21474843712' value='2' >Trigger 3 <br>
+<input type='checkbox' name='21474843712' value='3' >... <br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>High Temperature</b></td>
+<td class='Ctd'>
+<input id='t388336903' class='toggle' type='checkbox'>
+<label for='t388336903' class='lbl-toggle'>High Temperature</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='21474843712' value='0' >Trigger 1 <br>
+<input type='checkbox' name='21474843712' value='1' >Trigger 2 <br>
+<input type='checkbox' name='21474843712' value='2' >Trigger 3 <br>
+<input type='checkbox' name='21474843712' value='3' >... <br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Low Temperature</b></td>
+<td class='Ctd'>
+<input id='t388337005' class='toggle' type='checkbox'>
+<label for='t388337005' class='lbl-toggle'>Low Temperature</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='21474843712' value='0' >Trigger 1 <br>
+<input type='checkbox' name='21474843712' value='1' >Trigger 2 <br>
+<input type='checkbox' name='21474843712' value='2' >Trigger 3 <br>
+<input type='checkbox' name='21474843712' value='3' >... <br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+</table></form></div></div>
+
+
+## Trigger bei SoC
+Mit dieser Funktion kann ein Trigger ausgelöst werden, wenn ein bestimmter Ladezustand (SoC) der Batterie über- oder unterschritten wird.  
+Dadurch lassen sich beispielsweise externe Geräte abhängig vom SoC-Wert schalten.  
+
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
+<tr class='Ctr'><td class='sep' colspan='3'><b>Trigger bei SoC</b></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Auslösen eines Triggers, wenn ein bestimmter SoC über- oder unterschritten wird.</div></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Trigger</b></td>
+<td class='Ctd'><select name='4294975872'>
+<option value='0' selected>Aus</option>
+<option value='1' >Trigger 1</option>
+<option value='2' >Trigger 2 </option>
+<option value='3' >Trigger 3 </option>
+<option value='4' >Trigger 4 </option>
+<option value='5' >Trigger 5</option>
+<option value='6' >Trigger 6</option>
+<option value='7' >Trigger 7</option>
+<option value='8' >Trigger 8</option>
+<option value='9' >Trigger 9</option>
+<option value='10' >Trigger 10</option>
+</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s8576'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>SoC - Trigger ein</b></td>
+<td class='Ctd'><input type='number' min='1' max='100' value='95' name='4294975936'></td><td class='t1'>%</td><td class='Ctd'><span class='secVal' id='s8640'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>SoC - Trigger aus</b></td>
+<td class='Ctd'><input type='number' min='1' max='100' value='80' name='4294976000'></td><td class='t1'>%</td><td class='Ctd'><span class='secVal' id='s8704'></span></td></tr>
+</table></form></div></div>
+
+**Parameter:**  
+**SoC - Trigger ein**: Definiert den SoC-Wert, bei dem der Trigger aktiviert wird.  
+**SoC - Trigger aus**: Definiert den SoC-Wert, bei dem der Trigger wieder deaktiviert wird.  
+
+**Zwei Beispiele hierzu:**  
 ![](img/settings/settings_inverter_trigger_soc_beispiel.png){  width="450" }  
 
 
@@ -104,248 +492,3 @@ Hier triggert...
 
 Das Ladegerät geht bei 0% an, bis die 25% erreicht sind und schaltet dann aus. Erst bei 10% und kleiner wird es wieder gestartet.  
 Somit hat man eine Hysterese von 15%.
-
-## Charge
-Beispiel eines Ladezyklus inkl. Balancing-, Float- und Absorption-Voltage mit Hilfe des BSC und einer Visualisierung über HomeAssistant/Grafana:  
-![](img/settings/settings_inverter_charge_beispiel.png){  width="1300" }   
-
-### Ladestrom pro Pack zu groß
-![](img/settings/settings_inverter_current_per_pack.png){  width="450" }  
-Mit dieser Funktion wird der Ladestrom automatisch und dynamisch angepasst, um sicherzustellen, dass der maximale Ladewert eines jeden Batterie-Packs nicht überschritten wird. Diese intelligente Regelung schützt die Batterie vor Überstrom.
-
-Die folgende Grafik veranschaulicht die Ströme von drei Batteriepacks während eines Ladeprozesses:
-![](img/settings/settings_inverter_current_per_pack_example_1.png){  width="600" }  
-Grün zeigt den Stromverlauf für Pack 1, Gelb von Pack 2 und Blau von Pack 3.
-
-In der Darstellung ist zu erkennen, dass der maximale Laststrom für Pack 1 (grün) für eine kurze Zeit auf 50A reduziert wurde (dies ist in der Mitte des Diagramms sichtbar). Nachdem der Wert reduzierte wurde, regelt das (BSC) den Ladestrom dynamisch herunter und hält ihn auf den eingestellten Wert von 50A.
-
-
-### Ladestrom Zell-Spannungsabhängig drosseln
-Diese Einstellungen ermöglichen es, den Ladestrom zu drosseln, wenn bestimmte Zellspannungen überschritten werden. Dies hilft, die Zellen vor Überladung zu schützen.
-
-* **Ein/Aus:** Aktivieren oder Deaktivieren der Funktion.
-* **Starten bei Zellspannung größer:** Gibt die Zellspannung an, bei der die Drosselung des Ladestroms beginnt.
-* **Maximale Zellspannung:** Ab dieser Zellspannung wird nur noch mit dem Mindest-Ladestrom geladen.
-* **Mindest-Ladestrom:** Der niedrigste Strom, der beim Laden verwendet wird.
-
-### Ladestrom reduzieren bei Zelldrift
-Diese Funktion reduziert den Ladestrom basierend auf der Zellspannungsdifferenz (Drift), um eine gleichmäßige Ladung der Zellen sicherzustellen.
-
-* **Ein/Aus:** Aktivieren oder Deaktivieren der Funktion.
-* **Starten bei Zellspannung größer:** Zellspannung, ab der die Reduzierung des Ladestroms beginnt.
-* **Starten bei Drift größer:** Die Spannungsdifferenz zwischen Zellen, bei der die Reduzierung startet.
-* **Reduzierung pro weiterer mV-Abweichung um:** Stromreduktion für jede weitere mV-Abweichung an Zellspannungsunterschied gegenüber der gesetzten Startdefinition.
-
-### Ladestrom reduzieren - SoC
-Der Ladestrom wird reduziert, wenn der Ladezustand (State of Charge, SoC) einen bestimmten Wert überschreitet.
-
-* **Ein/Aus:** Aktivieren oder Deaktivieren der Funktion.
-* **Reduzierung ab SoC:** Der Ladezustand (SoC), ab dem der Ladestrom reduziert wird.
-* **Pro 1% um x A reduzieren:** Gibt an, um wie viel der Strom pro 1% SoC reduziert werden soll.
-* **Mindest-Ladestrom:** Der niedrigste Strom, der beim Laden verwendet wird.
-
-### Ladestrom reduzieren - Temperatur
-> Diese Funktionen steht nur Insidern zur Verfügung  
-
-Die temperaturgesteuerte Ladestromregelung ermöglicht es, den Ladestrom automatisch basierend auf der gemessenen Temperatur zu regulieren. Die Funktion nutzt die Data Devices, die unter "Datenquelle" konfiguriert wurden, um kontinuierlich die Temperaturwerte zu überwachen und den Ladestrom entsprechend anzupassen.
-
-**Wichtig:** Die Regelung kann in beide Richtungen konfiguriert werden - sowohl für Drosselung bei steigenden Temperaturen als auch für Drosselung bei fallenden Temperaturen.
-
-#### Konfiguration
-**Sensoren**  
-In diesem Bereich können die spezifischen Temperatursensoren ausgewählt werden, die für die Regelung verwendet werden sollen. Es können ein oder mehrere Sensoren aus den verfügbaren Data Devices gewählt werden.
-
-**Reduzieren Start**  
-Hier wird die Temperatur definiert, ab der die Stromreduzierung beginnt. Diese kann sowohl höher als auch niedriger als die Endtemperatur sein.
-
-**Reduzieren Ende**  
-Diese Einstellung legt die Temperatur fest, bei der der Ladestrom vollständig auf 0 A reduziert wird. Liegt dieser Wert unter der Starttemperatur, wird bei fallenden Temperaturen gedrosselt.
-
-#### Funktionsweise
-Die Regelung erfolgt linear zwischen den beiden konfigurierten Temperaturschwellen. Je nach Konfiguration wird der Ladestrom bei steigenden oder fallenden Temperaturen gedrosselt.
-
-1. **Regelungsverhalten bei steigender Temperatur (Start < Ende)** (z.B. 20 °C → 40 °C)
-
-    - Unterhalb der Starttemperatur: Ladung mit maximalem Strom
-    - Zwischen Start- und Endtemperatur: Lineare Stromreduzierung bei steigender Temperatur
-    - Oberhalb der Endtemperatur: Ladestrom auf 0 A (Ladung gestoppt)
-
-    **Beispiel**:  
-    **Konfiguration:**
-
-    - Maximaler Ladestrom: 100 A
-    - Reduzieren Start: 20 °C
-    - Reduzieren Ende: 40 °C
-
-    **Regelungsverhalten:**
-
-    - Bei Temperaturen bis 20 °C: Ladung mit vollem Strom (100 A)
-    - Bei 30 °C (Mitte zwischen Start und Ende): Ladestrom auf 50 A reduziert
-    - Bei 40 °C und darüber: Ladestrom auf 0 A (Ladung gestoppt)
-<br><br>
-
-2. **Regelungsverhalten bei fallender Temperatur (Start > Ende)** (z.B. 40 °C → 20 °C)
-
-    - Oberhalb der Starttemperatur: Ladung mit maximalem Strom
-    - Zwischen Start- und Endtemperatur: Lineare Stromreduzierung bei fallender Temperatur
-    - Unterhalb der Endtemperatur: Ladestrom auf 0 A (Ladung gestoppt)
-
-    **Beispiel:**  
-    **Konfiguration:**
-
-    - Maximaler Ladestrom: 100 A
-    - Reduzieren Start: 40 °C
-    - Reduzieren Ende: 20 °C
-
-    **Regelungsverhalten:**
-
-    - Bei Temperaturen ab 40 °C: Ladung mit vollem Strom (100 A)
-    - Bei 30 °C (Mitte zwischen Start und Ende): Ladestrom auf 50 A reduziert
-    - Bei 20 °C und darunter: Ladestrom auf 0 A (Ladung gestoppt)
-
-**Berechnung des aktuellen Ladestroms:**
-```
-Aktueller Ladestrom = Maximaler Ladestrom × |Endtemperatur - Aktuelle Temperatur| / |Endtemperatur - Starttemperatur|
-```
-
-Beispiel 1 bei 35 °C (Start: 20 °C, Ende: 40 °C):
-```
-Ladestrom = 100 A × |40 °C - 35 °C| / |40 °C - 20 °C| = 100 A × 5/20 = 25 A
-```
-
-Beispiel 2 bei 25 °C (Start: 40 °C, Ende: 20 °C):
-```
-Ladestrom = 100 A × |20 °C - 25 °C| / |20 °C - 40 °C| = 100 A × 5/20 = 25 A
-```
-
-### Dynamische Ladespannungsbegrenzung (Beta!) 
-Diese experimentelle Funktion begrenzt die Ladespannung basierend auf der Zellspannung und dem Spannungsunterschied zwischen den Zellen.
-
-* **Ein/Aus:** Aktivieren oder Deaktivieren der Funktion.
-* **Start-Zellspannung:** Zellspannung, ab der die Begrenzung aktiv wird.
-* **Spannungs-Delta Min/Max:** Der maximale Unterschied zwischen der niedrigsten und höchsten Zellspannung.
-
-### Spannungsregelung zur Ladestrombegrenzung
-> Diese Funktionen steht nur Insidern zur Verfügung  
-
-Sobald die Funktion aktiviert ist, wird die Ladespannung dynamisch angepasst, um den Ladestrom innerhalb des konfigurierten Korridors zu halten. Sollte der Ladestrom den definierten Bereich überschreiten oder unterschreiten, greift die Spannungsregelung ein und korrigiert die Spannung entsprechend. Zusätzlich wird der an den Wechselrichter übermittelte Ladestrom auf 0 A gesetzt.  
-
-Die Regelung tritt ausschließlich in Kraft, wenn der Autobalancer nicht aktiv ist.  
-
-Die Diagramme zeigen eine Victron-Anlage mit aktivierter Spannungsregelung. Deutlich erkennbar ist, dass der Ladestrom begrenzt wird und keine Energie in den Akku fließt. Stattdessen wird die überschüssige Energie ins Netz eingespeist, während der SoC (State of Charge) über die Zeit nahezu konstant bleibt.
-![](img/settings/settings_inverter_SpgRegLadestrombegrenzungGrafana.png){ width="950" }  
-![](img/settings/settings_inverter_SpgRegLadestrombegrenzungVrm.png){ width="950" }  
-
-**Einstellmöglichkeiten:**
-
-* **Ein/Aus:** Die Regelung kann entweder dauerhaft aktiviert oder deaktiviert werden.  
-Alternativ ist es möglich, sie nur dann zu aktivieren, wenn eine definierte Triggerbedingung erfüllt ist. Dadurch lässt sich die Regelung beispielsweise in ein Home-Automation-System integrieren, sodass sie nur im Sommer aktiv ist und im Winter die volle Kapazität der Batterie zur Verfügung steht.
-* **Aktiv ab (SoC):** Hier kann festgelegt werden, ab welchem Ladezustand (State of Charge, SoC) die Regelung in Kraft tritt. Dies ermöglicht eine gezielte Anpassung an verschiedene Anforderungen.
-* **Regelungskorridor (±):** Definiert den zulässigen Schwankungsbereich für den Ladestrom. Innerhalb dieses Korridors erfolgt keine Regelung. Über- oder Unterschreitet der Ladestrom diesen Bereich, wird die Ladespannung automatisch angepasst.
-
-**Anwendungsbereiche:**  
-Die Funktion ermöglicht es, den Akku nur bis zu einem bestimmten SoC zu laden, um seine Lebensdauer zu verlängern.
-
-
-### Autobalancer
-Das Autobalance-Feature übernimmt die vollständige Balancierung Ihrer Akkuzellen, um eine optimale Leistung und Lebensdauer des Akkus sicherzustellen. Im Folgenden werden die wichtigsten Einstellungen und Abläufe beschrieben:
-![](img/settings/settings_inverter_charge_autobalance.png){  width="950" }  
-
-**Autobal. starten (Trigger)** *(Diese Option steht nur Insidern zur Verfügung)*  
-Der hier konfigurierte Trigger ermöglicht es, den Autobalancer unmittelbar zu starten, wenn er sich aktuell in der Wartezeit bis zum nächsten Intervall befindet. Zu beachten ist, dass der Trigger nach dem Starten des Autobalancers manuell wieder auf „Low“ gesetzt werden muss.
-
-**Balance-Intervall**   
-Mit dem Parameter Balance-Intervall kann festgelegt werden, in welchen zeitlichen Abständen ein Balancing der Akkuzellen durchgeführt werden soll. Dieser Wert bestimmt, wie häufig die Balancierung aktiviert wird, um die Zellspannungen anzugleichen.
-
-**Startkriterien**   
-Der Balancierungsprozess beginnt automatisch, wenn der definierte Balance-Intervall abgelaufen ist und im zweiten Schritt die Start-Zellspannung erreicht wurde.  
-Für die Start-Zellspannung wird die höchste Zellspannung der konfigurierten Data-Devices genommen.  
-Diese Startbedingungen stellen sicher, dass das Balancing unter optimalen Bedingungen durchgeführt wird.
-
-**Balance Mindest-Zeit**   
-Der Parameter Balance Mindest-Zeit gibt an, wie lange das Balancing mindestens durchgeführt werden soll, unabhängig davon, ob die Zellspannungen bereits ausgeglichen sind. Dies verhindert eine zu kurze Balancierungsdauer und sorgt für eine gründliche Anpassung der Zellspannungen.
-
-**Balance-Ladespannung**   
-Für den Balancierungsprozess wird die Ladespannung des Systems auf die vorab definierte Balance-Ladespannung angehoben. Diese Spannung sorgt dafür, dass der Balancierungsvorgang effektiv durchgeführt werden kann.
-
-**Balance-Zellspannung**   
-Der Parameter Balance-Zellspannung gibt an, wie hoch die Spannung der einzelnen Zellen während des Balancing-Vorgangs maximal ansteigen darf. Dies verhindert eine Überladung der Zellen und schützt das Akkusystem vor Schäden.
-
-**Beendigung des Balancierungsprozesses**   
-Der Vorgang wird automatisch beendet, sobald die Differenz zwischen den Zellspannungen den eingestellten Wert erreicht oder unterschreitet. Dadurch wird sichergestellt, dass alle Zellen gleichmäßig geladen sind und keine übermäßige Disparität besteht.
-
-**Timeout**   
-Mit dem Parameter Timeout wird festgelegt, nach welcher maximalen Zeit der Balancierungsprozess automatisch abgebrochen wird, falls die Zellspannungen nicht innerhalb des vorgesehenen Zeitrahmens ausgeglichen werden konnten. Dies schützt das System vor endlosen Balancierungszyklen.
-
-**Erweiterte Optionen**  
-> Hinweis: Die Erweiterten Optionen sind nur in der [Insider Version](insider.md) verfügbar
-
-- **Ballance-Spg. senden, sobald Startzeitpunkt erreicht**  
-Wenn diese Option aktiviert ist, wird die Balance-Spannung gesendet, sobald der festgelegte Startzeitpunkt erreicht ist.  
-- **Bei Start-Zellspg.-Unterschreitung → Step 'Warte auf Start-Zellspg.'**  
-Ist diese Option aktiv, wird bei Unterschreiten der definierten Start-Zellspannung erneut in den Schritt *„Warte auf Start-Zellspg.“* gewechselt. Dadurch werden auch die laufenden Timer zurückgesetzt.  
-- **CutOff ab Step 'Warte auf Start-Zellspg.' deaktivieren**  
-Mit dieser Option wird die CutOff-Funktion bereits im Schritt *„Warte auf Start-Zellspg.“* deaktiviert.  
-
-**Nach dem Balancing**   
-Nach Abschluss des Balancierungsprozesses wird die Ladespannung auf das Floating-Niveau abgesenkt, um den Akku im geladenen Zustand zu halten, ohne ihn weiter zu belasten.
-
-Dieses Autobalance-Feature bietet eine automatisierte Lösung, um die Akkuzellen regelmäßig zu balancieren und damit die Effizienz und Lebensdauer des Akkus zu maximieren.     
-
-**Hinweise**
-
-* Nach einem Neustart des BSC ist keine Wartezeit bis zum ersten Balancing. Erst nach dem ersten Balancing startet der eingestellte Balance-Interval.
-* Wenn das BSC Abends um 22:00Uhr gestartet wurde und ein Intervall von fünf Tagen eingestellt ist, wird es nicht am Morgen des fünften Tages balancieren, sondern erst am nächsten, wenn die Sonne wieder auf geht!  Denn das Balancen würde erst am Abend des fünften Tages scharf geschaltet werden
-* Für verschiedene BMS, z.B. dem Seplos, kann die einstellbare Mindestzeit genutzt werden, um den SoC 100 zu setzen   
-
-Den genauen Ablauf des Balance-Vorgangs kann mit dem MQTT-Topic "/Inverter/autoBalState" visualisiert werden.  
-Funktion der fünf verfügbaren States:
-
-  - 0: Autobalancing ist deaktiviert
-  - 1: BSC wartet auf den nächsten Startzeitpunkt
-  - 2: Balancing wurde nicht fertig und es wird am nächsten Tag wiederholt
-  - 3: Startzeitpunkt erreicht; BSC wartet auf die Start-Zellspannung
-  - 4: Start-Zellspannung erreicht; Autoblancing ist jetzt aktiv
-  - 5: Celldif. fertig wurde erreicht, aber die Balance-Ladespannung ist noch nicht erreicht
-  - 6: Balance-Ladespannung erreicht; warten bis Mindestzeit abgelaufen
-
-### Charge-Current Cut-Off
-Diese Funktion unterbricht den Ladestrom, wenn er für eine bestimmte Zeitspanne unterhalb einem eingestellten Strom-Wert liegt.  
-Nach diesem Abbruch wird die bisher verwendete Soll-Lade-Spannung von der Absorption-Spannung auf die Float-Spannung gesetzt.  
-
-* **Ein/Aus:** Aktivieren oder Deaktivieren der Funktion.
-* **Cut-Off Time:** Zeitspanne, in der der Ladestrom unter einem bestimmten Wert liegen muss, bevor er auf 0 A gesetzt wird.
-* **Cut-Off Strom:** Der Cut-Off-Strom ist der Gesamt-Ladestrom, unterhalb dessen die Cut-Off-Zeit beginnt. Der Gesamt-Ladestrom wird als Mittelwert berechnet, seit die eingestellte Start-Zellspannung (falls vorhanden) überschritten wurde.  
-Überschreitet während des Prozesses der Mittelwert des Gesamt-Ladestroms erneut den Cut-Off-Strom, setzt sich sowohl der Timer als auch der Mittelwert zurück.
-* **Start-Zellspannung:** Die Start-Zellspannung ist die Spannung, ab der die Cut-Off-Regelung aktiv wird. Sobald diese überschritten wurde und der Cut-Off-Strom unterschritten ist, bleibt der Timer aktiv.  
-Ein erneutes Unterschreiten der Start-Zellspannung führt nicht zum Abbruch des Timers. Der Timer wird ausschließlich zurückgesetzt, wenn der Cut-Off-Strom erneut überschritten wird.
-
-### SoC beim Unterschreiten der Zellspannung
-Diese Funktion steuert das Nachladen der Zellen basierend auf der Zellspannung.
-
-* **Ein/Aus:** Aktivieren oder Deaktivieren der Funktion.
-* **Zellspannung Ladebeginn:** Zellspannung, bei der das Nachladen startet.
-* **Zellspannung Ladeende:** Zellspannung, bei der das Nachladen endet.
-* **SoC:** Ladezustand, der während des Nachladens an den Wechselrichter gesendet wird.
-* **Sperrzeit zwischen zwei Nachladungen:** Zeit, die zwischen zwei Nachladungen vergehen muss.
-
-## Discharge
-### Entladestrom Zell-Spannungsabhängig drosseln
-![](img/settings/settings_inverter_discharge_cellvoltage.png){  width="450" }  
-
-Diese Funktion dient der Anpassung des Entladestroms basierend auf der Zellspannung, um die Lebensdauer der Batteriezellen zu verlängern und deren Sicherheit zu gewährleisten.
-
-- **Ein/Aus** (Aktivierung der Drosselung)  
-Diese Option ermöglicht es, die Zellspannungsabhängige Drosselung ein- oder auszuschalten.  
-Wenn aktiviert, wird der Entladestrom in Abhängigkeit von der Zellspannung angepasst.
-
-- **Starten bei Zellspannung kleiner als**  
-Hier wird ein Schwellenwert festgelegt, bei dessen Unterschreitung die Drosselung des Entladestroms aktiviert wird.  
-Sobald die niedrigste Zellspannung diesen Wert unterschreitet, wird die Drosselung in Kraft gesetzt, um die Zellen nicht zu stark zu entladen.
-
-- **End Zellspannung**  
-Dieser Wert legt die Zellspannung fest, bei deren Unterschreitung der Entladestrom auf den "Mindest-Entladestrom" reduziert wird.  
-> Hinweis: Der End Zellspannung-Wert muss immer kleiner als die Zell-Startspannung eingestellt werden!
-
-- **Mindest-Entladestrom**  
-Dies ist der minimale Entladestrom, der bei Unterschreiten der End Zellspannung nicht unterschritten wird.

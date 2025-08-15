@@ -23,7 +23,7 @@ Hier gibt es drei Möglichkeiten, die dies "verursachen" können.
 3) Der Betriebsmodus 2 der SoC-Value Adjustments ist aktiv geschaltet und linearisiert den SoC zwischen den eingestellten Spannungswerten.  
 Bitte wechseln Sie im Menü auf /Einstellungen/Schnittstellen/Serial und scrollen zu den "Value adjustments".  
 Hier sollten keine zwei Werte pro Schnittstelle gesetzt sein, wenn ein BMS mit SoC-Kalkulation genutzt wird.  
-Weitere Informationen finden Sie [hier](settings_bsc.md#serial) unter "Betriebsmodus 2: Lineare SoC-Berechnung zwischen zwei Zellspannungsschwellen".
+Weitere Informationen finden Sie [hier](settings_bsc_interfaces.md#serial) unter "Betriebsmodus 2: Lineare SoC-Berechnung zwischen zwei Zellspannungsschwellen".
 
 ### Log-Eintrag: "MQTT Queue ist voll"
 Dieses Problem kann auftreten, wenn der Broker nicht innerhalb einer bestimmten Zeit alle Daten aus der Queue abrufen kann.

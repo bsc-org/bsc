@@ -42,12 +42,17 @@ extra_javascript:
 #      lang: en
 
 markdown_extensions:
-  - attr_list
+  - attr_list  
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.tabbed:
+      alternate_style: true
   - toc:
       permalink: true
       
@@ -60,11 +65,18 @@ nav:
       - Einstellungen im BSC: first_steps_settings.md
     - Hardware: hardware.md
     - BSC Konfiguration:
-      - Dashboard: dashboard.md
-      - Allgemein: settings_bsc.md
-      - Wechselrichter: settings_inverter.md
-      - Beispielkonfigurationen: beispiel_konfigurationen.md
+      - Allgemeines & Dashboard: dashboard.md
+      - System: settings_bsc.md
+      - Trigger: settings_bsc_trigger.md
+      - Schnittstellen: settings_bsc_interfaces.md
+      # - Devices: settings_bsc_devices.md
+      - Alarmregeln: settings_bsc_alarmrules.md
+      - Wechselrichter & Laderegelung: 
+        - Allgemein: settings_inverter.md
+        - Laden: settings_inverter_charge.md
+        - Entladen: settings_inverter_discharge.md
       - Das Log des BSC: log.md
+      - Beispielkonfigurationen: beispiel_konfigurationen.md
     - Unterstüzte Geräte:
       - BMS: devices/bms.md
       - Wechselrichter: devices/wechselrichter.md

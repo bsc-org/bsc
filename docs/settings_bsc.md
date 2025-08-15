@@ -1,77 +1,32 @@
-## Allgemeines
-Es gibt zwei Version des WebUI's. Das Classic WebUI und das WebUI V2.   
-Im folgenden ist das WebUI V2 abgebildet, welches so aktuell nicht zur Verfügung steht. 
-
-### Allgemeine Informationen zur Bedienung
-**Speichern der Einstellungen**  
-Das Speichern unterscheidet sich in den WebUI's.  
-
-**Classic WebUI:**  
-Die geänderten Einstellungen können mit dem „S"-Button, der in jeder Zeile der Einstellungen ist, gespeichert werden.
-Zu beachten ist, dass auch nur die Einstellung in der jeweiligen Zeile des „S"-Button gespeichert wird.  
-
-**Insider & WebUI V2**:  
-Hier können alle Änderungen über den "Save"-Button in der Headline gespeichert werden. Es muss nicht jeder Änderung einzeln gespeichert werden.
-
-### Funktionsprinzip der Überwachungsfunktionen
-In diesem Abschnitt wird erklärt, wie interne Trigger zur Überwachung und Steuerung verschiedener Werte (z. B. Temperatur, Spannung) verwendet werden können, um auf potenzielle Gefahrenzustände zu reagieren.  
-  
-**Trigger-Funktionalität**  
-Für jeden zu überwachenden Wert kann ein Trigger konfiguriert werden, der bei Erreichen eines definierten Grenzwerts aktiv wird. Ein aktivierter Trigger löst selbst zunächst keine direkte Aktion aus. Es kann jedoch flexibel eingestellt werden, welche Aktionen durch den Trigger ausgelöst werden sollen. So kann beispielsweise:
-
-  - ein Relais geschaltet werden (z. B. zum Aktivieren eines Lüfters),
-  - der Wechselrichter angewiesen werden, seinen Ladestrom auf 0 A zu reduzieren.
-
-
-Diese Logik ermöglicht es, Trigger (als Signalgeber) und verbundene Aktionen (als Signalnehmer) in flexibler Weise zu kombinieren. Es stehen bis zu 10 interne Trigger zur Verfügung.  
-  
-Ein Setzen dieser Trigger ist auch von einer externen Datenverbindung mit Hilfe der [vTrigger](mqtt.md#virtual-trigger) möglich.  
-
-**Funktionsweise bei mehreren Quellen**  
-Wenn mehrere Quellen mit einem Trigger verbunden sind, gilt folgende Regel:
-
-  - Aktivierung (High): Der Trigger wird aktiv geschaltet, sobald mindestens eine der verbundenen Quellen den definierten Grenzwert überschreitet.
-  - Deaktivierung (Low): Der Trigger wird erst deaktiviert, wenn alle verbundenen Quellen wieder in den Normalzustand zurückgekehrt sind.
-
-> **Hinweis:** Insbesondere bei der Verwendung von [virtuellen Triggern (vTrigger)](mqtt.md#virtual-trigger) ist darauf zu achten, dass diese durch Automatisierungen gezielt deaktiviert werden müssen, um die Trigger-Funktionalität erneut nutzen zu können.
-
-**Beispielanwendung**
-
-  - Zwei Temperatursensoren (Sensor 2 und Sensor 3) überwachen eine Grenztemperatur von 30 °C. Sobald einer der beiden Sensoren diesen Wert überschreitet, wird Trigger 1 aktiv.
-  - Auf Trigger 1 basierend, können zwei Aktionen konfiguriert werden:
-      - Relais 1 wird geschaltet, um einen Lüfter zu aktivieren.
-      - Der Wechselrichter reduziert automatisch seinen Ladestrom, um die Wärmeentwicklung zu minimieren.
-
-**Zusammenfassung**  
-Diese Kombination aus flexiblen Trigger-Quellen und konfigurierbaren Zielaktionen ermöglicht eine präzise und vielseitige Steuerung. Die Logik stellt sicher, dass Gefahren frühzeitig erkannt und geeignete Maßnahmen ergriffen werden können, während die Flexibilität zur Anpassung an individuelle Anforderungen erhalten bleibt.
-
-## Dashboard
-Nach dem Aufrufen der Webseite über das integrierte WLAN-Modul (IP oder bsc.info) kommt als Startseite das Dashboard mit ein paar grundlegenden Informationen.  
-Über das seitliche Menü kann man zu den jeweiligen Funktionen navigieren.
-
-![](img/settings/settings_dashboard.png){ width="950" }    
-
-| Kachel  | Beschreibung |
-| ------------- | ------------- |
-| System  | Solange auf der Kachel „running" steht, laufen die einzelnen Tasks fehlerfrei.   Sollte ein interner Task seine vorgegebene maximale Zykluszeit überschreiten   kommt hier ein Fehler mit der zugehörigen Tasknummer.  |
-| MQTT  | Gibt an, ob eine Verbindung zu dem MQTT Broker besteht  |
-| Free Heap  | Zeigt den freien Heap und den jemals niedrigsten freien Heap seit Systemstart an  |
-| BT-Devices| Status der angeschlossenen BT-Geräte wie z.B. ein Neey Balancer; "c" bedeutet Connected|
-| Trigger | Status der zehn möglichen Trigger; 0=kein Trigger, 1=Trigger |
-
-## Livedaten
-![](img/settings/settings_livedaten.png){ width="950" }  
-"FET state" beschreibt den aktuellen FET Lade-/Entladezustand.  
-
-![](img/settings/settings_fet_state.png){ width="300" }  
-
 ## System
-![](img/settings/settings_system.png){ width="950" }  
-
 Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzernamen und Passwörter zu den WLAN und MQTT Logins.
 
-### WLAN
-<div class="bsc_content"><div class="content"><form><table>
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
+<tr class='Ctr'><td class='Ctd'><b>BSC Benutzer</b></td>
+<td class='Ctd'><input type='text' value='bsc' name='1133871376384' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s10240'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>BSC Passwort</b></td>
+<td class='Ctd'><input type='password' value='admin' name='1133871376448' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s10304'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Device Name</b></td>
+<td class='Ctd'><input type='text' value='bsc-s3' name='34359750464' pattern='^[^#~+]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s12096'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Display timeout</b></td>
+<td class='Ctd'><input type='number' min='1' max='120' value='5' name='4294976512'></td><td class='t1'>min</td><td class='Ctd'><span class='secVal' id='s9216'></span></td></tr>
+</table></form></div></div>
+
+- **BSC-Benutzername**  
+  Benutzername für die Anmeldung am BSC-Webinterface.  
+
+- **BSC-Passwort**  
+  Passwort für die Anmeldung am BSC-Webinterface. 
+
+- **Device Name**  
+  Benutzerdefinierter Gerätename. Dieser Name wird auch auf dem Dashboard angezeigt.  
+
+- **Display Timeout**  
+  Zeitspanne bis zur automatischen Deaktivierung des angeschlossenen Displays (Timeout).  
+
+
+## Netzwerkeinstellungen
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>WLAN</b></td></tr>
 <tr class='Ctr'><td class='Ctd'><b>WLAN SSID</b></td>
 <td class='Ctd'><input type='text' value='SSID' name='34359740928' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2560'></span></td></tr>
@@ -80,286 +35,142 @@ Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzerna
 <tr class='Ctr'><td class='Ctd'><b>WLAN connect Timeout</b></td>
 <td class='Ctd'><input type='number' min='0' max='3600' value='30' name='12884908032'></td><td class='t1'>s</td><td class='Ctd'><span class='secVal' id='s6144'></span></td></tr>
 <tr><td colspan='3' class='td0'></td></tr>
+
+<tr class='Ctr'><td class='sep' colspan='3'><b>Static IP</b></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>IP-Adresse</b></td>
+<td class='Ctd'><input type='text' value='' name='1133871368448' pattern='^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2304'></span></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Wenn die IP-Adresse leer ist, dann ist DHCP aktiv</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Gateway</b></td>
+<td class='Ctd'><input type='text' value='' name='1133871368512' pattern='^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2368'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Subnet</b></td>
+<td class='Ctd'><input type='text' value='255.255.255.0' name='1133871368576' pattern='^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2432'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>DNS</b></td>
+<td class='Ctd'><input type='text' value='' name='1133871368640' pattern='^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2496'></span></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Optional</div></td></tr>
 </table></form></div></div>
 
-**Hinweis:** Bitte beachten Sie, dass das Tilde-Zeichen (~) derzeit als Passwort-Zeichen **nicht unterstützt** wird.  
+!!! info "Hinweis"
+    Bitte beachten Sie, dass das Tilde-Zeichen (~) derzeit als Passwort-Zeichen **nicht unterstützt** wird.  
 
-Unter **WLAN Connect Timeout** kann eingestellt werden, nach welcher Zeit ein Verbindungsversuch mit einem WLAN-Netzwerk abgebrochen wird. Wird innerhalb dieser Zeit keine Verbindung hergestellt, erstellt das Gerät automatisch einen eigenen Access Point (AP).  
-Wird der Wert auf **0** gesetzt, ist der Timeout deaktiviert und der Verbindungsversuch wird unbegrenzt fortgesetzt.  
+- **WLAN SSID**  
+  Name des WLAN-Netzwerks, mit dem sich der BSC verbinden soll.  
 
-**Insider Version:**  
-Verliert der BSC die WLAN-Verbindung und erstellt nach dem eingestellten Timeout einen Access Point, versucht er alle **5 Minuten**, die Verbindung mit dem ursprünglichen WLAN-Netzwerk erneut herzustellen.
+- **WLAN Passwort**  
+  Passwort für die Anmeldung am angegebenen WLAN-Netzwerk.  
 
-### MQTT
-![](img/settings/settings_system_mqtt.png){ width="300" }    
-Sobald MQTT aktiviert ist und die zugehörige IP-Adresse und der Port eingestellt ist, sendet der BSC zyklisch die Daten an den MQTT-Broker.
+- **WLAN Connect Timeout**  
+  Maximale Zeit (in Sekunden), die der BSC auf eine erfolgreiche WLAN-Verbindung wartet, bevor der Verbindungsversuch abgebrochen wird. Wird innerhalb dieser Zeit keine Verbindung hergestellt, erstellt das Gerät automatisch einen eigenen Access Point (AP).  
+  Wird der Wert auf **0** gesetzt, ist der Timeout deaktiviert und der Verbindungsversuch wird unbegrenzt fortgesetzt.  
+  <br> 
+  **Nur in der sponsoren Version:**  
+  Verliert der BSC die WLAN-Verbindung und erstellt nach dem eingestellten Timeout einen Access Point, versucht er alle **5 Minuten**, die Verbindung mit dem ursprünglichen WLAN-Netzwerk erneut herzustellen.
 
-**MQTT Sendeintervall**  
-Durch die Vielzahl der zu übertragenen Daten, gibt es im BSC zwei unterschiedlich priorisierte Nachrichtenintervalle.  
-Die wichtigsten Nachrichten, wie z.B. totalVoltage und totalCurrent werden sekündlich via MQTT übertragen.  
-Andere, niedriger priorisierte Daten werden in einem vom Benutzer einstellbaren Intervall übertragen.
+- **IP-Adresse**  
+  Statische IPv4-Adresse des BSC.  
+  Wenn dieses Feld leer bleibt, wird die IP-Adresse automatisch über DHCP bezogen.  
 
-**vTrigger**  
-Mit "Remanenz vTrigger" kann festgelegt werden, welcher vTrigger als speichernd definiert werden soll.  
-Ein speichernder vTrigger stellt sicher, dass seine Werte auch nach einem Neustart (Reboot) oder einem Spannungsausfall automatisch wiederhergestellt werden.  
-Mehr zum Thema vTrigger unter [MQTT](mqtt.md#virtual-trigger).
+- **Gateway**  
+  IPv4-Adresse des Standard-Gateways, das für die Netzwerkverbindung genutzt wird.  
 
-### Zeitserver
-Falls Sie einen externen NTP-Server verwenden und mit der Zeitsynchronisierung Probleme haben, können Sie auch den Router Ihres Netzwerkes hierzu verwenden - Dies funktioniert oft stabiler.  
-Am Beispiel einer AVM FritzBox können Sie den Zeitserver im Menü unter Heimnetz/Netzwerk/Netzwerkeinstellungen aktivieren.  
-Als Zeitserver können Sie beispielsweise folgendes definieren: "ntp1.t-online.de; 2.europe.pool.ntp.org".  
-Im BSC muss dann dessen IP-Adresse angegeben werden. Die Verwendung des Hostname, statt der IP-Adresse, kann zu Problemen führen.
+- **Subnet**  
+  Subnetzmaske für das lokale Netzwerk (z. B. `255.255.255.0`).  
 
-## Schnittstellen
-In den Schnittstellen Einstellungen wird eingestellt was an welcher Schnittstelle angeschlossen ist. Hier wird **nicht** eingestellt was z.B. mit den Daten von einem BMS oder Balancer passieren soll, oder wann der Relais-Ausgang schalten soll. Dies wird dann bei den Einstellungen zu den Alarmregeln oder dem Wechselrichter gemacht.
+- **DNS (Optional)**  
+  IPv4-Adresse eines DNS-Servers zur Namensauflösung. Falls leer, wird der vom DHCP-Server bereitgestellte DNS-Server verwendet.  
 
-### Serial
-![](img/settings/settings_serial.png){ width="950" }  
-In diesem Abschnitt legen Sie fest, welche Hardware an welchen seriellen Port angeschlossen ist. Darüber hinaus ist es erforderlich, im Abschnitt "Data Device Mapping" zu konfigurieren, welche serielle Schnittstelle welchem internen Daten-Device zugeordnet wird.
 
-Detaillierte Informationen zur Einrichtung des Data Device Mapping finden sie im Kapitel [Data device mapping](#data-device-mapping)  
+## MQTT-Einstellungen
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
+<tr class='Ctr'><td class='sep' colspan='3'><b>MQTT</b></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Zum Übernehmen der Settings, muss der BSC neu gestartet werden!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>MQTT enable</b></td><td class='Ctd'><input type='checkbox'  name='38654708480'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2816'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>MQTT Device Name</b></td>
+<td class='Ctd'><input type='text' value='bsc' name='34359741248' pattern='^[^#~+]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2880'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>MQTT Server IP</b></td>
+<td class='Ctd'><input type='text' value='' name='34359741056' pattern='^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2688'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>MQTT Server Port</b></td>
+<td class='Ctd'><input type='number' min='1' max='49151' value='1883' name='12884904640'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2752'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Username</b></td>
+<td class='Ctd'><input type='text' value='' name='34359743872' pattern='^[^#~+]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s5504'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Passwort</b></td>
+<td class='Ctd'><input type='password' value='' name='34359743936' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s5568'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>MQTT Topic Name</b></td>
+<td class='Ctd'><input type='text' value='bsc' name='34359741312' pattern='^[^#~+]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2944'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>MQTT Sendeintervall</b></td>
+<td class='Ctd'><input type='number' min='30' max='120' value='60' name='4294975808'></td><td class='t1'>s</td><td class='Ctd'><span class='secVal' id='s8512'></span></td></tr>
+<tr class='Ctr'><td class='Ctd'><b>Remanenz vTrigger</b></td>
+<td class='Ctd'>
+<input id='t42348100' class='toggle' type='checkbox'>
+<label for='t42348100' class='lbl-toggle'>Remanenz vTrigger</label>
+<div class='collapsible-content'>
+<div class='content-inner'>
+<fieldset style='text-align:left;'>
+<input type='checkbox' name='21474847232' value='0' >vTrigger 1<br>
+<input type='checkbox' name='21474847232' value='1' >vTrigger 2<br>
+<input type='checkbox' name='21474847232' value='2' >vTrigger 3<br>
+<input type='checkbox' name='21474847232' value='3' >vTrigger 4<br>
+<input type='checkbox' name='21474847232' value='4' >vTrigger 5<br>
+<input type='checkbox' name='21474847232' value='5' >vTrigger 6<br>
+<input type='checkbox' name='21474847232' value='6' >vTrigger 7<br>
+<input type='checkbox' name='21474847232' value='7' >vTrigger 8<br>
+<input type='checkbox' name='21474847232' value='8' >vTrigger 9<br>
+<input type='checkbox' name='21474847232' value='9' >vTrigger 10<br>
+</fieldset></div></div></td><td class='t1'></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>V-Trigger behalten dadurch ihren Zustand, auch wenn Spannung unterbrochen wurde.</div></td></tr>
+</table></form></div></div>
 
-Diese Konfiguration stellt sicher, dass die angeschlossene Hardware korrekt erkannt und mit den entsprechenden internen Daten-Devices verknüpft wird.
+- **MQTT Enable**  
+  Aktiviert oder deaktiviert die MQTT-Funktionalität im BSC.  
+  Sobald MQTT aktiviert ist und die zugehörige IP-Adresse und der Port eingestellt ist, sendet der BSC zyklisch die Daten an den MQTT-Broker.
 
-**Zuordnung (Software => Hardware):**
+- **MQTT Device Name**  
+  Eindeutiger Gerätename, unter dem der BSC im MQTT-Broker identifiziert wird.  
 
-* Serial 0 => U1
-* Serial 1 => U2
-* Serial 2 => U3
+- **MQTT Server IP**  
+  IPv4-Adresse des MQTT-Brokers, zu dem sich der BSC verbinden soll.  
 
-Alle weiteren dargestellten Schnittstellen sind nur mit angeschlossener Serial-Extension nutzbar.  
+- **MQTT Server Port**  
+  Portnummer des MQTT-Brokers (Standard: `1883` für unverschlüsselte Verbindungen).  
 
-**Unterstütze Hardware**  
-![](img/settings/settings_unterstuetze_bms.png){ width="400" }  
-Die Liste der verfügbaren Hardware wird kontinuierlich erweitert, um den Anforderungen und Bedürfnissen unserer Nutzer gerecht zu werden. Das dargestellte Bild dient lediglich zur Veranschaulichung und stellt ein Beispiel dar.
+- **Username**  
+  Benutzername für die Anmeldung am MQTT-Broker (falls erforderlich).  
 
-#### Filter
-![](img/settings/settings_schnittstelle_filter.png){ width="400" }  
-Dieser Filter dient dazu, Sprünge in den Zellspannungen zu erkennen und herauszufiltern. Die Ansprechschwelle des Filters wird als Prozentsatz im Vergleich zum vorherigen gültigen Wert eingestellt. Sobald die Zellspannung den festgelegten Prozentsatz überschreitet, wird der neue Wert nicht übernommen, jedoch auch nicht als Fehler gewertet.
+- **Passwort**  
+  Passwort für die Anmeldung am MQTT-Broker (falls erforderlich).  
 
-Die Funktion „Anzahl RX Fehler“ ermöglicht es, die Schwelle festzulegen, ab wann eine Zellspannungsabweichung als Fehler betrachtet wird. Sobald die eingestellte Anzahl an Fehlern überschritten wird, erfolgt keine Aktualisierung des Zeitstempels für das letzte gültige Paket mehr im System.
+- **MQTT Topic Name**  
+  Basis-Topic, unter dem der BSC seine Daten veröffentlicht. Untertopics werden automatisch für einzelne Werte angelegt.  
 
-Durch diese Funktionen wird eine präzisere und stabilere Datenverarbeitung gewährleistet, indem temporäre Spannungssprünge gefiltert und eine Verwertung von fehlerhaften Paketen verhindert wird.
+- **MQTT Sendeintervall (in Sekunden)**  
+  Zeitintervall in Sekunden, in dem der BSC Daten an den MQTT-Broker sendet.  
+  <br>
+  Durch die Vielzahl der zu übertragenen Daten, gibt es im BSC zwei unterschiedlich priorisierte Nachrichtenintervalle.  
+  Die wichtigsten Nachrichten, wie z.B. Gesamtspannung (totalVoltage) und Gesamtstrom (totalCurrent) werden sekündlich via MQTT übertragen.  Andere, niedriger priorisierte Daten werden in einem vom Benutzer einstellbaren Intervall übertragen.
 
-#### Plausibility check
-![](img/settings/settings_schnittstelle_plausibility_check.png){ width="500" }  
-Der "Plausibility Check" ist eine wichtige Funktion, die kontinuierlich den Stromfluss sowie die Zellspannungen der an das System angeschlossenen Data-Devices überwacht.  
+- **Remanenz vTrigger**  
+  Mit "Remanenz vTrigger" kann festgelegt werden, welcher vTrigger als speichernd definiert werden soll.  
+  Ein speichernder vTrigger stellt sicher, dass seine Werte auch nach einem Neustart (Reboot) oder einem Spannungsausfall automatisch wiederhergestellt werden.  
+  Mehr zum Thema vTrigger unter [MQTT](mqtt.md#virtual-trigger).
 
-Wenn sich die Werte für Strom und Zellspannungen über einen längeren Zeitraum hinweg nicht mehr regelmäßig ändern, deutet dies darauf hin, dass das BMS keine gültigen Daten mehr sendet. In diesem Fall kann davon ausgegangen werden, dass ein Problem im BMS vorliegt.
 
-Der "Plausibility Check" bietet so eine frühzeitige Warnung bei Unregelmäßigkeiten und unterstützt die zuverlässige Funktion und Sicherheit des gesamten Systems.  
+## Zeitserver (NTP)
+<div class="bsc_content"><div class="content bsc_content_left"><form><table>
+<tr class='Ctr'><td class='sep' colspan='3'><b>NTP</b></td></tr>
+<tr><td colspan='3' class='td0'><div class='help'>Zum Übernehmen der Settings, muss der BSC neu gestartet werden!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Server Name/IP</b></td>
+<td class='Ctd'><input type='text' value='pool.ntp.org' name='1133871373952' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s7808'></span></td></tr>
+</table></form></div></div>
 
-**Funktionsweise des Plausibility checks**:
-```mermaid
-flowchart TD
-	n1["Plausibility check"] --> n7["Ist Strom &lt; 'Strom Schwellwert'"]
-	n7 --> n8["Zellspannungen ändern sich 'Zeit 2' nicht"]
-	n8 --> n4["Trigger wird aktiv"]
-	n1 --> n6["Ist Strom >= 'Strom Schwellwert'"]
-	n6 --> n10["Zellspannungen ändern sich 'Zeit 1' nicht"]
-	n10 --> n4
-```
-
-#### Value Adjustment für SoC-Übermittlung an den Wechselrichter
-![](img/settings/settings_value_adjustment_soc.png){ width="500" }  
-Der "Value Adjustment" ermöglicht es, dem Wechselrichter abhängig von der Zellspannung einen angepassten State of Charge (SoC) zu übermitteln. Dabei stehen zwei Betriebsmodi zur Verfügung, die unterschiedliche Anforderungen und Verhaltensweisen abdecken.  
-
-##### Betriebsmodus 1: Feste SoC-Übermittlung bei definierter Zellspannung
-In diesem Modus wird die Zellspannung definiert, bei der der Wechselrichter einen SoC von 100% erhalten soll. Wenn die Zellspannung den eingestellten Wert erreicht oder überschreitet, wird der SoC von 100% an den Wechselrichter übermittelt. Sobald die Zellspannung unter den eingestellten Wert fällt, wird der SoC wieder vom Batterie-Management-System (BMS) an den Wechselrichter gesendet.  
-
-**Hinweis:** Für diesen Modus muss das Feld "Cellvoltage for SoC 0%" leer bleiben. Dies stellt sicher, dass nur die obere Schwelle (für 100% SoC) berücksichtigt wird und die Berechnung des SoC allein durch das BMS erfolgt, wenn die Zellspannung unter die festgelegte Schwelle sinkt.  
-
-**Beispiel:**  
-
-- Cellvoltage für SoC 100%: 3,5 V
-  - Bei einer Zellspannung von 3,5 V oder höher wird dem Wechselrichter ein SoC von 100% übermittelt.
-  - Fällt die Zellspannung unter 3,5 V, erfolgt die SoC-Übermittlung wieder regulär durch das BMS.
-
-##### Betriebsmodus 2: Lineare SoC-Berechnung zwischen zwei Zellspannungsschwellen
-In diesem Modus werden zwei Zellspannungsschwellen definiert: Eine obere Schwelle für 100% SoC und eine untere Schwelle für 0% SoC. Wenn die Zellspannung die obere Schwelle erreicht oder überschreitet, wird dem Wechselrichter ein SoC von 100% übermittelt. Erreicht oder unterschreitet die Zellspannung die untere Schwelle, wird ein SoC von 0% übermittelt. Für Zellspannungen zwischen diesen beiden Werten wird der SoC linear berechnet und entsprechend an den Wechselrichter gesendet.  
-
-**Beispiel:**
-
-- Cellvoltage für SoC 100%: 3,5 V
-- Cellvoltage für SoC 0%: 2,9 V
-  - Bei einer Zellspannung von 3,5 V oder höher wird dem Wechselrichter ein SoC von 100% übermittelt.
-  - Bei einer Zellspannung von 2,9 V oder niedriger wird dem Wechselrichter ein SoC von 0% übermittelt.
-  - Bei Zellspannungen zwischen 2,9 V und 3,5 V wird der SoC linear berechnet und an den Wechselrichter übermittelt.
-
-Dieser Modus ist besonders nützlich für BMS-Systeme, die keinen eigenen SoC melden, da der SoC in Abhängigkeit von den Zellspannungen automatisch ermittelt wird.  
-
-**Wichtiger Hinweis:** Stellen Sie sicher, dass die eingetragenen Zellspannungen den Spezifikationen des verwendeten Batteriesystems entsprechen, um eine optimale Funktion und Sicherheit zu gewährleisten.
-
-### Data device mapping
-![](img/settings/settings_data_device_mapping.png){ width="950" } 
-
-Die Data Device Mappings dienen dazu, die Zuordnung der seriellen Schnittstelle oder des Bluetooth-Geräts zu dem internen, im BSC (Battery System Controller) verwendeten Data-Device vorzunehmen.
-
-Hierbei müssen folgende Parameter eingestellt werden:
-
-  - Schnittstelle: Die serielle Schnittstelle oder das Bluetooth-Gerät, das verwendet wird.
-  - Adresse des Data-Devices: Die eindeutige Adresse, die dem spezifischen Gerät zugewiesen wird.
-  - Name (optional): Ein benutzerdefinierter Name, der in den weiteren Einstellungen des Parameters angezeigt wird. Dieser Name wird außerdem für den MQTT-Topic des jeweiligen Devices verwendet.
-
-Falls mehrere Geräte an einer seriellen Schnittstelle angeschlossen sind und das BMS (Battery Management System) die Verbindung im Daisy-Chain-Modus unterstützt, ist es erforderlich, für jedes Gerät die korrekte Adresse zu definieren. Nur so kann eine eindeutige Zuordnung und eine fehlerfreie Kommunikation zwischen dem BMS und den Geräten sichergestellt werden.
-
-> **Hinweis:** Die korrekte Konfiguration der Data Device Mappings ist essenziell, um eine störungsfreie Funktionalität zu gewährleisten. Beachten Sie die Adressierungsregeln Ihres BMS-Systems.
-
-### Relaisausgänge
-![](img/settings/settings_relais.png){ width="950" }  
-Hier können die grundlegenden Einstellungen zu den Relaisausgängen vorgenommen werden.
-
-* **Auslösung bei**
-  Hier wird angegeben bei welchem kommenden Trigger das Relais schalten soll
-* **Auslöseverhalten**
-    * Permanent: Das Relais bleibt angezogen, solange der Trigger ansteht
-    * Impuls: Das Relais schaltet für eine Dauer von x ms. Die Impulsdauer wird unter "Impulsdauer" eingestellt.
-* **Impulsdauer**
-  Hier wird die Impulsdauer eingestellt, wenn bei dem Auslöseverhalten "Impuls" eingestellt wurde.
-* **Verzögerung**
-  Gibt an um wie viel Sekunden das Schalten des Relais bei einem kommenden Trigger verzögert werden soll.
-* **Invertieren**
-  Die Option ermöglicht es, den Relaisausgang flexibel zwischen den Betriebsmodi NO (Normally Open) und NC (Normally Closed) umzuschalten. Durch Aktivieren dieser Option wird die Logik des Relaisausgangs umgekehrt, sodass bei der Ausführung des Schaltvorgangs der alternative Zustand genutzt wird. Diese Funktion ist besonders nützlich, um die Kompatibilität mit verschiedenen Steuerungsanforderungen oder Schaltungsdesigns sicherzustellen.
-
-Die Logik mit den Triggern zieht sich durch das gesamte System. Es gibt Trigger-Geber, z.B. die Digitaleingänge  und es gibt Trigger-Nehmer, z.B. die Relaisausgänge.
-
-### Digitaleingänge
-![](img/settings/settings_di.png){ width="950" }  
-Hier können die grundlegenden Einstellungen zu den Digitaleingängen vorgenommen werden.
-
-* **Eingang invertieren**
-  Hier kann der Eingang invertiert werden
-* **Weiterleiten an**
-  Hier kann der Trigger eingestellt werden, auf den der Eingang geht.   Wenn der Eingang High wird, dann wird der hier eingestellte Trigger aktiv.  Ist der Eingang invertiert, dann wird bei einem Low am Eingang der Trigger aktiv.
- 
-### Onewire
-![](img/settings/settings_onewire1_1.png){ width="950" }  
-Hier werden die Adressen der Onewire Temperatursensoren festgelegt.    
-
-Der Controller scannt, sobald diese Onewire- Konfigurationsseite aufgerufen ist, zyklisch den Bus nach Onewire-Devices und zeigt diese am  unteren Ende der Seite an.  
-Die Fett dargestellten Devices am unteren Rand sind neue Devices, die noch nicht in der Onewire-Konfigurationsseite gespeichert sind.  
-Dadurch lassen sich neu angeschlossene Sensoren leichter identifizieren.  
-
-![](img/settings/settings_onewire1_2.png){ width="950" }  
-
-### Onewire II
-![](img/settings/settings_onewire2_1.png){ width="950" }  
-Hier kann ein Offset zu den jeweiligen Onewire-Temperatursensoren eingestellt werden.
-
-### Bluetooth
-**Bluetooth steht aktuell nicht zu Verfügung!**  
-![](img/settings/settings_onewire2_2.png){ width="950" }  
-Hier können bis zu 7 Bluetooth Devices festgelegt werden, von denen der Controller Daten holt.  
-Dazu muss der Device-Typ und die MAC-Adresse (in Kleinbuchstaben) eingestellt werden.  
-
-Der Controller scannt, sobald diese Konfigurationsseite aufgerufen ist, zyklisch nach neuen BT-Devices   
-und zeigt die letzten 5 gefundenen am unteren Ende der Seite an.  
-
-**Unterstützte Hardware**  
-![](img/settings/settings_unterstuetze_bms_bt.png){ width="400" }  
-
-## Alarmregeln 
-In den Alarmregeln kann eingestellt werden, welche Daten von welchen Devices überwacht werden sollen.  
-
-### BMS
-![](img/settings/settings_alarmrules_bms.png){ width="950" }   
-Die BMS Alarmregeln ermöglichen die Überwachung der konfigurierten Data-Devices. Es können verschiedene Parameter des Data-Device überwacht werden, um Alarme zu konfigurieren und automatische Aktionen auszulösen, wenn bestimmte Schwellenwerte erreicht werden.
+- **Server Name/IP**  
+  Name oder IPv4-Adresse des NTP Servers.  
   
-Der Spannungs-Trigger wird ausgelöst, wenn die Spannung unter den festgelegten "Min"-Wert fällt oder den "Max"-Wert überschreitet. Um unnötige Alarme aufgrund kleiner Schwankungen zu vermeiden, kann eine einstellbare Hysterese hinzugefügt werden, die den Trigger "beruhigt" und erst bei signifikanten Änderungen aktiviert wird.
+Falls bei der Verwendung eines externen NTP-Servers Probleme mit der Zeitsynchronisierung auftreten, kann alternativ der Router des lokalen Netzwerks als Zeitserver genutzt werden. Diese Methode ist in vielen Fällen stabiler.  
 
-Die folgenden Überwachungsfunktionen stehen zur Verfügung:
+**Beispiel (AVM FritzBox):**  
+In der FritzBox kann der Zeitserver im Menü  
+`Heimnetz → Netzwerk → Netzwerkeinstellungen`  
+aktiviert werden.  
 
-| Überwachungsfunktion | Option | Beschreibung |
-| :------------ | :------------ | :------------ |
-| **Keine Daten vom BMS** |  |  |
-|  | Trigger keine Daten | Aktivieren/Deaktivieren der Überwachungsfunktion |
-|  | Aktion bei Trigger | Gibt an welcher Trigger ausgelöst werden soll |
-|  | Trigger keine Daten | Wenn x Sekunden keine Daten kommen, dann wird Trigger ausgelöst  |
-| **Spannungsüberwachung Zelle Min/Max** |  |  |
-|  | Spg.-Überwachung | Aktivieren/Deaktivieren der Überwachungsfunktion |
-|  | Aktion bei Trigger | Gibt an welcher Trigger ausgelöst werden soll |
-|  | Anzahl Zellen Monitoring | Anzahl der Zellen die Überwacht werden sollen.  Es wird immer bei der ersten Zelle begonnen. |
-|  | Zellspannung Min | Überwachungs-Untergrenze |
-|  | Zellspannung Max | Überwachungs-Obergrenze |
-| **Spannungsüberwachung Gesamt Min/Max** |  |  |
-|  | Aktion bei Trigger | Gibt an welcher Trigger ausgelöst werden soll |
-|  | Spannung Min | Überwachungs-Untergrenze |
-|  | Spannung Max | Überwachungs-Obergrenze |
+Als Zeitserver können beispielsweise folgende Adressen definiert werden:  
+`ntp1.t-online.de; 2.europe.pool.ntp.org`  
 
-### Temperatur
-![](img/settings/settings_alarmrules_temperatur.png){ width="950" }  
-An dieser Stelle können die Einstellungen für die Überwachung der Temperaturwerte der Data-Devices und Onewire-Temperatursensoren konfiguriert werden. 
+Im BSC ist anschließend die **IP-Adresse** des Routers als NTP-Server anzugeben.  
+**Hinweis:** Die Verwendung eines Hostnamens anstelle der IP-Adresse kann zu Verbindungsproblemen führen.
 
-| Option | Beschreibung |
-| :------------ | :------------ |
-| Quelle | Hier kann festgelegt werden, ob die Temperaturdaten von einem Data-Device oder von den OneWire-Sensoren bezogen werden.
-| Sensornummer&nbsp;von<br>Sensornummer&nbsp;bis  | Hier können die zu überwachenden Onewire-Sensoren durch Angabe eines Bereichs (von/bis) festgelegt werden. Die Sensornummern beziehen sich auf die Nummern der Onewire-Sensoren.  |
-| Überwachung | Hier kann eine Überwachungsfunktion eingestellt werden.  Je nach Überwachungsfunktion haben die Felder Wert 1+2 eine andere Funktion |
-| Referenzsensor<br>Wert 1<br>Wert 2 | Spezifische Funktion, je nach eingestellter Überwachung |
-| Auslösung | Gibt an welcher Trigger ausgelöst werden soll.  Foraussetzung ist, dass eine Überwachungsfunktion ausgewählt wurde |
-
-**Überwachungsfunktionen:**
-
-* **nicht belegt**  
-Die Überwachung ist deaktiviert
-
-* **Maximalwert-Überschreitung**  
-Es wird überwacht ob einer der Sensoren den maximal erlaubten Temperaturwert überschreitet.  
-Die maximale erlaubte Temperatur wird mit dem "Wert 1" festgelegt.
-  * Referenzsensor: -
-  * Wert 1: Maximal erlaubte Temperatur
-  * Wert 2: -
-
-* **Minimalwert-Unterchreitung**  
-Es wird überwacht ob einer der Sensoren den minimal erlaubten Temperaturwert unterschreitet.  
-Die minimal erlaubte Temperatur wird mit dem "Wert 1" festgelegt.
-  * Referenzsensor: -
-  * Wert 1: Minimal erlaubte Temperatur
-  * Wert 2: -
-
-* **Maximalwert-Überschreitung (Referenz)**  
-Es wird überwacht ob einer der Sensoren den maximal erlaubten Temperaturwert überschreitet.  
-Die maximale erlaubte Temperatur gibt der unter "Referenzsensor" festgelegte Sensor vor.
-  * Referenzsensor:  Sensornummer des Onewire-Temperatursensors
-  * Wert 1: Maximal erlaubte Temperaturdifferenz
-  * Wert 2: -
-
-* **Differenzwert-Überwachung**  
-Es wird die maximale Temperaturabweichung der Sensoren untereinander überwacht.  
-Ist die Differenz zwischen dem Niedrigsten und höchsten Wert zu groß, wird der Trigger ausgelöst.
-  * Referenzsensor: -
-  * Wert 1: Maximal erlaubte Temperaturdifferenz
-  * Wert 2: -
-
-
-
-### Derzeit aktive Inverter-Drosselung
-Welche eingestellte Drosselung gerade aktiv ist, können Sie mit Hilfe der Restapi einsehen.  
-Hierzu nach der IP-Adresse des BSC "/restapi" hinzufügen (z.B. 192.168.1.100/restapi).  
-
-Die dargestellten "cc_"-Werte und "dcc_"-Werte stellen den durch die jeweilige Laderegelung limitierten Strom dar.
-
-![](img/settings/settings_restapi_aktive_drosselung.png){ width="250" }  
-
-Falls es nicht möglich ist, die Daten während eines Drosselungs-Events direkt anzuzeigen, besteht die Möglichkeit, diese temporär über eine alternative Plattform wie Home Assistant aufzeichnen zu lassen. Dabei ist zu beachten, dass jede Abfrage der REST-API alle verfügbaren Daten umfasst.
-
-Für die Übertragung der Daten kann mit einer Dauer von etwa 0,5 bis 1 Sekunde pro Paket gerechnet werden. Diese Zeitangabe dient als Orientierung.
-
-Nachfolgend finden Sie ein Beispiel für einen YAML-Code, der für die Erstellung eines Sensors zur Anzeige des Werts von "setpoint_cc" in Home Assistant verwendet werden kann:
-
-```yaml
-platform: rest
-name: bscapi_setpoint_cc
-resource: http://192.x.x.x/restapi
-value_template: "{{ value_json['inverter']['setpoint_cc'] }}"
-unit_of_measurement: "A"
-state_class: "measurement"
-icon: "mdi:api"
-```
-
-## Firmware-Update
-Ein Firmware-Update kann direkt über das Menü angestoßen werden.  
-Informationen zum aktuellen Release-Stand, wie auch die dazu passende Beschreibung der Änderungen wird live angezeigt.  
-Korrekt gesetztes Netzwerk-Gateway ist für die Live-Infos vorausgesetzt.
-
-![](img/settings/settings_ota_update.png){ width="400" }  
