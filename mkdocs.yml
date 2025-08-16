@@ -21,7 +21,6 @@ plugins:
       blog_toc: true
       post_url_format: "{file}"
   - search
-  - mermaid2
 
   - git-revision-date-localized:
       enable_creation_date: false
@@ -55,6 +54,11 @@ markdown_extensions:
       alternate_style: true
   - toc:
       permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format      
       
 nav:
   - User Guide:
