@@ -12,6 +12,7 @@ theme:
   features:
     - content.action.edit
     - navigation.indexes
+    - navigation.sections
     
   icon:
     repo: fontawesome/brands/github
@@ -68,7 +69,11 @@ nav:
       - Hardware anschließen: first_steps_hardware.md
       - Einstellungen im BSC: first_steps_settings.md
     - Hardware: hardware.md
-    - BSC Konfiguration:
+    - Unterstüzte Geräte:
+      - BMS: devices/bms.md
+      - Wechselrichter: devices/wechselrichter.md
+      - Externe Shunts: devices/externer_shunt.md
+    - Konfiguration:
       - Allgemeines & Dashboard: dashboard.md
       - System: settings_bsc.md
       - Trigger: settings_bsc_trigger.md
@@ -81,21 +86,20 @@ nav:
         - Entladen: settings_inverter_discharge.md
       - Das Log des BSC: log.md
       - Beispielkonfigurationen: beispiel_konfigurationen.md
-    - Unterstüzte Geräte:
-      - BMS: devices/bms.md
-      - Wechselrichter: devices/wechselrichter.md
-      - Externe Shunts: devices/externer_shunt.md
-    - MQTT: mqtt.md
-    - REST-API: restapi.md
+    - Integration (MQTT, REST):
+      - MQTT: mqtt.md
+      - REST-API: restapi.md
     - Troubleshooting: troubleshooting.md 
     - Sonstiges: 
       - Test ohne BSC Hardware: BSC_ohne_orig_hardware.md
       - Bestückung Varianten: bestückung_varianten.md
-  - Insider: insider.md
-  - Issues:
-    - Issues: https://github.com/shining-man/bsc_fw/issues
-    - Issues (Nur für Sponsoren): https://github.com/bsc-org/bsc_fw_insider/issues
-  - Blog:
-    - blog/index.md
-  - About:
-    - Release Notes: https://github.com/shining-man/bsc_fw/releases
+
+  - Ressourcen:
+    - Insider: insider.md
+    - Issues:
+      - Issues: https://github.com/shining-man/bsc_fw/issues
+      - Issues (Nur für Sponsoren): https://github.com/bsc-org/bsc_fw_insider/issues
+    - Blog:
+      - blog/index.md
+    - About:
+      - Release Notes: https://github.com/shining-man/bsc_fw/releases
