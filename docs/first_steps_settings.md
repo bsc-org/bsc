@@ -103,15 +103,23 @@ In diesem Abschnitt werden die grundlegenden Einstellungen beschrieben, die erfo
 
 Folgende Parameter müssen für die Grundkommunikation konfiguriert werden:  
 
-- **BMS CAN-Bus Enable:** Aktiviert die Kommunikation mit dem Wechselrichter.  
-- **CAN-Bus-Protokoll:** Auswahl des Protokolls entsprechend dem Wechselrichter (z. B. *Victron* oder *Pylontech*).  
-> **Hinweis:** Bei den meisten Wechselrichtern muss **Pylontech** als CAN-Bus-Protokoll ausgewählt werden.
-- **Datenquelle**: Hier wird ausgewählt, von welchen Data-Devices die Daten genommen werden, um sie dann – je nach weiteren Einstellungen – aufbereitet an den Wechselrichter zu senden.  
-Die Aufbereitung kann beispielsweise die Aggregation mehrerer Datenquellen oder die Anwendung von definierten Laderegelungen umfassen.  
-> **Hinweis:** In der **Standard-Firmware** muss zusätzlich eine *Master-Datenquelle* definiert werden, von der beispielsweise die Batteriespannung übernommen wird. In der **Insider-Firmware** kann unter *Valuehandling* detailliert festgelegt werden, welcher Wert von welchem Data-Device verwendet wird.  
-- **Kategorie Valuehandling:** Festlegung, von welchen Data-Devices welche Werte übernommen und wie diese aggregiert werden.  
+- **BMS CAN-Bus Enable:**  
+  Aktiviert die Kommunikation mit dem Wechselrichter.  
+- **CAN-Bus-Protokoll:**  
+  Auswahl des Protokolls entsprechend dem Wechselrichter (z. B. *Victron* oder *Pylontech*).  
+  **Hinweis**: Bei den meisten Wechselrichtern muss **Pylontech** als CAN-Bus-Protokoll ausgewählt werden.
+- **Datenquelle**:  
+  Hier wird ausgewählt, von welchen Data-Devices die Daten genommen werden, um sie dann – je nach weiteren Einstellungen – aufbereitet an den Wechselrichter zu senden.  
+  Die Aufbereitung kann beispielsweise die Aggregation mehrerer Datenquellen oder die Anwendung von definierten Laderegelungen umfassen. 
+
+    !!! note "Hinweis"  
+        In der **Standard-Firmware** muss zusätzlich eine *Master-Datenquelle* definiert werden, von der beispielsweise die Batteriespannung übernommen wird. In der **Insider-Firmware** kann unter *Valuehandling* detailliert festgelegt werden, welcher Wert von welchem Data-Device verwendet wird.  
+
+- **Kategorie Valuehandling:**  
+  Festlegung, von welchen Data-Devices welche Werte übernommen und wie diese aggregiert werden.  
   Weitere Informationen: [Valuehandling Multi-BMS](https://bsc-org.github.io/bsc/settings_inverter/#valuehandling-multi-bms)  
-- **Kategorie Basisdaten:** Konfiguration von Ladespannungen und maximalen Strömen für das gesamte System.  
+- **Kategorie Basisdaten:**  
+  Konfiguration von Ladespannungen und maximalen Strömen für das gesamte System.  
   Unter *Batterypack settings* können zusätzlich pro Data-Device Kapazität und maximale Ströme definiert werden.  
 
 Weitere Informationen: [Wechselrichter-Einstellungen](https://bsc-org.github.io/bsc/settings_inverter/#wechselrichter)  
