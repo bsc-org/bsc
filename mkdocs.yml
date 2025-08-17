@@ -65,7 +65,8 @@ nav:
   - User Guide:
     - Systemübersicht: system_overview.md
     - Erste Schritte:
-      - Programmieren des BSC: first_steps.md
+      - Erste Informationen: first_steps.md
+      - Programmieren des BSC: first_steps_programming.md
       - Hardware anschließen: first_steps_hardware.md
       - Einstellungen im BSC: first_steps_settings.md
     - Hardware: hardware.md
