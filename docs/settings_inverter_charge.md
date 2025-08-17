@@ -418,6 +418,57 @@ Funktion der fünf verfügbaren States:
   - 6: Balance-Ladespannung erreicht; warten bis Mindestzeit abgelaufen
 
 
+??? info "Zustandsdiagramm"
+    ``` mermaid
+    stateDiagram-v2
+        classDef movement font-style:italic;
+        classDef colorOrange fill:#FFDE59
+        classDef colorRed fill:#FF5757
+
+        %% Texte
+        s0: <b>Step 0</b> (Autobalancer Off)
+        s1: <b>Step 1</b> (Warte auf Starttag)
+        s2: <b>Step 2</b> (Warte auf nächsten Tag)
+        s3: <b>Step 3</b> (Warte auf Zellspannung)
+        s4: <b>Step 4</b> (Autobalancer läuft)
+        s5: <b>Step 5</b> (Warte auf erreichen der Ladespannung)
+        s6: <b>Step 6</b> (Balance abschließen)
+        n_setAbs: Abs. setzen
+        n_setFloat: Float setzen
+        n_setChargeVolt: Ladespannung setzen
+        n_timeout: Timeout
+        n_startBalMinTime: Balance-Mindest-Zeit starten
+        
+        s0 --> s1 : Wenn Balancer Enabled
+        s0 --> s2 : Wenn Balancer Enabled und der Balance Vorgang nicht abgeschlossen werden konnte
+        s1 --> s3 : Wenn Zeitpunkt erreicht
+        s2 --> s3 : Wenn Zeitpunkt erreicht
+        s3 --> s4 : Wenn Startzellspannung erreicht
+        s4 --> n_setAbs
+        s3 --> n_setAbs : Wenn Option aktiv
+        s3 --> n_setChargeVolt : Wenn Option aktiv
+        s4 --> n_timeout
+        s4 --> s3 : Option) Wenn Zellspannung wieder unter Startzellspannung
+        s4 --> n_startBalMinTime : Wenn Ladespannung (minus Toleranz) erreicht
+        s4 --> s5 : Wenn MaxCellDiff unterschritten
+        s5 --> s3 : Option) Wenn Zellspannung wieder unter Startzellspannung
+        s5 --> n_startBalMinTime : Wenn Ladespannung (minus Toleranz) erreicht
+        s5 --> n_setChargeVolt
+        s5 --> s6 : Wenn Balance-Mindest-Zeit gestartet
+        s5 --> n_timeout
+        s6 --> n_setChargeVolt
+        s6 --> s3 : Option) Wenn Zellspannung wieder unter Startzellspannung
+        s6 --> n_setFloat : Wenn Mindestzeit abgelaufen
+        s6 --> s0 : Wenn Mindestzeit abgelaufen
+
+        class n_setAbs colorOrange
+        class n_setFloat colorOrange
+        class n_setChargeVolt colorOrange
+        class n_startBalMinTime colorOrange
+        class n_timeout colorRed
+    ```
+
+
 ## Charge-Current Cut-Off
 Diese Funktion unterbricht den Ladestrom, wenn er für eine bestimmte Zeitspanne unterhalb einem eingestellten Strom-Wert liegt.  
 Nach diesem Abbruch wird die bisher verwendete Soll-Lade-Spannung von der Absorption-Spannung auf die Float-Spannung gesetzt.  
@@ -447,7 +498,6 @@ Der Cut-Off-Strom ist der Gesamt-Ladestrom, unterhalb dessen die Cut-Off-Zeit be
 **Start-Zellspannung:**  
 Die Start-Zellspannung ist die Spannung, ab der die Cut-Off-Regelung aktiv wird. Sobald diese überschritten wurde und der Cut-Off-Strom unterschritten ist, bleibt der Timer aktiv.  
 Ein erneutes Unterschreiten der Start-Zellspannung führt nicht zum Abbruch des Timers. Der Timer wird ausschließlich zurückgesetzt, wenn der Cut-Off-Strom erneut überschritten wird.
-
 
 ## SoC beim Unterschreiten der Zellspannung
 Die Funktion ermöglicht, beim Unterschreiten einer definierten Zellspannung einen festgelegten Ladezustand (SoC) an den Wechselrichter zu übermitteln.
