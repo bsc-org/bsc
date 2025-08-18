@@ -9,6 +9,7 @@ Weitere Informationen:
 - [Unterstützte BMS](https://bsc-org.github.io/bsc/devices/bms/#serial-bms)  
 - [BMS-Anschlussbeispiele](https://bsc-org.github.io/bsc/devices/bms/#anbindungs-beispiele)  
 - [RS485-Port-Zuordnung am Lilygo T-CONNECT](https://bsc-org.github.io/bsc/hardware/#lilygo-t-connect)  
+- [RS485 Steckerbelegung am Lilygo T-CONNECT](https://bsc-org.github.io/bsc/hardware/#steckerbelegung)  
 
 Für die Unterstützung weiterer BMS kann ein Issue im Repository erstellt werden: [BSC Firmware Issues](https://github.com/shining-man/bsc_fw/issues)  
 
@@ -18,4 +19,5 @@ Der Wechselrichter wird über die **CAN-Schnittstelle** mit dem BSC verbunden. D
 Weitere Informationen:  
 
 - [CAN-Bus-Stecker am Lilygo T-CONNECT](https://bsc-org.github.io/bsc/hardware/#lilygo-t-connect)  
+- [CAN Steckerbelegung am Lilygo T-CONNECT](https://bsc-org.github.io/bsc/hardware/#steckerbelegung)  
 - [Hinweise zur Verbindung von Wechselrichtern](https://bsc-org.github.io/bsc/devices/wechselrichter/)  

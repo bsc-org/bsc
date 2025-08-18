@@ -117,8 +117,20 @@ Daher müssen die Jumper auf die blau markierten Positionen gesetzt werden.
 ## Lilygo T-CONNECT
 ![T-CONNECT](img/hardware/t-connect_connectors.jpg){ width="400" }
 
-#### Funktion der LEDs  
+#### Steckerbelegung
+**Serial 0-2 (RS485)**  
+Pin 1: ---  
+Pin 2: B  
+Pin 3: A  
+Pin 4: GND  
 
+**CAN**   
+Pin 1: ---  
+Pin 2: H  
+Pin 3: L  
+Pin 4: GND  
+
+#### Funktion der LEDs  
 | LED            | Farbe          | Funktion                              |
 |----------------|----------------|---------------------------------------|
 |  System        | Blau           | System bootet                         |
