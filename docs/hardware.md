@@ -115,7 +115,7 @@ Daher müssen die Jumper auf die blau markierten Positionen gesetzt werden.
 
 
 ## Lilygo T-CONNECT
-![T-CONNECT](img/hardware/t-connect_connectors.jpg){ width="400" }
+![T-CONNECT](img/hardware/t-connect_connectors.jpg){ width="550" }
 
 #### Steckerbelegung
 **Serial 0-2 (RS485)**  
