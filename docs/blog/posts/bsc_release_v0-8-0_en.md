@@ -10,9 +10,11 @@ categories:
 [img_LadestrombegrenzungVrm]: release_v0-8-0_de/LadestrombegrenzungVrm.png
 
 # Version 0.8.0 (EN)
+
 This version brings several improvements and enhancements, most notably the new **Dashboard**. Below is an overview of all changes since the last stable release:
 
 ## 🌐 Dashboard
+
 One of the biggest changes is the new dashboard. It provides a quick overview of all system-relevant information and live data.
 
 <!-- more -->

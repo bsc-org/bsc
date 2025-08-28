@@ -1,9 +1,11 @@
 # Battery System Controller (BSC) – <br>Der flexible Controller für DIY-Batterien
-<img src="img/bsc_display.png" width="600">
 
-Der **Battery System Controller (BSC)** ist ein frei konfigurierbarer Controller, der für eine Vielzahl von Steuerungs- und Überwachungsaufgaben in DIY-Batteriesystemen eingesetzt werden kann. Der BSC übernimmt die zentrale Steuerung des Energy-Sorange-Systems.
+![Battery System Controller - Display](img/bsc_display.png){ width="600" }
 
-## Der BSC besteht aus zwei Komponenten:
+Der **Battery System Controller (BSC)** ist ein frei konfigurierbarer Controller, der für eine Vielzahl von Steuerungs- und Überwachungsaufgaben in DIY-Batteriesystemen eingesetzt werden kann. Der BSC übernimmt die zentrale Steuerung des Energy-Storage-Systems.
+
+## Der BSC besteht aus zwei Komponenten
+
 1. **BSC-Hardware** – Sie fungiert als Middleware zwischen dem BMS und dem Wechselrichter. Ein Vorteil der BSC-Hardware ist ihr sicherer Betrieb: Alle physischen Schnittstellen sind galvanisch isoliert.
 2. **BSC-Software** – Diese macht die BSC-Hardware zu einem frei konfigurierbaren Controller, der für eine Vielzahl von Steuerungs- und Überwachungsaufgaben in DIY-Batteriesystemen verwendet werden kann.  
 
@@ -12,9 +14,11 @@ Der **Battery System Controller (BSC)** ist ein frei konfigurierbarer Controller
 ## Einsatzmöglichkeiten des BSC
 
 ### 1. Überwachung von verbundenen Geräten (seriell, Bluetooth)
+
 Der BSC kann die Daten von angeschlossenen Geräten (BMS, Balancer, Temperatursensoren) via MQTT an einen Broker senden, um sie grafisch darzustellen (z.B. in Grafana) oder weiter zu verarbeiten, z.B. in einem Automatisierungssystem wie **ioBroker**, **NodeRed** oder **Home Assistant**.
 
 ### 2. Lade-Steuerung
+
 Der BSC nutzt die Daten der angeschlossenen Geräte, um den Wechselrichter (Victron, Solis, DEYE, etc.) zu steuern, der über den CAN-Bus verbunden ist. Hierbei stehen mehrere Funktionen zur Verfügung, um die Lade-Steuerung an das eigene DIY-Batteriesystem anzupassen:
 
 - Zellspannungsabhängige Drosselung des Ladestroms
@@ -25,6 +29,7 @@ Der BSC nutzt die Daten der angeschlossenen Geräte, um den Wechselrichter (Vict
 - Und noch einges mehr ...
 
 ### 3. Überwachung der Werte des BMS
+
 Der BSC kann verschiedene konfigurierbare Parameter auf den angeschlossenen Geräten überwachen und darauf reagieren. Überwachte Parameter umfassen z.B.:
 
 - Regelmäßige Antwort des angeschlossenen BMS
@@ -35,6 +40,7 @@ Der BSC kann verschiedene konfigurierbare Parameter auf den angeschlossenen Ger�
 Diese Daten können verwendet werden, um beispielsweise Relaisausgänge zu steuern und einen Lasttrennschalter auszulösen.
 
 ### 4. Temperaturüberwachung
+
 Es können bis zu **64 OneWire-Temperatursensoren** (DS18B20) angeschlossen und überwacht werden. Verschiedene Regelungen sind möglich:
 
 - Überwachung des Maximalwerts
@@ -47,6 +53,7 @@ Alle Einstellungen können flexibel über eine Web-Oberfläche parametriert werd
 Der **Battery System Controller** bietet eine vielseitige und anpassbare Lösung für die Überwachung und Steuerung von DIY-Batteriesystemen. Ideal für anspruchsvolle Anwendungen, die umfangreiche Steuerungsmöglichkeiten benötigen.
 
 ## Informationen zu Beschaffung und Inbetriebnahme
+
 Detaillierte Informationen zur Beschaffung sowie zur Inbetriebnahme finden Sie in den folgenden Kapiteln dieses Handbuchs:  
 [Erste Schritte](first_steps.md)  
 [Hardware](hardware.md)  

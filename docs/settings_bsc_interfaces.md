@@ -1,9 +1,10 @@
 # Schnittstellen des BSC
+
 In den Schnittstellen Einstellungen wird eingestellt was an welcher Schnittstelle angeschlossen ist. Hier wird **nicht** eingestellt was z.B. mit den Daten von einem BMS oder Balancer passieren soll, oder wann der Relais-Ausgang schalten soll. Dies wird dann bei den Einstellungen zu den Alarmregeln oder dem Wechselrichter gemacht.
 
 
-
 ## Relaisausgänge
+
 Hier können die grundlegenden Einstellungen zu den Relaisausgängen vorgenommen werden.
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
@@ -50,8 +51,8 @@ Hier können die grundlegenden Einstellungen zu den Relaisausgängen vorgenommen
   Die Option ermöglicht es, den Relaisausgang flexibel zwischen den Betriebsmodi NO (Normally Open) und NC (Normally Closed) umzuschalten. Durch Aktivieren dieser Option wird die Logik des Relaisausgangs umgekehrt, sodass bei der Ausführung des Schaltvorgangs der alternative Zustand genutzt wird. Diese Funktion ist besonders nützlich, um die Kompatibilität mit verschiedenen Steuerungsanforderungen oder Schaltungsdesigns sicherzustellen.
 
 
-
 ## Digitaleingänge
+
 Hier können die grundlegenden Einstellungen zu den Digitaleingängen vorgenommen werden.
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
@@ -72,17 +73,17 @@ Hier können die grundlegenden Einstellungen zu den Digitaleingängen vorgenomme
 </select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2240'></span></td></tr>
 </table></form></div></div>
 
-- **Eingang invertieren**  
+* **Eingang invertieren**  
   Hier kann der Eingang invertiert werden
 
-- **Weiterleiten an**  
+* **Weiterleiten an**  
   Mit dieser Option wird festgelegt, welcher Trigger durch einen bestimmten Eingang aktiviert wird.  
-    - Wird der Eingang **High**, wird der hier ausgewählte Trigger aktiviert.  
-    - Ist der Eingang **invertiert**, wird der Trigger bei einem **Low**-Signal am Eingang aktiviert. 
-
+    * Wird der Eingang **High**, wird der hier ausgewählte Trigger aktiviert.  
+    * Ist der Eingang **invertiert**, wird der Trigger bei einem **Low***Signal am Eingang aktiviert.
 
 
 ## Serial
+
 In diesem Abschnitt legen Sie fest, welche Hardware an welchem seriellen Port angeschlossen ist. Darüber hinaus ist es erforderlich, im Abschnitt ["Data devices"](#data-devices) zu konfigurieren, welche serielle Port welchem internen Daten-Device zugeordnet wird.
 
 Detaillierte Informationen zur Einrichtung der Data Devices finden sie im Kapitel [Data devices](#data-devices).  
@@ -164,12 +165,10 @@ Wird die eingestellte Anzahl überschritten, erfolgt keine Aktualisierung des Ze
 Legt die maximal zulässige prozentuale Abweichung der Zellspannungen fest.  
 Ein Wert von `0` deaktiviert die Filterfunktion.
 
-
-
 ## Onewire (Onewire Adressen)
+
 In diesem Menü kann die OneWire-Funktion aktiviert und die Adressen der angeschlossenen OneWire-Temperatursensoren festgelegt werden.  
 Unterstützt werden Temperatursensoren vom Typ **DS18B20**.  
-
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='Ctd'><b>Onewire enable</b></td><td class='Ctd'><input type='checkbox' checked name='38654708864'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s3200'></span></td></tr>
@@ -195,9 +194,8 @@ Diese Hervorhebung erleichtert das Identifizieren und Hinzufügen neu angeschlos
 <tr><td><b>28:93:e3:95:f0:1:3c:57</b></td><td><button onclick='copyStringToClipboard("28:93:e3:95:f0:1:3c:56")'>Copy</button></td></tr>
 <tr><td>28:93:e3:95:f0:1:3c:58</td><td><button onclick='copyStringToClipboard("28:93:e3:95:f0:1:3c:56")'>Copy</button></td></tr>
 </table>
- 
-Über die **Copy**-Schaltfläche kann die jeweilige Sensoradresse in die Zwischenablage kopiert werden.  
 
+Über die **Copy**-Schaltfläche kann die jeweilige Sensoradresse in die Zwischenablage kopiert werden.  
 
 
 ## Onewire II (Temperatur-Offset)
@@ -217,9 +215,8 @@ Hier kann für jeden OneWire-Temperatursensor ein Offset eingestellt werden, um 
 </table></form></div></div>
 
 
-
-
 ## Bluetooth
+
 !!! Warning "Hinweis"
     **Bluetooth steht aktuell nicht zu Verfügung!**
 
@@ -251,15 +248,15 @@ Hier kann für jeden OneWire-Temperatursensor ein Offset eingestellt werden, um 
 Hier können bis zu 5 Bluetooth Devices festgelegt werden, von denen der Controller Daten holt.  
 Dazu muss der Device-Typ und die MAC-Adresse (in Kleinbuchstaben) eingestellt werden.  
 
-Der Controller scannt, sobald diese Konfigurationsseite aufgerufen ist, zyklisch nach neuen BT-Devices   
+Der Controller scannt, sobald diese Konfigurationsseite aufgerufen ist, zyklisch nach neuen BT-Devices
 und zeigt die letzten 5 gefundenen am unteren Ende der Seite an.  
 
 **Unterstützte Hardware**  
 Eine Liste der unterstützten Hardware ist unter folgendem Link verfügbar: [Unterstützte Bluetooth Devices](devices/bms.md#bluetooth-devices)
 
 
-
 ## Data devices
+
 Das **Data-Device-Mapping** dient der Zuordnung der seriellen Schnittstelle zum im BSC verwendeten internen *Data-Device*.
 Diese Zuordnung ist Grundlage für weitere Konfigurationen, z. B. in den Wechselrichter-Einstellungen.
 
@@ -294,11 +291,11 @@ Diese Zuordnung ist Grundlage für weitere Konfigurationen, z. B. in den Wechsel
 
 Hierbei müssen folgende Parameter eingestellt werden:
 
-  - **Schnittstelle**: Auswahl der seriellen Schnittstelle, an der das Data-Device angeschlossen ist (z.B. das BMS oder der Victron Smart Shunt) 
-  - **Adresse**: Die eindeutige Adresse, die dem spezifischen Gerät zugewiesen wird oder vom Hersteller fest zugewiesen ist.
+* **Schnittstelle**: Auswahl der seriellen Schnittstelle, an der das Data-Device angeschlossen ist (z.B. das BMS oder der Victron Smart Shunt)
+* **Adresse**: Die eindeutige Adresse, die dem spezifischen Gerät zugewiesen wird oder vom Hersteller fest zugewiesen ist.
     Informationen, welche Adresse bei welchem BMS eingestellt werden muss, sind hier dokumentiert: [Unterstützte BMS – Adresskonfiguration](https://bsc-org.github.io/bsc/devices/bms/#unterstutzte-bms)  
     Der dortige Text sollte sorgfältig gelesen werden, da er beschreibt, **welche Adresse am BMS selbst** und **welche hier im Data-Device-Mapping des BSC** eingestellt werden muss.  
-  - **Name** (optional): Ein benutzerdefinierter Name, der in den weiteren Einstellungen des Parameters angezeigt wird. Dieser Name wird außerdem für den MQTT-Topic des jeweiligen Devices verwendet.
+* **Name** (optional): Ein benutzerdefinierter Name, der in den weiteren Einstellungen des Parameters angezeigt wird. Dieser Name wird außerdem für den MQTT-Topic des jeweiligen Devices verwendet.
 
     !!! Hinweis
         Der Name darf keine # und + Zeichen enthalten!
@@ -307,7 +304,6 @@ Falls mehrere Geräte an einer seriellen Schnittstelle angeschlossen sind und da
 
 !!! note "Hinweis"
     Die korrekte Konfiguration der Data Device Mappings ist essenziell, um eine störungsfreie Funktionalität zu gewährleisten. Beachten Sie die Adressierungsregeln Ihres BMS-Systems.
-
 
 ### Value Adjustment
 
@@ -322,7 +318,7 @@ Falls mehrere Geräte an einer seriellen Schnittstelle angeschlossen sind und da
 
 Der "Value Adjustment" ermöglicht es, dem Wechselrichter abhängig von der Zellspannung einen angepassten State of Charge (SoC) zu übermitteln. Dabei stehen zwei Betriebsmodi zur Verfügung, die unterschiedliche Anforderungen und Verhaltensweisen abdecken.  
 
-=== "Sponsor Firmware"
+=== "Insider Firmware"
     Es stehen folgende Optionen zur Verfügung:
 
     - **SoC linearisieren**  
@@ -379,7 +375,6 @@ Der "Value Adjustment" ermöglicht es, dem Wechselrichter abhängig von der Zell
     - Zwischen 2,9 V und 3,5 V → SoC linear berechnet  
 
     Dieser Modus ist besonders nützlich für BMS-Systeme, die keinen eigenen SoC-Wert bereitstellen, da der SoC in Abhängigkeit von den Zellspannungen automatisch ermittelt wird.
-
 
 !!! danger "Wichtiger Hinweis"
     Stellen Sie sicher, dass die eingetragenen Zellspannungen den Spezifikationen des verwendeten Batteriesystems entsprechen, um eine optimale Funktion und Sicherheit zu gewährleisten.

@@ -1,4 +1,5 @@
 # Wechselrichter
+
 In diesem Abschnitt werden die Einstellungen für die Kommunikation mit dem Wechselrichter über den CAN-Bus sowie die Verarbeitung der bereitgestellten Messwerte konfiguriert. Über die CAN-Bus-Schnittstelle werden Betriebsdaten wie Ladezustand, Gesamtspannung, Strom und Temperatur an den Wechselrichter übertragen. Die Wahl der Datenquelle legt fest, welche Geräte als Referenz für einzelne Messgrößen dienen. Bei Bedarf können Werte aus mehreren Quellen zusammengefasst werden.  
 
 
@@ -59,13 +60,14 @@ Diese Option kann **nur** in Verbindung mit einer **Victron-Anlage** genutzt wer
 **Nicht** empfohlen für den Einsatz in Verbindung mit einem **CerboGX**, da dies zu Kommunikationsproblemen führen kann.
 
 **Datenquelle**  
-Hier werden die Date-Devices ausgewählt von denen die Daten genommen und aufbereitet werden, um sie an den Wechselrichter zu übermitteln. 
+Hier werden die Date-Devices ausgewählt von denen die Daten genommen und aufbereitet werden, um sie an den Wechselrichter zu übermitteln.
 
 Bei der **Standard-Firmware** muss hier **zusätzlich** eine **Master-Datenquelle** festgelegt werden.  
 Von dieser wird die **Batteriespannung** übernommen, die anschließend an den Wechselrichter übermittelt wird.
 
 
 ## Valuehandling
+
 In diesem Abschnitt werden die Quellen und Methoden zur Verarbeitung zentraler Batteriewerte festgelegt. Dabei kann für jeden Messwerttyp – Ladezustand (SoC), Gesamtspannung und Gesamtstrom – eine spezifische Datenquelle ausgewählt werden. Die verfügbaren Datenquellen stammen aus den angeschlossenen Data Devices und liefern die Rohwerte für die weitere Verarbeitung.  
 
 Zusätzlich kann eingestellt werden, wie die Werte bei der Auswahl von mehreren Data Devices aggregiert werden sollen.  
@@ -139,7 +141,7 @@ Wird nur ein Gerät als Quelle verwendet, bestimmt ausschließlich dessen Wert d
 
 **Aggregation SoC**  
 Definiert die Methode, mit der der SoC berechnet wird, wenn mehrere Datenquellen gleichzeitig ausgewählt wurden.  
-Mögliche Aggregationsmethoden können z. B. **Mittelwert**, **höchster Wert**, **niedrigster Wert** oder **BMS** sein. Bei der Auswahl **BMS** wird der SoC des ersten ausgewählte Data-Device an den Wechselrichter übermittelt.   
+Mögliche Aggregationsmethoden können z. B. **Mittelwert**, **höchster Wert**, **niedrigster Wert** oder **BMS** sein. Bei der Auswahl **BMS** wird der SoC des ersten ausgewählte Data-Device an den Wechselrichter übermittelt.
 
 **Quelle Gesamtspannung**  
 Bestimmt, von welchem Data Device der Wert für die Gesamtbatteriespannung übernommen wird.  
@@ -254,9 +256,9 @@ Um diesen Übergang automatisch zu steuern, steht die Funktion "**Charge-Current
 Diese Einstellung ist daher essenziell, um den Ladeprozess korrekt zu beenden und den Akku optimal zu schützen.
 
 **Float Ladespannung**  
-Die Float Ladespannung gibt die Open-Circuit Voltage (OCV) an, also die Spannung, die eine Batterie erreicht, wenn sie sich im unbelasteten Zustand befindet und nicht geladen wird. 
+Die Float Ladespannung gibt die Open-Circuit Voltage (OCV) an, also die Spannung, die eine Batterie erreicht, wenn sie sich im unbelasteten Zustand befindet und nicht geladen wird.
 
-Im Wesentlichen entspricht die Float Ladespannung dem Spannungswert, bei dem die Batterie in einem stabilen, ungenutzten Zustand verweilt, ohne zu entladen oder weiter aufgeladen zu werden. Dieser Zustand tritt auf, wenn keine Last auf der Batterie liegt und keine Energie in oder aus der Zelle fließt. 
+Im Wesentlichen entspricht die Float Ladespannung dem Spannungswert, bei dem die Batterie in einem stabilen, ungenutzten Zustand verweilt, ohne zu entladen oder weiter aufgeladen zu werden. Dieser Zustand tritt auf, wenn keine Last auf der Batterie liegt und keine Energie in oder aus der Zelle fließt.
 
 !!! note "Hinweis"
     Der Wechsel in die Float-Phase erfolgt nur durch den [Charge-Current Cut-Off](settings_inverter_charge.md#charge-current-cut-off) oder den [Autobalancer](settings_inverter_charge.md#autobalance).
@@ -283,7 +285,7 @@ Setzt den Entladestrom auf 0 A, wenn einer der zugeordneten Trigger aktiviert wi
 Setzt den Ladezustand im System auf 100 %, wenn einer der definierten Trigger aktiviert wird.  
 
 **Batterypack Settings**  
-Mit dieser Funktion können Sie einen Lade- oder Entlade-Überstrom vermeiden, wenn einzelne Battery-Packs im System abgeschaltet werden. 
+Mit dieser Funktion können Sie einen Lade- oder Entlade-Überstrom vermeiden, wenn einzelne Battery-Packs im System abgeschaltet werden.
 
 Das Battery System Controller (BSC) sorgt dafür, dass der zuvor definierte maximale Lade- und Entladestrom an den Inverter übermittelt wird. Je nach Anzahl der parallel geschalteten Packs müssen Sie diesen Stromwert individuell festlegen. Sollte nun ein Battery Management System (BMS) eines Packs eingreifen und das Pack vom Netz nehmen, besteht die Möglichkeit, dass die verbleibenden Packs den vollen Strom des ausgefallenen Packs übernehmen. Dies könnte zu einem Überstrom führen.
 
@@ -293,12 +295,13 @@ Beispiel: Angenommen, Sie haben einen maximalen Ladestrom von 180A definiert und
 
 
 <span id="a_ladespannungsrampe"></span>
+
 ## Ladespannungsrampe
 
 Die Funktion **Ladespannungsrampe** sorgt dafür, dass Änderungen der Ladespannung – beispielsweise beim Übergang von Float auf Absorption – nicht sprunghaft, sondern in langsamen, definierten Schritten erfolgen. Damit werden abrupte Spannungsänderungen vermieden und Belastungsspitzen an Batterie und System reduziert.
 
 !!! note "Hinweis"
-    Diese Funktion steht nur in der **Sponsoren Version** zur Verfügung
+    Diese Funktion steht nur in der **[Insider Version](insider.md)** zur Verfügung
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>Ladespannungsrampe</b></td></tr>
@@ -315,7 +318,7 @@ Die Anpassung erfolgt kontinuierlich, bis die eingestellte Zielspannung erreicht
 **Parameter**:  
 **Zeit pro Spannungsschritt**: Bestimmt, in welchem Intervall die Ladespannung in 100 mV-Schritten angepasst wird. Alle x Sekunden wird die Spannung um 100 mV erhöht oder verringert, bis die Zielspannung erreicht ist.
 
-**Hinweis**:   
+**Hinweis**:  
 Die Ladespannungsrampe wird bei jeder Änderung der Sollspannung aktiv, sofern diese Funktion aktiviert ist.
 
 
@@ -352,7 +355,6 @@ Hier wird festgelegt, von welchem Data Device oder Onewire-Sensor die Batteriete
 <tr><td colspan='3' class='td0'><div class='help'>Mögliche Werte:<br>Data device:0-2<br>Onewire:0-63</div></td></tr>
 </table></form></div></div>
 
-
 **Hinweis:** Bei der Standard-Firmware wird die Temperatur stets von der Masterquelle übernommen.
 
 
@@ -379,7 +381,7 @@ Hier wird festgelegt, von welchen Sensoren der als Datenquelle ausgewählten Dat
 </table></form></div></div>
 
 !!! note "Hinweis"
-    Diese Funktion steht nur in der **Sponsoren Version** zur Verfügung
+    Diese Funktion steht nur in der **Insider Version** zur Verfügung
 
 
 ## Alarme (Inverter)
@@ -446,6 +448,7 @@ Hier wird festgelegt, von welchen Sensoren der als Datenquelle ausgewählten Dat
 
 
 ## Trigger bei SoC
+
 Mit dieser Funktion kann ein Trigger ausgelöst werden, wenn ein bestimmter Ladezustand (SoC) der Batterie über- oder unterschritten wird.  
 Dadurch lassen sich beispielsweise externe Geräte abhängig vom SoC-Wert schalten.  
 
@@ -477,18 +480,17 @@ Dadurch lassen sich beispielsweise externe Geräte abhängig vom SoC-Wert schalt
 **SoC - Trigger aus**: Definiert den SoC-Wert, bei dem der Trigger wieder deaktiviert wird.  
 
 **Zwei Beispiele hierzu:**  
-![](img/settings/settings_inverter_trigger_soc_beispiel.png){  width="450" }  
-
+![State of Charge Trigger Beispiel](img/settings/settings_inverter_trigger_soc_beispiel.png){  width="450" }  
 
 Hier triggert...  
 
 * Rule0 ein Relais für einen MPPT-Ladecontroller  
-  * <= 89% einschalten
-  * &gt;= 90% ausschalten
+    * <= 89% einschalten
+    * &gt;= 90% ausschalten
 
 * Rule1 ein Relais für ein Ladegerät eines Offgrid-Systems  
-  * <= 10% einschalten
-  * &gt;= 25% ausschalten
+    * <= 10% einschalten
+    * &gt;= 25% ausschalten
 
 Das Ladegerät geht bei 0% an, bis die 25% erreicht sind und schaltet dann aus. Erst bei 10% und kleiner wird es wieder gestartet.  
 Somit hat man eine Hysterese von 15%.

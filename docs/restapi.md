@@ -1,12 +1,14 @@
 # REST API Dokumentation
 
 ## Hinweise
+
 - Alle Endpunkte liefern JSON-Daten zurück.
 - Die API benötigt keine Authentifizierung.
 
 ## Endpunkte
 
 ### 1. Systemdaten [GET]
+
 Endpunkt: `/restapi`
 
 **Beschreibung:**
@@ -14,6 +16,7 @@ Dieser Endpunkt ermöglicht das Abrufen verschiedener Systemdaten vom Controller
 
 **Antwortformat:**  
 Dies ist nur ein Auszug aus der Antwort und nicht vollständig!
+
 ```json
 {
   "system": {
@@ -42,8 +45,10 @@ Dies ist nur ein Auszug aus der Antwort und nicht vollständig!
 }
 ```
 
-### 2. Alle Active-Errors [GET] 
-> Hinweis: Dieser Endpunkt ist nur in der [Insider Version](insider.md) verfügbar.
+### 2. Alle Active-Errors [GET]
+
+!!! info
+    Hinweis: Dieser Endpunkt ist nur in der [Insider Version](insider.md) verfügbar.
 
 Endpunkt: `/restapi/errors/all`
 
@@ -51,6 +56,7 @@ Endpunkt: `/restapi/errors/all`
 Dieser Endpunkt gibt alle möglichen Fehler des Systems zurück, inklusive einer Kennzeichnung, ob sie derzeit aktiv sind oder nicht.
 
 **Antwortformat:**
+
 ```json
 {
   "errors": [
@@ -62,7 +68,9 @@ Dieser Endpunkt gibt alle möglichen Fehler des Systems zurück, inklusive einer
 ```
 
 ### 3. Aktive Active-Errors [GET]
-> Hinweis: Dieser Endpunkt ist nur in der [Insider Version](insider.md) verfügbar.
+
+!!! info
+    Hinweis: Dieser Endpunkt ist nur in der [Insider Version](insider.md) verfügbar.
 
 Endpunkt: `/restapi/errors/active`
 
@@ -70,6 +78,7 @@ Endpunkt: `/restapi/errors/active`
 Dieser Endpunkt gibt nur die aktuell aktiven Active-Errors des Systems zurück. Das Format ist identisch mit `/restapi/errors/all`, enthält aber nur Einträge mit `"state": true`.
 
 **Antwortformat:**
+
 ```json
 {
   "errors": [
@@ -79,7 +88,9 @@ Dieser Endpunkt gibt nur die aktuell aktiven Active-Errors des Systems zurück. 
 ```
 
 ### 4. IO-Daten [GET]
-> Hinweis: Dieser Endpunkt ist nur in der [Insider Version](insider.md) verfügbar.
+
+!!! info
+    Hinweis: Dieser Endpunkt ist nur in der [Insider Version](insider.md) verfügbar.
 
 Endpunkt: `/restapi/io`
 
@@ -87,6 +98,7 @@ Endpunkt: `/restapi/io`
 Dieser Endpunkt gibt den Zustand der digitalen Eingänge (DI) und Relais zurück.
 
 **Antwortformat:**
+
 ```json
 {
   "di": [0, 0, 0, 0],
@@ -95,7 +107,9 @@ Dieser Endpunkt gibt den Zustand der digitalen Eingänge (DI) und Relais zurück
 ```
 
 ### 5. vTrigger [POST]
-> Hinweis: Dieser Endpunkt ist nur in der [Insider Version](insider.md) verfügbar.
+
+!!! info
+    Hinweis: Dieser Endpunkt ist nur in der [Insider Version](insider.md) verfügbar.
 
 Endpunkt: `/restapi/vTrigger`
 
@@ -103,6 +117,7 @@ Endpunkt: `/restapi/vTrigger`
 Dieser Endpunkt erlaubt das Setzen der virtuellen Trigger.
 
 **Erwartetes Eingabeformat:**
+
 ```json
 {
   "id": [Trigger Nr],
@@ -112,6 +127,7 @@ Dieser Endpunkt erlaubt das Setzen der virtuellen Trigger.
 
 **Beispielaufruf mit `curl`**:  
 Windows:  
+
 ```bash
 curl -L -X POST "http://[BSC IP]/restapi/vTrigger" ^
 -H "Content-Type: application/json" ^
@@ -119,6 +135,7 @@ curl -L -X POST "http://[BSC IP]/restapi/vTrigger" ^
 ```
 
 Linux:  
+
 ```bash
 curl -L -X POST "http://[BSC IP]/restapi/vTrigger" \
 -H "Content-Type: application/json" \
@@ -126,12 +143,13 @@ curl -L -X POST "http://[BSC IP]/restapi/vTrigger" \
 ```
 
 ## Derzeit aktive Inverter-Drosselung
+
 Welche eingestellte Drosselung gerade aktiv ist, können Sie mit Hilfe der Restapi einsehen.  
 Hierzu nach der IP-Adresse des BSC "/restapi" hinzufügen (z.B. 192.168.1.100/restapi).  
 
 Die dargestellten "cc_"-Werte und "dcc_"-Werte stellen den durch die jeweilige Laderegelung limitierten Strom dar.
 
-![](img/settings/settings_restapi_aktive_drosselung.png){ width="250" }  
+![Aktive Drosselung](img/settings/settings_restapi_aktive_drosselung.png){ width="250" }  
 
 Falls es nicht möglich ist, die Daten während eines Drosselungs-Events direkt anzuzeigen, besteht die Möglichkeit, diese temporär über eine alternative Plattform wie Home Assistant aufzeichnen zu lassen. Dabei ist zu beachten, dass jede Abfrage der REST-API alle verfügbaren Daten umfasst.
 
@@ -148,4 +166,3 @@ unit_of_measurement: "A"
 state_class: "measurement"
 icon: "mdi:api"
 ```
-

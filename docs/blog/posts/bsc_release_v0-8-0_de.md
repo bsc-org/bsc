@@ -10,9 +10,11 @@ categories:
 [img_LadestrombegrenzungVrm]: release_v0-8-0_de/LadestrombegrenzungVrm.png
 
 # Version 0.8.0 (DE)
+
 Diese Version bringt einige Verbesserungen und Erweiterungen mit sich, insbesondere das neue **Dashboard**. Nachfolgend eine Übersicht aller Änderungen seit der letzten stabilen Version:
 
 ## 🌐 Dashboard
+
 Eine der größten Änderungen ist das neue Dashboard. Es zeigt auf einen Blick alle systemrelevanten Informationen und Livedaten an.
 
 <!-- more -->
@@ -30,12 +32,11 @@ Eine der größten Änderungen ist das neue Dashboard. Es zeigt auf einen Blick 
 - **Zusätzliche Optionen für den Autobalancer**  
   Der Autobalancer bietet nun zusätzliche Optionen, um ihn besser an spezifische Anforderungen anzupassen.
     - **Ballance-Spg. senden, sobald Startzeitpunkt erreicht**  
-    Mit dieser Option wird die Balance-Spannung gesendet, sobald der festgelegte Startzeitpunkt erreicht ist.
-    - **Bei Start-Zellspg.-Unterschreitung → Step 'Warte auf Start-Zellspg.'** 
-    Mit dieser Option wird bei Unterschreiten der definierten Start-Zellspannung erneut in den Schritt „Warte auf Start-Zellspg.“ gewechselt. Dadurch werden auch die laufenden Timer zurückgesetzt.
+      Mit dieser Option wird die Balance-Spannung gesendet, sobald der festgelegte Startzeitpunkt erreicht ist.
+    - **Bei Start-Zellspg.-Unterschreitung → Step 'Warte auf Start-Zellspg.'**
+      Mit dieser Option wird bei Unterschreiten der definierten Start-Zellspannung erneut in den Schritt „Warte auf Start-Zellspg.“ gewechselt. Dadurch werden auch die laufenden Timer zurückgesetzt.
     - **CutOff ab Step 'Warte auf Start-Zellspg.' deaktivieren**  
-    Mit dieser Option wird die CutOff-Funktion bereits im Schritt „Warte auf Start-Zellspg.“ deaktiviert.
-
+      Mit dieser Option wird die CutOff-Funktion bereits im Schritt „Warte auf Start-Zellspg.“ deaktiviert.
 
 - **Dynamische Spannungsregelung zur Begrenzung des Ladestroms**  
   Mit dieser Funktion wird die Ladespannung dynamisch angepasst, um den Ladestrom innerhalb des konfigurierten Korridors zu halten. Sollte der Ladestrom den definierten Bereich überschreiten oder unterschreiten, wird die Spannung automatisch korrigiert.  <br><br>

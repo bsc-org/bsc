@@ -1,7 +1,10 @@
-# Alarmregeln 
+# Alarmregeln
+
 In den Alarmregeln kann eingestellt werden, welche Daten von welchen Devices überwacht werden sollen.  
 
+
 ## BMS
+
 Die BMS Alarmregeln ermöglichen die Überwachung der konfigurierten Data-Devices. Es können verschiedene Parameter des Data-Device überwacht werden, um Alarme zu konfigurieren und automatische Aktionen auszulösen, wenn bestimmte Schwellenwerte erreicht werden.
 
 **Zu überwachendes Data-Device**  
@@ -151,11 +154,13 @@ Hier wird festgelegt, für welches Data-Device die Alarmregel gilt.
   Definiert den Spannungsbereich, um den sich die Spannung bei aktivem Trigger mindestens verändern muss, damit der erkannte Fehler wieder zurückgesetzt wird.  
 
 
-
 ## Plausibility check
+
+
 ### Plausibility check
+
 !!! note "Hinweis"
-    Diese Funktion steht nur in der Sponsoren Version zur Verfügung
+    Diese Funktion steht nur in der **Insider Version** zur Verfügung
 
 Der "Plausibility Check" ist eine wichtige Funktion, die kontinuierlich den Stromfluss sowie die Zellspannungen der an das System angeschlossenen Data-Devices überwacht.  
 
@@ -167,12 +172,12 @@ Der "Plausibility Check" bietet so eine frühzeitige Warnung bei Unregelmäßigk
 
 ```mermaid
 flowchart TD
-	n1["Plausibility check"] --> n7["Ist Strom &lt; 'Strom Schwellwert'"]
-	n7 --> n8["Zellspannungen ändern sich 'Zeit 2' nicht"]
-	n8 --> n4["Trigger wird aktiv"]
-	n1 --> n6["Ist Strom >= 'Strom Schwellwert'"]
-	n6 --> n10["Zellspannungen ändern sich 'Zeit 1' nicht"]
-	n10 --> n4
+ n1["Plausibility check"] --> n7["Ist Strom &lt; 'Strom Schwellwert'"]
+ n7 --> n8["Zellspannungen ändern sich 'Zeit 2' nicht"]
+ n8 --> n4["Trigger wird aktiv"]
+ n1 --> n6["Ist Strom >= 'Strom Schwellwert'"]
+ n6 --> n10["Zellspannungen ändern sich 'Zeit 1' nicht"]
+ n10 --> n4
 ```
 
 **Parameter:**
@@ -248,8 +253,9 @@ In der Regel wird hier eine längere Zeit eingestellt, um Fehlalarme bei geringe
 
 
 ### Wertevergleich
+
 !!! note "Hinweis"
-    Diese Funktion steht nur in der **Sponsoren Version** zur Verfügung
+    Diese Funktion steht nur in der **[Insider Version](insider.md)** zur Verfügung
 
 Mit dieser Funktion können die Werte ausgewählter Data Devices überwacht und miteinander verglichen werden. Bei Überschreiten der definierten Abweichungen wird der zugewiesene Trigger aktiviert.  
 
@@ -316,7 +322,6 @@ Mit dieser Funktion können die Werte ausgewählter Data Devices überwacht und 
 <td class='Ctd'><input type='number' min='0' max='60' value='5' name='4294979968'></td><td class='t1'>s</td><td class='Ctd'><span class='secVal' id='s12672'></span></td></tr>
 </table></form></div></div>
 
-
 **Trigger**  
 Hier kann ausgewählt werden, welcher Trigger ausgelöst werden soll, wenn eine Abweichung erkannt wird.  
 
@@ -355,10 +360,10 @@ Definiert die Zeitspanne, die die Abweichung bestehen muss, bevor der Trigger au
 **Hinweis:**  
 Der Wertevergleich prüft nicht, ob die **Data Devices** tatsächlich online sind. Diese Überwachung kann an anderer Stelle erfolgen und entsprechend darauf reagiert werden.  
 
-
-
 ## Temperatur
+
 ### Alarm bei Sensorfehler
+
 In diesem Abschnitt können Alarme für Sensorfehler an den Onewire-Temperatursensoren konfiguriert werden.
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
@@ -393,8 +398,8 @@ Dies dient dazu, kurzzeitige Aussetzer zu tolerieren und Fehlalarme zu vermeiden
 
 
 ### Temperatur Überwachung
-Die Temperatur-Überwachung dient dazu, definierte Sensoren kontinuierlich zu kontrollieren und bei Überschreiten oder Unterschreiten bestimmter Grenzwerte Alarme bzw. Trigger auszulösen. Dies kann sowohl für Data-Device-integrierte Sensoren als auch für externe Onewire-Sensoren erfolgen.
 
+Die Temperatur-Überwachung dient dazu, definierte Sensoren kontinuierlich zu kontrollieren und bei Überschreiten oder Unterschreiten bestimmter Grenzwerte Alarme bzw. Trigger auszulösen. Dies kann sowohl für Data-Device-integrierte Sensoren als auch für externe Onewire-Sensoren erfolgen.
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>Temperatur &#220;berwachung</b></td></tr>
@@ -489,8 +494,6 @@ Die Temperatur-Überwachung dient dazu, definierte Sensoren kontinuierlich zu ko
 </select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s1664'></span></td></tr>
 </table></form></div></div>
 
-
-
 **Quelle**  
 Legt fest, von welchem Sensortyp die Messwerte stammen:
 
@@ -544,4 +547,3 @@ Bestimmt, welcher **Trigger** bei Eintreten der Überwachungsbedingung aktiviert
 
 **Ergebnis**  
 Wenn der Sensor Nr. 12 eine Temperatur von 60,00 °C überschreitet, wird **Trigger 2** aktiviert. Erst wenn die Temperatur wieder unter 58,00 °C fällt (Wert 1 − Hysterese), wird der Trigger zurückgesetzt.
-

@@ -59,10 +59,11 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format      
+          format: !!python/name:pymdownx.superfences.fence_code_format
       
 nav:
   - User Guide:
+    - index.md
     - Systemübersicht: system_overview.md
     - Erste Schritte:
       - Erste Informationen: first_steps.md
@@ -70,7 +71,7 @@ nav:
       - Hardware anschließen: first_steps_hardware.md
       - Einstellungen im BSC: first_steps_settings.md
     - Hardware: hardware.md
-    - Unterstüzte Geräte:
+    - Unterstützte Geräte:
       - BMS: devices/bms.md
       - Wechselrichter: devices/wechselrichter.md
       - Externe Shunts: devices/externer_shunt.md

@@ -1,8 +1,8 @@
-# Einstellungen für den Betrieb des BSC
 Dieses Kapitel gibt einen Überblick über die erforderlichen Einstellungen für den Betrieb des BSC.  
 Abweichungen können je nach Firmware-Version auftreten. Insbesondere beim Wechselrichter unterscheiden sich die Einstellungen zwischen der **Standard-Version** und der **Insider-Version** für Sponsoren.  
 
 ## 1. Grundeinstellungen
+
 Die Grundeinstellungen werden im Menü **System** vorgenommen.  
 Hierzu zählen insbesondere:  
 
@@ -10,10 +10,10 @@ Hierzu zählen insbesondere:
 - Falls erforderlich: MQTT-Broker-Daten (bei Nutzung von MQTT)  
 
 **Zugriff auf die Systemeinstellungen**:  
-`Einstellungen → System` 
+`Einstellungen → System`
 
 - **Standard-Firmware:** Über die Kachel *Einstellungen*.  
-- **Insider-Version:** Über den Menübutton (drei horizontale Striche) in der *System*-Kachel.  
+- **[Insider Version](insider.md):** Über den Menübutton (drei horizontale Striche) in der *System**Kachel.  
 
 Weitere Informationen:  
 
@@ -21,10 +21,12 @@ Weitere Informationen:
 - [Details zu den Systemeinstellungen](https://bsc-org.github.io/bsc/settings_bsc/#system)  
 
 ## 2. BMS-Einstellungen im BSC
-Der BSC liest ausschließlich Daten vom BMS. Es werden **keine** Einstellungen, Konfigurationen oder sonstige Daten **auf das BMS geschrieben**. 
+
+Der BSC liest ausschließlich Daten vom BMS. Es werden **keine** Einstellungen, Konfigurationen oder sonstige Daten **auf das BMS geschrieben**.
 Damit eine Kommunikation stattfinden kann, sind folgende Konfigurationen erforderlich:  
 
 ### 2.1 Serielle Schnittstelle konfigurieren
+
 In den Einstellungen wird festgelegt, an welcher **Hardware-Schnittstelle** welcher **BMS-Typ** angeschlossen ist.  
 Beispiel: *Serial 0* ist mit einem **JK Inverter BMS** verbunden.
 
@@ -70,6 +72,7 @@ Beispiel: *Serial 0* ist mit einem **JK Inverter BMS** verbunden.
 Weitere Informationen: [Serielle Schnittstellen](https://bsc-org.github.io/bsc/settings_bsc/#serial)  
 
 ### 2.2 Data-Device-Mapping einrichten
+
 Nachdem im vorherigen Schritt festgelegt wurde, welcher **BMS-Typ** an welcher **seriellen Schnittstelle** angeschlossen ist, muss im nächsten Schritt die **Adresse** des angeschlossenen BMS konfiguriert werden.  
 Diese Einstellung ist entscheidend, damit der BSC korrekt mit dem BMS kommunizieren kann. Besonders bei mehreren BMS desselben Typs (z.B. mehrere *JK Inverter BMS*) an einer seriellen Schnittstelle ist die korrekte Adresszuordnung entscheidend.  
 
@@ -95,9 +98,11 @@ Weitere Informationen:
 - [Informationen zum Data-Device-Mapping](https://bsc-org.github.io/bsc/settings_bsc/#data-device-mapping)  
 
 ## 3. Wechselrichter-Einstellungen
+
 In diesem Abschnitt werden die grundlegenden Einstellungen beschrieben, die erforderlich sind, damit der BSC mit dem Wechselrichter kommunizieren kann.  
 
 ### 3.1 Allgemeine Einstellungen
+
 **Pfad:**  
 `Einstellungen → Wechselrichter & Laderegelung → Allgemein`
 
@@ -110,7 +115,7 @@ Folgende Parameter müssen für die Grundkommunikation konfiguriert werden:
   **Hinweis**: Bei den meisten Wechselrichtern muss **Pylontech** als CAN-Bus-Protokoll ausgewählt werden.
 - **Datenquelle**:  
   Hier wird ausgewählt, von welchen Data-Devices die Daten genommen werden, um sie dann – je nach weiteren Einstellungen – aufbereitet an den Wechselrichter zu senden.  
-  Die Aufbereitung kann beispielsweise die Aggregation mehrerer Datenquellen oder die Anwendung von definierten Laderegelungen umfassen. 
+  Die Aufbereitung kann beispielsweise die Aggregation mehrerer Datenquellen oder die Anwendung von definierten Laderegelungen umfassen.
 
     !!! note "Hinweis"  
         In der **Standard-Firmware** muss zusätzlich eine *Master-Datenquelle* definiert werden, von der beispielsweise die Batteriespannung übernommen wird. In der **Insider-Firmware** kann unter *Valuehandling* detailliert festgelegt werden, welcher Wert von welchem Data-Device verwendet wird.  
@@ -125,10 +130,12 @@ Folgende Parameter müssen für die Grundkommunikation konfiguriert werden:
 Weitere Informationen: [Wechselrichter-Einstellungen](https://bsc-org.github.io/bsc/settings_inverter/#wechselrichter)  
 
 ### 3.2 Einstellungen zur Laderegelung
+
 Informationen zur Konfiguration der Laderegelung sind hier verfügbar:  
 [Dokumentation Laderegelung](https://bsc-org.github.io/bsc/settings_inverter/#charge)  
 
 ## 4. Alarmregeln
+
 Alarmregeln dienen der Überwachung bestimmter Werte von Data-Devices und dem Auslösen von Triggern, wenn Grenzwerte erreicht werden.  
 Dies ersetzt nicht die korrekt gesetzten Werte im BMS, ermöglicht jedoch eine frühzeitige Reaktion, z. B.:  
 

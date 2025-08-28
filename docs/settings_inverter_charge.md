@@ -2,8 +2,7 @@ In diesem Kapitel können Sie neben der Definition des angeschlossenen Wechselri
 Alle prozentualen Limitierungen beziehen sich auf die in der Kategorie "[Basisdaten](settings_inverter.md#basisdaten)" eingestellten Werte.
 
 Beispiel eines Ladezyklus inkl. Balancing-, Float- und Absorption-Voltage mit Hilfe des BSC und einer Visualisierung über HomeAssistant/Grafana:  
-![](img/settings/settings_inverter_charge_beispiel.png){  width="1300" }   
-
+![Grafana Dashboard](img/settings/settings_inverter_charge_beispiel.png){  width="1300" }
 
 ## Dynamischer Ladespannungsoffset
 
@@ -26,7 +25,7 @@ Durch die Funktion kann ein Spannungsabfall auf der Leitung kompensiert werden.
 **Ein/Aus**: Aktiviert oder deaktiviert die Funktion.  
 **Strom (A)**: Stromwert, bei dem der maximale Offset angewendet wird.  
 **Min. Offset (mV)**: Minimaler Offset, der zur Ladespannung addiert wird. Dieser Wert wird bei einem Ladestrom von 0 A addiert.  
-**Max. Offset (mV)**: Maximaler Offset, der zur Ladespannung addiert wird. Dieser Wert wird bei dem unter *Strom* eingestellten Wert addiert. 
+**Max. Offset (mV)**: Maximaler Offset, der zur Ladespannung addiert wird. Dieser Wert wird bei dem unter *Strom* eingestellten Wert addiert.
 
 
 ## Ladestrom pro Pack zu groß
@@ -39,7 +38,7 @@ Durch die Funktion kann ein Spannungsabfall auf der Leitung kompensiert werden.
 Mit dieser Funktion wird der Ladestrom automatisch und dynamisch angepasst, um sicherzustellen, dass der maximale Ladewert eines jeden Batterie-Packs nicht überschritten wird. Diese intelligente Regelung schützt die Batterie vor Überstrom.
 
 Die folgende Grafik veranschaulicht die Ströme von drei Batteriepacks während eines Ladeprozesses:
-![](img/settings/settings_inverter_current_per_pack_example_1.png){  width="600" }  
+![Grafana Visualisierung von drei Batteriepacks](img/settings/settings_inverter_current_per_pack_example_1.png){  width="600" }  
 Grün zeigt den Stromverlauf für Pack 1, Gelb von Pack 2 und Blau von Pack 3.
 
 In der Darstellung ist zu erkennen, dass der maximale Ladestrom für Pack 1 (grün) für eine kurze Zeit auf 50A reduziert wurde (dies ist in der Mitte des Diagramms sichtbar). Nachdem der Wert reduzierte wurde, regelt der BSC den Ladestrom dynamisch herunter und hält ihn auf den eingestellten Wert von 50A.
@@ -74,7 +73,7 @@ Zellspannung, ab der nur noch mit dem eingestellten Mindest-Ladestrom geladen wi
 
 **Maximale Zellspannung (Float) (mV)**:  
 Separater Maximalwert für die Float-Phase.  
-Einstellung **0** = deaktiviert: Es wird dann auch bei Float die maximale Zellspannung genommen. 
+Einstellung **0** = deaktiviert: Es wird dann auch bei Float die maximale Zellspannung genommen.
 
 **Mindest-Ladestrom (A)**:  
 Untergrenze des Ladestroms, auf die bei Erreichen der maximalen Zellspannung reduziert wird.  
@@ -86,7 +85,7 @@ Untergrenze des Ladestroms, auf die bei Erreichen der maximalen Zellspannung red
 ## Ladestrom reduzieren bei Zelldrift
 
 Mit dieser Funktion wird der Ladestrom reduziert, sobald eine zu große Spannungsdifferenz (Drift) zwischen den Zellen festgestellt wird.  
-Dies hilft, den Drift zu begrenzen. Ein verbauter Balancer kann so effektiv arbeiten, und die Funktion sorgt dafür, dass der Ladestrom so weit reduziert wird, dass die Spannungsabweichung nicht weiter zunimmt. 
+Dies hilft, den Drift zu begrenzen. Ein verbauter Balancer kann so effektiv arbeiten, und die Funktion sorgt dafür, dass der Ladestrom so weit reduziert wird, dass die Spannungsabweichung nicht weiter zunimmt.
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>Ladestrom reduzieren bei Zelldrift</b></td></tr>
@@ -117,7 +116,7 @@ Die Berechnung erfolgt auf Basis des in den [Basissettings](settings_inverter.md
 ## Ladestrom reduzieren - SoC
 
 Mit dieser Funktion kann der Ladestrom in Abhängigkeit vom Ladezustand (State of Charge, SoC) der Batterie schrittweise reduziert werden.  
-Sobald der eingestellte SoC-Wert erreicht oder überschritten wird, beginnt die Reduzierung. 
+Sobald der eingestellte SoC-Wert erreicht oder überschritten wird, beginnt die Reduzierung.
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>Ladestrom reduzieren - SoC</b></td></tr>
@@ -137,7 +136,7 @@ Aktiviert oder deaktiviert die Funktion.
 SoC-Wert, ab dem der Ladestrom reduziert wird.  
 
 **Pro 1 % um x A reduzieren (A)**:  
-Stromreduzierung pro zusätzlichem Prozentpunkt SoC oberhalb des eingestellten Startwerts. Die Berechnung erfolgt auf Basis des in den [Basissettings](settings_inverter.md#basisdaten) eingestellten Maximalstroms. 
+Stromreduzierung pro zusätzlichem Prozentpunkt SoC oberhalb des eingestellten Startwerts. Die Berechnung erfolgt auf Basis des in den [Basissettings](settings_inverter.md#basisdaten) eingestellten Maximalstroms.
 
 **Mindest-Ladestrom (A)**:  
 Unterer Grenzwert für den Ladestrom, der auch bei fortschreitender Reduzierung nicht unterschritten wird.  
@@ -147,12 +146,13 @@ Unterer Grenzwert für den Ladestrom, der auch bei fortschreitender Reduzierung 
 
 
 ## Ladestrom reduzieren - Temperatur
+
 Mit dieser Funktion kann der maximale Ladestrom abhängig von der gemessenen Temperatur schrittweise reduziert werden. Hierbei werden ausschließlich die unter *Datenquelle* ausgewählten Data Devices berücksichtigt. Für die Regelung wird immer die **niedrigste gemessene Temperatur** dieser Quelle herangezogen, um die Batterie bestmöglich zu schützen.  
 
-Die Temperaturreduzierung erfolgt anhand von bis zu vier konfigurierbaren **Temperaturregeln**. Jede Regel kann individuell aktiviert, deaktiviert und mit eigenen Sensoren sowie Start- und Endwerten konfiguriert werden. 
+Die Temperaturreduzierung erfolgt anhand von bis zu vier konfigurierbaren **Temperaturregeln**. Jede Regel kann individuell aktiviert, deaktiviert und mit eigenen Sensoren sowie Start- und Endwerten konfiguriert werden.
 
 !!! note "Hinweis"
-    Diese Funktion steht nur in der **Sponsoren Version** zur Verfügung
+    Diese Funktion steht nur in der **[Insider Version](insider.md)** zur Verfügung
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>Ladestrom reduzieren - Temperatur</b></td></tr>
@@ -176,7 +176,6 @@ Die Temperaturreduzierung erfolgt anhand von bis zu vier konfigurierbaren **Temp
 <tr class='Ctr'><td class='Ctd'><b>Reduzieren Ende</b></td>
 <td class='Ctd'><input type='number' step='0.01' min='0' max='100' value='0.00' name='17179880832' class='fl2'></td><td class='t1'>°C</td><td class='Ctd'><span class='secVal' id='s11648'></span></td></tr>
 </table></form></div></div>
-
 
 !!! note "Hinweis"
     Die Regelung kann in beide Richtungen konfiguriert werden - sowohl für Drosselung bei steigenden Temperaturen als auch für Drosselung bei fallenden Temperaturen.
@@ -237,6 +236,7 @@ Die Regelung erfolgt linear zwischen den beiden konfigurierten Temperaturschwell
 Aktueller Ladestrom = Maximaler Ladestrom × (Endtemperatur - Aktuelle Temperatur) / (Endtemperatur - Starttemperatur)
 `
 
+
 ## Dynamische Ladespannungsbegrenzung
 
 !!! danger "Warnung"
@@ -253,9 +253,9 @@ Diese experimentelle Funktion begrenzt die Ladespannung basierend auf der Zellsp
 <td class='Ctd'><input type='number' min='1' max='100' value='5' name='4294973376'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s6080'></span></td></tr>
 </table></form></div></div>
 
-* **Ein/Aus:** Aktivieren oder Deaktivieren der Funktion.
-* **Start-Zellspannung:** Zellspannung, ab der die Begrenzung aktiv wird.
-* **Spannungs-Delta Min/Max:** Der maximale Unterschied zwischen der niedrigsten und höchsten Zellspannung.
+- **Ein/Aus:** Aktivieren oder Deaktivieren der Funktion.
+- **Start-Zellspannung:** Zellspannung, ab der die Begrenzung aktiv wird.
+- **Spannungs-Delta Min/Max:** Der maximale Unterschied zwischen der niedrigsten und höchsten Zellspannung.
 
 
 ## Spannungsregelung zur Ladestrombegrenzung
@@ -265,7 +265,7 @@ Sobald die Funktion aktiviert ist, wird die Ladespannung dynamisch angepasst, um
 Die Funktion ermöglicht es z.B., den Akku nur bis zu einem bestimmten SoC zu laden, um seine Lebensdauer zu verlängern.  
 
 !!! note "Hinweis"
-    Diese Funktion steht nur in der **Sponsoren Version** zur Verfügung
+    Diese Funktion steht nur in der **[Insider Version](insider.md)** zur Verfügung
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>Spannungsregelung zur Ladestrombegrenzung</b></td></tr>
@@ -307,11 +307,12 @@ Definiert den zulässigen Schwankungsbereich für den Ladestrom. Innerhalb diese
 ---
 
 Die Diagramme zeigen eine Victron-Anlage mit aktivierter Spannungsregelung. Deutlich erkennbar ist, dass der Ladestrom begrenzt wird und keine Energie in den Akku fließt. Stattdessen wird die überschüssige Energie ins Netz eingespeist, während der SoC (State of Charge) über die Zeit nahezu konstant bleibt.
-![](img/settings/settings_inverter_SpgRegLadestrombegrenzungGrafana.png){ width="950" }  
-![](img/settings/settings_inverter_SpgRegLadestrombegrenzungVrm.png){ width="950" }  
+![Ladestrombegrenzung in Grafana](img/settings/settings_inverter_SpgRegLadestrombegrenzungGrafana.png){ width="950" }  
+![Ladestrombegrenzung im Victron Remote Management](img/settings/settings_inverter_SpgRegLadestrombegrenzungVrm.png){ width="950" }  
 
 
 ## Autobalance
+
 Dieses Autobalance-Feature bietet eine automatisierte Lösung, um die Akkuzellen regelmäßig zu balancieren. Dadurch wird eine gleichmäßige Zellspannung erreicht, was die optimale Leistung und die Lebensdauer des Akkus unterstützt.
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
@@ -363,27 +364,27 @@ Im Folgenden werden die wichtigsten Einstellungen und Abläufe beschrieben:
 **Autobal. starten (Trigger)** *(Diese Option steht nur Insidern zur Verfügung)*  
 Der hier konfigurierte Trigger ermöglicht es, den Autobalancer unmittelbar zu starten, wenn er sich aktuell in der Wartezeit bis zum nächsten Intervall befindet. Zu beachten ist, dass der Trigger nach dem Starten des Autobalancers manuell wieder auf „Low“ gesetzt werden muss.
 
-**Balance-Intervall**   
+**Balance-Intervall**
 Mit dem Parameter Balance-Intervall kann festgelegt werden, in welchen zeitlichen Abständen ein Balancing der Akkuzellen durchgeführt werden soll. Dieser Wert bestimmt, wie häufig die Balancierung aktiviert wird, um die Zellspannungen anzugleichen.
 
-**Startkriterien**   
+**Startkriterien**  
 Der Balancierungsprozess beginnt automatisch, wenn der definierte Balance-Intervall abgelaufen ist und im zweiten Schritt die Start-Zellspannung erreicht wurde.  
 Für die Start-Zellspannung wird die höchste Zellspannung der konfigurierten Data-Devices genommen.  
 Diese Startbedingungen stellen sicher, dass das Balancing unter optimalen Bedingungen durchgeführt wird.
 
-**Balance Mindest-Zeit**   
+**Balance Mindest-Zeit**  
 Der Parameter Balance Mindest-Zeit gibt an, wie lange das Balancing mindestens durchgeführt werden soll, unabhängig davon, ob die Zellspannungen bereits ausgeglichen sind. Dies verhindert eine zu kurze Balancierungsdauer und sorgt für eine gründliche Anpassung der Zellspannungen.
 
-**Balance-Ladespannung**   
+**Balance-Ladespannung**  
 Für den Balancierungsprozess wird die Ladespannung des Systems auf die vorab definierte Balance-Ladespannung angehoben. Diese Spannung sorgt dafür, dass der Balancierungsvorgang effektiv durchgeführt werden kann.
 
-**Balance-Zellspannung**   
+**Balance-Zellspannung**  
 Der Parameter Balance-Zellspannung gibt an, wie hoch die Spannung der einzelnen Zellen während des Balancing-Vorgangs maximal ansteigen darf. Dies verhindert eine Überladung der Zellen und schützt das Akkusystem vor Schäden.
 
-**Beendigung des Balancierungsprozesses**   
+**Beendigung des Balancierungsprozesses**  
 Der Vorgang wird automatisch beendet, sobald die Differenz zwischen den Zellspannungen den eingestellten Wert erreicht oder unterschreitet. Dadurch wird sichergestellt, dass alle Zellen gleichmäßig geladen sind und keine übermäßige Disparität besteht.
 
-**Timeout**   
+**Timeout**  
 Mit dem Parameter Timeout wird festgelegt, nach welcher maximalen Zeit der Balancierungsprozess automatisch abgebrochen wird, falls die Zellspannungen nicht innerhalb des vorgesehenen Zeitrahmens ausgeglichen werden konnten. Dies schützt das System vor endlosen Balancierungszyklen.
 
 **Erweiterte Optionen**  
@@ -396,7 +397,7 @@ Ist diese Option aktiv, wird bei Unterschreiten der definierten Start-Zellspannu
 Mit dieser Option wird die CutOff-Funktion bereits im Schritt *„Warte auf Start-Zellspg.“* deaktiviert.  
 
     !!! note "Hinweis"
-        Die erweiterten Optionen stehen nur in der **Sponsoren Version** zur Verfügung
+        Die erweiterten Optionen stehen nur in der **[Insider Version](insider.md)** zur Verfügung
 
 !!! note "Nach dem Balancing"
     Nach Abschluss des Balancierungsprozesses wird die Ladespannung auf das Floating-Niveau abgesenkt, um den Akku im geladenen Zustand zu halten, ohne ihn weiter zu belasten.
@@ -404,19 +405,18 @@ Mit dieser Option wird die CutOff-Funktion bereits im Schritt *„Warte auf Star
 !!! note "Hinweise"
     * Nach einem Neustart des BSC ist keine Wartezeit bis zum ersten Balancing. Erst nach dem ersten Balancing startet der eingestellte Balance-Interval.
     * Wurde das BSC beispielsweise um 22:00 Uhr gestartet und ein Intervall von fünf Tagen eingestellt, erfolgt das nächste Balancing nicht am Morgen des fünften Tages, sondern erst am Abend des fünften Tages. Da zu diesem Zeitpunkt keine Sonnenenergie zur Verfügung steht, wird das Balancing erst am nächsten Tag gestartet, an dem die Sonne scheint.
-    * Für verschiedene BMS, z.B. dem Seplos, kann die einstellbare Mindestzeit genutzt werden, um den SoC 100 zu setzen   
+    * Für verschiedene BMS, z.B. dem Seplos, kann die einstellbare Mindestzeit genutzt werden, um den SoC 100 zu setzen
 
 Den genauen Ablauf des Balance-Vorgangs kann mit dem MQTT-Topic "/Inverter/autoBalState" visualisiert werden.  
 Funktion der fünf verfügbaren States:
 
-  - 0: Autobalancing ist deaktiviert
-  - 1: BSC wartet auf den nächsten Startzeitpunkt
-  - 2: Balancing wurde nicht fertig und es wird am nächsten Tag wiederholt
-  - 3: Startzeitpunkt erreicht; BSC wartet auf die Start-Zellspannung
-  - 4: Start-Zellspannung erreicht; Autoblancing ist jetzt aktiv
-  - 5: Celldif. fertig wurde erreicht, aber die Balance-Ladespannung ist noch nicht erreicht
-  - 6: Balance-Ladespannung erreicht; warten bis Mindestzeit abgelaufen
-
+- 0: Autobalancing ist deaktiviert
+- 1: BSC wartet auf den nächsten Startzeitpunkt
+- 2: Balancing wurde nicht fertig und es wird am nächsten Tag wiederholt
+- 3: Startzeitpunkt erreicht; BSC wartet auf die Start-Zellspannung
+- 4: Start-Zellspannung erreicht; Autoblancing ist jetzt aktiv
+- 5: Celldif. fertig wurde erreicht, aber die Balance-Ladespannung ist noch nicht erreicht
+- 6: Balance-Ladespannung erreicht; warten bis Mindestzeit abgelaufen
 
 ??? info "Zustandsdiagramm"
     ``` mermaid
@@ -470,6 +470,7 @@ Funktion der fünf verfügbaren States:
 
 
 ## Charge-Current Cut-Off
+
 Diese Funktion unterbricht den Ladestrom, wenn er für eine bestimmte Zeitspanne unterhalb einem eingestellten Strom-Wert liegt.  
 Nach diesem Abbruch wird die bisher verwendete Soll-Lade-Spannung von der Absorption-Spannung auf die Float-Spannung gesetzt.  
 
@@ -499,7 +500,9 @@ Der Cut-Off-Strom ist der Gesamt-Ladestrom, unterhalb dessen die Cut-Off-Zeit be
 Die Start-Zellspannung ist die Spannung, ab der die Cut-Off-Regelung aktiv wird. Sobald diese überschritten wurde und der Cut-Off-Strom unterschritten ist, bleibt der Timer aktiv.  
 Ein erneutes Unterschreiten der Start-Zellspannung führt nicht zum Abbruch des Timers. Der Timer wird ausschließlich zurückgesetzt, wenn der Cut-Off-Strom erneut überschritten wird.
 
+
 ## SoC beim Unterschreiten der Zellspannung
+
 Die Funktion ermöglicht, beim Unterschreiten einer definierten Zellspannung einen festgelegten Ladezustand (SoC) an den Wechselrichter zu übermitteln.
 
 Die Funktion kann beispielsweise genutzt werden, um das Nachladen der Batterie automatisch zu veranlassen. Der Ladevorgang wird solange durchgeführt, bis die eingestellte Zellspannung für das Ladeende erreicht oder überschritten wird und wieder der normale SoC an den Wechselrichter übermittelt wird.

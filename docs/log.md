@@ -1,7 +1,8 @@
 ## Beispiellog
+
 Nachfolgend ist ein typisches Beispiel einer vom System erzeugten Logausgabe dargestellt. Diese Informationen können bei der Analyse, Diagnose und Fehlersuche wertvolle Hinweise liefern.
 
-```
+```plaintext
 IMP I (1970-01-01 00:00:00) MAIN: BSC V0.x.x
 IMP I (1970-01-01 00:00:00) MAIN: bootCounter=1
 IMP I (1970-01-01 00:00:00) MAIN: HW: 2
@@ -36,9 +37,10 @@ SET E (1970-01-01 00:00:04) BSC_SERIAL: ERROR: device=2, reason=Checksum wrong
 ```
 
 ## Aufbau einer Logzeile
+
 Ein typischer Eintrag im Log sieht wie folgt aus:
 
-```
+```plaintext
 A   B  C                    D     E
 IMP I (1970-01-01 00:00:03) MAIN: Verbindung zu ******
 ```
@@ -47,6 +49,7 @@ Die einzelnen Bestandteile im Detail:
 
 **A – Statuskennung**  
 Gibt den Typ des Logeintrags an:  
+
 - `IMP`: Einmalige Meldung  
 - `SET`: Ein Fehler ist aufgetreten und besteht aktuell  
 - `RES`: Ein zuvor gemeldeter Fehler (via `SET`) wurde behoben und ist nicht mehr aktiv
@@ -57,6 +60,7 @@ Die aktuell aktiven Fehler (SET) können über die REST-API abgefragt werden. Zu
 
 **B – Schweregrad**  
 Kennzeichnet die Einstufung des Logeintrags:  
+
 - `I`: Information  
 - `W`: Warnung  
 - `E`: Fehler (Error)  
@@ -71,8 +75,3 @@ Bezeichnet die Komponente oder Klasse, die den Eintrag generiert hat.
 
 **E – Lognachricht**  
 Die eigentliche Nachricht bzw. Beschreibung des Ereignisses.
-
-
-
-
-

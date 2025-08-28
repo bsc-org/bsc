@@ -23,7 +23,8 @@ Hier wird ein Schwellenwert festgelegt, bei dessen Unterschreitung die Drosselun
 Sobald die niedrigste Zellspannung diesen Wert unterschreitet, wird die Drosselung in Kraft gesetzt, um die Zellen nicht zu stark zu entladen.
 
 **End Zellspannung**  
-Dieser Wert legt die Zellspannung fest, bei deren Unterschreitung der Entladestrom auf den "Mindest-Entladestrom" reduziert wird.  
+Dieser Wert legt die Zellspannung fest, bei deren Unterschreitung der Entladestrom auf den "Mindest-Entladestrom" reduziert wird.
+
 !!! note "Hinweis"
     Der End Zellspannung-Wert muss immer kleiner als die Zell-Startspannung eingestellt werden!
 

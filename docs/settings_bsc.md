@@ -1,4 +1,5 @@
 ## System
+
 Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzernamen und Passwörter zu den WLAN und MQTT Logins.
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
@@ -16,7 +17,7 @@ Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzerna
   Benutzername für die Anmeldung am BSC-Webinterface.  
 
 - **BSC-Passwort**  
-  Passwort für die Anmeldung am BSC-Webinterface. 
+  Passwort für die Anmeldung am BSC-Webinterface.
 
 - **Device Name**  
   Benutzerdefinierter Gerätename. Dieser Name wird auch auf dem Dashboard angezeigt.  
@@ -26,6 +27,7 @@ Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzerna
 
 
 ## Netzwerkeinstellungen
+
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>WLAN</b></td></tr>
 <tr class='Ctr'><td class='Ctd'><b>WLAN SSID</b></td>
@@ -59,9 +61,9 @@ Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzerna
 
 - **WLAN Connect Timeout**  
   Maximale Zeit (in Sekunden), die der BSC auf eine erfolgreiche WLAN-Verbindung wartet, bevor der Verbindungsversuch abgebrochen wird. Wird innerhalb dieser Zeit keine Verbindung hergestellt, erstellt das Gerät automatisch einen eigenen Access Point (AP).  
-  Wird der Wert auf **0** gesetzt, ist der Timeout deaktiviert und der Verbindungsversuch wird unbegrenzt fortgesetzt.  
-  <br> 
-  **Nur in der sponsoren Version:**  
+  Wird der Wert auf **0** gesetzt, ist der Timeout deaktiviert und der Verbindungsversuch wird unbegrenzt fortgesetzt.
+  <br />
+  **Zusatzfunktion in der [Insider Version](insider.md):**  
   Verliert der BSC die WLAN-Verbindung und erstellt nach dem eingestellten Timeout einen Access Point, versucht er alle **5 Minuten**, die Verbindung mit dem ursprünglichen WLAN-Netzwerk erneut herzustellen.
 
 - **IP-Adresse**  
@@ -79,6 +81,7 @@ Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzerna
 
 
 ## MQTT-Einstellungen
+
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>MQTT</b></td></tr>
 <tr><td colspan='3' class='td0'><div class='help'>Zum Übernehmen der Settings, muss der BSC neu gestartet werden!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>MQTT enable</b></td><td class='Ctd'><input type='checkbox'  name='38654708480'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2816'></span></td></tr>
@@ -152,6 +155,7 @@ Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzerna
 
 
 ## Zeitserver (NTP)
+
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>NTP</b></td></tr>
 <tr><td colspan='3' class='td0'><div class='help'>Zum Übernehmen der Settings, muss der BSC neu gestartet werden!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Server Name/IP</b></td>
@@ -173,4 +177,3 @@ Als Zeitserver können beispielsweise folgende Adressen definiert werden:
 
 Im BSC ist anschließend die **IP-Adresse** des Routers als NTP-Server anzugeben.  
 **Hinweis:** Die Verwendung eines Hostnamens anstelle der IP-Adresse kann zu Verbindungsproblemen führen.
-
