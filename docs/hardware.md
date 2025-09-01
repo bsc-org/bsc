@@ -174,9 +174,10 @@ Mit der Standard Firmware Version kann nur Onewire genutzt werden. Alle weiteren
 Das Display für den BSC wurde in ein [separates Projekt](https://github.com/shining-man/bsc_display) ausgegliedert in dem auch die Firmware zu finden ist.
 
 ### Unterstützes Display
-Hardware-Version 3.3 des Displays wurde getestet.  
-Erhältlich beispielweise über Aliexpress von verschiedenen Versendern.  
-![](img/hardware/hw_display.png){ width="500" }
+Die Hardware-Version 3.3 des Displays wurde von uns getestet.  
+Das Display ist über unseren Webshop unter <a href="https://bsc-shop.com" target="_blank">www.BSC-Shop.com</a> erhältlich.  
+  
+![](img/hardware/Display_SC01_3_5Zoll.png){ width="1000" }
 
 ### Anschluss an das BSC-Mainboard
 Der Anschluss dessen erfolgt über den Extension-Port "J3":
