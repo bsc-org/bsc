@@ -27,7 +27,12 @@ Kompatible Hardware – darunter Gehäuse, Erweiterungen und Zubehör – sind �
 Für den Betrieb des BSC-Systems kann entweder die **originale BSC-Hardware** oder alternativ ein **kompatibles Drittanbieter-Board** verwendet werden.
 
 ### Originale BSC-Hardware
-Die ursprüngliche BSC-Hardware wurde speziell für das Projekt entwickelt. Aktuell ist diese jedoch **nicht als fertig montierte Hardware im Handel verfügbar**. Der Selbstbau ist zwar grundsätzlich möglich, jedoch mit höherem Aufwand verbunden.
+Die ursprüngliche BSC-Hardware wurde speziell für das Projekt entwickelt.  
+
+Aktuell kann sie über den [derzeitigen Platinenhersteller](https://de.aliexpress.com/item/1005007096164253.html) bezogen werden.  
+**Die Verfügbarkeit dort war in der Vergangenheit allerdings unbeständig**.
+
+Zukünftige Hardware-Versionen werden direkt über unseren Shop verfügbar sein. Der Selbstbau ist zwar grundsätzlich möglich, jedoch mit höherem Aufwand verbunden.
 
 ### Alternative: LILYGO T-CONNECT 
 Als empfohlene Alternative kann das **LILYGO T-CONNECT Board** verwendet werden. Dieses ist kompatibel mit der Firmware und den Funktionen des BSC-Systems.  
