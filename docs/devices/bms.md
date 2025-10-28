@@ -11,6 +11,7 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 | **Jiabaida/JBD** |
 | JBD-DP24S002 |  |  | - | - |
+| AP21S002 |  |  | - | - |
 | **JK Smart-BMS** |
 | JK-B2A20S20P | V11.XW | 11.25H | - |  |  Single device extension |
 | JK-B2A24S20P | V10.XW | V10.09 | - |  |  Single device extension |
