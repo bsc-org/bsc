@@ -12,8 +12,8 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 | **Jiabaida/JBD** |
 | JBD-DP24S002 |  |  | - | - |
 | **JK Smart-BMS** |
-| JK-B2A20S20P | V11.XW | 11.25H | - | - |
-| JK-B2A24S20P | V10.XW | V10.09 | - | - |
+| JK-B2A20S20P | V11.XW | 11.25H | - |  |  Single device extension |
+| JK-B2A24S20P | V10.XW | V10.09 | - |  |  Single device extension |
 | **JK Inverter-BMS** |
 | [JK-PB1A16S15P](#jk-inverter) | V14 | V14.20 | 1 / 1 | 1 / 1 |
 | [JK-PB1A16S15P](#jk-inverter) | V15 | V15.17 | 1 / 1 | 1 / 1 |
@@ -27,6 +27,8 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 | **Gobel** |
 | GP-SR1-RN150 |  | | ? | ? |
 | [GP-SR1-PC200](#pace-pc200) |  | |  2 / 2 | 2 / 2 | RS485B |
+| **DALY Smart BMS** |
+| BMS-*A |  | |  |  |  Single device extension |
 
 ## Bluetooth Devices
 | Typ | HW-Version | SW-Version |
