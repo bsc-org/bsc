@@ -26,10 +26,10 @@ Kompatible Hardware – darunter Gehäuse, Erweiterungen und Zubehör – sind �
 
 Für den Betrieb des BSC-Systems kann entweder die **originale BSC-Hardware** oder alternativ ein **kompatibles Drittanbieter-Board** verwendet werden.
 
-### Originale BSC-Hardware
-Die ursprüngliche BSC-Hardware wurde speziell für das Projekt entwickelt.  
+### Originales BSC-Mainboard
+Das ursprüngliche BSC-Mainboard wurde speziell für das Projekt entwickelt.  
 
-Aktuell kann sie über den [derzeitigen Platinenhersteller](https://de.aliexpress.com/item/1005007096164253.html) bezogen werden.  
+Aktuell kann es über den [derzeitigen Platinenhersteller](https://de.aliexpress.com/item/1005007096164253.html) bezogen werden.  
 **Die Verfügbarkeit dort war in der Vergangenheit allerdings unbeständig**.
 
 Zukünftige Hardware-Versionen werden direkt über unseren Shop verfügbar sein. Der Selbstbau ist zwar grundsätzlich möglich, jedoch mit höherem Aufwand verbunden.
