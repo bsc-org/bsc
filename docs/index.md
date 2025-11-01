@@ -44,7 +44,7 @@ Es können bis zu **64 OneWire-Temperatursensoren** (DS18B20) angeschlossen und 
 
 Alle Einstellungen können flexibel über eine Web-Oberfläche parametriert werden.
 
-Der **Battery System Controller** bietet eine vielseitige und anpassbare Lösung für die Überwachung und Steuerung von DIY-Batteriesystemen. Ideal für anspruchsvolle Anwendungen, die umfangreiche Steuerungsmöglichkeiten benötigen.
+Der **Battery Safety Controller** bietet eine vielseitige und anpassbare Lösung für die Überwachung und Steuerung von DIY-Batteriesystemen. Ideal für anspruchsvolle Anwendungen, die umfangreiche Steuerungsmöglichkeiten benötigen.
 
 ## Informationen zu Beschaffung und Inbetriebnahme
 Detaillierte Informationen zur Beschaffung sowie zur Inbetriebnahme finden Sie in den folgenden Kapiteln dieses Handbuchs:  
