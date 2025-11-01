@@ -25,7 +25,7 @@ Hier können alle Änderungen über den "Save"-Button in der Headline gespeicher
     Das hier gezeigte Dashboard ist nur in der [Insider Version](insider.md) verfügbar
 
 ### Übersicht
-Das Dashboard des **Battery System Controller (BSC)** bietet einen schnellen Überblick über das gesamte System.  
+Das Dashboard des **Battery Safety Controller (BSC)** bietet einen schnellen Überblick über das gesamte System.  
 In einzelnen Kacheln werden relevante Daten zu Systemstatus, Ein- und Ausgängen, Lade- und Entladeregelungen sowie den verbundenen Data-Devices angezeigt.  
 
 ![](img/dashboard/dashboard_1.png){ width="950" }  

@@ -21,7 +21,7 @@ flowchart TD
     SE["Serial<br>Extension<br>(Serial 3-10)"] -.- BSC
     BMS -- RS485 --> SE
 
-    BSC[Battery System Controller]:::wide
+    BSC[Battery Safety Controller]:::wide
     
     subgraph Battery  
         BMS
