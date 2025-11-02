@@ -40,13 +40,6 @@ Interface | RX | TX
 **Serial 2**   | GPIO 35   | GPIO 33
 **CAN**   | GPIO 5   | GPIO 4
 
-### RS485-Konverter
-Ein galvanisch getrennter und getesteter RS485 Adapter ist z.B. folgender.  
-Zu haben von unterschiedlichen Quellen.  
-Anzuschließen ist dreiadrig (A / B / GND).  
-
-![](img/bsc_ohne_org_hw_rs485_converter.jpg){ width="450" }
-
 ### CAN-Konverter
 Für die CAN-Schnittstelle funktioniert in einem Prototypen beispielsweise folgender bisher zuverlässig.  
 Zu haben von unterschiedlichen Quellen.  
