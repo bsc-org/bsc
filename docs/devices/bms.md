@@ -27,8 +27,8 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 | [Sylcin](#sylcin) |  |  | 0 / 1 | 0 / 1 |
 | **Gobel** |
 | GP-SR1-RN150 |  | | ? | ? |
-| [GP-SR1-PC200](#pace-pc200) |  | |  2 / 2 | 2 / 2 | RS485B |
-| [GP-SR3-PC100](#pace-pc100/200) |  | |  2 / 2 | 2 / 2 | RS485B |
+| [GP-SR1-PC200](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
+| [GP-SR3-PC100](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
 | **DALY Smart BMS** |
 | BMS-*A |  | |  |  |  Single device extension |
 
