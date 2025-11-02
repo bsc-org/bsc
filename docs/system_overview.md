@@ -52,9 +52,10 @@ Siehe [hier](restapi.md#derzeit-aktive-inverter-drosselung)
 ## Verfügbare Schnittstellen
 * **WLAN:** Zugriff auf das BSC-Webinterface, Übertragung von MQTT-Daten
 * **Bluetooth:** ~~Kommunikation mit NEEY-Balancer~~
-* **RS485:** Abruf von BMS-Daten
-* **CAN Bus:** Kommunikation mit Wechselrichtern
-* **HTTP REST:** Abruf von Batterie- und BSC-Zustandsinformationen
-* **Onewire:** Abruf von Sensordaten, wie z.B. Temperatursensoren
-* **Digitale Eingänge:** Empfang von digitalen Sensordaten über einen galvanisch getrennten Eingang
+* [**RS485:**](hardware.md#rs485-bms) Abruf von BMS-Daten
+* [**CAN Bus:**](hardware.md#canrs485) Kommunikation mit Wechselrichtern
+* [**Onewire:**](hardware.md#onewire) Abruf von Sensordaten, wie z.B. Temperatursensoren
+* [**Digitale Eingänge:**](hardware.md#digitale-eingange) Empfang von digitalen Sensordaten über einen galvanisch getrennten Eingang
 * **Digitale Ausgänge:** Steuerung von externen Geräten über Relais
+* [**MQTT:**](mqtt.md) Übertragung von Batterie- und BSC-Zustandsinformationen beispielsweise zu einer Hausautomation
+* [**HTTP REST:**](restapi.md) Abruf von Batterie- und BSC-Zustandsinformationen
