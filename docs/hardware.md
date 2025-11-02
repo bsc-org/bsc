@@ -97,35 +97,35 @@ Bitte packen Sie die Platine nicht unnötig ein und sorgen Sie für eine kontinu
 #### Elektrische Eigenschaften
 
 **Galvanische Trennung**  
-- Jeder Eingang ist galvanisch vom Rest der Schaltung getrennt
-- Eigener GND-Bezugspunkt für alle vier Eingänge
-- Gemeinsamer GND-Pin am Stecker für externes Netzteil oder Signalquelle
+- Jeder Eingang ist galvanisch vom Rest der Schaltung getrennt  
+- Eigener GND-Bezugspunkt für alle vier Eingänge  
+- Gemeinsamer GND-Pin am Stecker für externes Netzteil oder Signalquelle  
 
 **Versorgungsspannung**  
-- Zu jedem Eingang steht eine getrennte 5V-Versorgung zur Verfügung
-- 5V-Ausgänge sind mit dem gemeinsamen GND verbunden
-- Direkte Speisung von Tastern möglich
+- Zu jedem Eingang steht eine getrennte 5V-Versorgung zur Verfügung  
+- 5V-Ausgänge sind mit dem gemeinsamen GND verbunden  
+- Direkte Speisung von Tastern möglich  
 
 #### Software-Invertierung
-- Positive Triggerflanke kann invertiert werden
-- Dann dient negative Flanke (High → Low) als Auslöser
-- Nützlich für inverse Logik oder NC-Kontakte
+- Positive Triggerflanke kann invertiert werden  
+- Dann dient negative Flanke (High → Low) als Auslöser  
+- Nützlich für inverse Logik oder NC-Kontakte  
 
 #### Typische Anwendungen
 
 **Taster abfragen**  
-- 5V-Ausgang mit Taster verbinden
-- Tasterausgang mit DI-Eingang verbinden
-- Bei Tasterdruck: 5V am Eingang → Trigger
+- 5V-Ausgang mit Taster verbinden  
+- Tasterausgang mit DI-Eingang verbinden  
+- Bei Tasterdruck: 5V am Eingang → Trigger  
 
 **Relais-Kontakt abfragen**  
-- 5V-Ausgang auf eine Seite des Relaiskontakts
-- Andere Seite mit DI-Eingang verbinden
-- Bei geschlossenem Kontakt: Trigger
+- 5V-Ausgang auf eine Seite des Relaiskontakts  
+- Andere Seite mit DI-Eingang verbinden  
+- Bei geschlossenem Kontakt: Trigger  
 
 **Externe Spannung (z.B. 24VDC-Signale)**  
-- Externes GND mit GND-Pin verbinden
-- Signalleitung direkt an DI-Eingang (3-27VDC)
+- Externes GND mit GND-Pin verbinden  
+- Signalleitung direkt an DI-Eingang (3-27VDC)  
 
 ### Wie trennt man Lötjumper
 Hierzu müssen teilweise die in der Auslieferung gesetzten Lötjumper mechanisch entfernt werden.  
