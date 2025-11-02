@@ -10,24 +10,40 @@ Der BSC ist ein frei konfigurierbarer Controller, welcher eine Schnittstelle zwi
 
 flowchart TD
     BMS[BMS] -- "RS485<br>(Serial 0-2)" --> BSC
+    BMS[BMS] -- UART/RS232 --> SDE["Single<br>device<br>extension"] --> BSC
     TEMP_SENSOR[Temperature<br>Sensors] -- Onewire --> BSC
     NEEY[<s>NEEY<br>Balancer</s>] <-- <s>Bluetooth</s> --> BSC
-    VICTRON_SHUNT[Victron<br>SmartShunt] --> VICTRON_SHUNT_CONV[RS485<br>Converter] -- RS485 --> BSC
+    VICTRON_SHUNT[Victron<br>SmartShunt] --> VICTRON_SHUNT_CONV["Single<br>device<br>extension"] --> BSC
     BSC -- CAN --> CAN[Inverter]
     BSC <-- MQTT --> MQTT_BROKER[MQTT Broker]
     BSC -- REST --> REST[REST Client]
 
-    BSC[Extension<br>Interface] -.- E1[<a href='../hardware#bsc-display'>Display</a>]
+    DigitalIn --> BSC
+    BSC --> RelaisOut
+
+    BSC[Extension<br>Interface] -.- Display[<a href='../hardware#bsc-display'>Display</a>]
     SE["Serial<br>Extension<br>(Serial 3-10)"] -.- BSC
     BMS -- RS485 --> SE
 
     BSC[Battery Safety Controller]:::wide
     
-    subgraph Battery  
+    subgraph subGraph0["Battery"]
         BMS
         TEMP_SENSOR
         NEEY
         VICTRON_SHUNT
+    end
+
+    subgraph subGraph1["Data output"]
+        CAN
+        MQTT_BROKER
+        REST
+        Display
+    end
+
+    subgraph subGraph2["External signals"]
+        DigitalIn["4x DigitalIn"]
+        RelaisOut["6x RelaisOut"]
     end
 
 classDef wide padding:200px
