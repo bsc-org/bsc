@@ -36,6 +36,7 @@ Zukünftige Hardware-Versionen werden direkt über unseren Shop verfügbar sein.
 
 ### Alternative: LILYGO T-CONNECT 
 Als empfohlene Alternative kann das **LILYGO T-CONNECT Board** verwendet werden. Dieses ist kompatibel mit der Firmware und den Funktionen des BSC-Systems.  
+Auch hier sind die RS485 Anschlüsse und der CANBUS galvanisch getrennt ausgeführt.  
 
 Eine Bezugsquelle ist beispielsweise:  
 🔗 [LILYGO T-CONNECT auf AliExpress](https://de.aliexpress.com/item/1005007619430455.html)
@@ -53,3 +54,5 @@ Mit der **Insider-Firmware** lassen sich diese Einschränkungen jedoch teilweise
 - Zusätzlich ermöglicht die Insider-Version den Anschluss des **Displays** über den Header.
 
 Damit bietet die Insider-Firmware eine flexible Erweiterungsmöglichkeit, um das T-CONNECT Board näher an den Funktionsumfang der originalen BSC-Hardware heranzuführen.
+
+Weitere Informationen zur Hardware des Lilygo T-CONNECT finden Sie [hier](#lilygo-t-connect).
