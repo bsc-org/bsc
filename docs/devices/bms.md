@@ -28,6 +28,7 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 | **Gobel** |
 | GP-SR1-RN150 |  | | ? | ? |
 | [GP-SR1-PC200](#pace-pc200) |  | |  2 / 2 | 2 / 2 | RS485B |
+| [GP-SR3-PC100](#pace-pc100/200) |  | |  2 / 2 | 2 / 2 | RS485B |
 | **DALY Smart BMS** |
 | BMS-*A |  | |  |  |  Single device extension |
 
@@ -159,9 +160,9 @@ Ab V0.7.2_T4:
 | 3 | T4 |
 | 4 | T5 |
 
-### Pace PC200
+### Pace PC100/200
 
-Das Pace PC200 BMS ist beispielsweise in den von Gobel Power verkauften GP-SR1-PC200 Akkupacks verbaut.  
+Das Pace PC100 und PC200 BMS ist beispielsweise in den von Gobel Power verkauften GP-SR1-PC200 Akkupacks verbaut.  
 Der BSC unterstützt hier das einzelne Pack, wie auch die Anbindung mehrerer Packs als DaisyChain-Verbund. In beiden Fällen wird lediglich ein einzelner serieller Anschluss am BSC benötigt.  
 Als Verkabelung zum BSC kann ein handelsübliches RJ45-Kabel verwendet werden. Der Port am Akku-Pack ist auf den folgenden Bildern ersichtlich und mit RS485-B auf dem Pack gekennzeichnet.  
 Die jeweilige Schnittstelle ist unter den seriellen Port-Einstellungen, wie auch im DeviceMapping zu definieren.  
