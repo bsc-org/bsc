@@ -129,6 +129,92 @@ Bitte packen Sie die Platine nicht unnötig ein und sorgen Sie für eine kontinu
 - Externes GND mit GND-Pin verbinden  
 - Signalleitung direkt an DI-Eingang (3-27VDC)  
 
+### Relais-Schaltausgänge
+
+#### Übersicht
+
+Der BSC verfügt über sechs elektromechanische Relais-Schaltausgänge (Rel1 bis Rel6), die für externe Schaltanwendungen genutzt werden können.  
+Die Relais werden softwareseitig über konfigurierbare Trigger-Events gesteuert und bieten flexible Schalt- und Timing-Optionen.
+
+#### Hardware-Spezifikation
+
+##### Elektrische Eigenschaften
+
+**Maximale Schaltspannung:**
+
+- 60 V DC
+- 180 V AC
+
+##### Verfügbare Kontakte
+
+**Relais 1-3 (alle Kontakte herausgeführt):**
+
+- NO  (Normally Open / Schließer)
+- NC  (Normally Closed / Öffner)
+- COM (Common / Gemeinsamer Kontakt)
+
+**Relais 4-6 (eingeschränkt herausgeführt):**
+
+- NO  (Normally Open / Schließer)
+- COM (Common / Gemeinsamer Kontakt)
+
+Die NC-Kontakte der Relais 4-6 sind aus Gründen der externen Pin-Belegung nicht nach außen geführt.
+
+#### Software-Konfiguration
+
+Jedes Relais kann individuell über die BSC-Software konfiguriert werden.  
+Die Ansteuerung erfolgt über ein oder mehrere wählbare Trigger-Events.
+
+##### Konfigurierbare Parameter
+
+**Impulsdauer [ms]:**
+Definiert die Zeitdauer, für die das Relais nach einem Trigger-Event geschaltet bleibt.  
+Bei einem Wert von 0 bleibt das Relais dauerhaft geschaltet, bis das Trigger-Event endet.
+
+**Verzögerung nach Trigger-Event [s]:**
+Ermöglicht eine zeitliche Verzögerung zwischen dem Auftreten des Trigger-Events und der tatsächlichen Relais-Schaltung.  
+Dies kann für sequentielle Schaltabläufe oder zeitlich versetzte Aktionen genutzt werden.
+
+**Invertierung:**
+Kehrt die Schaltlogik um. Bei aktivierter Invertierung schaltet das Relais beim Trigger-Event ab statt ein (bzw. umgekehrt).
+
+##### Trigger-Events
+
+Die Relais können durch verschiedene System-Events ausgelöst werden, die in der Software konfiguriert werden.  
+Mehrere Trigger können gleichzeitig einem Relais zugeordnet werden, wobei die Relais-Aktivierung erfolgt, wenn mindestens eines der konfigurierten Events eintritt.
+
+#### Anwendungsbeispiele
+
+**Lastabwurf bei kritischen Batterie-Zuständen:**
+
+- Trigger: Plausibility-Check (BMS-Daten außerhalb gültiger Bereiche)
+- Verzögerung: 0 s
+- Impulsdauer: 200 ms
+- Invertierung: Ja
+- Hinweis: Für das Schalten großer Akkupack-Ströme sollten externe DC-Schütze mit Steuereingang verwendet werden, die über das Relais angesteuert werden.
+
+**Periodische Lüftersteuerung:**
+
+- Trigger: Temperatur-Schwelle
+- Verzögerung: 0 s
+- Impulsdauer: 60000 ms (1 min Nachlauf)
+- Invertierung: Nein
+
+**Alarm-Ausgabe mit Verzögerung:**
+
+- Trigger: Kritisches Batterie-Event
+- Verzögerung: 10 s
+- Impulsdauer: 500 ms (kurzer Impuls)
+- Invertierung: Nein
+- Hinweis: Bei einem kritischen Event sollte immer zuerst über Befehle der Inverter-Strombedarf heruntergefahren werden, bevor die harte Abschaltung über einen Schütz getriggert wird. Dies schont die Hardware im Fehlerfall.
+
+#### Hinweise zur Verwendung
+
+- Die Schaltkapazität der Relais ist durch verwendete Platinen-Layout begrenzt. Für höhere Spannungen/Leistungen sollten externe Schütze oder Halbleiter-Relais nachgeschaltet werden.
+- Bei induktiven Lasten (Motoren, Spulen) wird der Einsatz von Freilaufdioden oder Snubber-Beschaltungen empfohlen.
+- Die Relais 1-3 bieten durch die NC-Kontakte Fail-Safe-Möglichkeiten für sicherheitskritische Anwendungen.
+- Bei Verwendung der Impulsdauer ist zu beachten, dass diese unabhängig von der Dauer des Trigger-Events abläuft.
+
 ### Wie trennt man Lötjumper
 Hierzu müssen teilweise die in der Auslieferung gesetzten Lötjumper mechanisch entfernt werden.  
 Dies geschieht am Besten mit einem "Dremel", der nur an der Oberfläche die Kupferschicht entfernt.  
