@@ -138,12 +138,10 @@ Die Relais werden softwareseitig über konfigurierbare Trigger-Events gesteuert 
 
 #### Hardware-Spezifikation
 
-##### Elektrische Eigenschaften
+##### Maximale Schaltwerte
 
-**Maximale Schaltspannung:**
-
-- 60 V DC
-- 180 V AC
+- DC: 60 V / 3 A
+- AC: 180 V / 3 A
 
 ##### Verfügbare Kontakte
 
@@ -167,15 +165,15 @@ Die Ansteuerung erfolgt über ein oder mehrere wählbare Trigger-Events.
 
 ##### Konfigurierbare Parameter
 
-**Impulsdauer [ms]:**
+**Impulsdauer [ms]:**  
 Definiert die Zeitdauer, für die das Relais nach einem Trigger-Event geschaltet bleibt.  
 Bei einem Wert von 0 bleibt das Relais dauerhaft geschaltet, bis das Trigger-Event endet.
 
-**Verzögerung nach Trigger-Event [s]:**
+**Verzögerung nach Trigger-Event [s]:**  
 Ermöglicht eine zeitliche Verzögerung zwischen dem Auftreten des Trigger-Events und der tatsächlichen Relais-Schaltung.  
 Dies kann für sequentielle Schaltabläufe oder zeitlich versetzte Aktionen genutzt werden.
 
-**Invertierung:**
+**Invertierung:**  
 Kehrt die Schaltlogik um. Bei aktivierter Invertierung schaltet das Relais beim Trigger-Event ab statt ein (bzw. umgekehrt).
 
 ##### Trigger-Events
