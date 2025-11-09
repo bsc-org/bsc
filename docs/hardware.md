@@ -140,8 +140,8 @@ Die Relais werden softwareseitig über konfigurierbare Trigger-Events gesteuert 
 
 ##### Maximale Schaltwerte
 
-- DC: 60 V / 3 A
-- AC: 180 V / 3 A
+- DC: 24 V / 3 A
+- AC: 120 V / 3 A
 
 ##### Verfügbare Kontakte
 
