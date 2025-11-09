@@ -145,13 +145,13 @@ Die Relais werden softwareseitig über konfigurierbare Trigger-Events gesteuert 
 
 ##### Verfügbare Kontakte
 
-**Relais 1-3 (alle Kontakte herausgeführt):**
+**Relais 1-3 (alle Kontakte herausgeführt)**
 
 - NO  (Normally Open / Schließer)
 - NC  (Normally Closed / Öffner)
 - COM (Common / Gemeinsamer Kontakt)
 
-**Relais 4-6 (eingeschränkt herausgeführt):**
+**Relais 4-6 (eingeschränkt herausgeführt)**
 
 - NO  (Normally Open / Schließer)
 - COM (Common / Gemeinsamer Kontakt)
@@ -165,15 +165,15 @@ Die Ansteuerung erfolgt über ein oder mehrere wählbare Trigger-Events.
 
 ##### Konfigurierbare Parameter
 
-**Impulsdauer [ms]:**  
+**Impulsdauer [ms]**  
 Definiert die Zeitdauer, für die das Relais nach einem Trigger-Event geschaltet bleibt.  
 Bei einem Wert von 0 bleibt das Relais dauerhaft geschaltet, bis das Trigger-Event endet.
 
-**Verzögerung nach Trigger-Event [s]:**  
+**Verzögerung nach Trigger-Event [s]**  
 Ermöglicht eine zeitliche Verzögerung zwischen dem Auftreten des Trigger-Events und der tatsächlichen Relais-Schaltung.  
 Dies kann für sequentielle Schaltabläufe oder zeitlich versetzte Aktionen genutzt werden.
 
-**Invertierung:**  
+**Invertierung**  
 Kehrt die Schaltlogik um. Bei aktivierter Invertierung schaltet das Relais beim Trigger-Event ab statt ein (bzw. umgekehrt).
 
 ##### Trigger-Events
@@ -183,7 +183,7 @@ Mehrere Trigger können gleichzeitig einem Relais zugeordnet werden, wobei die R
 
 #### Anwendungsbeispiele
 
-**Lastabwurf bei kritischen Batterie-Zuständen:**
+**Lastabwurf bei kritischen Batterie-Zuständen**
 
 - Trigger: Plausibility-Check (BMS-Daten außerhalb gültiger Bereiche)
 - Verzögerung: 0 s
@@ -191,14 +191,14 @@ Mehrere Trigger können gleichzeitig einem Relais zugeordnet werden, wobei die R
 - Invertierung: Ja
 - Hinweis: Für das Schalten großer Akkupack-Ströme sollten externe DC-Schütze mit Steuereingang verwendet werden, die über das Relais angesteuert werden.
 
-**Periodische Lüftersteuerung:**
+**Periodische Lüftersteuerung**
 
 - Trigger: Temperatur-Schwelle
 - Verzögerung: 0 s
 - Impulsdauer: 60000 ms (1 min Nachlauf)
 - Invertierung: Nein
 
-**Alarm-Ausgabe mit Verzögerung:**
+**Alarm-Ausgabe mit Verzögerung**
 
 - Trigger: Kritisches Batterie-Event
 - Verzögerung: 10 s
