@@ -23,14 +23,17 @@ Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen
 | [Seplos](#seplos)| 10C |  | 0 / 0 | 1 / 1 |
 | [Seplos](#seplos) | 10E | 16.4 | 0 / 0 | 1 / 1 |
 | Seplos V3    |  |  | ? | ? |
-| **Sylcin (z.B. Taico Akku)** |
-| [Sylcin](#sylcin) |  |  | 0 / 1 | 0 / 1 |
-| **Gobel** |
-| GP-SR1-RN150 |  | | ? | ? |
-| [GP-SR1-PC200](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
-| [GP-SR3-PC100](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
 | **DALY Smart BMS** |
 | BMS-*A |  | |  |  |  Single device extension |
+| **Sylcin (z.B. Taico Akku)** |
+| [Sylcin](#sylcin) |  |  | 0 / 1 | 0 / 1 |
+| **Pace (z.B. Gobel Akku)** |
+| GP-SR1-RN150 |  | | ? | ? |
+| [GP-SR3-PC100](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
+| [GP-SR1-PC200](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
+| **Pylontech**<br>(TestStatus - Feedback erwünscht) |  | | ? | ? |
+| **Daren BMS**<br>(TestStatus - Feedback erwünscht) |  | | ? | ? |
+
 
 ## Bluetooth Devices
 | Typ | HW-Version | SW-Version |
