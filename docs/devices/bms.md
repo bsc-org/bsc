@@ -22,7 +22,7 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 | **Jiabaida/JBD** |
 | JBD-DP24S002 |  |  | - | - |
-| AP21S002 |  |  | - | - |
+| [AP21S002](#jiabaidajbd-ap21s002) |  |  | - | - | RS485 |
 | **JK Smart-BMS** |
 | JK-B2A20S20P | V11.XW | 11.25H | - |  |  Single device extension |
 | JK-B2A24S20P | V10.XW | V10.09 | - |  |  Single device extension |
@@ -46,7 +46,6 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | US2000 |  | | ? | ? |
 | US5000 |  | | ? | ? |
 | **Daren BMS**<br>(TestStatus - Feedback erwünscht) |  | | ? | ? |
-
 
 ## Bluetooth Devices
 | Typ | HW-Version | SW-Version |
@@ -195,3 +194,20 @@ Auch bei einer Multi-Pack-Konfiguration fungiert das BSC als Master (Adresse 1).
 Die weiteren angeschlossenen Packs erhalten aufsteigend die Adressen 2 und folgende.
 
 ![](../img/devices/devices_Pace_PC200-Multipack.png)
+
+### Jiabaida/JBD AP21S002
+
+![](../img/devices/devices_jbd_ap21s002_uebersicht.PNG)
+
+### Fehlermeldung „Sonstiger Fehler“ in der BSC-Anzeige
+
+Sollte beim ersten Start auf dem BSC-Dashboard die Fehlermeldung „Sonstiger Fehler“ angezeigt werden, muss ein Reset am JBD-BMS ausgeführt werden:
+
+1. Beide Stecker mit den Kabeln der Zellverbindungen (1-J1 und 2-J2) abstecken und ca. 5min warten, bis alle Kondensatoren entladen sind.  
+Danach wieder beide Stecker anstecken und anschließend prüfen, ob die Fehlermeldung weg ist.  
+Sollte die Fehlermeldung noch bestehen ist, wie unter 2. beschrieben, vorzugehen.
+
+3. Beide Stecker mit den Kabeln der Zellverbindungen (1-J1 und 2-J2) abstecken.
+Danach den Stecker des Bluetooth-Moduls (6-EJ5) abziehen.  
+Anschließend die beiden Stecker 1-J1 und 2-J2 wieder einstecken und erst dann wieder den Bluetooth-Modul Stecker einstecken.  
+Anschließend überprüfen, ob die Fehlermeldung weg ist.
