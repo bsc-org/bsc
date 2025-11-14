@@ -1,10 +1,21 @@
 # Unterstützte BMS
-In diesem Abschnitt finden Sie eine Übersicht über die unterstützten Battery Management Systeme (BMS). Die Tabelle enthält wichtige Informationen zu den Adressen, die für die Konfiguration erforderlich sind.  
+In diesem Abschnitt finden Sie eine Übersicht über die aktuell unterstützten Battery Management Systeme (BMS). Die Tabelle enthält wichtige Informationen zu den Adressen, die für die Konfiguration erforderlich sind.  
 Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen des BMS und DDM (Data-Device-Mapping) angegeben. Diese Adressen sind durch ein / getrennt.
 
 - **Adresse Singlepack**: Diese Adresse ist diejenige, die sowohl am BMS als auch im Device-Data-Mapping eingestellt werden muss. Sie repräsentiert die spezifische Adresse für ein einzelnes BMS in einem System.
 
 - **Adresse Multipack**: Diese Adresse ist die Start-Adresse, die am BMS sowie im Device-Data-Mapping konfiguriert wird. Sie gibt die Adresse des ersten BMS in einem Multipack-System an. Weitere BMS in der Kette erhalten automatisch fortlaufende Adressen basierend auf dieser Start-Adresse.
+
+## Integration weiterer BMS-Systeme
+Die BSC-Plattform ist nicht auf die in der Tabelle aufgeführten BMS-Systeme beschränkt.  
+Bei Vorliegen einer vollständigen Protokolldokumentation des Herstellers können weitere BMS-Systeme integriert werden. 
+
+Für eine erfolgreiche Integration ist eine hinreichende Protokolldokumentation erforderlich.  
+In Einzelfällen kann es notwendig sein, dass der Anwender die Kommunikation mit einem Logic-Analyzer aufzeichnet und zur Verfügung stellt, um die Implementierung zu verifizieren oder bei auftretenden Problemen zu unterstützen.  
+Eine gewisse Eigeninitiative und technische Bereitschaft zur Mitwirkung sind hierbei vorausgesetzt.
+
+Wenn Sie ein BMS-System einsetzen, das aktuell nicht unterstützt wird, sprechen Sie uns an.  
+Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei entsprechendem Bedarf umgesetzt werden.
 
 ## Serial BMS
 | Typ | HW-Version | SW-Version | Adresse Singlepack<br>BMS / BSC| Adresse Multipack<br>BMS / BSC | Anschluss BMS |
