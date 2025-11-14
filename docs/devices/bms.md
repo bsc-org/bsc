@@ -42,7 +42,9 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | GP-SR1-RN150 |  | | ? | ? |
 | [GP-SR3-PC100](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
 | [GP-SR1-PC200](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
-| **Pylontech**<br>(TestStatus - Feedback erwünscht) |  | | ? | ? |
+| **Pylontech** |  | | ? | ? |
+| US2000 |  | | ? | ? |
+| US5000 |  | | ? | ? |
 | **Daren BMS**<br>(TestStatus - Feedback erwünscht) |  | | ? | ? |
 
 
