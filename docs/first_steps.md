@@ -35,9 +35,10 @@ Aktuell kann es über den [derzeitigen Platinenhersteller](https://de.aliexpress
 Zukünftige Hardware-Versionen werden direkt über unseren Shop verfügbar sein. Der Selbstbau ist zwar grundsätzlich möglich, jedoch mit höherem Aufwand verbunden.
 
 ### Alternative: LILYGO T-CONNECT 
-Als empfohlene Alternative kann das **LILYGO T-CONNECT Board** verwendet werden. Dieses ist kompatibel mit der Firmware und den Funktionen des BSC-Systems.  
-Auch hier sind die RS485 Anschlüsse und der CANBUS galvanisch getrennt ausgeführt.  
-
+Als empfohlene Alternative kann das **LILYGO T-CONNECT Board** verwendet werden.  
+Dieses unterstützt die BSC-Firmware, unterscheidet sich jedoch hardwareseitig von der originalen BSC-Hardware.  
+Die RS485- und CAN-Bus-Anschlüsse sind auch hier galvanisch getrennt ausgeführt; die fehlenden Komponenten können durch externe Module teilweise kompensiert werden (siehe unten).
+  
 Eine Bezugsquelle ist beispielsweise:  
 🔗 [LILYGO T-CONNECT auf AliExpress](https://de.aliexpress.com/item/1005007619430455.html)
 
