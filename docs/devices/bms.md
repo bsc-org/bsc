@@ -125,6 +125,7 @@ Einzelne BMS, wie auch eine MultiPack-Konfiguration über DaisyChain ist möglic
 #### Adressierung
 Das BSC übernimmt die Rolle des Masters, die DIP Adresse 0 darf dadurch also nicht mehr an ein BMS vergeben werden.  
 Jedes Pack bekommt eine eigene ID, welche über die DIP-Schalter zu definieren ist. Keine Adresse darf doppelt vergeben werden.  
+Bitte überprüfen Sie die korrekte Adresse zusätzlich über die JK-App, da es in der Vergangenheit Blenden mit nicht korrekter 0/1-Bedruckung der Dipswitches gab.  
 
 #### Physikalische Verbindung 
 
