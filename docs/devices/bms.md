@@ -199,7 +199,9 @@ Die weiteren angeschlossenen Packs erhalten aufsteigend die Adressen 2 und folge
 
 ![](../img/devices/devices_jbd_ap21s002_uebersicht.PNG)
 
-### Fehlermeldung „Sonstiger Fehler“ in der BSC-Anzeige
+### Bekannte Probleme
+
+#### Fehlermeldung „Sonstiger Fehler“ in der BSC-Anzeige
 
 Sollte beim ersten Start auf dem BSC-Dashboard die Fehlermeldung „Sonstiger Fehler“ angezeigt werden, muss ein Reset am JBD-BMS ausgeführt werden:
 
@@ -207,7 +209,27 @@ Sollte beim ersten Start auf dem BSC-Dashboard die Fehlermeldung „Sonstiger Fe
 Danach wieder beide Stecker anstecken und anschließend prüfen, ob die Fehlermeldung weg ist.  
 Sollte die Fehlermeldung noch bestehen ist, wie unter 2. beschrieben, vorzugehen.
 
-3. Beide Stecker mit den Kabeln der Zellverbindungen (1-J1 und 2-J2) abstecken.
+2. Beide Stecker mit den Kabeln der Zellverbindungen (1-J1 und 2-J2) abstecken.  
 Danach den Stecker des Bluetooth-Moduls (6-EJ5) abziehen.  
-Anschließend die beiden Stecker 1-J1 und 2-J2 wieder einstecken und erst dann wieder den Bluetooth-Modul Stecker einstecken.  
+Anschließend die beiden Stecker 1-J1 und 2-J2 wieder einstecken und erst dann wieder den Bluetooth-Modul Stecker einstecken.
+
 Anschließend überprüfen, ob die Fehlermeldung weg ist.
+
+#### Relais-Aktivierung nach Reset
+
+Nach einem Reset oder einer Schutzabschaltung kann das Relais im JBD-BMS geöffnet bleiben. Am Ausgang ist zwar die Batteriespannung messbar (über den Bypass-Widerstand), es fließt jedoch kein Strom.
+
+**Ursache:**
+
+Das BMS erkennt den Stromfluss über den Bypass-Widerstand nicht zuverlässig und schaltet das Relais nicht selbstständig zu.
+
+**Lösung:**
+
+Das Relais benötigt einen kontrollierten Stromimpuls zum Aktivieren:
+- Labornetzteil auf Batteriespannung (z.B. 55,2V) und **max. 5A Strombegrenzung** einstellen
+- Labornetzteil-Minus mit BMS-Ausgang Minus verbinden
+- Labornetzteil-Plus kurz mit BMS-Ausgang Plus verbinden
+- Der Strom fließt vom Labornetzteil durch den BMS-Shunt zur Batterie und aktiviert das Relais
+- Alternativ: Kleine abgesicherte Last am BMS-Ausgang anschließen
+
+**Warnung:** Ohne Strombegrenzung können gefährlich hohe Ströme fließen!
