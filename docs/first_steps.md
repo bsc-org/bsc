@@ -46,7 +46,7 @@ Eine Bezugsquelle ist beispielsweise:
     Beim Kauf unbedingt darauf achten, dass die **Variante mit 3× RS485 und 1× CAN-Schnittstelle** gewählt wird!  
 
 **Hinweise zur Funktionalität**  
-Da das T-CONNECT Board **keine integrierten Relais oder Digitaleingänge** besitzt, kommt es im Vergleich zur originalen BSC-Hardware zu funktionalen Einschränkungen.
+Da das T-CONNECT Board **keine integrierten Relais, Digitaleingänge oder eine redundante Spannungsversorgung** besitzt, kommt es im Vergleich zur originalen BSC-Hardware zu funktionalen Einschränkungen.  
 
 Mit der **Insider-Firmware** lassen sich diese Einschränkungen jedoch teilweise kompensieren:
 
