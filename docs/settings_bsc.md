@@ -48,9 +48,6 @@ Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzerna
 <tr><td colspan='3' class='td0'><div class='help'>Optional</div></td></tr>
 </table></form></div></div>
 
-!!! info "Hinweis"
-    Bitte beachten Sie, dass das Tilde-Zeichen (~) derzeit als Passwort-Zeichen **nicht unterstützt** wird.  
-
 - **WLAN SSID**  
   Name des WLAN-Netzwerks, mit dem sich der BSC verbinden soll.  
 
