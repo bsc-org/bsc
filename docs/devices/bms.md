@@ -1,10 +1,14 @@
 # Unterstützte BMS
 In diesem Abschnitt finden Sie eine Übersicht über die aktuell unterstützten Battery Management Systeme (BMS). Die Tabelle enthält wichtige Informationen zu den Adressen, die für die Konfiguration erforderlich sind.  
-Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen des BMS und DDM (Data-Device-Mapping) angegeben. Diese Adressen sind durch ein / getrennt.
+Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen des BMS sowie die erforderliche Einstellung im Data-Device-Mapping des BSC angegeben.  
+In den betreffenden Spalten sind diese Adressen durch einen Schrägstrich `/` getrennt:  
 
 - **Adresse Singlepack**: Diese Adresse ist diejenige, die sowohl am BMS als auch im Device-Data-Mapping eingestellt werden muss. Sie repräsentiert die spezifische Adresse für ein einzelnes BMS in einem System.
 
-- **Adresse Multipack**: Diese Adresse ist die Start-Adresse, die am BMS sowie im Device-Data-Mapping konfiguriert wird. Sie gibt die Adresse des ersten BMS in einem Multipack-System an. Weitere BMS in der Kette erhalten automatisch fortlaufende Adressen basierend auf dieser Start-Adresse.
+- **Adresse Multipack**: Diese Adresse ist die Start-Adresse, die am BMS sowie im Device-Data-Mapping konfiguriert wird. Sie gibt die Adresse des ersten BMS in einem Multipack-System an. Weitere BMS in der Kette erhalten automatisch fortlaufende Adressen basierend auf dieser Start-Adresse.  
+
+ > Die Adresse **vor dem** `/` muss am **BMS** eingestellt werden.  
+ > Die Adresse **nach dem** `/` muss im **BSC** im entsprechenden Data-Device eingetragen werden.
 
 ## Integration weiterer BMS-Systeme
 Die BSC-Plattform ist nicht auf die in der Tabelle aufgeführten BMS-Systeme beschränkt.  
@@ -43,8 +47,8 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | [GP-SR3-PC100](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
 | [GP-SR1-PC200](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
 | **Pylontech** |  | | ? | ? |
-| US2000 |  | | ? | ? | RS485 |
-| US5000 |  | | ? | ? | RS485 |
+| US2000 |  | | 1 / 1 | 1 / 1 | B/RS485 |
+| US5000 |  | | 1 / 1 | 1 / 1 | B/RS485 |
 | **Daren BMS**<br>(TestStatus - Feedback erwünscht) |  | | ? | ? |
 
 ## Bluetooth Devices
