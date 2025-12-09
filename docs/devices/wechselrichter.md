@@ -108,7 +108,7 @@ BMS Canbus enable -> aktiveren -> Save
 #### Einstellungen Solis
 Advanced Settings -> Storage Energy Set -> Battery Select -> Battery Module -> Pylon auswählen  
 
-## Deye SUN-12K-SG04LP3-EU
+## Deye SUN-12K-SG04LP3-EU & SUN-20K-SG05LP3
 
 #### CAN-Verbindung
 Die Anbindung BSC <> Wechselrichter (CAN-Bus) erfolgt über den "BMS Port" des Wechselrichters (siehe Manual Seite 10).  
