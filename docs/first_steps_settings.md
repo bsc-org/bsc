@@ -21,9 +21,14 @@ Weitere Informationen:
 - [Details zu den Systemeinstellungen](https://bsc-org.github.io/bsc/settings_bsc/#system)  
 
 ## 2. BMS-Einstellungen im BSC
-Der BSC liest ausschließlich Daten vom BMS. Es werden **keine** Einstellungen, Konfigurationen oder sonstige Daten **auf das BMS geschrieben**. 
 Damit eine Kommunikation stattfinden kann, sind folgende Konfigurationen erforderlich:  
 
+  !!! note "Hinweis"  
+        Der BSC greift **ausschließlich lesend** auf die Daten des BMS zu.  
+        Es werden zu keinem Zeitpunkt Einstellungen, Konfigurationen oder sonstige Daten **auf das BMS geschrieben**.  
+        Dadurch bleibt die weitere Sicherheits-Instanz "BMS" immer funktional unabhängig.
+
+        
 ### 2.1 Serielle Schnittstelle konfigurieren
 In den Einstellungen wird festgelegt, an welcher **Hardware-Schnittstelle** welcher **BMS-Typ** angeschlossen ist.  
 Beispiel: *Serial 0* ist mit einem **JK Inverter BMS** verbunden.
