@@ -23,10 +23,10 @@ Weitere Informationen:
 ## 2. BMS-Einstellungen im BSC
 Damit eine Kommunikation stattfinden kann, sind folgende Konfigurationen erforderlich:  
 
-    !!! note "Hinweis"  
-        Der BSC greift **ausschließlich lesend** auf die Daten des BMS zu.  
-        Es werden zu keinem Zeitpunkt Einstellungen, Konfigurationen oder sonstige Daten **auf das BMS geschrieben**.  
-        Dadurch bleibt die weitere Sicherheits-Instanz "BMS" immer funktional unabhängig.  
+!!! note "Hinweis"  
+    Der BSC greift **ausschließlich lesend** auf die Daten des BMS zu.  
+    Es werden zu keinem Zeitpunkt Einstellungen, Konfigurationen oder sonstige Daten **auf das BMS geschrieben**.  
+    Dadurch bleibt die weitere Sicherheits-Instanz "BMS" immer funktional unabhängig.  
 
         
 ### 2.1 Serielle Schnittstelle konfigurieren
