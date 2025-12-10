@@ -30,8 +30,9 @@ Damit eine Kommunikation stattfinden kann, sind folgende Konfigurationen erforde
 
         
 ### 2.1 Serielle Schnittstelle konfigurieren
-In den Einstellungen wird festgelegt, an welcher **Hardware-Schnittstelle** welcher **BMS-Typ** angeschlossen ist.  
-Beispiel: *Serial 0* ist mit einem **JK Inverter BMS** verbunden.
+Hier wird festgelegt, welcher **BMS-Typ** an welcher **Hardware-Schnittstelle** angeschlossen ist.  
+  
+Im folgenden Beispiel ist ein **JK Inverter BMS** mit *Serial 0* verbunden.
 
 **Pfad:**  
 `Einstellungen → Schnittstellen → Serial`
@@ -72,32 +73,50 @@ Beispiel: *Serial 0* ist mit einem **JK Inverter BMS** verbunden.
 <tr><td colspan="3" class="td0"><div class="help"><b>To use serial 3-11, the serial extension is required!</b></div></td></tr>
 </table></form></div></div>
 
+!!! note "Hinweis"  
+    An einer Schnittstelle können mehrere BMS desselben Typs betrieben werden.  
+    Die Unterscheidung erfolgt über unterschiedliche Adressen, deren Konfiguration im nächsten Schritt (Data-Device-Mapping) beschrieben wird.
+
 Weitere Informationen: [Serielle Schnittstellen](https://bsc-org.github.io/bsc/settings_bsc/#serial)  
 
 ### 2.2 Data-Device-Mapping einrichten
-Nachdem im vorherigen Schritt festgelegt wurde, welcher **BMS-Typ** an welcher **seriellen Schnittstelle** angeschlossen ist, muss im nächsten Schritt die **Adresse** des angeschlossenen BMS konfiguriert werden.  
-Diese Einstellung ist entscheidend, damit der BSC korrekt mit dem BMS kommunizieren kann. Besonders bei mehreren BMS desselben Typs (z.B. mehrere *JK Inverter BMS*) an einer seriellen Schnittstelle ist die korrekte Adresszuordnung entscheidend.  
+Nachdem im vorherigen Schritt festgelegt wurde, welcher **BMS-Typ** an welcher **seriellen Schnittstelle** angeschlossen ist, erfolgt nun die Zuordnung der **einzelnen BMS** mit ihren spezifischen **Adressen**.  
 
-Das **Data-Device-Mapping** dient der Zuordnung der seriellen Schnittstelle zum im BSC verwendeten internen *Data-Device*.  
-Diese Zuordnung ist Grundlage für weitere Konfigurationen, z. B. in den Wechselrichter-Einstellungen.
+Das **Data-Device** ist die interne Repräsentation eines physischen Geräts (BMS, Victron SmartShunt etc.) im BSC.  
+  
+Die korrekte Adresszuordnung ist notwendig, damit der BSC mit dem BMS kommunizieren kann.  
+Besonders bei mehreren BMS desselben Typs (z.B. mehrere *JK Inverter BMS*) an einer Schnittstelle ist eine eindeutige Adresse erforderlich.
+
+Die hier konfigurierten Data-Devices dienen als Grundlage für weitere Einstellungen, beispielsweise in der Wechselrichter-Konfiguration.
 
 **Pfad:**  
 `Einstellungen → Schnittstellen → Data devices`
 
 **Konfiguration:**  
 
-- Auswahl der seriellen Schnittstelle, an der das Data-Device angeschlossen ist (BMS oder z. B. Victron Smart Shunt)  
-- Eingabe der entsprechenden Adresse  
-  Informationen, welche Adresse bei welchem BMS eingestellt werden muss, sind hier dokumentiert:  
-  [Unterstützte BMS – Adresskonfiguration](https://bsc-org.github.io/bsc/devices/bms/#serial-bms)  
-  Der dortige Text sollte sorgfältig gelesen werden, da er beschreibt, **welche Adresse am BMS selbst** und **welche im Data-Device-Mapping des BSC** eingestellt werden muss.  
+Für jedes Data-Device müssen folgende Einstellungen vorgenommen werden:
 
-- Optional: Vergabe eines Namens, der in allen Auswahlmenüs des BSC angezeigt wird  
+- **Serielle Schnittstelle**: Auswahl der Hardware-Schnittstelle (Serial 0, Serial 1, etc.)
+- **Adresse**: BMS-spezifische Adresse  
+  
+  !!! info "Adresskonfiguration beachten"
+      Die Adresse muss sowohl **am BMS selbst** als auch **im BSC Data-Device-Mapping** korrekt eingestellt werden.  
+      Welche Adresse wo einzustellen ist, wird BMS-spezifisch hier erklärt:  
+      [Unterstützte BMS – Adresskonfiguration](https://bsc-org.github.io/bsc/devices/bms/#serial-bms)  
+      **Diese Dokumentation sollte sorgfältig gelesen werden**, da jeder BMS-Typ unterschiedliche Anforderungen hat.
 
-Weitere Informationen:  
+- **Name** (optional): Anzeigename für bessere Übersicht in allen BSC-Menüs
 
-- [Adresskonfiguration](https://bsc-org.github.io/bsc/devices/bms/#unterstutzte-bms)  
-- [Informationen zum Data-Device-Mapping](https://bsc-org.github.io/bsc/settings_bsc/#data-device-mapping)  
+**Beispiel:**  
+An *Serial 0* sind zwei JK Inverter BMS angeschlossen:
+
+- **Data-Device 0**: Serial 0, Adresse 1, Name "Batterie unten"
+- **Data-Device 1**: Serial 0, Adresse 2, Name "Batterie oben"
+
+Weitere Informationen:
+
+- [Adresskonfiguration pro BMS-Typ](https://bsc-org.github.io/bsc/devices/bms/#unterstutzte-bms)
+- [Data-Device-Mapping Details](https://bsc-org.github.io/bsc/settings_bsc/#data-device-mapping)
 
 ## 3. Wechselrichter-Einstellungen
 In diesem Abschnitt werden die grundlegenden Einstellungen beschrieben, die erforderlich sind, damit der BSC mit dem Wechselrichter kommunizieren kann.  
