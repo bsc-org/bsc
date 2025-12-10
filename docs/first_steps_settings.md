@@ -35,10 +35,10 @@ Beispiel: *Serial 0* ist mit einem **JK Inverter BMS** verbunden.
 <tr><td class="Ctd2" colspan="3"><b>Serielle Schnittstellen</b></td></tr>
 <tr><td colspan="3"><b>Serial 0</b></td></tr><tr class="Ctr"><td class="Ctd"><b>Serial</b></td>
 <td class="Ctd"><select name="4294967360">
-<option value="0" selected="">nicht belegt</option>
+<option value="0">nicht belegt</option>
 <option value="1">JBD BMS</option>
 <option value="2">JK BMS</option>
-<option value="14">JK Inverter BMS</option>
+<option value="14" selected="">JK Inverter BMS</option>
 <option value="3">Seplos BMS</option>
 <option value="10">Victron SmartShunt</option>
 <option value="10">...</option>
