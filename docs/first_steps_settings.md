@@ -99,12 +99,12 @@ Für jedes Data-Device müssen folgende Einstellungen vorgenommen werden:
 - **Serielle Schnittstelle**: Auswahl der Hardware-Schnittstelle (Serial 0, Serial 1, etc.)
 - **Adresse**: BMS-spezifische Adresse  
   
-  !!! info "Adresskonfiguration beachten"  
-      Die Adresse muss sowohl **am BMS selbst** als auch **im BSC Data-Device-Mapping** korrekt eingestellt werden.  
-      Welche Adresse wo einzustellen ist, wird BMS-spezifisch hier erklärt:  
-      [Unterstützte BMS – Adresskonfiguration](https://bsc-org.github.io/bsc/devices/bms/#serial-bms)  
-      **Diese Dokumentation sollte sorgfältig gelesen werden**, da jeder BMS-Typ unterschiedliche Anforderungen hat.
-
+    !!! info "Adresskonfiguration beachten"  
+        Die Adresse muss sowohl **am BMS selbst** als auch **im BSC Data-Device-Mapping** korrekt eingestellt werden.  
+        Welche Adresse wo einzustellen ist, wird BMS-spezifisch hier erklärt:  
+        [Unterstützte BMS – Adresskonfiguration](https://bsc-org.github.io/bsc/devices/bms/#serial-bms)  
+        **Diese Dokumentation sollte sorgfältig gelesen werden**, da jeder BMS-Typ unterschiedliche Anforderungen hat.
+        
 - **Name** (optional): Anzeigename für bessere Übersicht in allen BSC-Menüs
 
 **Beispiel:**  
