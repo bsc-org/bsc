@@ -19,12 +19,17 @@ Bitte darauf achten, dass der bei Victron beiliegende RJ45-Abschlusswiderstand a
 * L auf L
 * GND auf GND
 
-|CAN|[Victron VE.Can Port](https://www.victronenergy.com/live/battery_compatibility:can-bus_bms-cable)|
-|---|---|
-|CAN-GND|Pin 3|
-|CAN-L|Pin 8|
-|CAN-H|Pin 7|
+| Signal  | [Victron VE.Can Port](https://www.victronenergy.com/live/battery_compatibility:can-bus_bms-cable) | Aderfarbe RJ45 (T568B)|
+| ------------- | ------------- | ------------- |
+| CAN-GND  | Pin 3  | Grün/Weiß |
+| CAN-L  | Pin 8  | Braun |
+| CAN-H  | Pin 7  | Braun/Weiß |
 
+    !!! warning "Wichtig: Pinbelegung prüfen"  
+        Die hier gezeigte Pinbelegung folgt dem T568B-Schema.  
+        Falls vorhandene RJ45-Kabel verwendet werden, muss die tatsächliche Belegung vor dem Anschließen durch Nachmessen verifiziert werden.  
+        Eine falsche Zuordnung kann zu Fehlfunktionen oder Hardwareschäden führen.
+    
 ### Einstellungen BSC
 Einstellungen -> Wechselrichter & Laderegelung (Inverter) -> Allgemein  
 ![image](../img/devices/devices_inverter_canbus.png)
@@ -94,12 +99,17 @@ Angeschlossen an BSC über Serial2 Schnittstelle.
 
 Belegung CAN Anschluss Solis  
 
-| Signal  | Anschluss | Aderfarbe RJ45 (T568A)|
+| Signal  | Anschluss | Aderfarbe RJ45 (T568B)|
 | ------------- | ------------- | ------------- |
 | CAN-L  | Pin 5  | Blau/Weiß |
 | CAN-H  | Pin 4  | Blau |
 | CAN-GND  | ?  | ? |
 
+    !!! warning "Wichtig: Pinbelegung prüfen"  
+        Die hier gezeigte Pinbelegung folgt dem T568B-Schema.  
+        Falls vorhandene RJ45-Kabel verwendet werden, muss die tatsächliche Belegung vor dem Anschließen durch Nachmessen verifiziert werden.  
+        Eine falsche Zuordnung kann zu Fehlfunktionen oder Hardwareschäden führen.
+        
 #### Einstellungen BSC
 Einstellungen -> Wechselrichter & Laderegelung (Inverter) -> Allgemein  
 Canbus -> Solis RHI auswählen -> Save  
@@ -118,12 +128,16 @@ Dieser Port wird mit einem handelsüblichen Netzwerkkabel verbunden. Drei einzel
 * CAN-L auf CAN-L
 * GND auf GND  
 
-| Signal  | RJ45-Anschluss | Aderfarbe RJ45 (T568A) |
+| Signal  | RJ45-Anschluss | Aderfarbe RJ45 (T568B) |
 | ------------- | ------------- | ------------- |
 | CAN-H  | Pin 4  | Blau |
-| CAN-L  | Pin 5  | Weiß/Blau |
-| CAN-GND  | Pin 6  | Orange |
+| CAN-L  | Pin 5  | Blau/Weiß |
+| CAN-GND  | Pin 6  | Grün |
 
+    !!! warning "Wichtig: Pinbelegung prüfen"  
+        Die hier gezeigte Pinbelegung folgt dem T568B-Schema.  
+        Falls vorhandene RJ45-Kabel verwendet werden, muss die tatsächliche Belegung vor dem Anschließen durch Nachmessen verifiziert werden.  
+        Eine falsche Zuordnung kann zu Fehlfunktionen oder Hardwareschäden führen.
 
 ![](../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu.png){ width="450" }
 
