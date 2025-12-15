@@ -25,10 +25,10 @@ Bitte darauf achten, dass der bei Victron beiliegende RJ45-Abschlusswiderstand a
 | CAN-L  | Pin 8  | Braun |
 | CAN-H  | Pin 7  | Braun/Weiß |
 
-    !!! warning "Wichtig: Pinbelegung prüfen"  
-        Die hier gezeigte Pinbelegung folgt dem T568B-Schema.  
-        Falls vorhandene RJ45-Kabel verwendet werden, muss die tatsächliche Belegung vor dem Anschließen durch Nachmessen verifiziert werden.  
-        Eine falsche Zuordnung kann zu Fehlfunktionen oder Hardwareschäden führen.
+!!! warning "Wichtig: Pinbelegung prüfen"
+    Die hier gezeigte Pinbelegung folgt dem T568B-Schema.  
+    Falls vorhandene RJ45-Kabel verwendet werden, muss die tatsächliche Belegung vor dem Anschließen durch Nachmessen verifiziert werden.  
+    Eine falsche Zuordnung kann zu Fehlfunktionen oder Hardwareschäden führen.
     
 ### Einstellungen BSC
 Einstellungen -> Wechselrichter & Laderegelung (Inverter) -> Allgemein  
@@ -105,10 +105,10 @@ Belegung CAN Anschluss Solis
 | CAN-H  | Pin 4  | Blau |
 | CAN-GND  | ?  | ? |
 
-    !!! warning "Wichtig: Pinbelegung prüfen"  
-        Die hier gezeigte Pinbelegung folgt dem T568B-Schema.  
-        Falls vorhandene RJ45-Kabel verwendet werden, muss die tatsächliche Belegung vor dem Anschließen durch Nachmessen verifiziert werden.  
-        Eine falsche Zuordnung kann zu Fehlfunktionen oder Hardwareschäden führen.
+!!! warning "Wichtig: Pinbelegung prüfen"
+    Die hier gezeigte Pinbelegung folgt dem T568B-Schema.  
+    Falls vorhandene RJ45-Kabel verwendet werden, muss die tatsächliche Belegung vor dem Anschließen durch Nachmessen verifiziert werden.  
+    Eine falsche Zuordnung kann zu Fehlfunktionen oder Hardwareschäden führen.
         
 #### Einstellungen BSC
 Einstellungen -> Wechselrichter & Laderegelung (Inverter) -> Allgemein  
@@ -134,10 +134,10 @@ Dieser Port wird mit einem handelsüblichen Netzwerkkabel verbunden. Drei einzel
 | CAN-L  | Pin 5  | Blau/Weiß |
 | CAN-GND  | Pin 6  | Grün |
 
-    !!! warning "Wichtig: Pinbelegung prüfen"  
-        Die hier gezeigte Pinbelegung folgt dem T568B-Schema.  
-        Falls vorhandene RJ45-Kabel verwendet werden, muss die tatsächliche Belegung vor dem Anschließen durch Nachmessen verifiziert werden.  
-        Eine falsche Zuordnung kann zu Fehlfunktionen oder Hardwareschäden führen.
+!!! warning "Wichtig: Pinbelegung prüfen"
+    Die hier gezeigte Pinbelegung folgt dem T568B-Schema.  
+    Falls vorhandene RJ45-Kabel verwendet werden, muss die tatsächliche Belegung vor dem Anschließen durch Nachmessen verifiziert werden.  
+    Eine falsche Zuordnung kann zu Fehlfunktionen oder Hardwareschäden führen.
 
 ![](../img/devices/devices_inverter_deye_sun_12k_sg04lp3-eu.png){ width="450" }
 
