@@ -314,6 +314,7 @@ Für eine werkzeugfreie und sichere Montage ohne Löten und Verdrahtungsfehler e
 Das Kit enthält zwei Adapterplatinen und ein Flachbandkabel für die zuverlässige Verbindung zwischen Mainboard und Display.
 
 **Vorteile:**
+
 - Kein händisches Löten erforderlich
 - Werkzeugfreie Montage durch Aufstecken
 - Sichere Kontaktierung ohne Verdrahtungsfehler durch mechanische Kodierung
