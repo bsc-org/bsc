@@ -307,10 +307,27 @@ Das Display ist über unseren Webshop unter <a href="https://bsc-shop.com" targe
 ![](img/hardware/Display_SC01_3_5Zoll.png){ width="1000" }
 
 ### Anschluss an das BSC-Mainboard
-Der Anschluss dessen erfolgt über den Extension-Port "J3":
 
-* Die Datenverbindung über den hier kontaktierbaren I²C-Bus der Pins "SCL/SDA", welche 1:1 anzuschließen sind.
-* Eine 5V Spannungsversorgung für das Display ist auch abgreifbar. Diese muss, zusammen mit GND, mit dem dazu passenden Anschluss Ihres Displays verbunden werden.
+**Empfohlene Methode: Mainboard-Display Connection Kit**
+
+Für eine werkzeugfreie und sichere Montage ohne Löten und Verdrahtungsfehler empfehlen wir das <a href="https://bsc-shop.com/produkt/mainboard-display-connection-kit/" target="_blank">Mainboard-Display Connection Kit</a>.  
+Das Kit enthält zwei Adapterplatinen und ein Flachbandkabel für die zuverlässige Verbindung zwischen Mainboard und Display.
+
+**Vorteile:**
+- Kein händisches Löten erforderlich
+- Werkzeugfreie Montage durch Aufstecken
+- Sichere Kontaktierung ohne Verdrahtungsfehler durch mechanische Kodierung
+- Status-LED zur Funktionskontrolle
+- Kompatibel mit allen Mainboard-Revisionen
+
+---
+
+**Alternative: Manueller Anschluss**
+
+Der Anschluss kann alternativ manuell über den Extension-Port "J3" erfolgen:
+
+* **Datenverbindung:** I²C-Bus über die Pins "SCL/SDA"
+* **Spannungsversorgung:** 5V und GND am Extension-Port können für die Versorgung des Displays genutzt werden
 ![](img/hardware/hw_display_stecker_j3.png){ width="400" }
 ![](img/hardware/hw_display_stecker_j3_2.png){ width="200" }
 
