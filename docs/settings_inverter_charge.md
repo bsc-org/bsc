@@ -502,7 +502,7 @@ Ein erneutes Unterschreiten der Start-Zellspannung führt nicht zum Abbruch des 
 !!! note "Hinweis"
     Der Wechsel zurück in die Absorption-Phase erfolgt durch den definierten [Float Ladespannung SoC-Wert](settings_inverter.md#basisdaten).  
     Bitte beachten Sie, dass ein zu hoch gewählter SoC-Wert unter Umständen das System sofort wieder in die Absorption-Phase zurückführen kann.  
-    Auch ungenaue SoC-Werte der angeschlossenen BMS können diesen Phasenwechsel verfälschen. Für eine präzise SoC-Erfassung empfiehlt sich ein externer Shunt (siehe [hier](externer_shunt.md#)).
+    Auch ungenaue SoC-Werte der angeschlossenen BMS können diesen Phasenwechsel verfälschen. Für eine präzise SoC-Erfassung empfiehlt sich ein externer Shunt (siehe [hier](externer_shunt.md#top)).
 
 ## SoC beim Unterschreiten der Zellspannung
 Die Funktion ermöglicht, beim Unterschreiten einer definierten Zellspannung einen festgelegten Ladezustand (SoC) an den Wechselrichter zu übermitteln.
