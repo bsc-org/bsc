@@ -259,13 +259,15 @@ Die Float Ladespannung gibt die Open-Circuit Voltage (OCV) an, also die Spannung
 Im Wesentlichen entspricht die Float Ladespannung dem Spannungswert, bei dem die Batterie in einem stabilen, ungenutzten Zustand verweilt, ohne zu entladen oder weiter aufgeladen zu werden. Dieser Zustand tritt auf, wenn keine Last auf der Batterie liegt und keine Energie in oder aus der Zelle fließt. 
 
 !!! note "Hinweis"
-    Der Wechsel in die Float-Phase erfolgt nur durch den [Charge-Current Cut-Off](settings_inverter_charge.md#charge-current-cut-off) oder den [Autobalancer](settings_inverter_charge.md#autobalance).  
-    Bitte beachten Sie, dass ein zu hoch gewählter SoC-Wert unter Umständen das System sofort wieder in die Absorption-Phase zurückführen kann.  
-    Auch ungenaue SoC-Werte der angeschlossenen BMS können diesen Phasenwechsel verfälschen. Für eine präzise SoC-Erfassung empfiehlt sich ein externer Shunt (siehe [hier](devices/externer_shunt.md)).
+    Der Wechsel in die Float-Phase erfolgt nur durch den [Charge-Current Cut-Off](settings_inverter_charge.md#charge-current-cut-off) oder den [Autobalancer](settings_inverter_charge.md#autobalance).
 
 **Float Ladespannung SoC**  
 Legt den Ladezustand (State of Charge) fest, bei dessen Unterschreiten von der Float-Ladespannung zurück auf die Absorptionsladespannung gewechselt wird.  
 Diese Funktion sorgt dafür, dass bei sinkendem Ladezustand erneut eine vollständige Ladung initiiert wird.
+
+!!! note "Hinweis"
+    Bitte beachten Sie, dass ein zu hoch gewählter SoC-Wert unter Umständen das System sofort wieder in die Absorption-Phase zurückführen kann.  
+    Auch ungenaue SoC-Werte der angeschlossenen BMS können diesen Phasenwechsel verfälschen. Für eine präzise SoC-Erfassung empfiehlt sich ein externer Shunt (siehe [hier](devices/externer_shunt.md)).
 
 **Max. Ladestrom**  
 Dies ist der **maximale Strom**, der an den Wechselrichter übermittelt wird und den dieser als **Begrenzung für den Ladevorgang** verwendet.  
