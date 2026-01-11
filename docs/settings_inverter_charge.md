@@ -500,9 +500,9 @@ Die Start-Zellspannung ist die Spannung, ab der die Cut-Off-Regelung aktiv wird.
 Ein erneutes Unterschreiten der Start-Zellspannung führt nicht zum Abbruch des Timers. Der Timer wird ausschließlich zurückgesetzt, wenn der Cut-Off-Strom erneut überschritten wird.
 
 !!! note "Hinweis"
-    Der Wechsel zurück in die Absorption-Phase erfolgt durch den definierten [Float Ladespannung SoC](settings_inverter.md#basisdaten)-Wert.  
+    Der Wechsel zurück in die Absorption-Phase erfolgt durch den definierten [Float Ladespannung SoC-Wert](settings_inverter.md#basisdaten).  
     Bitte beachten Sie, dass ein zu hoch gewählter SoC-Wert unter Umständen das System sofort wieder in die Absorption-Phase zurückführen kann.  
-    Auch ungenaue SoC-Werte der angeschlossenen BMS können diesen Phasenwechsel verfälschen. Für eine präzise SoC-Erfassung empfiehlt sich ein externer Shunt (siehe [hier](externer_shunt.md)).
+    Auch ungenaue SoC-Werte der angeschlossenen BMS können diesen Phasenwechsel verfälschen. Für eine präzise SoC-Erfassung empfiehlt sich ein externer Shunt (siehe [hier](externer_shunt.md#)).
 
 ## SoC beim Unterschreiten der Zellspannung
 Die Funktion ermöglicht, beim Unterschreiten einer definierten Zellspannung einen festgelegten Ladezustand (SoC) an den Wechselrichter zu übermitteln.
