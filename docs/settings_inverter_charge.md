@@ -471,7 +471,7 @@ Funktion der fünf verfügbaren States:
 
 ## Charge-Current Cut-Off
 Diese Funktion unterbricht den Ladestrom, wenn er für eine bestimmte Zeitspanne unterhalb einem eingestellten Strom-Wert liegt.  
-Nach diesem Abbruch wird die bisher verwendete Soll-Lade-Spannung von der Absorption-Spannung auf die Float-Spannung gesetzt.  
+Nach diesem Abbruch wird die bisher verwendete Soll-Lade-Spannung von der [Absorption-Spannung](settings_inverter.md#basisdaten) auf die [Float-Spannung](settings_inverter.md#basisdaten) gesetzt.  
 
 <div class="bsc_content"><div class="content bsc_content_left"><form><table>
 <tr class='Ctr'><td class='sep' colspan='3'><b>Charge-Current Cut-Off</b></td></tr>
@@ -498,6 +498,11 @@ Der Cut-Off-Strom ist der Gesamt-Ladestrom, unterhalb dessen die Cut-Off-Zeit be
 **Start-Zellspannung:**  
 Die Start-Zellspannung ist die Spannung, ab der die Cut-Off-Regelung aktiv wird. Sobald diese überschritten wurde und der Cut-Off-Strom unterschritten ist, bleibt der Timer aktiv.  
 Ein erneutes Unterschreiten der Start-Zellspannung führt nicht zum Abbruch des Timers. Der Timer wird ausschließlich zurückgesetzt, wenn der Cut-Off-Strom erneut überschritten wird.
+
+!!! note "Hinweis"
+    Der Wechsel zurück in die Absorption-Phase erfolgt durch den definierten [Float Ladespannung SoC](settings_inverter.md#basisdaten)-Wert.  
+    Bitte beachten Sie, dass ein zu hoch gewählter SoC-Wert unter Umständen das System sofort wieder in die Absorption-Phase zurückführen kann.  
+    Auch ungenaue SoC-Werte der angeschlossenen BMS können diesen Phasenwechsel verfälschen. Für eine präzise SoC-Erfassung empfiehlt sich ein externer Shunt (siehe [hier](externer_shunt.md)).
 
 ## SoC beim Unterschreiten der Zellspannung
 Die Funktion ermöglicht, beim Unterschreiten einer definierten Zellspannung einen festgelegten Ladezustand (SoC) an den Wechselrichter zu übermitteln.
