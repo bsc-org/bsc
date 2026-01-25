@@ -104,6 +104,55 @@ Hinweis: [JP6](../hardware.md#j6-fur-den-regularen-betrieb) muss geschlossen sei
 [Anleitung Firmware Update](../files/SEPLOS_BatteryMonitor_Firmware_updating_Guide.pdf)  
 [FAQ Sammlung](https://akkudoktor.net/t/seplos-bms-faq-sammlung/8843) (Akkudoktor)
 
+#### Typ: V3
+
+##### Übersicht
+
+Das Seplos V3 BMS kommuniziert über RS485 mit dem BSC.  
+Ein direkter 1:1-Anschluss mit Standard RJ45-Kabeln ist **nicht möglich**.
+
+Grund: Abweichende Pinbelegungen zwischen Seplos V3 und BSC.  
+Die Verbindung muss mit einzelnen Adern nach der unten stehenden Pinbelegung erfolgen.
+
+!!! warning "Wichtiger Hinweis zur Pinbelegung"
+    Die GND-Pins im Seplos V3 Datenblatt (Pin 3, 6) sind für RS485-Kommunikation nicht funktional.      
+    Nur **Pin 5** ist der gemeinsame GND für beide RS485-Ports.      
+    Eine fehlerhafte Verkabelung führt zu Kommunikationsausfällen.
+
+##### Pinbelegung Seplos V3
+
+Die RS485-Schnittstelle des Seplos V3 BMS verfügt über zwei Ports.  
+Beide Ports können verwendet werden.
+
+**Korrekte Pinbelegung:**
+
+| Seplos V3 Pin | RS485 |
+|---------------|-------|
+| 1/8 | B |
+| 2/7 | A |
+| 5 | GND |
+
+##### Daisy Chain Limitation
+
+!!! danger "Technische Einschränkung - Kein Daisy Chain möglich"
+    Im Daisy Chain Modus wird das Master-BMS **nicht** vom BSC abgefragt.      
+    Dies ist eine technische Limitation des Seplos V3 Kommunikationsprotokolls.      
+     
+Daisy Chain-Anbindung ist daher **nicht nutzbar**.  
+Jedes Seplos V3 BMS muss einzeln an eine dedizierte serielle Schnittstelle angebunden werden.
+
+##### Verkabelung
+
+Standard RJ45-Kabel funktionieren nicht.  
+Die Verbindung muss mit Einzeladern hergestellt werden.
+
+**Vorgehensweise:**
+
+1. Einzelne Adern vom Seplos V3 RJ45-Port abisolieren
+2. A, B und GND (Pin 5) mit der BSC RS485-Schnittstelle verbinden
+3. Kabel möglichst kurz halten
+4. Verdrillte Leitungen verwenden
+
 ### Sylcin
 
 Anschluss von mehreren Akkus über Serial 2 vom BSC ist möglich. 
