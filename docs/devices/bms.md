@@ -65,18 +65,20 @@ Anbei die Auflösung der Statusmeldungen des NEEY:
 
 ## Anbindungs-Beispiele
 
-### Seplos 10C/10E
+### Seplos
+
+#### Typ: 10C / 10E
 
 Der BSC unterstützt den Anschluss der Gerätetypen 10E und 10C wahlweise als Einzelgerät oder als Mehrfachkonfiguration im DaisyChain-Verfahren. In beiden Betriebsarten erfolgt die Anbindung über einen RJ45-Anschluss.
 
-#### Bedingungen / Tipps für einen MultiPack Daisy-Chain-Verbund:
+##### Bedingungen / Tipps für einen MultiPack Daisy-Chain-Verbund:
 * In der Seplos Software ist die automatische Adressierung deaktiviert (Upload Parameter -> auf der rechten Seite ganz nach unten)
 * Die DIP Switch sind auf RS485 Konfiguration zu schalten
 * Verbinden des BMS mit einem beliebigen Serialport des BSC  
 Hinweis: [JP6](../hardware.md#j6-fur-den-regularen-betrieb) muss geschlossen sein.
 * Falls es zu einem Problem im Verbund mit plötzlich nicht mehr antwortenden Seplos-BMS kommt, kann die Firmware 16.06.04 (oder evtl auch neuere) evtl. Abhilfe schaffen. Bei dem teilweise vorkommenden Problem lassen die BMS keine serielle Verbindung mehr zu, was nur mit einem BMS-Reboot wieder zu beheben ist.
 
-#### Anschlussmöglichkeiten grafisch dargestellt
+##### Anschlussmöglichkeiten grafisch dargestellt
 
 **Bei einer Kontaktierung über den RJ45 Anschluss muss [dieser](../hardware.md#j6-fur-den-regularen-betrieb) Jumper gesetzt werden.**
 
@@ -84,9 +86,9 @@ Hinweis: [JP6](../hardware.md#j6-fur-den-regularen-betrieb) muss geschlossen sei
 
 ![](../img/devices/devices_seplos_config_multi.png)
 
-#### Besonderheiten
+##### Besonderheiten
 
-##### Zuordnung der Temperatursensoren in MQTT
+###### Zuordnung der Temperatursensoren in MQTT
 
 | Datentopic  |Sensorname   |
 | :------------ | :------------ |
@@ -94,11 +96,11 @@ Hinweis: [JP6](../hardware.md#j6-fur-den-regularen-betrieb) muss geschlossen sei
 |4   |Mosfet   |
 |5   |Umgebung   |
 
-##### Errorhandling
+###### Errorhandling
 - Eine BSC-Warning ist im Seplos BMS eine "Warning" oder ein "Alarm"
 - Ein BSC-Alarm ist im Seplos BMS eine "Protection"
 
-#### Weiterführende Informationen
+##### Weiterführende Informationen
 [Anleitung Firmware Update](../files/SEPLOS_BatteryMonitor_Firmware_updating_Guide.pdf)  
 [FAQ Sammlung](https://akkudoktor.net/t/seplos-bms-faq-sammlung/8843) (Akkudoktor)
 
