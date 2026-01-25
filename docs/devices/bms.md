@@ -37,7 +37,7 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | **Seplos** |
 | [Seplos](#typ-10c-10e)| 10C |  | 0 / 0 | 1 / 1 |
 | [Seplos](#typ-10c-10e) | 10E | 16.4 | 0 / 0 | 1 / 1 |
-| Seplos V3    |  |  | ? | ? |
+| [Seplos V3](#typ-v3)    |  |  | ? | - |
 | **DALY Smart BMS** |
 | BMS-*A |  | |  |  |  Single device extension |
 | **Sylcin (z.B. Taico Akku)** |
@@ -116,7 +116,7 @@ Die Verbindung muss mit einzelnen Adern nach der unten stehenden Pinbelegung erf
 
 !!! warning "Wichtiger Hinweis zur Pinbelegung"
     Die GND-Pins im Seplos V3 Datenblatt (Pin 3, 6) sind für RS485-Kommunikation nicht funktional.      
-    Nur **Pin 5** ist der gemeinsame GND für beide RS485-Ports.      
+    Nur **Pin 5** ist der gemeinsame GND bei beiden RS485-Ports.      
     Eine fehlerhafte Verkabelung führt zu Kommunikationsausfällen.
 
 ##### Pinbelegung Seplos V3
@@ -143,7 +143,7 @@ Jedes Seplos V3 BMS muss einzeln an eine dedizierte serielle Schnittstelle angeb
 
 ##### Verkabelung
 
-Standard RJ45-Kabel funktionieren nicht.  
+Standard RJ45-Kabel sind für den Anschluss nicht nutzbar.  
 Die Verbindung muss mit Einzeladern hergestellt werden.
 
 **Vorgehensweise:**
