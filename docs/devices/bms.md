@@ -35,8 +35,8 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | [JK-PB1A16S15P](#jk-inverter) | V15 | V15.17 | 1 / 1 | 1 / 1 |
 | [JK-PB2A16S20P](#jk-inverter) | V15 | V15.17 | 1 / 1 | 1 / 1 |
 | **Seplos** |
-| [Seplos](#seplos-10c10e)| 10C |  | 0 / 0 | 1 / 1 |
-| [Seplos](#seplos-10c10e) | 10E | 16.4 | 0 / 0 | 1 / 1 |
+| [Seplos](#typ-10c-10e)| 10C |  | 0 / 0 | 1 / 1 |
+| [Seplos](#typ-10c-10e) | 10E | 16.4 | 0 / 0 | 1 / 1 |
 | Seplos V3    |  |  | ? | ? |
 | **DALY Smart BMS** |
 | BMS-*A |  | |  |  |  Single device extension |
