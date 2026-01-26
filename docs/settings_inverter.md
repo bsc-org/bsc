@@ -59,11 +59,11 @@ Diese Option kann **nur** in Verbindung mit einer **Victron-Anlage** genutzt wer
 **Nicht** empfohlen für den Einsatz in Verbindung mit einem **CerboGX**, da dies zu Kommunikationsproblemen führen kann.
 
 **Datenquelle**  
-Hier wählst du die **Data-Devices** aus, deren Messwerte als Grundlage für **alle Laderegelungen** dienen. Diese Daten werden vom BSC **aufbereitet** und anschließend an den **Wechselrichter** übermittelt.
+Hier werden die **Data-Devices** ausgewählt, deren Messwerte als Grundlage für **alle Laderegelungen** dienen. Diese Daten werden vom BSC **aufbereitet** und anschließend an den **Wechselrichter** übermittelt.
 
 Wichtig: Je nach **aktiver Laderegelung** müssen die ausgewählten Datenquellen **Zellspannungen liefern** – sonst kann die Regelung nicht korrekt arbeiten.
 
-An dieser Stelle wählst du **nicht** die Datenquellen aus, die **nur** für **Gesamtspannung**, **Gesamtstrom** oder den **SoC** verwendet werden sollen (z. B. ein **Shunt**).
+An dieser Stelle werden **nicht** die Datenquellen ausgewählt, die **nur** für **Gesamtspannung**, **Gesamtstrom** oder den **SoC** verwendet werden sollen (z. B. ein **Shunt**).
 
 Bei der **Standard-Firmware** muss hier **zusätzlich** eine **Master-Datenquelle** festgelegt werden.  
 Von dieser wird die **Batteriespannung** übernommen, die anschließend an den Wechselrichter übermittelt wird.
