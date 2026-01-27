@@ -1,0 +1,31 @@
+{
+  "page": [
+    {
+      "lid": 101,
+      "label": "Onewire sensors",
+      "label_entry": "sensors",
+      "groupsize": 64,
+      "type": 12,
+      "group": [
+        {
+          "name": 52,
+          "lid": 102,
+          "label": "Offset",
+          "unit": "&deg;C",
+          "type": 4,
+          "default": 0,
+          "min": -10,
+          "max": 10,
+          "dt": 7
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 103,
+      "label": "Save"
+    }
+  ]
+}

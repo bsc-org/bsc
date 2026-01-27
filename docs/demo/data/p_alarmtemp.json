@@ -1,0 +1,654 @@
+{
+  "page": [
+    {
+      "lid": 71,
+      "label": "Sensor error alarm",
+      "type": 13
+    },
+    {
+      "name": 109,
+      "lid": 72,
+      "label": "Forward to",
+      "type": 9,
+      "options": [
+        {
+          "v": "0",
+          "lid": 257,
+          "l": "Off"
+        },
+        {
+          "v": "1",
+          "l": "Trigger 1",
+          "d": 7488
+        },
+        {
+          "v": "2",
+          "l": "Trigger 2",
+          "d": 7489
+        },
+        {
+          "v": "3",
+          "l": "Trigger 3",
+          "d": 7490
+        },
+        {
+          "v": "4",
+          "l": "Trigger 4",
+          "d": 7491
+        },
+        {
+          "v": "5",
+          "l": "Trigger 5",
+          "d": 7492
+        },
+        {
+          "v": "6",
+          "l": "Trigger 6",
+          "d": 7493
+        },
+        {
+          "v": "7",
+          "l": "Trigger 7",
+          "d": 7494
+        },
+        {
+          "v": "8",
+          "l": "Trigger 8",
+          "d": 7495
+        },
+        {
+          "v": "9",
+          "l": "Trigger 9",
+          "d": 7496
+        },
+        {
+          "v": "10",
+          "l": "Trigger 10",
+          "d": 7497
+        }
+      ],
+      "default": "0",
+      "dt": 1
+    },
+    {
+      "name": 110,
+      "lid": 73,
+      "label": "Timeout",
+      "unit": "s",
+      "type": 3,
+      "default": "5",
+      "min": 5,
+      "max": 240,
+      "dt": 1
+    },
+    {
+      "lid": 74,
+      "label": "Temperature monitoring",
+      "type": 13,
+      "wiki": "settings_bsc/#temperatur"
+    },
+    {
+      "name": 20,
+      "lid": 75,
+      "label": "Temperature monitoring",
+      "label_entry": "Monitoring",
+      "groupsize": 10,
+      "type": 12,
+      "group": [
+        {
+          "name": 128,
+          "lid": 76,
+          "label": "Source",
+          "help": "Possible values:\\nBMS:0-5\\nOnewire:0-63",
+          "type": 9,
+          "options": [
+            {
+              "v": "1",
+              "lid": 259,
+              "l": "BMS"
+            },
+            {
+              "v": "2",
+              "lid": 260,
+              "l": "Onewire"
+            }
+          ],
+          "default": "1",
+          "dt": 1
+        },
+        {
+          "name": 129,
+          "lid": 77,
+          "label": "BMS to be monitored (only if source BMS)",
+          "type": 14,
+          "options": [
+            {
+              "v": "0",
+              "lid": 239,
+              "l": "Data device 0",
+              "d": 10560
+            },
+            {
+              "v": "1",
+              "lid": 240,
+              "l": "Data device 1",
+              "d": 10561
+            },
+            {
+              "v": "2",
+              "lid": 241,
+              "l": "Data device 2",
+              "d": 10562
+            },
+            {
+              "v": "3",
+              "lid": 242,
+              "l": "Data device 3",
+              "d": 10563
+            },
+            {
+              "v": "4",
+              "lid": 243,
+              "l": "Data device 4",
+              "d": 10564
+            },
+            {
+              "v": "5",
+              "lid": 244,
+              "l": "Data device 5",
+              "d": 10565
+            },
+            {
+              "v": "6",
+              "lid": 245,
+              "l": "Data device 6",
+              "d": 10566
+            },
+            {
+              "v": "7",
+              "lid": 246,
+              "l": "Data device 7",
+              "d": 10567
+            },
+            {
+              "v": "8",
+              "lid": 247,
+              "l": "Data device 8",
+              "d": 10568
+            },
+            {
+              "v": "9",
+              "lid": 248,
+              "l": "Data device 9",
+              "d": 10569
+            },
+            {
+              "v": "10",
+              "lid": 249,
+              "l": "Data device 10",
+              "d": 10570
+            },
+            {
+              "v": "11",
+              "lid": 250,
+              "l": "Data device 11",
+              "d": 10571
+            },
+            {
+              "v": "12",
+              "lid": 251,
+              "l": "Data device 12",
+              "d": 10572
+            },
+            {
+              "v": "13",
+              "lid": 252,
+              "l": "Data device 13",
+              "d": 10573
+            },
+            {
+              "v": "14",
+              "lid": 253,
+              "l": "Data device 14",
+              "d": 10574
+            },
+            {
+              "v": "15",
+              "lid": 254,
+              "l": "Data device 15",
+              "d": 10575
+            },
+            {
+              "v": "16",
+              "lid": 255,
+              "l": "Data device 16",
+              "d": 10576
+            },
+            {
+              "v": "17",
+              "lid": 256,
+              "l": "Data device 17",
+              "d": 10577
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 21,
+          "lid": 78,
+          "label": "Sensor 0-31",
+          "type": 14,
+          "options": [
+            {
+              "v": 0,
+              "l": "0"
+            },
+            {
+              "v": 1,
+              "l": "1"
+            },
+            {
+              "v": 2,
+              "l": "2"
+            },
+            {
+              "v": 3,
+              "l": "3"
+            },
+            {
+              "v": 4,
+              "l": "4"
+            },
+            {
+              "v": 5,
+              "l": "5"
+            },
+            {
+              "v": 6,
+              "l": "6"
+            },
+            {
+              "v": 7,
+              "l": "7"
+            },
+            {
+              "v": 8,
+              "l": "8"
+            },
+            {
+              "v": 9,
+              "l": "9"
+            },
+            {
+              "v": 10,
+              "l": "10"
+            },
+            {
+              "v": 11,
+              "l": "11"
+            },
+            {
+              "v": 12,
+              "l": "12"
+            },
+            {
+              "v": 13,
+              "l": "13"
+            },
+            {
+              "v": 14,
+              "l": "14"
+            },
+            {
+              "v": 15,
+              "l": "15"
+            },
+            {
+              "v": 16,
+              "l": "16"
+            },
+            {
+              "v": 17,
+              "l": "17"
+            },
+            {
+              "v": 18,
+              "l": "18"
+            },
+            {
+              "v": 19,
+              "l": "19"
+            },
+            {
+              "v": 20,
+              "l": "20"
+            },
+            {
+              "v": 21,
+              "l": "21"
+            },
+            {
+              "v": 22,
+              "l": "22"
+            },
+            {
+              "v": 23,
+              "l": "23"
+            },
+            {
+              "v": 24,
+              "l": "24"
+            },
+            {
+              "v": 25,
+              "l": "25"
+            },
+            {
+              "v": 26,
+              "l": "26"
+            },
+            {
+              "v": 27,
+              "l": "27"
+            },
+            {
+              "v": 28,
+              "l": "28"
+            },
+            {
+              "v": 29,
+              "l": "29"
+            },
+            {
+              "v": 20,
+              "l": "30"
+            },
+            {
+              "v": 21,
+              "l": "31"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 22,
+          "lid": 79,
+          "label": "Sensor 32-63",
+          "type": 14,
+          "options": [
+            {
+              "v": 0,
+              "l": "32"
+            },
+            {
+              "v": 1,
+              "l": "33"
+            },
+            {
+              "v": 2,
+              "l": "34"
+            },
+            {
+              "v": 3,
+              "l": "35"
+            },
+            {
+              "v": 4,
+              "l": "36"
+            },
+            {
+              "v": 5,
+              "l": "37"
+            },
+            {
+              "v": 6,
+              "l": "38"
+            },
+            {
+              "v": 7,
+              "l": "39"
+            },
+            {
+              "v": 8,
+              "l": "40"
+            },
+            {
+              "v": 9,
+              "l": "41"
+            },
+            {
+              "v": 10,
+              "l": "42"
+            },
+            {
+              "v": 11,
+              "l": "43"
+            },
+            {
+              "v": 12,
+              "l": "44"
+            },
+            {
+              "v": 13,
+              "l": "45"
+            },
+            {
+              "v": 14,
+              "l": "46"
+            },
+            {
+              "v": 15,
+              "l": "47"
+            },
+            {
+              "v": 16,
+              "l": "48"
+            },
+            {
+              "v": 17,
+              "l": "49"
+            },
+            {
+              "v": 18,
+              "l": "50"
+            },
+            {
+              "v": 19,
+              "l": "51"
+            },
+            {
+              "v": 20,
+              "l": "52"
+            },
+            {
+              "v": 21,
+              "l": "53"
+            },
+            {
+              "v": 22,
+              "l": "54"
+            },
+            {
+              "v": 23,
+              "l": "55"
+            },
+            {
+              "v": 24,
+              "l": "56"
+            },
+            {
+              "v": 25,
+              "l": "57"
+            },
+            {
+              "v": 26,
+              "l": "58"
+            },
+            {
+              "v": 27,
+              "l": "59"
+            },
+            {
+              "v": 28,
+              "l": "60"
+            },
+            {
+              "v": 29,
+              "l": "61"
+            },
+            {
+              "v": 30,
+              "l": "62"
+            },
+            {
+              "v": 31,
+              "l": "63"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 27,
+          "lid": 80,
+          "label": "Monitoring",
+          "type": 9,
+          "options": [
+            {
+              "v": "0",
+              "lid": 263,
+              "l": "not in use"
+            },
+            {
+              "v": "1",
+              "lid": 269,
+              "l": "Maximum value exceeded"
+            },
+            {
+              "v": "4",
+              "lid": 270,
+              "l": "Minimum value undershot"
+            },
+            {
+              "v": "2",
+              "lid": 271,
+              "l": "Maximum value exceeded (reference)"
+            },
+            {
+              "v": "3",
+              "lid": 272,
+              "l": "Difference value monitoring"
+            }
+          ],
+          "default": "0",
+          "dt": 1,
+          "help": "Maximum value exceeded: Value 1=Maximum Temperature\\nMaximum value exceeded (reference): Value 1=Temperature Offset\\nDifference value monitoring: Value 1=Maximum allowed difference"
+        },
+        {
+          "name": 23,
+          "lid": 81,
+          "label": "Reference sensor",
+          "type": 3,
+          "default": "",
+          "min": 0,
+          "max": 255,
+          "dt": 1
+        },
+        {
+          "name": 24,
+          "lid": 82,
+          "label": "Value 1",
+          "type": 4,
+          "default": "",
+          "min": -20,
+          "max": 100,
+          "dt": 7
+        },
+        {
+          "name": 25,
+          "lid": 83,
+          "label": "Hysteresis",
+          "type": 4,
+          "default": "",
+          "min": -20,
+          "max": 100,
+          "dt": 7
+        },
+        {
+          "name": 26,
+          "lid": 84,
+          "label": "Forward to",
+          "type": 9,
+          "options": [
+            {
+              "v": "0",
+              "lid": 257,
+              "l": "Off"
+            },
+            {
+              "v": "1",
+              "l": "Trigger 1",
+              "d": 7488
+            },
+            {
+              "v": "2",
+              "l": "Trigger 2",
+              "d": 7489
+            },
+            {
+              "v": "3",
+              "l": "Trigger 3",
+              "d": 7490
+            },
+            {
+              "v": "4",
+              "l": "Trigger 4",
+              "d": 7491
+            },
+            {
+              "v": "5",
+              "l": "Trigger 5",
+              "d": 7492
+            },
+            {
+              "v": "6",
+              "l": "Trigger 6",
+              "d": 7493
+            },
+            {
+              "v": "7",
+              "l": "Trigger 7",
+              "d": 7494
+            },
+            {
+              "v": "8",
+              "l": "Trigger 8",
+              "d": 7495
+            },
+            {
+              "v": "9",
+              "l": "Trigger 9",
+              "d": 7496
+            },
+            {
+              "v": "10",
+              "l": "Trigger 10",
+              "d": 7497
+            }
+          ],
+          "default": "0",
+          "dt": 1
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 85,
+      "label": "Save"
+    }
+  ]
+}

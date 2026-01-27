@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang="de"><title>BSC</title><link rel="icon" type="image/svg+xml" href="favicon.svg" sizes="any"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="style.css"><script>
+(function(){
+  const originalFetch = window.fetch;
+  window.fetch = async function(input, init) {
+    const response = await originalFetch(input, init);
+    if (response.redirected && response.url.includes("/login.html")) {
+      window.location.href = response.url;
+      return response;
+    }
+    if (response.status === 401 && response.headers.has("X-Auth-Redirect")) {
+      window.location.href = response.headers.get("X-Auth-Redirect");
+      return response;
+    }
+    return response;
+  };
+})();
+</script><script src="./data/fetch-mock.js"></script>
+<script type="module" src="./app.js"></script><style>
+body {font-family: "Roboto", sans-serif}
+.w3-bar-block .w3-bar-item {
+  padding: 10px;
+}
+</style><body><nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card w3-theme-l5" id="mySidebar"><a class="w3-bar-item w3-button" href="#">Dashboard</a><a class="w3-bar-item w3-button" href="#/battdata">Livedata</a><a class="w3-bar-item w3-button" href="#/triggerview">Trigger overview</a><div class="w3-bar-item w3-text-dark-grey w3-border-top" style="padding:5px 10px 5px 10px; font-weight:bold;">Settings</div><a class="w3-bar-item w3-button" href="#/settings/p_system">System</a><a class="w3-bar-item w3-button" href="#/settings/p_trigger">Trigger</a><div><a class="w3-bar-item w3-button" onclick="myAccordion('interfaces')" href="javascript:void(0)">Interfaces<span class="w3-right">&#9002</span></a><div id="interfaces" class="w3-hide w3-theme-l4 dropMenu"><a class="w3-bar-item w3-button" href="#/settings/p_serial">Serial</a><a class="w3-bar-item w3-button" href="#/settings/p_di">Digital inputs</a><a class="w3-bar-item w3-button" href="#/settings/p_do">Relay</a><a class="w3-bar-item w3-button" href="#/settings/p_owadr">Onewire sensors</a><a class="w3-bar-item w3-button" href="#/settings/p_ow">Onewire offset</a><a class="w3-bar-item w3-button" href="#/settings/p_datadevice">Data Devices</a></div></div><div><a class="w3-bar-item w3-button" onclick="myAccordion('inverter')" href="javascript:void(0)">Inverter<span class="w3-right">&#9002</span></a><div id="inverter" class="w3-hide w3-theme-l4 dropMenu"><a class="w3-bar-item w3-button" href="#/settings/p_inverter">General</a><a class="w3-bar-item w3-button" href="#/settings/p_invertercharge">Charge</a><a class="w3-bar-item w3-button" href="#/settings/p_inverterdischarge">Discharge</a></div></div><div><a class="w3-bar-item w3-button" onclick="myAccordion('alarms')" href="javascript:void(0)">Alarmrules<span class="w3-right">&#9002</span></a><div id="alarms" class="w3-hide w3-theme-l4 dropMenu"><a class="w3-bar-item w3-button" href="#/settings/p_alarmbms">BMS</a><a class="w3-bar-item w3-button" href="#/settings/p_pc">Plausibility check</a><a class="w3-bar-item w3-button" href="#/settings/p_alarmtemp">Temperature</a></div></div><div><a class="w3-bar-item w3-button" onclick="myAccordion('devices')" href="javascript:void(0)">Devices<span class="w3-right">&#9002</span></a><div id="devices" class="w3-hide w3-theme-l4 dropMenu"></div></div><div class="w3-bar-item w3-text-dark-grey w3-border-top" style="padding:5px 10px 5px 10px; font-weight:bold;">Miscellaneous</div><div><a class="w3-bar-item w3-button" onclick="myAccordion('system')" href="javascript:void(0)">System<span class="w3-right">&#9002</span></a><div id="system" class="w3-hide w3-theme-l4 dropMenu"><a class="w3-bar-item w3-button" href="#/log">Log</a><a class="w3-bar-item w3-button" href="#/expert">Spezial</a><a class="w3-bar-item w3-button" href="#/settings/export">Export settings</a><a class="w3-bar-item w3-button" href="#/settings/import">Import settings</a><a class="w3-bar-item w3-button" href="#/update">Update</a><a class="w3-bar-item w3-button" href="javascript:reboot()">Reboot</a></div></div><a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="window.open('https://github.com/shining-man/bsc_fw','_blank'); w3_close();">Github</a><a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="window.open('https://bsc-org.github.io/bsc','_blank'); w3_close();">Dokumentation</a><a class="w3-bar-item w3-button" href="/">Logout</a></nav><div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div><div class="w3-main"><header id="myHeader" class="w3-container w3-top w3-theme"><div class="bar-header w3-bar w3-theme w3-hide-small w3-hide-medium"><div class="w3-bar-item w3-theme" style="height:52px; padding:6px 14px; display:flex; align-items:center;"><img width="42" height="42" src="favicon.svg" alt="BSC logo" style="border-radius:8px;object-fit:cover;margin-right:10px"><div style="display:flex;flex-direction:column;line-height:1"><strong style="font-size:16px;color:var(--text-head)">BSC</strong><small style="font-size:12px;color:var(--text-head)">Battery Safety Controller</small></div></div><div id="hostname_s" class="w3-bar-item  w3-large" style="margin-top:5px; color:var(--text-head)"></div><div name="btnLeft"></div><div name="btnRight" class="w3-right" style="margin-top:7px; margin-right: 40px"></div></div><div class="bar-header w3-bar w3-theme w3-hide-large" style="width:100%"><a class="w3-bar-item w3-xlarge" style="margin:-1px" onclick="w3_open()">&#8801;</a><div id="hostname_l" class="w3-bar-item  w3-large" style="margin-top:5px"></div><div id="dropLeft" class="w3-dropdown-hover" style="display:none"><button class="w3-button" style="margin:6px">Dropdown</button><div name="btnLeft" class="w3-dropdown-content w3-bar-block w3-card"></div></div><div id="dropRight" class="w3-dropdown-hover w3-right" style="display:none; margin-right: 40px"><button class="w3-button w3-medium" style="margin:6px">Operation</button><div name="btnRight" class="w3-dropdown-content w3-bar-block w3-card"></div></div></div><div class="theme-toggle-wrapper" aria-hidden="false"><button id="themeToggle" class="theme-toggle-button"
+            type="button"
+            aria-pressed="false"
+            aria-label="Dunkelmodus aktivieren"
+            title="Dunkelmodus"><svg class="icon-sun" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/><g stroke="currentColor"><line x1="12" y1="1.8" x2="12" y2="4.6"/><line x1="12" y1="19.4" x2="12" y2="22.2"/><line x1="1.8" y1="12" x2="4.6" y2="12"/><line x1="19.4" y1="12" x2="22.2" y2="12"/><line x1="4.5" y1="4.5" x2="6.4" y2="6.4"/><line x1="17.6" y1="17.6" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.4" y2="17.6"/><line x1="17.6" y1="6.4" x2="19.5" y2="4.5"/></g></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button></div></header><div id='lc' class="loading-container"><div class="loading-spinner"></div></div><div id="content" class="w3-container"></div><div id="modal" class="w3-modal"><div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width:300px"><header class="w3-container w3-theme"><span onclick="document.getElementById('modal').style.display='none'"
+      class="w3-button w3-display-topright">&times;</span><h2>BSC</h2></header><div id="modalIn" class="w3-container"></div></div></div></div><script>
+var modal = document.getElementById('modal');
+window.onclick = function(event) {
+  if(event.target == modal) modal.style.display = "none";
+}
+
+function reboot() {
+  var check = confirm('Reboot?');
+  if (check == true){window.location.hash = '#/reboot';}
+}
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+  document.body.style.overflow = 'hidden';
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+  document.body.style.overflow = ''; 
+}
+
+function closeAllDropMenus(exceptId = null) {
+  const collection = document.getElementsByClassName("dropMenu");
+  for (let i = 0; i < collection.length; i++) {
+    const menu = collection[i];
+    if (exceptId && menu.id === exceptId) continue;
+    menu.className = menu.className.replace(" w3-show", "").replace("w3-show", "");
+    const trigger = menu.previousElementSibling;
+    if (trigger) {
+      trigger.className = trigger.className.replace(" w3-theme-l3", "");
+    }
+  }
+}
+
+function myAccordion(id) {
+  closeAllDropMenus(id);
+  var x = document.getElementById(id);
+  if (!x) return;
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-theme-l3";
+  } else {
+    x.className = x.className.replace("w3-show", "");
+    x.previousElementSibling.className =
+    x.previousElementSibling.className.replace(" w3-theme-l3", "");
+  }
+}
+
+(function initSidebarCloseHandler(){
+  const sidebar = document.getElementById("mySidebar");
+  if (!sidebar) return;
+  sidebar.addEventListener("click", function(evt) {
+    const link = evt.target.closest("a.w3-bar-item.w3-button");
+    if (!link || !sidebar.contains(link)) return;
+    const insideDropMenu = !!link.closest(".dropMenu");
+    const togglesDropMenu = link.nextElementSibling && link.nextElementSibling.classList && link.nextElementSibling.classList.contains("dropMenu");
+    if (!insideDropMenu && !togglesDropMenu) {
+      closeAllDropMenus();
+    }
+  });
+})();
+
+/* Einfacher Darkmode-Toggle: schaltet die .dark-Klasse auf <html> und speichert die Wahl */
+(function(){
+  const key = 'site-theme'; // localStorage key
+  const root = document.documentElement;
+
+  // initial: aus localStorage laden (falls gesetzt)
+  const saved = localStorage.getItem(key);
+  if (saved === 'dark') root.classList.add('dark');
+  else if (saved === 'light') root.classList.remove('dark');
+  // (keine automatische System-Erkennung, wie gewünscht)
+
+  // toggle-Funktion (kann von Buttons aufgerufen werden)
+  window.toggleDarkMode = function(force) {
+    const shouldDark = typeof force === 'boolean' ? force : !root.classList.contains('dark');
+    root.classList.toggle('dark', shouldDark);
+    localStorage.setItem(key, shouldDark ? 'dark' : 'light');
+    return shouldDark;
+  };
+})();
+
+
+(function(){
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+
+  function setBtnState(isDark) {
+    btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    btn.setAttribute('aria-label', isDark ? 'Wechsel zu hellem Modus' : 'Wechsel zu dunklem Modus');
+    btn.title = isDark ? 'Hellmodus' : 'Dunkelmodus';
+  }
+
+  // Initial setzen (falls Seite bereits dark class gesetzt wurde)
+  setBtnState(document.documentElement.classList.contains('dark'));
+
+  btn.addEventListener('click', function(){
+    let newState;
+    try {
+      // deine vorhandene Funktion verwenden (liefert boolean)
+      newState = window.toggleDarkMode();
+    } catch (e) {
+      // fallback
+      newState = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('site-theme', newState ? 'dark' : 'light');
+    }
+    setBtnState(newState);
+    // Andere listeners benachrichtigen (falls nötig)
+    window.dispatchEvent(new CustomEvent('bsc:theme-changed', { detail: { dark: newState } }));
+  });
+
+  // Reagiere auf externe Änderungen (andere Tabs / Skripte)
+  window.addEventListener('storage', function(e){
+    if (e.key === 'site-theme') {
+      const isDark = e.newValue === 'dark';
+      setBtnState(isDark);
+    }
+  });
+
+  // Optional: falls andere Skripte das CustomEvent feuern
+  window.addEventListener('bsc:theme-changed', function(ev){
+    if (!ev.detail) return;
+    setBtnState(ev.detail.dark);
+  });
+})();
+
+
+
+
+function viewMulticheckAktivLabel(name) {
+  if (!name) return;
+
+  var html = "";
+  var fs = document.getElementsByName(name)[0];
+  if (fs) {
+    var inputs = fs.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < inputs.length; i++) {
+      var inp = inputs[i];
+      if (inp.checked) {
+        var parentLabel = inp.closest('label');
+        var text = "";
+        if (parentLabel) {
+          // Erwartete Struktur: <label><input><span>LabelText <span name="eLabel..."></span></span></label>
+          var textSpan = parentLabel.querySelector('span');
+          if (textSpan && textSpan.firstChild && textSpan.firstChild.nodeValue) {
+            text = textSpan.firstChild.nodeValue.trim();
+          } else {
+            text = parentLabel.textContent.trim();
+          }
+        }
+        if (text) {
+          // tag markup (nutze Klasse .tag für CSS)
+          html += '<span class="tag">' + text.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span>';
+        }
+      }
+    }
+  }
+
+  // Ziel: label with for="t{name}"
+  var labels = document.getElementsByTagName('label');
+  for (var j = 0; j < labels.length; j++) {
+    if (labels[j].htmlFor === "t" + name) {
+      var toggleLabel = labels[j];
+      var summary = toggleLabel.querySelector('.selected-summary');
+      if (summary) {
+        summary.innerHTML = html; // alle Tags einfügen, sie werden umgebrochen wenn nötig
+      } else {
+        // Fallback: ersetzen komplettes Label-Inhalt (selten)
+        toggleLabel.innerHTML = '<span class="selected-summary">' + html + '</span>';
+      }
+      break;
+    }
+  }
+}
+
+
+function copyStringToClipboard (str) {
+   var el = document.createElement('textarea');
+   el.value = str;
+   el.setAttribute('readonly', '');
+   el.style = {position: 'absolute', left: '-9999px'};
+   document.body.appendChild(el);
+   el.select();
+   document.execCommand('copy');
+   document.body.removeChild(el);
+}
+</script></body></html>

@@ -1,0 +1,44 @@
+{
+  "page": [
+    {
+      "name": 50,
+      "lid": 97,
+      "label": "Onewire enable",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "lid": 98,
+      "label": "OW Addresses",
+      "label_entry": "OW Adr.",
+      "groupsize": 64,
+      "type": 12,
+      "group": [
+        {
+          "name": 51,
+          "lid": 99,
+          "label": "OW Adr.",
+          "type": 0,
+          "pattern": "^([0-9a-f]{1,2}:){7}[0-9a-f]{1,2}$",
+          "default": "",
+          "flash": "1",
+          "dt": 8
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 100,
+      "label": "Save"
+    }
+  ],
+  "timer": [
+    {
+      "type": "text",
+      "interval": 2000
+    }
+  ]
+}

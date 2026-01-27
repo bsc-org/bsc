@@ -1,0 +1,60 @@
+{"system":{"fw_version":"T0.9.8","fw_add":"Insider","hw_version":"0","name":"bsc_s3","time":"2026-01-27 06:27:49","boottime":"2026-01-25 21:11:48","system":0,"mqtt":1,"rssi":43},
+"trigger":{"0":1,"1":0,"2":0,"3":0,"4":0,"5":1,"6":0,"7":0,"8":0,"9":0},
+"inverter":{"current":151.00,"voltage":53.40,"soc":98,"cv_state":1,"setpoint_cv":54.50,"setpoint_cc":100.00,"setpoint_dcc":100.00,"cc_cellVoltage":100.00,"cc_soc":100.00,"cc_cellDrift":100.00,"cc_cutOff":100.00,"cc_packHigh":100.00,"cc_temperature":100.00,"cc_tempProfile":100.00,"cc_zero":100.00,"dcc_cellVoltage":100.00,"dcc_packHigh":100.00,"autobal_state":0,"autobal_nextStart":0},
+"data_device":[{"name":"JK 1","en":1,"valid":1,"maintenance":0,"nr":0,"cells":16,"totalVolt":53.40,"totalCurr":100.00,"soc":98,"maxCellDiff":0,"maxCellVolt":3400,"minCellVolt":3400,"maxCellVoltNr":1,"minCellVoltNr":1,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400],
+"temperature":[30.00,28.00,28.50,29.00,29.50]
+},
+{"name":"JK 2","en":1,"valid":1,"maintenance":0,"nr":1,"cells":16,"totalVolt":53.40,"totalCurr":51.00,"soc":98,"maxCellDiff":0,"maxCellVolt":3400,"minCellVolt":3400,"maxCellVoltNr":1,"minCellVoltNr":1,"balOn":0,"balCurr":0.00,"FetState":3,"bmsErr":0,"cell_voltage":[3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400,3400],
+"temperature":[30.00,28.00,28.50,29.00,29.50]
+},
+{"name":"Seplos 3","en":0,"valid":0,"maintenance":0,"nr":2,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"Offline-Test 1","en":0,"valid":0,"maintenance":0,"nr":3,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"Offline-Test 2","en":0,"valid":0,"maintenance":0,"nr":4,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":5,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":6,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":7,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":8,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":9,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":10,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":11,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":12,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":13,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":14,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":15,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":16,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+},
+{"name":"","en":0,"valid":0,"maintenance":0,"nr":17,"cells":16,"totalVolt":0.00,"totalCurr":0.00,"soc":0,"maxCellDiff":0,"maxCellVolt":0,"minCellVolt":0,"maxCellVoltNr":0,"minCellVoltNr":0,"balOn":0,"balCurr":0.00,"FetState":0,"bmsErr":0,"cell_voltage":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+"temperature":[0.00]
+}
+],
+"temperature":[23.24,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00]
+}

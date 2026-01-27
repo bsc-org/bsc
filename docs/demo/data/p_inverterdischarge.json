@@ -1,0 +1,75 @@
+{
+  "page": [
+    {
+      "lid": 356,
+      "label": "Discharging current per pack too high",
+      "type": 13,
+      "help": "Throttle discharging current if the discharging current of a pack is exceeded",
+      "wiki": "settings_inverter/#ladestrom-pro-pack-zu-gro"
+    },
+    {
+      "name": 219,
+      "lid": 144,
+      "label": "On/Off",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "lid": 185,
+      "label": "Throttling the discharge current depending on the cell voltage",
+      "type": 13,
+      "wiki": "settings_inverter/#entladestrom-zell-spannungsabhangig-drosseln"
+    },
+    {
+      "name": 159,
+      "lid": 186,
+      "label": "On/Off",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "name": 138,
+      "lid": 187,
+      "label": "Start at cell voltage lower than",
+      "help": "As soon as the lowest cell voltage falls below this value, throttling becomes active.",
+      "unit": "mV",
+      "type": 3,
+      "default": "0",
+      "min": 0,
+      "max": 5000,
+      "dt": 3
+    },
+    {
+      "name": 139,
+      "lid": 188,
+      "label": "End cell voltage",
+      "help": "As soon as the lowest cell voltage falls below this value, only the minimum discharge current is discharged.\\nNote: The value must be smaller than the cell starting voltage.",
+      "unit": "mV",
+      "type": 3,
+      "default": "3300",
+      "min": 2500,
+      "max": 5000,
+      "dt": 3
+    },
+    {
+      "name": 140,
+      "lid": 189,
+      "label": "Minimum discharge current",
+      "unit": "A",
+      "type": 3,
+      "default": "1",
+      "min": 0,
+      "max": 200,
+      "dt": 1
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 190,
+      "label": "Save"
+    }
+  ]
+}
