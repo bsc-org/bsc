@@ -1,0 +1,1387 @@
+{
+  "page": [
+    {
+      "lid": 125,
+      "label": "Dynamic charge voltage offset",
+      "type": 13,
+      "help": "With this function, the charging voltage can be dynamically adjusted according to the charging current.\\nThe offset is linearly dependent on the charging current. The smallest charging current of the battery pack is used as the current for the calculation."
+    },
+    {
+      "name": 177,
+      "lid": 144,
+      "label": "On/Off",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "name": 146,
+      "lid": 126,
+      "label": "Current",
+      "unit": "A",
+      "type": 17,
+      "default": "0",
+      "min": 0,
+      "max": 500,
+      "dt": 3,
+      "help": "0=deactivated\\nThe current at which the maximum offset is added."
+    },
+    {
+      "name": 148,
+      "lid": 127,
+      "label": "Min. Offset",
+      "unit": "mV",
+      "type": 3,
+      "default": "0",
+      "min": 0,
+      "max": 5000,
+      "dt": 3
+    },
+    {
+      "name": 147,
+      "lid": 128,
+      "label": "Max. Offset",
+      "unit": "mV",
+      "type": 3,
+      "default": "500",
+      "min": 0,
+      "max": 5000,
+      "dt": 3
+    },
+    {
+      "lid": 143,
+      "label": "Charging current per pack too high",
+      "type": 13,
+      "help": "Throttle charging current if the charging current of a pack is exceeded",
+      "wiki": "settings_inverter/#ladestrom-pro-pack-zu-gro"
+    },
+    {
+      "name": 167,
+      "lid": 144,
+      "label": "On/Off",
+      "type": 9,
+      "options": [
+        {
+          "v": "0",
+          "lid": 257,
+          "l": "Off"
+        },
+        {
+          "v": "1",
+          "lid": 295,
+          "l": "On"
+        },
+        {
+          "v": "2",
+          "l": "C-Rate"
+        }
+      ],
+      "default": 0,
+      "dt": 1
+    },
+    {
+      "lid": 145,
+      "label": "Throttle the charging current depending on the cell voltage",
+      "type": 13,
+      "wiki": "settings_inverter/#ladestrom-zell-spannungsabhangig-drosseln"
+    },
+    {
+      "name": 74,
+      "lid": 146,
+      "label": "On/Off",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "name": 75,
+      "lid": 147,
+      "label": "Start cell voltage",
+      "help": "As soon as the highest cell voltage exceeds this value, throttling becomes active.",
+      "unit": "mV",
+      "type": 3,
+      "default": "3325",
+      "min": 2500,
+      "max": 5000,
+      "dt": 3
+    },
+    {
+      "name": 76,
+      "lid": 148,
+      "label": "Maximum cell voltage",
+      "help": "As soon as the highest cell voltage exceeds this value, charging is only carried out with the minimum charging current.\\nNote: The value must be greater than the cell starting voltage.\\nAttention: When autobalancing is active, this voltage is replaced by the balance cell voltage!",
+      "unit": "mV",
+      "type": 3,
+      "default": "3300",
+      "min": 2500,
+      "max": 5000,
+      "dt": 3
+    },
+    {
+      "name": 205,
+      "lid": 336,
+      "label": "Maximum cell voltage (float)",
+      "help": "0 = disabled: The maximum cell voltage is then also used for float.",
+      "unit": "mV",
+      "type": 3,
+      "default": "0",
+      "min": 0,
+      "max": 5000,
+      "dt": 3
+    },
+    {
+      "name": 78,
+      "lid": 149,
+      "label": "Minimum charging current",
+      "unit": "A",
+      "type": 3,
+      "default": "5",
+      "min": 0,
+      "max": 200,
+      "dt": 1
+    },
+    {
+      "lid": 150,
+      "label": "Reduce charging current in case of cell drift",
+      "type": 13,
+      "wiki": "settings_inverter/#ladestrom-reduzieren-bei-zelldrift"
+    },
+    {
+      "name": 68,
+      "lid": 151,
+      "label": "On/Off",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "name": 71,
+      "lid": 152,
+      "label": "Start cell voltage",
+      "unit": "mV",
+      "type": 3,
+      "default": "3400",
+      "min": 2500,
+      "max": 5000,
+      "dt": 3
+    },
+    {
+      "name": 69,
+      "lid": 153,
+      "label": "Start at cell drift higher than",
+      "unit": "mV",
+      "type": 3,
+      "default": "10",
+      "min": 1,
+      "max": 200,
+      "dt": 1
+    },
+    {
+      "name": 70,
+      "lid": 154,
+      "label": "Reduction per additional mV deviation",
+      "unit": "A",
+      "type": 3,
+      "default": "1",
+      "min": 1,
+      "max": 200,
+      "dt": 1,
+      "help": "The reduction refers to the set maximum current"
+    },
+    {
+      "lid": 155,
+      "label": "Reduce charging current - SoC",
+      "type": 13,
+      "help": "This rule is deactivated as soon as the autobalancer waits for start cell voltage.",
+      "wiki": "settings_inverter/#ladestrom-reduzieren-soc"
+    },
+    {
+      "name": 79,
+      "lid": 156,
+      "label": "On/Off",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "name": 80,
+      "lid": 157,
+      "label": "Start Reduction from SoC",
+      "unit": "%",
+      "type": 3,
+      "default": "98",
+      "min": 1,
+      "max": 99,
+      "dt": 1
+    },
+    {
+      "name": 81,
+      "lid": 158,
+      "label": "Reduce by x A per 1%",
+      "unit": "A",
+      "type": 16,
+      "default": "10",
+      "min": 1,
+      "max": 1000,
+      "dt": 3,
+      "help": "The reduction refers to the set maximum current"
+    },
+    {
+      "name": 155,
+      "lid": 159,
+      "label": "Minimum charging current",
+      "unit": "A",
+      "type": 3,
+      "default": "0",
+      "min": 0,
+      "max": 100,
+      "dt": 1
+    },
+    {
+      "lid": 282,
+      "label": "Reduce charging current - temperature",
+      "type": 13,
+      "help": "The data devices that are selected under \\\"Data source\\\" are used.\\\nFor the control, the appropriate limit value is always applied depending on the direction: from warm to cold the minimum value is used, from cold to warm the maximum value."
+    },
+    {
+      "lid": 286,
+      "label": "Temperature rules",
+      "label_entry": "Rules",
+      "groupsize": 4,
+      "type": 12,
+      "group": [
+        {
+          "name": 178,
+          "lid": 156,
+          "label": "On/Off",
+          "type": 10,
+          "default": "0",
+          "dt": 9
+        },
+        {
+          "name": 180,
+          "lid": 283,
+          "label": "Data device sensors",
+          "type": 14,
+          "options": [
+            {
+              "v": 0,
+              "l": "0"
+            },
+            {
+              "v": 1,
+              "l": "1"
+            },
+            {
+              "v": 2,
+              "l": "2"
+            },
+            {
+              "v": 3,
+              "l": "3"
+            },
+            {
+              "v": 4,
+              "l": "4"
+            },
+            {
+              "v": 5,
+              "l": "5"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 208,
+          "lid": 340,
+          "label": "Onewire sensor 0-31",
+          "type": 14,
+          "options": [
+            {
+              "v": 0,
+              "l": "0"
+            },
+            {
+              "v": 1,
+              "l": "1"
+            },
+            {
+              "v": 2,
+              "l": "2"
+            },
+            {
+              "v": 3,
+              "l": "3"
+            },
+            {
+              "v": 4,
+              "l": "4"
+            },
+            {
+              "v": 5,
+              "l": "5"
+            },
+            {
+              "v": 6,
+              "l": "6"
+            },
+            {
+              "v": 7,
+              "l": "7"
+            },
+            {
+              "v": 8,
+              "l": "8"
+            },
+            {
+              "v": 9,
+              "l": "9"
+            },
+            {
+              "v": 10,
+              "l": "10"
+            },
+            {
+              "v": 11,
+              "l": "11"
+            },
+            {
+              "v": 12,
+              "l": "12"
+            },
+            {
+              "v": 13,
+              "l": "13"
+            },
+            {
+              "v": 14,
+              "l": "14"
+            },
+            {
+              "v": 15,
+              "l": "15"
+            },
+            {
+              "v": 16,
+              "l": "16"
+            },
+            {
+              "v": 17,
+              "l": "17"
+            },
+            {
+              "v": 18,
+              "l": "18"
+            },
+            {
+              "v": 19,
+              "l": "19"
+            },
+            {
+              "v": 20,
+              "l": "20"
+            },
+            {
+              "v": 21,
+              "l": "21"
+            },
+            {
+              "v": 22,
+              "l": "22"
+            },
+            {
+              "v": 23,
+              "l": "23"
+            },
+            {
+              "v": 24,
+              "l": "24"
+            },
+            {
+              "v": 25,
+              "l": "25"
+            },
+            {
+              "v": 26,
+              "l": "26"
+            },
+            {
+              "v": 27,
+              "l": "27"
+            },
+            {
+              "v": 28,
+              "l": "28"
+            },
+            {
+              "v": 29,
+              "l": "29"
+            },
+            {
+              "v": 20,
+              "l": "30"
+            },
+            {
+              "v": 21,
+              "l": "31"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 209,
+          "lid": 341,
+          "label": "Onewire sensor 32-63",
+          "type": 14,
+          "options": [
+            {
+              "v": 0,
+              "l": "32"
+            },
+            {
+              "v": 1,
+              "l": "33"
+            },
+            {
+              "v": 2,
+              "l": "34"
+            },
+            {
+              "v": 3,
+              "l": "35"
+            },
+            {
+              "v": 4,
+              "l": "36"
+            },
+            {
+              "v": 5,
+              "l": "37"
+            },
+            {
+              "v": 6,
+              "l": "38"
+            },
+            {
+              "v": 7,
+              "l": "39"
+            },
+            {
+              "v": 8,
+              "l": "40"
+            },
+            {
+              "v": 9,
+              "l": "41"
+            },
+            {
+              "v": 10,
+              "l": "42"
+            },
+            {
+              "v": 11,
+              "l": "43"
+            },
+            {
+              "v": 12,
+              "l": "44"
+            },
+            {
+              "v": 13,
+              "l": "45"
+            },
+            {
+              "v": 14,
+              "l": "46"
+            },
+            {
+              "v": 15,
+              "l": "47"
+            },
+            {
+              "v": 16,
+              "l": "48"
+            },
+            {
+              "v": 17,
+              "l": "49"
+            },
+            {
+              "v": 18,
+              "l": "50"
+            },
+            {
+              "v": 19,
+              "l": "51"
+            },
+            {
+              "v": 20,
+              "l": "52"
+            },
+            {
+              "v": 21,
+              "l": "53"
+            },
+            {
+              "v": 22,
+              "l": "54"
+            },
+            {
+              "v": 23,
+              "l": "55"
+            },
+            {
+              "v": 24,
+              "l": "56"
+            },
+            {
+              "v": 25,
+              "l": "57"
+            },
+            {
+              "v": 26,
+              "l": "58"
+            },
+            {
+              "v": 27,
+              "l": "59"
+            },
+            {
+              "v": 28,
+              "l": "60"
+            },
+            {
+              "v": 29,
+              "l": "61"
+            },
+            {
+              "v": 30,
+              "l": "62"
+            },
+            {
+              "v": 31,
+              "l": "63"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 181,
+          "lid": 284,
+          "label": "Reduce charging current start",
+          "unit": "\u00b0C",
+          "type": 17,
+          "default": 2000,
+          "min": 1,
+          "max": 100,
+          "dt": 4
+        },
+        {
+          "name": 182,
+          "lid": 285,
+          "label": "Reduce charging current end",
+          "unit": "\u00b0C",
+          "type": 17,
+          "default": 0,
+          "min": 0,
+          "max": 100,
+          "dt": 4
+        }
+      ]
+    },
+    {
+      "lid": 345,
+      "label": "Reduce charging current - temperature profile",
+      "type": 13,
+      "help": "The data devices that are selected under \\\"Data source\\\" are used."
+    },
+    {
+      "name": 210,
+      "lid": 156,
+      "label": "On/Off",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "name": 211,
+      "lid": 283,
+      "label": "Data device sensors",
+      "type": 14,
+      "options": [
+        {
+          "v": 0,
+          "l": "0"
+        },
+        {
+          "v": 1,
+          "l": "1"
+        },
+        {
+          "v": 2,
+          "l": "2"
+        },
+        {
+          "v": 3,
+          "l": "3"
+        },
+        {
+          "v": 4,
+          "l": "4"
+        },
+        {
+          "v": 5,
+          "l": "5"
+        }
+      ],
+      "default": 0,
+      "dt": 5
+    },
+    {
+      "name": 214,
+      "lid": 340,
+      "label": "Onewire sensor 0-31",
+      "type": 14,
+      "options": [
+        {
+          "v": 0,
+          "l": "0"
+        },
+        {
+          "v": 1,
+          "l": "1"
+        },
+        {
+          "v": 2,
+          "l": "2"
+        },
+        {
+          "v": 3,
+          "l": "3"
+        },
+        {
+          "v": 4,
+          "l": "4"
+        },
+        {
+          "v": 5,
+          "l": "5"
+        },
+        {
+          "v": 6,
+          "l": "6"
+        },
+        {
+          "v": 7,
+          "l": "7"
+        },
+        {
+          "v": 8,
+          "l": "8"
+        },
+        {
+          "v": 9,
+          "l": "9"
+        },
+        {
+          "v": 10,
+          "l": "10"
+        },
+        {
+          "v": 11,
+          "l": "11"
+        },
+        {
+          "v": 12,
+          "l": "12"
+        },
+        {
+          "v": 13,
+          "l": "13"
+        },
+        {
+          "v": 14,
+          "l": "14"
+        },
+        {
+          "v": 15,
+          "l": "15"
+        },
+        {
+          "v": 16,
+          "l": "16"
+        },
+        {
+          "v": 17,
+          "l": "17"
+        },
+        {
+          "v": 18,
+          "l": "18"
+        },
+        {
+          "v": 19,
+          "l": "19"
+        },
+        {
+          "v": 20,
+          "l": "20"
+        },
+        {
+          "v": 21,
+          "l": "21"
+        },
+        {
+          "v": 22,
+          "l": "22"
+        },
+        {
+          "v": 23,
+          "l": "23"
+        },
+        {
+          "v": 24,
+          "l": "24"
+        },
+        {
+          "v": 25,
+          "l": "25"
+        },
+        {
+          "v": 26,
+          "l": "26"
+        },
+        {
+          "v": 27,
+          "l": "27"
+        },
+        {
+          "v": 28,
+          "l": "28"
+        },
+        {
+          "v": 29,
+          "l": "29"
+        },
+        {
+          "v": 20,
+          "l": "30"
+        },
+        {
+          "v": 21,
+          "l": "31"
+        }
+      ],
+      "default": 0,
+      "dt": 5
+    },
+    {
+      "name": 215,
+      "lid": 341,
+      "label": "Onewire sensor 32-63",
+      "type": 14,
+      "options": [
+        {
+          "v": 0,
+          "l": "32"
+        },
+        {
+          "v": 1,
+          "l": "33"
+        },
+        {
+          "v": 2,
+          "l": "34"
+        },
+        {
+          "v": 3,
+          "l": "35"
+        },
+        {
+          "v": 4,
+          "l": "36"
+        },
+        {
+          "v": 5,
+          "l": "37"
+        },
+        {
+          "v": 6,
+          "l": "38"
+        },
+        {
+          "v": 7,
+          "l": "39"
+        },
+        {
+          "v": 8,
+          "l": "40"
+        },
+        {
+          "v": 9,
+          "l": "41"
+        },
+        {
+          "v": 10,
+          "l": "42"
+        },
+        {
+          "v": 11,
+          "l": "43"
+        },
+        {
+          "v": 12,
+          "l": "44"
+        },
+        {
+          "v": 13,
+          "l": "45"
+        },
+        {
+          "v": 14,
+          "l": "46"
+        },
+        {
+          "v": 15,
+          "l": "47"
+        },
+        {
+          "v": 16,
+          "l": "48"
+        },
+        {
+          "v": 17,
+          "l": "49"
+        },
+        {
+          "v": 18,
+          "l": "50"
+        },
+        {
+          "v": 19,
+          "l": "51"
+        },
+        {
+          "v": 20,
+          "l": "52"
+        },
+        {
+          "v": 21,
+          "l": "53"
+        },
+        {
+          "v": 22,
+          "l": "54"
+        },
+        {
+          "v": 23,
+          "l": "55"
+        },
+        {
+          "v": 24,
+          "l": "56"
+        },
+        {
+          "v": 25,
+          "l": "57"
+        },
+        {
+          "v": 26,
+          "l": "58"
+        },
+        {
+          "v": 27,
+          "l": "59"
+        },
+        {
+          "v": 28,
+          "l": "60"
+        },
+        {
+          "v": 29,
+          "l": "61"
+        },
+        {
+          "v": 30,
+          "l": "62"
+        },
+        {
+          "v": 31,
+          "l": "63"
+        }
+      ],
+      "default": 0,
+      "dt": 5
+    },
+    {
+      "lid": 344,
+      "label": "Temperature profile",
+      "groupsize": 10,
+      "type": 20,
+      "group": [
+        {
+          "name": 212,
+          "lid": 342,
+          "label": "Temperature",
+          "unit": "\u00b0C",
+          "type": 16,
+          "default": "[0,50,100,150,200,250,450,500,550,600]",
+          "min": 0,
+          "max": 60,
+          "dt": 4
+        },
+        {
+          "name": 213,
+          "lid": 343,
+          "label": "C-Rate",
+          "unit": "C",
+          "type": 17,
+          "default": "[0,10,20,40,60,100,50,25,20,0]",
+          "min": 0,
+          "max": 1,
+          "dt": 1
+        }
+      ]
+    },
+    {
+      "lid": 160,
+      "label": "Dynamic charging voltage limitation (Beta!)",
+      "type": 13,
+      "help": "Once the voltage of a cell and the delta between the lowest and highest cell voltage are set greater than,\\nthe charging voltage is dynamically adjusted to achieve the maximum charging power without the cells drifting further apart."
+    },
+    {
+      "name": 93,
+      "lid": 161,
+      "label": "On/Off",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "name": 94,
+      "lid": 162,
+      "label": "Start cell voltage",
+      "unit": "mV",
+      "type": 3,
+      "default": "3400",
+      "min": 2000,
+      "max": 4000,
+      "dt": 3
+    },
+    {
+      "name": 95,
+      "lid": 163,
+      "label": "Voltage delta min/max",
+      "unit": "mV",
+      "type": 3,
+      "default": "5",
+      "min": 1,
+      "max": 100,
+      "dt": 1
+    },
+    {
+      "lid": 292,
+      "label": "Voltage regulation for current zero control",
+      "type": 13,
+      "help": "The function dynamically regulates the charging voltage to keep the charging current within a defined range. At the same time, a charging current of 0 A is transmitted to the inverter.\\\nThe regulation only takes effect if the autobalancer is not active.",
+      "wiki": "settings_inverter/#spannungsregelung-zur-ladestrombegrenzung"
+    },
+    {
+      "name": 185,
+      "lid": 161,
+      "label": "On/Off",
+      "type": 9,
+      "options": [
+        {
+          "v": "0",
+          "lid": 257,
+          "l": "Off"
+        },
+        {
+          "v": "128",
+          "lid": 295,
+          "l": "On"
+        },
+        {
+          "v": "1",
+          "l": "Trigger 1",
+          "d": 7488
+        },
+        {
+          "v": "2",
+          "l": "Trigger 2",
+          "d": 7489
+        },
+        {
+          "v": "3",
+          "l": "Trigger 3",
+          "d": 7490
+        },
+        {
+          "v": "4",
+          "l": "Trigger 4",
+          "d": 7491
+        },
+        {
+          "v": "5",
+          "l": "Trigger 5",
+          "d": 7492
+        },
+        {
+          "v": "6",
+          "l": "Trigger 6",
+          "d": 7493
+        },
+        {
+          "v": "7",
+          "l": "Trigger 7",
+          "d": 7494
+        },
+        {
+          "v": "8",
+          "l": "Trigger 8",
+          "d": 7495
+        },
+        {
+          "v": "9",
+          "l": "Trigger 9",
+          "d": 7496
+        },
+        {
+          "v": "10",
+          "l": "Trigger 10",
+          "d": 7497
+        }
+      ],
+      "default": 0,
+      "dt": 1
+    },
+    {
+      "name": 186,
+      "lid": 293,
+      "label": "Active from (SoC)",
+      "unit": "%",
+      "type": 3,
+      "default": 80,
+      "min": 1,
+      "max": 100,
+      "dt": 1
+    },
+    {
+      "name": 187,
+      "lid": 294,
+      "label": "Regulation corridor (\u00b1)",
+      "unit": "A",
+      "type": 16,
+      "default": 100,
+      "min": 1,
+      "max": 25,
+      "dt": 1
+    },
+    {
+      "lid": 164,
+      "label": "Autobalance",
+      "type": 13,
+      "wiki": "settings_inverter/#autobalancer"
+    },
+    {
+      "name": 157,
+      "lid": 165,
+      "label": "On/Off",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "name": 188,
+      "lid": 296,
+      "label": "Start autobal. (Trigger)",
+      "type": 9,
+      "options": [
+        {
+          "v": "0",
+          "lid": 257,
+          "l": "Off"
+        },
+        {
+          "v": "1",
+          "l": "Trigger 1",
+          "d": 7488
+        },
+        {
+          "v": "2",
+          "l": "Trigger 2",
+          "d": 7489
+        },
+        {
+          "v": "3",
+          "l": "Trigger 3",
+          "d": 7490
+        },
+        {
+          "v": "4",
+          "l": "Trigger 4",
+          "d": 7491
+        },
+        {
+          "v": "5",
+          "l": "Trigger 5",
+          "d": 7492
+        },
+        {
+          "v": "6",
+          "l": "Trigger 6",
+          "d": 7493
+        },
+        {
+          "v": "7",
+          "l": "Trigger 7",
+          "d": 7494
+        },
+        {
+          "v": "8",
+          "l": "Trigger 8",
+          "d": 7495
+        },
+        {
+          "v": "9",
+          "l": "Trigger 9",
+          "d": 7496
+        },
+        {
+          "v": "10",
+          "l": "Trigger 10",
+          "d": 7497
+        }
+      ],
+      "default": 0,
+      "dt": 1
+    },
+    {
+      "name": 149,
+      "lid": 166,
+      "label": "Balance interval",
+      "help": "Specifies the days after which balancing should be started again.\\nNote: If the autobalancer is active, the charge current cut-off is deactivated during the balance time!\\nThe correct number of cells must be set in the serial settings!",
+      "unit": "T",
+      "type": 3,
+      "default": "5",
+      "min": 1,
+      "max": 30,
+      "dt": 1
+    },
+    {
+      "name": 150,
+      "lid": 167,
+      "label": "Start cell voltage",
+      "help": "Cell voltage to start autobalancing.",
+      "unit": "mV",
+      "type": 3,
+      "default": "3300",
+      "min": 2500,
+      "max": 5000,
+      "dt": 3
+    },
+    {
+      "name": 162,
+      "lid": 168,
+      "label": "Balance minimum time",
+      "help": "The balancing will run for at least that long",
+      "unit": "Min",
+      "type": 3,
+      "default": "0",
+      "min": 0,
+      "max": 600,
+      "dt": 3
+    },
+    {
+      "name": 151,
+      "lid": 169,
+      "label": "Balance charging voltage",
+      "help": "The maximum charging voltage is increased to this voltage during autobalancing.",
+      "unit": "V",
+      "type": 16,
+      "default": "552",
+      "min": 20,
+      "max": 66,
+      "dt": 3
+    },
+    {
+      "name": 154,
+      "lid": 170,
+      "label": "Balance start cell voltage",
+      "unit": "mV",
+      "type": 3,
+      "default": "3450",
+      "min": 2500,
+      "max": 5000,
+      "dt": 3
+    },
+    {
+      "name": 152,
+      "lid": 171,
+      "label": "Target cell voltage difference",
+      "help": "Balancing is finished when the set cell difference is reached.",
+      "unit": "mV",
+      "type": 3,
+      "default": "5",
+      "min": 0,
+      "max": 50,
+      "dt": 1
+    },
+    {
+      "name": 153,
+      "lid": 172,
+      "label": "Timeout",
+      "help": "Maximum balancing time, if target cell voltage difference is not reached.",
+      "unit": "Min",
+      "type": 3,
+      "default": "60",
+      "min": 0,
+      "max": 600,
+      "dt": 3
+    },
+    {
+      "name": 184,
+      "lid": 289,
+      "label": "Advanced options",
+      "type": 14,
+      "options": [
+        {
+          "v": 0,
+          "lid": 290,
+          "l": "Send ballance voltage as soon as start time is reached"
+        },
+        {
+          "v": 1,
+          "lid": 291,
+          "l": "If start cell voltage drops \u2192 Step \\\"Wait for start cell voltage\\\""
+        },
+        {
+          "v": 2,
+          "lid": 297,
+          "l": "CutOff from step \\\"Wait for start cell spg.\\\" deactivate"
+        }
+      ],
+      "default": "0",
+      "dt": 1
+    },
+    {
+      "lid": 173,
+      "label": "Charging current Cut-Off",
+      "type": 13,
+      "help": "If the charging current is below the cut-off current for the set time (cut-off time), the charging current is set to 0 A until the \\\"Float charging voltage SoC\\\" is undercut.",
+      "wiki": "settings_inverter/#charge-current-cut-off"
+    },
+    {
+      "name": 158,
+      "lid": 174,
+      "label": "On/Off",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "name": 82,
+      "lid": 175,
+      "label": "Cut-Off time",
+      "unit": "s",
+      "type": 3,
+      "default": "300",
+      "min": 1,
+      "max": 30000,
+      "dt": 3
+    },
+    {
+      "name": 84,
+      "lid": 176,
+      "label": "Cut-Off current",
+      "unit": "A",
+      "type": 16,
+      "default": "10",
+      "min": 0,
+      "max": 10000,
+      "dt": 3
+    },
+    {
+      "name": 145,
+      "lid": 177,
+      "label": "Start cell voltage",
+      "unit": "mV",
+      "type": 3,
+      "default": "0",
+      "min": 0,
+      "max": 3500,
+      "dt": 3,
+      "help": "The control only becomes active when the cell voltage is reached.\\n0 = Start voltage deactivated"
+    },
+    {
+      "lid": 178,
+      "label": "Set SoC when the cell voltage falls below (wintermode)",
+      "type": 13,
+      "help": "If the cell voltage falls below the set cell voltage for the start of charging, recharging can be initiated by sending any SoC to the inverter.\\nRecharging continues until the cell voltage reaches the stop cell voltage."
+    },
+    {
+      "name": 88,
+      "lid": 179,
+      "label": "On/Off",
+      "type": 10,
+      "default": "0",
+      "dt": 9
+    },
+    {
+      "name": 89,
+      "lid": 180,
+      "label": "Start cell voltage",
+      "unit": "mV",
+      "type": 3,
+      "default": "3000",
+      "min": 2500,
+      "max": 4000,
+      "dt": 3
+    },
+    {
+      "name": 92,
+      "lid": 181,
+      "label": "Stop cell voltage",
+      "unit": "mV",
+      "type": 3,
+      "default": "0",
+      "min": 0,
+      "max": 4000,
+      "dt": 3,
+      "help": "If the cell voltage at the end of charging is 0, then charging continues until the start cell voltage is exceeded again."
+    },
+    {
+      "name": 90,
+      "lid": 182,
+      "label": "SoC to send",
+      "unit": "%",
+      "type": 3,
+      "default": "9",
+      "min": 0,
+      "max": 100,
+      "dt": 1
+    },
+    {
+      "name": 91,
+      "lid": 183,
+      "label": "Lockout time between two reloads",
+      "unit": "s",
+      "type": 3,
+      "default": "600",
+      "min": 0,
+      "max": 3600,
+      "dt": 3
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 184,
+      "label": "Save"
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang='de'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Anmeldung - BSC</title>
+  <link rel='stylesheet' href='style.css'>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 420px;
+      margin: 20px;
+    }
+
+    .login-card {
+      border-top: 4px solid var(--primary);
+    }
+
+    .login-header {
+      text-align: center;
+    }
+
+    .login-header h1 {
+      font-size: 2.0rem;
+      margin-bottom: 8px;
+    }
+
+    .login-header h5 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      background: var(--primary-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      overflow: hidden;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .device-name {
+      color: var(--primary);
+    }
+
+    .slogan {
+      margin-top: 12px;
+      font-size: 1.0rem;
+      color: var(--muted);
+      line-height: 1.6;
+      
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+
+    .slogan-line1 {
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      margin-bottom: 2px;
+    }
+
+    .slogan-line2 {
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+
+    .error-box {
+      border-color: var(--accent-danger);
+      color: var(--accent-danger);
+      display: none;
+      animation: shake 0.4s;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .login-button {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .login-button:hover {
+      background: var(--primary-d1);
+      transform: translateY(-1px);
+    }
+
+    .login-button:active {
+      transform: translateY(0);
+    }
+
+    .login-footer {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid var(--surface-border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .login-theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    /* Input-Felder: ROT entfernen */
+    input:invalid {
+      background-color: transparent !important;
+    }
+
+    .login-card input[type='text'],
+    .login-card input[type='password'] {
+      background: var(--bg) !important;
+      border: 1px solid var(--surface-border) !important;
+      font-size: 1rem;
+    }
+
+    .dark .login-card input[type='text'],
+    .dark .login-card input[type='password'] {
+      background: var(--input-bg) !important;
+      border: 1px solid var(--input-border) !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <div class='login-theme-toggle'>
+    <div class='theme-toggle-wrapper'>
+      <button type='button' class='theme-toggle-button' aria-label='Toggle Dark Mode'>
+        <svg class='icon-sun' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+          <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z' />
+        </svg>
+        <svg class='icon-moon' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+          <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z' />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class='login-container'>
+    <div class='login-card cardDash w3-round-large w3-padding-large'>
+      
+      <!-- Header -->
+      <div class='login-header w3-margin-bottom'>
+        <div class='logo w3-circle'><img src='/favicon.svg' alt='Logo'></div>
+        <h1>Battery Safety Controller</h1>
+        <div class='slogan'>
+          <div class='slogan-line1'>Monitored. Connected. Observable.</div>
+          <div class='slogan-line2'>The smart controller for your energy</div>
+        </div>
+        <h5 class='device-name'></h5>
+      </div>
+
+      <!-- Error Box -->
+      <div id='errorBox' class='error-box w3-panel w3-round w3-margin-bottom'>
+        Incorrect username or password.
+      </div>
+
+      <!-- Form -->
+      <form method='post' action='/auth/login'>
+        
+        <!-- Username -->
+        <div class='w3-margin-bottom'>
+          <label for='username' class='form-label'>
+            Username
+          </label>
+          <input id='username' name='username' type='text' 
+                 class='w3-input w3-round w3-border' 
+                 autocomplete='username' required autofocus>
+        </div>
+
+        <!-- Password -->
+        <div class='w3-margin-bottom'>
+          <label for='password' class='form-label'>
+            Password
+          </label>
+          <input id='password' name='password' type='password' 
+                 class='w3-input w3-round w3-border' 
+                 autocomplete='current-password' required>
+        </div>
+
+        <input id='redirectField' type='hidden' name='redirect'>
+        
+        <!-- Submit Button -->
+        <button type='submit' class='login-button w3-button w3-round w3-margin-top'>
+          Login
+        </button>
+      </form>
+
+      <!-- Footer -->
+      <!-- <div class='login-footer w3-margin-top'>
+        <span class='device-name'></span>
+      </div> -->
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const redirect = params.get('redirect') || '/';
+      const deviceName = params.get('device') || '';
+      const hasError = params.has('error');
+
+      document.getElementById('redirectField').value = redirect;
+      document.querySelectorAll('.device-name').forEach(el => el.textContent = deviceName);
+      
+      if (hasError) {
+        const box = document.getElementById('errorBox');
+        if (box) box.style.display = 'block';
+      }
+
+      // Dark Mode Toggle
+      const toggleBtn = document.querySelector('.theme-toggle-button');
+      const htmlEl = document.documentElement;
+      const savedTheme = localStorage.getItem('site-theme');
+      
+      if (savedTheme === 'dark') htmlEl.classList.add('dark');
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+          htmlEl.classList.toggle('dark');
+          localStorage.setItem('site-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
