@@ -30,10 +30,12 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | **JK Smart-BMS** |
 | JK-B2A20S20P | V11.XW | 11.25H | - |  |  Single device extension |
 | JK-B2A24S20P | V10.XW | V10.09 | - |  |  Single device extension |
+| JK-B2A8S20P | V19 | V19.07 | - |  |   |
 | **JK Inverter-BMS** |
 | [JK-PB1A16S15P](#jk-inverter) | V14 | V14.20 | 1 / 1 | 1 / 1 |
 | [JK-PB1A16S15P](#jk-inverter) | V15 | V15.17 | 1 / 1 | 1 / 1 |
 | [JK-PB2A16S20P](#jk-inverter) | V15 | V15.17 | 1 / 1 | 1 / 1 |
+| [JK-PB2A16S20P](#jk-inverter) | V19 | V19.10 | 1 / 1 | 1 / 1 |
 | **Seplos** |
 | [V2](#typ-10c-10e)| 10C |  | 0 / 0 | 1 / 1 |
 | [V2](#typ-10c-10e) | 10E | 16.4 | 0 / 0 | 1 / 1 |
