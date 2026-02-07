@@ -22,7 +22,7 @@ Hier können alle Änderungen über den "Save"-Button in der Headline gespeicher
 
 ## Dashboard
 !!! note "Hinweis"
-    Das hier gezeigte Dashboard ist nur in der [Insider Version](insider.md) verfügbar
+    Das hier gezeigte Dashboard ist nur in der [Supporter Version](supporter.md) verfügbar
 
 ### Übersicht
 Das Dashboard des **Battery Safety Controller (BSC)** bietet einen schnellen Überblick über das gesamte System.  

@@ -2,7 +2,7 @@
 date: 2025-04-06
 authors: [shiningman]
 categories:
-  - Release Notes (Insider)
+  - Release Notes (Supporter)
 ---
 
 [img_dashboard]: release_v0-8-0_de/dashboard.png

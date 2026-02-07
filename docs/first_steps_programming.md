@@ -66,12 +66,12 @@ Das weiter oben beschriebene Gesamt-Flash-Prozedere bleibt hierbei unverändert.
 Für die **Erstinbetriebnahme** des LILYGO T-CONNECT Boards muss die Firmware manuell geflasht werden. Es stehen zwei Firmware-Versionen zur Verfügung:
 
 - **Standard-Version**
-- **Sponsoren-Version (Insider)**
+- **Supporter-Version**
 
 Die benötigten Dateien sind auf GitHub in den entsprechenden Repositories unter den Releases zu finden:
 
 - [Standard-Firmware](https://github.com/shining-man/bsc_fw/releases)
-- [Insider-Firmware](https://github.com/bsc-org/bsc_fw_insider/releases)
+- [Supporter-Firmware](https://github.com/bsc-org/bsc_fw_insider/releases)
 
 ### Schritt 1: Firmware herunterladen
 Laden Sie die Datei `firmware_tconnect_**full**_xx_xx.bin` herunter.  

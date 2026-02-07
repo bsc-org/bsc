@@ -48,12 +48,12 @@ Eine Bezugsquelle ist beispielsweise:
 **Hinweise zur Funktionalität**  
 Da das T-CONNECT Board **keine integrierten Relais, Digitaleingänge oder eine redundante Spannungsversorgung** besitzt, kommt es im Vergleich zur originalen BSC-Hardware zu funktionalen Einschränkungen.  
 
-Mit der **Insider-Firmware** lassen sich diese Einschränkungen jedoch teilweise kompensieren:
+Mit der **Supporter-Firmware** lassen sich diese Einschränkungen jedoch teilweise kompensieren:
 
 - Die Signale für **Relaisausgänge**, **Digitaleingänge** sowie **I²C-Kommunikation** werden auf den **Pin-Header** herausgeführt. Die Belegung des Pin-Headers ist [hier](hardware.md/#belegung-des-pin-headers) zu finden.
 - Darüber können externe Module oder Relais direkt angesteuert werden.
-- Zusätzlich ermöglicht die Insider-Version den Anschluss des **Displays** über den Header.
+- Zusätzlich ermöglicht die Supporter-Version den Anschluss des **Displays** über den Header.
 
-Damit bietet die Insider-Firmware eine flexible Erweiterungsmöglichkeit, um das T-CONNECT Board näher an den Funktionsumfang der originalen BSC-Hardware heranzuführen.
+Damit bietet die Supporter-Firmware eine flexible Erweiterungsmöglichkeit, um das T-CONNECT Board näher an den Funktionsumfang der originalen BSC-Hardware heranzuführen.
 
 Weitere Informationen zur Hardware des Lilygo T-CONNECT finden Sie [hier](#lilygo-t-connect).

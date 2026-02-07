@@ -360,7 +360,7 @@ Dieses Autobalance-Feature bietet eine automatisierte Lösung, um die Akkuzellen
 
 Im Folgenden werden die wichtigsten Einstellungen und Abläufe beschrieben:
 
-**Autobal. starten (Trigger)** *(Diese Option steht nur Insidern zur Verfügung)*  
+**Autobal. starten (Trigger)** *(Diese Option steht nur Supportern zur Verfügung)*  
 Der hier konfigurierte Trigger ermöglicht es, den Autobalancer unmittelbar zu starten, wenn er sich aktuell in der Wartezeit bis zum nächsten Intervall befindet. Zu beachten ist, dass der Trigger nach dem Starten des Autobalancers manuell wieder auf „Low“ gesetzt werden muss.
 
 **Balance-Intervall**   

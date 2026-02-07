@@ -1,6 +1,6 @@
 # Einstellungen für den Betrieb des BSC
 Dieses Kapitel gibt einen Überblick über die erforderlichen Einstellungen für den Betrieb des BSC.  
-Abweichungen können je nach Firmware-Version auftreten. Insbesondere beim Wechselrichter unterscheiden sich die Einstellungen zwischen der **Standard-Version** und der **Insider-Version** für Sponsoren.  
+Abweichungen können je nach Firmware-Version auftreten. Insbesondere beim Wechselrichter unterscheiden sich die Einstellungen zwischen der **Standard-Version** und der **Supporter-Version** für Sponsoren.  
 
 ## 1. Grundeinstellungen
 Die Grundeinstellungen werden im Menü **System** vorgenommen.  
@@ -13,11 +13,11 @@ Hierzu zählen insbesondere:
 `Einstellungen → System` 
 
 - **Standard-Firmware:** Über die Kachel *Einstellungen*.  
-- **Insider-Version:** Über den Menübutton (drei horizontale Striche) in der *System*-Kachel.  
+- **Supporter-Version:** Über den Menübutton (drei horizontale Striche) in der *System*-Kachel.  
 
 Weitere Informationen:  
 
-- [Beschreibung des Dashboards (Insider-Version)](https://bsc-org.github.io/bsc/dashboard/#dashboard)  
+- [Beschreibung des Dashboards (Supporter-Version)](https://bsc-org.github.io/bsc/dashboard/#dashboard)  
 - [Details zu den Systemeinstellungen](https://bsc-org.github.io/bsc/settings_bsc/#system)  
 
 ## 2. BMS-Einstellungen im BSC
@@ -137,7 +137,7 @@ Folgende Parameter müssen für die Grundkommunikation konfiguriert werden:
   Die Aufbereitung kann beispielsweise die Aggregation mehrerer Datenquellen oder die Anwendung von definierten Laderegelungen umfassen. 
 
     !!! note "Hinweis"  
-        In der **Standard-Firmware** muss zusätzlich eine *Master-Datenquelle* definiert werden, von der beispielsweise die Batteriespannung übernommen wird. In der **Insider-Firmware** kann unter *Valuehandling* detailliert festgelegt werden, welcher Wert von welchem Data-Device verwendet wird.  
+        In der **Standard-Firmware** muss zusätzlich eine *Master-Datenquelle* definiert werden, von der beispielsweise die Batteriespannung übernommen wird. In der **Supporter-Firmware** kann unter *Valuehandling* detailliert festgelegt werden, welcher Wert von welchem Data-Device verwendet wird.  
 
 - **Kategorie Valuehandling:**  
   Festlegung, von welchen Data-Devices welche Werte übernommen und wie diese aggregiert werden.  
