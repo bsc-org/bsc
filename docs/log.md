@@ -53,7 +53,7 @@ Gibt den Typ des Logeintrags an:
 
 Die aktuell aktiven Fehler (SET) können über die REST-API abgefragt werden. Zusätzlich werden sie im Dashboard im Bereich „Active Errors“ übersichtlich dargestellt.
 
-> Hinweis: Der Status ist nur in der [Insider Version](insider.md) verfügbar  
+> Hinweis: Der Status ist nur in der [Supporter Version](supporter.md) verfügbar  
 
 **B – Schweregrad**  
 Kennzeichnet die Einstufung des Logeintrags:  

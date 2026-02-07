@@ -267,7 +267,7 @@ Pin 4: GND
 |  CAN RX/TX     | Rot - blinken  | Versenden einer CAN Nachricht         |
 
 #### Belegung des Pin-Headers
-Mit der Standard Firmware Version kann nur Onewire genutzt werden. Alle weiteren Funktionen (Relais, Digitaleingänge, I²C) können nur mit der Insider Version genutzt werden.
+Mit der Standard Firmware Version kann nur Onewire genutzt werden. Alle weiteren Funktionen (Relais, Digitaleingänge, I²C) können nur mit der Supporter Version genutzt werden.
 
 | PIN | GPIO | Funktion         |
 |-----|------|------------------|

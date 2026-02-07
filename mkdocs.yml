@@ -100,11 +100,11 @@ nav:
       - Bestückung Varianten: bestückung_varianten.md
 
   - Ressourcen:
-    - Demo (Sponsor-Version): demo/app.html
-    - Insider: insider.md
+    - Demo (Supporter-Version): demo/app.html
+    - Supporter: supporter.md
     - Issues:
       - Issues: https://github.com/shining-man/bsc_fw/issues
-      - Issues (Nur für Sponsoren): https://github.com/bsc-org/bsc_fw_insider/issues
+      - Issues (Nur für Supporter): https://github.com/bsc-org/bsc_fw_insider/issues
     - Blog:
       - blog/index.md
     - About:
