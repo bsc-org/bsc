@@ -80,7 +80,7 @@ Einstellung **0** = deaktiviert: Es wird dann auch bei Float die maximale Zellsp
 Untergrenze des Ladestroms, auf die bei Erreichen der maximalen Zellspannung reduziert wird.  
   
 !!! warning "Achtung"
-    Bei **aktiviertem Autobalancing** wird die *maximale Zellspannung* automatisch durch die Balance-Zellspannung ersetzt.  
+    Ist der **Autobalancer aktiviert** und erreicht den Zustand Aktiv, wird die *maximale Zellspannung* automatisch durch die Balance-Zellspannung ersetzt.
 
 
 ## Ladestrom reduzieren bei Zelldrift
