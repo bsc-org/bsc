@@ -352,7 +352,7 @@ Dieses Autobalance-Feature bietet eine automatisierte Lösung, um die Akkuzellen
 <div class='collapsible-content'>
 <div class='content-inner'>
 <fieldset style='text-align:left;'>
-<input type='checkbox' name='4294979072' value='0' >Ballance-Spg. senden, sobald Startzeitpunkt erreicht<br>
+<input type='checkbox' name='4294979072' value='0' >Balance-Spg. senden, sobald Startzeitpunkt erreicht<br>
 <input type='checkbox' name='4294979072' value='1' >Bei Start-Zellspg.-Unterschreitung → Step 'Warte auf Start-Zellspg.'<br>
 <input type='checkbox' name='4294979072' value='2' >CutOff ab Step 'Warte auf Start-Zellspg.' deaktivieren<br>
 </fieldset></div></div></td><td class='t1'></td></tr>
