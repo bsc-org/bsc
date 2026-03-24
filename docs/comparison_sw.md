@@ -9,7 +9,7 @@ The sponsored version offers you the latest features, advanced control functions
 | **Extended Dashbaord** [:material-information:](dashboard.md/#ubersicht) <br> Advanced dashboard with rich insights like live charging control data and data-device information |  | :material-check: |
 | **Web Interface Dark Mode** |  | :material-check: |
 | **Standart Webapplikation** <br> A simple but functional web app for the system configuration | :material-check: |  |
-| **Standart Dashbaord** <br> A lightweight dashboard showing the most important key metrics | :material-check: |  |
+| **Standart Dashboard** <br> A lightweight dashboard showing the most important key metrics | :material-check: |  |
 | **Login screen with Autologout** |  | :material-check: |
 | **Basic Web Authentication** | :material-check: |  |
 | **<br>:material-alpha-b-box: General** |
