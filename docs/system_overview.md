@@ -1,5 +1,5 @@
 ## Systemüberblick
-Der BSC ist ein frei konfigurierbarer Controller, welcher eine Schnittstelle zwischen den verschiedenen Komponenten eines DIY Batteriesystems realisiert. Er kann eine Vielzahl an Kontroll- und Überwachungsaufgaben übernehmen, unter anderem die zentrale Ladesteuerung des Speichersystems oder die Realisierung einer zweiten Sicherheitsebene neben des BMS.
+Der BSC ist ein frei konfigurierbarer Controller, welcher eine Schnittstelle zwischen den verschiedenen Komponenten eines DIY Batteriesystems realisiert. Er kann eine Vielzahl an Kontroll- und Überwachungsaufgaben übernehmen, unter anderem die zentrale Ladesteuerung des Speichersystems.
 
 ```mermaid
 %%{init: {
