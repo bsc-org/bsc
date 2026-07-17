@@ -1,13 +1,112 @@
 ## Hardwarevoraussetzungen
 Um sämtliche Funktionen der Firmware nutzen zu können, wird die zum BSC-System gehörige Hardware benötigt. Eine detaillierte Beschreibung dieser Hardware, einschließlich des [Stromlaufplans](https://github.com/shining-man/bsc_hw/blob/main/circuit.pdf?raw=true), finden Sie in einem separaten [GitHub-Repository](https://github.com/shining-man/bsc_hw).
 
-Wir empfehlen ausdrücklich die Verwendung der originalen BSC-Hardware. Diese wurde umfassend getestet und bietet galvanisch getrennte Anschlüsse, wodurch ein stabilerer Betrieb gewährleistet wird.  
+Wir empfehlen aktuell die Verwendung des **Lilygo T-CONNECT**. Das ursprüngliche BSC-Mainboard ist nicht mehr regulär verfügbar und wird daher nicht mehr als empfohlene Beschaffungsoption geführt.  
 
 Genauere Infos bezüglich der Hardware-Beschaffung haben wir für Sie [hier](first_steps.md/#beschaffung-der-hardware) zusammen gestellt.  
 <br><br>
 Für erste Tests kann alternativ ein ESP32-Dev-Kit verwenden. Beachten Sie jedoch, dass einige Funktionen eingeschränkt oder nicht getestet sind. Weitere Informationen finden Sie unter folgendem [Link](BSC_ohne_orig_hardware.md).
 
+
+## Lilygo T-CONNECT
+![T-CONNECT](img/hardware/t-connect_connectors.jpg){ width="550" }
+
+#### Steckerbelegung
+**Serial 0-2 (RS485)**  
+Pin 1: ---  
+Pin 2: B  
+Pin 3: A  
+Pin 4: GND  
+
+**CAN**   
+Pin 1: ---  
+Pin 2: H  
+Pin 3: L  
+Pin 4: GND  
+
+#### Funktion der LEDs  
+| LED            | Farbe          | Funktion                              |
+|----------------|----------------|---------------------------------------|
+|  System        | Blau           | System bootet                         |
+|  System        | Grün - blinken | System ist fehlerfrei                 |
+|  System        | Rot - blinken  | Einer der System-Task antwortet nicht |
+|  Serial RX/TX  | Rot - blinken  | Kommunikation mit einem BMS           |
+|  CAN RX/TX     | Rot - blinken  | Versenden einer CAN Nachricht         |
+
+#### Belegung des Pin-Headers
+Mit der Standard Firmware Version kann nur Onewire genutzt werden. Alle weiteren Funktionen (Relais, Digitaleingänge, I²C) können nur mit der Supporter Version genutzt werden.
+
+| PIN | GPIO | Funktion         |
+|-----|------|------------------|
+|  1  |      | 5V               |
+|  2  |      | 3.3V             |
+|  3  |      | GND              |
+|  4  |      | GND              |
+|  5  |  46  | ---              |
+|  6  |      | GND              |
+|  7  |  12  | I²C SCL          |
+|  8  |  11  | I²C SDA          |
+|  9  |  14  | SE RX            |
+| 10  |  13  | SE TX            |
+| 11  |  47  | ---              |
+| 12  |  21  | Onewire          |
+| 13  |  45  | ---              |
+| 14  |  48  | ---              |
+| 15  |  36  | Digitaleingang 1 |
+| 16  |  35  | Digitaleingang 2 |
+| 17  |  38  | Digitaleingang 3 |
+| 18  |  37  | Digitaleingang 4 |
+| 19  |  40  | Relais 1         |
+| 20  |  39  | Relais 2         |
+| 21  |  42  | Relais 3         |
+| 22  |  41  | Relais 4         |
+| 23  |   1  | Relais 5         |
+| 24  |   2  | Relais 6         |
+
+
+## BSC Display
+Das Display für den BSC wurde in ein [separates Projekt](https://github.com/shining-man/bsc_display) ausgegliedert in dem auch die Firmware zu finden ist.
+
+### Unterstützes Display
+Die Hardware-Version 3.3 des Displays wurde von uns getestet.  
+Das Display ist über unseren Webshop unter <a href="https://bsc-shop.com" target="_blank">www.BSC-Shop.com</a> erhältlich.  
+  
+![](img/hardware/Display_SC01_3_5Zoll.png){ width="1000" }
+
+### Anschluss an das BSC-Mainboard
+
+**Empfohlene Methode: Mainboard-Display Connection Kit**
+
+Für eine werkzeugfreie und sichere Montage ohne Löten und Verdrahtungsfehler empfehlen wir das <a href="https://bsc-shop.com/produkt/mainboard-display-connection-kit/" target="_blank">Mainboard-Display Connection Kit</a>.  
+Das Kit enthält zwei Adapterplatinen und ein Flachbandkabel für die zuverlässige Verbindung zwischen Mainboard und Display.
+
+**Vorteile:**
+
+- Kein händisches Löten erforderlich
+- Werkzeugfreie Montage durch Aufstecken
+- Sichere Kontaktierung ohne Verdrahtungsfehler durch mechanische Kodierung
+- Status-LED zur Funktionskontrolle
+- Kompatibel mit allen Mainboard-Revisionen
+
+---
+
+**Alternative: Manueller Anschluss**
+
+Der Anschluss kann alternativ manuell über den Extension-Port "J3" erfolgen:
+
+* **Datenverbindung:** I²C-Bus über die Pins "SCL/SDA"
+* **Spannungsversorgung:** 5V und GND am Extension-Port können für die Versorgung des Displays genutzt werden
+![](img/hardware/hw_display_stecker_j3.png){ width="400" }
+![](img/hardware/hw_display_stecker_j3_2.png){ width="200" }
+
+### Pinout des Displays "WT32-SC01"
+![](img/hardware/hw_pinout_display_wt32sc01.png){ width="700" }
+
+
 ## Originales BSC-Mainboard
+!!! note "Hinweis zur Verfügbarkeit"
+    Das ursprüngliche BSC-Mainboard ist nicht mehr regulär verfügbar. Für neue Installationen sollte stattdessen das [Lilygo T-CONNECT](#lilygo-t-connect) genutzt werden.
+
 ### Anschluss-Handling
 Ein Techtalk über die Anschlussmöglichkeiten kann auf [Youtube](https://youtu.be/zwu_jJifkF4?si=2ktcM57JjkR39Dph) angesehen werden.
 
@@ -239,98 +338,3 @@ Die Mittelabgriffe (COM) der Relais können durch setzen der jeweiligen Jumper m
 Diese Relais haben weitere Funktionalitäten, die derzeit nicht mit der Firmware abgebildet sind.  
 Daher müssen die Jumper auf die blau markierten Positionen gesetzt werden.  
 ![](img/hardware/hw_relais_jumper_j14_j16.png){ width="600" }
-
-
-## Lilygo T-CONNECT
-![T-CONNECT](img/hardware/t-connect_connectors.jpg){ width="550" }
-
-#### Steckerbelegung
-**Serial 0-2 (RS485)**  
-Pin 1: ---  
-Pin 2: B  
-Pin 3: A  
-Pin 4: GND  
-
-**CAN**   
-Pin 1: ---  
-Pin 2: H  
-Pin 3: L  
-Pin 4: GND  
-
-#### Funktion der LEDs  
-| LED            | Farbe          | Funktion                              |
-|----------------|----------------|---------------------------------------|
-|  System        | Blau           | System bootet                         |
-|  System        | Grün - blinken | System ist fehlerfrei                 |
-|  System        | Rot - blinken  | Einer der System-Task antwortet nicht |
-|  Serial RX/TX  | Rot - blinken  | Kommunikation mit einem BMS           |
-|  CAN RX/TX     | Rot - blinken  | Versenden einer CAN Nachricht         |
-
-#### Belegung des Pin-Headers
-Mit der Standard Firmware Version kann nur Onewire genutzt werden. Alle weiteren Funktionen (Relais, Digitaleingänge, I²C) können nur mit der Supporter Version genutzt werden.
-
-| PIN | GPIO | Funktion         |
-|-----|------|------------------|
-|  1  |      | 5V               |
-|  2  |      | 3.3V             |
-|  3  |      | GND              |
-|  4  |      | GND              |
-|  5  |  46  | ---              |
-|  6  |      | GND              |
-|  7  |  12  | I²C SCL          |
-|  8  |  11  | I²C SDA          |
-|  9  |  14  | SE RX            |
-| 10  |  13  | SE TX            |
-| 11  |  47  | ---              |
-| 12  |  21  | Onewire          |
-| 13  |  45  | ---              |
-| 14  |  48  | ---              |
-| 15  |  36  | Digitaleingang 1 |
-| 16  |  35  | Digitaleingang 2 |
-| 17  |  38  | Digitaleingang 3 |
-| 18  |  37  | Digitaleingang 4 |
-| 19  |  40  | Relais 1         |
-| 20  |  39  | Relais 2         |
-| 21  |  42  | Relais 3         |
-| 22  |  41  | Relais 4         |
-| 23  |   1  | Relais 5         |
-| 24  |   2  | Relais 6         |
-
-
-## BSC Display
-Das Display für den BSC wurde in ein [separates Projekt](https://github.com/shining-man/bsc_display) ausgegliedert in dem auch die Firmware zu finden ist.
-
-### Unterstützes Display
-Die Hardware-Version 3.3 des Displays wurde von uns getestet.  
-Das Display ist über unseren Webshop unter <a href="https://bsc-shop.com" target="_blank">www.BSC-Shop.com</a> erhältlich.  
-  
-![](img/hardware/Display_SC01_3_5Zoll.png){ width="1000" }
-
-### Anschluss an das BSC-Mainboard
-
-**Empfohlene Methode: Mainboard-Display Connection Kit**
-
-Für eine werkzeugfreie und sichere Montage ohne Löten und Verdrahtungsfehler empfehlen wir das <a href="https://bsc-shop.com/produkt/mainboard-display-connection-kit/" target="_blank">Mainboard-Display Connection Kit</a>.  
-Das Kit enthält zwei Adapterplatinen und ein Flachbandkabel für die zuverlässige Verbindung zwischen Mainboard und Display.
-
-**Vorteile:**
-
-- Kein händisches Löten erforderlich
-- Werkzeugfreie Montage durch Aufstecken
-- Sichere Kontaktierung ohne Verdrahtungsfehler durch mechanische Kodierung
-- Status-LED zur Funktionskontrolle
-- Kompatibel mit allen Mainboard-Revisionen
-
----
-
-**Alternative: Manueller Anschluss**
-
-Der Anschluss kann alternativ manuell über den Extension-Port "J3" erfolgen:
-
-* **Datenverbindung:** I²C-Bus über die Pins "SCL/SDA"
-* **Spannungsversorgung:** 5V und GND am Extension-Port können für die Versorgung des Displays genutzt werden
-![](img/hardware/hw_display_stecker_j3.png){ width="400" }
-![](img/hardware/hw_display_stecker_j3_2.png){ width="200" }
-
-### Pinout des Displays "WT32-SC01"
-![](img/hardware/hw_pinout_display_wt32sc01.png){ width="700" }

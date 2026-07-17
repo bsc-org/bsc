@@ -22,22 +22,14 @@ Hochrüstungen oder häufige Probleme sind im Kapitel [Troubleshooting](troubles
 
 
 ## Beschaffung der Hardware
-Kompatible Hardware – darunter Gehäuse, Erweiterungen und Zubehör – sind über unseren Webshop unter <a href="https://bsc-shop.com" target="_blank">www.BSC-Shop.com</a> erhältlich.  
+Kompatible Hardware - darunter Gehäuse, Erweiterungen und Zubehör - sind über den Webshop unter <a href="https://bsc-shop.com" target="_blank">www.BSC-Shop.com</a> erhältlich.  
 
-Für den Betrieb des BSC-Systems kann entweder die **originale BSC-Hardware** oder alternativ ein **kompatibles Drittanbieter-Board** verwendet werden.
+Für den Betrieb des BSC-Systems wird aktuell das **LILYGO T-CONNECT Board** empfohlen.  
+Das ursprüngliche BSC-Mainboard wurde speziell für das Projekt entwickelt, ist jedoch nicht mehr regulär verfügbar und wird daher nicht mehr als empfohlene Beschaffungsoption geführt.
 
-### Originales BSC-Mainboard
-Das ursprüngliche BSC-Mainboard wurde speziell für das Projekt entwickelt.  
-
-Aktuell kann es über den [derzeitigen Platinenhersteller](https://de.aliexpress.com/item/1005007096164253.html) bezogen werden.  
-**Die Verfügbarkeit dort war in der Vergangenheit allerdings unbeständig**.
-
-Zukünftige Hardware-Versionen werden direkt über unseren Shop verfügbar sein. Der Selbstbau ist zwar grundsätzlich möglich, jedoch mit höherem Aufwand verbunden.
-
-### Alternative: LILYGO T-CONNECT 
-Als empfohlene Alternative kann das **LILYGO T-CONNECT Board** verwendet werden.  
-Dieses unterstützt die BSC-Firmware, unterscheidet sich jedoch hardwareseitig von der originalen BSC-Hardware.  
-Die RS485- und CAN-Bus-Anschlüsse sind auch hier galvanisch getrennt ausgeführt; die fehlenden Komponenten können durch externe Module teilweise kompensiert werden (siehe unten).
+### Empfohlene Hardware: LILYGO T-CONNECT
+Das **LILYGO T-CONNECT Board** unterstützt die BSC-Firmware und ist die aktuell empfohlene Hardware für den Betrieb des BSC-Systems.  
+Die RS485- und CAN-Bus-Anschlüsse sind galvanisch getrennt ausgeführt; fehlende Komponenten gegenüber dem ursprünglichen BSC-Mainboard können durch externe Module teilweise kompensiert werden (siehe unten).
   
 Eine Bezugsquelle ist beispielsweise:  
 🔗 [LILYGO T-CONNECT auf AliExpress](https://de.aliexpress.com/item/1005007619430455.html)
@@ -54,6 +46,12 @@ Mit der **Supporter-Firmware** lassen sich diese Einschränkungen jedoch teilwei
 - Darüber können externe Module oder Relais direkt angesteuert werden.
 - Zusätzlich ermöglicht die Supporter-Version den Anschluss des **Displays** über den Header.
 
-Damit bietet die Supporter-Firmware eine flexible Erweiterungsmöglichkeit, um das T-CONNECT Board näher an den Funktionsumfang der originalen BSC-Hardware heranzuführen.
+Damit bietet die Supporter-Firmware eine flexible Erweiterungsmöglichkeit, um das T-CONNECT Board bei Bedarf zu erweitern.
 
-Weitere Informationen zur Hardware des Lilygo T-CONNECT finden Sie [hier](#lilygo-t-connect).
+Weitere Informationen zur Hardware des Lilygo T-CONNECT finden Sie [hier](hardware.md/#lilygo-t-connect).
+
+### Originales BSC-Mainboard
+Das ursprüngliche BSC-Mainboard wurde speziell für das Projekt entwickelt.  
+
+Es kann über den [derzeitigen Platinenhersteller](https://de.aliexpress.com/item/1005007096164253.html) bezogen werden.  
+**Die Verfügbarkeit dort war in der Vergangenheit allerdings unbeständig**.
