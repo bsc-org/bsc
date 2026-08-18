@@ -57,7 +57,7 @@ Dadurch lässt sich ein sanftes Erreichen der Zielspannung sicherstellen und ein
 <td class='Ctd'><input type='number' min='2500' max='5000' value='3325' name='12884906688'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s4800'></span></td></tr>
 <tr><td colspan='3' class='td0'><div class='help'>Sobald die h&ouml;chste Zellspannung diesen Wert &uuml;bersteigt wird die Drosselung aktiv.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Maximale Zellspannung</b></td>
 <td class='Ctd'><input type='number' min='2500' max='5000' value='3300' name='12884906752'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s4864'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Sobald die h&ouml;chste Zellspannung diesen Wert &uuml;bersteigt wird nur noch mit dem Mindest-Ladestrom geladen.<br>Hinweis: Der Wert muss gr&ouml;ßer sein als die Zell-Startspannung.<br>Achtung: Bei aktivem Autobalancing wird diese Spannung durch die Balance-Zellspannung ersetzt!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Maximale Zellspannung (Float)</b></td>
+<tr><td colspan='3' class='td0'><div class='help'>Sobald die h&ouml;chste Zellspannung diesen Wert &uuml;bersteigt wird nur noch mit dem Mindest-Ladestrom geladen.<br>Hinweis: Der Wert muss gr&ouml;ßer sein als die Zell-Startspannung.<br>Achtung: Bei aktivem Autobalancing wird diese Spannung durch die Maximale Zellspannung des Autobalancers ersetzt!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Maximale Zellspannung (Float)</b></td>
 <td class='Ctd'><input type='number' min='0' max='5000' value='0' name='12884915008'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s13120'></span></td></tr>
 <tr><td colspan='3' class='td0'><div class='help'>0 = deaktiviert: Es wird dann auch bei Float die maximale Zellspannung genommen.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Mindest Ladestrom</b></td>
 <td class='Ctd'><input type='number' min='0' max='200' value='5' name='4294972288'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s4992'></span></td></tr>
@@ -80,7 +80,7 @@ Einstellung **0** = deaktiviert: Es wird dann auch bei Float die maximale Zellsp
 Untergrenze des Ladestroms, auf die bei Erreichen der maximalen Zellspannung reduziert wird.  
   
 !!! warning "Achtung"
-    Ist der **Autobalancer aktiviert** und erreicht den Zustand Aktiv, wird die *maximale Zellspannung* automatisch durch die Balance-Zellspannung ersetzt.
+    Ist der **Autobalancer aktiviert** und erreicht den Zustand Aktiv, wird die maximale Zellspannung automatisch durch die *Maximale Zellspannung* aus dem [Autobalance-Abschnitt](#autobalance) ersetzt.
 
 
 ## Ladestrom reduzieren bei Zelldrift
@@ -312,7 +312,13 @@ Die Diagramme zeigen eine Victron-Anlage mit aktivierter Spannungsregelung. Deut
 
 
 ## Autobalance
-Dieses Autobalance-Feature bietet eine automatisierte Lösung, um die Akkuzellen regelmäßig zu balancieren. Dadurch wird eine gleichmäßige Zellspannung erreicht, was die optimale Leistung und die Lebensdauer des Akkus unterstützt.
+Die Autobalance-Funktion automatisiert das regelmäßige Balancieren der Akkuzellen: Der BSC hebt dazu gezielt die Ladespannung an und bringt die Zellen in den Spannungsbereich, in dem die Balancer des BMS oder externe Balancer die Zellspannungen angleichen können.
+
+!!! note "Wichtiger Hinweis: Der BSC balanciert nicht selbst"
+    Der BSC besitzt **keine eigenen Balancing-Schaltungen** – weder ein Widerstands-Balancing (passiv) noch ein aktives Balancing auf Zellebene.
+    Er hebt lediglich die Ladespannung auf die konfigurierte **Balance-Ladespannung** an, sodass die Zellen den Spannungsbereich erreichen, in dem die im BMS integrierten (passiven) Balancer oder externe aktive Balancer (z. B. Neey) aktiv werden und die Zellspannungen angleichen.
+
+Während des Balancevorgangs setzt der BSC gezielt andere Laderegelungen aus oder koordiniert sie – Einzelheiten dazu finden Sie im Abschnitt [„Zusammenwirken mit anderen Laderegelungen“](#zusammenwirken-mit-anderen-laderegelungen).
 
 === "Version >= V0.10.0"
 
@@ -656,6 +662,16 @@ Dieses Autobalance-Feature bietet eine automatisierte Lösung, um die Akkuzellen
             class n_startBalMinTime colorOrange
             class n_timeout colorRed
         ```
+
+### Zusammenwirken mit anderen Laderegelungen
+
+Während des Balancevorgangs setzt der BSC gezielt seine eigenen Laderegelungs-Funktionen aus oder stellt sie um – genau die Regelungen, die den Ladestrom im oberen Spannungsbereich sonst reduzieren oder abschalten und damit verhindern würden, dass die Zellen den Balance-Bereich überhaupt erreichen:
+
+- Die [SoC-abhängige Ladestrom-Reduzierung](#ladestrom-reduzieren-soc) wird deaktiviert, sobald der Autobalancer auf die Start-Zellspannung wartet. Sie würde den Ladestrom bei hohem SoC drosseln, sodass die Zellen die Balance-Zellspannung unter Umständen nie erreichen.
+- Der [Charge-Current Cut-Off](#charge-current-cut-off) wird ausgesetzt und sein Timer zurückgesetzt – mit der entsprechenden Option bereits im Step *„Warte auf Start-Zellspannung“*, sonst ab dem Step *„Warte auf Zellspannung/Differenz“*. Er würde das Laden nach Erreichen der Ladeschlussspannung vorzeitig beenden.
+- Die [zellspannungsabhängige Ladestrom-Drosselung](#ladestrom-zell-spannungsabhangig-drosseln) läuft weiter, verwendet als End-Zellspannung aber die *Maximale Zellspannung* aus dem Autobalance-Abschnitt (in älteren Versionen die *Balance-Zellspannung*). Der Ladestrom bleibt dadurch hoch, bis die Zellen den Balance-Bereich erreicht haben.
+- Die Zero-Charge-Current-Regelungen – spannungsgeführt in der [Spannungsregelung zur Ladestrombegrenzung](#spannungsregelung-zur-ladestrombegrenzung) sowie stromgeführt – werden übersprungen. Sie würden den Ladestrom auf 0 A zwingen.
+- Die Ladespannung wird auf die *Balance-Ladespannung* angehoben und gehalten, bis die Pack-Spannung 99 % dieses Wertes erreicht hat.
 
 
 ## Charge-Current Cut-Off
