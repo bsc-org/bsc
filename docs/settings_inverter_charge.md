@@ -329,51 +329,12 @@ Während des Balancevorgangs setzt der BSC gezielt andere Laderegelungen aus ode
         * Neue erweiterte Option **Step „Warte auf Lade-Spg.“ überspringen**.
         * Die Option *„Balance-Spg. senden, sobald Startzeitpunkt erreicht“* ist entfallen – das Verhalten ist jetzt Standard.
 
-    <div class="bsc_content"><div class="content bsc_content_left"><form><table>
-    <tr class='Ctr'><td class='sep' colspan='3'><b>Autobalance</b></td></tr>
-    <tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox'  name='38654715712'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s10048'></span></td></tr>
-    <tr class='Ctr'><td class='Ctd'><b>Autobal. starten (Trigger)</b></td>
-    <td class='Ctd'><select name='4294979328'>
-    <option value='0' selected>Aus</option>
-    <option value='1' >Trigger 1 (DI1)</option>
-    <option value='2' >Trigger 2 (DI2)</option>
-    <option value='3' >Trigger 3 (DI3)</option>
-    <option value='4' >Trigger 4 (DI4)</option>
-    <option value='5' >Trigger 5</option>
-    <option value='6' >Trigger 6</option>
-    <option value='7' >Trigger 7</option>
-    <option value='8' >Trigger 8</option>
-    <option value='9' >Trigger 9</option>
-    <option value='10' >Trigger 10</option>
-    </select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s12032'></span></td></tr>
-    <tr class='Ctr'><td class='Ctd'><b>Balance-Intervall</b></td>
-    <td class='Ctd'><input type='number' min='1' max='30' value='5' name='4294976832'></td><td class='t1'>T</td><td class='Ctd'><span class='secVal' id='s9536'></span></td></tr>
-    <tr><td colspan='3' class='td0'><div class='help'>Gibt die Tage an, nach denen wieder das Balancing gestartet werden soll.<br>Hinweis: Wenn der Autobalancer aktiv, dann ist in der Ballance-Zeit der Charge-Current Cut-Off deaktiviert!<br>Es muss die richtige Anzahl der Zellen in den Serial-Settings eingestellt sein!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Start Zellspannung</b></td>
-    <td class='Ctd'><input type='number' min='2500' max='4800' value='3300' name='12884911488'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s9600'></span></td></tr>
-    <tr><td colspan='3' class='td0'><div class='help'>Zellspannung die erreicht sein muss, damit der Vorgang beginnt.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Balance-Ladespannung</b></td>
-    <td class='Ctd'><input type='number' step='0.1' min='20' max='66' value='55.20' name='12884911552' class='fl1'></td><td class='t1'>V</td><td class='Ctd'><span class='secVal' id='s9664'></span></td></tr>
-    <tr><td colspan='3' class='td0'><div class='help'>Die Max. Ladespannung wird während dem Autobalancing auf diese Spannung angehoben.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Maximale Zellspannung</b></td>
-    <td class='Ctd'><input type='number' min='2500' max='4800' value='3450' name='12884911744'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s9856'></span></td></tr>
-    <tr><td colspan='3' class='td0'><div class='help'>Maximale Zellspannung, bis zu der der Ladestrom während des Autobalancing reduziert wird.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Balance Zellspannung</b></td>
-    <td class='Ctd'><input type='number' min='3400' max='4800' value='3500' name='12884923968'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s22080'></span></td></tr>
-    <tr><td colspan='3' class='td0'><div class='help'>Zellspannung, die zusammen mit der Zelldifferenz (Celldif. fertig) erreicht sein muss, damit das Balancing als fertig gilt und der Übergang in Step 'Warte auf Lade-Spg.' erfolgt.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Celldif. fertig</b></td>
-    <td class='Ctd'><input type='number' min='0' max='50' value='5' name='4294977024'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s9728'></span></td></tr>
-    <tr><td colspan='3' class='td0'><div class='help'>Balancing ist fertig, wenn die eingestellte Zelldifferenz erreicht ist.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Nachlaufzeit</b></td>
-    <td class='Ctd'><input type='number' min='0' max='600' value='0' name='12884912256'></td><td class='t1'>Min</td><td class='Ctd'><span class='secVal' id='s10368'></span></td></tr>
-    <tr><td colspan='3' class='td0'><div class='help'>Nachdem die Balance-Ladespannung erreicht ist, läuft das Balancing noch diese Zeit nach.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Timeout</b></td>
-    <td class='Ctd'><input type='number' min='0' max='600' value='60' name='12884911680'></td><td class='t1'>Min</td><td class='Ctd'><span class='secVal' id='s9792'></span></td></tr>
-    <tr><td colspan='3' class='td0'><div class='help'>Ist in dieser Zeit das Balancing nicht fertig, wird der Vorgang abgebrochen.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Erweiterte Optionen</b></td>
-    <td class='Ctd'>
-    <input id='t389598301' class='toggle' type='checkbox'>
-    <label for='t389598301' class='lbl-toggle'>Erweiterte Optionen</label>
-    <div class='collapsible-content'>
-    <div class='content-inner'>
-    <fieldset style='text-align:left;'>
-    <input type='checkbox' name='4294979072' value='1' >Bei Start-Zellspg.-Unterschreitung → Step 'Warte auf Start-Zellspg.'<br>
-    <input type='checkbox' name='4294979072' value='2' >CutOff ab Step 'Warte auf Start-Zellspg.' deaktivieren<br>
-    <input type='checkbox' name='4294979072' value='3' >Step 'Warte auf Lade-Spg.' überspringen<br>
-    </fieldset></div></div></td><td class='t1'></td></tr>
-    </table></form></div></div>
+    ```bsc-settings
+    version: v010
+    file: inverterCharge.json
+    profile: off
+    section: UI_SECT_INVERTERCHARGE_AUTOBALANCE
+    ```
 
     Im Folgenden werden die wichtigsten Einstellungen und Abläufe beschrieben:
 

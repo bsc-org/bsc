@@ -1,0 +1,121 @@
+{
+  "page": [
+    {
+      "lid": 31,
+      "label": "Triggername",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 32,
+          "label": "Trigger description",
+          "label_entry": "Trigger",
+          "label_offset": 1,
+          "groupsize": "CNT_ALARMS",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_TRIGGER_NAMES",
+              "lid": 33,
+              "label": "Trigger",
+              "type": "HTML_INPUTTEXT",
+              "default": "",
+              "maxlen": 16,
+              "flash": "1",
+              "dt": "PARAM_DT_ST"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_TRIGGER_TRIGGERNAME"
+    },
+    {
+      "lid": 329,
+      "label": "Trigger Scheduler",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 329,
+          "label": "Trigger Scheduler",
+          "label_entry": "Scheduler ",
+          "groupsize": "NR_OF_TIME_TRIGGER",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_SCHEDULER_TRIGGER",
+              "lid": 33,
+              "label": "Trigger",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "0",
+                  "lid": 257,
+                  "l": "Aus"
+                },
+                {
+                  "$ref": "comboAlarms"
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_SCHEDULER_MONAT",
+              "lid": 330,
+              "label": "Monat",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "month"
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U16"
+            },
+            {
+              "name": "ID_PARAM_SCHEDULER_TAG",
+              "lid": 331,
+              "label": "Wochentag",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "days"
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U16"
+            },
+            {
+              "name": "ID_PARAM_SCHEDULER_VON",
+              "lid": 332,
+              "label": "von",
+              "type": "HTML_INPUTTIME",
+              "dt": "PARAM_DT_ST"
+            },
+            {
+              "name": "ID_PARAM_SCHEDULER_BIS",
+              "lid": 333,
+              "label": "bis",
+              "type": "HTML_INPUTTIME",
+              "dt": "PARAM_DT_ST"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_TRIGGER_TRIGGER_SCHEDULER"
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 196,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_TRIGGER",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_TRIGGER"
+    }
+  }
+}

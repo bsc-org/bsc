@@ -1,0 +1,265 @@
+{
+  "page": [
+    {
+      "lid": 356,
+      "label": "Entladestrom pro Pack zu groß",
+      "type": "HTML_SEPARATION",
+      "help": "Entladestrom drosseln wenn der Entladestrom eines Packs überschritten wird",
+      "wiki": "settings_inverter/#ladestrom-pro-pack-zu-gro",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_ENTLADESTROM_REDUZIEREN_BATTERYPACK",
+          "lid": 144,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERDISCHARGE_ENTLADESTROM_PRO_PACK_ZU_GROSS"
+    },
+    {
+      "lid": 185,
+      "label": "Entladestrom Zell-Spannungsabhängig drosseln",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_inverter/#entladestrom-zell-spannungsabhangig-drosseln",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_ENTLADESTROM_REDUZIEREN_ZELLSPG_EN",
+          "lid": 186,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "enProfile": true,
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_ENTLADESTROM_REDUZIEREN_ZELLSPG_STARTSPG",
+          "lid": 187,
+          "label": "Starten bei Zellspg. kleiner",
+          "help": "Sobald die niedrigste Zellspannung diesen Wert unterschreitet wird die Drosselung aktiv.",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "0",
+          "min": 0,
+          "max": 5000,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_ENTLADESTROM_REDUZIEREN_ZELLSPG_ENDSPG",
+          "lid": 188,
+          "label": "End Zellspannung",
+          "help": "Sobald die niedrigste Zellspannung diesen Wert unterschreitet wird maxmial noch mit dem Mindest-Entladestrom entladen.<br>Hinweis: Der Wert muss kleiner sein als die Zell-Startspannung.",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "3300",
+          "min": 2500,
+          "max": 5000,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_ENTLADESTROM_REDUZIEREN_ZELLSPG_MINDEST_STROM",
+          "lid": 189,
+          "label": "Mindest Entladestrom",
+          "unit": "A",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "1",
+          "min": 0,
+          "max": 200,
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERDISCHARGE_ENTLADESTROM_ZELL_SPANNUNGSABHAENGIG_DROSSELN"
+    },
+    {
+      "lid": 453,
+      "label": "Entladestrom reduzieren - Temperatur",
+      "type": "HTML_SEPARATION",
+      "help": "Es werden die Quellen aus der aktiven Datenquelle verwendet (Data-Devices oder Group Devices).<br>Für die Regelung wird je nach Richtung stets der passende Grenzwert herangezogen: Von warm nach kalt gilt der Minimalwert, von kalt nach warm der Maximalwert.",
+      "items": [
+        {
+          "lid": 457,
+          "label": "Temperaturregeln",
+          "label_entry": "Regel",
+          "groupsize": "INVERTER_DISCHARGE_TEMPERATUR_NR_OF_RULES",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_EIN",
+              "lid": 186,
+              "label": "Ein/Aus",
+              "type": "HTML_INPUTCHECKBOX",
+              "default": "0",
+              "dt": "PARAM_DT_BO"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_SENSORS",
+              "lid": 454,
+              "label": "Data-Device Sensoren",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "tempsensorsBms"
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_TEMP32_SOURCES",
+              "lid": 389,
+              "label": "Erweiterte Sensorquellen",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "batteryPacks"
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_TEMP32_SENSORS",
+              "lid": 390,
+              "label": "Erweiterte Sensoren 0-31",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "tempsensors1"
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_REDUZE_START",
+              "lid": 455,
+              "label": "Reduzieren Start",
+              "unit": "°C",
+              "type": "HTML_INPUTFLOAT_2",
+              "default": 2000,
+              "min": 1,
+              "max": 100,
+              "dt": "PARAM_DT_I16"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_REDUZE_END",
+              "lid": 456,
+              "label": "Reduzieren Ende",
+              "unit": "°C",
+              "type": "HTML_INPUTFLOAT_2",
+              "default": 0,
+              "min": 0,
+              "max": 100,
+              "dt": "PARAM_DT_I16"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERDISCHARGE_ENTLADESTROM_REDUZIEREN_TEMPERATUR"
+    },
+    {
+      "lid": 458,
+      "label": "Entladestrom reduzieren - Temperaturprofil",
+      "type": "HTML_SEPARATION",
+      "help": "Es werden die Quellen aus der aktiven Datenquelle verwendet (Data-Devices oder Group Devices).",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_PROFILE_EIN",
+          "lid": 186,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_PROFILE_SENSORS",
+          "lid": 454,
+          "label": "Data-Device Sensoren",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "tempsensorsBms"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_PROFILE_TEMP32_SOURCES",
+          "lid": 389,
+          "label": "Erweiterte Sensorquellen",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "batteryPacks"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_PROFILE_TEMP32_SENSORS",
+          "lid": 390,
+          "label": "Erweiterte Sensoren 0-31",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "tempsensors1"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "lid": 459,
+          "label": "Temperaturprofil",
+          "groupsize": "INVERTER_DISCHARGE_TEMPERATURPROFILE_NR_OF_POINTS",
+          "type": "HTML_PROFILE",
+          "group": [
+            {
+              "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_PROFILE",
+              "lid": 342,
+              "label": "Temperatur",
+              "unit": "°C",
+              "type": "HTML_INPUTFLOAT_1",
+              "default": [-300,-200,-100,-50,0,50,450,500,550,600],
+              "min": -30,
+              "max": 60,
+              "dt": "PARAM_DT_I16"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_ENTLADESTROM_TEMPERATUR_PROFILE_C_RATE",
+              "lid": 343,
+              "label": "C-Rate",
+              "unit": "C",
+              "type": "HTML_INPUTFLOAT_2",
+              "default": [0,10,20,40,60,100,50,25,20,0],
+              "min": 0,
+              "max": 1,
+              "dt": "PARAM_DT_U8"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERDISCHARGE_ENTLADESTROM_REDUZIEREN_TEMPERATURPROFIL"
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 190,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_INVERTER_DISCHARGE",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_INVERTER_DISCHARGE"
+    }
+  }
+}

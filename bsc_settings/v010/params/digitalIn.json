@@ -1,0 +1,58 @@
+{
+  "page": [
+    {
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 93,
+          "label": "Digitaleing&#228;nge",
+          "label_entry": "Digitaleingang",
+          "groupsize": 4,
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_DI_INVERTIERT",
+              "lid": 94,
+              "label": "Eingang invertieren",
+              "type": "HTML_INPUTCHECKBOX",
+              "default": "0",
+              "dt": "PARAM_DT_BO"
+            },
+            {
+              "name": "ID_PARAM_DI_ALARM_NR",
+              "lid": 95,
+              "label": "Weiterleiten an",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "0",
+                  "lid": 257,
+                  "l": "Aus"
+                },
+                {
+                  "$ref": "comboAlarms"
+                }
+              ],
+              "default": "0",
+              "dt": "PARAM_DT_U8"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 96,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_DIGITAL_IN",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_DIGITAL_IN"
+    }
+  }
+}

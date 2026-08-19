@@ -1,0 +1,217 @@
+{
+  "page": [
+    {
+      "lid": 504,
+      "label": "Fernwartung",
+      "type": "HTML_SEPARATION",
+      "help": "Fernwartung über einen Vermittlungsserver. Der Controller baut die Verbindung selbst nach außen auf – im Router muss kein Port geöffnet werden. Ist die Option deaktiviert, besteht kein Zugang; laufende Sitzungen werden sofort beendet.",
+      "items": [
+        {
+          "name": "ID_PARAM_SVC_ENABLE",
+          "lid": 505,
+          "label": "Fernwartung aktivieren",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": 0,
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_SVC_SERVER",
+          "lid": 506,
+          "label": "Server",
+          "type": "HTML_INPUTTEXT",
+          "pattern": "^[A-Za-z0-9.:-]*$",
+          "dt": "PARAM_DT_ST",
+          "help": "Domain des Vermittlungsservers (ohne https:// und ohne Schrägstrich am Ende).",
+          "visible_when": [
+            { "param": "ID_PARAM_SVC_ENABLE", "op": "==", "value": 1 }
+          ]
+        },
+        {
+          "name": "ID_PARAM_SVC_DEVICE_ID",
+          "lid": 507,
+          "label": "Fernwartungs-ID",
+          "type": "HTML_INPUTTEXT",
+          "dt": "PARAM_DT_ST",
+          "read_only": true,
+          "copy_btn": true,
+          "default": "",
+          "help": "Fernwartungs-ID und Fernwartungspasswort gemeinsam an die unterstützende Person (Support/Servicetechniker) weitergeben.",
+          "visible_when": [
+            { "param": "ID_PARAM_SVC_ENABLE", "op": "==", "value": 1 }
+          ]
+        },
+        {
+          "name": "ID_PARAM_SVC_PASSWORD",
+          "lid": 508,
+          "label": "Fernwartungspasswort",
+          "type": "HTML_INPUTTEXT",
+          "dt": "PARAM_DT_ST",
+          "read_only": true,
+          "copy_btn": true,
+          "default": "",
+          "help": "Dies ist nicht das Passwort der WebApp!",
+          "visible_when": [
+            { "param": "ID_PARAM_SVC_ENABLE", "op": "==", "value": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "lid": 509,
+      "label": "Log-Upload",
+      "type": "HTML_SEPARATION",
+      "help": "Lädt die Logs alle 15 Minuten verschlüsselt auf den Vermittlungsserver. Der Server kann sie nicht lesen – die Entschlüsselung erfolgt ausschließlich im Browser der unterstützenden Person mit dem hier angezeigten Schlüssel.",
+      "items": [
+        {
+          "name": "ID_PARAM_SVC_LOG_ENABLE",
+          "lid": 510,
+          "label": "Logs hochladen",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": 0,
+          "dt": "PARAM_DT_BO",
+          "visible_when": [
+            { "param": "ID_PARAM_SVC_ENABLE", "op": "==", "value": 1 }
+          ]
+        },
+        {
+          "name": "ID_PARAM_SVC_LOGKEY",
+          "lid": 511,
+          "label": "Log-Schlüssel",
+          "type": "HTML_INPUTTEXT",
+          "dt": "PARAM_DT_ST",
+          "read_only": true,
+          "copy_btn": true,
+          "default": "",
+          "help": "Nur mit dem Log-Schlüssel lassen sich hochgeladene Logs entschlüsseln.",
+          "visible_when": [
+            { "param": "ID_PARAM_SVC_LOG_ENABLE", "op": "==", "value": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "lid": 517,
+      "label": "Statusbewertung",
+      "type": "HTML_SEPARATION",
+      "help": "Legt fest, welche Trigger und Systemzustände in der Fernwartung als Warnung, Fehler oder Alarm angezeigt werden.",
+      "items": [
+        {
+          "name": "ID_PARAM_SVC_TRIGGER_WARN",
+          "lid": 518,
+          "label": "Trigger für Warn",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_SVC_STATE_WARN_SOURCES",
+          "lid": 521,
+          "label": "Warn wirkt bei",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "svcStateSources"
+            }
+          ],
+          "default": 2,
+          "dt": "PARAM_DT_U16"
+        },
+
+        {
+          "name": "ID_PARAM_SVC_TRIGGER_ERROR",
+          "lid": 519,
+          "label": "Trigger für Error",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_SVC_STATE_ERROR_SOURCES",
+          "lid": 522,
+          "label": "Error wirkt bei",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "svcStateSources"
+            }
+          ],
+          "default": 5,
+          "dt": "PARAM_DT_U16"
+        },
+
+        {
+          "name": "ID_PARAM_SVC_TRIGGER_ALARM",
+          "lid": 520,
+          "label": "Trigger für Alarm",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_SVC_STATE_ALARM_SOURCES",
+          "lid": 523,
+          "label": "Alarm wirkt bei",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "svcStateSources"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U16"
+        }
+      ]
+    },
+    {
+      "lid": 512,
+      "label": "Verbindungsstatus",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 513,
+          "label": "Status",
+          "type": "HTML_INFOBOX",
+          "ui_info_id": "svc_status",
+          "full_width": true,
+          "ui": {
+            "source": { "url": "/restapi/servicelink/status", "array_path": "rows", "hex_field": "id" },
+            "live_table": {
+              "lid": 514,
+              "title": "Fernwartung Verbindung",
+              "empty_text": "Kein Status verfügbar.",
+              "max_rows": 1,
+              "columns": [
+                { "lid": 515, "key": "status", "label": "Status" },
+                { "lid": 516, "key": "train",  "label": "Anlernen" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "btn": [
+    { "name": "save-btn", "lid": 34, "label": "Save" },
+    { "name": "action-btn", "lid": 501, "label": "Anlernen starten", "action": "svcStartPairing" },
+    { "name": "action-btn", "lid": 502, "label": "Neue Fernwartungs-ID", "action": "svcNewDeviceId" },
+    { "name": "action-btn", "lid": 503, "label": "Neues Passwort", "action": "svcNewPassword" }
+  ],
+  "timer": [
+    { "type": "text", "interval": 3000 }
+  ]
+}

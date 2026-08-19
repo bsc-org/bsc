@@ -1,0 +1,182 @@
+{
+  "page": [
+    {
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 197,
+          "label": "NEEY Active Balancer",
+          "label_entry": "NEEY",
+          "groupsize": "BT_EXT_DEVICES_COUNT",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_NEEY_BALANCER_ON",
+              "lid": 198,
+              "label": "Balancer On",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "0",
+                  "l": "Aus"
+                },
+                {
+                  "v": "110",
+                  "l": "Ein"
+                },
+                {
+                  "$ref": "comboAlarms"
+                }
+              ],
+              "default": "0",
+              "flash": "1",
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_NEEY_CELLS",
+              "lid": 199,
+              "label": "Cells",
+              "type": "HTML_INPUTNUMBER",
+              "default": 16,
+              "min": 4,
+              "max": 24,
+              "flash": "1",
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_NEEY_START_VOLTAGE",
+              "lid": 200,
+              "label": "Differenz Voltage",
+              "type": "HTML_INPUTFLOAT",
+              "default": 0.005,
+              "min": 0,
+              "max": 1,
+              "unit": "V",
+              "step": 0.001,
+              "flash": "1",
+              "dt": "PARAM_DT_FL"
+            },
+            {
+              "name": "ID_PARAM_NEEY_MAX_BALANCE_CURRENT",
+              "lid": 201,
+              "label": "Max. Balance Current",
+              "type": "HTML_INPUTFLOAT",
+              "default": 4.0,
+              "min": 0.1,
+              "max": 10,
+              "unit": "A",
+              "step": "0.01",
+              "flash": "1",
+              "dt": "PARAM_DT_FL"
+            },
+            {
+              "name": "ID_PARAM_NEEY_SLEEP_VOLTAGE",
+              "lid": 202,
+              "label": "Sleep Voltage",
+              "type": "HTML_INPUTFLOAT",
+              "default": 3.3,
+              "min": 1,
+              "max": 5,
+              "unit": "V",
+              "step": "0.001",
+              "flash": "1",
+              "dt": "PARAM_DT_FL"
+            },
+            {
+              "name": "ID_PARAM_NEEY_EQUALIZATION_VOLTAGE",
+              "lid": 203,
+              "label": "Equalization Voltage",
+              "type": "HTML_INPUTFLOAT",
+              "default": 3.31,
+              "min": 1,
+              "max": 5,
+              "unit": "V",
+              "step": "0.001",
+              "flash": "1",
+              "dt": "PARAM_DT_FL"
+            },
+            {
+              "name": "ID_PARAM_NEEY_BAT_CAPACITY",
+              "lid": 204,
+              "label": "Bat. Capacity",
+              "type": "HTML_INPUTNUMBER",
+              "default": 230,
+              "min": 1,
+              "max": 500,
+              "unit": "Ah",
+              "flash": "1",
+              "dt": "PARAM_DT_U16"
+            },
+            {
+              "name": "ID_PARAM_NEEY_BAT_TYPE",
+              "lid": 205,
+              "label": "BatType",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "1",
+                  "l": "NCM"
+                },
+                {
+                  "v": "2",
+                  "l": "LFP"
+                },
+                {
+                  "v": "3",
+                  "l": "LTO"
+                },
+                {
+                  "v": "4",
+                  "l": "PbAc"
+                }
+              ],
+              "default": "2",
+              "flash": "1",
+              "dt": "PARAM_DT_U8"
+            }
+          ],
+          "visible_when": [
+            {
+              "param": "ID_PARAM_SS_BTDEV",
+              "op": "in",
+              "value": [
+                "ID_BT_DEVICE_NEEY_GW_24S4EB",
+                "ID_BT_DEVICE_NEEY_EK_24S4EB"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 206,
+      "label": "Save"
+    },
+    {
+      "lid": 207,
+      "label": "Read from NEEY",
+      "name": "read-btn"
+    },
+    {
+      "lid": 208,
+      "label": "Write to NEEY",
+      "name": "write-btn"
+    }
+  ],
+  "timer": [
+    {
+      "type": "text",
+      "interval": 2000
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_DEVICE_NEEY_BALANCER",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_DEVICE_NEEY_BALANCER"
+    }
+  }
+}

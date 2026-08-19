@@ -1,0 +1,28 @@
+{
+  "caps": {
+    "bms": 1,
+    "balancer": 2,
+    "shunt": 4,
+    "tmp32": 8
+  },
+  "dashboard": {
+    "page1": [
+      { "elem_id": "d_ddCurr", "caps_any": ["bms", "balancer", "shunt"] },
+      { "elem_id": "d_ddVolt", "caps_any": ["bms", "balancer", "shunt"] },
+      { "elem_id": "d_ddSoc", "caps_any": ["bms", "shunt"] },
+      { "elem_id": "d_ddMaxCellVolt", "caps_any": ["bms", "balancer"] },
+      { "elem_id": "d_ddMinCellVolt", "caps_any": ["bms", "balancer"] },
+      { "elem_id": "d_ddDeltaCellVolt", "caps_any": ["bms", "balancer"] },
+      { "elem_id": "d_ddBalState", "caps_any": ["bms", "balancer"] },
+      { "elem_id": "d_ddBalCurr", "caps_any": ["bms", "balancer"] },
+      { "elem_id": "d_ddFet", "caps_any": ["bms"] },
+      { "elem_id": "d_ddError", "caps_any": ["bms", "balancer", "shunt"] },
+      { "elem_id": "d_ddErrorText", "caps_any": ["bms", "balancer", "shunt"] },
+      { "elem_id": "d_ddTemperaturenLabel", "caps_any": ["bms", "balancer", "shunt", "tmp32"] },
+      { "elem_id": "d_ddTemperaturen", "caps_any": ["bms", "balancer", "shunt", "tmp32"] }
+    ],
+    "page2": [
+      { "group": "cell_voltage", "caps_any": ["bms", "balancer"] }
+    ]
+  }
+}

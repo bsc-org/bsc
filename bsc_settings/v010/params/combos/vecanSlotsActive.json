@@ -1,0 +1,98 @@
+[
+  {
+    "v": "0",
+    "l": "Slot 0",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 0, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 0, "op": "==", "value": 0 }
+    ]
+  },
+  {
+    "v": "1",
+    "l": "Slot 1",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 1, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 1, "op": "==", "value": 0 }
+    ]
+  },
+  {
+    "v": "2",
+    "l": "Slot 2",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 2, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 2, "op": "==", "value": 0 }
+    ]
+  },
+  {
+    "v": "3",
+    "l": "Slot 3",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 3, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 3, "op": "==", "value": 0 }
+    ]
+  },
+  {
+    "v": "4",
+    "l": "Slot 4",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 4, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 4, "op": "==", "value": 0 }
+    ]
+  },
+  {
+    "v": "5",
+    "l": "Slot 5",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 5, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 5, "op": "==", "value": 0 }
+    ]
+  },
+  {
+    "v": "6",
+    "l": "Slot 6",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 6, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 6, "op": "==", "value": 0 }
+    ]
+  },
+  {
+    "v": "7",
+    "l": "Slot 7",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 7, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 7, "op": "==", "value": 0 }
+    ]
+  },
+  {
+    "v": "8",
+    "l": "Slot 8",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 8, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 8, "op": "==", "value": 0 }
+    ]
+  },
+  {
+    "v": "9",
+    "l": "Slot 9",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 9, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 9, "op": "==", "value": 0 }
+    ]
+  },
+  {
+    "v": "10",
+    "l": "Slot 10",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 10, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 10, "op": "==", "value": 0 }
+    ]
+  },
+  {
+    "v": "11",
+    "l": "Slot 11",
+    "hidden_when": [
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": 11, "op": "==", "value": 0 },
+      { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": 11, "op": "==", "value": 0 }
+    ]
+  }
+]

@@ -1,0 +1,140 @@
+{
+  "page": [
+    {
+      "lid": 430,
+      "label": "VE.Can device slots",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 431,
+          "label": "VE.Can slots",
+          "label_entry": "Slot",
+          "groupsize": "VECAN_MAX_DEV",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_VECAN_SLOT_NAME_HI",
+              "lid": 432,
+              "label": "VE.Can Device",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                { "v": "0", "l": "Nicht belegt", "lid": 263 }
+              ],
+              "options_source": {
+                "url": "/restapi/vecan/devices/active",
+                "array_path": "devices",
+                "value_field": "name_raw_hex",
+                "label_field": "name_raw_hex"
+              },
+              "value_codec": "u64_hex_hi_lo",
+              "store_params": [
+                { "part": "hi", "name": "ID_PARAM_VECAN_SLOT_NAME_HI" },
+                { "part": "lo", "name": "ID_PARAM_VECAN_SLOT_NAME_LO" }
+              ],
+              "offline": {
+                "keep_last": true,
+                "suffix": "offline"
+              },
+              "default": "0",
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_VECAN_SLOT_NAME_LO",
+              "lid": 433,
+              "label": "VE.Can Name LO",
+              "type": "HTML_INPUTNUMBER",
+              "default": 0,
+              "ui_hidden": true,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "lid": 434,
+              "type": "HTML_INFOBOX",
+              "ui_info_id": "slot_device_info",
+              "ui": {
+                "source": {
+                  "url": "/restapi/vecan/devices/active",
+                  "array_path": "devices",
+                  "hex_field": "name_raw_hex"
+                },
+                "decode_map_ref": "vecanDecodeMap",
+                "selected_record": {
+                  "title": "Geräteinfo",
+                  "title_lid": 397,
+                  "selection": {
+                    "hi_param": "ID_PARAM_VECAN_SLOT_NAME_HI",
+                    "lo_param": "ID_PARAM_VECAN_SLOT_NAME_LO",
+                    "group": "$group_idx"
+                  },
+                  "status_label": "Status",
+                  "status_lid": 404,
+                  "id_label": "Name Raw Hex",
+                  "id_lid": 403,
+                  "online_text": "online",
+                  "offline_text": "offline",
+                  "fields": [
+                    { "key": "manufacturer_code", "label": "Hersteller", "lid": 398, "decode": "manufacturer_code", "show_code": true },
+                    { "key": "identity_number", "label": "Identity", "lid": 399, "show_code": false },
+                    { "key": "function_code", "label": "Funktion", "lid": 400, "decode": "function_code", "show_code": true },
+                    { "key": "industry_group", "label": "Industry Group", "lid": 401, "decode": "industry_group", "show_code": true }
+                  ]
+                }
+              },
+              "hidden_when": [
+                { "param": "ID_PARAM_VECAN_SLOT_NAME_HI", "group": "$group_idx", "op": "==", "value": 0 },
+                { "param": "ID_PARAM_VECAN_SLOT_NAME_LO", "group": "$group_idx", "op": "==", "value": 0 }
+              ]
+            }
+          ]
+        }
+      ],
+      "section_id": 0
+    },
+
+    {
+      "lid": 435,
+      "type": "HTML_INFOBOX",
+      "ui_info_id": "active_devices_table",
+      "full_width": true,
+      "ui": {
+        "source": {
+          "url": "/restapi/vecan/devices/active",
+          "array_path": "devices",
+          "hex_field": "name_raw_hex"
+        },
+        "decode_map_ref": "vecanDecodeMap",
+        "live_table": {
+          "title": "Gefundene VE.Can Geräte",
+          "title_lid": 402,
+          "empty_text": "Keine aktiven VE.Can Geräte gefunden.",
+          "empty_text_lid": 405,
+          "max_rows": 12,
+          "max_height_px": 360,
+          "horizontal_scroll": true,
+          "columns": [
+            { "key": "sa", "label": "SA", "lid": 443 },
+            { "key": "name_raw_hex", "label": "Name Raw Hex", "lid": 403 },
+            { "key": "manufacturer_code", "label": "Hersteller", "lid": 398, "decode": "manufacturer_code", "show_code": true },
+            { "key": "identity_number", "label": "Identity", "lid": 399 },
+            { "key": "function_code", "label": "Funktion", "lid": 400, "decode": "function_code", "show_code": true },
+            { "key": "industry_group", "label": "Industry Group", "lid": 401, "decode": "industry_group", "show_code": true },
+            { "key": "valid", "label": "Status", "lid": 404 }
+          ]
+        }
+      }
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 196,
+      "label": "Save"
+    }
+  ],
+  "timer": [
+    {
+      "type": "text",
+      "interval": 3000
+    }
+  ]
+}

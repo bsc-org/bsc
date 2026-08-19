@@ -1,0 +1,677 @@
+{
+  "page": [
+    {
+      "lid": 374,
+      "label": "Group Devices",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_BATTERY_GROUPS_ENABLE",
+          "lid": 384,
+          "label": "Group Devices aktiv",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": 0,
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "lid": 374,
+          "label": "Group Devices",
+          "label_entry": "Group Device",
+          "groupsize": "BMS_GROUP_DEVICES",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_GROUP_DEVICE_NAME",
+              "lid": 195,
+              "label": "Name",
+              "type": "HTML_INPUTTEXT",
+              "pattern": "^[^#\\+]*$",
+              "default": "",
+              "maxlen": 16,
+              "flash": "1",
+              "dt": "PARAM_DT_ST"
+            },
+            {
+              "name": "ID_PARAM_GROUP_MASTER_DEV",
+              "lid": 375,
+              "label": "Master Device",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "255",
+                  "l": "Nicht belegt",
+                  "lid": 263
+                },
+                {
+                  "$ref": "dataDevicesAll"
+                }
+              ],
+              "default": 255,
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_GROUP_SECOND_SOURCE",
+              "lid": 383,
+              "label": "Second Device",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "255",
+                  "l": "Nicht belegt",
+                  "lid": 263
+                },
+                {
+                  "$ref": "dataDevicesAll"
+                }
+              ],
+              "default": 255,
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "lid": 376,
+              "label": "Spannung",
+              "type": "HTML_ROW",
+              "layout": [
+                8,
+                4
+              ],
+              "items": [
+                {
+                  "name": "ID_PARAM_GROUP_VOLT_SRC_MASK",
+                  "lid": 108,
+                  "label": "Quell-Devices",
+                  "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+                  "options": [
+                    {
+                      "$ref": "dataDevicesAll"
+                    }
+                  ],
+                  "default": 0,
+                  "dt": "PARAM_DT_U32"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_VOLT_AGG_TYPE",
+                  "lid": 377,
+                  "label": "Aggregation",
+                  "type": "HTML_INPUTSELECT",
+                  "options": [
+                    {
+                      "v": "1",
+                      "l": "Mittelwert",
+                      "lid": 265
+                    },
+                    {
+                      "v": "2",
+                      "l": "Maximum",
+                      "lid": 267
+                    },
+                    {
+                      "v": "3",
+                      "l": "Minimum",
+                      "lid": 266
+                    }
+                  ],
+                  "default": 2,
+                  "dt": "PARAM_DT_U8"
+                }
+              ]
+            },
+            {
+              "lid": 381,
+              "label": "Strom",
+              "type": "HTML_ROW",
+              "layout": [
+                8,
+                4
+              ],
+              "items": [
+                {
+                  "name": "ID_PARAM_GROUP_CURR_SRC_MASK",
+                  "lid": 108,
+                  "label": "Quell-Devices",
+                  "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+                  "options": [
+                    {
+                      "$ref": "dataDevicesAll"
+                    }
+                  ],
+                  "default": 0,
+                  "dt": "PARAM_DT_U32"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_CURR_AGG_TYPE",
+                  "lid": 377,
+                  "label": "Aggregation",
+                  "type": "HTML_INPUTSELECT",
+                  "options": [
+                    {
+                      "v": "0",
+                      "l": "Summe",
+                      "lid": 279
+                    },
+                    {
+                      "v": "1",
+                      "l": "Mittelwert",
+                      "lid": 265
+                    },
+                    {
+                      "v": "2",
+                      "l": "Maximum",
+                      "lid": 267
+                    },
+                    {
+                      "v": "3",
+                      "l": "Minimum",
+                      "lid": 266
+                    }
+                  ],
+                  "default": 2,
+                  "dt": "PARAM_DT_U8"
+                }
+              ]
+            },
+            {
+              "lid": 110,
+              "label": "SoC",
+              "type": "HTML_ROW",
+              "layout": [
+                8,
+                4
+              ],
+              "items": [
+                {
+                  "name": "ID_PARAM_GROUP_SOC_SRC_MASK",
+                  "lid": 108,
+                  "label": "Quell-Devices",
+                  "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+                  "options": [
+                    {
+                      "$ref": "dataDevicesAll"
+                    }
+                  ],
+                  "default": 0,
+                  "dt": "PARAM_DT_U32"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_SOC_AGG_TYPE",
+                  "lid": 377,
+                  "label": "Aggregation",
+                  "type": "HTML_INPUTSELECT",
+                  "options": [
+                    {
+                      "v": "1",
+                      "l": "Mittelwert",
+                      "lid": 265
+                    },
+                    {
+                      "v": "2",
+                      "l": "Maximum",
+                      "lid": 267
+                    },
+                    {
+                      "v": "3",
+                      "l": "Minimum",
+                      "lid": 266
+                    }
+                  ],
+                  "default": 2,
+                  "dt": "PARAM_DT_U8"
+                }
+              ]
+            },
+            {
+              "lid": 378,
+              "label": "Erweiterte Temperaturen",
+              "type": "HTML_ROW",
+              "layout": [
+                6,
+                3,
+                3
+              ],
+              "items": [
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SRC",
+                  "lid": 382,
+                  "label": "Quelle",
+                  "type": "HTML_INPUTSELECT",
+                  "options": [
+                    {
+                      "v": "GROUP_TEMP32_SOURCE_NONE",
+                      "l": "Nicht belegt",
+                      "lid": 263
+                    },
+                    {
+                      "v": "GROUP_TEMP32_SOURCE_ONEWIRE",
+                      "l": "Onewire",
+                      "lid": 396
+                    },
+                    {
+                      "$ref": "dataDevicesTmp32Cap"
+                    }
+                  ],
+                  "default": "GROUP_TEMP32_SOURCE_NONE",
+                  "dt": "PARAM_DT_U8"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSORS_0_31",
+                  "lid": 379,
+                  "label": "Sensoren 0-31",
+                  "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+                  "options": [
+                    {
+                      "$ref": "tempsensors1"
+                    }
+                  ],
+                  "default": 1,
+                  "dt": "PARAM_DT_U32"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSORS_32_63",
+                  "lid": 380,
+                  "label": "Sensoren 32-63",
+                  "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+                  "options": [
+                    {
+                      "$ref": "tempsensors2"
+                    }
+                  ],
+                  "default": 0,
+                  "dt": "PARAM_DT_U32",
+                  "visible_when": [
+                    {
+                      "param": "ID_PARAM_GROUP_TEMP32_SRC",
+                      "op": "==",
+                      "value": "GROUP_TEMP32_SOURCE_ONEWIRE"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Erweiterte Temperaturen - Namen",
+              "type": "HTML_COLLAPSIBLE",
+              "default_open": false,
+              "items": [
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_00",
+                  "lid": 461,
+                  "label": "Sensor 0",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_01",
+                  "lid": 462,
+                  "label": "Sensor 1",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_02",
+                  "lid": 463,
+                  "label": "Sensor 2",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_03",
+                  "lid": 464,
+                  "label": "Sensor 3",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_04",
+                  "lid": 465,
+                  "label": "Sensor 4",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_05",
+                  "lid": 466,
+                  "label": "Sensor 5",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_06",
+                  "lid": 467,
+                  "label": "Sensor 6",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_07",
+                  "lid": 468,
+                  "label": "Sensor 7",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_08",
+                  "lid": 469,
+                  "label": "Sensor 8",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_09",
+                  "lid": 470,
+                  "label": "Sensor 9",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_10",
+                  "lid": 471,
+                  "label": "Sensor 10",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_11",
+                  "lid": 472,
+                  "label": "Sensor 11",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_12",
+                  "lid": 473,
+                  "label": "Sensor 12",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_13",
+                  "lid": 474,
+                  "label": "Sensor 13",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_14",
+                  "lid": 475,
+                  "label": "Sensor 14",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_15",
+                  "lid": 476,
+                  "label": "Sensor 15",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_16",
+                  "lid": 477,
+                  "label": "Sensor 16",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_17",
+                  "lid": 478,
+                  "label": "Sensor 17",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_18",
+                  "lid": 479,
+                  "label": "Sensor 18",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_19",
+                  "lid": 480,
+                  "label": "Sensor 19",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_20",
+                  "lid": 481,
+                  "label": "Sensor 20",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_21",
+                  "lid": 482,
+                  "label": "Sensor 21",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_22",
+                  "lid": 483,
+                  "label": "Sensor 22",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_23",
+                  "lid": 484,
+                  "label": "Sensor 23",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_24",
+                  "lid": 485,
+                  "label": "Sensor 24",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_25",
+                  "lid": 486,
+                  "label": "Sensor 25",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_26",
+                  "lid": 487,
+                  "label": "Sensor 26",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_27",
+                  "lid": 488,
+                  "label": "Sensor 27",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_28",
+                  "lid": 489,
+                  "label": "Sensor 28",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_29",
+                  "lid": 490,
+                  "label": "Sensor 29",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_30",
+                  "lid": 491,
+                  "label": "Sensor 30",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                },
+                {
+                  "name": "ID_PARAM_GROUP_TEMP32_SENSOR_NAME_31",
+                  "lid": 492,
+                  "label": "Sensor 31",
+                  "type": "HTML_INPUTTEXT",
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": "PARAM_DT_ST"
+                }
+              ],
+              "lid": 460
+            }
+          ],
+          "visible_when": [
+            {
+              "param": "ID_PARAM_BATTERY_GROUPS_ENABLE",
+              "op": "==",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_GROUPDEVICEMAPPING_BATTERY_PACKS"
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 184,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_GROUP_DEVICE_MAPPING",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_GROUP_DEVICE_MAPPING"
+    }
+  }
+}

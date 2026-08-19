@@ -1,0 +1,288 @@
+{
+  "page": [
+    {
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_DEVICE_NAME",
+          "lid": 6,
+          "label": "Device Name",
+          "type": "HTML_INPUTTEXT",
+          "pattern": "^[^#\\+]*$",
+          "default": "BSC",
+          "minlen": 3,
+          "dt": "PARAM_DT_ST"
+        },
+        {
+          "name": "ID_PARAM_DISPLAY_TIMEOUT",
+          "lid": 7,
+          "label": "Display timeout",
+          "type": "HTML_INPUTNUMBER",
+          "default": 5,
+          "min": 1,
+          "max": 120,
+          "unit": "min",
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_SYSTEM_PROFILE_MODE",
+          "lid": 451,
+          "label": "Profilumschaltung",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {"v": 0, "l": "Aus", "lid": 257},
+            {"v": 1, "l": "P1"},
+            {"v": 2, "l": "P2"},
+            {"v": 3, "l": "Trigger"}
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_SYSTEM_PROFILE_TRIGGER",
+          "lid": 452,
+          "label": "Profil-Trigger",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32",
+          "visible_when": [
+            { "param": "ID_PARAM_SYSTEM_PROFILE_MODE", "op": "==", "value": 3 }
+          ]
+        },
+        {
+          "name": "ID_PARAM_SYSTEM_TRACEBACK_TRIGGER",
+          "lid": 525,
+          "label": "Traceback-Trigger",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32",
+          "help": "Setzt die ausgewählten Trigger, wenn ein Traceback vorhanden ist.",
+          "visible_when": [
+            { "source": "var", "param": "board_type", "op": "==", "value": "tconnect" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "lid": 533,
+      "label": "Benutzer",
+      "type": "HTML_SEPARATION",
+      "section_id": "UI_SECT_SYSTEM_BENUTZER",
+      "items": [
+        {
+          "name": "ID_PARAM_BSC_AUTHENT",
+          "lid": 355,
+          "label": "Passwortschutz aktivieren",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": 1,
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_BSC_SESSION_TIMEOUT",
+          "lid": 357,
+          "label": "Automatisch abmelden",
+          "type": "HTML_INPUTNUMBER",
+          "default": 30,
+          "min": 0,
+          "max": 240,
+          "unit": "min",
+          "dt": "PARAM_DT_U8",
+          "help": "0 deaktiviert den automatischen Logout."
+        },
+        {
+          "lid": 4,
+          "label": "Benutzer",
+          "label_entry": "Benutzer",
+          "groupsize": "BSC_MAX_USERS",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_BSC_USERNAME",
+              "lid": 5,
+              "label": "Benutzername",
+              "type": "HTML_INPUTTEXT",
+              "default": "",
+              "flash": "1",
+              "dt": "PARAM_DT_ST"
+            },
+            {
+              "name": "ID_PARAM_BSC_PASSWORD",
+              "lid": 535,
+              "label": "Passwort",
+              "type": "HTML_INPUTPASSWORD",
+              "default": "",
+              "flash": "1",
+              "dt": "PARAM_DT_ST"
+            },
+            {
+              "name": "ID_PARAM_BSC_ROLE",
+              "lid": 534,
+              "label": "Rolle",
+              "type": "HTML_INPUTSELECT",
+              "default": "0",
+              "dt": "PARAM_DT_U8",
+              "options": [
+                {"v": "0", "l": "Admin"},
+                {"v": "1", "l": "ReadOnly"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "lid": 8,
+      "label": "WLAN",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_bsc/#system",
+      "items": [
+        {
+          "name": "ID_PARAM_WLAN_SSID",
+          "lid": 9,
+          "label": "WLAN SSID",
+          "type": "HTML_INPUTTEXT",
+          "default": "",
+          "dt": "PARAM_DT_ST"
+        },
+        {
+          "name": "ID_PARAM_WLAN_PWD",
+          "lid": 10,
+          "label": "WLAN Passwort",
+          "type": "HTML_INPUTPASSWORD",
+          "default": "",
+          "dt": "PARAM_DT_ST"
+        },
+        {
+          "name": "ID_PARAM_WLAN_CONNECT_TIMEOUT",
+          "lid": 11,
+          "label": "WLAN connect Timeout",
+          "type": "HTML_INPUTNUMBER",
+          "unit": "s",
+          "default": 30,
+          "min": 0,
+          "max": 3600,
+          "dt": "PARAM_DT_U16",
+          "help": "Der Timeout gibt an, nach welcher Zeit ein Verbindungsversuch abgebrochen wird und ein Accesspoint erstellt wird.<br>0 deaktiviert den Timeout."
+        },
+        {
+          "name": "ID_PARAM_LAN_ENABLE",
+          "lid": 359,
+          "label": "Ethernet",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": 1,
+          "dt": "PARAM_DT_BO",
+          "help": "Bei aktiviertem Ethernet wird WLAN deaktiviert.",
+          "visible_when": [
+            { "source":"var","param":"rico_available", "op": "==", "value": 1 }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_SYSTEM_WLAN"
+    },
+    {
+      "lid": 12,
+      "label": "Static IP",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_WLAN_IP_ADRESSE",
+          "lid": 13,
+          "label": "IP-Adresse",
+          "type": "HTML_INPUTTEXT",
+          "pattern": "^((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)$",
+          "default": "",
+          "dt": "PARAM_DT_ST",
+          "flash": "1",
+          "help": "Wenn die IP-Adresse leer ist, dann ist DHCP aktiv"
+        },
+        {
+          "name": "ID_PARAM_WLAN_GATEWAY",
+          "lid": 14,
+          "label": "Gateway",
+          "type": "HTML_INPUTTEXT",
+          "pattern": "^((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)$",
+          "default": "",
+          "dt": "PARAM_DT_ST",
+          "flash": "1"
+        },
+        {
+          "name": "ID_PARAM_WLAN_SUBNET",
+          "lid": 15,
+          "label": "Subnet",
+          "type": "HTML_INPUTTEXT",
+          "pattern": "^((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)$",
+          "default": "255.255.255.0",
+          "dt": "PARAM_DT_ST",
+          "flash": "1"
+        },
+        {
+          "name": "ID_PARAM_WLAN_DNS",
+          "lid": 16,
+          "label": "DNS",
+          "type": "HTML_INPUTTEXT",
+          "pattern": "^((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)$",
+          "default": "",
+          "dt": "PARAM_DT_ST",
+          "help": "Optional",
+          "flash": "1"
+        }
+      ],
+      "section_id": "UI_SECT_SYSTEM_STATIC_IP"
+    },
+    {
+      "lid": 26,
+      "label": "NTP",
+      "type": "HTML_SEPARATION",
+      "help": "Zum Übernehmen der Settings, muss der BSC neu gestartet werden!",
+      "items": [
+        {
+          "name": "ID_PARAM_SYSTEM_NTP_SERVER_NAME",
+          "lid": 27,
+          "label": "Server Name/IP",
+          "type": "HTML_INPUTTEXT",
+          "default": "pool.ntp.org",
+          "flash": "1",
+          "dt": "PARAM_DT_ST"
+        },
+        {
+          "name": "ID_PARAM_SYSTEM_NTP_TIMEZONE_OFFSET",
+          "lid": 346,
+          "label": "Zeit-Offset",
+          "type": "HTML_INPUTNUMBER",
+          "unit": "h",
+          "default": 1,
+          "min": -12,
+          "max": 14,
+          "dt": "PARAM_DT_I8"
+        }
+      ],
+      "section_id": "UI_SECT_SYSTEM_NTP"
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 34,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_SYSTEM",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_SYSTEM"
+    }
+  }
+}

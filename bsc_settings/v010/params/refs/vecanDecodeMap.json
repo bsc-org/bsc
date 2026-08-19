@@ -1,0 +1,21 @@
+{
+  "manufacturer_code": {
+    "358": "Victron Energy"
+  },
+  "function_code": {
+    "150": "Battery",
+    "151": "Battery Charger",
+    "152": "Inverter",
+    "153": "Inverter/Charger",
+    "154": "Solar Charger",
+    "170": "DC Monitor / Shunt"
+  },
+  "industry_group": {
+    "0": "Global",
+    "1": "Highway",
+    "2": "Agriculture",
+    "3": "Construction",
+    "4": "Marine",
+    "5": "Industrial"
+  }
+}

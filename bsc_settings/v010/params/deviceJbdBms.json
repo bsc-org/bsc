@@ -1,0 +1,51 @@
+{
+  "page": [
+    {
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 209,
+          "label": "JBD BMS",
+          "label_entry": "Serial",
+          "groupsize": 11,
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_JBD_CELL_VOLTAGE_100",
+              "lid": 210,
+              "label": "Cellvoltage 100%",
+              "type": "HTML_INPUTNUMBER",
+              "default": 3400,
+              "min": 1000,
+              "max": 5000,
+              "unit": "mV",
+              "flash": "1",
+              "dt": "PARAM_DT_U16"
+            }
+          ],
+          "visible_when": [
+            {
+              "param": "ID_PARAM_SERIAL_CONNECT_DEVICE",
+              "op": "==",
+              "value": "ID_SERIAL_DEVICE_JBDBMS"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 211,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_DEVICE_JBD_BMS",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_DEVICE_JBD_BMS"
+    }
+  }
+}

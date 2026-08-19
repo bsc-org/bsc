@@ -1,0 +1,14 @@
+[
+  {
+    "v": "0",
+    "l": "BMS Errors"
+  },
+  {
+    "v": "1",
+    "l": "BMS Warnings"
+  },
+  {
+    "v": "2",
+    "l": "System Errors"
+  }
+]

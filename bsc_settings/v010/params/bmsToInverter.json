@@ -1,0 +1,873 @@
+{
+  "page": [
+    {
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_BMS_CAN_ENABLE",
+          "lid": 104,
+          "label": "BMS Canbus enable",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_SS_CAN",
+          "lid": 105,
+          "label": "Canbus protocol",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "ID_CAN_DEVICE_NB",
+              "lid": 263,
+              "l": "nicht belegt"
+            },
+            {
+              "v": "ID_CAN_DEVICE_SOLISRHI",
+              "l": "Solis RHI"
+            },
+            {
+              "v": "ID_CAN_DEVICE_PYLONTECH",
+              "l": "Pylontech"
+            },
+            {
+              "v": "ID_CAN_DEVICE_VICTRON",
+              "l": "VICTRON"
+            },
+            {
+              "v": "ID_CAN_DEVICE_VICTRON_250K",
+              "l": "VICTRON 250k"
+            },
+            {
+              "v": "ID_CAN_DEVICE_BYD_PROTOCOL",
+              "l": "BYD"
+            }
+          ],
+          "default": "nb",
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_BMS_CAN_EXTENDED_DATA_ENABLE",
+          "lid": 106,
+          "label": "Send extended data",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": "0",
+          "dt": "PARAM_DT_BO",
+          "help": "Nicht in Verbindung mit einem CerboGX aktivieren!"
+        },
+        {
+          "name": "ID_PARAM_BMS_CAN_DATASOURCE_SS1",
+          "lid": 108,
+          "label": "Datenquelle",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            { "$ref": "dataDevicesAll" }
+          ],
+          "options_cases": [
+            {
+              "when": [
+                {"param": "ID_PARAM_BATTERY_GROUPS_ENABLE",  "op": "==", "value": 1 }
+              ],
+              "options": [
+                { "$ref": "batteryPacks" }
+              ]
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        }
+      ]
+    },
+
+    {
+      "lid": 109,
+      "label": "Valuehandling",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_inverter/#valuehandling-multi-bms",
+      "items": [
+        {
+          "lid": 110,
+          "label": "SoC",
+          "type": "HTML_ROW",
+          "layout": [3, 9],
+          "items": [
+            {
+              "name": "ID_PARAM_INVERTER_BMS_QUELLE_SOC_DOMAIN",
+              "lid": 385,
+              "label": "Domain",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "OPTION_BATTERY_SOURCE_DOMAIN_AUTO",
+                  "l": "Auto"
+                },
+                {
+                  "v": "OPTION_BATTERY_SOURCE_DOMAIN_DATA",
+                  "l": "Data devices"
+                },
+                {
+                  "v": "OPTION_BATTERY_SOURCE_DOMAIN_GROUP",
+                  "l": "Group devices",
+                  "visible_when": [
+                    {"param": "ID_PARAM_BATTERY_GROUPS_ENABLE", "op": "==", "value": 1}
+                  ]
+                }
+              ],
+              "default": "OPTION_BATTERY_SOURCE_DOMAIN_AUTO",
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_BMS_QUELLE_SOC",
+              "lid": 111,
+              "label": "Quelle SoC",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "dataDevicesAll"
+                }
+              ],
+              "options_cases": [
+                {
+                  "when": [
+                    {"param": "ID_PARAM_INVERTER_BMS_QUELLE_SOC_DOMAIN",  "op": "==", "value": "OPTION_BATTERY_SOURCE_DOMAIN_GROUP" }
+                  ],
+                  "options": [
+                    { "$ref": "batteryPacks" }
+                  ]
+                },
+                {
+                  "when": [
+                    {"param": "ID_PARAM_INVERTER_BMS_QUELLE_SOC_DOMAIN",  "op": "==", "value": "OPTION_BATTERY_SOURCE_DOMAIN_AUTO" },
+                    {"param": "ID_PARAM_BATTERY_GROUPS_ENABLE",  "op": "==", "value": 1 }
+                  ],
+                  "options": [
+                    { "$ref": "batteryPacks" }
+                  ]
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            }
+          ]
+        },
+        {
+          "name": "ID_PARAM_INVERTER_MULTI_BMS_VALUE_SOC_AGGREGATION",
+          "lid": 377,
+          "label": "Aggregation",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_AVG",
+              "lid": 265,
+              "l": "Mittelwert"
+            },
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_MIN",
+              "lid": 266,
+              "l": "Minimalwert"
+            },
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_MAX",
+              "lid": 267,
+              "l": "Maximalwert"
+            },
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_BMS",
+              "lid": 268,
+              "l": "BMS"
+            },
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_WEIGHT",
+              "lid": 0,
+              "l": "Kapazitätsgewichtet"
+            }
+          ],
+          "default": "0",
+          "dt": "PARAM_DT_U8"
+        },
+
+        {
+          "lid": 376,
+          "label": "Spannung",
+          "type": "HTML_ROW",
+          "layout": [3, 9],
+          "items": [
+            {
+              "name": "ID_PARAM_INVERTER_BMS_QUELLE_VOLTAGE_DOMAIN",
+              "lid": 385,
+              "label": "Domain",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "OPTION_BATTERY_SOURCE_DOMAIN_AUTO",
+                  "l": "Auto"
+                },
+                {
+                  "v": "OPTION_BATTERY_SOURCE_DOMAIN_DATA",
+                  "l": "Data devices"
+                },
+                {
+                  "v": "OPTION_BATTERY_SOURCE_DOMAIN_GROUP",
+                  "l": "Group devices",
+                  "visible_when": [
+                    {"param": "ID_PARAM_BATTERY_GROUPS_ENABLE", "op": "==", "value": 1}
+                  ]
+                }
+              ],
+              "default": "OPTION_BATTERY_SOURCE_DOMAIN_AUTO",
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_MULTI_BMS_VALUE_VOLTAGE_SOURCE",
+              "lid": 277,
+              "label": "Quelle Gesamtspannung",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "dataDevicesAll"
+                }
+              ],
+              "options_cases": [
+                {
+                  "when": [
+                    {"param": "ID_PARAM_INVERTER_BMS_QUELLE_VOLTAGE_DOMAIN",  "op": "==", "value": "OPTION_BATTERY_SOURCE_DOMAIN_GROUP" }
+                  ],
+                  "options": [
+                    { "$ref": "batteryPacks" }
+                  ]
+                },
+                {
+                  "when": [
+                    {"param": "ID_PARAM_INVERTER_BMS_QUELLE_VOLTAGE_DOMAIN",  "op": "==", "value": "OPTION_BATTERY_SOURCE_DOMAIN_AUTO" },
+                    {"param": "ID_PARAM_BATTERY_GROUPS_ENABLE",  "op": "==", "value": 1 }
+                  ],
+                  "options": [
+                    { "$ref": "batteryPacks" }
+                  ]
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            }
+          ]
+        },
+        {
+          "name": "ID_PARAM_INVERTER_MULTI_BMS_VALUE_VOLTAGE_SOURCE_AGGREGATION",
+          "lid": 377,
+          "label": "Aggregation",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_AVG",
+              "lid": 265,
+              "l": "Mittelwert"
+            },
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_MIN",
+              "lid": 266,
+              "l": "Minimalwert"
+            },
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_MAX",
+              "lid": 267,
+              "l": "Maximalwert"
+            }
+          ],
+          "default": 2,
+          "dt": "PARAM_DT_U8"
+        },
+
+        {
+          "lid": 381,
+          "label": "Strom",
+          "type": "HTML_ROW",
+          "layout": [3,9],
+          "items": [
+            {
+              "name": "ID_PARAM_INVERTER_BMS_QUELLE_CURRENT_DOMAIN",
+              "lid": 385,
+              "label": "Domain",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "OPTION_BATTERY_SOURCE_DOMAIN_AUTO",
+                  "l": "Auto"
+                },
+                {
+                  "v": "OPTION_BATTERY_SOURCE_DOMAIN_DATA",
+                  "l": "Data devices"
+                },
+                {
+                  "v": "OPTION_BATTERY_SOURCE_DOMAIN_GROUP",
+                  "l": "Group devices",
+                  "visible_when": [
+                    {"param": "ID_PARAM_BATTERY_GROUPS_ENABLE", "op": "==", "value": 1}
+                  ]
+                }
+              ],
+              "default": "OPTION_BATTERY_SOURCE_DOMAIN_AUTO",
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_MULTI_BMS_VALUE_CURRENT_SOURCE",
+              "lid": 278,
+              "label": "Quelle Gesamtstrom",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "dataDevicesAll"
+                }
+              ],
+              "options_cases": [
+                {
+                  "when": [
+                    {"param": "ID_PARAM_INVERTER_BMS_QUELLE_CURRENT_DOMAIN",  "op": "==", "value": "OPTION_BATTERY_SOURCE_DOMAIN_GROUP" }
+                  ],
+                  "options": [
+                    { "$ref": "batteryPacks" }
+                  ]
+                },
+                {
+                  "when": [
+                    {"param": "ID_PARAM_INVERTER_BMS_QUELLE_CURRENT_DOMAIN",  "op": "==", "value": "OPTION_BATTERY_SOURCE_DOMAIN_AUTO" },
+                    {"param": "ID_PARAM_BATTERY_GROUPS_ENABLE",  "op": "==", "value": 1 }
+                  ],
+                  "options": [
+                    { "$ref": "batteryPacks" }
+                  ]
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            }
+          ]
+        },
+        {
+          "name": "ID_PARAM_INVERTER_MULTI_BMS_VALUE_CURRENT_SOURCE_AGGREGATION",
+          "lid": 377,
+          "label": "Aggregation",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_AVG",
+              "lid": 265,
+              "l": "Mittelwert"
+            },
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_MIN",
+              "lid": 266,
+              "l": "Minimalwert"
+            },
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_MAX",
+              "lid": 267,
+              "l": "Maximalwert"
+            },
+            {
+              "v": "OPTION_MULTI_BMS_VALUE_SUMME",
+              "lid": 279,
+              "l": "Summe"
+            }
+          ],
+          "default": 5,
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_BMSTOINVERTER_VALUEHANDLING"
+    },
+
+    {
+      "lid": 112,
+      "label": "Basisdaten",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_inverter/#basisdaten",
+      "items": [
+        {
+          "name": "ID_PARAM_BMS_MAX_CHARGE_SPG",
+          "lid": 113,
+          "label": "Absorption Ladespannung",
+          "unit": "V",
+          "type": "HTML_INPUTFLOAT_1",
+          "enProfile": true,
+          "default": "544",
+          "min": 12,
+          "max": 66,
+          "dt": "PARAM_DT_U16",
+          "help": "Die Absorption Ladespannung entspricht einer erhöhten Spannung zum Erreichen des Voll-Zustandes."
+        },
+        {
+          "name": "ID_PARAM_BMS_FLOAT_CHARGE_SPG",
+          "lid": 114,
+          "label": "Float Ladespannung",
+          "unit": "V",
+          "type": "HTML_INPUTFLOAT_1",
+          "enProfile": true,
+          "default": "544",
+          "min": 12,
+          "max": 66,
+          "dt": "PARAM_DT_U16",
+          "help": "Die Floatspannung wird nach Erreichen der einstellbaren Cutoff-Funktion angewendet."
+        },
+        {
+          "name": "ID_PARAM_INVERTER_CHARGE_CURRENT_CUT_OFF_SOC",
+          "lid": 115,
+          "label": "Float Ladespannung SoC",
+          "unit": "%",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "95",
+          "min": 1,
+          "max": 100,
+          "dt": "PARAM_DT_U8",
+          "help": "Beim Unterschreiten des eingestellten SoC wird von der Float in die Absorption Ladespannung gewechselt."
+        },
+        {
+          "name": "ID_PARAM_BMS_MAX_CHARGE_CURRENT",
+          "lid": 116,
+          "label": "Max. Ladestrom",
+          "unit": "A",
+          "type": "HTML_INPUTNUMBER",
+          "default": "100",
+          "min": 0,
+          "max": 1000,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_BMS_MAX_DISCHARGE_CURRENT",
+          "lid": 117,
+          "label": "Max. Entladestrom",
+          "unit": "A",
+          "type": "HTML_INPUTNUMBER",
+          "default": "100",
+          "min": 0,
+          "max": 1000,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_BMS_SOC_AUF_FULL",
+          "lid": 120,
+          "label": "SoC auf 100",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": "",
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_BMS_SOC_AUF_ZERO",
+          "lid": 358,
+          "label": "SoC auf 0",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": "",
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "lid": 121,
+          "label": "Batterypack settings",
+          "label_entry": "Data device",
+          "groupsize": "MUBER_OF_DATA_DEVICES",
+          "type": "HTML_OPTIONGROUP_COLLAPSIBLE",
+          "group": [
+            {
+              "name": "ID_PARAM_BATTERY_PACK_CHARGE_CURRENT",
+              "lid": 122,
+              "label": "Charge current per pack",
+              "unit": "A",
+              "type": "HTML_INPUTNUMBER",
+              "default": 280,
+              "min": 0,
+              "max": 500,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_BATTERY_PACK_DISCHARGE_CURRENT",
+              "lid": 123,
+              "label": "Discharge current per pack",
+              "unit": "A",
+              "type": "HTML_INPUTNUMBER",
+              "default": 280,
+              "min": 0,
+              "max": 500,
+              "dt": "PARAM_DT_U16"
+            },
+            {
+              "name": "ID_PARAM_BATTERY_PACK_CAPACITY",
+              "lid": 124,
+              "label": "Kapazität",
+              "unit": "Ah",
+              "type": "HTML_INPUTNUMBER",
+              "default": 280,
+              "min": 1,
+              "max": 1000,
+              "dt": "PARAM_DT_U16"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_BMSTOINVERTER_BASISDATEN"
+    },
+    {
+      "lid": 445,
+      "label": "Triggerbasierte Begrenzungen",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_BMS_LADELEISTUNG_AUF_NULL",
+          "lid": 118,
+          "label": "Ladeleistung auf 0",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": "",
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_BMS_ENTLADELEISTUNG_AUF_NULL",
+          "lid": 119,
+          "label": "Entladeleistung auf 0",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": "",
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "lid": 446,
+          "label": "Triggerbasierte Strombegrenzung",
+          "label_entry": "Regel",
+          "groupsize": "TRIGGER_CURRENT_LIMIT_GROUPSIZE",
+          "type": "HTML_OPTIONGROUP",
+          "help": "Bei aktivem Trigger gelten die Werte als Obergrenze. Sie übersteuern die festgelegten Maximalwerte nicht!",
+          "group": [
+            {
+              "name": "ID_PARAM_BMS_TRIGGER_CURRENT_LIMIT_TRIGGER",
+              "lid": 447,
+              "label": "Trigger",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "comboAlarms"
+                }
+              ],
+              "default": "",
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "lid": 450,
+              "label": "Stromgrenzen",
+              "type": "HTML_ROW",
+              "layout": [
+                6,
+                6
+              ],
+              "items": [
+                {
+                  "name": "ID_PARAM_BMS_TRIGGER_CURRENT_LIMIT_CHARGE_CURRENT",
+                  "lid": 448,
+                  "label": "Laden max.",
+                  "unit": "A",
+                  "type": "HTML_INPUTNUMBER",
+                  "default": 0,
+                  "min": 0,
+                  "max": 1000,
+                  "dt": "PARAM_DT_U16"
+                },
+                {
+                  "name": "ID_PARAM_BMS_TRIGGER_CURRENT_LIMIT_DISCHARGE_CURRENT",
+                  "lid": 449,
+                  "label": "Entladen max.",
+                  "unit": "A",
+                  "type": "HTML_INPUTNUMBER",
+                  "default": 0,
+                  "min": 0,
+                  "max": 1000,
+                  "dt": "PARAM_DT_U16"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_BMSTOINVERTER_TRIGGER_BEGRENZUNGEN"
+    },
+    {
+      "lid": 298,
+      "label": "Ladespannungsrampe",
+      "type": "HTML_SEPARATION",
+      "help": "Mit der Funktion wird die Ladespannung auf den neuen Sollwert geregelt.\nModus Zeitrampe: Änderung pro Schritt zeitbasiert. Pro Schritt wird die Ladespannung um 100 mV geändert.\nModus Auto: Erhöhung per Zeitrampe, Absenkung spannungsgeführt über die aktuelle Batteriespannung; dabei wird der Ladestrom kurzzeitig auf 0 A gesetzt, bis die Zielspannung erreicht ist.",
+      "wiki": "settings_inverter/#a_ladespannungsrampe",
+      "items": [
+        {
+          "name": "ID_PARAM_CHARGE_VOLTAGE_RAMP_ON",
+          "lid": 386,
+          "label": "Modus",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "OPTION_CHARGE_VOLTAGE_RAMP_OFF",
+              "lid": 257,
+              "l": "Aus"
+            },
+            {
+              "v": "OPTION_CHARGE_VOLTAGE_RAMP_TIME",
+              "lid": 387,
+              "l": "Zeitrampe"
+            },
+            {
+              "v": "OPTION_CHARGE_VOLTAGE_RAMP_AUTO",
+              "lid": 388,
+              "l": "Auto"
+            }
+          ],
+          "default": "OPTION_CHARGE_VOLTAGE_RAMP_OFF",
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_CHARGE_VOLTAGE_STEP_TIME",
+          "lid": 299,
+          "label": "Zeit pro Spannungsschritt",
+          "unit": "s",
+          "type": "HTML_INPUTNUMBER",
+          "default": 15,
+          "min": 1,
+          "max": 240,
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_BMSTOINVERTER_LADESPANNUNGSRAMPE"
+    },
+    {
+      "lid": 134,
+      "label": "Batterietemperatur",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_BATT_TEMP_QUELLE",
+          "lid": 135,
+          "label": "Quelle",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            { "v": 255, "lid": 263, "l": "nicht belegt" },
+            { "$ref": "dataDevicesAll" }
+          ],
+          "options_cases": [
+            {
+              "when": [
+                {"param": "ID_PARAM_BATTERY_GROUPS_ENABLE",  "op": "==", "value": 1 }
+              ],
+              "options": [
+                { "v": 255, "lid": 263, "l": "nicht belegt" },
+                { "$ref": "batteryPacks" }
+              ]
+            }
+          ],
+          "default": "255",
+          "dt": "PARAM_DT_U8",
+          "help": "Wird je nach Modus interpretiert:<br>Group-Devices aus: Data-Device Index<br>Group-Devices ein: Battery-Pack Index"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_BATT_TEMP_SENSOR_SOURCE",
+          "lid": 389,
+          "label": "Sensortyp",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "OPTION_INVERTER_BATT_TEMP_SENSOR_SOURCE_DATA",
+              "lid": 390,
+              "l": "Data-Device Sensoren"
+            },
+            {
+              "v": "OPTION_INVERTER_BATT_TEMP_SENSOR_SOURCE_EXTENDED",
+              "lid": 391,
+              "l": "Erweiterte Sensoren"
+            }
+          ],
+          "default": "OPTION_INVERTER_BATT_TEMP_SENSOR_SOURCE_DATA",
+          "dt": "PARAM_DT_U8",
+          "visible_when": [
+            {"param": "ID_PARAM_BATTERY_GROUPS_ENABLE", "op": "==", "value": 1}
+          ]
+        },
+        {
+          "name": "ID_PARAM_INVERTER_BATT_TEMP_SENSOR",
+          "lid": 136,
+          "label": "Sensornummer",
+          "type": "HTML_INPUTNUMBER",
+          "default": "0",
+          "min": 0,
+          "max": 31,
+          "dt": "PARAM_DT_U8",
+          "help": "Data-Device Sensoren: 0-5<br>Erweiterte Sensoren: 0-31"
+        }
+      ],
+      "section_id": "UI_SECT_BMSTOINVERTER_BATTERIETEMPERATUR"
+    },
+    {
+      "lid": 287,
+      "label": "Zelltemperatur",
+      "type": "HTML_SEPARATION",
+      "help": "Es werden die Data Devices genommen, die unter \"Datenquelle\" ausgewählt sind.",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_CELL_TEMPERATUR_SENSORS",
+          "lid": 283,
+          "label": "Sensoren",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "tempsensorsBms"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        }
+      ],
+      "section_id": "UI_SECT_BMSTOINVERTER_ZELLTEMPERATUR"
+    },
+    {
+      "lid": 129,
+      "label": "Alarme (Inverter)",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_BMS_ALARM_HIGH_BAT_VOLTAGE",
+          "lid": 130,
+          "label": "High battery voltage",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": "",
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_BMS_ALARM_LOW_BAT_VOLTAGE",
+          "lid": 131,
+          "label": "Low battery voltage",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": "",
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_BMS_ALARM_HIGH_TEMPERATURE",
+          "lid": 132,
+          "label": "High Temperature",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": "",
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_BMS_ALARM_LOWTEMPERATURE",
+          "lid": 133,
+          "label": "Low Temperature",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": "",
+          "dt": "PARAM_DT_U32"
+        }
+      ],
+      "section_id": "UI_SECT_BMSTOINVERTER_ALARME_INVERTER"
+    },
+    {
+      "lid": 137,
+      "label": "Trigger bei SoC",
+      "type": "HTML_SEPARATION",
+      "help": "Auslösen eines Triggers, wenn ein bestimmter SoC über- oder unterschritten wird.",
+      "wiki": "settings_inverter/#trigger-bei-soc",
+      "items": [
+        {
+          "lid": 138,
+          "label_entry": "Rule",
+          "groupsize": "ANZAHL_RULES_TRIGGER_SOC",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_TRIGGER_AT_SOC",
+              "lid": 139,
+              "label": "Trigger",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "0",
+                  "l": "Aus"
+                },
+                {
+                  "$ref": "comboAlarms"
+                }
+              ],
+              "default": "0",
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_TRIGGER_AT_SOC_ON",
+              "lid": 140,
+              "label": "SoC - Trigger ein",
+              "unit": "%",
+              "type": "HTML_INPUTNUMBER",
+              "default": 95,
+              "min": 1,
+              "max": 100,
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_TRIGGER_AT_SOC_OFF",
+              "lid": 141,
+              "label": "SoC - Trigger aus",
+              "unit": "%",
+              "type": "HTML_INPUTNUMBER",
+              "default": 80,
+              "min": 1,
+              "max": 100,
+              "dt": "PARAM_DT_U8"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_BMSTOINVERTER_TRIGGER_BEI_SOC"
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 142,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_BMS_TO_INVERTER",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_BMS_TO_INVERTER"
+    }
+  }
+}

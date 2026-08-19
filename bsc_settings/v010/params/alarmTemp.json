@@ -1,0 +1,298 @@
+{
+  "page": [
+    {
+      "lid": 71,
+      "label": "Alarm bei Sensorfehler",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_TEMP_SENSOR_TIMEOUT_TRIGGER",
+          "lid": 72,
+          "label": "Trigger",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "0",
+              "lid": 257,
+              "l": "Aus"
+            },
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": "0",
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_TEMP_SENSOR_TIMEOUT_TIME",
+          "lid": 73,
+          "label": "Timeout",
+          "unit": "s",
+          "type": "HTML_INPUTNUMBER",
+          "default": "5",
+          "min": 5,
+          "max": 240,
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_ALARMTEMP_ALARM_BEI_SENSORFEHLER"
+    },
+    {
+      "lid": 74,
+      "label": "Temperatur &#220;berwachung",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_bsc/#temperatur",
+      "items": [
+        {
+          "name": "ID_PARAM_TEMP_ALARM",
+          "lid": 75,
+          "label": "Temperatur &#220;berwachung",
+          "label_entry": "&#220;berwachung",
+          "groupsize": "COUNT_TEMP_RULES",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_TEMP_ALARM_TEMP_QUELLE",
+              "lid": 76,
+              "label": "Quelle",
+              "help": "Mögliche Sensoren:<br>Data Device/Group Device:0-5<br>Erweiterte Sensoren:0-31",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "1",
+                  "lid": 382,
+                  "l": "Data Device"
+                },
+                {
+                  "v": "2",
+                  "lid": 392,
+                  "l": "Data Device - Erweiterte Sensoren"
+                }
+              ],
+              "options_cases": [
+                {
+                  "when": [
+                    {
+                      "param": "ID_PARAM_BATTERY_GROUPS_ENABLE",
+                      "op": "==",
+                      "value": 1
+                    }
+                  ],
+                  "options": [
+                    {
+                      "v": "1",
+                      "lid": 382,
+                      "l": "Data Device"
+                    },
+                    {
+                      "v": "2",
+                      "lid": 392,
+                      "l": "Data Device - Erweiterte Sensoren"
+                    },
+                    {
+                      "v": "3",
+                      "lid": 393,
+                      "l": "Group Device"
+                    },
+                    {
+                      "v": "4",
+                      "lid": 394,
+                      "l": "Group Device - Erweiterte Sensoren"
+                    }
+                  ]
+                }
+              ],
+              "default": "1",
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_TEMP_ALARM_BMS_QUELLE",
+              "lid": 77,
+              "label": "Zu &uuml;berwachende Quellen",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "dataDevicesAll"
+                }
+              ],
+              "options_cases": [
+                {
+                  "when": [
+                    {
+                      "param": "ID_PARAM_TEMP_ALARM_TEMP_QUELLE",
+                      "op": "==",
+                      "value": 3
+                    }
+                  ],
+                  "options": [
+                    {
+                      "$ref": "batteryPacks"
+                    }
+                  ]
+                },
+                {
+                  "when": [
+                    {
+                      "param": "ID_PARAM_TEMP_ALARM_TEMP_QUELLE",
+                      "op": "==",
+                      "value": 4
+                    }
+                  ],
+                  "options": [
+                    {
+                      "$ref": "batteryPacks"
+                    }
+                  ]
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_TEMP_ALARM_SENSOR_1",
+              "lid": 78,
+              "label": "Sensoren 0-31",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "tempsensors1"
+                }
+              ],
+              "options_cases": [
+                {
+                  "when": [
+                    {
+                      "param": "ID_PARAM_TEMP_ALARM_TEMP_QUELLE",
+                      "op": "==",
+                      "value": 1
+                    }
+                  ],
+                  "options": [
+                    {
+                      "$ref": "tempsensorsBms"
+                    }
+                  ]
+                },
+                {
+                  "when": [
+                    {
+                      "param": "ID_PARAM_TEMP_ALARM_TEMP_QUELLE",
+                      "op": "==",
+                      "value": 3
+                    }
+                  ],
+                  "options": [
+                    {
+                      "$ref": "tempsensorsBms"
+                    }
+                  ]
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_TEMP_ALARM_UEBERWACH_FUNKTION",
+              "lid": 80,
+              "label": "&Uuml;berwachung",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "ID_TEMP_ALARM_FUNKTION_NB",
+                  "lid": 263,
+                  "l": "nicht belegt"
+                },
+                {
+                  "v": "ID_TEMP_ALARM_FUNKTION_MAXWERT",
+                  "lid": 269,
+                  "l": "Maximalwert-&Uuml;berschreitung"
+                },
+                {
+                  "v": "ID_TEMP_ALARM_FUNKTION_MINWERT",
+                  "lid": 270,
+                  "l": "Minimalwert-Unterschreitung"
+                },
+                {
+                  "v": "ID_TEMP_ALARM_FUNKTION_MAXWERT_REFERENZ",
+                  "lid": 271,
+                  "l": "Maximalwert-&Uuml;berschreitung (Referenz)"
+                },
+                {
+                  "v": "ID_TEMP_ALARM_FUNKTION_DIFFERENZ",
+                  "lid": 272,
+                  "l": "Differenzwert-&Uuml;berwachung"
+                }
+              ],
+              "default": "ID_TEMP_ALARM_FUNKTION_NB",
+              "dt": "PARAM_DT_U8",
+              "help": "Maximalwert-&Uuml;berschreitung: Wert1=Maximale Temperatur<br>Maximalwert-&Uuml;berschreitung (Referenz): Wert1=Temperatur Offset<br>Differenzwert-&Uuml;berwachung: Wert1=Maximal erlaubte Differenz"
+            },
+            {
+              "name": "ID_PARAM_TEMP_ALARM_SENSOR_VERGLEICH",
+              "lid": 81,
+              "label": "Referenzsensor",
+              "type": "HTML_INPUTNUMBER",
+              "default": "",
+              "min": 0,
+              "max": 255,
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_TEMP_ALARM_WERT1",
+              "lid": 82,
+              "label": "Wert 1",
+              "type": "HTML_INPUTFLOAT",
+              "default": "",
+              "min": -20,
+              "max": 100,
+              "dt": "PARAM_DT_FL"
+            },
+            {
+              "name": "ID_PARAM_TEMP_ALARM_WERT2",
+              "lid": 83,
+              "label": "Hysterese",
+              "type": "HTML_INPUTFLOAT",
+              "default": "",
+              "min": -20,
+              "max": 100,
+              "dt": "PARAM_DT_FL"
+            },
+            {
+              "name": "ID_PARAM_TEMP_ALARM_AKTION",
+              "lid": 84,
+              "label": "Ausl&ouml;sung",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "0",
+                  "lid": 257,
+                  "l": "Aus"
+                },
+                {
+                  "$ref": "comboAlarms"
+                }
+              ],
+              "default": "0",
+              "dt": "PARAM_DT_U8"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_ALARMTEMP_TEMPERATUR_220_BERWACHUNG"
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 85,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_ALARM_TEMP",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_ALARM_TEMP"
+    }
+  }
+}
