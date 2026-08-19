@@ -1,0 +1,43 @@
+{
+  "page": [
+    {
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 101,
+          "label": "Onewire Sensoren",
+          "label_entry": "Sensor",
+          "groupsize": "MAX_ANZAHL_OW_SENSOREN",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_ONWIRE_TEMP_OFFSET",
+              "lid": 102,
+              "label": "Offset",
+              "unit": "&deg;C",
+              "type": "HTML_INPUTFLOAT",
+              "default": 0,
+              "min": -10,
+              "max": 10,
+              "dt": "PARAM_DT_FL"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 103,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_ONEWIRE2",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_ONEWIRE2"
+    }
+  }
+}

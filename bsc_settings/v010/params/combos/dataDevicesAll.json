@@ -1,0 +1,450 @@
+[
+  {
+    "v": "0",
+    "lid": 239,
+    "l": "Data device 0",
+    "d": 10560,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "1",
+    "lid": 240,
+    "l": "Data device 1",
+    "d": 10561,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "2",
+    "lid": 241,
+    "l": "Data device 2",
+    "d": 10562,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "3",
+    "lid": 242,
+    "l": "Data device 3",
+    "d": 10563,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "4",
+    "lid": 243,
+    "l": "Data device 4",
+    "d": 10564,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "5",
+    "lid": 244,
+    "l": "Data device 5",
+    "d": 10565,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "6",
+    "lid": 245,
+    "l": "Data device 6",
+    "d": 10566,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "7",
+    "lid": 246,
+    "l": "Data device 7",
+    "d": 10567,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "8",
+    "lid": 247,
+    "l": "Data device 8",
+    "d": 10568,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "9",
+    "lid": 248,
+    "l": "Data device 9",
+    "d": 10569,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "10",
+    "lid": 249,
+    "l": "Data device 10",
+    "d": 10570,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "11",
+    "lid": 250,
+    "l": "Data device 11",
+    "d": 10571,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "12",
+    "lid": 251,
+    "l": "Data device 12",
+    "d": 10572,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "13",
+    "lid": 252,
+    "l": "Data device 13",
+    "d": 10573,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "14",
+    "lid": 253,
+    "l": "Data device 14",
+    "d": 10574,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "15",
+    "lid": 254,
+    "l": "Data device 15",
+    "d": 10575,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "16",
+    "lid": 255,
+    "l": "Data device 16",
+    "d": 10576,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "17",
+    "lid": 256,
+    "l": "Data device 17",
+    "d": 10577,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "18",
+    "lid": 360,
+    "l": "Data device 18",
+    "d": 10578,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "19",
+    "lid": 361,
+    "l": "Data device 19",
+    "d": 10579,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "20",
+    "lid": 362,
+    "l": "Data device 20",
+    "d": 10580,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "21",
+    "lid": 363,
+    "l": "Data device 21",
+    "d": 10581,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "22",
+    "lid": 364,
+    "l": "Data device 22",
+    "d": 10582,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "23",
+    "lid": 365,
+    "l": "Data device 23",
+    "d": 10583,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "24",
+    "lid": 366,
+    "l": "Data device 24",
+    "d": 10584,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "25",
+    "lid": 367,
+    "l": "Data device 25",
+    "d": 10585,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "26",
+    "lid": 368,
+    "l": "Data device 26",
+    "d": 10586,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "27",
+    "lid": 369,
+    "l": "Data device 27",
+    "d": 10587,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "28",
+    "lid": 370,
+    "l": "Data device 28",
+    "d": 10588,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "29",
+    "lid": 371,
+    "l": "Data device 29",
+    "d": 10589,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "30",
+    "lid": 372,
+    "l": "Data device 30",
+    "d": 10590,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  },
+  {
+    "v": "31",
+    "lid": 373,
+    "l": "Data device 31",
+    "d": 10591,
+    "visible_when": [
+      {
+        "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+        "group": "$option_v",
+        "op": "!=",
+        "value": 255
+      }
+    ]
+  }
+]

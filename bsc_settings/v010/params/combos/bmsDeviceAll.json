@@ -1,0 +1,126 @@
+[
+  {
+    "v": "0",
+    "l": "Bluetooth 0",
+    "visible_when": [
+      {"source": "var", "param": "bte_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "1",
+    "l": "Bluetooth 1",
+    "visible_when": [
+      {"source": "var", "param": "bte_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "2",
+    "l": "Bluetooth 2",
+    "visible_when": [
+      {"source": "var", "param": "bte_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "3",
+    "l": "Bluetooth 3",
+    "visible_when": [
+      {"source": "var", "param": "bte_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "4",
+    "l": "Bluetooth 4",
+    "visible_when": [
+      {"source": "var", "param": "bte_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "5",
+    "l": "Bluetooth 5",
+    "visible_when": [
+      {"source": "var", "param": "bte_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "6",
+    "l": "Bluetooth 6",
+    "visible_when": [
+      {"source": "var", "param": "bte_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "7",
+    "l": "Serial 0"
+  },
+  {
+    "v": "8",
+    "l": "Serial 1"
+  },
+  {
+    "v": "9",
+    "l": "Serial 2"
+  },
+  {
+    "v": "10",
+    "l": "Serial 3",
+    "visible_when": [
+      {"source": "var", "param": "se_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "11",
+    "l": "Serial 4",
+    "visible_when": [
+      {"source": "var", "param": "se_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "12",
+    "l": "Serial 5",
+    "visible_when": [
+      {"source": "var", "param": "se_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "13",
+    "l": "Serial 6",
+    "visible_when": [
+      {"source": "var", "param": "se_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "14",
+    "l": "Serial 7",
+    "visible_when": [
+      {"source": "var", "param": "se_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "15",
+    "l": "Serial 8",
+    "visible_when": [
+      {"source": "sysvartem", "param": "se_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "16",
+    "l": "Serial 9",
+    "visible_when": [
+      {"source": "var", "param": "se_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "17",
+    "l": "Serial 10",
+    "visible_when": [
+      {"source": "var", "param": "se_available", "op": "==", "value": 1}
+    ]
+  },
+  {
+    "v": "OPTION_DEVICE_MAPPING_INTERFACE_VECAN",
+    "l": "VE.Can",
+    "visible_when": [
+      {"source": "var", "param": "rico_available", "op": "==", "value": 1}
+    ]
+  }
+]

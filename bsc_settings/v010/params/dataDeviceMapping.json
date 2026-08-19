@@ -1,0 +1,166 @@
+{
+  "page": [
+    {
+      "lid": 191,
+      "label": "Data device mapping",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_bsc/#data-device-mapping",
+      "items": [
+        {
+          "lid": 192,
+          "label": "Data device mapping",
+          "label_entry": "Data device",
+          "groupsize": "MUBER_OF_DATA_DEVICES",
+          "type": "HTML_OPTIONGROUP",
+          "help": "Der Name darf keine # und \\+ Zeichen enthalten!",
+          "group": [
+            {
+              "name": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+              "lid": 193,
+              "label": "Schnittstelle",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "255",
+                  "lid": 263,
+                  "l": "Nicht belegt"
+                },
+                {
+                  "$ref": "bmsDeviceAll"
+                }
+              ],
+              "default": 255,
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_DEVICE_MAPPING_ADRESSE",
+              "lid": 194,
+              "label": "Adresse",
+              "type": "HTML_INPUTSELECT",
+              "options_default": [
+                {
+                  "$ref": "serialAddress0To16"
+                }
+              ],
+              "options_cases": [
+                {
+                  "when": [
+                    {
+                      "param": "ID_PARAM_DEVICE_MAPPING_SCHNITTSTELLE",
+                      "group": "$group_idx",
+                      "op": "==",
+                      "value": "OPTION_DEVICE_MAPPING_INTERFACE_VECAN"
+                    }
+                  ],
+                  "options": [
+                    {
+                      "$ref": "vecanSlotsActive"
+                    }
+                  ]
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_DEVICE_MAPPING_NAME",
+              "lid": 195,
+              "label": "Name",
+              "type": "HTML_INPUTTEXT",
+              "pattern": "^[^#\\+]*$",
+              "default": "",
+              "maxlen": 16,
+              "flash": "1",
+              "dt": "PARAM_DT_ST"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_DATADEVICEMAPPING_DATA_DEVICE_MAPPING"
+    },
+    {
+      "lid": 49,
+      "label": "Value adjustments",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_bsc/#value-adjustment-fur-soc-ubermittlung-an-den-wechselrichter",
+      "items": [
+        {
+          "lid": 50,
+          "label": "Data devices",
+          "label_entry": "Device",
+          "groupsize": "MUBER_OF_DATA_DEVICES",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_BMS_BALUE_ADJUSTMENTS_LINEARIZE_SOC",
+              "lid": 300,
+              "label": "SoC linearisieren",
+              "type": "HTML_INPUTCHECKBOX",
+              "default": "0",
+              "dt": "PARAM_DT_BO"
+            },
+            {
+              "name": "ID_PARAM_BMS_BALUE_ADJUSTMENTS_SOC100_MODE",
+              "lid": 493,
+              "label": "SoC 100% trigger mode",
+              "type": "HTML_INPUTSELECT",
+              "default": 0,
+              "options": [
+                {
+                  "v": 0,
+                  "lid": 494,
+                  "l": "Eine Zelle erreicht Schwellwert"
+                },
+                {
+                  "v": 1,
+                  "lid": 495,
+                  "l": "Alle Zellen erreichen Schwellwert"
+                }
+              ],
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_BMS_BALUE_ADJUSTMENTS_SOC100_CELL_VOLTAGE",
+              "lid": 51,
+              "label": "Cellvoltage for SoC 100%",
+              "help": "0=deaktiviert",
+              "unit": "mV",
+              "type": "HTML_INPUTNUMBER",
+              "default": 0,
+              "min": 0,
+              "max": 5000,
+              "dt": "PARAM_DT_U16"
+            },
+            {
+              "name": "ID_PARAM_BMS_BALUE_ADJUSTMENTS_SOC0_CELL_VOLTAGE",
+              "lid": 52,
+              "label": "Cellvoltage for SoC 0%",
+              "help": "0=deaktiviert",
+              "unit": "mV",
+              "type": "HTML_INPUTNUMBER",
+              "default": 0,
+              "min": 0,
+              "max": 5000,
+              "dt": "PARAM_DT_U16"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_DATADEVICEMAPPING_VALUE_ADJUSTMENTS"
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 196,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_DATA_DEVICE_MAPPING",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_DATA_DEVICE_MAPPING"
+    }
+  }
+}

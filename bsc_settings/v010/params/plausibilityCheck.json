@@ -1,0 +1,266 @@
+{
+  "page": [
+    {
+      "lid": 47,
+      "label": "Plausibility check",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_bsc/#plausibility-check",
+      "items": [
+        {
+          "name": "ID_PARAM_BMS_PLAUSIBILITY_CHECK_CELLVOLTAGE",
+          "lid": 48,
+          "label": "Cellvoltage plausibility check",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "0",
+              "lid": 257,
+              "l": "Aus"
+            },
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": "0",
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_BMS_PLAUSIBILITY_CHECK_DEVICES",
+          "lid": 273,
+          "label": "Zu &uuml;berwachende Geräte",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "dataDevicesAll"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_BMS_PLAUSIBILITY_CHECK_CURRENT",
+          "lid": 274,
+          "label": "Strom Schwellwert",
+          "help": "Siehe Hinweis Zeit 1 + 2",
+          "unit": "A",
+          "type": "HTML_INPUTFLOAT_2",
+          "default": 200,
+          "min": 1,
+          "max": 65000,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_BMS_PLAUSIBILITY_CHECK_TIME1",
+          "lid": 275,
+          "label": "Zeit 1",
+          "help": "Wenn der Strom im Batterypack größer dem Stromschwellwert ist, dann wird diese Zeit für den P-Check genommen.",
+          "unit": "s",
+          "type": "HTML_INPUTNUMBER",
+          "default": 30,
+          "min": 1,
+          "max": 7200,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_BMS_PLAUSIBILITY_CHECK_TIME2",
+          "lid": 276,
+          "label": "Zeit 2",
+          "help": "Wenn der Strom im Batterypack kleiner dem Stromschwellwert ist, dann wird diese Zeit für den P-Check genommen.",
+          "unit": "s",
+          "type": "HTML_INPUTNUMBER",
+          "default": 240,
+          "min": 1,
+          "max": 7200,
+          "dt": "PARAM_DT_U16"
+        }
+      ],
+      "section_id": "UI_SECT_PLAUSIBILITYCHECK_PLAUSIBILITY_CHECK"
+    },
+    {
+      "lid": 301,
+      "label": "Wertevergleich",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 301,
+          "label": "Wertevergleich",
+          "label_entry": "Wertevergleich",
+          "groupsize": "NR_OF_VALUE_COMPARISON",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_DEVICE_VALUE_COMPARISON_TRIGGER",
+              "lid": 33,
+              "label": "Trigger",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "0",
+                  "lid": 257,
+                  "l": "Aus"
+                },
+                {
+                  "$ref": "comboAlarms"
+                }
+              ],
+              "default": "0",
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_DEVICE_VALUE_COMPARISON_DATA_DEVICE",
+              "lid": 303,
+              "label": "Vergleichen",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "dataDevicesAll"
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_DEVICE_VALUE_COMPARISON_VALUES",
+              "lid": 304,
+              "label": "Werte",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "v": "OPTION_VALUE_COMPARISON_TOTAL_VOLTAGE",
+                  "lid": 305,
+                  "l": "Gesammtspannung"
+                },
+                {
+                  "v": "OPTION_VALUE_COMPARISON_CELL_VOLTAGE",
+                  "lid": 306,
+                  "l": "Zellspannung"
+                },
+                {
+                  "v": "OPTION_VALUE_COMPARISON_DEVICE_CURRENT",
+                  "lid": 334,
+                  "l": "Batteriestrom"
+                }
+              ],
+              "default": "0",
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_DEVICE_VALUE_COMPARISON_DIFF_TOTALVOLT",
+              "lid": 307,
+              "label": "Max. Abweichung Gesamtspg.",
+              "unit": "mV",
+              "type": "HTML_INPUTNUMBER",
+              "default": 50,
+              "min": 0,
+              "max": 250,
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_DEVICE_VALUE_COMPARISON_DIFF_CELLVOLT",
+              "lid": 308,
+              "label": "Max. Abweichung Zellspg.",
+              "unit": "mV",
+              "type": "HTML_INPUTNUMBER",
+              "default": 5,
+              "min": 0,
+              "max": 100,
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_DEVICE_VALUE_COMPARISON_DIFF_DEVICE_CURRENT",
+              "lid": 335,
+              "label": "Max. Abweichung Batteriestrom",
+              "unit": "A",
+              "type": "HTML_INPUTNUMBER",
+              "default": 5,
+              "min": 0,
+              "max": 100,
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_DEVICE_VALUE_COMPARISON_DIFF_DELAY",
+              "lid": 309,
+              "label": "Verzögerung",
+              "unit": "s",
+              "type": "HTML_INPUTNUMBER",
+              "default": 5,
+              "min": 0,
+              "max": 60,
+              "dt": "PARAM_DT_U8"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_PLAUSIBILITYCHECK_WERTEVERGLEICH"
+    },
+    {
+      "lid": 497,
+      "label": "Zellspannung bei Ladestrom",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_BMS_CHARGE_VOLTAGE_SAG_ENABLE",
+          "lid": 498,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": 0,
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_BMS_CHARGE_VOLTAGE_SAG_DEVICES",
+          "lid": 273,
+          "label": "Zu &uuml;berwachende Geräte",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "dataDevicesAll"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_BMS_CHARGE_VOLTAGE_SAG_TRIGGER",
+          "lid": 499,
+          "label": "Trigger",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "0",
+              "lid": 257,
+              "l": "Aus"
+            },
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": "0",
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_BMS_CHARGE_VOLTAGE_SAG_MANUAL_RESET",
+          "lid": 500,
+          "label": "Fehler bis manuellem Reset halten",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": 0,
+          "dt": "PARAM_DT_BO"
+        }
+      ],
+      "section_id": 2
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 196,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_PLAUSIBILITY_CHECK",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_PLAUSIBILITY_CHECK"
+    }
+  }
+}

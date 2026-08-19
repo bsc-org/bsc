@@ -1,0 +1,97 @@
+{
+  "page": [
+    {
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 35,
+          "label": "Bluetooth",
+          "label_entry": "BT Device",
+          "groupsize": "BT_EXT_DEVICES_COUNT",
+          "type": "HTML_OPTIONGROUP",
+          "help": "Die MAC-Adresse muss klein geschrieben werden!",
+          "group": [
+            {
+              "name": "ID_PARAM_SS_BTDEV",
+              "lid": 36,
+              "label": "Bluetooth",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "ID_BT_DEVICE_NB",
+                  "lid": 263,
+                  "l": "nicht belegt"
+                },
+                {
+                  "v": "ID_BT_DEVICE_NEEY_GW_24S4EB",
+                  "l": "NEEY GW-24S4EB"
+                },
+                {
+                  "v": "ID_BT_DEVICE_NEEY_EK_24S4EB",
+                  "l": "NEEY EK-24S4EB, EK-24S10EB"
+                },
+                {
+                  "v": "ID_BT_DEVICE_JKBMS_JK02",
+                  "l": "JK-BMS [Test]"
+                },
+                {
+                  "v": "ID_BT_DEVICE_JKBMS_JK02_32S",
+                  "l": "JK-BMS (32S) [Test]"
+                }
+              ],
+              "default": "0",
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_SS_BTDEVMAC",
+              "lid": 37,
+              "label": "MAC-Adresse",
+              "type": "HTML_INPUTTEXT",
+              "default": "",
+              "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$",
+              "dt": "PARAM_DT_ST"
+            },
+            {
+              "name": "ID_PARAM_BTDEV_DEACTIVATE",
+              "lid": 38,
+              "label": "Deactivate",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "0",
+                  "lid": 257,
+                  "l": "Aus"
+                },
+                {
+                  "$ref": "comboAlarms"
+                }
+              ],
+              "default": "0",
+              "dt": "PARAM_DT_U8"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 39,
+      "label": "Save"
+    }
+  ],
+  "timer": [
+    {
+      "type": "text",
+      "interval": 5000
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_BLUETOOTH",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_BLUETOOTH"
+    }
+  }
+}

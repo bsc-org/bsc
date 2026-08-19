@@ -1,0 +1,37 @@
+[
+  {
+    "v": 0,
+    "l": "Sonntag",
+    "lid": 322
+  },
+  {
+    "v": 1,
+    "l": "Montag",
+    "lid": 323
+  },
+  {
+    "v": 2,
+    "l": "Dienstag",
+    "lid": 324
+  },
+  {
+    "v": 3,
+    "l": "Mittwoch",
+    "lid": 325
+  },
+  {
+    "v": 4,
+    "l": "Donnerstag",
+    "lid": 326
+  },
+  {
+    "v": 5,
+    "l": "Freitag",
+    "lid": 327
+  },
+  {
+    "v": 6,
+    "l": "Samstag",
+    "lid": 328
+  }
+]

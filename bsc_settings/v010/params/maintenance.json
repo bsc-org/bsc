@@ -1,0 +1,76 @@
+{
+  "page": [
+    {
+      "lid": 337,
+      "label": "Wartungsmodus",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_DEVICE_MAINTENANCE",
+          "lid": 338,
+          "label": "Data Devices: Wartung aktiv",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "dataDevicesAll"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_DEVICE_MAINTENANCE_MQTT",
+          "lid": 339,
+          "label": "Data Devices: MQTT senden",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "dataDevicesAll"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_GROUP_DEVICE_MAINTENANCE",
+          "label": "Group Devices: Wartung aktiv",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "batteryPacks"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_GROUP_DEVICE_MAINTENANCE_MQTT",
+          "label": "Group Devices: MQTT senden",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "batteryPacks"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        }
+      ],
+      "section_id": "UI_SECT_MAINTENANCE_WARTUNGSMODUS"
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 196,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_MAINTENANCE",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_MAINTENANCE"
+    }
+  }
+}

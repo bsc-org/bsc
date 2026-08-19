@@ -1,0 +1,218 @@
+{
+  "page": [
+    {
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 40,
+          "label": "Serielle Schnittstellen",
+          "label_entry": "Serial",
+          "help": "<b>To use serial 3-11, the serial extension is required!</b>",
+          "groupsize": 11,
+          "type": "HTML_OPTIONGROUP",
+          "hidden_when": [
+            {
+              "source": "var",
+              "param": "se_available",
+              "op": "==",
+              "value": 0
+            },
+            {
+              "param": "$group_no",
+              "op": ">",
+              "value": 3
+            }
+          ],
+          "group": [
+            {
+              "name": "ID_PARAM_SERIAL_CONNECT_DEVICE",
+              "lid": 41,
+              "label": "Serial",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "ID_SERIAL_DEVICE_NB",
+                  "lid": 263,
+                  "l": "nicht belegt"
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_BPN",
+                  "l": "BPN (not use)",
+                  "adr":[0,0]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_JBDBMS",
+                  "l": "JBD BMS",
+                  "adr":[0]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_JKBMS",
+                  "l": "JK BMS",
+                  "adr":[0]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_JKBMS_V13",
+                  "l": "JK BMS V1.3 (only monitoring)",
+                  "adr":[0]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_JKINVERTERBMS",
+                  "l": "JK Inverter BMS",
+                  "adr":[1,1]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_SEPLOSBMS",
+                  "l": "Seplos BMS",
+                  "adr":[0,1]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_SEPLOSBMS_V3",
+                  "l": "Seplos V3 BMS",
+                  "adr":[0]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_DALYBMS",
+                  "l": "DALY BMS",
+                  "adr":[0]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_SYLCINBMS",
+                  "l": "Sylcin BMS",
+                  "adr":[1,1]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_PACEBMS_RN150",
+                  "l": "PACE RN150 BMS (Test)",
+                  "adr":[0]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_PACEBMS_PC200",
+                  "l": "PACE PC200 BMS (RS485B)",
+                  "adr":[2,2]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_PACEBMS_PC200_RS232",
+                  "l": "PACE PC200 V1 BMS (RS232)",
+                  "adr":[2]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_PACEBMS_PC200_V2_RS232",
+                  "l": "PACE PC200 V2 BMS (RS232)",
+                  "adr":[2]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_PYLONTECH",
+                  "l": "Pylontech",
+                  "adr":[1,1]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_FELICITY_LUXY",
+                  "l": "Felicity LUX-Y Serie",
+                  "adr":[0,0]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_DAREN_BMS",
+                  "l": "Daren BMS",
+                  "adr":[0]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_SMARTSHUNT_VEDIRECT",
+                  "l": "Victron SmartShunt",
+                  "adr":[0]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_NEEY_4A",
+                  "l": "NEEY RS485",
+                  "adr":[1,1]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_NT48A08",
+                  "l": "Eletechsup NT4A08",
+                  "adr":[1,1]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_NT48B16",
+                  "l": "Eletechsup NT48B16",
+                  "adr":[1,1]
+                },
+                {
+                  "v": "ID_SERIAL_DEVICE_NT48C32",
+                  "l": "Eletechsup NT48C32",
+                  "adr":[1,1]
+                }
+              ],
+              "default": "ID_SERIAL_DEVICE_NB",
+              "dt": "PARAM_DT_U8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lid": 42,
+      "label": "Allgemein",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_SERIAL_NUMBER_OF_CELLS",
+          "lid": 43,
+          "label": "Anzahl Zellen",
+          "type": "HTML_INPUTNUMBER",
+          "default": 16,
+          "min": 4,
+          "max": 24,
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_SERIAL_ALLGEMEIN"
+    },
+    {
+      "lid": 44,
+      "label": "Filter",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_bsc/#filter",
+      "items": [
+        {
+          "name": "ID_PARAM_BMS_FILTER_RX_ERROR_COUNT",
+          "lid": 45,
+          "label": "Anzahl RX Fehler",
+          "help": "Gibt an, nach wievielen fehlerhaften Paketen es als Fehler bewertet wird.",
+          "type": "HTML_INPUTNUMBER",
+          "default": 2,
+          "min": 1,
+          "max": 125,
+          "flash": "1",
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_BMS_FILTER_CELL_VOLTAGE_PERCENT",
+          "lid": 46,
+          "label": "Abweichung Zellspannung",
+          "help": "0=Filter deaktiviert",
+          "unit": "%",
+          "type": "HTML_INPUTNUMBER",
+          "default": 0,
+          "min": 0,
+          "max": 100,
+          "flash": "1",
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_SERIAL_FILTER"
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 53,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_SERIAL",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_SERIAL"
+    }
+  }
+}

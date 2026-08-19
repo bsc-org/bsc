@@ -1,0 +1,95 @@
+{
+  "page": [
+    {
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "lid": 86,
+          "label": "Relaisausg&#228;nge",
+          "label_entry": "Relaisausgang",
+          "groupsize": 6,
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_DO_AUSLOESEVERHALTEN",
+              "lid": 87,
+              "label": "Ausl&#246;severhalten",
+              "type": "HTML_INPUTSELECT",
+              "options": [
+                {
+                  "v": "0",
+                  "lid": 261,
+                  "l": "Permanent"
+                },
+                {
+                  "v": "1",
+                  "lid": 262,
+                  "l": "Impuls"
+                }
+              ],
+              "default": "0",
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_DO_IMPULSDAUER",
+              "lid": 88,
+              "label": "Impulsdauer",
+              "unit": "ms",
+              "type": "HTML_INPUTNUMBER",
+              "default": 500,
+              "min": 100,
+              "max": 10000,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_DO_VERZOEGERUNG",
+              "lid": 89,
+              "label": "Verz&ouml;gerung",
+              "unit": "s",
+              "type": "HTML_INPUTNUMBER",
+              "default": 0,
+              "min": 0,
+              "max": 254,
+              "dt": "PARAM_DT_U8"
+            },
+            {
+              "name": "ID_PARAM_REL_INVERTIERT",
+              "lid": 90,
+              "label": "Invertieren",
+              "type": "HTML_INPUTCHECKBOX",
+              "default": "0",
+              "dt": "PARAM_DT_BO"
+            },
+            {
+              "name": "ID_PARAM_DO_AUSLOESUNG_BEI",
+              "lid": 91,
+              "label": "Auswahl Trigger",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "comboAlarms"
+                }
+              ],
+              "default": "",
+              "dt": "PARAM_DT_U32"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 92,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_DIGITAL_OUT",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_DIGITAL_OUT"
+    }
+  }
+}

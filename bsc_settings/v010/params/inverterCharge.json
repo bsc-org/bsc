@@ -1,0 +1,822 @@
+{
+  "page": [
+    {
+      "lid": 125,
+      "label": "Dynamischer Ladespannungsoffset",
+      "type": "HTML_SEPARATION",
+      "help": "Mit der Funktion kann die Ladespannung dynamisch nach dem Ladestrom angepasst werden.<br>Der Offset ist linear abhängig vom Ladestrom. Als Strom für die Berechnung wird der kleinste Ladestrom der Batterypacks genommen.",
+      "items": [
+        {
+          "name": "ID_PARAM_DYNAMIC_CHARGE_VOLTAGE_ON",
+          "lid": 144,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_DYNAMIC_CHARGE_VOLTAGE_CURRENT",
+          "lid": 126,
+          "label": "Strom",
+          "unit": "A",
+          "type": "HTML_INPUTFLOAT_2",
+          "default": "0",
+          "min": 0,
+          "max": 500,
+          "dt": "PARAM_DT_U16",
+          "help": "Der Strom, bei dem der maximale Offset addiert wird."
+        },
+        {
+          "name": "ID_PARAM_DYNAMIC_CHARGE_VOLTAGE_OFFSET_MIN",
+          "lid": 127,
+          "label": "Min. Offset",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "default": "0",
+          "min": 0,
+          "max": 5000,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_DYNAMIC_CHARGE_VOLTAGE_OFFSET_MAX",
+          "lid": 128,
+          "label": "Max. Offset",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "default": "500",
+          "min": 0,
+          "max": 5000,
+          "dt": "PARAM_DT_U16"
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERCHARGE_DYNAMISCHER_LADESPANNUNGSOFFSET"
+    },
+    {
+      "lid": 143,
+      "label": "Ladestrom pro Pack zu groß",
+      "type": "HTML_SEPARATION",
+      "help": "Ladestrom drosseln wenn der Ladestrom eines Packs überschritten wird",
+      "wiki": "settings_inverter/#ladestrom-pro-pack-zu-gro",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_BATTERYPACK",
+          "lid": 144,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "0",
+              "lid": 257,
+              "l": "Aus"
+            },
+            {
+              "v": "1",
+              "lid": 295,
+              "l": "Ein"
+            },
+            {
+              "v": "2",
+              "l": "C-Rate"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERCHARGE_LADESTROM_PRO_PACK_ZU_GROSS"
+    },
+    {
+      "lid": 145,
+      "label": "Ladestrom Zell-Spannungsabhängig drosseln",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_inverter/#ladestrom-zell-spannungsabhangig-drosseln",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLSPG_EN",
+          "lid": 146,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "enProfile": true,
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLSPG_STARTSPG",
+          "lid": 147,
+          "label": "Starten bei Zellspg. gr&ouml;ßer",
+          "help": "Sobald die h&ouml;chste Zellspannung diesen Wert &uuml;bersteigt wird die Drosselung aktiv.",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "3325",
+          "min": 2500,
+          "max": 5000,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLSPG_ENDSPG",
+          "lid": 148,
+          "label": "Maximale Zellspannung",
+          "help": "Sobald die h&ouml;chste Zellspannung diesen Wert &uuml;bersteigt wird nur noch mit dem Mindest-Ladestrom geladen.<br>Hinweis: Der Wert muss gr&ouml;ßer sein als die Zell-Startspannung.<br>Achtung: Bei aktivem Autobalancing wird diese Spannung durch die Maximale Zellspannung des Autobalancers ersetzt!",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "3300",
+          "min": 2500,
+          "max": 5000,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLSPG_ENDSPG_FLOAT",
+          "lid": 336,
+          "label": "Maximale Zellspannung (Float)",
+          "help": "0 = deaktiviert: Es wird dann auch bei Float die maximale Zellspannung genommen.",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "0",
+          "min": 0,
+          "max": 5000,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLSPG_MINDEST_STROM",
+          "lid": 149,
+          "label": "Mindest Ladestrom",
+          "unit": "A",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "5",
+          "min": 0,
+          "max": 200,
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERCHARGE_LADESTROM_ZELL_SPANNUNGSABHAENGIG_DROSSELN"
+    },
+    {
+      "lid": 150,
+      "label": "Ladestrom reduzieren bei Zelldrift",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_inverter/#ladestrom-reduzieren-bei-zelldrift",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLDRIFT_EN",
+          "lid": 151,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "enProfile": true,
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_STARTSPG_ZELLE",
+          "lid": 152,
+          "label": "Starten bei Zellspg. gr&ouml;ßer",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "3400",
+          "min": 2500,
+          "max": 5000,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_STARTABWEICHUNG",
+          "lid": 153,
+          "label": "Starten bei Drift gr&ouml;ßer",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "10",
+          "min": 1,
+          "max": 200,
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_A_PRO_MV",
+          "lid": 154,
+          "label": "Reduzierung pro weiterem mV-Abweichung um",
+          "unit": "A",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "1",
+          "min": 1,
+          "max": 200,
+          "dt": "PARAM_DT_U8",
+          "help": "Die Reduzierung bezieht sich auf den eingestellten Maximalstrom"
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERCHARGE_LADESTROM_REDUZIEREN_BEI_ZELLDRIFT"
+    },
+    {
+      "lid": 155,
+      "label": "Ladestrom reduzieren - SoC",
+      "type": "HTML_SEPARATION",
+      "help": "Diese Regel wird deaktiviert, sobald der Autobalancer auf die Start-Zellspannung wartet.",
+      "wiki": "settings_inverter/#ladestrom-reduzieren-soc",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_SOC_EN",
+          "lid": 156,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "enProfile": true,
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_AB_SOC",
+          "lid": 157,
+          "label": "Reduzierung ab SoC",
+          "unit": "%",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "98",
+          "min": 1,
+          "max": 99,
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_A_PRO_PERCENT_SOC",
+          "lid": 158,
+          "label": "Pro 1% um x A reduzieren",
+          "unit": "A",
+          "type": "HTML_INPUTFLOAT_1",
+          "enProfile": true,
+          "default": "10",
+          "min": 1,
+          "max": 1000,
+          "dt": "PARAM_DT_U16",
+          "help": "Die Reduzierung bezieht sich auf den eingestellten Maximalstrom"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_SOC_MINDEST_STROM",
+          "lid": 159,
+          "label": "Mindest Ladestrom",
+          "unit": "A",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "0",
+          "min": 0,
+          "max": 100,
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERCHARGE_LADESTROM_REDUZIEREN_SOC"
+    },
+    {
+      "lid": 282,
+      "label": "Ladestrom reduzieren - Temperatur",
+      "type": "HTML_SEPARATION",
+      "help": "Es werden die Quellen aus der aktiven Datenquelle verwendet (Data-Devices oder Group Devices).<br>Für die Regelung wird je nach Richtung stets der passende Grenzwert herangezogen: Von warm nach kalt gilt der Minimalwert, von kalt nach warm der Maximalwert.",
+      "items": [
+        {
+          "lid": 286,
+          "label": "Temperaturregeln",
+          "label_entry": "Regel",
+          "groupsize": "INVERTER_CHARGE_TEMPERATUR_NR_OF_RULES",
+          "type": "HTML_OPTIONGROUP",
+          "group": [
+            {
+              "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_EIN",
+              "lid": 156,
+              "label": "Ein/Aus",
+              "type": "HTML_INPUTCHECKBOX",
+              "default": "0",
+              "dt": "PARAM_DT_BO"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_SENSORS",
+              "lid": 283,
+              "label": "Data-Device Sensoren",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "tempsensorsBms"
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_TEMP32_SOURCES",
+              "lid": 0,
+              "label": "Erweiterte Sensorquellen",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "batteryPacks"
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_TEMP32_SENSORS",
+              "lid": 0,
+              "label": "Erweiterte Sensoren 0-31",
+              "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "options": [
+                {
+                  "$ref": "tempsensors1"
+                }
+              ],
+              "default": 0,
+              "dt": "PARAM_DT_U32"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_REDUZE_START",
+              "lid": 284,
+              "label": "Reduzieren Start",
+              "unit": "°C",
+              "type": "HTML_INPUTFLOAT_2",
+              "default": 2000,
+              "min": 1,
+              "max": 100,
+              "dt": "PARAM_DT_I16"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_REDUZE_END",
+              "lid": 285,
+              "label": "Reduzieren Ende",
+              "unit": "°C",
+              "type": "HTML_INPUTFLOAT_2",
+              "default": 0,
+              "min": 0,
+              "max": 100,
+              "dt": "PARAM_DT_I16"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERCHARGE_LADESTROM_REDUZIEREN_TEMPERATUR"
+    },
+    {
+      "lid": 345,
+      "label": "Ladestrom reduzieren - Temperaturprofil",
+      "type": "HTML_SEPARATION",
+      "help": "Es werden die Quellen aus der aktiven Datenquelle verwendet (Data-Devices oder Group Devices).",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_PROFILE_EIN",
+          "lid": 156,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_PROFILE_SENSORS",
+          "lid": 283,
+          "label": "Data-Device Sensoren",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "tempsensorsBms"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_PROFILE_TEMP32_SOURCES",
+          "lid": 0,
+          "label": "Erweiterte Sensorquellen",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "batteryPacks"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_PROFILE_TEMP32_SENSORS",
+          "lid": 0,
+          "label": "Erweiterte Sensoren 0-31",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "tempsensors1"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "lid": 344,
+          "label": "Temperaturprofil",
+          "groupsize": "INVERTER_CHARGE_TEMPERATURPROFILE_NR_OF_POINTS",
+          "type": "HTML_PROFILE",
+          "group": [
+            {
+              "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_PROFILE",
+              "lid": 342,
+              "label": "Temperatur",
+              "unit": "°C",
+              "type": "HTML_INPUTFLOAT_1",
+              "default": [
+                0,
+                50,
+                100,
+                150,
+                200,
+                250,
+                450,
+                500,
+                550,
+                600
+              ],
+              "min": 0,
+              "max": 60,
+              "dt": "PARAM_DT_I16"
+            },
+            {
+              "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_PROFILE_C_RATE",
+              "lid": 343,
+              "label": "C-Rate",
+              "unit": "C",
+              "type": "HTML_INPUTFLOAT_2",
+              "default": [
+                0,
+                10,
+                20,
+                40,
+                60,
+                100,
+                50,
+                25,
+                20,
+                0
+              ],
+              "min": 0,
+              "max": 1,
+              "dt": "PARAM_DT_U8"
+            }
+          ]
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERCHARGE_LADESTROM_REDUZIEREN_TEMPERATURPROFIL"
+    },
+
+    {
+      "lid": 292,
+      "label": "Spannungsregelung zur Ladestrombegrenzung",
+      "type": "HTML_SEPARATION",
+      "help": "Die Funktion regelt die Ladespannung dynamisch, um den Ladestrom innerhalb eines definierten Bereichs zu halten. Gleichzeitig wird ein Ladestrom von 0 A an den Wechselrichter übermittelt.<br>Die Regel tritt nur in Kraft, wenn der Autobalancer nicht aktiv ist.",
+      "wiki": "settings_inverter/#spannungsregelung-zur-ladestrombegrenzung",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_CHARGE_VOLTAGE_CURRENT_ZERO_CONTROL_ON",
+          "lid": 161,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTSELECT",
+          "enProfile": true,
+          "options": [
+            {
+              "v": "0",
+              "lid": 257,
+              "l": "Aus"
+            },
+            {
+              "v": "128",
+              "lid": 295,
+              "l": "Ein"
+            },
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_CHARGE_VOLTAGE_CURRENT_ZERO_CONTROL_SOC",
+          "lid": 293,
+          "label": "Aktiv ab (SoC)",
+          "unit": "%",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": 80,
+          "min": 1,
+          "max": 100,
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_CHARGE_VOLTAGE_CURRENT_ZERO_CONTROL_CORRIDOR",
+          "lid": 294,
+          "label": "Regelungskorridor (±)",
+          "unit": "A",
+          "type": "HTML_INPUTFLOAT_1",
+          "enProfile": true,
+          "default": 100,
+          "min": 1,
+          "max": 25,
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERCHARGE_SPANNUNGSREGELUNG_ZUR_LADESTROMBEGRENZUNG"
+    },
+    {
+      "lid": 164,
+      "label": "Autobalance",
+      "type": "HTML_SEPARATION",
+      "wiki": "settings_inverter/#autobalancer",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_AUTOBALANCE_ENABLE",
+          "lid": 165,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "enProfile": true,
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_AUTOBALANCE_START_TRIGGER",
+          "lid": 296,
+          "label": "Autobal. starten (Trigger)",
+          "type": "HTML_INPUTSELECT",
+          "enProfile": true,
+          "options": [
+            {
+              "v": "0",
+              "lid": 257,
+              "l": "Aus"
+            },
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_AUTOBALANCE_START_INTERVAL",
+          "lid": 166,
+          "label": "Balance-Intervall",
+          "help": "Gibt die Tage an, nach denen wieder das Balancing gestartet werden soll.<br>Hinweis: Wenn der Autobalancer aktiv, dann ist in der Ballance-Zeit der Charge-Current Cut-Off deaktiviert!<br>Es muss die richtige Anzahl der Zellen in den Serial-Settings eingestellt sein!",
+          "unit": "T",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "5",
+          "min": 1,
+          "max": 30,
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_AUTOBALANCE_START_CELLVOLTAGE",
+          "lid": 167,
+          "label": "Start Zellspannung",
+          "help": "Zellspannung die erreicht sein muss, damit der Vorgang beginnt.",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "3300",
+          "min": 2500,
+          "max": 4800,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_AUTOBALANCE_CHARGE_VOLTAGE",
+          "lid": 169,
+          "label": "Balance-Ladespannung",
+          "help": "Die Max. Ladespannung wird während dem Autobalancing auf diese Spannung angehoben.",
+          "unit": "V",
+          "type": "HTML_INPUTFLOAT_1",
+          "enProfile": true,
+          "default": "552",
+          "min": 20,
+          "max": 66,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_AUTOBALANCE_MAX_CELLVOLTAGE",
+          "lid": 170,
+          "label": "Maximale Zellspannung",
+          "help": "Maximale Zellspannung, bis zu der der Ladestrom während des Autobalancing reduziert wird.",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "3450",
+          "min": 2500,
+          "max": 4800,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_AUTOBALANCE_BALANCE_CELLVOLTAGE",
+          "lid": 536,
+          "label": "Balance Zellspannung",
+          "help": "Zellspannung, die zusammen mit der Zelldifferenz (Celldif. fertig) erreicht sein muss, damit das Balancing als fertig gilt und der Übergang in Step ‚Warte auf Ladespannung' erfolgt.",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "3500",
+          "min": 3400,
+          "max": 4800,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_AUTOBALANCE_CELLDIF_FINISH",
+          "lid": 171,
+          "label": "Celldif. fertig",
+          "help": "Balancing ist fertig, wenn die eingestellte Zelldifferenz erreicht ist.",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "5",
+          "min": 0,
+          "max": 50,
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_AUTOBALANCE_NACHLAUFZEIT",
+          "lid": 168,
+          "label": "Nachlaufzeit",
+          "help": "Nachdem die Balance-Ladespannung erreicht ist, läuft das Balancing noch diese Zeit nach.",
+          "unit": "Min",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "0",
+          "min": 0,
+          "max": 600,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_AUTOBALANCE_TIMEOUT",
+          "lid": 172,
+          "label": "Timeout",
+          "help": "Ist in dieser Zeit das Balancing nicht fertig, wird der Vorgang abgebrochen.",
+          "unit": "Min",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "60",
+          "min": 0,
+          "max": 600,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_AUTOBALANCE_OPTIONS",
+          "lid": 289,
+          "label": "Erweiterte Optionen",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "enProfile": true,
+          "options": [
+            {
+              "v": "OPTION_AUTOBAL_CELL_VOLTAGE",
+              "lid": 291,
+              "l": "Bei Start-Zellspg.-Unterschreitung → Step \"Warte auf Start-Zellspg.\""
+            },
+            {
+              "v": "OPTION_AUTOBAL_CUTOFF_OFF",
+              "lid": 297,
+              "l": "CutOff ab Step \"Warte auf Start-Zellspg.\" deaktivieren"
+            },
+            {
+              "v": "OPTION_AUTOBAL_SKIP_WAIT_CHARGE_VOLTAGE",
+              "lid": 537,
+              "l": "Step \"Warte auf Lade-Spg.\" überspringen"
+            }
+          ],
+          "default": "0",
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERCHARGE_AUTOBALANCE"
+    },
+    {
+      "lid": 173,
+      "label": "Charge-Current Cut-Off",
+      "type": "HTML_SEPARATION",
+      "help": "Liegt der Ladestrom die eingestellte Zeit (Cut-Off Time) unter dem Cut-Off Strom, wird der Ladestrom so lange auf 0 A gesetzt, bis der \"Float Ladespannung SoC\" unterschritten wird.",
+      "wiki": "settings_inverter/#charge-current-cut-off",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_CHARGE_CURRENT_CUT_OFF_ENABLE",
+          "lid": 174,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "enProfile": true,
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_CHARGE_CURRENT_CUT_OFF_TIME",
+          "lid": 175,
+          "label": "Cut-Off Time",
+          "unit": "s",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "300",
+          "min": 1,
+          "max": 30000,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_CHARGE_CURRENT_CUT_OFF_CURRENT",
+          "lid": 176,
+          "label": "Cut-Off Strom",
+          "unit": "A",
+          "type": "HTML_INPUTFLOAT_1",
+          "enProfile": true,
+          "default": "10",
+          "min": 0,
+          "max": 10000,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_CHARGE_CURRENT_CUT_OFF_START_VOLTAGE",
+          "lid": 177,
+          "label": "Start Zellspannung",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "enProfile": true,
+          "default": "0",
+          "min": 0,
+          "max": 3500,
+          "dt": "PARAM_DT_U16",
+          "help": "Die Regelung wird erst aktiv, wenn die Zellspannung erreicht ist.<br>0 = Startvoltage deaktiviert"
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERCHARGE_CHARGE_CURRENT_CUT_OFF"
+    },
+    {
+      "lid": 178,
+      "label": "SoC beim Unterschreiten der Zellspannung",
+      "type": "HTML_SEPARATION",
+      "help": "Wenn die eingestellte Zellspannung für den Ladebeginn unterschritten wird, dann kann durch das Senden eines beliebigen SoC an den Wechselrichter ein Nachladen veranlasst werden.<br>Es wird so lange nachgeladen, bis die Zellspannung Ladeende überschritten wird.",
+      "items": [
+        {
+          "name": "ID_PARAM_INVERTER_SOC_BELOW_ZELLSPANNUNG_EN",
+          "lid": 179,
+          "label": "Ein/Aus",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": "0",
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_SOC_BELOW_ZELLSPANNUNG_SPG",
+          "lid": 180,
+          "label": "Zellspannung Ladebeginn",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "default": "3000",
+          "min": 2500,
+          "max": 4000,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_SOC_BELOW_ZELLSPANNUNG_SPG_END",
+          "lid": 181,
+          "label": "Zellspannung Ladeende",
+          "unit": "mV",
+          "type": "HTML_INPUTNUMBER",
+          "default": "0",
+          "min": 0,
+          "max": 4000,
+          "dt": "PARAM_DT_U16",
+          "help": "Wenn Zellspannung Ladeende 0, dann wird geladen, bis die Zellspannung Ladebeginn wieder überschritten wird."
+        },
+        {
+          "name": "ID_PARAM_INVERTER_SOC_BELOW_ZELLSPANNUNG_SOC",
+          "lid": 182,
+          "label": "SoC",
+          "unit": "%",
+          "type": "HTML_INPUTNUMBER",
+          "default": "9",
+          "min": 0,
+          "max": 100,
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_INVERTER_SOC_BELOW_ZELLSPANNUNG_TIME",
+          "lid": 183,
+          "label": "Sperrzeit zwischen zwei Nachladungen",
+          "unit": "s",
+          "type": "HTML_INPUTNUMBER",
+          "default": "600",
+          "min": 0,
+          "max": 3600,
+          "dt": "PARAM_DT_U16"
+        }
+      ],
+      "section_id": "UI_SECT_INVERTERCHARGE_SOC_BEIM_UNTERSCHREITEN_DER_ZELLSPANNUNG"
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 184,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_INVERTER_CHARGE",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_INVERTER_CHARGE"
+    }
+  }
+}

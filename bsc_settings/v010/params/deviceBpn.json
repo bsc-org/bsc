@@ -1,0 +1,350 @@
+{
+  "page": [
+    {
+      "lid": 212,
+      "label": "General",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "BPN_SETTINGS_NR_OF_CELLS",
+          "lid": 213,
+          "label": "Anzahl Zellen",
+          "type": "HTML_INPUTNUMBER",
+          "default": 16,
+          "min": 0,
+          "max": 18,
+          "unit": ""
+        }
+      ],
+      "section_id": "UI_SECT_DEVICEBPN_GENERAL"
+    },
+    {
+      "lid": 214,
+      "label": "Shunt",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "BPN_SETTINGS_NOMINAL_BAT_CAPACITY",
+          "lid": 215,
+          "label": "Nominal Capacity",
+          "type": "HTML_INPUTNUMBER",
+          "default": 280,
+          "min": 0,
+          "max": 1000,
+          "unit": "Ah"
+        }
+      ],
+      "section_id": "UI_SECT_DEVICEBPN_SHUNT"
+    },
+    {
+      "lid": 216,
+      "label": "Ausgänge",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "BPN_SETTINGS_ALARM_RELAIS1_MODE",
+          "lid": 217,
+          "label": "Relais 1",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "0",
+              "l": "Arbeitsstrom"
+            },
+            {
+              "v": "1",
+              "l": "Ruhestrom"
+            }
+          ],
+          "default": "0",
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "BPN_SETTINGS_ALARM_RELAIS2_MODE",
+          "lid": 218,
+          "label": "Relais 2",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "0",
+              "l": "Arbeitsstrom"
+            },
+            {
+              "v": "1",
+              "l": "Ruhestrom"
+            }
+          ],
+          "default": "0",
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_DEVICEBPN_AUSGAENGE"
+    },
+    {
+      "lid": 219,
+      "label": "Alarm - Cell coltage",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "BPN_SETTINGS_LOW_CELL_VOLTAGE",
+          "lid": 220,
+          "label": "Low Cell Voltage",
+          "type": "HTML_INPUTNUMBER",
+          "default": 2700,
+          "min": 2500,
+          "max": 4000,
+          "unit": "mV"
+        },
+        {
+          "name": "BPN_SETTINGS_HIGH_CELL_VOLTAGE",
+          "lid": 221,
+          "label": "High Cell Voltage",
+          "type": "HTML_INPUTNUMBER",
+          "default": 3600,
+          "min": 2500,
+          "max": 4000,
+          "unit": "mV"
+        },
+        {
+          "name": "BPN_SETTINGS_ALARM_DELAY_CELL_VOLTAGE",
+          "lid": 222,
+          "label": "Alarm Delay - Cell Voltage",
+          "type": "HTML_INPUTNUMBER",
+          "default": 16,
+          "min": 0,
+          "max": 255,
+          "unit": "s"
+        },
+        {
+          "name": "BPN_SETTINGS_ALARM_RELAIS_CELL_VOLTAGE",
+          "lid": 223,
+          "label": "Ausgang",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "0",
+              "l": "Aus"
+            },
+            {
+              "v": "1",
+              "l": "Relais 1"
+            },
+            {
+              "v": "2",
+              "l": "Relais 2"
+            },
+            {
+              "v": "2",
+              "l": "DO"
+            }
+          ],
+          "default": "0",
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_DEVICEBPN_ALARM_CELL_COLTAGE"
+    },
+    {
+      "lid": 224,
+      "label": "Alarm - Battery voltage",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "BPN_SETTINGS_LOW_BATTERY_VOLTAGE",
+          "lid": 225,
+          "label": "Low Battery Voltage",
+          "type": "HTML_INPUTFLOAT",
+          "step": "0.01",
+          "default": 57.6,
+          "min": 0,
+          "max": 70,
+          "unit": "V"
+        },
+        {
+          "name": "BPN_SETTINGS_HIGH_BATTERY_VOLTAGE",
+          "lid": 226,
+          "label": "High Battery Voltage",
+          "type": "HTML_INPUTFLOAT",
+          "step": "0.01",
+          "default": 57.6,
+          "min": 0,
+          "max": 70,
+          "unit": "V"
+        },
+        {
+          "name": "BPN_SETTINGS_ALARM_DELAY_BATTERY_VOLTAGE",
+          "lid": 227,
+          "label": "Alarm Delay - Battery Voltage",
+          "type": "HTML_INPUTNUMBER",
+          "default": 0,
+          "min": 0,
+          "max": 255,
+          "unit": "s"
+        },
+        {
+          "name": "BPN_SETTINGS_ALARM_RELAIS_BATTERY_VOLTAGE",
+          "lid": 228,
+          "label": "Ausgang",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "0",
+              "l": "Aus"
+            },
+            {
+              "v": "1",
+              "l": "Relais 1"
+            },
+            {
+              "v": "2",
+              "l": "Relais 2"
+            },
+            {
+              "v": "2",
+              "l": "DO"
+            }
+          ],
+          "default": "0",
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_DEVICEBPN_ALARM_BATTERY_VOLTAGE"
+    },
+    {
+      "lid": 229,
+      "label": "Alarm - Charge current",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "BPN_SETTINGS_MAX_CHARGE_CURRENT",
+          "lid": 230,
+          "label": "Max Charge Current",
+          "type": "HTML_INPUTNUMBER",
+          "default": 100,
+          "min": 0,
+          "max": 4000,
+          "unit": "A"
+        },
+        {
+          "name": "BPN_SETTINGS_ALARM_DELAY_MAX_CHARGE_CURRENT",
+          "lid": 231,
+          "label": "Alarm Delay - Charge Current",
+          "type": "HTML_INPUTNUMBER",
+          "default": 0,
+          "min": 0,
+          "max": 255,
+          "unit": "s"
+        },
+        {
+          "name": "BPN_SETTINGS_ALARM_RELAIS_CHARGE_CURRENT",
+          "lid": 232,
+          "label": "Ausgang",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "0",
+              "l": "Aus"
+            },
+            {
+              "v": "1",
+              "l": "Relais 1"
+            },
+            {
+              "v": "2",
+              "l": "Relais 2"
+            },
+            {
+              "v": "2",
+              "l": "DO"
+            }
+          ],
+          "default": "0",
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_DEVICEBPN_ALARM_CHARGE_CURRENT"
+    },
+    {
+      "lid": 233,
+      "label": "Alarm - Discharge current",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "BPN_SETTINGS_MAX_DISCHARGE_CURRENT",
+          "lid": 234,
+          "label": "Max Discharge Current",
+          "type": "HTML_INPUTNUMBER",
+          "default": 100,
+          "min": 0,
+          "max": 4000,
+          "unit": "A"
+        },
+        {
+          "name": "BPN_SETTINGS_ALARM_DELAY_MAX_DISCHARGE_CURRENT",
+          "lid": 235,
+          "label": "Alarm Delay - Discharge Current",
+          "type": "HTML_INPUTNUMBER",
+          "default": 0,
+          "min": 0,
+          "max": 255,
+          "unit": "s"
+        },
+        {
+          "name": "BPN_SETTINGS_ALARM_RELAIS_DISCHARGE_CURRENT",
+          "lid": 236,
+          "label": "Ausgang",
+          "type": "HTML_INPUTSELECT",
+          "options": [
+            {
+              "v": "0",
+              "l": "Aus"
+            },
+            {
+              "v": "1",
+              "l": "Relais 1"
+            },
+            {
+              "v": "2",
+              "l": "Relais 2"
+            },
+            {
+              "v": "2",
+              "l": "DO"
+            }
+          ],
+          "default": "0",
+          "dt": "PARAM_DT_U8"
+        }
+      ],
+      "section_id": "UI_SECT_DEVICEBPN_ALARM_DISCHARGE_CURRENT"
+    }
+  ],
+  "sys": {
+    "store": 0
+  },
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 237,
+      "label": "Write to BPN"
+    },
+    {
+      "name": "read-btn",
+      "lid": 238,
+      "label": "Read from BPN"
+    }
+  ],
+  "timer": [
+    {
+      "type": "json",
+      "interval": 2000
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": "ID_PARAM_UI_SECTIONS_DEVICE_BPN",
+      "dt": "PARAM_DT_U32",
+      "default": "UI_SECT_DEFAULT_DEVICE_BPN"
+    }
+  }
+}

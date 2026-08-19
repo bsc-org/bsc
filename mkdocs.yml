@@ -9,13 +9,31 @@ theme:
   language: de
   highlightjs: true
 
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Zu dunklem Modus wechseln
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Zu hellem Modus wechseln
+
   features:
     - content.action.edit
     - navigation.indexes
     - navigation.sections
-    
+
   icon:
     repo: fontawesome/brands/github
+
+hooks:
+  - hooks/bsc_settings.py
+
+watch:
+  - bsc_settings
 
 plugins:
   - blog:
@@ -31,6 +49,8 @@ extra_css:
 
 extra_javascript:
   - js/external-links.js
+  - js/theme-sync.js
+  - js/bsc-settings.js
 
 #extra:
 #  alternate:

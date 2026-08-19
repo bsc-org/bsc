@@ -1,0 +1,304 @@
+{
+  "page": [
+    {
+      "label": "MQTT Allgemein",
+      "type": "HTML_SEPARATION",
+      "help": "Zum Übernehmen der Settings, muss der BSC neu gestartet werden!",
+      "wiki": "settings_bsc/#mqtt",
+      "items": [
+        {
+          "name": "ID_PARAM_MQTT_SERVER_ENABLE",
+          "lid": 18,
+          "label": "MQTT enable",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": 0,
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_MQTT_DEVICE_NAME",
+          "lid": 6,
+          "label": "MQTT Device Name",
+          "type": "HTML_INPUTTEXT",
+          "pattern": "^[^#\\+]*$",
+          "default": "bsc",
+          "minlen": 3,
+          "dt": "PARAM_DT_ST"
+        },
+        {
+          "name": "ID_PARAM_MQTT_SERVER_IP",
+          "lid": 19,
+          "label": "MQTT Server IP",
+          "type": "HTML_INPUTTEXT",
+          "pattern": "^((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)$",
+          "default": "",
+          "dt": "PARAM_DT_ST"
+        },
+        {
+          "name": "ID_PARAM_MQTT_SERVER_PORT",
+          "lid": 20,
+          "label": "MQTT Server Port",
+          "type": "HTML_INPUTNUMBER",
+          "default": 1883,
+          "min": 1,
+          "max": 49151,
+          "dt": "PARAM_DT_U16"
+        },
+        {
+          "name": "ID_PARAM_MQTT_USERNAME",
+          "lid": 21,
+          "label": "Username",
+          "type": "HTML_INPUTTEXT",
+          "pattern": "^[^#\\+]*$",
+          "default": "",
+          "dt": "PARAM_DT_ST"
+        },
+        {
+          "name": "ID_PARAM_MQTT_PWD",
+          "lid": 22,
+          "label": "Passwort",
+          "type": "HTML_INPUTPASSWORD",
+          "default": "",
+          "dt": "PARAM_DT_ST"
+        },
+        {
+          "name": "ID_PARAM_MQTT_TOPIC_NAME",
+          "lid": 23,
+          "label": "MQTT Topic Name",
+          "type": "HTML_INPUTTEXT",
+          "pattern": "^[^#\\+]*$",
+          "default": "bsc",
+          "dt": "PARAM_DT_ST"
+        },
+        {
+          "name": "ID_PARAM_MQTT_SEND_DELAY",
+          "lid": 24,
+          "label": "MQTT Sendeintervall",
+          "unit": "s",
+          "type": "HTML_INPUTNUMBER",
+          "default": 60,
+          "min": 1,
+          "max": 120,
+          "dt": "PARAM_DT_U8"
+        },
+        {
+          "name": "ID_PARAM_MQTT_VTRIGGER_REMANENT",
+          "lid": 25,
+          "label": "Remanenz vTrigger",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "comboVTrigger"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32",
+          "help": "V-Trigger behalten dadurch ihren Zustand, auch wenn Spannung unterbrochen wurde."
+        }
+      ]
+    },
+
+    {
+      "label": "Home Assistant",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_MQTT_DISCOVERY_PREFIX",
+          "label": "Home Assistant Discovery Prefix",
+          "type": "HTML_INPUTTEXT",
+          "pattern": "^[^#\\+]*$",
+          "default": "homeassistant",
+          "dt": "PARAM_DT_ST"
+        }
+      ]
+    },
+
+    {
+      "label": "Data Devices",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_MQTT_FILTER_DATADEVICE_ENABLE",
+          "label": "Data Devices senden",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": 1,
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_MQTT_FILTER_DATADEVICE_MASK",
+          "label": "Data Devices Auswahl",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "dataDevicesAll"
+            }
+          ],
+          "default": 4294967295,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_MQTT_FILTER_CLASS_DATA",
+          "label": "Datenklassen",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "v": "MQTT_FILTER_CLASS_TOTAL_MAIN_POS",
+              "l": "Gesamtspannung/Strom, SoC, FET-State"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_CELL_VOLTAGES_POS",
+              "l": "Zellspannungen"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_CELL_REST_POS",
+              "l": "Restliche Zelldaten"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_BALANCER_POS",
+              "l": "Balancerdaten (inkl. Balance-Status)"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_ERR_WARN_POS",
+              "l": "Errors, Warnings"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_TEMPERATURES_POS",
+              "l": "Temperaturen"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_ENERGY_STATS_POS",
+              "l": "Kapazität/Energie/Statistik"
+            }
+          ],
+          "default": "MQTT_FILTER_CLASS_ALL_DEFAULT",
+          "dt": "PARAM_DT_U32",
+          "help": "valid und maintenance werden immer gesendet."
+        }
+      ]
+    },
+    {
+      "label": "Group Devices",
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_MQTT_FILTER_GROUPDEVICE_ENABLE",
+          "label": "Group Devices senden",
+          "type": "HTML_INPUTCHECKBOX",
+          "default": 1,
+          "dt": "PARAM_DT_BO"
+        },
+        {
+          "name": "ID_PARAM_MQTT_FILTER_GROUPDEVICE_MASK",
+          "label": "Group Devices Auswahl",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "$ref": "batteryPacks"
+            }
+          ],
+          "default": 0,
+          "dt": "PARAM_DT_U32"
+        },
+        {
+          "name": "ID_PARAM_MQTT_FILTER_CLASS_GROUP",
+          "label": "Datenklassen",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "v": "MQTT_FILTER_CLASS_TOTAL_MAIN_POS",
+              "l": "Gesamtspannung/Strom, SoC, FET-State"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_CELL_VOLTAGES_POS",
+              "l": "Zellspannungen"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_CELL_REST_POS",
+              "l": "Restliche Zelldaten"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_BALANCER_POS",
+              "l": "Balancerdaten (inkl. Balance-Status)"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_ERR_WARN_POS",
+              "l": "Errors, Warnings"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_TEMPERATURES_POS",
+              "l": "Temperaturen"
+            },
+            {
+              "v": "MQTT_FILTER_CLASS_ENERGY_STATS_POS",
+              "l": "Kapazität/Energie/Statistik"
+            }
+          ],
+          "default": "MQTT_FILTER_CLASS_ALL_DEFAULT",
+          "dt": "PARAM_DT_U32",
+          "help": "valid und maintenance werden immer gesendet."
+        }
+      ],
+      "visible_when": [
+        {
+          "param": "ID_PARAM_BATTERY_GROUPS_ENABLE",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "label": "Weitere Daten",
+      "lid": 532,
+      "type": "HTML_SEPARATION",
+      "items": [
+        {
+          "name": "ID_PARAM_MQTT_FILTER_TOPIC_MASK",
+          "lid": 526,
+          "label": "MQTT-Daten senden",
+          "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+          "options": [
+            {
+              "v": "MQTT_FILTER_TOPIC_OW_POS",
+              "lid": 527,
+              "l": "OneWire"
+            },
+            {
+              "v": "MQTT_FILTER_TOPIC_INVERTER_POS",
+              "lid": 528,
+              "l": "Inverter"
+            },
+            {
+              "v": "MQTT_FILTER_TOPIC_ALARM_POS",
+              "lid": 529,
+              "l": "Trigger"
+            },
+            {
+              "v": "MQTT_FILTER_TOPIC_SYS_POS",
+              "lid": 530,
+              "l": "System"
+            },
+            {
+              "v": "MQTT_FILTER_TOPIC_CELL_VOLTAGE_SAG_DEBUG_POS",
+              "lid": 531,
+              "l": "Zellspannungsabfall (Debug)"
+            }
+          ],
+          "default": "MQTT_FILTER_TOPIC_DEFAULT",
+          "dt": "PARAM_DT_U32"
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 34,
+      "label": "Save"
+    },
+    {
+      "name": "action-btn",
+      "lid": 496,
+      "label": "HA Discovery senden",
+      "action": "mqttHaDiscovery"
+    }
+  ]
+}
