@@ -3,7 +3,7 @@ A quick overview of what you get with the **Free Version** versus the **Sponsor 
 The sponsored version offers you the latest features, advanced control functions, and a modern user interface – ideal for those who always want the newest features.
 
 !!! note "Note on the Sponsor Version"
-    The **Sponsor Version** is a separate firmware build in its own repository (Classic WebUI) and is not part of the firmware documented here. This comparison is provided as a reference to that separate Supporter firmware – see [Supporter](supporter.md). Statements marked as Sponsor-only refer to the Supporter firmware and cannot be verified against the firmware documented here.
+    The **Sponsor Version** is a separate firmware build in its own repository and is not part of the firmware documented here. This comparison is provided as a reference to that separate Supporter firmware – see [Supporter](supporter.md). The **Classic WebUI** is the web interface of the **Free Version**; the Sponsor Version uses the modern web application. Statements marked as Sponsor-only refer to the Supporter firmware and cannot be verified against the firmware documented here.
 
 | Feature | Free Version | Sponsor Version |
 |---------|:------------:|:---------------:|

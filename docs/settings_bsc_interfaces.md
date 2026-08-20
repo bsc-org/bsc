@@ -202,7 +202,7 @@ section: UI_SECT_DATADEVICEMAPPING_VALUE_ADJUSTMENTS
 Das "Value Adjustment" ermöglicht es, dem Wechselrichter abhängig von der Zellspannung einen angepassten State of Charge (SoC) zu übermitteln. Die Einstellungen werden **pro Data-Device** vorgenommen.
 
 !!! note "Hinweis zur Supporter-Firmware"
-    Das Value Adjustment ist ebenfalls Bestandteil der separat erhältlichen **Supporter-Firmware** (Classic WebUI). Weitere Informationen: [Supporter](supporter.md).
+    Das Value Adjustment ist ebenfalls Bestandteil der separat erhältlichen **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
 
 Folgende Optionen stehen zur Verfügung:
 
