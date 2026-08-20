@@ -141,7 +141,7 @@ Mit dieser Funktion kann der maximale Ladestrom abhängig von der gemessenen Tem
 Die Temperaturreduzierung erfolgt anhand von bis zu vier konfigurierbaren **Temperaturregeln**. Jede Regel kann individuell aktiviert, deaktiviert und mit eigenen Sensoren sowie Start- und Endwerten konfiguriert werden. 
 
 !!! note "Hinweis zur Supporter-Firmware"
-    Die Temperatur-Reduzierung ist auch Bestandteil der separat erhältlichen **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+    Die Temperatur-Reduzierung ist auch Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
 
 ```bsc-settings
 version: v010
@@ -242,7 +242,7 @@ Sobald die Funktion aktiviert ist, wird die Ladespannung dynamisch angepasst, um
 Die Funktion ermöglicht es z.B., den Akku nur bis zu einem bestimmten SoC zu laden, um seine Lebensdauer zu verlängern.  
 
 !!! note "Hinweis zur Supporter-Firmware"
-    Die Spannungsregelung ist auch Bestandteil der separat erhältlichen **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+    Die Spannungsregelung ist auch Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
 
 ```bsc-settings
 version: v010
