@@ -5,7 +5,9 @@ Sync-Script fuer das BSC-Settings-Rendering der Doku (components/bsc).
 
 Kopiert die Firmware-Settings-Daten (params/*.json inkl. combos/ und refs/)
 in den versionspezifischen Ordner `bsc_settings/<version>/`, generiert die
-Typ-Zuordnung `type_map.json` aus WebSettings.h und extrahiert das CSS-Subset
+Typ-Zuordnung `type_map.json` aus WebSettings.h, die Gruppen-Groessen
+`groupsizes.json` aus defines.h/WebSettings.h (fuer symbolische
+"groupsize"-Namen wie CNT_ALARMS) und extrahiert das CSS-Subset
 der WebApp nach `docs/css/bsc-settings-<version>.css` (gescoped unter
 `.bsc-settings-<version>`, Dark-Mode unter `html.dark .bsc-settings-<version>`).
 
@@ -174,7 +176,45 @@ def generate_type_map(firmware_path, version_dir):
 
 
 # ---------------------------------------------------------------------------
-# 3. CSS extrahieren
+# 3. groupsizes.json generieren
+# ---------------------------------------------------------------------------
+def generate_groupsizes(firmware_path, version_dir):
+    """Parst numerische #define-Werte aus include/defines.h und
+    include/settings/WebSettings.h (defines.h hat Vorrang) und schreibt sie
+    nach bsc_settings/<version>/groupsizes.json. Damit kann der Renderer
+    symbolische "groupsize"-Namen (z.B. CNT_ALARMS) aufloesen."""
+    sources = [
+        firmware_path / "include" / "defines.h",
+        firmware_path / "include" / "settings" / "WebSettings.h",
+    ]
+    sizes = {}
+    define_re = re.compile(r"^\s*#define\s+([A-Za-z_][A-Za-z0-9_]*)\s+"
+                           r"((?:0[xX][0-9A-Fa-f]+)|(?:\d+))\s*$")
+    for src in sources:
+        if not src.is_file():
+            warn(f"Defines-Quelle nicht gefunden: {src}")
+            continue
+        for line in src.read_text(encoding="utf-8", errors="replace").splitlines():
+            m = define_re.match(line)
+            if m:
+                name, raw = m.group(1), m.group(2)
+                try:
+                    sizes[name] = int(raw, 0)
+                except ValueError:
+                    continue
+
+    if not sizes:
+        warn("Keine numerischen Defines gefunden – groupsizes.json ist leer.")
+
+    out = version_dir / "groupsizes.json"
+    out.write_text(json.dumps(sizes, indent=2, sort_keys=True) + "\n",
+                   encoding="utf-8")
+    log(f"groupsizes.json generiert: {len(sizes)} Defines ({out})")
+    return sizes
+
+
+# ---------------------------------------------------------------------------
+# 4. CSS extrahieren
 # ---------------------------------------------------------------------------
 def split_css_rules(text):
     """Zerlegt CSS-Text in eine Liste von (prelude, body|None)-Tupeln.
@@ -436,6 +476,7 @@ def main(argv=None):
     version_dir.mkdir(parents=True, exist_ok=True)
     sync_params(firmware_path, version_dir)
     generate_type_map(firmware_path, version_dir)
+    generate_groupsizes(firmware_path, version_dir)
     extract_css(webapp_path, version, version_dir)
     log(f"=== Fertig. Daten unter {version_dir}, CSS unter docs/css/ ===")
 

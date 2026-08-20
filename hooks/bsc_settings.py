@@ -6,6 +6,13 @@ Rendert ```bsc-settings```-Fenced-Code-Bloecke in Markdown-Seiten zu statischem
 HTML im WebApp-Layout (listview/flex-container/separation-card) direkt aus den
 Firmware-JSONs unter <root>/bsc_settings/<version>/params/.
 
+Zielauswahl pro Block (mehrere Zeilen moeglich):
+- section: <section_id>  – Top-Level-Eintrag mit section_id (String-Vergleich,
+  numerische section_ids funktionieren)
+- index: <n>             – N-ter Top-Level-Eintrag in page (1-basiert)
+- label: <text>          – Top-Level-Eintrag mit exaktem Label
+- name: <name>           – globaler Eintrag mit exaktem name
+
 - on_config: traegt vorhandene docs/css/bsc-settings-v*.css als docs-relative
   Pfade in config.extra_css ein.
 - on_page_markdown: ersetzt ```bsc-settings```-Bloeke VOR der
@@ -43,7 +50,7 @@ INDENTED_FENCE_RE = re.compile(
 # ersetzt werden konnte (z.B. fehlender Schliessfence mit gleicher Einrueckung).
 INDENTED_FENCE_OPEN_RE = re.compile(r"^[ \t]+```bsc-settings[ \t]*\r?$",
                                     re.MULTILINE)
-KEY_VALUE_RE = re.compile(r"^(version|file|section|name|profile)\s*:\s*(.+?)\s*$")
+KEY_VALUE_RE = re.compile(r"^(version|file|section|name|index|label|profile)\s*:\s*(.+?)\s*$")
 
 # HTML-Entities im JSON-Text erhalten (Labels enthalten z.B. &uuml;).
 _ENTITY_RE = re.compile(
@@ -57,6 +64,7 @@ PROFILE_NO_PAIR_TYPES = {12, 13, 15, 20, 21, 23}
 # JSON-Cache: {(version, filename): obj}
 _JSON_CACHE = {}
 _TYPE_MAP_CACHE = {}
+_GROUPSIZES_CACHE = {}
 
 
 def escape_text(value):
@@ -144,6 +152,24 @@ def load_type_map(root, version):
     return type_map
 
 
+def load_groupsizes(root, version):
+    """Laedt bsc_settings/<version>/groupsizes.json (optional). Enthaelt
+    numerische Defines (z.B. CNT_ALARMS=27) zur Aufloesung symbolischer
+    groupsize-Namen."""
+    if version in _GROUPSIZES_CACHE:
+        return _GROUPSIZES_CACHE[version]
+    path = os.path.join(root, "bsc_settings", version, "groupsizes.json")
+    sizes = {}
+    if os.path.isfile(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                sizes = json.load(f)
+        except json.JSONDecodeError:
+            sizes = {}
+    _GROUPSIZES_CACHE[version] = sizes
+    return sizes
+
+
 def find_by_name(node, name):
     """Rekursive Suche (page/items/group) nach Eintrag mit exakt passendem name."""
     if isinstance(node, dict):
@@ -157,13 +183,30 @@ def find_by_name(node, name):
 
 
 def find_section(data, section_id):
-    """Sektion: Top-Level-Eintrag in page mit exakt passender section_id."""
+    """Sektion: Top-Level-Eintrag in page mit passender section_id
+    (Vergleich als String, damit auch numerische section_ids funktionieren)."""
     page = data.get("page")
     if not isinstance(page, list):
         return None
     for entry in page:
-        if isinstance(entry, dict) and entry.get("section_id") == section_id:
+        if isinstance(entry, dict) and str(entry.get("section_id")) == str(section_id):
             return entry
+    return None
+
+
+def find_page_entry(data, index=None, label=None):
+    """Top-Level-Eintrag in page per 1-basiertem Index oder exaktem Label."""
+    page = data.get("page")
+    if not isinstance(page, list):
+        return None
+    if index is not None:
+        if 1 <= index <= len(page):
+            return page[index - 1]
+        return None
+    if label is not None:
+        for entry in page:
+            if isinstance(entry, dict) and str(entry.get("label")) == str(label):
+                return entry
     return None
 
 
@@ -177,6 +220,7 @@ class RenderContext:
         self.version = version
         self.data = data
         self.type_map = type_map
+        self.groupsizes = load_groupsizes(root, version)
         self.page_path = page_path
         # Marker-Parameter 'profile: off' deaktiviert das P1/P2-Rendering
         # (enProfile-Felder werden dann wie normale Felder gerendert).
@@ -455,9 +499,16 @@ class RenderContext:
         try:
             n = int(groupsize)
         except (TypeError, ValueError):
-            group = data.get("group")
-            n = len(group) if isinstance(group, list) else 1
-        return max(n, 1)
+            # Symbolischer groupsize-Name (z.B. CNT_ALARMS): ueber die
+            # generierte groupsizes.json aufloesen. Fallback: Anzahl der
+            # group-Felder (nur Notloesung – deckt keine Optiongruppen ab).
+            n = self.groupsizes.get(str(groupsize)) if isinstance(groupsize, str) else None
+            if n is None:
+                self.warn(f"groupsize '{groupsize}' nicht aufloesbar "
+                          f"(fehlt in groupsizes.json) – Fallback: Feldanzahl")
+                group = data.get("group")
+                n = len(group) if isinstance(group, list) else 1
+        return max(int(n), 1)
 
     def _render_option_group(self, data, collapsible=False):
         n = self._group_count(data)
@@ -847,7 +898,8 @@ class RenderContext:
 def parse_marker_body(body):
     """Parst Marker-Zeilen. Gibt (version, filename, entries, errors,
     profile_value) zurueck.
-    entries: Liste von ('section', id) bzw. ('name', name).
+    entries: Liste von ('section', id), ('name', name), ('index', n) bzw.
+    ('label', label).
     profile_value: 'off' deaktiviert das P1/P2-Profiling (Default: None = an)."""
     version = None
     filename = None
@@ -871,6 +923,13 @@ def parse_marker_body(body):
             entries.append(("section", value))
         elif key == "name":
             entries.append(("name", value))
+        elif key == "index":
+            try:
+                entries.append(("index", int(value)))
+            except ValueError:
+                errors.append(f"index:-Wert ist keine Zahl: '{value}'")
+        elif key == "label":
+            entries.append(("label", value))
         elif key == "profile":
             profile_value = value.lower()
             if profile_value not in ("on", "off"):
@@ -964,6 +1023,23 @@ def _replace_fence_body(body, root, page_path):
                 html_parts.append(ctx.render_entry(section))
             except RenderError as exc:
                 log.warning(f"[bsc-settings] {exc} ({value}) (Seite: {page_path})")
+                html_parts.append(
+                    f"<li><div class=\"bsc-settings-error\">BSC-Settings-Renderer: "
+                    f"{escape_text(str(exc))}</div></li>")
+        elif kind in ("index", "label"):
+            section = find_page_entry(data, index=value if kind == "index" else None,
+                                      label=value if kind == "label" else None)
+            if section is None:
+                log.warning(f"[bsc-settings] {kind} '{value}' nicht gefunden "
+                            f"in {safe_file} ({version}) (Seite: {page_path})")
+                html_parts.append(
+                    f"<li><div class=\"bsc-settings-error\">BSC-Settings-Renderer: "
+                    f"{kind} '{escape_text(value)}' nicht gefunden</div></li>")
+                continue
+            try:
+                html_parts.append(ctx.render_entry(section))
+            except RenderError as exc:
+                log.warning(f"[bsc-settings] {exc} ({kind} {value}) (Seite: {page_path})")
                 html_parts.append(
                     f"<li><div class=\"bsc-settings-error\">BSC-Settings-Renderer: "
                     f"{escape_text(str(exc))}</div></li>")
