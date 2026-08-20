@@ -2,6 +2,9 @@
 A quick overview of what you get with the **Free Version** versus the **Sponsor Version**.  
 The sponsored version offers you the latest features, advanced control functions, and a modern user interface – ideal for those who always want the newest features.
 
+!!! note "Note on the Sponsor Version"
+    The **Sponsor Version** is a separate firmware build in its own repository (Classic WebUI) and is not part of the firmware documented here. This comparison is provided as a reference to that separate Supporter firmware – see [Supporter](supporter.md). Statements marked as Sponsor-only refer to the Supporter firmware and cannot be verified against the firmware documented here.
+
 | Feature | Free Version | Sponsor Version |
 |---------|:------------:|:---------------:|
 | **<br>:material-alpha-a-box: Web Interface** |
@@ -16,7 +19,7 @@ The sponsored version offers you the latest features, advanced control functions
 | **Wi-Fi Reconnect** <br> If the connection to the access point is lost, the system will periodically retry and restore it automatically |  | :material-check: |
 | **MQTT** [:material-information:](mqtt.md) | :material-alert: | :material-check: |
 | **REST-API** [:material-information:](restapi.md) | :material-alert: | :material-check: |
-| **Settings Export & Import** |  | :material-check: |
+| **Settings Export & Import** *(not verified against the firmware documented here)* |  | :material-check: |
 | **Maintenance Mode** <br> Temporarily exclude individual battery packs from control and monitoring for service or troubleshooting |  | :material-check: |
 | **<br>:material-alpha-c-box: Inverter / General** [:material-information:](settings_inverter.md) |
 | **Data Sources** <br> Define which devices provide the data that is sent to the inverter | :material-check: | :material-check: |
@@ -62,3 +65,8 @@ The sponsored version offers you the latest features, advanced control functions
 |:------:|---------|
 | :material-check: | Included |
 | :material-alert: | Limited |
+
+## Notes
+
+- **Wi-Fi Reconnect:** In the firmware documented here, the automatic 5-minute access-point retry is active in **all** builds. The table entry refers to the separate Supporter firmware.
+- **Maintenance Mode:** See [Wartung](settings_maintenance.md) for the maintenance settings of the firmware documented here.

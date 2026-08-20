@@ -10,20 +10,21 @@ Um dies zu erreichen, geben sie bitte die folgende Zeile in die Adresszeile Ihre
 
 Falls es derzeit keine WLAN-Verbindung des BSC in Ihr Netz gibt, könnte der interne AccessPoint gestartet worden sein.  
 Dieser wird alle fünf Minuten versuchen, sich in das ursprüngliche Netz wieder einzuwählen.  
-Falls Sie den Neustart trotzdem ausführen möchten, verbinden Sie sich bitte wie [hier](first_steps.md#verbinden-mit-dem-bsc) beschrieben mit dem AccessPoint und führen den Reset durch.
+Falls Sie den Neustart trotzdem ausführen möchten, verbinden Sie sich bitte wie [hier](first_steps_programming.md#verbinden-mit-dem-bsc) beschrieben mit dem AccessPoint und führen den Reset durch.
 
 ### Der SoC Wert des BMS und der zum Inverter übertragene Wert stimmen nicht überein
 Hier gibt es drei Möglichkeiten, die dies "verursachen" können.  
 
 1) Die Einstellung der SoC-Quelle ist falsch definiert.  
 ![](img/troubleshooting/troubleshooting_soc_quelle.png){  width="400" }  
+Weitere Informationen zur SoC-Quelle und Aggregation finden Sie unter [Valuehandling](settings_inverter.md#valuehandling).
 
-2) Wenn die Masterquelle 5s ausgefallen ist, wird der SoC von einem noch verfügbaren Gerät übernommen. Sobald die Masterquelle wieder zur Verfügung steht, wird auf dieses wieder zurück geschaltet.
+2) Ist eine der ausgewählten SoC-Datenquellen länger als 5 Sekunden ohne Daten ausgefallen, wird ihr Wert nicht mehr berücksichtigt und der SoC wird aus den verbleibenden verfügbaren Quellen gebildet. Sobald die Quelle wieder Daten liefert, wird sie automatisch wieder einbezogen.
 
-3) Der Betriebsmodus 2 der SoC-Value Adjustments ist aktiv geschaltet und linearisiert den SoC zwischen den eingestellten Spannungswerten.  
-Bitte wechseln Sie im Menü auf /Einstellungen/Schnittstellen/Serial und scrollen zu den "Value adjustments".  
-Hier sollten keine zwei Werte pro Schnittstelle gesetzt sein, wenn ein BMS mit SoC-Kalkulation genutzt wird.  
-Weitere Informationen finden Sie [hier](settings_bsc_interfaces.md#serial) unter "Betriebsmodus 2: Lineare SoC-Berechnung zwischen zwei Zellspannungsschwellen".
+3) Die Option "SoC linearisieren" der Value Adjustments ist aktiviert und linearisiert den SoC zwischen den eingestellten Zellspannungen.  
+Bitte wechseln Sie im Menü auf `Einstellungen → Schnittstellen → Data devices` und scrollen zu den "Value adjustments".  
+Hier sollten die Felder "Cellvoltage for SoC 100%" und "Cellvoltage for SoC 0%" leer bleiben bzw. "SoC linearisieren" deaktiviert sein, wenn ein BMS mit eigener SoC-Kalkulation genutzt wird.  
+Weitere Informationen finden Sie [hier](settings_bsc_interfaces.md#value-adjustment).
 
 ### Log-Eintrag: "MQTT Queue ist voll"
 Dieses Problem kann auftreten, wenn der Broker nicht innerhalb einer bestimmten Zeit alle Daten aus der Queue abrufen kann.

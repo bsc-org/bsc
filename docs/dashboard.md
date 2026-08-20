@@ -3,26 +3,20 @@
 
 Es existieren zwei Varianten des WebUI:  
 
-- **Classic WebUI** (Standard-Version)  
-- **WebUI der Sponsoren-Version**  
+- **Modernes WebUI** (Standard-Version dieser Dokumentation)  
+- **Classic WebUI** (WebUI der Supporter-Firmware)  
 
-Die nachfolgenden Abbildungen und Beschreibungen beziehen sich auf das **WebUI der Sponsoren-Version**.  
-Im **Classic WebUI** stehen möglicherweise nicht alle Funktionen und Einstellungen in gleicher Form oder demselben Umfang zur Verfügung.
+!!! note "Hinweis zur Supporter-Firmware"
+    Die **Supporter-Firmware** (Classic WebUI) ist eine separate Firmware-Version in einem eigenen Repository und nicht Bestandteil der hier dokumentierten BSC-Firmware. Weitere Informationen: [Supporter](supporter.md).
+
+Die nachfolgenden Abbildungen und Beschreibungen beziehen sich auf das **moderne WebUI**.  
+Im **Classic WebUI** (Supporter-Firmware) stehen möglicherweise nicht alle Funktionen und Einstellungen in gleicher Form oder demselben Umfang zur Verfügung.
 
 ### Allgemeine Informationen zur Bedienung
 **Speichern der Einstellungen**  
-Das Speichern unterscheidet sich in den WebUI's.  
-
-**Classic WebUI:**  
-Die geänderten Einstellungen können mit dem „S"-Button, der in jeder Zeile der Einstellungen ist, gespeichert werden.
-Zu beachten ist, dass auch nur die Einstellung in der jeweiligen Zeile des „S"-Button gespeichert wird.  
-
-**WebUI der Sponsoren-Version**:  
-Hier können alle Änderungen über den "Save"-Button in der Headline gespeichert werden. Es muss nicht jeder Änderung einzeln gespeichert werden.
+Geänderte Einstellungen werden mit dem **"Save"-Button** in der Headline der jeweiligen Einstellungsseite gespeichert – es müssen nicht einzelne Zeilen separat gespeichert werden.
 
 ## Dashboard
-!!! note "Hinweis"
-    Das hier gezeigte Dashboard ist nur in der [Supporter Version](supporter.md) verfügbar
 
 ### Übersicht
 Das Dashboard des **Battery Safety Controller (BSC)** bietet einen schnellen Überblick über das gesamte System.  
@@ -96,6 +90,7 @@ Diese Kachel zeigt für jede aktivierte Laderegelung einen Balken an, der den ma
 | Charge-Current Cut-Off                    | **Cut Off** |
 | Ladestrom pro Pack zu groß                | **Pack High** |
 | Ladestrom reduzieren – Temperatur         | **Temp** |
+| Ladestrom reduzieren – Temperaturprofil   | **Temp Prf.** |
 | Spannungsregelung zur Ladestrombegrenzung | **Zero** |
 
 
@@ -107,6 +102,9 @@ Diese Kachel zeigt für jede aktivierte Entladeregelung einen Balken an, der den
 | Entladeregelung                              | Bezeichnung im Dashboard |
 |---------------------------------------------|--------------------------|
 | Entladestrom Zell-Spannungsabhängig drosseln | **Cell volt** |
+| Entladestrom pro Pack zu groß                | **Pack High** |
+| Entladestrom reduzieren – Temperatur         | **Temp** |
+| Entladestrom reduzieren – Temperaturprofil   | **Temp Prf.** |
 
 
 #### Data-Devices
