@@ -112,7 +112,7 @@
               "lid": 5,
               "label": "Benutzername",
               "type": "HTML_INPUTTEXT",
-              "default": "",
+              "default": "[bsc,]",
               "flash": "1",
               "dt": "PARAM_DT_ST"
             },
@@ -121,7 +121,7 @@
               "lid": 535,
               "label": "Passwort",
               "type": "HTML_INPUTPASSWORD",
-              "default": "",
+              "default": "[$sha256$8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918,]",
               "flash": "1",
               "dt": "PARAM_DT_ST"
             },

@@ -409,6 +409,21 @@ def extract_css(webapp_path, version, version_dir):
         f"  height: auto;\n"
         f"}}\n"
     )
+    # Eigene Ergaenzung: Rahmen der Sektionskarte wiederherstellen. Die aus
+    # der WebApp uebernommenen Regeln
+    #   .listview > ul > li.separation-card { border-bottom: 0; }
+    #   .listview > ul > li:last-child { border-bottom: 0; }
+    # stammen aus dem alten Zeilen-Separator-Design und entfernen die untere
+    # Rahmenlinie der .separation-card (Spezifitaet 0,3,2 > 0,1,0 des
+    # Kartenrahmens). Diese Ergaenzung hat dieselbe Spezifitaet und steht
+    # NACH dem Subset, gewinnt also in beiden Faellen (Karte mitten in der
+    # Liste und Karte als letzter Eintrag).
+    separation_border_rule = (
+        f"{scope} .listview > ul > li.separation-card {{\n"
+        f"  border-bottom: 1px solid color-mix(in srgb, "
+        f"var(--surface-border) 90%, var(--primary) 10%);\n"
+        f"}}\n"
+    )
 
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     parts = [
@@ -439,6 +454,16 @@ def extract_css(webapp_path, version, version_dir):
     for prelude, body in filtered:
         body_lines.append(f"{prelude}{{{rem_to_em(body)}}}")
     parts.append("\n\n".join(body_lines).rstrip("\n"))
+    parts.extend([
+        "",
+        "/* --- Ergaenzungsregeln (Abweichungen vom WebApp-Subset) --- */",
+        "/* Untere Rahmenlinie der Sektionskarten: die WebApp-Regeln",
+        "   '.listview > ul > li.separation-card' und 'li:last-child' setzen",
+        "   border-bottom: 0 (Relikt des alten Zeilen-Separator-Designs) und",
+        "   entfernen damit die untere Linie des Kartenrahmens. Diese Regel",
+        "   stellt sie wieder her (gleiche Spezifitaet, steht nach dem Subset). */",
+        separation_border_rule.rstrip("\n"),
+    ])
     css_out = "\n".join(parts) + "\n"
 
     out_path = REPO_ROOT / "docs" / "css" / f"bsc-settings-{version}.css"
