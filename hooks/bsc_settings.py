@@ -12,6 +12,9 @@ Zielauswahl pro Block (mehrere Zeilen moeglich):
 - index: <n>             – N-ter Top-Level-Eintrag in page (1-basiert)
 - label: <text>          – Top-Level-Eintrag mit exaktem Label
 - name: <name>           – globaler Eintrag mit exaktem name
+- groups: <n>            – Anzahl der gerenderten Instanzen von Optiongruppen
+  (Typ 12/15, groupsize-Iteration); Default 2, es werden immer nur die ersten
+  n Instanzen gerendert (>= 1)
 
 - on_config: traegt vorhandene docs/css/bsc-settings-v*.css als docs-relative
   Pfade in config.extra_css ein.
@@ -50,7 +53,7 @@ INDENTED_FENCE_RE = re.compile(
 # ersetzt werden konnte (z.B. fehlender Schliessfence mit gleicher Einrueckung).
 INDENTED_FENCE_OPEN_RE = re.compile(r"^[ \t]+```bsc-settings[ \t]*\r?$",
                                     re.MULTILINE)
-KEY_VALUE_RE = re.compile(r"^(version|file|section|name|index|label|profile)\s*:\s*(.+?)\s*$")
+KEY_VALUE_RE = re.compile(r"^(version|file|section|name|index|label|groups|profile)\s*:\s*(.+?)\s*$")
 
 # HTML-Entities im JSON-Text erhalten (Labels enthalten z.B. &uuml;).
 _ENTITY_RE = re.compile(
@@ -215,13 +218,14 @@ def find_page_entry(data, index=None, label=None):
 # ---------------------------------------------------------------------------
 class RenderContext:
     def __init__(self, root, version, data, type_map, page_path,
-                 profiles_enabled=True):
+                 profiles_enabled=True, groups_limit=2):
         self.root = root
         self.version = version
         self.data = data
         self.type_map = type_map
         self.groupsizes = load_groupsizes(root, version)
         self.page_path = page_path
+        self.groups_limit = groups_limit
         # Marker-Parameter 'profile: off' deaktiviert das P1/P2-Rendering
         # (enProfile-Felder werden dann wie normale Felder gerendert).
         self.profiles_enabled = profiles_enabled
@@ -511,7 +515,13 @@ class RenderContext:
         return max(int(n), 1)
 
     def _render_option_group(self, data, collapsible=False):
-        n = self._group_count(data)
+        total = self._group_count(data)
+        # Nutzer-Entscheidung (Rueckfrage 6): Nie alle Instanzen rendern –
+        # standardmaessig nur die ersten 2 als Beispiel (Marker-Parameter
+        # 'groups: n' ueberschreibt den Default).
+        limit = max(int(self.groups_limit or 2), 1)
+        n = min(total, limit)
+        truncated = total > limit
         label_entry = data.get("label_entry") or "Eintrag"
         try:
             label_offset = int(data.get("label_offset") or 0)
@@ -535,6 +545,11 @@ class RenderContext:
                 f"<li class='subHead' style='margin-top:10px'>"
                 f"<b>{escape_text(label_entry)} {idx + label_offset}</b></li>"
                 f"{inner}</div>")
+        if truncated:
+            blocks.append(
+                f"<!-- bsc-settings: Optiongruppe "
+                f"\"{escape_text(data.get('label') or '')}\" auf {limit} von "
+                f"{total} Instanzen begrenzt (groups: {limit}) -->")
         body = "".join(blocks)
 
         if collapsible:
@@ -897,15 +912,18 @@ class RenderContext:
 # ---------------------------------------------------------------------------
 def parse_marker_body(body):
     """Parst Marker-Zeilen. Gibt (version, filename, entries, errors,
-    profile_value) zurueck.
+    profile_value, groups_value) zurueck.
     entries: Liste von ('section', id), ('name', name), ('index', n) bzw.
     ('label', label).
-    profile_value: 'off' deaktiviert das P1/P2-Profiling (Default: None = an)."""
+    profile_value: 'off' deaktiviert das P1/P2-Profiling (Default: None = an).
+    groups_value: Max. Anzahl gerenderter Optiongruppen-Instanzen
+    (Default: 2; >= 1)."""
     version = None
     filename = None
     entries = []
     errors = []
     profile_value = None
+    groups_value = None
     for raw in body.splitlines():
         line = raw.strip()
         if not line or line.startswith("#"):
@@ -930,13 +948,23 @@ def parse_marker_body(body):
                 errors.append(f"index:-Wert ist keine Zahl: '{value}'")
         elif key == "label":
             entries.append(("label", value))
+        elif key == "groups":
+            try:
+                groups_value = int(value)
+            except ValueError:
+                errors.append(f"groups:-Wert ist keine Zahl: '{value}'")
+                groups_value = None
+            else:
+                if groups_value < 1:
+                    errors.append(f"groups:-Wert muss >= 1 sein: '{value}'")
+                    groups_value = None
         elif key == "profile":
             profile_value = value.lower()
             if profile_value not in ("on", "off"):
                 errors.append(f"Unbekannter profile:-Wert '{value}' "
                               f"(erlaubt: on, off; Default: on)")
                 profile_value = None
-    return version, filename, entries, errors, profile_value
+    return version, filename, entries, errors, profile_value, groups_value
 
 
 def replace_fence(match, root, page_path):
@@ -966,7 +994,7 @@ def replace_indented_fence(match, root, page_path):
 
 
 def _replace_fence_body(body, root, page_path):
-    version, filename, entries, errors, profile_value = parse_marker_body(body)
+    version, filename, entries, errors, profile_value, groups_value = parse_marker_body(body)
     if errors:
         for err in errors:
             log.warning(f"[bsc-settings] {err} (Seite: {page_path})")
@@ -1005,8 +1033,10 @@ def _replace_fence_body(body, root, page_path):
         return f'<div class="bsc-settings-error">BSC-Settings-Renderer: {escape_text(str(exc))}</div>'
 
     profiles_enabled = profile_value != "off"
+    groups_limit = groups_value if groups_value is not None else 2
     ctx = RenderContext(root, version, data, type_map, page_path,
-                        profiles_enabled=profiles_enabled)
+                        profiles_enabled=profiles_enabled,
+                        groups_limit=groups_limit)
 
     html_parts = []
     for kind, value in entries:

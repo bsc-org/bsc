@@ -8,7 +8,7 @@ Mit **Group Devices** können mehrere Data-Devices (z. B. einzelne BMS oder Shun
 !!! note "Hinweis"
     Group Devices werden erst sichtbar, wenn der Parameter **Group Devices aktiv** eingeschaltet ist. Bei aktivierten Group Devices stellen zahlreiche andere Einstellungen (Wechselrichter-Datenquellen, Temperatur-Alarmregeln, MQTT-Filter) auf die Auswahl der **Battery-Packs** (Group Devices) um.
 
-Es stehen bis zu **32 Group Devices** zur Verfügung. Pro Group Device können folgende Parameter konfiguriert werden:
+Es stehen bis zu **32 Group Devices** zur Verfügung. Pro Group Device können folgende Parameter konfiguriert werden (im Einstellungsblock unten sind exemplarisch die ersten beiden Group Devices abgebildet – alle Group Devices sind identisch aufgebaut):
 
 - **Name** – Frei wählbarer Name der Gruppe (max. 16 Zeichen; keine `#`- und `+`-Zeichen).
 - **Master Device** / **Second Device** – Primäres bzw. sekundäres Data-Device der Gruppe. Das Master-Device liefert z. B. Zellspannungen und Temperaturen; das Second Device dient als Ergänzung/Redundanz. `Nicht belegt` (255) deaktiviert die Zuweisung.
@@ -56,7 +56,7 @@ section: UI_SECT_DEVICEBPN_ALARM_DISCHARGE_CURRENT
 
 ## JBD BMS
 
-Für jeden seriellen Anschluss, an dem ein **JBD BMS** ausgewählt ist, kann eine **Cellvoltage 100%** hinterlegt werden. Sobald diese Zellspannung erreicht wird, wird der SoC des JBD-Data-Devices auf 100 % gesetzt.
+Für jeden seriellen Anschluss, an dem ein **JBD BMS** ausgewählt ist, kann eine **Cellvoltage 100%** hinterlegt werden. Sobald diese Zellspannung erreicht wird, wird der SoC des JBD-Data-Devices auf 100 % gesetzt (im Einstellungsblock unten exemplarisch die ersten beiden seriellen Anschlüsse – alle sind identisch aufgebaut).
 
 ```bsc-settings
 version: v010
