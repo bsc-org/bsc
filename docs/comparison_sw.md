@@ -3,7 +3,7 @@ A quick overview of what you get with the **Free Version** versus the **Sponsor 
 The sponsored version offers you the latest features, advanced control functions, and a modern user interface – ideal for those who always want the newest features.
 
 !!! note "Note on the Sponsor Version"
-    The **Sponsor Version** is a separate firmware build in its own repository and is not part of the firmware documented here. This comparison is provided as a reference to that separate Supporter firmware – see [Supporter](supporter.md). The **Classic WebUI** is the web interface of the **Free Version**; the Sponsor Version uses the modern web application. Statements marked as Sponsor-only refer to the Supporter firmware and cannot be verified against the firmware documented here.
+    The **Sponsor Version** is a separate firmware build in its own repository. This comparison is provided as a reference to that Supporter firmware – see [Supporter](supporter.md). The **Classic WebUI** is the web interface of the **Free Version**; the Sponsor Version uses the modern web application. Statements marked as Sponsor-only refer to the Supporter firmware.
 
 | Feature | Free Version | Sponsor Version |
 |---------|:------------:|:---------------:|
@@ -68,5 +68,5 @@ The sponsored version offers you the latest features, advanced control functions
 
 ## Notes
 
-- **Wi-Fi Reconnect:** In the firmware documented here, the automatic 5-minute access-point retry is active in **all** builds. The table entry refers to the separate Supporter firmware.
+- **Wi-Fi Reconnect:** In the firmware documented here, the automatic 5-minute access-point retry is active in **all** builds. The table entry refers to the Supporter firmware.
 - **Maintenance Mode:** See [Wartung](settings_maintenance.md) for the maintenance settings of the firmware documented here.
