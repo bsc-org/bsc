@@ -103,8 +103,11 @@ nav:
       - System: settings_bsc.md
       - Trigger: settings_bsc_trigger.md
       - Schnittstellen: settings_bsc_interfaces.md
-      # - Devices: settings_bsc_devices.md
+      - Devices: settings_bsc_devices.md
       - Alarmregeln: settings_bsc_alarmrules.md
+      - Wartung: settings_maintenance.md
+      - Fernwartung (T-Connect): settings_servicelink.md
+      - Einrichtungsassistenten: setup_assistant.md
       - Wechselrichter & Laderegelung: 
         - Allgemein: settings_inverter.md
         - Laden: settings_inverter_charge.md
