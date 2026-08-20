@@ -34,7 +34,7 @@ Pin 4: GND
 |  CAN RX/TX     | Rot - blinken  | Versenden einer CAN Nachricht         |
 
 #### Belegung des Pin-Headers
-In der hier dokumentierten Firmware stehen über den Pin-Header **Onewire**, die **Relais-Ausgänge**, die **Digitaleingänge** und **I²C** (z. B. für das [Display](#bsc-display)) zur Verfügung. Die separat erhältliche Supporter-Firmware nutzt diese Pins ebenfalls – siehe [Supporter](supporter.md).
+In der hier dokumentierten Firmware stehen über den Pin-Header **Onewire**, die **Relais-Ausgänge**, die **Digitaleingänge** und **I²C** (z. B. für das [Display](#bsc-display)) zur Verfügung. Die Supporter-Firmware nutzt diese Pins ebenfalls – siehe [Supporter](supporter.md).
 
 | PIN | GPIO | Funktion         |
 |-----|------|------------------|

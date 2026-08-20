@@ -58,7 +58,7 @@ index: 1
 ### Plausibility check
 
 !!! note "Hinweis zur Supporter-Firmware"
-    Der Plausibility Check ist auch Bestandteil der separat erhältlichen **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+    Der Plausibility Check ist auch Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
 
 Der "Plausibility Check" ist eine wichtige Funktion, die kontinuierlich den Stromfluss sowie die Zellspannungen der an das System angeschlossenen Data-Devices überwacht.  
 
@@ -109,7 +109,7 @@ In der Regel wird hier eine längere Zeit eingestellt, um Fehlalarme bei geringe
 ### Wertevergleich
 
 !!! note "Hinweis zur Supporter-Firmware"
-    Der Wertevergleich ist auch Bestandteil der separat erhältlichen **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+    Der Wertevergleich ist auch Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
 
 Mit dieser Funktion können die Werte ausgewählter Data Devices überwacht und miteinander verglichen werden. Bei Überschreiten der definierten Abweichungen wird der zugewiesene Trigger aktiviert.  
 Es stehen **10 Wertevergleichs-Regeln** zur Verfügung.
