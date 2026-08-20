@@ -17,7 +17,7 @@ Hier gibt es drei Möglichkeiten, die dies "verursachen" können.
 
 1) Die Einstellung der SoC-Quelle ist falsch definiert.  
 ![](img/troubleshooting/troubleshooting_soc_quelle.png){  width="400" }  
-Weitere Informationen zur SoC-Quelle und Aggregation finden Sie unter [Valuehandling](settings_inverter.md#valuehandling).
+Weitere Informationen zur SoC-Quelle und Aggregation finden Sie unter [Valuehandling](settings_inverter.md#valuehandling-multi-bms).
 
 2) Ist eine der ausgewählten SoC-Datenquellen länger als 5 Sekunden ohne Daten ausgefallen, wird ihr Wert nicht mehr berücksichtigt und der SoC wird aus den verbleibenden verfügbaren Quellen gebildet. Sobald die Quelle wieder Daten liefert, wird sie automatisch wieder einbezogen.
 
