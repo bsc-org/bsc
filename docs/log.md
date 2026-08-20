@@ -53,7 +53,7 @@ Gibt den Typ des Logeintrags an:
 
 Die aktuell aktiven Fehler (SET) können über die REST-API abgefragt werden. Zusätzlich werden sie im Dashboard im Bereich „Active Errors“ übersichtlich dargestellt.
 
-> Hinweis: Der Status (SET/RES) ist ebenfalls Bestandteil der separat erhältlichen [Supporter-Firmware](supporter.md) (Classic WebUI).  
+> Hinweis: Der Status (SET/RES) ist ebenfalls Bestandteil der separat erhältlichen [Supporter-Firmware](supporter.md).  
 
 **B – Schweregrad**  
 Kennzeichnet die Einstufung des Logeintrags:  

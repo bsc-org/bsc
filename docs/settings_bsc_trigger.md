@@ -57,7 +57,7 @@ Der Trigger Scheduler ermöglicht die zeitgesteuerte Ausführung von Triggern im
 Es stehen insgesamt **5 Scheduler** zur Verfügung, die unabhängig voneinander konfiguriert werden können.  
 
 !!! note "Hinweis zur Supporter-Firmware"
-    Der Trigger Scheduler ist auch Bestandteil der separat erhältlichen **Supporter-Firmware** (Classic WebUI). Weitere Informationen: [Supporter](supporter.md).
+    Der Trigger Scheduler ist ein Feature der separat erhältlichen **Supporter-Firmware** – in der **freien Firmware** (Classic WebUI) ist er nicht enthalten. Weitere Informationen: [Supporter](supporter.md).
 
 Folgende Parameter stehen zur Verfügung:  
 

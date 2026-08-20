@@ -3,14 +3,14 @@
 
 Es existieren zwei Varianten des WebUI:  
 
-- **Modernes WebUI** (Standard-Version dieser Dokumentation)  
-- **Classic WebUI** (WebUI der Supporter-Firmware)  
+- **Modernes WebUI** (WebUI der hier dokumentierten Firmware)  
+- **Classic WebUI** (WebUI der freien Firmware)  
 
 !!! note "Hinweis zur Supporter-Firmware"
-    Die **Supporter-Firmware** (Classic WebUI) ist eine separate Firmware-Version in einem eigenen Repository und nicht Bestandteil der hier dokumentierten BSC-Firmware. Weitere Informationen: [Supporter](supporter.md).
+    Die **Supporter-Firmware** ist eine separate Firmware-Version in einem eigenen Repository und nicht Bestandteil der hier dokumentierten BSC-Firmware. Das **Classic WebUI** gehört zur **freien Firmware**. Weitere Informationen: [Supporter](supporter.md).
 
 Die nachfolgenden Abbildungen und Beschreibungen beziehen sich auf das **moderne WebUI**.  
-Im **Classic WebUI** (Supporter-Firmware) stehen möglicherweise nicht alle Funktionen und Einstellungen in gleicher Form oder demselben Umfang zur Verfügung.
+Im **Classic WebUI** (freie Firmware) stehen möglicherweise nicht alle Funktionen und Einstellungen in gleicher Form oder demselben Umfang zur Verfügung.
 
 ### Allgemeine Informationen zur Bedienung
 **Speichern der Einstellungen**  
