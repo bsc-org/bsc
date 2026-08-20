@@ -1,5 +1,5 @@
 /* bsc-settings-v010.css
- * Generiert von scripts/sync_bsc_settings.py am 2026-08-19 18:23:19 UTC
+ * Generiert von scripts/sync_bsc_settings.py am 2026-08-20 19:08:16 UTC
  * Quelle: /home/tobias/Dokumente/bsc_workspace/components/bsc_fw_insider_webapp/css/style.css
  * Enthaelt das CSS-Subset der WebApp fuer die Settings-Darstellung,
  * gescoped unter .bsc-settings-v010 (Dark-Mode: html.dark .bsc-settings-v010).
@@ -478,3 +478,13 @@ html.dark .bsc-settings-v010 .settings-row-warning{color: #fca5a5;}
   margin: 6px 0;}
 
 .bsc-settings-v010 .collapsible-content .content-inner input[type="checkbox"]{width: 16px; height: 16px; margin: 0;}
+
+/* --- Ergaenzungsregeln (Abweichungen vom WebApp-Subset) --- */
+/* Untere Rahmenlinie der Sektionskarten: die WebApp-Regeln
+   '.listview > ul > li.separation-card' und 'li:last-child' setzen
+   border-bottom: 0 (Relikt des alten Zeilen-Separator-Designs) und
+   entfernen damit die untere Linie des Kartenrahmens. Diese Regel
+   stellt sie wieder her (gleiche Spezifitaet, steht nach dem Subset). */
+.bsc-settings-v010 .listview > ul > li.separation-card {
+  border-bottom: 1px solid color-mix(in srgb, var(--surface-border) 90%, var(--primary) 10%);
+}
