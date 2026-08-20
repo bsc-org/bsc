@@ -30,7 +30,7 @@ Hier werden die **Data-Devices** ausgewählt, deren Messwerte als Grundlage für
 
 Wichtig: Je nach **aktiver Laderegelung** müssen die ausgewählten Datenquellen **Zellspannungen liefern** – sonst kann die Regelung nicht korrekt arbeiten.
 
-An dieser Stelle werden **nicht** die Datenquellen ausgewählt, die **nur** für **Gesamtspannung**, **Gesamtstrom** oder den **SoC** verwendet werden sollen (z. B. ein **Shunt**) – das erfolgt unter [Valuehandling](#valuehandling).
+An dieser Stelle werden **nicht** die Datenquellen ausgewählt, die **nur** für **Gesamtspannung**, **Gesamtstrom** oder den **SoC** verwendet werden sollen (z. B. ein **Shunt**) – das erfolgt unter [Valuehandling](#valuehandling-multi-bms).
 
 !!! note "Hinweis"
     Sind [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert, kann hier anstelle der Data-Devices eine **Battery-Pack-Auswahl** (Group Devices) getroffen werden.
