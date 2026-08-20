@@ -11,32 +11,36 @@ Mit dieser Funktion kann die Ladespannung dynamisch in Abhängigkeit vom aktuell
 Der Offset wird linear in Relation zum Ladestrom berechnet. Für die Berechnung wird stets der kleinste Ladestrom aller Batterypacks herangezogen.  
 Durch die Funktion kann ein Spannungsabfall auf der Leitung kompensiert werden.  
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Dynamischer Ladespannungsoffset</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox'  name='38654716992'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s11328'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Strom</b></td>
-<td class='Ctd'><input type='number' step='0.01' min='0' max='500' value='0.00' name='12884911232' class='fl2'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s9344'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Der Strom, bei dem der maximale Offset addiert wird.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Min. Offset</b></td>
-<td class='Ctd'><input type='number' min='0' max='5000' value='0' name='12884911360'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s9472'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Max. Offset</b></td>
-<td class='Ctd'><input type='number' min='0' max='5000' value='500' name='12884911296'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s9408'></span></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: inverterCharge.json
+profile: off
+section: UI_SECT_INVERTERCHARGE_DYNAMISCHER_LADESPANNUNGSOFFSET
+```
 
 **Parameter**  
 **Ein/Aus**: Aktiviert oder deaktiviert die Funktion.  
 **Strom (A)**: Stromwert, bei dem der maximale Offset angewendet wird.  
 **Min. Offset (mV)**: Minimaler Offset, der zur Ladespannung addiert wird. Dieser Wert wird bei einem Ladestrom von 0 A addiert.  
-**Max. Offset (mV)**: Maximaler Offset, der zur Ladespannung addiert wird. Dieser Wert wird bei dem unter *Strom* eingestellten Wert addiert. 
+**Max. Offset (mV)**: Maximaler Offset, der zur Ladespannung addiert wird. Dieser Wert wird bei dem unter *Strom* eingestellten Wert addiert (Standard: 500 mV). 
 
 
 ## Ladestrom pro Pack zu groß
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Ladestrom pro Pack zu groß</b></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Ladestrom drosseln wenn der Ladestrom eines Packs überschritten wird</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox'  name='38654716352'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s10688'></span></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: inverterCharge.json
+profile: off
+section: UI_SECT_INVERTERCHARGE_LADESTROM_PRO_PACK_ZU_GROSS
+```
 
 Mit dieser Funktion wird der Ladestrom automatisch und dynamisch angepasst, um sicherzustellen, dass der maximale Ladewert eines jeden Batterie-Packs nicht überschritten wird. Diese intelligente Regelung schützt die Batterie vor Überstrom.
+
+**Modus**  
+
+- **Aus** – Funktion deaktiviert.
+- **Ein** – Es gelten die unter [Basisdaten → Batterypack Settings](settings_inverter.md#basisdaten) eingestellten Ströme pro Pack.
+- **C-Rate** – Der Ladestrom pro Pack wird aus der dort hinterlegten **Kapazität (Ah)** und einem Temperaturprofil berechnet (C-Rate = Strom/Kapazität). Die Regelung nutzt die Kapazität und das Temperaturprofil, um den maximalen Ladestrom des Packs zu bestimmen. Ist keine Kapazität hinterlegt, wird der Strom auf 0 A begrenzt.
 
 Die folgende Grafik veranschaulicht die Ströme von drei Batteriepacks während eines Ladeprozesses:
 ![](img/settings/settings_inverter_current_per_pack_example_1.png){  width="600" }  
@@ -50,18 +54,12 @@ In der Darstellung ist zu erkennen, dass der maximale Ladestrom für Pack 1 (gr�
 Mit dieser Funktion wird der Ladestrom automatisch reduziert, sobald eine definierte Zellspannung überschritten wird.  
 Dadurch lässt sich ein sanftes Erreichen der Zielspannung sicherstellen und eine Überladung einzelner Zellen vermeiden.  
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Ladestrom Zell-Spannungsabhängig drosseln</td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox'  name='38654710400'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s4736'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Starten bei Zellspg. gr&ouml;ßer</b></td>
-<td class='Ctd'><input type='number' min='2500' max='5000' value='3325' name='12884906688'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s4800'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Sobald die h&ouml;chste Zellspannung diesen Wert &uuml;bersteigt wird die Drosselung aktiv.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Maximale Zellspannung</b></td>
-<td class='Ctd'><input type='number' min='2500' max='5000' value='3300' name='12884906752'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s4864'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Sobald die h&ouml;chste Zellspannung diesen Wert &uuml;bersteigt wird nur noch mit dem Mindest-Ladestrom geladen.<br>Hinweis: Der Wert muss gr&ouml;ßer sein als die Zell-Startspannung.<br>Achtung: Bei aktivem Autobalancing wird diese Spannung durch die Maximale Zellspannung des Autobalancers ersetzt!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Maximale Zellspannung (Float)</b></td>
-<td class='Ctd'><input type='number' min='0' max='5000' value='0' name='12884915008'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s13120'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>0 = deaktiviert: Es wird dann auch bei Float die maximale Zellspannung genommen.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Mindest Ladestrom</b></td>
-<td class='Ctd'><input type='number' min='0' max='200' value='5' name='4294972288'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s4992'></span></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: inverterCharge.json
+profile: off
+section: UI_SECT_INVERTERCHARGE_LADESTROM_ZELL_SPANNUNGSABHAENGIG_DROSSELN
+```
 
 **Ein/Aus**:  
 Aktiviert oder deaktiviert die Funktion.  
@@ -88,17 +86,12 @@ Untergrenze des Ladestroms, auf die bei Erreichen der maximalen Zellspannung red
 Mit dieser Funktion wird der Ladestrom reduziert, sobald eine zu große Spannungsdifferenz (Drift) zwischen den Zellen festgestellt wird.  
 Dies hilft, den Drift zu begrenzen. Ein verbauter Balancer kann so effektiv arbeiten, und die Funktion sorgt dafür, dass der Ladestrom so weit reduziert wird, dass die Spannungsabweichung nicht weiter zunimmt. 
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Ladestrom reduzieren bei Zelldrift</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox'  name='38654710016'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s4352'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Starten bei Zellspg. gr&ouml;ßer</b></td>
-<td class='Ctd'><input type='number' min='2500' max='5000' value='3400' name='12884906432'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s4544'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Starten bei Drift gr&ouml;ßer</b></td>
-<td class='Ctd'><input type='number' min='1' max='200' value='10' name='4294971712'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s4416'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Reduzierung pro weiterem mV-Abweichung um</b></td>
-<td class='Ctd'><input type='number' min='1' max='200' value='1' name='4294971776'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s4480'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Die Reduzierung bezieht sich auf den eingestellten Maximalstrom</div></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: inverterCharge.json
+profile: off
+section: UI_SECT_INVERTERCHARGE_LADESTROM_REDUZIEREN_BEI_ZELLDRIFT
+```
 
 **Ein/Aus**:  
 Aktiviert oder deaktiviert die Funktion.  
@@ -119,16 +112,12 @@ Die Berechnung erfolgt auf Basis des in den [Basissettings](settings_inverter.md
 Mit dieser Funktion kann der Ladestrom in Abhängigkeit vom Ladezustand (State of Charge, SoC) der Batterie schrittweise reduziert werden.  
 Sobald der eingestellte SoC-Wert erreicht oder überschritten wird, beginnt die Reduzierung. 
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Ladestrom reduzieren - SoC</b></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Diese Regel wird deaktiviert, sobald der Autobalancer auf die Start-Zellspannung wartet.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox'  name='38654710720'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s5056'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Reduzierung ab SoC</b></td>
-<td class='Ctd'><input type='number' min='1' max='99' value='98' name='4294972416'></td><td class='t1'>%</td><td class='Ctd'><span class='secVal' id='s5120'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Pro 1% um x A reduzieren</b></td>
-<td class='Ctd'><input type='number' step='0.1' min='1' max='1000' value='1.00' name='12884907072' class='fl1'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s5184'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Die Reduzierung bezieht sich auf den eingestellten Maximalstrom</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Mindest Ladestrom</b></td>
-<td class='Ctd'><input type='number' min='0' max='100' value='0' name='4294977216'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s9920'></span></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: inverterCharge.json
+profile: off
+section: UI_SECT_INVERTERCHARGE_LADESTROM_REDUZIEREN_SOC
+```
 
 **Ein/Aus**:  
 Aktiviert oder deaktiviert die Funktion.  
@@ -147,49 +136,35 @@ Unterer Grenzwert für den Ladestrom, der auch bei fortschreitender Reduzierung 
 
 
 ## Ladestrom reduzieren - Temperatur
-Mit dieser Funktion kann der maximale Ladestrom abhängig von der gemessenen Temperatur schrittweise reduziert werden. Hierbei werden ausschließlich die unter *Datenquelle* ausgewählten Data Devices berücksichtigt. Für die Regelung wird immer die **niedrigste gemessene Temperatur** dieser Quelle herangezogen, um die Batterie bestmöglich zu schützen.  
+Mit dieser Funktion kann der maximale Ladestrom abhängig von der gemessenen Temperatur schrittweise reduziert werden. Hierbei werden ausschließlich die unter *Datenquelle* ausgewählten Data Devices (bzw. Group Devices) berücksichtigt. Für die Regelung wird je nach Richtung stets der passende Grenzwert herangezogen: Von warm nach kalt gilt der Minimalwert, von kalt nach warm der Maximalwert.  
 
 Die Temperaturreduzierung erfolgt anhand von bis zu vier konfigurierbaren **Temperaturregeln**. Jede Regel kann individuell aktiviert, deaktiviert und mit eigenen Sensoren sowie Start- und Endwerten konfiguriert werden. 
 
-!!! note "Hinweis"
-    Diese Funktion steht nur in der **Sponsoren Version** zur Verfügung
+!!! note "Hinweis zur Supporter-Firmware"
+    Die Temperatur-Reduzierung ist auch Bestandteil der separat erhältlichen **Supporter-Firmware** (Classic WebUI). Weitere Informationen: [Supporter](supporter.md).
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Ladestrom reduzieren - Temperatur</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox'  name='38654717056'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s11392'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Sensoren</b></td>
-<td class='Ctd'>
-<input id='t389597630' class='toggle' type='checkbox'>
-<label for='t389597630' class='lbl-toggle'>Sensoren</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='21474848000' value='0' >0<br>
-<input type='checkbox' name='21474848000' value='1' >1<br>
-<input type='checkbox' name='21474848000' value='2' >2<br>
-<input type='checkbox' name='21474848000' value='3' >3<br>
-<input type='checkbox' name='21474848000' value='4' >4<br>
-<input type='checkbox' name='21474848000' value='5' >5<br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Reduzieren Start</b></td>
-<td class='Ctd'><input type='number' step='0.01' min='1' max='100' value='20.00' name='17179880768' class='fl2'></td><td class='t1'>°C</td><td class='Ctd'><span class='secVal' id='s11584'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Reduzieren Ende</b></td>
-<td class='Ctd'><input type='number' step='0.01' min='0' max='100' value='0.00' name='17179880832' class='fl2'></td><td class='t1'>°C</td><td class='Ctd'><span class='secVal' id='s11648'></span></td></tr>
-</table></form></div></div>
-
+```bsc-settings
+version: v010
+file: inverterCharge.json
+profile: off
+section: UI_SECT_INVERTERCHARGE_LADESTROM_REDUZIEREN_TEMPERATUR
+```
 
 !!! note "Hinweis"
     Die Regelung kann in beide Richtungen konfiguriert werden - sowohl für Drosselung bei steigenden Temperaturen als auch für Drosselung bei fallenden Temperaturen.
 
 **Konfiguration**  
-**Sensoren**  
-In diesem Bereich können die spezifischen Temperatursensoren ausgewählt werden, die für die Regelung verwendet werden sollen. Es können ein oder mehrere Sensoren aus den verfügbaren Data Devices gewählt werden.
+**Data-Device Sensoren**  
+In diesem Bereich können die spezifischen Temperatursensoren (0–5) der Data Devices ausgewählt werden, die für die Regelung verwendet werden sollen.
+
+**Erweiterte Sensorquellen / Erweiterte Sensoren 0-31**  
+Zusätzlich können erweiterte Temperatursensoren (z. B. OneWire, Sensoren 0–31) als Quellen ausgewählt werden – die *Erweiterten Sensorquellen* bestimmen die zugehörigen Group Devices bzw. Data-Devices.
 
 **Reduzieren Start**  
-Hier wird die Temperatur definiert, ab der die Stromreduzierung beginnt. Diese kann sowohl höher als auch niedriger als die Endtemperatur sein.
+Hier wird die Temperatur definiert, ab der die Stromreduzierung beginnt (Standard: 20,00 °C). Diese kann sowohl höher als auch niedriger als die Endtemperatur sein.
 
 **Reduzieren Ende**  
-Diese Einstellung legt die Temperatur fest, bei der der Ladestrom vollständig auf 0 A reduziert wird. Liegt dieser Wert unter der Starttemperatur, wird bei fallenden Temperaturen gedrosselt.
+Diese Einstellung legt die Temperatur fest, bei der der Ladestrom vollständig auf 0 A reduziert wird (Standard: 0,00 °C). Liegt dieser Wert unter der Starttemperatur, wird bei fallenden Temperaturen gedrosselt.
 
 ---
 
@@ -237,69 +212,55 @@ Die Regelung erfolgt linear zwischen den beiden konfigurierten Temperaturschwell
 Aktueller Ladestrom = Maximaler Ladestrom × (Endtemperatur - Aktuelle Temperatur) / (Endtemperatur - Starttemperatur)
 `
 
-## Dynamische Ladespannungsbegrenzung
+## Ladestrom reduzieren - Temperaturprofil
 
-!!! danger "Warnung"
-    Experimentelle Funktion
+Mit dieser Funktion kann der maximale Ladestrom anhand eines frei definierbaren **Temperaturprofils** begrenzt werden. Das Profil besteht aus **10 Punkten**, die jeweils einer Temperatur eine maximale **C-Rate** zuordnen. Zwischen den Punkten wird linear interpoliert; außerhalb des Profils gelten der erste bzw. letzte Punkt.
 
-Diese experimentelle Funktion begrenzt die Ladespannung basierend auf der Zellspannung und dem Spannungsunterschied zwischen den Zellen.
+```bsc-settings
+version: v010
+file: inverterCharge.json
+profile: off
+section: UI_SECT_INVERTERCHARGE_LADESTROM_REDUZIEREN_TEMPERATURPROFIL
+```
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Dynamische Ladespannungsbegrenzung (Beta!)</b></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Sobald die Spannung einer Zelle und das Delta zwischen der niedrigsten und der höchsten Zellenspannung größer als eingestellt werden,<br>wird die Ladespannung dynamisch angepasst, um die maximale Ladeleistung zu erreichen, ohne dass die Zellen weiter auseinander driften.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox'  name='38654711616'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s5952'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Start-Zellspannung</b></td>
-<td class='Ctd'><input type='number' min='2000' max='4000' value='3400' name='12884907904'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s6016'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Spg.-Delta Min/Max</b></td>
-<td class='Ctd'><input type='number' min='1' max='100' value='5' name='4294973376'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s6080'></span></td></tr>
-</table></form></div></div>
+**Konfiguration**  
 
-* **Ein/Aus:** Aktivieren oder Deaktivieren der Funktion.
-* **Start-Zellspannung:** Zellspannung, ab der die Begrenzung aktiv wird.
-* **Spannungs-Delta Min/Max:** Der maximale Unterschied zwischen der niedrigsten und höchsten Zellspannung.
+- **Data-Device Sensoren** – Temperatursensoren (0–5) der Data Devices, deren Messwerte in die Regelung einfließen.
+- **Erweiterte Sensorquellen / Erweiterte Sensoren 0-31** – Zusätzliche erweiterte Sensoren (z. B. OneWire) als Quelle.
+- **Temperaturprofil** – 10 Punkte mit je **Temperatur** (in °C, Schritt 0,1 °C) und **C-Rate** (in C, Schritt 0,01 C).
+
+**Funktionsweise**  
+Der Ladestrom berechnet sich aus **C-Rate × Kapazität (Ah)** – die Kapazität wird unter [Basisdaten → Batterypack Settings](settings_inverter.md#basisdaten) pro Pack hinterlegt. Der berechnete Wert wird durch den maximalen Ladestrom begrenzt. Ist keine Kapazität hinterlegt, wird der Ladestrom auf 0 A begrenzt.
+
+Für die Regelung wird der passende Temperaturwert der Quellen herangezogen: Liegt die niedrigste Temperatur unter der Temperatur des Profilpunkts mit der höchsten C-Rate, gilt der Minimalwert, sonst der Maximalwert.
 
 
 ## Spannungsregelung zur Ladestrombegrenzung
 
-Sobald die Funktion aktiviert ist, wird die Ladespannung dynamisch angepasst, um den Ladestrom innerhalb des konfigurierten Korridors zu halten. Sollte der Ladestrom den definierten Bereich überschreiten oder unterschreiten, greift die Spannungsregelung ein und korrigiert die LAdespannung entsprechend. Zusätzlich wird der an den Wechselrichter übermittelte Ladestrom auf 0 A gesetzt.  
+Sobald die Funktion aktiviert ist, wird die Ladespannung dynamisch angepasst, um den Ladestrom innerhalb des konfigurierten Korridors zu halten. Sollte der Ladestrom den definierten Bereich überschreiten oder unterschreiten, greift die Spannungsregelung ein und korrigiert die Ladespannung entsprechend. Zusätzlich wird der an den Wechselrichter übermittelte Ladestrom auf 0 A gesetzt.  
 
 Die Funktion ermöglicht es z.B., den Akku nur bis zu einem bestimmten SoC zu laden, um seine Lebensdauer zu verlängern.  
 
-!!! note "Hinweis"
-    Diese Funktion steht nur in der **Sponsoren Version** zur Verfügung
+!!! note "Hinweis zur Supporter-Firmware"
+    Die Spannungsregelung ist auch Bestandteil der separat erhältlichen **Supporter-Firmware** (Classic WebUI). Weitere Informationen: [Supporter](supporter.md).
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Spannungsregelung zur Ladestrombegrenzung</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td>
-<td class='Ctd'><select name='4294979136'>
-<option value='0' selected>Aus</option>
-<option value='128' >Ein</option>
-<option value='1' >Trigger 1 (DI1)</option>
-<option value='2' >Trigger 2 (DI2)</option>
-<option value='3' >Trigger 3 (DI3)</option>
-<option value='4' >Trigger 4 (DI4)</option>
-<option value='5' >Trigger 5</option>
-<option value='6' >Trigger 6</option>
-<option value='7' >Trigger 7</option>
-<option value='8' >Trigger 8</option>
-<option value='9' >Trigger 9</option>
-<option value='10' >Trigger 10</option>
-</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s11840'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Aktiv ab (SoC)</b></td>
-<td class='Ctd'><input type='number' min='1' max='100' value='80' name='4294979200'></td><td class='t1'>%</td><td class='Ctd'><span class='secVal' id='s11904'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Regelungskorridor (±)</b></td>
-<td class='Ctd'><input type='number' step='0.1' min='1' max='25' value='10.00' name='4294979264' class='fl1'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s11968'></span></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: inverterCharge.json
+profile: off
+section: UI_SECT_INVERTERCHARGE_SPANNUNGSREGELUNG_ZUR_LADESTROMBEGRENZUNG
+```
 
 **Einstellmöglichkeiten:**  
 **Ein/Aus:**  
 Die Regelung kann entweder dauerhaft aktiviert oder deaktiviert werden.  
-Alternativ ist es möglich, sie nur dann zu aktivieren, wenn eine definierte Triggerbedingung erfüllt ist. Dadurch lässt sich die Regelung beispielsweise in ein Home-Automation-System integrieren, sodass sie nur im Sommer aktiv ist und im Winter die volle Kapazität der Batterie zur Verfügung steht.
+Alternativ ist es möglich, sie nur dann zu aktivieren, wenn eine definierte Triggerbedingung (Trigger 1–27) erfüllt ist. Dadurch lässt sich die Regelung beispielsweise in ein Home-Automation-System integrieren, sodass sie nur im Sommer aktiv ist und im Winter die volle Kapazität der Batterie zur Verfügung steht.
 
 **Aktiv ab (SoC):**  
-Hier kann festgelegt werden, ab welchem Ladezustand (State of Charge, SoC) die Regelung in Kraft tritt. Dies ermöglicht eine gezielte Anpassung an verschiedene Anforderungen.
+Hier kann festgelegt werden, ab welchem Ladezustand (State of Charge, SoC) die Regelung in Kraft tritt (Standard: 80 %). Dies ermöglicht eine gezielte Anpassung an verschiedene Anforderungen.
 
 **Regelungskorridor (±):**  
-Definiert den zulässigen Schwankungsbereich für den Ladestrom. Innerhalb dieses Korridors erfolgt keine Regelung. Über- oder Unterschreitet der Ladestrom diesen Bereich, wird die Ladespannung automatisch angepasst.
+Definiert den zulässigen Schwankungsbereich für den Ladestrom (Standard: 10,00 A). Innerhalb dieses Korridors erfolgt keine Regelung. Über- oder Unterschreitet der Ladestrom diesen Bereich, wird die Ladespannung automatisch angepasst.
 
 !!! note "Hinweis"
     Die Regelung tritt ausschließlich in Kraft, wenn der Autobalancer nicht aktiv ist.  
@@ -639,17 +600,12 @@ Während des Balancevorgangs setzt der BSC gezielt seine eigenen Laderegelungs-F
 Diese Funktion unterbricht den Ladestrom, wenn er für eine bestimmte Zeitspanne unterhalb einem eingestellten Strom-Wert liegt.  
 Nach diesem Abbruch wird die bisher verwendete Soll-Lade-Spannung von der [Absorption-Spannung](settings_inverter.md#basisdaten) auf die [Float-Spannung](settings_inverter.md#basisdaten) gesetzt.  
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Charge-Current Cut-Off</b></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Liegt der Ladestrom die eingestellte Zeit (Cut-Off Time) unter dem Cut-Off Strom, wird der Ladestrom so lange auf 0 A gesetzt, bis der 'Float Ladespannung SoC' unterschritten wird.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox'  name='38654715776'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s10112'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Cut-Off Time</b></td>
-<td class='Ctd'><input type='number' min='1' max='30000' value='300' name='12884907136'></td><td class='t1'>s</td><td class='Ctd'><span class='secVal' id='s5248'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Cut-Off Strom</b></td>
-<td class='Ctd'><input type='number' step='0.1' min='0' max='10000' value='1.00' name='12884907264' class='fl1'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s5376'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Start Zellspannung</b></td>
-<td class='Ctd'><input type='number' min='0' max='3500' value='0' name='12884911168'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s9280'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Die Regelung wird erst aktiv, wenn die Zellspannung erreicht ist.<br>0 = Startvoltage deaktiviert</div></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: inverterCharge.json
+profile: off
+section: UI_SECT_INVERTERCHARGE_CHARGE_CURRENT_CUT_OFF
+```
 
 **Ein/Aus:**  
 Aktivieren oder Deaktivieren der Funktion.
@@ -675,18 +631,12 @@ Die Funktion ermöglicht, beim Unterschreiten einer definierten Zellspannung ein
 
 Die Funktion kann beispielsweise genutzt werden, um das Nachladen der Batterie automatisch zu veranlassen. Der Ladevorgang wird solange durchgeführt, bis die eingestellte Zellspannung für das Ladeende erreicht oder überschritten wird und wieder der normale SoC an den Wechselrichter übermittelt wird.
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>SoC beim Unterschreiten der Zellspannung</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox'  name='38654711296'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s5632'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Zellspannung Ladebeginn</b></td>
-<td class='Ctd'><input type='number' min='2500' max='4000' value='3000' name='12884907584'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s5696'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Zellspannung Ladeende</b></td>
-<td class='Ctd'><input type='number' min='0' max='4000' value='0' name='12884907776'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s5888'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Wenn Zellspannung Ladeende 0, dann wird geladen, bis die Zellspannung Ladebeginn wieder überschritten wird.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>SoC</b></td>
-<td class='Ctd'><input type='number' min='0' max='100' value='9' name='4294973056'></td><td class='t1'>%</td><td class='Ctd'><span class='secVal' id='s5760'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Sperrzeit zwischen zwei Nachladungen</b></td>
-<td class='Ctd'><input type='number' min='0' max='3600' value='600' name='12884907712'></td><td class='t1'>s</td><td class='Ctd'><span class='secVal' id='s5824'></span></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: inverterCharge.json
+profile: off
+section: UI_SECT_INVERTERCHARGE_SOC_BEIM_UNTERSCHREITEN_DER_ZELLSPANNUNG
+```
 
 **Einstellungen**
 **Ein/Aus**:  

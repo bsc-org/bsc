@@ -1,6 +1,6 @@
 ## Virtual Trigger
 
-Es gibt zu jedem der 10 internen Trigger, einen von ausserhalb ansteuerbaren virtuellen Trigger, die "vTrigger".  
+Es gibt zu jedem der 27 internen Trigger, einen von ausserhalb ansteuerbaren virtuellen Trigger, die "vTrigger".  
 Diese können per MQTT oder der [Restapi](restapi.md/#5-vtrigger-post) gesetzt werden.  
 Jeder vTrigger setzt intern seinen korrespondierenden Trigger auf den gesendeten boolschen Wert (0/1).  
 
@@ -24,17 +24,91 @@ Erst wenn ein vTrigger einmal von extern gesetzt wurde, wird dieser auch im MQTT
 | Platzhalter  |Beschreibung   |
 | ------------ | ------------ |
 | {Device Name} |  "MQTT Device Name" aus den System-Settings|
-| {Trigger Nummer} | Trigger-ID von 1 bis 10 |
+| {Trigger Nummer} | Trigger-ID von 1 bis 27 |
 
 #### Zu sendende Payload  
 0 -> Trigger Low  
 1 -> Trigger High
+
+## Home Assistant Auto-Discovery
+
+Der BSC bringt eine **eingebaute Home-Assistant-Auto-Discovery** mit: Auf Knopfdruck erstellt der BSC die Entities der bekannten Werte automatisch in Home Assistant – eine manuelle Pflege von YAML-Konfigurationen ist nicht mehr nötig.
+
+```bsc-settings
+version: v010
+file: mqtt.json
+profile: off
+label: Home Assistant
+```
+
+- **Home Assistant Discovery Prefix** – Discovery-Topic-Präfix, unter dem Home Assistant die Discovery-Nachrichten erwartet (Standard: `homeassistant`).
+- Über den Button **HA Discovery senden** werden die Discovery-Nachrichten an Home Assistant gesendet.
+
+!!! note "Hinweis"
+    Der unten beschriebene manuelle YAML-Weg bleibt gültig und kann z. B. für Sonderfälle oder individuelle Anpassungen genutzt werden. Für die Standard-Anbindung wird die eingebaute Auto-Discovery empfohlen.
+
+## MQTT-Filter
+
+Mit dem MQTT-Filter kann gesteuert werden, **welche Daten** der BSC per MQTT veröffentlicht. Das reduziert unnötigen Datenverkehr und hält die Topics übersichtlich.
+
+### Data Devices
+
+```bsc-settings
+version: v010
+file: mqtt.json
+profile: off
+label: Data Devices
+```
+
+- **Data Devices senden** – Schaltet die Veröffentlichung der Data-Device-Daten ein oder aus (Standard: ein).
+- **Data Devices Auswahl** – Auswahl der Data-Devices, deren Daten gesendet werden.
+- **Datenklassen** – Auswahl der Datenklassen, die gesendet werden. Standardmäßig werden alle 7 Klassen gesendet:
+    - Gesamtspannung/Strom, SoC, FET-State
+    - Zellspannungen
+    - Restliche Zelldaten
+    - Balancerdaten (inkl. Balance-Status)
+    - Errors, Warnings
+    - Temperaturen
+    - Kapazität/Energie/Statistik
+
+Die Topics `valid` und `maintenance` werden unabhängig von der Auswahl immer gesendet.
+
+### Group Devices
+
+```bsc-settings
+version: v010
+file: mqtt.json
+profile: off
+label: Group Devices
+```
+
+Gleiche Struktur wie bei den Data Devices: **Group Devices senden**, **Group Devices Auswahl** und **Datenklassen**. Diese Sektion ist nur relevant, wenn [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert sind.
+
+### Weitere Daten
+
+```bsc-settings
+version: v010
+file: mqtt.json
+profile: off
+label: Weitere Daten
+```
+
+Legt fest, welche weiteren Datenkategorien gesendet werden (Standard: OneWire, Inverter, Trigger und System aktiv):
+
+- **OneWire** – Daten der OneWire-Sensoren.
+- **Inverter** – Daten der Wechselrichter-Kommunikation.
+- **Trigger** – Zustand der Trigger/Alarme.
+- **System** – Systemdaten (z. B. Free Heap, Task-Zustände).
+- **Zellspannungsabfall (Debug)** – Debug-Daten der Überwachung „Zellspannung bei Ladestrom“ (standardmäßig aus).
 
 ## MQTT in Verbindung mit Home-Assistant
 
 ### Integration
 Um die Übersichtlichkeit der configuration.yaml zu wahren, können getrennte MQTT-Config-Dateien genutzt werden.  
 Sinnvoll ist es z.B. pro angebundener Hardware eine Datei zu generieren.  
+
+!!! note "Hinweis"
+    Mit der eingebauten [Home Assistant Auto-Discovery](#home-assistant-auto-discovery) ist die folgende manuelle Konfiguration in der Regel nicht mehr erforderlich.
 
 Folgende Programmzeile ist in der "config/configuration.yaml" zu hinterlegen:
 

@@ -2,7 +2,10 @@
 
 ## Hinweise
 - Alle Endpunkte liefern JSON-Daten zurück.
-- Die API benötigt keine Authentifizierung.
+- **Authentifizierung:** Solange der [Passwortschutz](settings_bsc.md#benutzer) aktiviert ist, benötigen die meisten Endpunkte eine gültige Sitzung (Login über das Webinterface). Ausnahmen:
+    - `/restapi` **ohne** URL-Parameter ist ohne Anmeldung abrufbar (nur Abfrage).
+    - `/restapi/errors/active` und `/restapi/errors/all` sind ohne Anmeldung abrufbar.
+- Ist der Passwortschutz **deaktiviert** (Parameter *Passwortschutz aktivieren* in den [System-Einstellungen](settings_bsc.md#benutzer)), ist die gesamte API ohne Anmeldung zugänglich.
 
 ## Endpunkte
 
@@ -10,45 +13,65 @@
 Endpunkt: `/restapi`
 
 **Beschreibung:**
-Dieser Endpunkt ermöglicht das Abrufen verschiedener Systemdaten vom Controller. Die Antwort enthält Informationen über den Systemzustand, Daten, die an den Wechselrichter gesendet werden, sowie Daten der verbundenen Data-Devices.
+Dieser Endpunkt ermöglicht das Abrufen verschiedener Systemdaten vom Controller. Die Antwort enthält Informationen über den Systemzustand, Daten, die an den Wechselrichter gesendet werden, sowie Daten der verbundenen Data-Devices. Wird der Endpunkt mit URL-Parametern aufgerufen (z. B. `?args`), ist eine gültige Sitzung erforderlich.
 
 **Antwortformat:**  
 Dies ist nur ein Auszug aus der Antwort und nicht vollständig!
 ```json
 {
   "system": {
-    "fw_version": "T0.8.0_T9", 
-    "fw_add": "SERIAL_LOG", 
-    "hw_version": "2", 
-    "name": "bsc", 
-    "time": "2025-04-03 06:10:39", 
-    "boottime": "2025-04-01 21:01:46", 
-    "system": 0, 
-    "mqtt": 0, 
-    "rssi": 23},
+    "fw_version": "V0.10.0",
+    "fw_add": "",
+    "hw_version": "1",
+    "name": "bsc",
+    "time": "2025-04-03 06:10:39",
+    "boottime": "2025-04-01 21:01:46",
+    "system": 0,
+    "mqtt": 1,
+    "rssi": 23,
+    "profile": 0
+  },
   "trigger": {
-    "0": 0, 
-    "1": 1, 
-    "2": 0, 
-    "3": 0},
+    "1": 0, "2": 1, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0,
+    "10": 0, "11": 0, "12": 0, "13": 0, "14": 0, "15": 0, "16": 0, "17": 0, "18": 0,
+    "19": 0, "20": 0, "21": 0, "22": 0, "23": 0, "24": 0, "25": 0, "26": 0, "27": 0
+  },
   "inverter": {
-    "current": 66.30, 
-    "voltage": 55.30, 
-    "soc": 14},
+    "current": 66.30,
+    "voltage": 55.30,
+    "soc": 14.00,
+    "setpoint_cv": 57.60,
+    "setpoint_cc": 200.00,
+    "setpoint_dcc": 210.00,
+    "cc_cellVoltage": 200.00,
+    "cc_soc": 200.00,
+    "cc_cellDrift": 200.00,
+    "cc_cutOff": 200.00,
+    "cc_packHigh": 200.00,
+    "cc_temperature": 200.00,
+    "cc_tempProfile": 200.00,
+    "cc_zero": 200.00,
+    "cc_triggerLimit": 0.00,
+    "dcc_cellVoltage": 210.00,
+    "dcc_temperature": 0.00,
+    "dcc_tempProfile": 0.00,
+    "dcc_packHigh": 210.00,
+    "dcc_triggerLimit": 0.00,
+    "autobal_state": 5
+  },
   "data_device": [
-    {"name": "NEEY 1", "cells": 18, "totalVolt": 0.00, "totalCurr": 0.00, "soc": 0},
-    {"name": "Seplos 1", "cells": 18, "totalVolt": 55.30, "totalCurr": 22.10, "soc": 85}
+    {"name": "Seplos 1", "en": 1, "valid": 1, "nr": 0, "totalVolt": 55.30, "totalCurr": 22.10, "soc": 85.00}
   ]
 }
 ```
 
 ### 2. Alle Active-Errors [GET] 
-> Hinweis: Dieser Endpunkt ist nur in der [Supporter Version](supporter.md) verfügbar.
+> Hinweis: Dieser Endpunkt ist Bestandteil der separat erhältlichen [Supporter-Firmware](supporter.md).
 
 Endpunkt: `/restapi/errors/all`
 
 **Beschreibung:**
-Dieser Endpunkt gibt alle möglichen Fehler des Systems zurück, inklusive einer Kennzeichnung, ob sie derzeit aktiv sind oder nicht.
+Dieser Endpunkt gibt alle möglichen Fehler des Systems zurück, inklusive einer Kennzeichnung, ob sie derzeit aktiv sind oder nicht. Dieser Endpunkt ist ohne Anmeldung abrufbar.
 
 **Antwortformat:**
 ```json
@@ -62,12 +85,12 @@ Dieser Endpunkt gibt alle möglichen Fehler des Systems zurück, inklusive einer
 ```
 
 ### 3. Aktive Active-Errors [GET]
-> Hinweis: Dieser Endpunkt ist nur in der [Supporter Version](supporter.md) verfügbar.
+> Hinweis: Dieser Endpunkt ist Bestandteil der separat erhältlichen [Supporter-Firmware](supporter.md).
 
 Endpunkt: `/restapi/errors/active`
 
 **Beschreibung:**
-Dieser Endpunkt gibt nur die aktuell aktiven Active-Errors des Systems zurück. Das Format ist identisch mit `/restapi/errors/all`, enthält aber nur Einträge mit `"state": true`.
+Dieser Endpunkt gibt nur die aktuell aktiven Active-Errors des Systems zurück. Das Format ist identisch mit `/restapi/errors/all`, enthält aber nur Einträge mit `"state": true`. Dieser Endpunkt ist ohne Anmeldung abrufbar.
 
 **Antwortformat:**
 ```json
@@ -79,7 +102,7 @@ Dieser Endpunkt gibt nur die aktuell aktiven Active-Errors des Systems zurück. 
 ```
 
 ### 4. IO-Daten [GET]
-> Hinweis: Dieser Endpunkt ist nur in der [Supporter Version](supporter.md) verfügbar.
+> Hinweis: Dieser Endpunkt ist Bestandteil der separat erhältlichen [Supporter-Firmware](supporter.md).
 
 Endpunkt: `/restapi/io`
 
@@ -95,12 +118,12 @@ Dieser Endpunkt gibt den Zustand der digitalen Eingänge (DI) und Relais zurück
 ```
 
 ### 5. vTrigger [POST]
-> Hinweis: Dieser Endpunkt ist nur in der [Supporter Version](supporter.md) verfügbar.
+> Hinweis: Dieser Endpunkt ist Bestandteil der separat erhältlichen [Supporter-Firmware](supporter.md).
 
 Endpunkt: `/restapi/vTrigger`
 
 **Beschreibung:**
-Dieser Endpunkt erlaubt das Setzen der virtuellen Trigger.
+Dieser Endpunkt erlaubt das Setzen der virtuellen Trigger. Dafür ist eine gültige Sitzung erforderlich (bzw. deaktivierter Passwortschutz).
 
 **Erwartetes Eingabeformat:**
 ```json
@@ -148,4 +171,3 @@ unit_of_measurement: "A"
 state_class: "measurement"
 icon: "mdi:api"
 ```
-
