@@ -34,7 +34,7 @@ Pin 4: GND
 |  CAN RX/TX     | Rot - blinken  | Versenden einer CAN Nachricht         |
 
 #### Belegung des Pin-Headers
-Mit der Standard Firmware Version kann nur Onewire genutzt werden. Alle weiteren Funktionen (Relais, Digitaleingänge, I²C) können nur mit der Supporter Version genutzt werden.
+In der hier dokumentierten Firmware stehen über den Pin-Header **Onewire**, die **Relais-Ausgänge**, die **Digitaleingänge** und **I²C** (z. B. für das [Display](#bsc-display)) zur Verfügung. Die separat erhältliche Supporter-Firmware (Classic WebUI) nutzt diese Pins ebenfalls – siehe [Supporter](supporter.md).
 
 | PIN | GPIO | Funktion         |
 |-----|------|------------------|
@@ -265,8 +265,8 @@ Die Ansteuerung erfolgt über ein oder mehrere wählbare Trigger-Events.
 ##### Konfigurierbare Parameter
 
 **Impulsdauer [ms]**  
-Definiert die Zeitdauer, für die das Relais nach einem Trigger-Event geschaltet bleibt.  
-Bei einem Wert von 0 bleibt das Relais dauerhaft geschaltet, bis das Trigger-Event endet.
+Definiert die Zeitdauer, für die das Relais nach einem Trigger-Event geschaltet bleibt (einstellbar von 100–10000 ms).  
+Für ein dauerhaftes Schalten bis zum Ende des Trigger-Events verwenden Sie das Auslöseverhalten **Permanent** statt **Impuls**.
 
 **Verzögerung nach Trigger-Event [s]**  
 Ermöglicht eine zeitliche Verzögerung zwischen dem Auftreten des Trigger-Events und der tatsächlichen Relais-Schaltung.  
@@ -294,8 +294,9 @@ Mehrere Trigger können gleichzeitig einem Relais zugeordnet werden, wobei die R
 
 - Trigger: Temperatur-Schwelle
 - Verzögerung: 0 s
-- Impulsdauer: 60000 ms (1 min Nachlauf)
+- Impulsdauer: 10000 ms (maximal einstellbarer Impuls)
 - Invertierung: Nein
+- Hinweis: Für längere Nachlaufzeiten (z. B. 1 min) kann statt des Impuls-Modus das Auslöseverhalten **Permanent** verwendet werden – das Relais bleibt dann geschaltet, bis der Trigger endet. Alternativ lässt sich der gewünschte Nachlauf über die Temperatur-Hysterese der Alarmregel abbilden.
 
 **Alarm-Ausgabe mit Verzögerung**
 

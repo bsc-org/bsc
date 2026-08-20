@@ -1,6 +1,9 @@
 ## Wichtiger Hinweis! Zuerst lesen!
 Die hier aufgeführten Einstellungen und Konfigurationsvorschläge basieren auf Erfahrungswerten von Anwendern und sind speziell für LiFePo4-basierte Zellen entwickelt. Sie dienen lediglich als Orientierungshilfe und stellen einen **Erstentwurf** für eine mögliche Konfiguration mit den beschriebenen Geräten dar.  
 
+!!! warning "Screenshots veraltet"
+    Die Screenshots in diesem Kapitel stammen aus einer **älteren Version der WebApp** und können von der aktuellen Oberfläche abweichen. Die Einstellwerte sind dennoch als Orientierung nutzbar – die aktuellen Bezeichnungen und Optionen finden Sie in der jeweiligen Einstellungsdokumentation (z. B. [Wechselrichter](settings_inverter.md), [Laden](settings_inverter_charge.md), [Schnittstellen](settings_bsc_interfaces.md)).
+
 Bitte beachten Sie, dass wir keine Gewährleistung oder Garantie für die Richtigkeit, Vollständigkeit oder Anwendbarkeit der bereitgestellten Informationen übernehmen können. Die korrekte Anpassung dieser Einstellungen an Ihr spezifisches System erfordert fundiertes technisches Fachwissen. Es liegt in Ihrer Verantwortung, die bereitgestellten Informationen sorgfältig zu überprüfen, zu verstehen und gegebenenfalls anzupassen, bevor Sie diese in Ihrem System implementieren.  
 
 Wir raten dringend davon ab, die dargestellten Einstellungen unreflektiert zu übernehmen. Nehmen Sie sich die notwendige Zeit, die vorgeschlagenen Konfigurationen in ihrer Gesamtheit zu verstehen und sicherzustellen, dass sie für Ihre individuellen Anforderungen und Systeme geeignet sind. Eine unsachgemäße Anwendung kann zu Schäden an den Geräten, den Batterien oder sogar zur Gefährdung Ihrer Sicherheit führen.  

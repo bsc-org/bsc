@@ -31,6 +31,7 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | JK-B2A20S20P | V11.XW | 11.25H | - |  |  Single device extension |
 | JK-B2A24S20P | V10.XW | V10.09 | - |  |  Single device extension |
 | JK-B2A8S20P | V19 | V19.07 | - |  |   |
+| JK BMS V1.3<br>(only monitoring) |  |  | - | - |
 | **JK Inverter-BMS** |
 | [JK-PB1A16S15P](#jk-inverter) | V14 | V14.20 | 1 / 1 | 1 / 1 |
 | [JK-PB1A16S15P](#jk-inverter) | V15 | V15.17 | 1 / 1 | 1 / 1 |
@@ -45,13 +46,24 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | **Sylcin (z.B. Taico Akku)** |
 | [Sylcin](#sylcin) |  |  | 0 / 1 | 0 / 1 |
 | **Pace (z.B. Gobel Akku)** |
-| GP-SR1-RN150 |  | | ? | ? |
+| GP-SR1-RN150<br>(Test) |  | | 0 / 0 | - |
 | [GP-SR3-PC100](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
 | [GP-SR1-PC200](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
+| PC200 V1 (RS232) |  | |  2 / 2 | - | RS232 |
+| PC200 V2 (RS232) |  | |  2 / 2 | - | RS232 |
 | **Pylontech** |  | | ? | ? |
 | US2000 |  | | 1 / 1 | 1 / 1 | B/RS485 |
 | US5000 |  | | 1 / 1 | 1 / 1 | B/RS485 |
+| **Felicity** |
+| LUX-Y Serie |  | | 0 / 0 | 0 / 0 |
+| **Eletechsup** |
+| NT4A08 |  | | 1 / 1 | 1 / 1 |
+| NT48B16 |  | | 1 / 1 | 1 / 1 |
+| NT48C32 |  | | 1 / 1 | 1 / 1 |
 | **Daren BMS**<br>(TestStatus - Feedback erwünscht) |  | | ? | ? |
+
+!!! note "Hinweis"
+    Die in der WebApp angebotene Geräteauswahl der seriellen Schnittstellen ist die verbindliche Liste der unterstützten Typen – siehe [Schnittstellen → Serial](../settings_bsc_interfaces.md#serial).
 
 ## Bluetooth Devices
 | Typ | HW-Version | SW-Version |
@@ -204,9 +216,9 @@ Bitte überprüfen Sie die korrekte Adresse zusätzlich über die JK-App, da es 
 Für die Übertragung der Daten per CAN an z.B. ein Victron CerboGX, müssen Sie unter "Einstellungen -> Wechselrichter & Laderegelung -> Allgemein" folgende Einstellungen vornehmen:
  1. BMS Canbus enable selektieren
  2. CAN Protokoll auswählen z.B. VICTRON
- 3. Nun die "Datenquelle (Master)" auf Serial 2 definieren
- 4. Unter "Valuehandling Multi-BMS" festlegen, wie der SoC zu übertragen / berechnen ist. "Mittelwert" z.B. übergibt den Mittelwert über alle angeschlossenen BMS.
- 5. Datenquelle (Master) auswählen (darauf bezieht sich z.B. die Temperatur unter dem Punkt "Battery Temperature" an Victron gesendet werden, die Max und Min Temperaturen über alle Packs hinweg, bleiben davon unberührt) und für jedes weitere BMS unter "+Datenquelle" eine weitere Serielle Schnittstelle entsprechend auswählen.  
+ 3. Nun die "Datenquelle" auf die entsprechenden Data-Devices (Serial 2) definieren
+ 4. Unter "Valuehandling" festlegen, wie der SoC zu übertragen / berechnen ist. "Mittelwert" z.B. übergibt den Mittelwert über alle angeschlossenen BMS.
+ 5. Die Batterietemperatur wird über die Einstellung "Batterietemperatur" festgelegt (die Max- und Min-Temperaturen über alle Packs hinweg bleiben davon unberührt). Für jedes weitere BMS unter "Datenquelle" eine weitere Serielle Schnittstelle entsprechend auswählen.  
 
 ![](../img/settings/settings_inverter_datquelle.png){  width="550" }
 
