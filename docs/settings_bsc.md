@@ -1,52 +1,60 @@
 ## System
 Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzernamen und Passwörter zu den WLAN und MQTT Logins.
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='Ctd'><b>BSC Benutzer</b></td>
-<td class='Ctd'><input type='text' value='bsc' name='1133871376384' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s10240'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>BSC Passwort</b></td>
-<td class='Ctd'><input type='password' value='admin' name='1133871376448' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s10304'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Device Name</b></td>
-<td class='Ctd'><input type='text' value='bsc-s3' name='34359750464' pattern='^[^#~+]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s12096'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Display timeout</b></td>
-<td class='Ctd'><input type='number' min='1' max='120' value='5' name='4294976512'></td><td class='t1'>min</td><td class='Ctd'><span class='secVal' id='s9216'></span></td></tr>
-</table></form></div></div>
-
-- **BSC-Benutzername**  
-  Benutzername für die Anmeldung am BSC-Webinterface.  
-
-- **BSC-Passwort**  
-  Passwort für die Anmeldung am BSC-Webinterface. 
+```bsc-settings
+version: v010
+file: system.json
+profile: off
+index: 1
+```
 
 - **Device Name**  
-  Benutzerdefinierter Gerätename. Dieser Name wird auch auf dem Dashboard angezeigt.  
+  Benutzerdefinierter Gerätename (Standard: `BSC`). Dieser Name wird auch auf dem Dashboard angezeigt.  
 
 - **Display Timeout**  
   Zeitspanne bis zur automatischen Deaktivierung des angeschlossenen Displays (Timeout).  
 
+- **Profilumschaltung**  
+  Mit den Profilen P1/P2 lassen sich profilfähige Parameter in zwei Varianten pflegen (z. B. Sommer-/Winterbetrieb). Mögliche Modi:
+    - **Aus** – Es wird das Profil P1 verwendet.
+    - **P1** / **P2** – Es wird dauerhaft das gewählte Profil verwendet.
+    - **Trigger** – Der unter *Profil-Trigger* ausgewählte Trigger entscheidet: Trigger inaktiv → P1, Trigger aktiv → P2.
+  
+  Das Feld **Profil-Trigger** wird nur angezeigt, wenn als Modus `Trigger` gewählt ist.  
+  Profilfähige Parameter sind in den Einstellungsseiten an den P1/P2-Feldern erkennbar.
+
+- **Traceback-Trigger**  
+  Setzt die ausgewählten Trigger, wenn ein Traceback (Absturzbericht) vorhanden ist.  
+  Diese Option wird **nur auf T-Connect-Hardware** angezeigt.
+
+### Benutzer
+
+```bsc-settings
+version: v010
+file: system.json
+profile: off
+section: UI_SECT_SYSTEM_BENUTZER
+```
+
+- **Passwortschutz aktivieren**  
+  Schaltet die Anmeldung am Webinterface ein oder aus. Ist der Passwortschutz **deaktiviert**, ist das Webinterface ohne Anmeldung zugänglich – auch die [REST-API](restapi.md) kann dann ohne Anmeldung genutzt werden.
+
+- **Automatisch abmelden**  
+  Zeitspanne (0–240 Minuten), nach der eine inaktive Sitzung automatisch beendet wird. Der Wert **0** deaktiviert den automatischen Logout.
+
+- **Benutzer**  
+  Es können bis zu **2 Benutzer** angelegt werden. Pro Benutzer:
+    - **Benutzername** / **Passwort** – Zugangsdaten für das Webinterface. Das Passwort wird nicht im Klartext, sondern gehasht gespeichert.
+    - **Rolle** – `Admin` (vollständiger Zugriff) oder `ReadOnly` (nur lesender Zugriff auf die Einstellungen).
 
 ## Netzwerkeinstellungen
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>WLAN</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>WLAN SSID</b></td>
-<td class='Ctd'><input type='text' value='SSID' name='34359740928' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2560'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>WLAN Passwort</b></td>
-<td class='Ctd'><input type='password' value='123456' name='34359740992' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2624'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>WLAN connect Timeout</b></td>
-<td class='Ctd'><input type='number' min='0' max='3600' value='30' name='12884908032'></td><td class='t1'>s</td><td class='Ctd'><span class='secVal' id='s6144'></span></td></tr>
-<tr><td colspan='3' class='td0'></td></tr>
 
-<tr class='Ctr'><td class='sep' colspan='3'><b>Static IP</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>IP-Adresse</b></td>
-<td class='Ctd'><input type='text' value='' name='1133871368448' pattern='^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2304'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Wenn die IP-Adresse leer ist, dann ist DHCP aktiv</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Gateway</b></td>
-<td class='Ctd'><input type='text' value='' name='1133871368512' pattern='^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2368'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Subnet</b></td>
-<td class='Ctd'><input type='text' value='255.255.255.0' name='1133871368576' pattern='^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2432'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>DNS</b></td>
-<td class='Ctd'><input type='text' value='' name='1133871368640' pattern='^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2496'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Optional</div></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: system.json
+profile: off
+section: UI_SECT_SYSTEM_WLAN
+```
 
 - **WLAN SSID**  
   Name des WLAN-Netzwerks, mit dem sich der BSC verbinden soll.  
@@ -58,8 +66,17 @@ Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzerna
   Maximale Zeit (in Sekunden), die der BSC auf eine erfolgreiche WLAN-Verbindung wartet, bevor der Verbindungsversuch abgebrochen wird. Wird innerhalb dieser Zeit keine Verbindung hergestellt, erstellt das Gerät automatisch einen eigenen Access Point (AP).  
   Wird der Wert auf **0** gesetzt, ist der Timeout deaktiviert und der Verbindungsversuch wird unbegrenzt fortgesetzt.  
   <br> 
-  **Nur in der sponsoren Version:**  
-  Verliert der BSC die WLAN-Verbindung und erstellt nach dem eingestellten Timeout einen Access Point, versucht er alle **5 Minuten**, die Verbindung mit dem ursprünglichen WLAN-Netzwerk erneut herzustellen.
+  Verliert der BSC die WLAN-Verbindung und erstellt nach dem eingestellten Timeout einen Access Point, versucht er alle **5 Minuten**, die Verbindung mit dem ursprünglichen WLAN-Netzwerk erneut herzustellen. Dieses Verhalten gilt für alle Firmware-Varianten.
+
+- **Ethernet**  
+  Bei aktiviertem Ethernet (nur auf T-Connect-Hardware mit Ethernet-Anschluss verfügbar) wird WLAN deaktiviert und die Verbindung über den LAN-Anschluss aufgebaut.
+
+```bsc-settings
+version: v010
+file: system.json
+profile: off
+section: UI_SECT_SYSTEM_STATIC_IP
+```
 
 - **IP-Adresse**  
   Statische IPv4-Adresse des BSC.  
@@ -75,44 +92,14 @@ Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzerna
   IPv4-Adresse eines DNS-Servers zur Namensauflösung. Falls leer, wird der vom DHCP-Server bereitgestellte DNS-Server verwendet.  
 
 
-## MQTT-Einstellungen
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>MQTT</b></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Zum Übernehmen der Settings, muss der BSC neu gestartet werden!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>MQTT enable</b></td><td class='Ctd'><input type='checkbox'  name='38654708480'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2816'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>MQTT Device Name</b></td>
-<td class='Ctd'><input type='text' value='bsc' name='34359741248' pattern='^[^#~+]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2880'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>MQTT Server IP</b></td>
-<td class='Ctd'><input type='text' value='' name='34359741056' pattern='^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2688'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>MQTT Server Port</b></td>
-<td class='Ctd'><input type='number' min='1' max='49151' value='1883' name='12884904640'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2752'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Username</b></td>
-<td class='Ctd'><input type='text' value='' name='34359743872' pattern='^[^#~+]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s5504'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Passwort</b></td>
-<td class='Ctd'><input type='password' value='' name='34359743936' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s5568'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>MQTT Topic Name</b></td>
-<td class='Ctd'><input type='text' value='bsc' name='34359741312' pattern='^[^#~+]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s2944'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>MQTT Sendeintervall</b></td>
-<td class='Ctd'><input type='number' min='30' max='120' value='60' name='4294975808'></td><td class='t1'>s</td><td class='Ctd'><span class='secVal' id='s8512'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Remanenz vTrigger</b></td>
-<td class='Ctd'>
-<input id='t42348100' class='toggle' type='checkbox'>
-<label for='t42348100' class='lbl-toggle'>Remanenz vTrigger</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='21474847232' value='0' >vTrigger 1<br>
-<input type='checkbox' name='21474847232' value='1' >vTrigger 2<br>
-<input type='checkbox' name='21474847232' value='2' >vTrigger 3<br>
-<input type='checkbox' name='21474847232' value='3' >vTrigger 4<br>
-<input type='checkbox' name='21474847232' value='4' >vTrigger 5<br>
-<input type='checkbox' name='21474847232' value='5' >vTrigger 6<br>
-<input type='checkbox' name='21474847232' value='6' >vTrigger 7<br>
-<input type='checkbox' name='21474847232' value='7' >vTrigger 8<br>
-<input type='checkbox' name='21474847232' value='8' >vTrigger 9<br>
-<input type='checkbox' name='21474847232' value='9' >vTrigger 10<br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>V-Trigger behalten dadurch ihren Zustand, auch wenn Spannung unterbrochen wurde.</div></td></tr>
-</table></form></div></div>
+## MQTT-Einstellungen {: #mqtt }
+
+```bsc-settings
+version: v010
+file: mqtt.json
+profile: off
+label: MQTT Allgemein
+```
 
 - **MQTT Enable**  
   Aktiviert oder deaktiviert die MQTT-Funktionalität im BSC.  
@@ -137,26 +124,35 @@ Hier findet man alle System-Internen Einstellmöglichkeiten, wie z.B. Benutzerna
   Basis-Topic, unter dem der BSC seine Daten veröffentlicht. Untertopics werden automatisch für einzelne Werte angelegt.  
 
 - **MQTT Sendeintervall (in Sekunden)**  
-  Zeitintervall in Sekunden, in dem der BSC Daten an den MQTT-Broker sendet.  
+  Zeitintervall in Sekunden, in dem der BSC Daten an den MQTT-Broker sendet (einstellbar von 1–120 s, Standard 60 s).  
   <br>
-  Durch die Vielzahl der zu übertragenen Daten, gibt es im BSC zwei unterschiedlich priorisierte Nachrichtenintervalle.  
-  Die wichtigsten Nachrichten, wie z.B. Gesamtspannung (totalVoltage) und Gesamtstrom (totalCurrent) werden sekündlich via MQTT übertragen.  Andere, niedriger priorisierte Daten werden in einem vom Benutzer einstellbaren Intervall übertragen.
+  Die Datenkategorien (Data Devices, Group Devices, OneWire, Inverter) werden aufeinanderfolgend in je einem Sendezyklus übertragen. Die Inverter-Werte werden zusätzlich nur in jedem 15. Inverter-Zyklus veröffentlicht.
 
 - **Remanenz vTrigger**  
   Mit "Remanenz vTrigger" kann festgelegt werden, welcher vTrigger als speichernd definiert werden soll.  
   Ein speichernder vTrigger stellt sicher, dass seine Werte auch nach einem Neustart (Reboot) oder einem Spannungsausfall automatisch wiederhergestellt werden.  
   Mehr zum Thema vTrigger unter [MQTT](mqtt.md#virtual-trigger).
 
+Die weiteren MQTT-Einstellungen (MQTT-Filter, Home-Assistant-Auto-Discovery) sind auf der Seite [MQTT](mqtt.md) dokumentiert.
+
 
 ## Zeitserver (NTP)
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>NTP</b></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Zum Übernehmen der Settings, muss der BSC neu gestartet werden!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Server Name/IP</b></td>
-<td class='Ctd'><input type='text' value='pool.ntp.org' name='1133871373952' pattern='^[^~]*$'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s7808'></span></td></tr>
-</table></form></div></div>
+
+```bsc-settings
+version: v010
+file: system.json
+profile: off
+section: UI_SECT_SYSTEM_NTP
+```
+
+!!! note "Hinweis"
+    Zum Übernehmen der NTP-Settings muss der BSC neu gestartet werden!
 
 - **Server Name/IP**  
   Name oder IPv4-Adresse des NTP Servers.  
+
+- **Zeit-Offset**  
+  Abweichung der lokalen Zeitzone von UTC in Stunden (−12 bis +14, Standard: +1 für Mitteleuropa). Der BSC gleicht die Systemzeit über NTP aus und wendet diesen Offset für die lokale Zeit an.
   
 Falls bei der Verwendung eines externen NTP-Servers Probleme mit der Zeitsynchronisierung auftreten, kann alternativ der Router des lokalen Netzwerks als Zeitserver genutzt werden. Diese Methode ist in vielen Fällen stabiler.  
 
@@ -170,4 +166,3 @@ Als Zeitserver können beispielsweise folgende Adressen definiert werden:
 
 Im BSC ist anschließend die **IP-Adresse** des Routers als NTP-Server anzugeben.  
 **Hinweis:** Die Verwendung eines Hostnamens anstelle der IP-Adresse kann zu Verbindungsproblemen führen.
-

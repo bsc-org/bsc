@@ -1,17 +1,25 @@
+## Entladestrom pro Pack zu groß
+
+Mit dieser Funktion wird der Entladestrom automatisch und dynamisch angepasst, um sicherzustellen, dass der maximale Entladewert eines jeden Batterie-Packs nicht überschritten wird. Die Regelung schützt die Batterie vor Überstrom – es gelten die unter [Basisdaten → Batterypack Settings](settings_inverter.md#basisdaten) eingestellten Entladeströme pro Pack.
+
+```bsc-settings
+version: v010
+file: inverterDischarge.json
+profile: off
+section: UI_SECT_INVERTERDISCHARGE_ENTLADESTROM_PRO_PACK_ZU_GROSS
+```
+
+
 ## Entladestrom Zell-Spannungsabhängig drosseln
 
 Diese Funktion dient der Anpassung des Entladestroms basierend auf der Zellspannung, um die Lebensdauer der Batteriezellen zu verlängern und deren Sicherheit zu gewährleisten.
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Entladestrom Zell-Spannungsabhängig drosseln</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox'  name='38654715840'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s10176'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Starten bei Zellspg. kleiner</b></td>
-<td class='Ctd'><input type='number' min='0' max='5000' value='0' name='12884910720'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s8832'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Sobald die niedrigste Zellspannung diesen Wert unterschreitet wird die Drosselung aktiv.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>End Zellspannung</b></td>
-<td class='Ctd'><input type='number' min='2500' max='5000' value='3300' name='12884910784'></td><td class='t1'>mV</td><td class='Ctd'><span class='secVal' id='s8896'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Sobald die niedrigste Zellspannung diesen Wert unterschreitet wird maxmial noch mit dem Mindest-Entladestrom entladen.<br>Hinweis: Der Wert muss kleiner sein als die Zell-Startspannung.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Mindest Entladestrom</b></td>
-<td class='Ctd'><input type='number' min='0' max='200' value='1' name='4294976256'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s8960'></span></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: inverterDischarge.json
+profile: off
+section: UI_SECT_INVERTERDISCHARGE_ENTLADESTROM_ZELL_SPANNUNGSABHAENGIG_DROSSELN
+```
 
 **Parameter:**  
 **Ein/Aus** (Aktivierung der Drosselung)  
@@ -29,3 +37,47 @@ Dieser Wert legt die Zellspannung fest, bei deren Unterschreitung der Entladestr
 
 **Mindest-Entladestrom**  
 Dies ist der minimale Entladestrom, der bei Unterschreiten der End Zellspannung nicht unterschritten wird.
+
+
+## Entladestrom reduzieren - Temperatur
+
+Mit dieser Funktion kann der maximale Entladestrom abhängig von der gemessenen Temperatur schrittweise reduziert werden. Es werden die Quellen aus der aktiven Datenquelle verwendet (Data-Devices oder Group Devices). Für die Regelung wird je nach Richtung stets der passende Grenzwert herangezogen: Von warm nach kalt gilt der Minimalwert, von kalt nach warm der Maximalwert.
+
+Die Temperaturreduzierung erfolgt anhand von bis zu **vier konfigurierbaren Temperaturregeln**. Jede Regel kann individuell aktiviert, deaktiviert und mit eigenen Sensoren sowie Start- und Endwerten konfiguriert werden.
+
+```bsc-settings
+version: v010
+file: inverterDischarge.json
+profile: off
+section: UI_SECT_INVERTERDISCHARGE_ENTLADESTROM_REDUZIEREN_TEMPERATUR
+```
+
+**Konfiguration**  
+
+- **Data-Device Sensoren** – Temperatursensoren (0–5) der Data Devices, die für die Regelung verwendet werden.
+- **Erweiterte Sensorquellen / Erweiterte Sensoren 0-31** – Zusätzliche erweiterte Temperatursensoren (z. B. OneWire) als Quelle.
+- **Reduzieren Start** – Temperatur, ab der die Stromreduzierung beginnt (Standard: 20,00 °C).
+- **Reduzieren Ende** – Temperatur, bei der der Entladestrom vollständig auf 0 A reduziert wird (Standard: 0,00 °C).
+
+Die Regelung erfolgt linear zwischen den beiden Temperaturschwellen – sie kann sowohl für Drosselung bei steigenden als auch bei fallenden Temperaturen konfiguriert werden (siehe dazu die Beispiele bei [Ladestrom reduzieren – Temperatur](settings_inverter_charge.md#ladestrom-reduzieren-temperatur), die für das Entladen analog gelten).
+
+
+## Entladestrom reduzieren - Temperaturprofil
+
+Mit dieser Funktion kann der maximale Entladestrom anhand eines frei definierbaren **Temperaturprofils** begrenzt werden. Das Profil besteht aus **10 Punkten**, die jeweils einer Temperatur eine maximale **C-Rate** zuordnen. Zwischen den Punkten wird linear interpoliert; außerhalb des Profils gelten der erste bzw. letzte Punkt.
+
+```bsc-settings
+version: v010
+file: inverterDischarge.json
+profile: off
+section: UI_SECT_INVERTERDISCHARGE_ENTLADESTROM_REDUZIEREN_TEMPERATURPROFIL
+```
+
+**Konfiguration**  
+
+- **Data-Device Sensoren** – Temperatursensoren (0–5) der Data Devices, deren Messwerte in die Regelung einfließen.
+- **Erweiterte Sensorquellen / Erweiterte Sensoren 0-31** – Zusätzliche erweiterte Sensoren (z. B. OneWire) als Quelle.
+- **Temperaturprofil** – 10 Punkte mit je **Temperatur** (in °C, Schritt 0,1 °C, Bereich −30 bis 60 °C) und **C-Rate** (in C, Schritt 0,01 C).
+
+**Funktionsweise**  
+Der Entladestrom berechnet sich aus **C-Rate × Kapazität (Ah)** – die Kapazität wird unter [Basisdaten → Batterypack Settings](settings_inverter.md#basisdaten) pro Pack hinterlegt. Der berechnete Wert wird durch den maximalen Entladestrom begrenzt. Ist keine Kapazität hinterlegt, wird der Entladestrom auf 0 A begrenzt.

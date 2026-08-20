@@ -4,52 +4,19 @@ In diesem Abschnitt werden die Einstellungen für die Kommunikation mit dem Wech
 
 ## General
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='Ctd'><b>BMS Canbus enable</b></td><td class='Ctd'><input type='checkbox' checked name='38654709504'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s3840'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Canbus protocol</b></td>
-<td class='Ctd'><select name='4294967424'>
-<option value='0' >nicht belegt</option>
-<option value='1' >Solis RHI</option>
-<option value='2' >Pylontech</option>
-<option value='3' selected>VICTRON</option>
-<option value='4' >VICTRON 250k</option>
-<option value='5' >BYD</option>
-</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s128'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Send extended data</b></td><td class='Ctd'><input type='checkbox'  name='38654713664'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s8000'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Nicht in Verbindung mit einem CerboGX aktivieren!</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Datenquelle</b></td>
-<td class='Ctd'>
-<input id='t360168061' class='toggle' type='checkbox'>
-<label for='t360168061' class='lbl-toggle'>Datenquelle</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='21474841792' value='0' checked>Data device 0<br>
-<input type='checkbox' name='21474841792' value='1' checked>Data device 1<br>
-<input type='checkbox' name='21474841792' value='2' checked>Data device 2<br>
-<input type='checkbox' name='21474841792' value='3' >Data device 3<br>
-<input type='checkbox' name='21474841792' value='4' >Data device 4<br>
-<input type='checkbox' name='21474841792' value='5' >Data device 5<br>
-<input type='checkbox' name='21474841792' value='6' >Data device 6<br>
-<input type='checkbox' name='21474841792' value='7' >Data device 7<br>
-<input type='checkbox' name='21474841792' value='8' >Data device 8<br>
-<input type='checkbox' name='21474841792' value='9' >Data device 9<br>
-<input type='checkbox' name='21474841792' value='10' >Data device 10<br>
-<input type='checkbox' name='21474841792' value='11' >Data device 11<br>
-<input type='checkbox' name='21474841792' value='12' >Data device 12<br>
-<input type='checkbox' name='21474841792' value='13' >Data device 13<br>
-<input type='checkbox' name='21474841792' value='14' >Data device 14<br>
-<input type='checkbox' name='21474841792' value='15' >Data device 15<br>
-<input type='checkbox' name='21474841792' value='16' >Data device 16<br>
-<input type='checkbox' name='21474841792' value='17' >Data device 17<br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: bmsToInverter.json
+profile: off
+index: 1
+```
 
 **BMS Canbus enable**  
 Aktiviert oder deaktiviert die generelle CAN-Bus-Kommunikation des BMS.  
 Wenn deaktiviert, werden keine Daten über den CAN-Bus an Wechselrichter gesendet.
 
 **Canbus protocol**  
-Legt fest, welches Kommunikationsprotokoll für den angeschlossenen Wechselrichter verwendet wird.  
+Legt fest, welches Kommunikationsprotokoll für den angeschlossenen Wechselrichter verwendet wird (Standard: `nicht belegt`).  
 Für die meisten Wechselrichter sollte das Protokoll **Pylontech** gewählt werden.  
 
 **Send extended data**  
@@ -63,87 +30,38 @@ Hier werden die **Data-Devices** ausgewählt, deren Messwerte als Grundlage für
 
 Wichtig: Je nach **aktiver Laderegelung** müssen die ausgewählten Datenquellen **Zellspannungen liefern** – sonst kann die Regelung nicht korrekt arbeiten.
 
-An dieser Stelle werden **nicht** die Datenquellen ausgewählt, die **nur** für **Gesamtspannung**, **Gesamtstrom** oder den **SoC** verwendet werden sollen (z. B. ein **Shunt**).
+An dieser Stelle werden **nicht** die Datenquellen ausgewählt, die **nur** für **Gesamtspannung**, **Gesamtstrom** oder den **SoC** verwendet werden sollen (z. B. ein **Shunt**) – das erfolgt unter [Valuehandling](#valuehandling).
 
-Bei der **Standard-Firmware** muss hier **zusätzlich** eine **Master-Datenquelle** festgelegt werden.  
-Von dieser wird die **Batteriespannung** übernommen, die anschließend an den Wechselrichter übermittelt wird.
+!!! note "Hinweis"
+    Sind [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert, kann hier anstelle der Data-Devices eine **Battery-Pack-Auswahl** (Group Devices) getroffen werden.
 
 
-## Valuehandling
+## Valuehandling {: #valuehandling-multi-bms }
 In diesem Abschnitt werden die Quellen und Methoden zur Verarbeitung zentraler Batteriewerte festgelegt. Dabei kann für jeden Messwerttyp – Ladezustand (SoC), Gesamtspannung und Gesamtstrom – eine spezifische Datenquelle ausgewählt werden. Die verfügbaren Datenquellen stammen aus den angeschlossenen Data Devices und liefern die Rohwerte für die weitere Verarbeitung.  
 
 Zusätzlich kann eingestellt werden, wie die Werte bei der Auswahl von mehreren Data Devices aggregiert werden sollen.  
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Valuehandling</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Quelle SoC</b></td>
-<td class='Ctd'>
-<input id='t388335136' class='toggle' type='checkbox'>
-<label for='t388335136' class='lbl-toggle'>Quelle SoC</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='21474845568' value='0' >Data device 0<br>
-<input type='checkbox' name='21474845568' value='1' checked>Data device 1<br>
-<input type='checkbox' name='21474845568' value='2' >Data device 2<br>
-<input type='checkbox' name='21474845568' value='3' >...<br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Aggregation SoC</b></td>
-<td class='Ctd'><select name='4294974720'>
-<option value='1' selected>Mittelwert</option>
-<option value='4' >Minimalwert</option>
-<option value='2' >Maximalwert</option>
-<option value='3' >BMS</option>
-</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s7424'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Quelle Gesamtspannung</b></td>
-<td class='Ctd'>
-<input id='t388335278' class='toggle' type='checkbox'>
-<label for='t388335278' class='lbl-toggle'>Quelle Gesamtspannung</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='21474847552' value='0' checked>Data device 0<br>
-<input type='checkbox' name='21474847552' value='1' checked>Data device 1<br>
-<input type='checkbox' name='21474847552' value='2' checked>Data device 2<br>
-<input type='checkbox' name='21474847552' value='3' >...<br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Aggregation Spannung</b></td>
-<td class='Ctd'><select name='4294978496'>
-<option value='1' >Mittelwert</option>
-<option value='4' >Minimalwert</option>
-<option value='2' selected>Maximalwert</option>
-</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s11200'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Quelle Gesamtstrom</b></td>
-<td class='Ctd'>
-<input id='t388335397' class='toggle' type='checkbox'>
-<label for='t388335397' class='lbl-toggle'>Quelle Gesamtstrom</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='21474847616' value='0' checked>Data device 0<br>
-<input type='checkbox' name='21474847616' value='1' checked>Data device 1<br>
-<input type='checkbox' name='21474847616' value='2' checked>Data device 2<br>
-<input type='checkbox' name='21474847616' value='3' >...<br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Aggregation Strom</b></td>
-<td class='Ctd'><select name='4294978560'>
-<option value='1' >Mittelwert</option>
-<option value='4' >Minimalwert</option>
-<option value='2' >Maximalwert</option>
-<option value='5' selected>Summe</option>
-</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s11264'></span></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: bmsToInverter.json
+profile: off
+section: UI_SECT_BMSTOINVERTER_VALUEHANDLING
+```
 
-!!! note "Hinweis"
-    Bei der **Standard-Firmware** kann hier nur für den **SoC** die Aggregation eingestellt werden.
+**Domain**  
+Mit der Domain wird festgelegt, aus welchem Bereich die Quellen stammen:
+
+- **Auto** – Automatische Auswahl (Data Devices; bei aktivierten Group Devices: Battery-Packs).
+- **Data devices** – Es werden die konfigurierten Data-Devices angeboten.
+- **Group devices** – Es werden die konfigurierten Group Devices (Battery-Packs) angeboten. Nur verfügbar, wenn [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert sind.
 
 **Quelle SoC**  
-Legt fest, von welchem angeschlossenen Gerät (Data Device) der Ladezustand der Batterie (State of Charge, SoC) übernommen wird.  
+Legt fest, von welchem angeschlossenen Gerät (Data Device bzw. Group Device) der Ladezustand der Batterie (State of Charge, SoC) übernommen wird.  
 Wird nur ein Gerät als Quelle verwendet, bestimmt ausschließlich dessen Wert den SoC im System.
 
 **Aggregation SoC**  
 Definiert die Methode, mit der der SoC berechnet wird, wenn mehrere Datenquellen gleichzeitig ausgewählt wurden.  
-Mögliche Aggregationsmethoden können z. B. **Mittelwert**, **höchster Wert**, **niedrigster Wert** oder **BMS** sein. Bei der Auswahl **BMS** wird der SoC des ersten ausgewählte Data-Device an den Wechselrichter übermittelt.   
+Mögliche Aggregationsmethoden sind **Mittelwert**, **höchster Wert**, **niedrigster Wert**, **BMS** oder **Kapazitätsgewichtet**. Bei der Auswahl **BMS** wird der SoC des ersten ausgewählten Data-Device an den Wechselrichter übermittelt. Bei **Kapazitätsgewichtet** fließen die SoC-Werte entsprechend der in den [Basisdaten](#basisdaten) hinterlegten Pack-Kapazitäten gewichtet ein.
 
 **Quelle Gesamtspannung**  
 Bestimmt, von welchem Data Device der Wert für die Gesamtbatteriespannung übernommen wird.  
@@ -166,87 +84,12 @@ Der so ermittelte Wert wird anschließend an den Wechselrichter übermittelt.
 
 ## Basisdaten
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Basisdaten</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Absorption Ladespannung</b></td>
-<td class='Ctd'><input type='number' step='0.1' min='12' max='66' value='54.40' name='12884905856' class='fl1'></td><td class='t1'>V</td><td class='Ctd'><span class='secVal' id='s3968'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Die Absorption Ladespannung entspricht einer erhöhten Spannung zum Erreichen des Voll-Zustandes.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Float Ladespannung</b></td>
-<td class='Ctd'><input type='number' step='0.1' min='12' max='66' value='54.40' name='12884911872' class='fl1'></td><td class='t1'>V</td><td class='Ctd'><span class='secVal' id='s9984'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Die Floatspannung wird nach Erreichen der einstellbaren Cutoff-Funktion angewendet.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Float Ladespannung SoC</b></td>
-<td class='Ctd'><input type='number' min='1' max='100' value='95' name='4294972736'></td><td class='t1'>%</td><td class='Ctd'><span class='secVal' id='s5440'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Beim Unterschreiten des eingestellten SoC wird von der Float in die Absorption Ladespannung gewechselt.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Max. Ladestrom</b></td>
-<td class='Ctd'><input type='number' min='0' max='1000' value='100' name='12884905984'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s4096'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Max. Entladestrom</b></td>
-<td class='Ctd'><input type='number' min='0' max='1000' value='100' name='12884906048'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s4160'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Ladeleistung auf 0</b></td>
-<td class='Ctd'>
-<input id='t388335673' class='toggle' type='checkbox'>
-<label for='t388335673' class='lbl-toggle'>Ladeleistung auf 0</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='12884906112' value='0' >Trigger 1 <br>
-<input type='checkbox' name='12884906112' value='1' >Trigger 2 <br>
-<input type='checkbox' name='12884906112' value='2' >Trigger 3 <br>
-<input type='checkbox' name='12884906112' value='3' >Trigger 4 <br>
-<input type='checkbox' name='12884906112' value='4' >Trigger 5<br>
-<input type='checkbox' name='12884906112' value='5' >Trigger 6<br>
-<input type='checkbox' name='12884906112' value='6' >Trigger 7<br>
-<input type='checkbox' name='12884906112' value='7' >Trigger 8<br>
-<input type='checkbox' name='12884906112' value='8' >Trigger 9<br>
-<input type='checkbox' name='12884906112' value='9' >Trigger 10<br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Entladeleistung auf 0</b></td>
-<td class='Ctd'>
-<input id='t388335747' class='toggle' type='checkbox'>
-<label for='t388335747' class='lbl-toggle'>Entladeleistung auf 0</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='12884906176' value='0' >Trigger 1 <br>
-<input type='checkbox' name='12884906176' value='1' >Trigger 2 <br>
-<input type='checkbox' name='12884906176' value='2' >Trigger 3 <br>
-<input type='checkbox' name='12884906176' value='3' >Trigger 4 <br>
-<input type='checkbox' name='12884906176' value='4' >Trigger 5<br>
-<input type='checkbox' name='12884906176' value='5' >Trigger 6<br>
-<input type='checkbox' name='12884906176' value='6' >Trigger 7<br>
-<input type='checkbox' name='12884906176' value='7' >Trigger 8<br>
-<input type='checkbox' name='12884906176' value='8' >Trigger 9<br>
-<input type='checkbox' name='12884906176' value='9' >Trigger 10<br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>SOC auf 100</b></td>
-<td class='Ctd'>
-<input id='t388335835' class='toggle' type='checkbox'>
-<label for='t388335835' class='lbl-toggle'>SOC auf 100</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='12884906816' value='0' >Trigger 1 <br>
-<input type='checkbox' name='12884906816' value='1' >Trigger 2 <br>
-<input type='checkbox' name='12884906816' value='2' >Trigger 3 <br>
-<input type='checkbox' name='12884906816' value='3' >Trigger 4 <br>
-<input type='checkbox' name='12884906816' value='4' >Trigger 5<br>
-<input type='checkbox' name='12884906816' value='5' >Trigger 6<br>
-<input type='checkbox' name='12884906816' value='6' >Trigger 7<br>
-<input type='checkbox' name='12884906816' value='7' >Trigger 8<br>
-<input type='checkbox' name='12884906816' value='8' >Trigger 9<br>
-<input type='checkbox' name='12884906816' value='9' >Trigger 10<br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-</table><details><summary><b>Batterypack settings</b></summary><table>
-<tr><td colspan='3'><b>Data device 0</b></td></tr><tr class='Ctr'><td class='Ctd'><b>Charge current per pack</b></td>
-<td class='Ctd'><input type='number' min='0' max='500' value='280' name='12884909440'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s7552'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Discharge current per pack</b></td>
-<td class='Ctd'><input type='number' min='0' max='500' value='280' name='12884909504'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s7616'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Kapazität</b></td>
-<td class='Ctd'><input type='number' min='1' max='1000' value='280' name='12884912320'></td><td class='t1'>Ah</td><td class='Ctd'><span class='secVal' id='s10432'></span></td></tr>
-<tr><td colspan='3'><hr style='border:none; border-top:1px dashed black; height:1px; color:#000000; background:transparent'></td></tr><tr><td colspan='3'><b>Data device 1</b></td></tr><tr class='Ctr'><td class='Ctd'><b>Charge current per pack</b></td>
-<td class='Ctd'><input type='number' min='0' max='500' value='280' name='12884909441'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s7553'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Discharge current per pack</b></td>
-<td class='Ctd'><input type='number' min='0' max='500' value='280' name='12884909505'></td><td class='t1'>A</td><td class='Ctd'><span class='secVal' id='s7617'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Kapazität</b></td>
-<td class='Ctd'><input type='number' min='1' max='1000' value='280' name='12884912321'></td><td class='t1'>Ah</td><td class='Ctd'><span class='secVal' id='s10433'></span></td></tr>
-</table></details><table>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: bmsToInverter.json
+profile: off
+section: UI_SECT_BMSTOINVERTER_BASISDATEN
+```
 
 **Absorption Ladespannung**  
 Die **Absorption Ladespannung** bezeichnet die Spannung, die erforderlich ist, um Akkus in einen (nahezu) vollständig geladenen Zustand zu bringen. Dabei ist zu beachten, dass diese Spannung nicht dauerhaft anliegen sollte, da dies die Lebensdauer und Leistung des Akkus negativ beeinflussen kann.
@@ -273,6 +116,9 @@ Diese Funktion sorgt dafür, dass bei sinkendem Ladezustand erneut eine vollstä
     Bitte beachten Sie, dass ein zu hoch gewählter SoC-Wert unter Umständen das System sofort wieder in die Absorption-Phase zurückführen kann.  
     Auch ungenaue SoC-Werte der angeschlossenen BMS können diesen Phasenwechsel verfälschen. Für eine präzise SoC-Erfassung empfiehlt sich ein externer Shunt (siehe [hier](devices/externer_shunt.md)).
 
+!!! note "Profilumschaltung"
+    Absorption Ladespannung, Float Ladespannung und Float Ladespannung SoC sind **profilfähig** (P1/P2). Bei aktivierter [Profilumschaltung](settings_bsc.md#system) gelten die Werte des aktiven Profils.
+
 **Max. Ladestrom**  
 Dies ist der **maximale Strom**, der an den Wechselrichter übermittelt wird und den dieser als **Begrenzung für den Ladevorgang** verwendet.  
 Damit wird sichergestellt, dass die Ladeleistung nicht über die zulässigen Werte hinausgeht und Batterie sowie Ladegeräte vor Überlastung geschützt werden.
@@ -281,14 +127,11 @@ Damit wird sichergestellt, dass die Ladeleistung nicht über die zulässigen Wer
 Dies ist der **maximale Strom**, der an den Wechselrichter übermittelt wird und den dieser als **Begrenzung für den Entladevorgang** verwendet.  
 So wird verhindert, dass die Batterie mit zu hohen Strömen belastet werden.
 
-**Ladeleistung auf 0**  
-Setzt den Ladestrom auf 0 A, wenn einer der zugeordneten Trigger aktiviert wird.  
-
-**Entladeleistung auf 0**  
-Setzt den Entladestrom auf 0 A, wenn einer der zugeordneten Trigger aktiviert wird.  
-
-**SOC auf 100**  
+**SoC auf 100**  
 Setzt den Ladezustand im System auf 100 %, wenn einer der definierten Trigger aktiviert wird.  
+
+**SoC auf 0**  
+Setzt den Ladezustand im System auf 0 %, wenn einer der definierten Trigger aktiviert wird.  
 
 **Batterypack Settings**  
 Mit dieser Funktion können Sie einen Lade- oder Entlade-Überstrom vermeiden, wenn einzelne Battery-Packs im System abgeschaltet werden. 
@@ -300,28 +143,52 @@ Um dies zu verhindern, können Sie mit dieser Funktion einen maximalen Strom pro
 Beispiel: Angenommen, Sie haben einen maximalen Ladestrom von 180A definiert und drei Packs, bei denen jeweils ein maximaler Strom von 100A festgelegt ist. Sollte nun ein Pack ausfallen, würde der verbleibende Strom von 200A noch innerhalb des zulässigen Rahmens liegen. Fällt ein weiteres Pack aus, würde der Ladecontroller den Strom automatisch auf 100A begrenzen, um das verbleibende Pack vor einem Überstrom zu schützen.
 
 
-<span id="a_ladespannungsrampe"></span>
+## Triggerbasierte Begrenzungen
+
+```bsc-settings
+version: v010
+file: bmsToInverter.json
+profile: off
+section: UI_SECT_BMSTOINVERTER_TRIGGER_BEGRENZUNGEN
+```
+
+**Ladeleistung auf 0**  
+Setzt den Ladestrom auf 0 A, wenn einer der zugeordneten Trigger (Trigger 1–27) aktiviert wird.  
+
+**Entladeleistung auf 0**  
+Setzt den Entladestrom auf 0 A, wenn einer der zugeordneten Trigger (Trigger 1–27) aktiviert wird.  
+
+**Triggerbasierte Strombegrenzung**  
+Es stehen **3 Regeln** zur Verfügung. Pro Regel:
+
+- **Trigger** – Trigger (Trigger 1–27), bei denen die Begrenzung aktiv wird.
+- **Laden max.** / **Entladen max.** – Maximaler Lade- bzw. Entladestrom (0–1000 A), der bei aktivem Trigger als Obergrenze an den Wechselrichter übermittelt wird.
+
+Bei aktivem Trigger gelten die Werte als Obergrenze. Sie übersteuern die festgelegten Maximalwerte nicht – es wirkt immer der kleinere Wert.
+
+
 ## Ladespannungsrampe
 
 Die Funktion **Ladespannungsrampe** sorgt dafür, dass Änderungen der Ladespannung – beispielsweise beim Übergang von Float auf Absorption – nicht sprunghaft, sondern in langsamen, definierten Schritten erfolgen. Damit werden abrupte Spannungsänderungen vermieden und Belastungsspitzen an Batterie und System reduziert.
 
-!!! note "Hinweis"
-    Diese Funktion steht nur in der **Sponsoren Version** zur Verfügung
+!!! note "Hinweis zur Supporter-Firmware"
+    Die Ladespannungsrampe ist auch Bestandteil der separat erhältlichen **Supporter-Firmware** (Classic WebUI). Weitere Informationen: [Supporter](supporter.md).
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Ladespannungsrampe</b></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Mit der Funktion wird Ladespannung langsam auf den neuen Wert geändert. Die Ladespannung wird pro Schritt um 100 mV geändert.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Ein/Aus</b></td><td class='Ctd'><input type='checkbox' checked name='38654717824'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s12160'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Zeit pro Spannungsschritt</b></td>
-<td class='Ctd'><input type='number' min='1' max='240' value='5' name='4294979520'></td><td class='t1'>s</td><td class='Ctd'><span class='secVal' id='s12224'></span></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: bmsToInverter.json
+profile: off
+section: UI_SECT_BMSTOINVERTER_LADESPANNUNGSRAMPE
+```
 
-**Funktionsweise**:  
-Die Ladespannung wird in festen Schritten von 100 mV angepasst.  
-Die Zeitdauer pro 100 mV-Schritt ist konfigurierbar und bestimmt damit die Geschwindigkeit der Spannungsänderung.  
-Die Anpassung erfolgt kontinuierlich, bis die eingestellte Zielspannung erreicht ist.
+**Modus**  
 
-**Parameter**:  
-**Zeit pro Spannungsschritt**: Bestimmt, in welchem Intervall die Ladespannung in 100 mV-Schritten angepasst wird. Alle x Sekunden wird die Spannung um 100 mV erhöht oder verringert, bis die Zielspannung erreicht ist.
+- **Aus** – Die Ladespannung wird direkt auf den Zielwert gesetzt.
+- **Zeitrampe** – Die Ladespannung wird in festen Schritten von **100 mV** angepasst. Die Zeitdauer pro Schritt wird über *Zeit pro Spannungsschritt* eingestellt (Standard: 15 s). Die Anpassung erfolgt kontinuierlich, bis die eingestellte Zielspannung erreicht ist – sowohl bei Erhöhung als auch bei Absenkung der Ladespannung.
+- **Auto** – Erhöhungen erfolgen wie bei der Zeitrampe; Absenkungen erfolgen **spannungsgeführt** über die aktuelle Batteriespannung. Dabei wird der Ladestrom kurzzeitig auf 0 A gesetzt, bis die Zielspannung erreicht ist.
+
+**Zeit pro Spannungsschritt (s)**  
+Bestimmt, in welchem Intervall die Ladespannung in 100 mV-Schritten angepasst wird (1–240 s, Standard 15 s).
 
 **Hinweis**:   
 Die Ladespannungsrampe wird bei jeder Änderung der Sollspannung aktiv, sofern diese Funktion aktiviert ist.
@@ -329,160 +196,69 @@ Die Ladespannungsrampe wird bei jeder Änderung der Sollspannung aktiv, sofern d
 
 ## Batterietemperatur
 
-Hier wird festgelegt, von welchem Data Device oder Onewire-Sensor die Batterietemperatur übernommen und an den Wechselrichter übermittelt werden soll.  
+Hier wird festgelegt, von welchem Data Device die Batterietemperatur übernommen und an den Wechselrichter übermittelt werden soll.  
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Batterietemperatur</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Quelle</b></td>
-<td class='Ctd'><select name='4294973504'>
-<option value='0' >Data device 0</option>
-<option value='1' selected>Data device 1</option>
-<option value='2' >Data device 2</option>
-<option value='3' >Data device 3</option>
-<option value='4' >Data device 4</option>
-<option value='5' >Data device 5</option>
-<option value='6' >Data device 6</option>
-<option value='7' >Data device 7</option>
-<option value='8' >Data device 8</option>
-<option value='9' >Data device 9</option>
-<option value='10' >Data device 10</option>
-<option value='11' >Data device 11</option>
-<option value='12' >Data device 12</option>
-<option value='13' >Data device 13</option>
-<option value='14' >Data device 14</option>
-<option value='15' >Data device 15</option>
-<option value='16' >Data device 16</option>
-<option value='17' >Data device 17</option>
-<option value='128' >Onewire</option>
-</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s6208'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Sensornummer</b></td>
-<td class='Ctd'><input type='number' min='0' max='64' value='0' name='4294973568'></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s6272'></span></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Mögliche Werte:<br>Data device:0-2<br>Onewire:0-63</div></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: bmsToInverter.json
+profile: off
+section: UI_SECT_BMSTOINVERTER_BATTERIETEMPERATUR
+```
 
+**Quelle**  
+Das Data-Device, dessen Temperatur übertragen wird (`nicht belegt` = 255 deaktiviert die Temperaturübertragung). Sind [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert, wird hier stattdessen ein **Battery-Pack** (Group Device) ausgewählt.
 
-**Hinweis:** Bei der Standard-Firmware wird die Temperatur stets von der Masterquelle übernommen.
+**Sensortyp** (nur bei aktivierten Group Devices)  
+Legt fest, ob die **Data-Device Sensoren** (0–5) oder die **Erweiterten Sensoren** (0–31) der Gruppe verwendet werden.
+
+**Sensornummer**  
+Nummer des Temperatursensors der gewählten Quelle: Data-Device Sensoren 0–5, Erweiterte Sensoren 0–31.
 
 
 ## Zelltemperatur
 
 Hier wird festgelegt, von welchen Sensoren der als Datenquelle ausgewählten Data Devices die minimale und maximale Zelltemperatur ermittelt und an den Wechselrichter übermittelt wird.  
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Zelltemperatur</b></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Es werden die Data Devices genommen, die unter 'Datenquelle' ausgewählt sind.</div></td></tr><tr class='Ctr'><td class='Ctd'><b>Sensoren</b></td>
-<td class='Ctd'>
-<input id='t388336656' class='toggle' type='checkbox'>
-<label for='t388336656' class='lbl-toggle'>Sensoren</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='21474848192' value='0' >0<br>
-<input type='checkbox' name='21474848192' value='1' >1<br>
-<input type='checkbox' name='21474848192' value='2' >2<br>
-<input type='checkbox' name='21474848192' value='3' >3<br>
-<input type='checkbox' name='21474848192' value='4' >4<br>
-<input type='checkbox' name='21474848192' value='5' >5<br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: bmsToInverter.json
+profile: off
+section: UI_SECT_BMSTOINVERTER_ZELLTEMPERATUR
+```
 
-!!! note "Hinweis"
-    Diese Funktion steht nur in der **Sponsoren Version** zur Verfügung
+!!! note "Hinweis zur Supporter-Firmware"
+    Die Zelltemperatur-Auswahl ist auch Bestandteil der separat erhältlichen **Supporter-Firmware** (Classic WebUI). Weitere Informationen: [Supporter](supporter.md).
 
 
 ## Alarme (Inverter)
 
 Über diese Einstellungen können Alarme im Wechselrichter über Trigger ausgelöst werden.  
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Alarme (Inverter)</b></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>High battery voltage</b></td>
-<td class='Ctd'>
-<input id='t388336727' class='toggle' type='checkbox'>
-<label for='t388336727' class='lbl-toggle'>High battery voltage</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='21474843648' value='0' >Trigger 1 <br>
-<input type='checkbox' name='21474843648' value='1' >Trigger 2 <br>
-<input type='checkbox' name='21474843648' value='2' >Trigger 3 <br>
-<input type='checkbox' name='21474843648' value='3' >Trigger 4 <br>
-<input type='checkbox' name='21474843648' value='4' >Trigger 5<br>
-<input type='checkbox' name='21474843648' value='5' >Trigger 6<br>
-<input type='checkbox' name='21474843648' value='6' >Trigger 7<br>
-<input type='checkbox' name='21474843648' value='7' >Trigger 8<br>
-<input type='checkbox' name='21474843648' value='8' >Trigger 9<br>
-<input type='checkbox' name='21474843648' value='9' >Trigger 10<br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Low battery voltage</b></td>
-<td class='Ctd'>
-<input id='t388336817' class='toggle' type='checkbox'>
-<label for='t388336817' class='lbl-toggle'>Low battery voltage</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='21474843712' value='0' >Trigger 1 <br>
-<input type='checkbox' name='21474843712' value='1' >Trigger 2 <br>
-<input type='checkbox' name='21474843712' value='2' >Trigger 3 <br>
-<input type='checkbox' name='21474843712' value='3' >... <br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>High Temperature</b></td>
-<td class='Ctd'>
-<input id='t388336903' class='toggle' type='checkbox'>
-<label for='t388336903' class='lbl-toggle'>High Temperature</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='21474843712' value='0' >Trigger 1 <br>
-<input type='checkbox' name='21474843712' value='1' >Trigger 2 <br>
-<input type='checkbox' name='21474843712' value='2' >Trigger 3 <br>
-<input type='checkbox' name='21474843712' value='3' >... <br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Low Temperature</b></td>
-<td class='Ctd'>
-<input id='t388337005' class='toggle' type='checkbox'>
-<label for='t388337005' class='lbl-toggle'>Low Temperature</label>
-<div class='collapsible-content'>
-<div class='content-inner'>
-<fieldset style='text-align:left;'>
-<input type='checkbox' name='21474843712' value='0' >Trigger 1 <br>
-<input type='checkbox' name='21474843712' value='1' >Trigger 2 <br>
-<input type='checkbox' name='21474843712' value='2' >Trigger 3 <br>
-<input type='checkbox' name='21474843712' value='3' >... <br>
-</fieldset></div></div></td><td class='t1'></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: bmsToInverter.json
+profile: off
+section: UI_SECT_BMSTOINVERTER_ALARME_INVERTER
+```
+
+Die vier Alarme (**High battery voltage**, **Low battery voltage**, **High Temperature**, **Low Temperature**) werden an den Wechselrichter gemeldet, wenn mindestens einer der jeweils zugeordneten Trigger (Trigger 1–27) aktiv ist.
 
 
 ## Trigger bei SoC
 Mit dieser Funktion kann ein Trigger ausgelöst werden, wenn ein bestimmter Ladezustand (SoC) der Batterie über- oder unterschritten wird.  
 Dadurch lassen sich beispielsweise externe Geräte abhängig vom SoC-Wert schalten.  
+Es stehen **4 Regeln** zur Verfügung.
 
-<div class="bsc_content"><div class="content bsc_content_left"><form><table>
-<tr class='Ctr'><td class='sep' colspan='3'><b>Trigger bei SoC</b></td></tr>
-<tr><td colspan='3' class='td0'><div class='help'>Auslösen eines Triggers, wenn ein bestimmter SoC über- oder unterschritten wird.</div></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>Trigger</b></td>
-<td class='Ctd'><select name='4294975872'>
-<option value='0' selected>Aus</option>
-<option value='1' >Trigger 1</option>
-<option value='2' >Trigger 2 </option>
-<option value='3' >Trigger 3 </option>
-<option value='4' >Trigger 4 </option>
-<option value='5' >Trigger 5</option>
-<option value='6' >Trigger 6</option>
-<option value='7' >Trigger 7</option>
-<option value='8' >Trigger 8</option>
-<option value='9' >Trigger 9</option>
-<option value='10' >Trigger 10</option>
-</select></td><td class='t1'></td><td class='Ctd'><span class='secVal' id='s8576'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>SoC - Trigger ein</b></td>
-<td class='Ctd'><input type='number' min='1' max='100' value='95' name='4294975936'></td><td class='t1'>%</td><td class='Ctd'><span class='secVal' id='s8640'></span></td></tr>
-<tr class='Ctr'><td class='Ctd'><b>SoC - Trigger aus</b></td>
-<td class='Ctd'><input type='number' min='1' max='100' value='80' name='4294976000'></td><td class='t1'>%</td><td class='Ctd'><span class='secVal' id='s8704'></span></td></tr>
-</table></form></div></div>
+```bsc-settings
+version: v010
+file: bmsToInverter.json
+profile: off
+section: UI_SECT_BMSTOINVERTER_TRIGGER_BEI_SOC
+```
 
 **Parameter:**  
-**SoC - Trigger ein**: Definiert den SoC-Wert, bei dem der Trigger aktiviert wird.  
-**SoC - Trigger aus**: Definiert den SoC-Wert, bei dem der Trigger wieder deaktiviert wird.  
+**SoC - Trigger ein**: Definiert den SoC-Wert, bei dem der Trigger aktiviert wird (Standard: 95 %).  
+**SoC - Trigger aus**: Definiert den SoC-Wert, bei dem der Trigger wieder deaktiviert wird (Standard: 80 %).  
 
 **Zwei Beispiele hierzu:**  
 ![](img/settings/settings_inverter_trigger_soc_beispiel.png){  width="450" }  
