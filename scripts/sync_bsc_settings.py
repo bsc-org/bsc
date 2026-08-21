@@ -424,6 +424,52 @@ def extract_css(webapp_path, version, version_dir):
         f"var(--surface-border) 90%, var(--primary) 10%);\n"
         f"}}\n"
     )
+    # Eigene Ergaenzung: Material-Theme-Reset fuer Collapsibles (Typ 23/15).
+    # Das MkDocs/Material-Theme stylt ALLE details/summary innerhalb von
+    # .md-typeset (der Settings-Block liegt darin):
+    #   .md-typeset summary:before  -> blaues Icon (background-color #448aff +
+    #                                   mask-image --md-admonition-icon--note),
+    #                                   position:absolute (top/left) -> liegt
+    #                                   ueber dem Textanfang („blaues Symbol
+    #                                   mitten im Text")
+    #   .md-typeset summary:after   -> Material-Chevron (mask --md-details-icon)
+    #   .md-typeset details         -> font-size .64rem, margin, padding, shadow
+    #   .md-typeset summary         -> margin 0 -.6rem, position relative
+    # Die WebApp-Regeln (summary::before content "▸"/"▾") gewinnen nur bei
+    # content/color – nicht bei Position/Hintergrund/Maske. Diese Regeln haben
+    # hoehere Spezifitaet (0,2,3 vs. 0,1,2/0,2,2) und stehen NACH dem
+    # Theme-CSS (extra_css wird nachgeladen), neutralisieren die
+    # Theme-Pseudo-Elemente also zuverlaessig.
+    collapsible_theme_reset_rule = (
+        f"{scope} .settings-collapsible-block > details {{\n"
+        f"  display: block;\n"
+        f"  margin: 0;\n"
+        f"  padding: 0;\n"
+        f"  font-size: inherit;\n"
+        f"  box-shadow: none;\n"
+        f"}}\n"
+        f"{scope} .settings-collapsible-block > details > summary {{\n"
+        f"  margin: 0;\n"
+        f"  position: static;\n"
+        f"}}\n"
+        f"{scope} .settings-collapsible-block > details > summary::before {{\n"
+        f"  position: static;\n"
+        f"  top: auto;\n"
+        f"  left: auto;\n"
+        f"  right: auto;\n"
+        f"  width: auto;\n"
+        f"  height: auto;\n"
+        f"  background: none;\n"
+        f"  border: 0;\n"
+        f"  -webkit-mask: none;\n"
+        f"  mask: none;\n"
+        f"  transform: none;\n"
+        f"  transition: none;\n"
+        f"}}\n"
+        f"{scope} .settings-collapsible-block > details > summary::after {{\n"
+        f"  display: none;\n"
+        f"}}\n"
+    )
 
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     parts = [
@@ -463,6 +509,12 @@ def extract_css(webapp_path, version, version_dir):
         "   entfernen damit die untere Linie des Kartenrahmens. Diese Regel",
         "   stellt sie wieder her (gleiche Spezifitaet, steht nach dem Subset). */",
         separation_border_rule.rstrip("\n"),
+        "",
+        "/* Material-Theme-Reset fuer Collapsibles: siehe Kommentar in",
+        "   scripts/sync_bsc_settings.py (extract_css) – neutralisiert das",
+        "   Theme-Styling von details/summary (blaues Note-Icon auf",
+        "   summary::before, Chevron auf summary::after, Schrift/Abstaende). */",
+        collapsible_theme_reset_rule.rstrip("\n"),
     ])
     css_out = "\n".join(parts) + "\n"
 

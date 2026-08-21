@@ -1,5 +1,5 @@
 /* bsc-settings-v010.css
- * Generiert von scripts/sync_bsc_settings.py am 2026-08-20 19:08:16 UTC
+ * Generiert von scripts/sync_bsc_settings.py am 2026-08-21 04:20:34 UTC
  * Quelle: /home/tobias/Dokumente/bsc_workspace/components/bsc_fw_insider_webapp/css/style.css
  * Enthaelt das CSS-Subset der WebApp fuer die Settings-Darstellung,
  * gescoped unter .bsc-settings-v010 (Dark-Mode: html.dark .bsc-settings-v010).
@@ -487,4 +487,37 @@ html.dark .bsc-settings-v010 .settings-row-warning{color: #fca5a5;}
    stellt sie wieder her (gleiche Spezifitaet, steht nach dem Subset). */
 .bsc-settings-v010 .listview > ul > li.separation-card {
   border-bottom: 1px solid color-mix(in srgb, var(--surface-border) 90%, var(--primary) 10%);
+}
+
+/* Material-Theme-Reset fuer Collapsibles: siehe Kommentar in
+   scripts/sync_bsc_settings.py (extract_css) – neutralisiert das
+   Theme-Styling von details/summary (blaues Note-Icon auf
+   summary::before, Chevron auf summary::after, Schrift/Abstaende). */
+.bsc-settings-v010 .settings-collapsible-block > details {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  box-shadow: none;
+}
+.bsc-settings-v010 .settings-collapsible-block > details > summary {
+  margin: 0;
+  position: static;
+}
+.bsc-settings-v010 .settings-collapsible-block > details > summary::before {
+  position: static;
+  top: auto;
+  left: auto;
+  right: auto;
+  width: auto;
+  height: auto;
+  background: none;
+  border: 0;
+  -webkit-mask: none;
+  mask: none;
+  transform: none;
+  transition: none;
+}
+.bsc-settings-v010 .settings-collapsible-block > details > summary::after {
+  display: none;
 }

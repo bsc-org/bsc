@@ -55,9 +55,10 @@ INDENTED_FENCE_OPEN_RE = re.compile(r"^[ \t]+```bsc-settings[ \t]*\r?$",
                                     re.MULTILINE)
 KEY_VALUE_RE = re.compile(r"^(version|file|section|name|index|label|groups|profile)\s*:\s*(.+?)\s*$")
 
-# HTML-Entities im JSON-Text erhalten (Labels enthalten z.B. &uuml;).
-_ENTITY_RE = re.compile(
-    r"&(amp|lt|gt|quot|#\d+|#x[0-9a-fA-F]+|[a-zA-Z][a-zA-Z0-9]{1,30});")
+# Erlaubte Inline-Tags, die in Labels/Help-Texten durchgelassen werden
+# (WebApp setzt Labels als innerHTML ein und rendert solche Tags).
+# Alle anderen Tags werden escaped.
+_INLINE_TAG_RE = re.compile(r"</?(?:b|i|br)\s*/?>", re.IGNORECASE)
 
 # Profilfaehige Feldtypen (P1/P2-Controls, vgl. buildProfileControlByExistingRenderer)
 PROFILE_TYPES = {0, 2, 3, 4, 7, 9, 10, 14, 16, 17, 18}
@@ -70,29 +71,51 @@ _TYPE_MAP_CACHE = {}
 _GROUPSIZES_CACHE = {}
 
 
+def _escape_inline(value):
+    """Escaped Text fuer HTML-Textkontext.
+
+    - HTML-Entities (&#228;, &uuml;, &amp;, ...) werden VOR dem Escaping zu
+      Unicode dekodiert – sie erscheinen sonst als Literaltext (&amp;#228;).
+    - Erlaubte Inline-Tags (<b>, <i>, <br> inkl. <br/>/<br />) werden
+      durchgelassen (WebApp setzt Labels als innerHTML ein).
+    - Alles andere wird escaped."""
+    s = html_mod.unescape(str(value if value is not None else ""))
+    tags = {}
+
+    def _protect(m):
+        key = f"\x00bsc-inline-tag-{len(tags)}\x00"
+        tags[key] = m.group(0)
+        return key
+
+    s = _INLINE_TAG_RE.sub(_protect, s)
+    s = html_mod.escape(s, quote=True)
+    for key, tag in tags.items():
+        s = s.replace(key, tag)
+    return s
+
+
 def escape_text(value):
-    """Escaped Text fuer HTML-Textkontext. Bereits vorhandene HTML-Entities
-    (z.B. &uuml; in Labels) bleiben erhalten – wie in der WebApp, die Labels
-    als innerHTML einsetzt."""
-    s = html_mod.escape(str(value if value is not None else ""), quote=True)
-    return _ENTITY_RE.sub(lambda m: "&" + m.group(1) + ";", s)
+    """Escaped Text fuer HTML-Textkontext (Entitaeten zu Unicode,
+    erlaubte Inline-Tags durchgelassen)."""
+    return _escape_inline(value)
 
 
 def escape_attr(value):
-    """Escaped Wert fuer HTML-Attribute (keine Entity-Erhaltung)."""
-    return html_mod.escape(str(value if value is not None else ""), quote=True)
+    """Escaped Wert fuer HTML-Attribute: Entitaeten zu Unicode dekodieren,
+    dann escapen (keine Tags)."""
+    return html_mod.escape(
+        html_mod.unescape(str(value if value is not None else "")), quote=True)
 
 
 def help_html(data):
-    """Help-Text: escaped, aber <br>-Tags werden bewusst durchgelassen und
-    echte Zeilenumbrueche wie in der WebApp (utils.textToHtml) zu <br>."""
+    """Help-Text: wie escape_text (Entitaeten dekodiert, <b>/<i>/<br>
+    durchgelassen); echte Zeilenumbrueche werden wie in der WebApp
+    (utils.textToHtml) zu <br>."""
     h = data.get("help")
     if h is None or str(h).strip() == "":
         return ""
-    s = html_mod.escape(str(h), quote=True)
-    s = re.sub(r"&lt;br\s*/?&gt;", "<br>", s)
-    s = s.replace("\n", "<br>")
-    return _ENTITY_RE.sub(lambda m: "&" + m.group(1) + ";", s)
+    s = _escape_inline(h)
+    return s.replace("\n", "<br>")
 
 
 def fmt_default(value):
@@ -230,6 +253,11 @@ class RenderContext:
         # (enProfile-Felder werden dann wie normale Felder gerendert).
         self.profiles_enabled = profiles_enabled
         self._id_counter = 0
+        # Aktueller Gruppen-Instanz-Index (waehrend des Renderns der
+        # group-Felder einer Optiongruppe gesetzt, sonst None). Dient der
+        # Aufloesung von Array-Defaults pro Instanz (Firmware-Logik
+        # getDefaultValuesFromNewKeys in WebSettings.cpp).
+        self._group_idx = None
 
     def next_id(self, prefix):
         self._id_counter += 1
@@ -237,6 +265,43 @@ class RenderContext:
 
     def warn(self, msg):
         log.warning(f"[bsc-settings] {msg} (Seite: {self.page_path})")
+
+    def _group_default_pick(self, parts):
+        """Default aus einem Array-Default pro Gruppen-Instanz auswaehlen
+        (Firmware-Logik WebSettings.cpp getDefaultValuesFromNewKeys):
+        Teil i = Default der Instanz i; ist das Array kuerzer, erhaelt die
+        Instanz das erste Element (parts.front())."""
+        idx = self._group_idx if self._group_idx is not None else 0
+        if not parts:
+            return ""
+        if idx < len(parts):
+            return parts[idx]
+        return parts[0]
+
+    def fmt_default_ctx(self, value):
+        """Default-Wert als String fuer das aktuell gerenderte Feld.
+
+        Innerhalb von Optiongruppen (self._group_idx gesetzt) werden
+        Array-Defaults – echte JSON-Listen ODER serialisierte Array-Strings
+        wie '[bsc,]' (system.json Benutzername/Passwort) – pro
+        Gruppen-Instanz aufgeloest: '[', ']' entfernen, per ',' splitten,
+        trimmen (exakt wie die Firmware). Ausserhalb von Gruppen ergeben
+        Listen/Dicts '' (wie fmt_default)."""
+        if value is None:
+            return ""
+        if isinstance(value, dict):
+            return ""
+        if isinstance(value, list):
+            if self._group_idx is None:
+                return ""
+            parts = [str(v) if v is not None else "" for v in value]
+            return self._group_default_pick(parts)
+        s = str(value)
+        if self._group_idx is not None and s.startswith("["):
+            inner = s[1:-1] if s.endswith("]") else s[1:]
+            parts = [part.strip() for part in inner.split(",")]
+            return self._group_default_pick(parts)
+        return s
 
     def load_combo(self, ref):
         """Loest $ref gegen combos/<ref>.json (Fallback refs/<ref>.json) auf."""
@@ -328,24 +393,24 @@ class RenderContext:
 
     def _dispatch(self, data, type_num, is_group=False, in_row=False):
         if type_num == 0:
-            return self._entry(data, self._control_text(data, fmt_default(data.get("default"))))
+            return self._entry(data, self._control_text(data, self.fmt_default_ctx(data.get("default"))))
         if type_num == 2:
             # WebApp: buildEntry_text(..., "password") – mit Text-Attributen
-            return self._entry(data, self._control_text(data, fmt_default(data.get("default")),
+            return self._entry(data, self._control_text(data, self.fmt_default_ctx(data.get("default")),
                                                         input_type="password"))
         if type_num == 3:
-            return self._entry(data, self._control_number(data, fmt_default(data.get("default"))))
+            return self._entry(data, self._control_number(data, self.fmt_default_ctx(data.get("default"))))
         if type_num == 4:
-            return self._entry(data, self._control_float(data, fmt_default(data.get("default"))))
+            return self._entry(data, self._control_float(data, self.fmt_default_ctx(data.get("default"))))
         if type_num == 7:
             # WebApp: buildEntry_text(..., "time") – mit Text-Attributen
-            return self._entry(data, self._control_text(data, fmt_default(data.get("default")),
+            return self._entry(data, self._control_text(data, self.fmt_default_ctx(data.get("default")),
                                                         input_type="time"))
         if type_num == 9:
-            return self._entry(data, self._control_select(data, fmt_default(data.get("default"))))
+            return self._entry(data, self._control_select(data, self.fmt_default_ctx(data.get("default"))))
         if type_num == 10:
             # WebApp buildEntry_checkbox: dritte Flex-Zelle ist LEER (kein &nbsp;)
-            return self._entry(data, self._control_checkbox(data, fmt_default(data.get("default"))),
+            return self._entry(data, self._control_checkbox(data, self.fmt_default_ctx(data.get("default"))),
                                unit_html="")
         if type_num == 11:
             self.warn(f"Feldtyp 11 (HTML_INPUTMULTICHECK) wird nicht unterstuetzt "
@@ -361,11 +426,11 @@ class RenderContext:
         if type_num == 15:
             return self._render_option_group(data, collapsible=True)
         if type_num == 16:
-            return self._entry(data, self._control_floatx(data, fmt_default(data.get("default")), 1))
+            return self._entry(data, self._control_floatx(data, self.fmt_default_ctx(data.get("default")), 1))
         if type_num == 17:
-            return self._entry(data, self._control_floatx(data, fmt_default(data.get("default")), 2))
+            return self._entry(data, self._control_floatx(data, self.fmt_default_ctx(data.get("default")), 2))
         if type_num == 18:
-            return self._entry(data, self._control_floatx(data, fmt_default(data.get("default")), 3))
+            return self._entry(data, self._control_floatx(data, self.fmt_default_ctx(data.get("default")), 3))
         if type_num == 20:
             return self._render_profile(data)
         if type_num == 21:
@@ -465,7 +530,7 @@ class RenderContext:
         die selected-summary zeigt Tag-Pills der per Default gesetzten Optionen
         und bleibt LEER, wenn keine Option gesetzt ist (keine Zaehlung)."""
         options = self.resolve_options(data.get("options"))
-        default_str = fmt_default(data.get("default"))
+        default_str = self.fmt_default_ctx(data.get("default"))
         default_bits = int(default_str) if default_str.lstrip("-").isdigit() else 0
 
         parts = []
@@ -538,8 +603,15 @@ class RenderContext:
         blocks = []
         for idx in range(n):
             inner = ""
-            for item in group:
-                inner += self.render_entry(item, is_group=True)
+            # Gruppen-Instanz-Index fuer die Aufloesung von Array-Defaults
+            # pro Instanz (z.B. "[bsc,]" bei Benutzername/Passwort).
+            prev_group_idx = self._group_idx
+            self._group_idx = idx
+            try:
+                for item in group:
+                    inner += self.render_entry(item, is_group=True)
+            finally:
+                self._group_idx = prev_group_idx
             blocks.append(
                 f"<div class='group-block'>"
                 f"<li class='subHead' style='margin-top:10px'>"
@@ -651,7 +723,7 @@ class RenderContext:
             raise RenderError(f"Feldtyp '{item.get('type')}' wird nicht unterstuetzt")
         if type_num == 11:
             raise RenderError("Feldtyp 11 (HTML_INPUTMULTICHECK) wird nicht unterstuetzt")
-        default = fmt_default(item.get("default"))
+        default = self.fmt_default_ctx(item.get("default"))
         if type_num == 0:
             return self._control_text(item, default)
         if type_num == 2:
