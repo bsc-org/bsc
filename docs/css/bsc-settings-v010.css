@@ -1,5 +1,5 @@
 /* bsc-settings-v010.css
- * Generiert von scripts/sync_bsc_settings.py am 2026-08-21 04:20:34 UTC
+ * Generiert von scripts/sync_bsc_settings.py am 2026-08-22 05:11:46 UTC
  * Quelle: /home/tobias/Dokumente/bsc_workspace/components/bsc_fw_insider_webapp/css/style.css
  * Enthaelt das CSS-Subset der WebApp fuer die Settings-Darstellung,
  * gescoped unter .bsc-settings-v010 (Dark-Mode: html.dark .bsc-settings-v010).
@@ -519,5 +519,55 @@ html.dark .bsc-settings-v010 .settings-row-warning{color: #fca5a5;}
   transition: none;
 }
 .bsc-settings-v010 .settings-collapsible-block > details > summary::after {
+  display: none;
+}
+
+/* Punkte-Tabelle des Profilgraphs (Typ 20) als aufklappbares
+   details/summary: siehe Kommentar in scripts/sync_bsc_settings.py
+   (extract_css) – Abstand analog .editor-area der WebApp
+   (margin-top: 8px) plus Material-Theme-Reset und eigener
+   Dreiecks-Marker (▸/▾). */
+.bsc-settings-v010 .profile-control details.profile-points-toggle {
+  display: block;
+  margin: 8px 0 0;
+  padding: 0;
+  font-size: inherit;
+  box-shadow: none;
+  background: none;
+  border: 0;
+}
+.bsc-settings-v010 .profile-control details.profile-points-toggle > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  position: static;
+  cursor: pointer;
+  color: var(--primary);
+  list-style: none;
+}
+.bsc-settings-v010 .profile-control details.profile-points-toggle > summary::-webkit-details-marker {
+  display: none;
+}
+.bsc-settings-v010 .profile-control details.profile-points-toggle > summary::before {
+  content: "\25B8";
+  position: static;
+  top: auto;
+  left: auto;
+  right: auto;
+  width: auto;
+  height: auto;
+  background: none;
+  border: 0;
+  -webkit-mask: none;
+  mask: none;
+  transform: none;
+  transition: none;
+}
+.bsc-settings-v010 .profile-control details.profile-points-toggle[open] > summary::before {
+  content: "\25BE";
+}
+.bsc-settings-v010 .profile-control details.profile-points-toggle > summary::after {
   display: none;
 }

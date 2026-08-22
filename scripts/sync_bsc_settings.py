@@ -470,6 +470,66 @@ def extract_css(webapp_path, version, version_dir):
         f"  display: none;\n"
         f"}}\n"
     )
+    # Eigene Ergaenzung: Punkte-Tabelle des Profilgraphs (Typ 20) als
+    # aufklappbares <details> (Klasse .profile-points-toggle, gerendert vom
+    # Hook hooks/bsc_settings.py). Die WebApp blendet die Tabelle per
+    # JS-Button "Werte anzeigen" ein (settings_graph.js: .editor-area mit
+    # display:none, .editor-controls-Button); ohne JS bildet die Doku das
+    # mit einem nativen details/summary nach (initial zugeklappt).
+    # Die WebApp-Regel '.profile-control .editor-area { margin-top: 8px }'
+    # fehlt im Subset (editor-area ist nicht in der Whitelist) - der
+    # Abstand wird hier ergaenzt. Zusaetzlich Material-Theme-Reset wie bei
+    # den Collapsibles: Das Theme stylt ALLE details/summary in .md-typeset
+    # (blaues Note-Icon auf summary::before, Chevron auf summary::after,
+    # font-size .64rem auf details) und wuerde das Element verunstalten.
+    # Eigener Dreiecks-Marker (▸/▾) analog zur WebApp
+    # (.settings-collapsible-block > details > summary::before).
+    profile_points_toggle_rule = (
+        f"{scope} .profile-control details.profile-points-toggle {{\n"
+        f"  display: block;\n"
+        f"  margin: 8px 0 0;\n"
+        f"  padding: 0;\n"
+        f"  font-size: inherit;\n"
+        f"  box-shadow: none;\n"
+        f"  background: none;\n"
+        f"  border: 0;\n"
+        f"}}\n"
+        f"{scope} .profile-control details.profile-points-toggle > summary {{\n"
+        f"  display: inline-flex;\n"
+        f"  align-items: center;\n"
+        f"  gap: 6px;\n"
+        f"  margin: 0;\n"
+        f"  padding: 0;\n"
+        f"  position: static;\n"
+        f"  cursor: pointer;\n"
+        f"  color: var(--primary);\n"
+        f"  list-style: none;\n"
+        f"}}\n"
+        f"{scope} .profile-control details.profile-points-toggle > summary::-webkit-details-marker {{\n"
+        f"  display: none;\n"
+        f"}}\n"
+        f"{scope} .profile-control details.profile-points-toggle > summary::before {{\n"
+        f"  content: \"\\25B8\";\n"
+        f"  position: static;\n"
+        f"  top: auto;\n"
+        f"  left: auto;\n"
+        f"  right: auto;\n"
+        f"  width: auto;\n"
+        f"  height: auto;\n"
+        f"  background: none;\n"
+        f"  border: 0;\n"
+        f"  -webkit-mask: none;\n"
+        f"  mask: none;\n"
+        f"  transform: none;\n"
+        f"  transition: none;\n"
+        f"}}\n"
+        f"{scope} .profile-control details.profile-points-toggle[open] > summary::before {{\n"
+        f"  content: \"\\25BE\";\n"
+        f"}}\n"
+        f"{scope} .profile-control details.profile-points-toggle > summary::after {{\n"
+        f"  display: none;\n"
+        f"}}\n"
+    )
 
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     parts = [
@@ -515,6 +575,13 @@ def extract_css(webapp_path, version, version_dir):
         "   Theme-Styling von details/summary (blaues Note-Icon auf",
         "   summary::before, Chevron auf summary::after, Schrift/Abstaende). */",
         collapsible_theme_reset_rule.rstrip("\n"),
+        "",
+        "/* Punkte-Tabelle des Profilgraphs (Typ 20) als aufklappbares",
+        "   details/summary: siehe Kommentar in scripts/sync_bsc_settings.py",
+        "   (extract_css) – Abstand analog .editor-area der WebApp",
+        "   (margin-top: 8px) plus Material-Theme-Reset und eigener",
+        "   Dreiecks-Marker (▸/▾). */",
+        profile_points_toggle_rule.rstrip("\n"),
     ])
     css_out = "\n".join(parts) + "\n"
 
