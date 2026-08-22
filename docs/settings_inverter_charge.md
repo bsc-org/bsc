@@ -276,7 +276,7 @@ Der zulässige Ladestrom berechnet sich aus **C-Rate × Kapazität (Ah)** – di
 **Zusammenspiel mit anderen Laderegelungen**  
 Das Temperaturprofil ist eine von mehreren Ladestrombegrenzungen. Der BSC berechnet alle aktiven Begrenzungen – u. a. die [zellspannungsabhängige Drosselung](#ladestrom-zell-spannungsabhangig-drosseln), die [SoC-Reduzierung](#ladestrom-reduzieren-soc), die [Zelldrift-Reduzierung](#ladestrom-reduzieren-bei-zelldrift), die [Temperaturregeln](#ladestrom-reduzieren-temperatur), den [Charge-Current Cut-Off](#charge-current-cut-off) und die Begrenzung pro Pack – und verwendet den kleinsten Wert. Das Temperaturprofil bleibt dabei auch während des Autobalancing aktiv.
 
-Auch der Modus **C-Rate** der Funktion [Ladestrom pro Pack zu groß](#ladestrom-pro-pack-zu-gross) nutzt das Temperaturprofil – dort pro Batterie-Pack mit der jeweiligen Pack-Kapazität und dem Pack-Ladestrom als Obergrenze.
+Auch der Modus **C-Rate** der Funktion [Ladestrom pro Pack zu groß](#ladestrom-pro-pack-zu-gro) nutzt das Temperaturprofil – dort pro Batterie-Pack mit der jeweiligen Pack-Kapazität und dem Pack-Ladestrom als Obergrenze.
 
 
 ## Spannungsregelung zur Ladestrombegrenzung
