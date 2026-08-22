@@ -972,7 +972,12 @@ class RenderContext:
                        f"r='4' fill='var(--pf-point-fill)' "
                        f"stroke='var(--pf-point-stroke)' stroke-width='2'/>")
 
-        # X/Y-Wertetabelle
+        # X/Y-Wertetabelle. In der WebApp ist die Tabelle initial versteckt und
+        # wird per Button "Werte anzeigen"/"Werte ausblenden" ein-/ausgeblendet
+        # (settings_graph.js renderProfileFromSpec/initProfile: .editor-area
+        # startet mit display:none). Die statische Doku bildet das Verhalten
+        # mit einem nativen <details> ohne open-Attribut nach (initial
+        # zugeklappt, per Klick aufklappbar).
         rows = []
         for i in range(n):
             xv = f"{pts[i][0]:.{x_p}f}".rstrip("0").rstrip(".")
@@ -980,8 +985,11 @@ class RenderContext:
             rows.append(f"<tr><td>{xv}</td><td>{yv}</td></tr>")
         x_head = f"X ({escape_text(x_unit)})" if x_unit else "X"
         y_head = f"Y ({escape_text(y_unit)})" if y_unit else "Y"
-        table = (f"<table class='points-table'><thead><tr><th>{x_head}</th>"
-                 f"<th>{y_head}</th></tr></thead><tbody>{''.join(rows)}</tbody></table>")
+        table = (f"<details class='profile-points-toggle'>"
+                 f"<summary>Werte anzeigen</summary>"
+                 f"<table class='points-table'><thead><tr><th>{x_head}</th>"
+                 f"<th>{y_head}</th></tr></thead><tbody>{''.join(rows)}</tbody></table>"
+                 f"</details>")
 
         label = escape_text(data.get("label") or "")
         return (
