@@ -239,9 +239,28 @@ def find_page_entry(data, index=None, label=None):
 # ---------------------------------------------------------------------------
 # Renderer
 # ---------------------------------------------------------------------------
+class _IdCounter:
+    """Seitenweit eindeutiger Zaehler fuer generierte HTML-IDs.
+
+    Alle ```bsc-settings```-Bloecke EINER Seite teilen sich einen Zaehler.
+    Ohne das wuerde jeder Block bei 1 beginnen und identische IDs (z.B.
+    bsc-settings-mc-1) erzeugen, sobald zwei Bloecke gleichartige
+    Multicheck-Collapsibles (Typ 14) in gleicher Reihenfolge rendern.
+    Ein <label for='...'> aktiviert dann immer das ERSTE Element mit
+    dieser ID im DOM – das Collapsible einer FRUEHEREN Sektion oeffnet
+    sich stattdessen, und der Browser scrollt dorthin (Focus-Sprung)."""
+
+    def __init__(self):
+        self._value = 0
+
+    def next(self, prefix):
+        self._value += 1
+        return f"bsc-settings-{prefix}-{self._value}"
+
+
 class RenderContext:
     def __init__(self, root, version, data, type_map, page_path,
-                 profiles_enabled=True, groups_limit=2):
+                 profiles_enabled=True, groups_limit=2, id_counter=None):
         self.root = root
         self.version = version
         self.data = data
@@ -252,7 +271,9 @@ class RenderContext:
         # Marker-Parameter 'profile: off' deaktiviert das P1/P2-Rendering
         # (enProfile-Felder werden dann wie normale Felder gerendert).
         self.profiles_enabled = profiles_enabled
-        self._id_counter = 0
+        # Seitenweit geteilter ID-Zaehler (von on_page_markdown erzeugt);
+        # ohne ihn (z.B. Tests) zaehlt jede RenderContext-Instanz fuer sich.
+        self._id_counter = id_counter if id_counter is not None else _IdCounter()
         # Aktueller Gruppen-Instanz-Index (waehrend des Renderns der
         # group-Felder einer Optiongruppe gesetzt, sonst None). Dient der
         # Aufloesung von Array-Defaults pro Instanz (Firmware-Logik
@@ -260,8 +281,7 @@ class RenderContext:
         self._group_idx = None
 
     def next_id(self, prefix):
-        self._id_counter += 1
-        return f"bsc-settings-{prefix}-{self._id_counter}"
+        return self._id_counter.next(prefix)
 
     def warn(self, msg):
         log.warning(f"[bsc-settings] {msg} (Seite: {self.page_path})")
@@ -1039,24 +1059,24 @@ def parse_marker_body(body):
     return version, filename, entries, errors, profile_value, groups_value
 
 
-def replace_fence(match, root, page_path):
+def replace_fence(match, root, page_path, id_counter=None):
     """Ersetzt einen ```bsc-settings```-Block in Spalte 0. Das Ergebnis endet
     immer mit einem Zeilenumbruch: Python-Markdown beendet einen HTML-Block
     erst bei einer Leerzeile – ohne sie wuerde direkt folgendes Markdown
     (z.B. eine Liste) Teil des HTML-Blocks werden und nicht mehr geparst."""
-    html = _replace_fence_body(match.group(1), root, page_path)
+    html = _replace_fence_body(match.group(1), root, page_path, id_counter)
     if not html.endswith("\n"):
         html += "\n"
     return html
 
 
-def replace_indented_fence(match, root, page_path):
+def replace_indented_fence(match, root, page_path, id_counter=None):
     """Ersetzt einen EINGERUECKTEN ```bsc-settings```-Block (z.B. innerhalb
     von Tabs/Admonitions/Listen). Das generierte HTML wird mit derselben
     Einrueckung eingefuegt, damit der Block Teil des umgebenden Markdown-
     Blocks bleibt."""
     indent = match.group(1)
-    html = _replace_fence_body(match.group(2), root, page_path)
+    html = _replace_fence_body(match.group(2), root, page_path, id_counter)
     if not html.endswith("\n"):
         html += "\n"
     lines = []
@@ -1065,7 +1085,7 @@ def replace_indented_fence(match, root, page_path):
     return "\n".join(lines) + "\n"
 
 
-def _replace_fence_body(body, root, page_path):
+def _replace_fence_body(body, root, page_path, id_counter=None):
     version, filename, entries, errors, profile_value, groups_value = parse_marker_body(body)
     if errors:
         for err in errors:
@@ -1108,7 +1128,8 @@ def _replace_fence_body(body, root, page_path):
     groups_limit = groups_value if groups_value is not None else 2
     ctx = RenderContext(root, version, data, type_map, page_path,
                         profiles_enabled=profiles_enabled,
-                        groups_limit=groups_limit)
+                        groups_limit=groups_limit,
+                        id_counter=id_counter)
 
     html_parts = []
     for kind, value in entries:
@@ -1199,9 +1220,14 @@ def on_page_markdown(markdown, page, config, files):
     page_path = getattr(page, "file", None)
     page_path = getattr(page_path, "src_path", None) or getattr(page, "src_path", "?")
 
-    markdown = FENCE_RE.sub(lambda m: replace_fence(m, root, page_path), markdown)
+    # Seitenweit EIN gemeinsamer ID-Zaehler fuer alle bsc-settings-Bloecke
+    # dieser Seite, damit generierte IDs (z.B. Multicheck-Toggles) nicht
+    # zwischen zwei Bloecken kollidieren.
+    id_counter = _IdCounter()
+    markdown = FENCE_RE.sub(
+        lambda m: replace_fence(m, root, page_path, id_counter), markdown)
     markdown = INDENTED_FENCE_RE.sub(
-        lambda m: replace_indented_fence(m, root, page_path), markdown)
+        lambda m: replace_indented_fence(m, root, page_path, id_counter), markdown)
 
     for m in INDENTED_FENCE_OPEN_RE.finditer(markdown):
         line_no = markdown[:m.start()].count("\n") + 1
