@@ -214,7 +214,7 @@ Aktueller Ladestrom = Maximaler Ladestrom × (Endtemperatur - Aktuelle Temperatu
 
 ## Ladestrom reduzieren - Temperaturprofil
 
-Mit dieser Funktion kann der maximale Ladestrom anhand eines frei definierbaren **Temperaturprofils** begrenzt werden. Das Profil besteht aus **10 Punkten**, die jeweils einer Temperatur eine maximale **C-Rate** zuordnen. Zwischen den Punkten wird linear interpoliert; außerhalb des Profils gelten der erste bzw. letzte Punkt.
+Mit dieser Funktion wird der maximale Ladestrom anhand eines frei definierbaren **Temperaturprofils** begrenzt. Das Profil besteht aus **10 Punkten**, die jeweils einer Temperatur eine maximale **C-Rate** zuordnen. Aus C-Rate und Batteriekapazität ergibt sich der zulässige Ladestrom – damit lässt sich das Laden z. B. bei tiefen Temperaturen oder bei Hitze gezielt begrenzen. Zwischen den Profilpunkten wird linear interpoliert; außerhalb des Profils gelten der erste bzw. letzte Punkt.
 
 ```bsc-settings
 version: v010
@@ -223,16 +223,60 @@ profile: off
 section: UI_SECT_INVERTERCHARGE_LADESTROM_REDUZIEREN_TEMPERATURPROFIL
 ```
 
-**Konfiguration**  
+**Konfiguration**
+
+**Ein/Aus**  
+Aktiviert oder deaktiviert die Funktion (Standard: Aus).
+
+**Sensorquellen**  
+Es werden die Quellen der aktiven Datenquelle verwendet (Data-Devices oder Group Devices). Die Temperatur für die Regelung wird aus den folgenden Bereichen ermittelt:
 
 - **Data-Device Sensoren** – Temperatursensoren (0–5) der Data Devices, deren Messwerte in die Regelung einfließen.
-- **Erweiterte Sensorquellen / Erweiterte Sensoren 0-31** – Zusätzliche erweiterte Sensoren (z. B. OneWire) als Quelle.
-- **Temperaturprofil** – 10 Punkte mit je **Temperatur** (in °C, Schritt 0,1 °C) und **C-Rate** (in C, Schritt 0,01 C).
+- **Erweiterte Sensorquellen** – bestimmt die Devices bzw. Group Devices, deren erweiterte Sensoren berücksichtigt werden.
+- **Erweiterte Sensoren 0-31** – erweiterte Temperatursensoren (z. B. OneWire) der ausgewählten Quellen.
 
-**Funktionsweise**  
-Der Ladestrom berechnet sich aus **C-Rate × Kapazität (Ah)** – die Kapazität wird unter [Basisdaten → Batterypack Settings](settings_inverter.md#basisdaten) pro Pack hinterlegt. Der berechnete Wert wird durch den maximalen Ladestrom begrenzt. Ist keine Kapazität hinterlegt, wird der Ladestrom auf 0 A begrenzt.
+Sind keine Quellen ausgewählt, hat die Funktion keine Wirkung.
 
-Für die Regelung wird der passende Temperaturwert der Quellen herangezogen: Liegt die niedrigste Temperatur unter der Temperatur des Profilpunkts mit der höchsten C-Rate, gilt der Minimalwert, sonst der Maximalwert.
+**Temperaturprofil**  
+Das Profil besteht aus 10 Punkten mit je **Temperatur** (in °C, einstellbar in 0,1-°C-Schritten, Bereich 0–60 °C) und **C-Rate** (in C, einstellbar in 0,01-C-Schritten, Bereich 0–1 C). Im Standardprofil steigt die C-Rate von 0 °C bis 25 °C an und fällt ab 45 °C bis 60 °C wieder auf 0 C:
+
+| Punkt | Temperatur | C-Rate |
+|-------|-----------|--------|
+| 1 | 0,0 °C | 0,00 C |
+| 2 | 5,0 °C | 0,10 C |
+| 3 | 10,0 °C | 0,20 C |
+| 4 | 15,0 °C | 0,40 C |
+| 5 | 20,0 °C | 0,60 C |
+| 6 | 25,0 °C | 1,00 C |
+| 7 | 45,0 °C | 0,50 C |
+| 8 | 50,0 °C | 0,25 C |
+| 9 | 55,0 °C | 0,20 C |
+| 10 | 60,0 °C | 0,00 C |
+
+**Funktionsweise**
+
+**Temperaturwahl (Minimum oder Maximum)**  
+Über alle ausgewählten Quellen und Sensoren werden die niedrigste und die höchste Temperatur ermittelt. Welcher der beiden Werte verwendet wird, entscheidet die Temperatur des Profilpunkts mit der höchsten C-Rate (im Standardprofil 25,0 °C mit 1,00 C):
+
+- Liegt die niedrigste Temperatur **unter** dieser Referenztemperatur, gilt der **Minimalwert** – das kälteste Element bestimmt dann die Begrenzung.
+- Andernfalls gilt der **Maximalwert**.
+
+**Berechnung des Ladestroms**  
+Für die verwendete Temperatur wird die C-Rate aus dem Profil bestimmt: Zwischen benachbarten Profilpunkten wird **linear interpoliert**. Unterhalb der Temperatur des ersten Punkts gilt dessen C-Rate, oberhalb der Temperatur des letzten Punkts dessen C-Rate. Bei mehreren Punkten mit identischer Temperatur zählt der erste Punkt.
+
+Der zulässige Ladestrom berechnet sich aus **C-Rate × Kapazität (Ah)** – die Kapazität wird unter [Basisdaten → Batterypack Settings](settings_inverter.md#basisdaten) pro Pack hinterlegt. Verwendet wird die Summe der Kapazitäten der aktiven Packs (Daten nicht älter als 5 s). Ist keine Kapazität hinterlegt (0 Ah), wird der Ladestrom auf 0 A begrenzt. Der berechnete Wert wird außerdem auf den maximalen Ladestrom begrenzt und auf 0,1 A gerundet.
+
+**Beispielrechnung (Standardprofil, Kapazität 100 Ah)**
+
+- Sensoren melden **12 °C und 18 °C**: Die niedrigste Temperatur (12 °C) liegt unter der Referenz (25 °C), es gilt also der Minimalwert. Zwischen 10 °C (0,20 C) und 15 °C (0,40 C) ergibt die Interpolation 0,28 C → **28 A**.
+- Sensoren melden **28 °C und 32 °C**: Die niedrigste Temperatur (28 °C) liegt über der Referenz, es gilt der Maximalwert. Zwischen 25 °C (1,00 C) und 45 °C (0,50 C) ergibt die Interpolation 0,825 C → **82,5 A**.
+- Temperaturen unterhalb von 0 °C: Es gilt die C-Rate des ersten Punkts (0,00 C) → **0 A**.
+- Temperaturen oberhalb von 60 °C: Es gilt die C-Rate des letzten Punkts (0,00 C) → **0 A**.
+
+**Zusammenspiel mit anderen Laderegelungen**  
+Das Temperaturprofil ist eine von mehreren Ladestrombegrenzungen. Der BSC berechnet alle aktiven Begrenzungen – u. a. die [zellspannungsabhängige Drosselung](#ladestrom-zell-spannungsabhangig-drosseln), die [SoC-Reduzierung](#ladestrom-reduzieren-soc), die [Zelldrift-Reduzierung](#ladestrom-reduzieren-bei-zelldrift), die [Temperaturregeln](#ladestrom-reduzieren-temperatur), den [Charge-Current Cut-Off](#charge-current-cut-off) und die Begrenzung pro Pack – und verwendet den kleinsten Wert. Das Temperaturprofil bleibt dabei auch während des Autobalancing aktiv.
+
+Auch der Modus **C-Rate** der Funktion [Ladestrom pro Pack zu groß](#ladestrom-pro-pack-zu-gross) nutzt das Temperaturprofil – dort pro Batterie-Pack mit der jeweiligen Pack-Kapazität und dem Pack-Ladestrom als Obergrenze.
 
 
 ## Spannungsregelung zur Ladestrombegrenzung
