@@ -1,6 +1,6 @@
 # Einstellungen für den Betrieb des BSC
 Dieses Kapitel gibt einen Überblick über die erforderlichen Einstellungen für den Betrieb des BSC.  
-Abweichungen können je nach Firmware-Version auftreten. Die hier beschriebenen Einstellungen beziehen sich auf die aktuelle BSC-Firmware; daneben existiert eine separate **Supporter-Firmware** mit eigenem Funktionsumfang (siehe [Supporter](supporter.md)). Die **freie Firmware** nutzt das **Classic WebUI**.
+Abweichungen können je nach Firmware-Version auftreten. Die hier beschriebenen Einstellungen beziehen sich auf die **Supporter-Firmware** (siehe [Supporter](supporter.md)). 
 
 !!! tip "Einrichtungsassistenten"
     Für die Erstkonfiguration bietet die WebApp [Einrichtungsassistenten](setup_assistant.md) für Netzwerk, MQTT, die seriellen Schnittstellen und den Wechselrichter an. Die Assistenten führen durch die wichtigsten Schritte und befüllen das Data-Device-Mapping automatisch.
@@ -104,7 +104,7 @@ Folgende Parameter müssen für die Grundkommunikation konfiguriert werden:
   Die Aufbereitung kann beispielsweise die Aggregation mehrerer Datenquellen oder die Anwendung von definierten Laderegelungen umfassen. 
 
     !!! note "Hinweis"  
-        Welcher Wert von welchem Data-Device verwendet wird, lässt sich über die [Valuehandling-Einstellungen](settings_inverter.md#valuehandling-multi-bms) detailliert festlegen (Domain, Quelle und Aggregation je Messwert). Sind [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert, können dort außerdem Battery-Packs als Quelle gewählt werden.
+        Welcher Wert von welchem Data-Device verwendet wird, lässt sich über die [Valuehandling-Einstellungen](settings_inverter.md#valuehandling-multi-bms) detailliert festlegen (Domain, Quelle und Aggregation je Messwert). Sind [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert, können dort außerdem Group-Devices als Quelle gewählt werden.
 
 - **Kategorie Valuehandling:**  
   Festlegung, von welchen Data-Devices welche Werte übernommen und wie diese aggregiert werden.  
