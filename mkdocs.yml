@@ -98,25 +98,27 @@ nav:
       - BMS: devices/bms.md
       - Wechselrichter: devices/wechselrichter.md
       - Externe Shunts: devices/externer_shunt.md
+      - Weitere Geräte: devices/weitere_geraete.md
     - Konfiguration:
       - Allgemeines & Dashboard: dashboard.md
       - System: settings_bsc.md
       - Trigger: settings_bsc_trigger.md
       - Schnittstellen: settings_bsc_interfaces.md
-      - Devices: settings_bsc_devices.md
-      - Alarmregeln: settings_bsc_alarmrules.md
-      - Wartung: settings_maintenance.md
-      - Fernwartung (T-Connect): settings_servicelink.md
-      - Einrichtungsassistenten: setup_assistant.md
+      - Devices:
+        - Data-Devices: settings_bsc_devices.md
+        - Wartung: settings_maintenance.md
       - Wechselrichter & Laderegelung: 
         - Allgemein: settings_inverter.md
         - Laden: settings_inverter_charge.md
         - Entladen: settings_inverter_discharge.md
+      - Alarmregeln: settings_bsc_alarmrules.md
       - Das Log des BSC: log.md
+      - Einrichtungsassistenten: setup_assistant.md
       - Beispielkonfigurationen: beispiel_konfigurationen.md
     - Integration (MQTT, REST):
       - MQTT: mqtt.md
       - REST-API: restapi.md
+    - Fernwartung (T-Connect): settings_servicelink.md
     - Troubleshooting: troubleshooting.md 
     - Sonstiges: 
       - Test ohne BSC Hardware: BSC_ohne_orig_hardware.md
