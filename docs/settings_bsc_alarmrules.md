@@ -4,6 +4,14 @@ In den Alarmregeln kann eingestellt werden, welche Daten von welchen Devices üb
 ## BMS
 Die BMS Alarmregeln ermöglichen die Überwachung der konfigurierten Data-Devices. Es können verschiedene Parameter des Data-Device überwacht werden, um Alarme zu konfigurieren und automatische Aktionen auszulösen, wenn bestimmte Schwellenwerte erreicht werden.
 
+```bsc-settings
+version: v010
+file: alarmBms.json
+profile: off
+groups: 1
+index: 1
+```
+
 Es stehen **10 BMS-Alarmregeln** zur Verfügung. Pro Alarmregel:
 
 **Zu überwachendes Data-Device**  
@@ -45,13 +53,6 @@ Hier wird festgelegt, für welches Data-Device die Alarmregel gilt.
   Oberer Grenzwert der Gesamtspannung (Standard 54,00 V).
 - **Hysterese Min/Max (V)**  
   Definiert den Spannungsbereich, um den sich die Spannung bei aktivem Trigger mindestens verändern muss, damit der erkannte Fehler wieder zurückgesetzt wird.  
-
-```bsc-settings
-version: v010
-file: alarmBms.json
-profile: off
-index: 1
-```
 
 
 ## Plausibility check
@@ -118,6 +119,7 @@ Es stehen **10 Wertevergleichs-Regeln** zur Verfügung.
 version: v010
 file: plausibilityCheck.json
 profile: off
+groups: 1
 section: UI_SECT_PLAUSIBILITYCHECK_WERTEVERGLEICH
 ```
 
@@ -162,7 +164,13 @@ Der Wertevergleich prüft nicht, ob die **Data Devices** tatsächlich online sin
 
 ### Zellspannung bei Ladestrom
 
-Diese Überwachung erkennt **Zellspannungs-Einbrüche während des Ladens**: Bricht die Zellspannung eines überwachten Data-Devices unter Ladebedingungen ein (die Batterie nimmt Ladestrom auf, die Spannung sinkt aber dennoch), deutet das auf eine defekte Zelle oder ein Problem im Batteriepack hin.
+Diese Überwachung beruht auf einer einfachen Plausibilitätsregel: **Wird die Batterie gerade geladen, dürfen die Zellspannungen nicht fallen.** Während eines aktiven Ladevorgangs mit ausreichendem Ladestrom sollten die Zellspannungen stabil bleiben oder steigen. Sinkt die Spannung einer Zelle trotzdem reproduzierbar ab, ist das ein Hinweis auf ein Problem, zum Beispiel:
+
+- eine schwache oder defekte Zelle,
+- einen lockeren oder korrodierten Zellverbinder bzw. Messkontakt,
+- auffällige Messwerte des BMS während des Ladens.
+
+Die Überwachung prüft dabei keine festen Spannungsgrenzen, sondern die **Spannungsrichtung im Verhältnis zum Ladestrom**. Zur Abgrenzung zu den normalen Min/Max-Alarmen siehe [unten](#abgrenzung-zu-den-minmax-alarmen).
 
 ```bsc-settings
 version: v010
@@ -171,10 +179,79 @@ profile: off
 section: 2
 ```
 
-- **Ein/Aus** – Aktiviert oder deaktiviert die Überwachung.
-- **Zu überwachende Geräte** – Data-Devices, deren Zellspannungen überwacht werden.
-- **Trigger** – Trigger (Trigger 1–27), der bei einem erkannten Zellspannungs-Einbruch aktiviert wird.
-- **Fehler bis manuellem Reset halten** – Ist diese Option aktiviert, bleibt der Fehlerzustand auch dann bestehen, wenn sich die Zellspannungen wieder erholt haben. Der Fehler muss dann manuell zurückgesetzt werden.
+#### So funktioniert die Erkennung
+
+**Ladefenster und Mindest-Ladestrom**  
+Die Auswertung läuft nur, solange das überwachte Data-Device mit mindestens **5 A** geladen wird. Bei geringerem Ladestrom (oder bei Entladung) ist ein Spannungsabfall nicht aussagekräftig und wird nicht bewertet. Sobald der Ladestrom über der Schwelle liegt, startet ein Ladefenster. Erst nach **30 Sekunden** ununterbrochen gültigem Ladefenster kann ein erkannter Einbruch überhaupt einen Alarm auslösen – so werden Einschwingvorgänge direkt nach Ladestart ignoriert. Fällt der Ladestrom unter 5 A, wird das Ladefenster verworfen; der nächste Ladevorgang beginnt mit komplett frischen Referenzwerten.
+
+**Referenzspannung pro Zelle**  
+Für jede Zelle baut die Überwachung während des Ladens eine Referenzspannung auf – das bisher beste Spannungsniveau dieser Zelle. Die Referenz entsteht nicht aus einem einzelnen Messwert, sondern aus dem **Median von 5 aufeinanderfolgenden Messwerten**. Steigt die Zellspannung im weiteren Verlauf, wird die Referenz ebenfalls erst nach 5 Messwerten oberhalb der bisherigen Referenz angehoben (wieder als Median). Die Referenz wird **nie gesenkt**: Ein fallender Messwert zieht die Referenz also nicht nach unten, sondern wird als möglicher Einbruch gewertet.
+
+**Einbruch bestätigen**  
+Liegt eine Zellspannung um **mehr als 5 mV** unter ihrer Referenz, gilt das als möglicher Einbruch. Ein einzelner niedriger Messwert löst noch nichts aus: Der Einbruch muss in **3 aufeinanderfolgenden Messungen** bestätigt werden und das Ladefenster mindestens 30 Sekunden alt sein. Messwerte innerhalb der 5-mV-Toleranz oder oberhalb der Referenz setzen den Bestätigungszähler wieder zurück. Einzelne Ausreißer und das übliche Zellspannungsrauschen bleiben dadurch ohne Folgen.
+
+**Trigger setzen und Alarmmeldung**  
+Ist ein Einbruch bestätigt, setzt die Alarmregel im Sekundentakt den ausgewählten Trigger. Die Alarmmeldung zeigt Device, Zelle sowie aktuelle und Referenzspannung, zum Beispiel `D0 C3, 3302/3310 mV` (Device 0, Zelle 3: 3302 mV statt 3310 mV). Haben mehrere Zellen gleichzeitig eingebrochen, wird pro Device die Zelle mit dem größten Einbruch festgehalten. Der Trigger bleibt aktiv, solange mindestens ein überwachtes Device einen bestätigten Einbruch hat.
+
+**Hysterese und automatisches Rücksetzen**  
+Ohne die Option „Fehler bis manuellem Reset halten“ wird der Fehler automatisch zurückgesetzt, sobald sich alle Zellen erholt haben: Liegt keine Zelle mehr um mehr als 5 mV unter ihrer Referenz und bleibt dieser Zustand **60 Sekunden** lang stabil, wird der Fehler gelöscht und der Trigger zurückgesetzt. Dasselbe gilt, wenn der Ladestrom länger als 60 Sekunden unter 5 A bleibt. Die 60-Sekunden-Rückstellzeit verhindert, dass kurzzeitige Messwertschwankungen den Alarm ständig flackern lassen.
+
+**Fehler bis manuellem Reset halten**  
+Ist diese Option aktiviert, bleibt ein einmal erkannter Fehler dauerhaft bestehen – auch wenn sich die Zellspannung erholt hat oder die Ladung beendet ist. Der Trigger bleibt dann aktiv, bis der Fehler in der WebApp (Expert Actions, „Manuelle Aktionen“, Button **Reset** bei „Zellspannungsabfall zurücksetzen“) manuell gelöscht wird. Danach beginnt die Überwachung beim nächsten Ladevorgang wieder mit neuen Referenzwerten. Wird die Überwachung selbst ausgeschaltet, wird der Trigger in jedem Fall zurückgesetzt.
+
+#### Voraussetzungen
+
+Überwacht werden ausschließlich Data-Devices (Group Devices werden nicht unterstützt). Ein Device wird nur dann ausgewertet, wenn alle folgenden Bedingungen erfüllt sind:
+
+- Die Überwachung ist eingeschaltet und ein Trigger ist ausgewählt.
+- Das Device ist unter „Zu überwachende Geräte“ ausgewählt.
+- Das Device ist als BMS erkannt – Balancer und Shunts werden nicht ausgewertet.
+- Das Device befindet sich nicht im Wartungsmodus.
+- Die Zellanzahl des BMS ist gültig (1–24 Zellen) und mindestens eine Zellspannung wird geliefert.
+- Es fließt ein Ladestrom von mindestens 5 A.
+
+#### Parameter
+
+**Ein/Aus**  
+Schaltet die Überwachung ein (Standard: **Aus**).
+
+**Zu überwachende Geräte**  
+Data-Devices, deren Zellspannungen überwacht werden sollen (Standard: **keine**).
+
+**Trigger**  
+Trigger (Trigger 1–27), der bei einem bestätigten Einbruch gesetzt wird (Standard: **Aus**). Erst wenn hier ein Trigger gewählt ist, ist die Überwachung aktiv.
+
+**Fehler bis manuellem Reset halten**  
+Ist die Option aktiviert (Standard: **Aus**), bleibt ein erkannter Fehler bestehen, bis er in der WebApp manuell zurückgesetzt wird (siehe oben).
+
+Die Erkennungsschwellen selbst (5 A Mindest-Ladestrom, 30 s Ladefenster, 5 mV Einbruch, 3 Bestätigungen, 60 s Rückstellzeit) sind fest eingestellt und nicht konfigurierbar.
+
+#### Beispielablauf
+
+!!! example "Beispiel mit den internen Standardwerten"
+    1. Um 10:00 Uhr beginnt die Ladung mit **20 A**. Der Ladestrom liegt über 5 A, das Ladefenster startet.
+    2. Zelle 3 liefert nacheinander **3300, 3301, 3300, 3302, 3301 mV**. Der Median dieser 5 Messwerte ist **3301 mV** – die Referenzspannung dieser Zelle.
+    3. Die Zellspannung steigt im weiteren Verlauf. Nach 5 Messwerten oberhalb der bisherigen Referenz wird diese angehoben; der Median der 5 Werte ergibt die neue Referenz **3310 mV**.
+    4. Um 10:05 Uhr (Ladefenster längst über 30 Sekunden) bricht die Zelle ein: **3304 mV** (6 mV unter Referenz) → erste Bestätigung, **3303 mV** (7 mV) → zweite, **3302 mV** (8 mV) → dritte. Der Einbruch ist bestätigt, der Trigger wird gesetzt. Die Alarmmeldung lautet `D0 C3, 3302/3310 mV`.
+    5. Die Zelle erholt sich wieder auf Werte von mindestens 3305 mV. Nach **60 Sekunden** ohne bestätigten Einbruch wird der Fehler gelöscht und der Trigger zurückgesetzt. Mit aktivierter Option „Fehler bis manuellem Reset halten“ bliebe der Trigger dagegen aktiv.
+
+#### Abgrenzung zu den Min/Max-Alarmen
+
+Die normalen Min/Max-Alarme ([BMS-Alarmregeln](#bms)) vergleichen jede Zellspannung mit festen, absoluten Grenzwerten (z. B. 2500 mV und 3650 mV) – unabhängig davon, ob gerade geladen wird. Sie erkennen Über- und Unterspannung.
+
+Die Überwachung „Zellspannung bei Ladestrom“ arbeitet dagegen **relativ**: Sie vergleicht die Zellspannung mit der eigenen, während der Ladung aufgebauten Referenz. Dadurch erkennt sie auch kleine Einbrüche von wenigen Millivolt weit oberhalb der Min-Schwelle – ein typisches Frühwarnzeichen für einen beginnenden Zell- oder Kontaktfehler, das die Min/Max-Alarme erst bemerken würden, wenn die Spannung tief gefallen ist. Die Funktion ist außerdem nur während des Ladens mit mindestens 5 A aktiv.
+
+#### Hinweise zur Bewertung
+
+Ein erkannter Einbruch ist kein sicherer Beweis für eine defekte Zelle. Prüfe bei einem Alarm zuerst:
+
+- Tritt der Fehler wiederholt bei derselben Zelle auf?
+- Sind Zellverbinder und Messleitungen in Ordnung?
+- Zeigt das BMS selbst Warnungen oder Fehler?
+
+Tritt der Einbruch wiederholt bei derselben Zelle auf, sollte diese Zelle bzw. ihre Verschaltung genauer geprüft werden.
+
+Für die Fehlersuche können zusätzlich die Diagnosewerte der Überwachung über MQTT ausgegeben werden: Filteroption **„Zellspannungsabfall (Debug)“** (standardmäßig aus), Werte unter dem Topic `cell_sag`. Weitere Informationen: [MQTT](mqtt.md).
 
 
 
@@ -205,6 +282,7 @@ Es stehen **10 Temperaturregeln** zur Verfügung.
 version: v010
 file: alarmTemp.json
 profile: off
+groups: 1
 section: UI_SECT_ALARMTEMP_TEMPERATUR_220_BERWACHUNG
 ```
 

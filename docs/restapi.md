@@ -59,9 +59,15 @@ Dies ist nur ein Auszug aus der Antwort und nicht vollständig!
     "dcc_triggerLimit": 0.00,
     "autobal_state": 5
   },
-  "data_device": [
-    {"name": "Seplos 1", "en": 1, "valid": 1, "nr": 0, "totalVolt": 55.30, "totalCurr": 22.10, "soc": 85.00}
-  ]
+  "data_device": [{
+      "name": "Seplos 1", 
+      "en": 1, 
+      "valid": 1, 
+      "nr": 0, 
+      "totalVolt": 55.30, 
+      "totalCurr": 22.10, 
+      "soc": 85.00
+    }]
 }
 ```
 
@@ -77,8 +83,8 @@ Dieser Endpunkt gibt alle möglichen Fehler des Systems zurück, inklusive einer
 ```json
 {
   "errors": [
-    {"id": 1, "state": false, "text": "Data Device 0 Error"},
-    {"id": 2, "state": false, "text": "Data Device 1 Error"},
+    {"id": 1,  "state": false, "text": "Data Device 0 Error"},
+    {"id": 2,  "state": false, "text": "Data Device 1 Error"},
     {"id": 20, "state": false, "text": "CANBUS Error"}
   ]
 }
@@ -112,7 +118,7 @@ Dieser Endpunkt gibt den Zustand der digitalen Eingänge (DI) und Relais zurück
 **Antwortformat:**
 ```json
 {
-  "di": [0, 0, 0, 0],
+  "di":     [0, 0, 0, 0],
   "relais": [0, 0, 0, 0, 0, 0]
 }
 ```
@@ -128,7 +134,7 @@ Dieser Endpunkt erlaubt das Setzen der virtuellen Trigger. Dafür ist eine gült
 **Erwartetes Eingabeformat:**
 ```json
 {
-  "id": [Trigger Nr],
+  "id":    [Trigger Nr],
   "value": [0|1]
 }
 ```
@@ -154,7 +160,25 @@ Hierzu nach der IP-Adresse des BSC "/restapi" hinzufügen (z.B. 192.168.1.100/re
 
 Die dargestellten "cc_"-Werte und "dcc_"-Werte stellen den durch die jeweilige Laderegelung limitierten Strom dar.
 
-![](img/settings/settings_restapi_aktive_drosselung.png){ width="250" }  
+```json
+"inverter":{
+  "cc_cellVoltage":    0.00,
+  "cc_soc":            0.00,
+  "cc_cellDrift":      0.00,
+  "cc_cutOff":         0.00,
+  "cc_packHigh":     100.00,
+  "cc_temperature":    0.00,
+  "cc_tempProfile":    0.00,
+  "cc_zero":           0.00,
+  "cc_triggerLimit": 100.00,
+  
+  "dcc_cellVoltage":   0.00,
+  "dcc_temperature": 100.00,
+  "dcc_tempProfile": 100.00,
+  "dcc_packHigh":    100.00,
+  "dcc_triggerLimit":100.00
+}
+```
 
 Falls es nicht möglich ist, die Daten während eines Drosselungs-Events direkt anzuzeigen, besteht die Möglichkeit, diese temporär über eine alternative Plattform wie Home Assistant aufzeichnen zu lassen. Dabei ist zu beachten, dass jede Abfrage der REST-API alle verfügbaren Daten umfasst.
 

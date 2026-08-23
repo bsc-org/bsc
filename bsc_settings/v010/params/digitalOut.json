@@ -39,7 +39,8 @@
               "default": 500,
               "min": 100,
               "max": 10000,
-              "dt": "PARAM_DT_U32"
+              "dt": "PARAM_DT_U32",
+              "visible_when": [{ "param": "ID_PARAM_DO_AUSLOESEVERHALTEN", "op": "==", "value": 1 }]
             },
             {
               "name": "ID_PARAM_DO_VERZOEGERUNG",

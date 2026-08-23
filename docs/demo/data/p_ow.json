@@ -1,22 +1,27 @@
 {
   "page": [
     {
-      "lid": 101,
-      "label": "Onewire sensors",
-      "label_entry": "sensors",
-      "groupsize": 64,
-      "type": 12,
-      "group": [
+      "type": 13,
+      "items": [
         {
-          "name": 52,
-          "lid": 102,
-          "label": "Offset",
-          "unit": "&deg;C",
-          "type": 4,
-          "default": 0,
-          "min": -10,
-          "max": 10,
-          "dt": 7
+          "lid": 101,
+          "label": "Onewire Sensoren",
+          "label_entry": "Sensor",
+          "groupsize": 64,
+          "type": 12,
+          "group": [
+            {
+              "name": 52,
+              "lid": 102,
+              "label": "Offset",
+              "unit": "&deg;C",
+              "type": 4,
+              "default": 0,
+              "min": -10,
+              "max": 10,
+              "dt": 7
+            }
+          ]
         }
       ]
     }
@@ -27,5 +32,12 @@
       "lid": 103,
       "label": "Save"
     }
-  ]
+  ],
+  "ui": {
+    "section_state": {
+      "name": 256,
+      "dt": 5,
+      "default": "0u"
+    }
+  }
 }

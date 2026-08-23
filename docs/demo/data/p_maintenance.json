@@ -1,0 +1,76 @@
+{
+  "page": [
+    {
+      "lid": 337,
+      "label": "Wartungsmodus",
+      "type": 13,
+      "items": [
+        {
+          "name": 206,
+          "lid": 338,
+          "label": "Data Devices: Wartung aktiv",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "dataDevicesAll"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 207,
+          "lid": 339,
+          "label": "Data Devices: MQTT senden",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "dataDevicesAll"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 240,
+          "label": "Group Devices: Wartung aktiv",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "batteryPacks"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 241,
+          "label": "Group Devices: MQTT senden",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "batteryPacks"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        }
+      ],
+      "section_id": 0
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 196,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": 255,
+      "dt": 5,
+      "default": "0u"
+    }
+  }
+}

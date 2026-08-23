@@ -1,416 +1,152 @@
 {
   "page": [
     {
-      "lid": 337,
-      "label": "Maintenance mode",
-      "type": 13
-    },
-    {
-      "name": 206,
-      "lid": 338,
-      "label": "Maintenance active",
-      "type": 14,
-      "options": [
-        {
-          "v": "0",
-          "lid": 239,
-          "l": "Data device 0",
-          "d": 10560
-        },
-        {
-          "v": "1",
-          "lid": 240,
-          "l": "Data device 1",
-          "d": 10561
-        },
-        {
-          "v": "2",
-          "lid": 241,
-          "l": "Data device 2",
-          "d": 10562
-        },
-        {
-          "v": "3",
-          "lid": 242,
-          "l": "Data device 3",
-          "d": 10563
-        },
-        {
-          "v": "4",
-          "lid": 243,
-          "l": "Data device 4",
-          "d": 10564
-        },
-        {
-          "v": "5",
-          "lid": 244,
-          "l": "Data device 5",
-          "d": 10565
-        },
-        {
-          "v": "6",
-          "lid": 245,
-          "l": "Data device 6",
-          "d": 10566
-        },
-        {
-          "v": "7",
-          "lid": 246,
-          "l": "Data device 7",
-          "d": 10567
-        },
-        {
-          "v": "8",
-          "lid": 247,
-          "l": "Data device 8",
-          "d": 10568
-        },
-        {
-          "v": "9",
-          "lid": 248,
-          "l": "Data device 9",
-          "d": 10569
-        },
-        {
-          "v": "10",
-          "lid": 249,
-          "l": "Data device 10",
-          "d": 10570
-        },
-        {
-          "v": "11",
-          "lid": 250,
-          "l": "Data device 11",
-          "d": 10571
-        },
-        {
-          "v": "12",
-          "lid": 251,
-          "l": "Data device 12",
-          "d": 10572
-        },
-        {
-          "v": "13",
-          "lid": 252,
-          "l": "Data device 13",
-          "d": 10573
-        },
-        {
-          "v": "14",
-          "lid": 253,
-          "l": "Data device 14",
-          "d": 10574
-        },
-        {
-          "v": "15",
-          "lid": 254,
-          "l": "Data device 15",
-          "d": 10575
-        },
-        {
-          "v": "16",
-          "lid": 255,
-          "l": "Data device 16",
-          "d": 10576
-        },
-        {
-          "v": "17",
-          "lid": 256,
-          "l": "Data device 17",
-          "d": 10577
-        }
-      ],
-      "default": 0,
-      "dt": 5
-    },
-    {
-      "name": 207,
-      "lid": 339,
-      "label": "Send MQTT",
-      "type": 14,
-      "options": [
-        {
-          "v": "0",
-          "lid": 239,
-          "l": "Data device 0",
-          "d": 10560
-        },
-        {
-          "v": "1",
-          "lid": 240,
-          "l": "Data device 1",
-          "d": 10561
-        },
-        {
-          "v": "2",
-          "lid": 241,
-          "l": "Data device 2",
-          "d": 10562
-        },
-        {
-          "v": "3",
-          "lid": 242,
-          "l": "Data device 3",
-          "d": 10563
-        },
-        {
-          "v": "4",
-          "lid": 243,
-          "l": "Data device 4",
-          "d": 10564
-        },
-        {
-          "v": "5",
-          "lid": 244,
-          "l": "Data device 5",
-          "d": 10565
-        },
-        {
-          "v": "6",
-          "lid": 245,
-          "l": "Data device 6",
-          "d": 10566
-        },
-        {
-          "v": "7",
-          "lid": 246,
-          "l": "Data device 7",
-          "d": 10567
-        },
-        {
-          "v": "8",
-          "lid": 247,
-          "l": "Data device 8",
-          "d": 10568
-        },
-        {
-          "v": "9",
-          "lid": 248,
-          "l": "Data device 9",
-          "d": 10569
-        },
-        {
-          "v": "10",
-          "lid": 249,
-          "l": "Data device 10",
-          "d": 10570
-        },
-        {
-          "v": "11",
-          "lid": 250,
-          "l": "Data device 11",
-          "d": 10571
-        },
-        {
-          "v": "12",
-          "lid": 251,
-          "l": "Data device 12",
-          "d": 10572
-        },
-        {
-          "v": "13",
-          "lid": 252,
-          "l": "Data device 13",
-          "d": 10573
-        },
-        {
-          "v": "14",
-          "lid": 253,
-          "l": "Data device 14",
-          "d": 10574
-        },
-        {
-          "v": "15",
-          "lid": 254,
-          "l": "Data device 15",
-          "d": 10575
-        },
-        {
-          "v": "16",
-          "lid": 255,
-          "l": "Data device 16",
-          "d": 10576
-        },
-        {
-          "v": "17",
-          "lid": 256,
-          "l": "Data device 17",
-          "d": 10577
-        }
-      ],
-      "default": 0,
-      "dt": 5
-    },
-    {
       "lid": 191,
       "label": "Data device mapping",
       "type": 13,
-      "wiki": "settings_bsc/#data-device-mapping"
-    },
-    {
-      "lid": 192,
-      "label": "Data device mapping",
-      "label_entry": "Data device",
-      "groupsize": 18,
-      "type": 12,
-      "help": "The name cannot contain # and \\+ characters!",
-      "group": [
+      "wiki": "settings_bsc/#data-device-mapping",
+      "items": [
         {
-          "name": 163,
-          "lid": 193,
-          "label": "Interface",
-          "type": 9,
-          "options": [
+          "lid": 192,
+          "label": "Data device mapping",
+          "label_entry": "Data device",
+          "groupsize": 32,
+          "type": 12,
+          "help": "Der Name darf keine # und \\+ Zeichen enthalten!",
+          "group": [
             {
-              "v": "255",
-              "lid": 263,
-              "l": "not in use"
+              "name": 163,
+              "lid": 193,
+              "label": "Schnittstelle",
+              "type": 9,
+              "options": [
+                {
+                  "v": "255",
+                  "lid": 263,
+                  "l": "Nicht belegt"
+                },
+                {
+                  "$ref": "bmsDeviceAll"
+                }
+              ],
+              "default": 255,
+              "dt": 1
             },
             {
-              "v": "0",
-              "l": "Bluetooth 0"
+              "name": 164,
+              "lid": 194,
+              "label": "Adresse",
+              "type": 9,
+              "options_default": [
+                {
+                  "$ref": "serialAddress0To16"
+                }
+              ],
+              "options_cases": [
+                {
+                  "when": [
+                    {
+                      "param": 163,
+                      "group": "$group_idx",
+                      "op": "==",
+                      "value": 250
+                    }
+                  ],
+                  "options": [
+                    {
+                      "$ref": "vecanSlotsActive"
+                    }
+                  ]
+                }
+              ],
+              "default": 0,
+              "dt": 1
             },
             {
-              "v": "1",
-              "l": "Bluetooth 1"
-            },
-            {
-              "v": "2",
-              "l": "Bluetooth 2"
-            },
-            {
-              "v": "3",
-              "l": "Bluetooth 3"
-            },
-            {
-              "v": "4",
-              "l": "Bluetooth 4"
-            },
-            {
-              "v": "5",
-              "l": "Bluetooth 5"
-            },
-            {
-              "v": "6",
-              "l": "Bluetooth 6"
-            },
-            {
-              "v": "7",
-              "l": "Serial 0"
-            },
-            {
-              "v": "8",
-              "l": "Serial 1"
-            },
-            {
-              "v": "9",
-              "l": "Serial 2"
-            },
-            {
-              "v": "10",
-              "l": "Serial 3"
-            },
-            {
-              "v": "11",
-              "l": "Serial 4"
-            },
-            {
-              "v": "12",
-              "l": "Serial 5"
-            },
-            {
-              "v": "13",
-              "l": "Serial 6"
-            },
-            {
-              "v": "14",
-              "l": "Serial 7"
-            },
-            {
-              "v": "15",
-              "l": "Serial 8"
-            },
-            {
-              "v": "16",
-              "l": "Serial 9"
-            },
-            {
-              "v": "17",
-              "l": "Serial 10"
+              "name": 165,
+              "lid": 195,
+              "label": "Name",
+              "type": 0,
+              "pattern": "^[^#\\+]*$",
+              "default": "",
+              "maxlen": 16,
+              "flash": "1",
+              "dt": 8
             }
-          ],
-          "default": 255,
-          "dt": 1
-        },
-        {
-          "name": 164,
-          "lid": 194,
-          "label": "Address",
-          "type": 3,
-          "default": 0,
-          "min": 0,
-          "max": 18,
-          "dt": 1
-        },
-        {
-          "name": 165,
-          "lid": 195,
-          "label": "Name",
-          "type": 0,
-          "pattern": "^[^#+]*$",
-          "default": "",
-          "max": 10,
-          "flash": "1",
-          "dt": 8
+          ]
         }
-      ]
+      ],
+      "section_id": 0
     },
     {
       "lid": 49,
       "label": "Value adjustments",
       "type": 13,
-      "wiki": "settings_bsc/#value-adjustment-fur-soc-ubermittlung-an-den-wechselrichter"
-    },
-    {
-      "lid": 50,
-      "label": "Data devices",
-      "label_entry": "Device",
-      "groupsize": 18,
-      "type": 12,
-      "group": [
+      "wiki": "settings_bsc/#value-adjustment-fur-soc-ubermittlung-an-den-wechselrichter",
+      "items": [
         {
-          "name": 192,
-          "lid": 300,
-          "label": "Linearize SoC",
-          "type": 10,
-          "default": "0",
-          "dt": 9
-        },
-        {
-          "name": 127,
-          "lid": 51,
-          "label": "Cellvoltage for SoC 100%",
-          "help": "0=disabled",
-          "unit": "mV",
-          "type": 3,
-          "default": 0,
-          "min": 0,
-          "max": 5000,
-          "dt": 3
-        },
-        {
-          "name": 130,
-          "lid": 52,
-          "label": "Cellvoltage for SoC 0%",
-          "help": "0=disabled",
-          "unit": "mV",
-          "type": 3,
-          "default": 0,
-          "min": 0,
-          "max": 5000,
-          "dt": 3
+          "lid": 50,
+          "label": "Data devices",
+          "label_entry": "Device",
+          "groupsize": 32,
+          "type": 12,
+          "group": [
+            {
+              "name": 192,
+              "lid": 300,
+              "label": "SoC linearisieren",
+              "type": 10,
+              "default": "0",
+              "dt": 9
+            },
+            {
+              "name": 280,
+              "lid": 493,
+              "label": "SoC 100% trigger mode",
+              "type": 9,
+              "default": 0,
+              "options": [
+                {
+                  "v": 0,
+                  "lid": 494,
+                  "l": "Eine Zelle erreicht Schwellwert"
+                },
+                {
+                  "v": 1,
+                  "lid": 495,
+                  "l": "Alle Zellen erreichen Schwellwert"
+                }
+              ],
+              "dt": 1
+            },
+            {
+              "name": 127,
+              "lid": 51,
+              "label": "Cellvoltage for SoC 100%",
+              "help": "0=deaktiviert",
+              "unit": "mV",
+              "type": 3,
+              "default": 0,
+              "min": 0,
+              "max": 5000,
+              "dt": 3
+            },
+            {
+              "name": 130,
+              "lid": 52,
+              "label": "Cellvoltage for SoC 0%",
+              "help": "0=deaktiviert",
+              "unit": "mV",
+              "type": 3,
+              "default": 0,
+              "min": 0,
+              "max": 5000,
+              "dt": 3
+            }
+          ]
         }
-      ]
+      ],
+      "section_id": 1
     }
   ],
   "btn": [
@@ -419,5 +155,12 @@
       "lid": 196,
       "label": "Save"
     }
-  ]
+  ],
+  "ui": {
+    "section_state": {
+      "name": 246,
+      "dt": 5,
+      "default": "0u"
+    }
+  }
 }

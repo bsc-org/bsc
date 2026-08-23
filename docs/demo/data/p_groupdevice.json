@@ -1,0 +1,677 @@
+{
+  "page": [
+    {
+      "lid": 374,
+      "label": "Group Devices",
+      "type": 13,
+      "items": [
+        {
+          "name": 236,
+          "lid": 384,
+          "label": "Group Devices aktiv",
+          "type": 10,
+          "default": 0,
+          "dt": 9
+        },
+        {
+          "lid": 374,
+          "label": "Group Devices",
+          "label_entry": "Group Device",
+          "groupsize": 32,
+          "type": 12,
+          "group": [
+            {
+              "name": 293,
+              "lid": 195,
+              "label": "Name",
+              "type": 0,
+              "pattern": "^[^#\\+]*$",
+              "default": "",
+              "maxlen": 16,
+              "flash": "1",
+              "dt": 8
+            },
+            {
+              "name": 224,
+              "lid": 375,
+              "label": "Master Device",
+              "type": 9,
+              "options": [
+                {
+                  "v": "255",
+                  "l": "Nicht belegt",
+                  "lid": 263
+                },
+                {
+                  "$ref": "dataDevicesAll"
+                }
+              ],
+              "default": 255,
+              "dt": 1
+            },
+            {
+              "name": 235,
+              "lid": 383,
+              "label": "Second Device",
+              "type": 9,
+              "options": [
+                {
+                  "v": "255",
+                  "l": "Nicht belegt",
+                  "lid": 263
+                },
+                {
+                  "$ref": "dataDevicesAll"
+                }
+              ],
+              "default": 255,
+              "dt": 1
+            },
+            {
+              "lid": 376,
+              "label": "Spannung",
+              "type": 21,
+              "layout": [
+                8,
+                4
+              ],
+              "items": [
+                {
+                  "name": 228,
+                  "lid": 108,
+                  "label": "Quell-Devices",
+                  "type": 14,
+                  "options": [
+                    {
+                      "$ref": "dataDevicesAll"
+                    }
+                  ],
+                  "default": 0,
+                  "dt": 5
+                },
+                {
+                  "name": 229,
+                  "lid": 377,
+                  "label": "Aggregation",
+                  "type": 9,
+                  "options": [
+                    {
+                      "v": "1",
+                      "l": "Mittelwert",
+                      "lid": 265
+                    },
+                    {
+                      "v": "2",
+                      "l": "Maximum",
+                      "lid": 267
+                    },
+                    {
+                      "v": "3",
+                      "l": "Minimum",
+                      "lid": 266
+                    }
+                  ],
+                  "default": 2,
+                  "dt": 1
+                }
+              ]
+            },
+            {
+              "lid": 381,
+              "label": "Strom",
+              "type": 21,
+              "layout": [
+                8,
+                4
+              ],
+              "items": [
+                {
+                  "name": 230,
+                  "lid": 108,
+                  "label": "Quell-Devices",
+                  "type": 14,
+                  "options": [
+                    {
+                      "$ref": "dataDevicesAll"
+                    }
+                  ],
+                  "default": 0,
+                  "dt": 5
+                },
+                {
+                  "name": 231,
+                  "lid": 377,
+                  "label": "Aggregation",
+                  "type": 9,
+                  "options": [
+                    {
+                      "v": "0",
+                      "l": "Summe",
+                      "lid": 279
+                    },
+                    {
+                      "v": "1",
+                      "l": "Mittelwert",
+                      "lid": 265
+                    },
+                    {
+                      "v": "2",
+                      "l": "Maximum",
+                      "lid": 267
+                    },
+                    {
+                      "v": "3",
+                      "l": "Minimum",
+                      "lid": 266
+                    }
+                  ],
+                  "default": 2,
+                  "dt": 1
+                }
+              ]
+            },
+            {
+              "lid": 110,
+              "label": "SoC",
+              "type": 21,
+              "layout": [
+                8,
+                4
+              ],
+              "items": [
+                {
+                  "name": 232,
+                  "lid": 108,
+                  "label": "Quell-Devices",
+                  "type": 14,
+                  "options": [
+                    {
+                      "$ref": "dataDevicesAll"
+                    }
+                  ],
+                  "default": 0,
+                  "dt": 5
+                },
+                {
+                  "name": 233,
+                  "lid": 377,
+                  "label": "Aggregation",
+                  "type": 9,
+                  "options": [
+                    {
+                      "v": "1",
+                      "l": "Mittelwert",
+                      "lid": 265
+                    },
+                    {
+                      "v": "2",
+                      "l": "Maximum",
+                      "lid": 267
+                    },
+                    {
+                      "v": "3",
+                      "l": "Minimum",
+                      "lid": 266
+                    }
+                  ],
+                  "default": 2,
+                  "dt": 1
+                }
+              ]
+            },
+            {
+              "lid": 378,
+              "label": "Erweiterte Temperaturen",
+              "type": 21,
+              "layout": [
+                6,
+                3,
+                3
+              ],
+              "items": [
+                {
+                  "name": 225,
+                  "lid": 382,
+                  "label": "Quelle",
+                  "type": 9,
+                  "options": [
+                    {
+                      "v": 255,
+                      "l": "Nicht belegt",
+                      "lid": 263
+                    },
+                    {
+                      "v": 254,
+                      "l": "Onewire",
+                      "lid": 396
+                    },
+                    {
+                      "$ref": "dataDevicesTmp32Cap"
+                    }
+                  ],
+                  "default": 255,
+                  "dt": 1
+                },
+                {
+                  "name": 226,
+                  "lid": 379,
+                  "label": "Sensoren 0-31",
+                  "type": 14,
+                  "options": [
+                    {
+                      "$ref": "tempsensors1"
+                    }
+                  ],
+                  "default": 1,
+                  "dt": 5
+                },
+                {
+                  "name": 227,
+                  "lid": 380,
+                  "label": "Sensoren 32-63",
+                  "type": 14,
+                  "options": [
+                    {
+                      "$ref": "tempsensors2"
+                    }
+                  ],
+                  "default": 0,
+                  "dt": 5,
+                  "visible_when": [
+                    {
+                      "param": 225,
+                      "op": "==",
+                      "value": 254
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Erweiterte Temperaturen - Namen",
+              "type": 23,
+              "default_open": false,
+              "items": [
+                {
+                  "name": 294,
+                  "lid": 461,
+                  "label": "Sensor 0",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 295,
+                  "lid": 462,
+                  "label": "Sensor 1",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 296,
+                  "lid": 463,
+                  "label": "Sensor 2",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 297,
+                  "lid": 464,
+                  "label": "Sensor 3",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 298,
+                  "lid": 465,
+                  "label": "Sensor 4",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 299,
+                  "lid": 466,
+                  "label": "Sensor 5",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 300,
+                  "lid": 467,
+                  "label": "Sensor 6",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 301,
+                  "lid": 468,
+                  "label": "Sensor 7",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 302,
+                  "lid": 469,
+                  "label": "Sensor 8",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 303,
+                  "lid": 470,
+                  "label": "Sensor 9",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 304,
+                  "lid": 471,
+                  "label": "Sensor 10",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 305,
+                  "lid": 472,
+                  "label": "Sensor 11",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 306,
+                  "lid": 473,
+                  "label": "Sensor 12",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 307,
+                  "lid": 474,
+                  "label": "Sensor 13",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 308,
+                  "lid": 475,
+                  "label": "Sensor 14",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 309,
+                  "lid": 476,
+                  "label": "Sensor 15",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 310,
+                  "lid": 477,
+                  "label": "Sensor 16",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 311,
+                  "lid": 478,
+                  "label": "Sensor 17",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 312,
+                  "lid": 479,
+                  "label": "Sensor 18",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 313,
+                  "lid": 480,
+                  "label": "Sensor 19",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 314,
+                  "lid": 481,
+                  "label": "Sensor 20",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 315,
+                  "lid": 482,
+                  "label": "Sensor 21",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 316,
+                  "lid": 483,
+                  "label": "Sensor 22",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 317,
+                  "lid": 484,
+                  "label": "Sensor 23",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 318,
+                  "lid": 485,
+                  "label": "Sensor 24",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 319,
+                  "lid": 486,
+                  "label": "Sensor 25",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 320,
+                  "lid": 487,
+                  "label": "Sensor 26",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 321,
+                  "lid": 488,
+                  "label": "Sensor 27",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 322,
+                  "lid": 489,
+                  "label": "Sensor 28",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 323,
+                  "lid": 490,
+                  "label": "Sensor 29",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 324,
+                  "lid": 491,
+                  "label": "Sensor 30",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                },
+                {
+                  "name": 325,
+                  "lid": 492,
+                  "label": "Sensor 31",
+                  "type": 0,
+                  "pattern": "^[^#\\+]*$",
+                  "default": "",
+                  "maxlen": 16,
+                  "flash": "1",
+                  "dt": 8
+                }
+              ],
+              "lid": 460
+            }
+          ],
+          "visible_when": [
+            {
+              "param": 236,
+              "op": "==",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "section_id": 0
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 184,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": 252,
+      "dt": 5,
+      "default": "0u"
+    }
+  }
+}
