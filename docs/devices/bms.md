@@ -1,14 +1,5 @@
 # Unterstützte BMS
-In diesem Abschnitt finden Sie eine Übersicht über die aktuell unterstützten Battery Management Systeme (BMS). Die Tabelle enthält wichtige Informationen zu den Adressen, die für die Konfiguration erforderlich sind.  
-Für eine korrekte Konfiguration sind in den entsprechenden Feldern die Adressen des BMS sowie die erforderliche Einstellung im Data-Device-Mapping des BSC angegeben.  
-In den betreffenden Spalten sind diese Adressen durch einen Schrägstrich `/` getrennt:  
-
-- **Adresse Singlepack**: Diese Adresse ist diejenige, die sowohl am BMS als auch im Device-Data-Mapping eingestellt werden muss. Sie repräsentiert die spezifische Adresse für ein einzelnes BMS in einem System.
-
-- **Adresse Multipack**: Diese Adresse ist die Start-Adresse, die am BMS sowie im Device-Data-Mapping konfiguriert wird. Sie gibt die Adresse des ersten BMS in einem Multipack-System an. Weitere BMS in der Kette erhalten automatisch fortlaufende Adressen basierend auf dieser Start-Adresse.  
-
- > Die Adresse **vor dem** `/` muss am **BMS** eingestellt werden.  
- > Die Adresse **nach dem** `/` muss im **BSC** im entsprechenden Data-Device eingetragen werden.
+Hier findest du eine Übersicht über die aktuell unterstützten Battery Management Systeme (BMS). 
 
 ## Integration weiterer BMS-Systeme
 Die BSC-Plattform ist nicht auf die in der Tabelle aufgeführten BMS-Systeme beschränkt.  
@@ -21,6 +12,16 @@ Eine gewisse Eigeninitiative und technische Bereitschaft zur Mitwirkung sind hie
 Wenn Sie ein BMS-System einsetzen, das aktuell nicht unterstützt wird, sprechen Sie uns an.  
 Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei entsprechendem Bedarf umgesetzt werden.
 
+## Adsressierung
+Die Tabelle enthält wichtige Informationen zu den Adressen, die für die Konfiguration erforderlich sind.
+
+In den Spalten „Adresse Singlepack" und „Adresse Multipack" sind die Adressen durch einen Schrägstrich `/` getrennt angegeben:  
+`0 / 1` heißt: Am BMS Adresse **0** einstellen, im BSC im Data-Device-Mapping Adresse **1** eintragen – die Werte können gleich oder verschieden sein.
+
+- **Adresse Singlepack**: Diese Adresse wird am BMS und im Data-Device-Mapping eingestellt. Sie gilt für ein einzelnes BMS im System.
+
+- **Adresse Multipack**: Diese Adresse ist die Start-Adresse, die am BMS und im Data-Device-Mapping konfiguriert wird. Sie gibt die Adresse des ersten BMS in einem Multipack-System an. Weitere BMS in der Kette erhalten automatisch fortlaufende Adressen, ausgehend von dieser Start-Adresse.
+
 ## Serial BMS
 | Typ | HW-Version | SW-Version | Adresse Singlepack<br>BMS / BSC| Adresse Multipack<br>BMS / BSC | Anschluss BMS |
 | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -28,8 +29,8 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | JBD-DP24S002 |  |  | - | - |
 | [AP21S002](#jiabaidajbd-ap21s002) |  |  | - | - | RS485 |
 | **JK Smart-BMS** |
-| JK-B2A20S20P | V11.XW | 11.25H | - |  |  Single device extension |
-| JK-B2A24S20P | V10.XW | V10.09 | - |  |  Single device extension |
+| JK-B2A20S20P | V11.XW | 11.25H | - |  |  Single device extension (SDE) |
+| JK-B2A24S20P | V10.XW | V10.09 | - |  |  Single device extension (SDE) |
 | JK-B2A8S20P | V19 | V19.07 | - |  |   |
 | JK BMS V1.3<br>(only monitoring) |  |  | - | - |
 | **JK Inverter-BMS** |
@@ -42,7 +43,7 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | [V2](#typ-10c-10e) | 10E | 16.4 | 0 / 0 | 1 / 1 |
 | [V3](#typ-v3)    |  |  | ? | - |
 | **DALY Smart BMS** |
-| BMS-*A |  | |  |  |  Single device extension |
+| BMS-*A |  | |  |  |  Single device extension (SDE) |
 | **Sylcin (z.B. Taico Akku)** |
 | [Sylcin](#sylcin) |  |  | 0 / 1 | 0 / 1 |
 | **Pace (z.B. Gobel Akku)** |
@@ -56,14 +57,21 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 | US5000 |  | | 1 / 1 | 1 / 1 | B/RS485 |
 | **Felicity** |
 | LUX-Y Serie |  | | 0 / 0 | 0 / 0 |
-| **Eletechsup** |
-| NT4A08 |  | | 1 / 1 | 1 / 1 |
-| NT48B16 |  | | 1 / 1 | 1 / 1 |
-| NT48C32 |  | | 1 / 1 | 1 / 1 |
 | **Daren BMS**<br>(TestStatus - Feedback erwünscht) |  | | ? | ? |
 
-!!! note "Hinweis"
-    Die in der WebApp angebotene Geräteauswahl der seriellen Schnittstellen ist die verbindliche Liste der unterstützten Typen – siehe [Schnittstellen → Serial](../settings_bsc_interfaces.md#serial).
+**Legende:**
+
+- `-` = nicht unterstützt
+- `?` = nicht dokumentiert
+- leere Zelle = nicht geprüft
+- (Test) = Teststatus
+
+**Anschluss BMS – verwendete Begriffe:**
+
+- **RS485**: direkter Anschluss an eine der seriellen Schnittstellen des BSC.
+- **Serial-Extension**: Zusatzboard, das über die Erweiterungsschnittstelle des BSC angebunden wird und 8 weitere serielle Schnittstellen bereitstellt (in der Software „Serial 3" bis „Serial 10").
+- **Single device extension (SDE)**: Adapter für den Anschluss von nicht RS485-kompatiblen Geräten (UART/RS232, z. B. der Victron SmartShunt). Über die SDE wird genau ein Gerät angeschlossen. Die SDE ist nicht mit der Serial-Extension identisch.
+- **B/RS485** bzw. **RS485B**: Bezeichnung des RS485-Ports am jeweiligen BMS (Pylontech bzw. Pace).
 
 ## Bluetooth Devices
 | Typ | HW-Version | SW-Version |
@@ -71,6 +79,8 @@ Die Integration zusätzlicher Systeme ist technisch realisierbar und kann bei en
 |NEEY |
 | NEEY Balancer 4A | 2.8.0 | 1.2.1 |
 | NEEY Balancer 4A | 2.8.0 | 1.2.3 |
+| NEEY GW-24S4EB | | |
+| NEEY EK-24S4EB, EK-24S10EB | | |
 
 Anbei die Auflösung der Statusmeldungen des NEEY:
 
