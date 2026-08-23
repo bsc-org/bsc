@@ -52,11 +52,11 @@ In den Spalten „Adresse Singlepack" und „Adresse Multipack" sind die Adresse
 | [GP-SR1-PC200](#pace-pc100200) |  | |  2 / 2 | 2 / 2 | RS485B |
 | PC200 V1 (RS232) |  | |  2 / 2 | - | RS232 |
 | PC200 V2 (RS232) |  | |  2 / 2 | - | RS232 |
-| **Pylontech** |  | | ? | ? |
+| **Pylontech** |  | | | |
 | US2000 |  | | 1 / 1 | 1 / 1 | B/RS485 |
 | US5000 |  | | 1 / 1 | 1 / 1 | B/RS485 |
 | **Felicity** |
-| LUX-Y Serie |  | | 0 / 0 | 0 / 0 |
+| LUX-Y Serie |  | | 1 / 1 | 1 / 1 |
 | **Daren BMS**<br>(TestStatus - Feedback erwünscht) |  | | ? | ? |
 
 **Legende:**
