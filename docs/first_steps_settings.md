@@ -83,7 +83,7 @@ An *Serial 0* sind zwei JK Inverter BMS angeschlossen:
 Weitere Informationen:
 
 - [Adresskonfiguration pro BMS-Typ](https://bsc-org.github.io/bsc/devices/bms/#unterstutzte-bms)
-- [Data-Device-Mapping Details](settings_bsc_interfaces.md#data-devices)
+- [Data-Device-Mapping Details](settings_bsc_data_devices.md#data-devices)
 
 ## 3. Wechselrichter-Einstellungen
 In diesem Abschnitt werden die grundlegenden Einstellungen beschrieben, die erforderlich sind, damit der BSC mit dem Wechselrichter kommunizieren kann.  
@@ -104,7 +104,7 @@ Folgende Parameter müssen für die Grundkommunikation konfiguriert werden:
   Die Aufbereitung kann beispielsweise die Aggregation mehrerer Datenquellen oder die Anwendung von definierten Laderegelungen umfassen. 
 
     !!! note "Hinweis"  
-        Welcher Wert von welchem Data-Device verwendet wird, lässt sich über die [Valuehandling-Einstellungen](settings_inverter.md#valuehandling-multi-bms) detailliert festlegen (Domain, Quelle und Aggregation je Messwert). Sind [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert, können dort außerdem Battery-Packs als Quelle gewählt werden.
+        Welcher Wert von welchem Data-Device verwendet wird, lässt sich über die [Valuehandling-Einstellungen](settings_inverter.md#valuehandling-multi-bms) detailliert festlegen (Domain, Quelle und Aggregation je Messwert). Sind [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert, können dort außerdem Battery-Packs als Quelle gewählt werden.
 
 - **Kategorie Valuehandling:**  
   Festlegung, von welchen Data-Devices welche Werte übernommen und wie diese aggregiert werden.  

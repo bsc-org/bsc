@@ -19,8 +19,7 @@ Temperaturen von bis zu 32 angeschlossenen NTC-Sensoren und übergeben die Werte
 - **Anschluss:** RS485, direkt an eine der seriellen Schnittstellen des BSC.
   Den Gerätetyp wählst du unter [Einstellungen → Schnittstellen → Serial](../settings_bsc_interfaces.md#serial)   aus – der BSC stellt die Schnittstelle dabei automatisch auf 9600 Baud ein.
 - **Protokoll:** Modbus RTU (Funktionscode 03, Holding-Register).
-- **Adresse:** Die Modbus-Slave-Adresse wird am Board über DIP-Schalter eingestellt. Im BSC wird die Adresse im
-  [Data-Device-Mapping](../settings_bsc_interfaces.md#data-devices) hinterlegt – sie wird als Modbus-Slave-ID verwendet. Die Adressen in der Tabelle oben sind nach dem Schema „Board / BSC" angegeben.
+- **Adresse:** Die Modbus-Slave-Adresse wird am Board über DIP-Schalter eingestellt. Im BSC wird die Adresse im [Data-Device-Mapping](../settings_bsc_data_devices.md#data-devices) hinterlegt – sie wird als Modbus-Slave-ID verwendet. Die Adressen in der Tabelle oben sind nach dem Schema „Board / BSC" angegeben.
 
 ### Temperaturdaten im BSC
 
@@ -30,8 +29,8 @@ Jeder Kanal liefert die Temperatur als 16-Bit-Wert mit einer Auflösung von 0,1 
 
 Die erweiterten Temperaturwerte stehen im BSC anschließend zur Verfügung für:
 
-- die "Erweiterten Temperaturen" der [Group Devices](../settings_bsc_devices.md#zuordnung-der-erweiterten-temperaturen)
+- die "Erweiterten Temperaturen" der [Group Devices](../settings_bsc_group-devices.md#zuordnung-der-erweiterten-temperaturen)
 - temperaturgeführte Laderegelungen (Lade-/Entladestrom in Abhängigkeit der Temperatur)
 - REST, MQTT und Home Assistant
 
-Details zur Zuordnung der erweiterten Temperaturen (Bitmasken, Slot-Reihenfolge) sind unter [Devices (Geräte-Einstellungen)](../settings_bsc_devices.md#zuordnung-der-erweiterten-temperaturen) beschrieben.
+Details zur Zuordnung der erweiterten Temperaturen (Bitmasken, Slot-Reihenfolge) sind unter [Group Devices](../settings_bsc_group-devices.md#zuordnung-der-erweiterten-temperaturen) beschrieben.

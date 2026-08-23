@@ -213,7 +213,7 @@ Legt fest, von welchem Sensortyp die Messwerte stammen:
 
 - **Data Device** – Auswahl von 0–5 internen BMS-Sensoren.
 - **Data Device – Erweiterte Sensoren** – Auswahl von 0–31 erweiterten Sensoren (z. B. OneWire).
-- **Group Device** / **Group Device – Erweiterte Sensoren** – nur verfügbar, wenn [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert sind.
+- **Group Device** / **Group Device – Erweiterte Sensoren** – nur verfügbar, wenn [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert sind.
 
 **Zu überwachende Quellen**  
 Hier kann festgelegt werden, von welchem **Data-Device** (bzw. Group Device) die Temperaturdaten stammen sollen.  

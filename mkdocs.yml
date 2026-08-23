@@ -105,7 +105,8 @@ nav:
       - Trigger: settings_bsc_trigger.md
       - Schnittstellen: settings_bsc_interfaces.md
       - Devices:
-        - Data-Devices: settings_bsc_devices.md
+        - Data-Devices: settings_bsc_data_devices.md
+        - Group Devices: settings_bsc_group-devices.md
         - Wartung: settings_maintenance.md
       - Wechselrichter & Laderegelung: 
         - Allgemein: settings_inverter.md
