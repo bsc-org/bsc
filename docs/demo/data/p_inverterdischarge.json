@@ -2,67 +2,272 @@
   "page": [
     {
       "lid": 356,
-      "label": "Discharging current per pack too high",
+      "label": "Entladestrom pro Pack zu gro\u00df",
       "type": 13,
-      "help": "Throttle discharging current if the discharging current of a pack is exceeded",
-      "wiki": "settings_inverter/#ladestrom-pro-pack-zu-gro"
-    },
-    {
-      "name": 219,
-      "lid": 144,
-      "label": "On/Off",
-      "type": 10,
-      "default": "0",
-      "dt": 9
+      "help": "Entladestrom drosseln wenn der Entladestrom eines Packs \u00fcberschritten wird",
+      "wiki": "settings_inverter/#ladestrom-pro-pack-zu-gro",
+      "items": [
+        {
+          "name": 219,
+          "lid": 144,
+          "label": "Ein/Aus",
+          "type": 10,
+          "default": "0",
+          "dt": 9
+        }
+      ],
+      "section_id": 0
     },
     {
       "lid": 185,
-      "label": "Throttling the discharge current depending on the cell voltage",
+      "label": "Entladestrom Zell-Spannungsabh\u00e4ngig drosseln",
       "type": 13,
-      "wiki": "settings_inverter/#entladestrom-zell-spannungsabhangig-drosseln"
+      "wiki": "settings_inverter/#entladestrom-zell-spannungsabhangig-drosseln",
+      "items": [
+        {
+          "name": 159,
+          "lid": 186,
+          "label": "Ein/Aus",
+          "type": 10,
+          "enProfile": true,
+          "default": "0",
+          "dt": 9
+        },
+        {
+          "name": 138,
+          "lid": 187,
+          "label": "Starten bei Zellspg. kleiner",
+          "help": "Sobald die niedrigste Zellspannung diesen Wert unterschreitet wird die Drosselung aktiv.",
+          "unit": "mV",
+          "type": 3,
+          "enProfile": true,
+          "default": "0",
+          "min": 0,
+          "max": 5000,
+          "dt": 3
+        },
+        {
+          "name": 139,
+          "lid": 188,
+          "label": "End Zellspannung",
+          "help": "Sobald die niedrigste Zellspannung diesen Wert unterschreitet wird maxmial noch mit dem Mindest-Entladestrom entladen.<br>Hinweis: Der Wert muss kleiner sein als die Zell-Startspannung.",
+          "unit": "mV",
+          "type": 3,
+          "enProfile": true,
+          "default": "3300",
+          "min": 2500,
+          "max": 5000,
+          "dt": 3
+        },
+        {
+          "name": 140,
+          "lid": 189,
+          "label": "Mindest Entladestrom",
+          "unit": "A",
+          "type": 3,
+          "enProfile": true,
+          "default": "1",
+          "min": 0,
+          "max": 200,
+          "dt": 1
+        }
+      ],
+      "section_id": 1
     },
     {
-      "name": 159,
-      "lid": 186,
-      "label": "On/Off",
-      "type": 10,
-      "default": "0",
-      "dt": 9
+      "lid": 453,
+      "label": "Entladestrom reduzieren - Temperatur",
+      "type": 13,
+      "help": "Es werden die Quellen aus der aktiven Datenquelle verwendet (Data-Devices oder Group Devices).<br>F\u00fcr die Regelung wird je nach Richtung stets der passende Grenzwert herangezogen: Von warm nach kalt gilt der Minimalwert, von kalt nach warm der Maximalwert.",
+      "items": [
+        {
+          "lid": 457,
+          "label": "Temperaturregeln",
+          "label_entry": "Regel",
+          "groupsize": 4,
+          "type": 12,
+          "group": [
+            {
+              "name": 281,
+              "lid": 186,
+              "label": "Ein/Aus",
+              "type": 10,
+              "default": "0",
+              "dt": 9
+            },
+            {
+              "name": 282,
+              "lid": 454,
+              "label": "Data-Device Sensoren",
+              "type": 14,
+              "options": [
+                {
+                  "$ref": "tempsensorsBms"
+                }
+              ],
+              "default": 0,
+              "dt": 5
+            },
+            {
+              "name": 285,
+              "lid": 389,
+              "label": "Erweiterte Sensorquellen",
+              "type": 14,
+              "options": [
+                {
+                  "$ref": "batteryPacks"
+                }
+              ],
+              "default": 0,
+              "dt": 5
+            },
+            {
+              "name": 286,
+              "lid": 390,
+              "label": "Erweiterte Sensoren 0-31",
+              "type": 14,
+              "options": [
+                {
+                  "$ref": "tempsensors1"
+                }
+              ],
+              "default": 0,
+              "dt": 5
+            },
+            {
+              "name": 283,
+              "lid": 455,
+              "label": "Reduzieren Start",
+              "unit": "\u00b0C",
+              "type": 17,
+              "default": 2000,
+              "min": 1,
+              "max": 100,
+              "dt": 4
+            },
+            {
+              "name": 284,
+              "lid": 456,
+              "label": "Reduzieren Ende",
+              "unit": "\u00b0C",
+              "type": 17,
+              "default": 0,
+              "min": 0,
+              "max": 100,
+              "dt": 4
+            }
+          ]
+        }
+      ],
+      "section_id": 2
     },
     {
-      "name": 138,
-      "lid": 187,
-      "label": "Start at cell voltage lower than",
-      "help": "As soon as the lowest cell voltage falls below this value, throttling becomes active.",
-      "unit": "mV",
-      "type": 3,
-      "default": "0",
-      "min": 0,
-      "max": 5000,
-      "dt": 3
-    },
-    {
-      "name": 139,
-      "lid": 188,
-      "label": "End cell voltage",
-      "help": "As soon as the lowest cell voltage falls below this value, only the minimum discharge current is discharged.\\nNote: The value must be smaller than the cell starting voltage.",
-      "unit": "mV",
-      "type": 3,
-      "default": "3300",
-      "min": 2500,
-      "max": 5000,
-      "dt": 3
-    },
-    {
-      "name": 140,
-      "lid": 189,
-      "label": "Minimum discharge current",
-      "unit": "A",
-      "type": 3,
-      "default": "1",
-      "min": 0,
-      "max": 200,
-      "dt": 1
+      "lid": 458,
+      "label": "Entladestrom reduzieren - Temperaturprofil",
+      "type": 13,
+      "help": "Es werden die Quellen aus der aktiven Datenquelle verwendet (Data-Devices oder Group Devices).",
+      "items": [
+        {
+          "name": 287,
+          "lid": 186,
+          "label": "Ein/Aus",
+          "type": 10,
+          "default": "0",
+          "dt": 9
+        },
+        {
+          "name": 288,
+          "lid": 454,
+          "label": "Data-Device Sensoren",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "tempsensorsBms"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 291,
+          "lid": 389,
+          "label": "Erweiterte Sensorquellen",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "batteryPacks"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 292,
+          "lid": 390,
+          "label": "Erweiterte Sensoren 0-31",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "tempsensors1"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "lid": 459,
+          "label": "Temperaturprofil",
+          "groupsize": 10,
+          "type": 20,
+          "group": [
+            {
+              "name": 289,
+              "lid": 342,
+              "label": "Temperatur",
+              "unit": "\u00b0C",
+              "type": 16,
+              "default": [
+                -300,
+                -200,
+                -100,
+                -50,
+                0,
+                50,
+                450,
+                500,
+                550,
+                600
+              ],
+              "min": -30,
+              "max": 60,
+              "dt": 4
+            },
+            {
+              "name": 290,
+              "lid": 343,
+              "label": "C-Rate",
+              "unit": "C",
+              "type": 17,
+              "default": [
+                0,
+                10,
+                20,
+                40,
+                60,
+                100,
+                50,
+                25,
+                20,
+                0
+              ],
+              "min": 0,
+              "max": 1,
+              "dt": 1
+            }
+          ]
+        }
+      ],
+      "section_id": 3
     }
   ],
   "btn": [
@@ -71,5 +276,12 @@
       "lid": 190,
       "label": "Save"
     }
-  ]
+  ],
+  "ui": {
+    "section_state": {
+      "name": 254,
+      "dt": 5,
+      "default": "((1u << 2) | (1u << 3))"
+    }
+  }
 }

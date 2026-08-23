@@ -69,7 +69,7 @@ Für jedes Data-Device müssen folgende Einstellungen vorgenommen werden:
     !!! info "Adresskonfiguration beachten"  
         Die Adresse muss sowohl **am BMS selbst** als auch **im BSC Data-Device-Mapping** korrekt eingestellt werden.  
         Welche Adresse wo einzustellen ist, wird BMS-spezifisch hier erklärt:  
-        [Unterstützte BMS – Adresskonfiguration](https://bsc-org.github.io/bsc/devices/bms/#serial-bms)  
+        [Unterstützte BMS – Adresskonfiguration](devices/bms.md#serial-bms)  
         **Diese Dokumentation sollte sorgfältig gelesen werden**, da jeder BMS-Typ unterschiedliche Anforderungen hat.
         
 - **Name** (optional): Anzeigename für bessere Übersicht in allen BSC-Menüs
@@ -82,7 +82,7 @@ An *Serial 0* sind zwei JK Inverter BMS angeschlossen:
 
 Weitere Informationen:
 
-- [Adresskonfiguration pro BMS-Typ](https://bsc-org.github.io/bsc/devices/bms/#unterstutzte-bms)
+- [Adresskonfiguration pro BMS-Typ](devices/bms.md#unterstutzte-bms)
 - [Data-Device-Mapping Details](settings_bsc_data_devices.md#data-devices)
 
 ## 3. Wechselrichter-Einstellungen

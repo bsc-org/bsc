@@ -5,23 +5,25 @@ Auf dieser Seite werden die gerätespezifischen Einstellungen dokumentiert, die 
 
 Mit **Group Devices** können mehrere Data-Devices (z. B. einzelne BMS oder Shunts) zu einer virtuellen **Batterie-Gruppe** zusammengefasst werden. Jede Gruppe liefert einen aggregierten Wert für Spannung, Strom und SoC und kann anstelle der einzelnen Data-Devices als Datenquelle verwendet werden – z. B. in den Wechselrichter-Einstellungen, bei den Alarmregeln oder im MQTT-Filter.
 
+```bsc-settings
+version: v010
+file: groupDeviceMapping.json
+profile: off
+groups: 1
+section: UI_SECT_GROUPDEVICEMAPPING_BATTERY_PACKS
+```
+
 !!! note "Hinweis"
     Group Devices werden erst sichtbar, wenn der Parameter **Group Devices aktiv** eingeschaltet ist. Bei aktivierten Group Devices stellen zahlreiche andere Einstellungen (Wechselrichter-Datenquellen, Temperatur-Alarmregeln, MQTT-Filter) auf die Auswahl der **Battery-Packs** (Group Devices) um.
 
 Es stehen bis zu **32 Group Devices** zur Verfügung. Pro Group Device können folgende Parameter konfiguriert werden (im Einstellungsblock unten sind exemplarisch die ersten beiden Group Devices abgebildet – alle Group Devices sind identisch aufgebaut):
 
 - **Name** – Frei wählbarer Name der Gruppe (max. 16 Zeichen; keine `#`- und `+`-Zeichen).
-- **Master Device** / **Second Device** – Primäres bzw. sekundäres Data-Device der Gruppe. Das Master-Device liefert z. B. Zellspannungen und Temperaturen; das Second Device dient als Ergänzung/Redundanz. `Nicht belegt` (255) deaktiviert die Zuweisung.
+- **Master Device** – Primäres Data-Device der Gruppe. Das Master-Device liefert z. B. Zellspannungen und Temperaturen.
+- **Second Device** – Das Second Device hat aktuell noch keine Funktion.
 - **Spannung / Strom / SoC** – Jeweils mit **Quell-Devices** (welche Data-Devices in die Berechnung einfließen) und **Aggregation** (Mittelwert, Maximum, Minimum; beim Strom zusätzlich Summe).
 - **Erweiterte Temperaturen** – Quelle für zusätzliche Temperatursensoren: `Nicht belegt`, `Onewire` oder Data-Devices mit erweiterten Sensoren. Darunter die Sensorauswahl **Sensoren 0-31** bzw. (nur bei Quelle Onewire) **Sensoren 32-63**.
 - **Erweiterte Temperaturen – Namen** – Frei wählbare Namen für die 32 erweiterten Sensoren (max. 16 Zeichen je Sensor).
-
-```bsc-settings
-version: v010
-file: groupDeviceMapping.json
-profile: off
-section: UI_SECT_GROUPDEVICEMAPPING_BATTERY_PACKS
-```
 
 ### Zuordnung der erweiterten Temperaturen
 

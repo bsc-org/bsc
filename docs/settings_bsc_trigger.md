@@ -19,7 +19,7 @@ Wenn mehrere Quellen mit einem Trigger verbunden sind, gilt folgende Regel:
   - Deaktivierung (Low): Der Trigger wird erst deaktiviert, wenn alle verbundenen Quellen wieder in den Normalzustand zurückgekehrt sind.
 
 !!! note "Hinweis"
-    Insbesondere bei der Verwendung von [virtuellen Triggern (vTrigger)](mqtt.md#virtual-trigger) ist darauf zu achten, dass diese durch Automatisierungen gezielt deaktiviert werden müssen, um die Trigger-Funktionalität erneut nutzen zu können.
+    Insbesondere bei der Verwendung von [virtuellen Triggern (vTrigger)](mqtt.md#virtual-trigger) ist darauf zu achten, dass diese durch Automatisierungen auch gezielt deaktiviert werden müssen.
 
 **Beispielanwendung**
 

@@ -1,0 +1,302 @@
+{
+  "page": [
+    {
+      "label": "MQTT Allgemein",
+      "type": 13,
+      "help": "Zum \u00dcbernehmen der Settings, muss der BSC neu gestartet werden!",
+      "wiki": "settings_bsc/#mqtt",
+      "items": [
+        {
+          "name": 44,
+          "lid": 18,
+          "label": "MQTT enable",
+          "type": 10,
+          "default": 0,
+          "dt": 9
+        },
+        {
+          "name": 45,
+          "lid": 6,
+          "label": "MQTT Device Name",
+          "type": 0,
+          "pattern": "^[^#\\+]*$",
+          "default": "bsc",
+          "minlen": 3,
+          "dt": 8
+        },
+        {
+          "name": 42,
+          "lid": 19,
+          "label": "MQTT Server IP",
+          "type": 0,
+          "pattern": "^((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)$",
+          "default": "",
+          "dt": 8
+        },
+        {
+          "name": 43,
+          "lid": 20,
+          "label": "MQTT Server Port",
+          "type": 3,
+          "default": 1883,
+          "min": 1,
+          "max": 49151,
+          "dt": 3
+        },
+        {
+          "name": 86,
+          "lid": 21,
+          "label": "Username",
+          "type": 0,
+          "pattern": "^[^#\\+]*$",
+          "default": "",
+          "dt": 8
+        },
+        {
+          "name": 87,
+          "lid": 22,
+          "label": "Passwort",
+          "type": 2,
+          "default": "",
+          "dt": 8
+        },
+        {
+          "name": 46,
+          "lid": 23,
+          "label": "MQTT Topic Name",
+          "type": 0,
+          "pattern": "^[^#\\+]*$",
+          "default": "bsc",
+          "dt": 8
+        },
+        {
+          "name": 133,
+          "lid": 24,
+          "label": "MQTT Sendeintervall",
+          "unit": "s",
+          "type": 3,
+          "default": 60,
+          "min": 1,
+          "max": 120,
+          "dt": 1
+        },
+        {
+          "name": 168,
+          "lid": 25,
+          "label": "Remanenz vTrigger",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "comboVTrigger"
+            }
+          ],
+          "default": 0,
+          "dt": 5,
+          "help": "V-Trigger behalten dadurch ihren Zustand, auch wenn Spannung unterbrochen wurde."
+        }
+      ]
+    },
+    {
+      "label": "Home Assistant",
+      "type": 13,
+      "items": [
+        {
+          "name": 326,
+          "label": "Home Assistant Discovery Prefix",
+          "type": 0,
+          "pattern": "^[^#\\+]*$",
+          "default": "homeassistant",
+          "dt": 8
+        }
+      ]
+    },
+    {
+      "label": "Data Devices",
+      "type": 13,
+      "items": [
+        {
+          "name": 262,
+          "label": "Data Devices senden",
+          "type": 10,
+          "default": 1,
+          "dt": 9
+        },
+        {
+          "name": 263,
+          "label": "Data Devices Auswahl",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "dataDevicesAll"
+            }
+          ],
+          "default": 4294967295,
+          "dt": 5
+        },
+        {
+          "name": 264,
+          "label": "Datenklassen",
+          "type": 14,
+          "options": [
+            {
+              "v": 0,
+              "l": "Gesamtspannung/Strom, SoC, FET-State"
+            },
+            {
+              "v": 1,
+              "l": "Zellspannungen"
+            },
+            {
+              "v": 2,
+              "l": "Restliche Zelldaten"
+            },
+            {
+              "v": 3,
+              "l": "Balancerdaten (inkl. Balance-Status)"
+            },
+            {
+              "v": 4,
+              "l": "Errors, Warnings"
+            },
+            {
+              "v": 5,
+              "l": "Temperaturen"
+            },
+            {
+              "v": 6,
+              "l": "Kapazit\u00e4t/Energie/Statistik"
+            }
+          ],
+          "default": "(MQTT_FILTER_CLASS_TOTAL_MAIN | MQTT_FILTER_CLASS_CELL_VOLTAGES | MQTT_FILTER_CLASS_CELL_REST | MQTT_FILTER_CLASS_BALANCER | MQTT_FILTER_CLASS_ERR_WARN | MQTT_FILTER_CLASS_TEMPERATURES | MQTT_FILTER_CLASS_ENERGY_STATS)",
+          "dt": 5,
+          "help": "valid und maintenance werden immer gesendet."
+        }
+      ]
+    },
+    {
+      "label": "Group Devices",
+      "type": 13,
+      "items": [
+        {
+          "name": 265,
+          "label": "Group Devices senden",
+          "type": 10,
+          "default": 1,
+          "dt": 9
+        },
+        {
+          "name": 266,
+          "label": "Group Devices Auswahl",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "batteryPacks"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 267,
+          "label": "Datenklassen",
+          "type": 14,
+          "options": [
+            {
+              "v": 0,
+              "l": "Gesamtspannung/Strom, SoC, FET-State"
+            },
+            {
+              "v": 1,
+              "l": "Zellspannungen"
+            },
+            {
+              "v": 2,
+              "l": "Restliche Zelldaten"
+            },
+            {
+              "v": 3,
+              "l": "Balancerdaten (inkl. Balance-Status)"
+            },
+            {
+              "v": 4,
+              "l": "Errors, Warnings"
+            },
+            {
+              "v": 5,
+              "l": "Temperaturen"
+            },
+            {
+              "v": 6,
+              "l": "Kapazit\u00e4t/Energie/Statistik"
+            }
+          ],
+          "default": "(MQTT_FILTER_CLASS_TOTAL_MAIN | MQTT_FILTER_CLASS_CELL_VOLTAGES | MQTT_FILTER_CLASS_CELL_REST | MQTT_FILTER_CLASS_BALANCER | MQTT_FILTER_CLASS_ERR_WARN | MQTT_FILTER_CLASS_TEMPERATURES | MQTT_FILTER_CLASS_ENERGY_STATS)",
+          "dt": 5,
+          "help": "valid und maintenance werden immer gesendet."
+        }
+      ],
+      "visible_when": [
+        {
+          "param": 236,
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "label": "Weitere Daten",
+      "lid": 532,
+      "type": 13,
+      "items": [
+        {
+          "name": 268,
+          "lid": 526,
+          "label": "MQTT-Daten senden",
+          "type": 14,
+          "options": [
+            {
+              "v": 0,
+              "lid": 527,
+              "l": "OneWire"
+            },
+            {
+              "v": 1,
+              "lid": 528,
+              "l": "Inverter"
+            },
+            {
+              "v": 2,
+              "lid": 529,
+              "l": "Trigger"
+            },
+            {
+              "v": 3,
+              "lid": 530,
+              "l": "System"
+            },
+            {
+              "v": 4,
+              "lid": 531,
+              "l": "Zellspannungsabfall (Debug)"
+            }
+          ],
+          "default": "((1u << MQTT_FILTER_TOPIC_OW_POS) | (1u << MQTT_FILTER_TOPIC_INVERTER_POS) | (1u << MQTT_FILTER_TOPIC_ALARM_POS) | (1u << MQTT_FILTER_TOPIC_SYS_POS))",
+          "dt": 5
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 34,
+      "label": "Save"
+    },
+    {
+      "name": "action-btn",
+      "lid": 496,
+      "label": "HA Discovery senden",
+      "action": "mqttHaDiscovery"
+    }
+  ]
+}

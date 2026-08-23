@@ -66,7 +66,7 @@ section: UI_SECT_SYSTEM_WLAN
   Maximale Zeit (in Sekunden), die der BSC auf eine erfolgreiche WLAN-Verbindung wartet, bevor der Verbindungsversuch abgebrochen wird. Wird innerhalb dieser Zeit keine Verbindung hergestellt, erstellt das Gerät automatisch einen eigenen Access Point (AP).  
   Wird der Wert auf **0** gesetzt, ist der Timeout deaktiviert und der Verbindungsversuch wird unbegrenzt fortgesetzt.  
   <br> 
-  Verliert der BSC die WLAN-Verbindung und erstellt nach dem eingestellten Timeout einen Access Point, versucht er alle **5 Minuten**, die Verbindung mit dem ursprünglichen WLAN-Netzwerk erneut herzustellen. Dieses Verhalten gilt für alle Firmware-Varianten.
+  Verliert der BSC die WLAN-Verbindung und erstellt nach dem eingestellten Timeout einen Access Point, versucht er alle **5 Minuten**, die Verbindung mit dem ursprünglichen WLAN-Netzwerk erneut herzustellen. 
 
 - **Ethernet**  
   Bei aktiviertem Ethernet (nur auf T-Connect-Hardware mit Ethernet-Anschluss verfügbar) wird WLAN deaktiviert und die Verbindung über den LAN-Anschluss aufgebaut.

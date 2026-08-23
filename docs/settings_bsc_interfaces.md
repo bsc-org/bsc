@@ -59,8 +59,6 @@ version: v010
 file: serial.json
 profile: off
 index: 1
-section: UI_SECT_SERIAL_ALLGEMEIN
-section: UI_SECT_SERIAL_FILTER
 ```
 
 **Zuordnung bei der orginal BSC Hardware (Software => Hardware):**
@@ -72,15 +70,29 @@ section: UI_SECT_SERIAL_FILTER
 Serial 3 bis 10 sind nur mit angeschlossener Serial-Extension nutzbar.  
 
 **Unterstützte Hardware (Serielle Schnittstellen)**  
-In der Auswahl stehen aktuell folgende Gerätetypen zur Verfügung: nicht belegt, BPN (not use), JBD BMS, JK BMS, JK BMS V1.3 (only monitoring), JK Inverter BMS, Seplos BMS, Seplos V3 BMS, DALY BMS, Sylcin BMS, PACE RN150 BMS (Test), PACE PC200 BMS (RS485B), PACE PC200 V1 BMS (RS232), PACE PC200 V2 BMS (RS232), Pylontech, Felicity LUX-Y Serie, Daren BMS, Victron SmartShunt, NEEY RS485, Eletechsup NT4A08, Eletechsup NT48B16 und Eletechsup NT48C32.  
 Eine Liste der unterstützten Hardware mit Details zur Adressierung ist unter folgendem Link verfügbar: [Unterstützte BMS](devices/bms.md#unterstutzte-bms)  
 Die Liste der verfügbaren Hardware wird kontinuierlich erweitert, um den Anforderungen und Bedürfnissen unserer Nutzer gerecht zu werden.
 
-**Anzahl Zellen**  
+### Anzahl Zellen
+
+```bsc-settings
+version: v010
+file: serial.json
+profile: off
+section: UI_SECT_SERIAL_ALLGEMEIN
+```
+
 Gibt die Anzahl der in einer Batterie verbauten Einzelzellen an.  
 Diese Einstellung ist z.B. wichtig, um die Werte im Dashboard korrekt darzustellen.  
 
 ### Filter
+
+```bsc-settings
+version: v010
+file: serial.json
+profile: off
+section: UI_SECT_SERIAL_FILTER
+```
 
 Dieser Filter dient dazu, plötzliche Sprünge in den Zellspannungen zu erkennen und zu unterdrücken.  
 Er sorgt für eine präzisere und stabilere Datenverarbeitung, indem temporäre Spannungssprünge herausgefiltert und die Verwertung fehlerhafter Datenpakete verhindert werden.
@@ -140,6 +152,8 @@ index: 1
 
 
 ## Bluetooth
+!!! warning
+    Bluetooth wird in der aktuell Firmware nicht unterstützt
 
 ```bsc-settings
 version: v010
@@ -148,11 +162,10 @@ profile: off
 index: 1
 ```
 
-Hier können bis zu 5 Bluetooth Devices festgelegt werden, von denen der Controller Daten holt.  
-Dazu muss der Device-Typ und die MAC-Adresse (in Kleinbuchstaben) eingestellt werden.  
+~~ Hier können bis zu 5 Bluetooth Devices festgelegt werden, von denen der Controller Daten holt.~~  
+~~Dazu muss der Device-Typ und die MAC-Adresse (in Kleinbuchstaben) eingestellt werden.~~  
 
-Der Controller scannt, sobald diese Konfigurationsseite aufgerufen ist, zyklisch nach neuen BT-Devices   
-und zeigt die letzten 5 gefundenen am unteren Ende der Seite an.  
+~~Der Controller scannt, sobald diese Konfigurationsseite aufgerufen ist, zyklisch nach neuen BT-Devices und zeigt die letzten 5 gefundenen am unteren Ende der Seite an.~~  
 
-**Unterstützte Hardware**  
-Eine Liste der unterstützten Hardware ist unter folgendem Link verfügbar: [Unterstützte Bluetooth Devices](devices/bms.md#bluetooth-devices)
+~~**Unterstützte Hardware**~~  
+~~Eine Liste der unterstützten Hardware ist unter folgendem Link verfügbar: [Unterstützte Bluetooth Devices](devices/bms.md#bluetooth-devices)~~

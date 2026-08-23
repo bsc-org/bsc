@@ -38,7 +38,7 @@
                 {
                   "v": "ID_SERIAL_DEVICE_BPN",
                   "l": "BPN (not use)",
-                  "adr":[0,0]
+                  "adr":[1,1]
                 },
                 {
                   "v": "ID_SERIAL_DEVICE_JBDBMS",
@@ -108,7 +108,7 @@
                 {
                   "v": "ID_SERIAL_DEVICE_FELICITY_LUXY",
                   "l": "Felicity LUX-Y Serie",
-                  "adr":[0,0]
+                  "adr":[1,1]
                 },
                 {
                   "v": "ID_SERIAL_DEVICE_DAREN_BMS",
@@ -127,7 +127,7 @@
                 },
                 {
                   "v": "ID_SERIAL_DEVICE_NT48A08",
-                  "l": "Eletechsup NT4A08",
+                  "l": "Eletechsup NT48A08",
                   "adr":[1,1]
                 },
                 {

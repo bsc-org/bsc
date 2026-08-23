@@ -2,236 +2,106 @@
   "page": [
     {
       "lid": 31,
-      "label": "Trigger name",
-      "type": 13
-    },
-    {
-      "lid": 32,
-      "label": "Trigger description",
-      "label_entry": "Trigger",
-      "label_offset": 1,
-      "groupsize": 10,
-      "type": 12,
-      "group": [
+      "label": "Triggername",
+      "type": 13,
+      "items": [
         {
-          "name": 117,
-          "lid": 33,
-          "label": "Trigger",
-          "type": 0,
-          "default": "",
-          "flash": "1",
-          "dt": 8
+          "lid": 32,
+          "label": "Trigger description",
+          "label_entry": "Trigger",
+          "label_offset": 1,
+          "groupsize": 27,
+          "type": 12,
+          "group": [
+            {
+              "name": 117,
+              "lid": 33,
+              "label": "Trigger",
+              "type": 0,
+              "default": "",
+              "maxlen": 16,
+              "flash": "1",
+              "dt": 8
+            }
+          ]
         }
-      ]
+      ],
+      "section_id": 0
     },
     {
       "lid": 329,
       "label": "Trigger Scheduler",
       "type": 13,
-      "label_entry": "Scheduler"
-    },
-    {
-      "lid": 329,
-      "label": "Trigger Scheduler",
-      "label_entry": "Scheduler",
-      "groupsize": 5,
-      "type": 12,
-      "group": [
+      "items": [
         {
-          "name": 199,
-          "lid": 33,
-          "label": "Trigger",
-          "type": 9,
-          "options": [
+          "lid": 329,
+          "label": "Trigger Scheduler",
+          "label_entry": "Scheduler ",
+          "groupsize": 5,
+          "type": 12,
+          "group": [
             {
-              "v": "0",
-              "lid": 257,
-              "l": "Off"
+              "name": 199,
+              "lid": 33,
+              "label": "Trigger",
+              "type": 9,
+              "options": [
+                {
+                  "v": "0",
+                  "lid": 257,
+                  "l": "Aus"
+                },
+                {
+                  "$ref": "comboAlarms"
+                }
+              ],
+              "default": 0,
+              "dt": 1
             },
             {
-              "v": "1",
-              "l": "Trigger 1",
-              "d": 7488
+              "name": 200,
+              "lid": 330,
+              "label": "Monat",
+              "type": 14,
+              "options": [
+                {
+                  "$ref": "month"
+                }
+              ],
+              "default": 0,
+              "dt": 3
             },
             {
-              "v": "2",
-              "l": "Trigger 2",
-              "d": 7489
+              "name": 201,
+              "lid": 331,
+              "label": "Wochentag",
+              "type": 14,
+              "options": [
+                {
+                  "$ref": "days"
+                }
+              ],
+              "default": 0,
+              "dt": 3
             },
             {
-              "v": "3",
-              "l": "Trigger 3",
-              "d": 7490
+              "name": 202,
+              "lid": 332,
+              "label": "von",
+              "type": 7,
+              "dt": 8
             },
             {
-              "v": "4",
-              "l": "Trigger 4",
-              "d": 7491
-            },
-            {
-              "v": "5",
-              "l": "Trigger 5",
-              "d": 7492
-            },
-            {
-              "v": "6",
-              "l": "Trigger 6",
-              "d": 7493
-            },
-            {
-              "v": "7",
-              "l": "Trigger 7",
-              "d": 7494
-            },
-            {
-              "v": "8",
-              "l": "Trigger 8",
-              "d": 7495
-            },
-            {
-              "v": "9",
-              "l": "Trigger 9",
-              "d": 7496
-            },
-            {
-              "v": "10",
-              "l": "Trigger 10",
-              "d": 7497
+              "name": 203,
+              "lid": 333,
+              "label": "bis",
+              "type": 7,
+              "dt": 8
             }
-          ],
-          "default": 0,
-          "dt": 1
-        },
-        {
-          "name": 200,
-          "lid": 330,
-          "label": "Month",
-          "type": 14,
-          "options": [
-            {
-              "v": 0,
-              "l": "January",
-              "lid": 310
-            },
-            {
-              "v": 1,
-              "l": "February",
-              "lid": 311
-            },
-            {
-              "v": 2,
-              "l": "March",
-              "lid": 312
-            },
-            {
-              "v": 3,
-              "l": "April",
-              "lid": 313
-            },
-            {
-              "v": 4,
-              "l": "May",
-              "lid": 314
-            },
-            {
-              "v": 5,
-              "l": "June",
-              "lid": 315
-            },
-            {
-              "v": 6,
-              "l": "July",
-              "lid": 316
-            },
-            {
-              "v": 7,
-              "l": "August",
-              "lid": 317
-            },
-            {
-              "v": 8,
-              "l": "September",
-              "lid": 318
-            },
-            {
-              "v": 9,
-              "l": "Oktober",
-              "lid": 319
-            },
-            {
-              "v": 10,
-              "l": "November",
-              "lid": 320
-            },
-            {
-              "v": 11,
-              "l": "December",
-              "lid": 321
-            }
-          ],
-          "default": 0,
-          "dt": 3
-        },
-        {
-          "name": 201,
-          "lid": 331,
-          "label": "Weekday",
-          "type": 14,
-          "options": [
-            {
-              "v": 0,
-              "l": "Monday",
-              "lid": 322
-            },
-            {
-              "v": 1,
-              "l": "Tuesday",
-              "lid": 323
-            },
-            {
-              "v": 2,
-              "l": "Wednesday",
-              "lid": 324
-            },
-            {
-              "v": 3,
-              "l": "Thursday",
-              "lid": 325
-            },
-            {
-              "v": 4,
-              "l": "Friday",
-              "lid": 326
-            },
-            {
-              "v": 5,
-              "l": "Saturday",
-              "lid": 327
-            },
-            {
-              "v": 6,
-              "l": "Sunday",
-              "lid": 328
-            }
-          ],
-          "default": 0,
-          "dt": 3
-        },
-        {
-          "name": 202,
-          "lid": 332,
-          "label": "from",
-          "type": 7,
-          "dt": 8
-        },
-        {
-          "name": 203,
-          "lid": 333,
-          "label": "to",
-          "type": 7,
-          "dt": 8
+          ]
         }
-      ]
+      ],
+      "section_id": 1
     }
   ],
   "btn": [
@@ -240,5 +110,12 @@
       "lid": 196,
       "label": "Save"
     }
-  ]
+  ],
+  "ui": {
+    "section_state": {
+      "name": 261,
+      "dt": 5,
+      "default": "0u"
+    }
+  }
 }
