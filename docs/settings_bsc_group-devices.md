@@ -1,5 +1,5 @@
-# Devices (Geräte-Einstellungen)
-Auf dieser Seite werden die gerätespezifischen Einstellungen dokumentiert, die über die allgemeinen [Schnittstellen-Einstellungen](settings_bsc_interfaces.md) hinausgehen: **Group Devices** (virtuelle Batterie-Gruppen), **BPN** (Battery Protection Node) und **JBD BMS**.
+# Group Devices
+Auf dieser Seite werden die gerätespezifischen Einstellungen dokumentiert, die über die allgemeinen [Schnittstellen-Einstellungen](settings_bsc_interfaces.md) hinausgehen: **Group Devices** (virtuelle Batterie-Gruppen).
 
 ## Group Devices (Batterie-Gruppen)
 

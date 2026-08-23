@@ -82,7 +82,7 @@ profile: off
 label: Group Devices
 ```
 
-Gleiche Struktur wie bei den Data Devices: **Group Devices senden**, **Group Devices Auswahl** und **Datenklassen**. Diese Sektion ist nur relevant, wenn [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert sind.
+Gleiche Struktur wie bei den Data Devices: **Group Devices senden**, **Group Devices Auswahl** und **Datenklassen**. Diese Sektion ist nur relevant, wenn [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert sind.
 
 ### Weitere Daten
 

@@ -19,4 +19,4 @@ section: UI_SECT_MAINTENANCE_WARTUNGSMODUS
 ```
 
 !!! note "Hinweis"
-    Die Auswahl „Group Devices“ ist nur relevant, wenn [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert sind.
+    Die Auswahl „Group Devices“ ist nur relevant, wenn [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert sind.

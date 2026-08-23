@@ -33,7 +33,7 @@ Wichtig: Je nach **aktiver Laderegelung** müssen die ausgewählten Datenquellen
 An dieser Stelle werden **nicht** die Datenquellen ausgewählt, die **nur** für **Gesamtspannung**, **Gesamtstrom** oder den **SoC** verwendet werden sollen (z. B. ein **Shunt**) – das erfolgt unter [Valuehandling](#valuehandling-multi-bms).
 
 !!! note "Hinweis"
-    Sind [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert, kann hier anstelle der Data-Devices eine **Battery-Pack-Auswahl** (Group Devices) getroffen werden.
+    Sind [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert, kann hier anstelle der Data-Devices eine **Battery-Pack-Auswahl** (Group Devices) getroffen werden.
 
 
 ## Valuehandling {: #valuehandling-multi-bms }
@@ -53,7 +53,7 @@ Mit der Domain wird festgelegt, aus welchem Bereich die Quellen stammen:
 
 - **Auto** – Automatische Auswahl (Data Devices; bei aktivierten Group Devices: Battery-Packs).
 - **Data devices** – Es werden die konfigurierten Data-Devices angeboten.
-- **Group devices** – Es werden die konfigurierten Group Devices (Battery-Packs) angeboten. Nur verfügbar, wenn [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert sind.
+- **Group devices** – Es werden die konfigurierten Group Devices (Battery-Packs) angeboten. Nur verfügbar, wenn [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert sind.
 
 **Quelle SoC**  
 Legt fest, von welchem angeschlossenen Gerät (Data Device bzw. Group Device) der Ladezustand der Batterie (State of Charge, SoC) übernommen wird.  
@@ -206,7 +206,7 @@ section: UI_SECT_BMSTOINVERTER_BATTERIETEMPERATUR
 ```
 
 **Quelle**  
-Das Data-Device, dessen Temperatur übertragen wird (`nicht belegt` = 255 deaktiviert die Temperaturübertragung). Sind [Group Devices](settings_bsc_devices.md#group-devices-batterie-gruppen) aktiviert, wird hier stattdessen ein **Battery-Pack** (Group Device) ausgewählt.
+Das Data-Device, dessen Temperatur übertragen wird (`nicht belegt` = 255 deaktiviert die Temperaturübertragung). Sind [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert, wird hier stattdessen ein **Battery-Pack** (Group Device) ausgewählt.
 
 **Sensortyp** (nur bei aktivierten Group Devices)  
 Legt fest, ob die **Data-Device Sensoren** (0–5) oder die **Erweiterten Sensoren** (0–31) der Gruppe verwendet werden.

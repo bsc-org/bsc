@@ -24,7 +24,7 @@ Weitere Informationen zur SoC-Quelle und Aggregation finden Sie unter [Valuehand
 3) Die Option "SoC linearisieren" der Value Adjustments ist aktiviert und linearisiert den SoC zwischen den eingestellten Zellspannungen.  
 Bitte wechseln Sie im Menü auf `Einstellungen → Schnittstellen → Data devices` und scrollen zu den "Value adjustments".  
 Hier sollten die Felder "Cellvoltage for SoC 100%" und "Cellvoltage for SoC 0%" leer bleiben bzw. "SoC linearisieren" deaktiviert sein, wenn ein BMS mit eigener SoC-Kalkulation genutzt wird.  
-Weitere Informationen finden Sie [hier](settings_bsc_interfaces.md#value-adjustment).
+Weitere Informationen finden Sie [hier](settings_bsc_data_devices.md#value-adjustment).
 
 ### Log-Eintrag: "MQTT Queue ist voll"
 Dieses Problem kann auftreten, wenn der Broker nicht innerhalb einer bestimmten Zeit alle Daten aus der Queue abrufen kann.
