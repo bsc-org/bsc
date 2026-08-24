@@ -2,7 +2,7 @@
   "page": [
     {
       "lid": 71,
-      "label": "Alarm bei Sensorfehler",
+      "label": "Alarm bei OneWire-Sensorfehler",
       "type": "HTML_SEPARATION",
       "items": [
         {

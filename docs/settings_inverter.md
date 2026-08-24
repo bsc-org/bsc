@@ -16,7 +16,7 @@ Aktiviert oder deaktiviert die generelle CAN-Bus-Kommunikation des BMS.
 Wenn deaktiviert, werden keine Daten über den CAN-Bus an Wechselrichter gesendet.
 
 **Canbus protocol**  
-Legt fest, welches Kommunikationsprotokoll für den angeschlossenen Wechselrichter verwendet wird (Standard: `nicht belegt`).  
+Legt fest, welches Kommunikationsprotokoll für den angeschlossenen Wechselrichter verwendet wird.  
 Für die meisten Wechselrichter sollte das Protokoll **Pylontech** gewählt werden.  
 
 **Send extended data**  
@@ -32,11 +32,11 @@ Wichtig: Je nach **aktiver Laderegelung** müssen die ausgewählten Datenquellen
 
 An dieser Stelle werden **nicht** die Datenquellen ausgewählt, die **nur** für **Gesamtspannung**, **Gesamtstrom** oder den **SoC** verwendet werden sollen (z. B. ein **Shunt**) – das erfolgt unter [Valuehandling](#valuehandling-multi-bms).
 
-!!! note "Hinweis zur Standard-Firmware"
-    In der **Standard-Firmware** (der freien Firmware) musst du hier zusätzlich eine **Master-Datenquelle** festlegen. Von dieser wird die **Batteriespannung** übernommen, die anschließend an den Wechselrichter übermittelt wird.
-
 !!! note "Hinweis"
     Sind [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert, kann hier anstelle der Data-Devices eine **Battery-Pack-Auswahl** (Group Devices) getroffen werden.
+
+!!! note "Hinweis zur Standard-Firmware"
+    In der **freien Firmware** musst du hier zusätzlich eine **Master-Datenquelle** festlegen. Von dieser wird die **Batteriespannung** übernommen, die anschließend an den Wechselrichter übermittelt wird.
 
 
 ## Valuehandling {: #valuehandling-multi-bms }
@@ -52,14 +52,14 @@ section: UI_SECT_BMSTOINVERTER_VALUEHANDLING
 ```
 
 !!! note "Hinweis zur Standard-Firmware"
-    In der **Standard-Firmware** (der freien Firmware) kannst du hier nur für den **SoC** die Aggregation einstellen.
+    In der **freien Firmware** kannst du hier nur für den **SoC** die Aggregation einstellen.
 
 **Domain**  
 Mit der Domain wird festgelegt, aus welchem Bereich die Quellen stammen:
 
-- **Auto** – Automatische Auswahl (Data Devices; bei aktivierten Group Devices: Battery-Packs).
+- **Auto** – Automatische Auswahl (Data Devices oder Group Devices, wenn diese aktiviert sind).
 - **Data devices** – Es werden die konfigurierten Data-Devices angeboten.
-- **Group devices** – Es werden die konfigurierten Group Devices (Battery-Packs) angeboten. Nur verfügbar, wenn [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert sind.
+- **Group devices** – Es werden die konfigurierten Group Devices angeboten. Nur verfügbar, wenn [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert sind.
 
 **Quelle SoC**  
 Legt fest, von welchem angeschlossenen Gerät (Data Device bzw. Group Device) der Ladezustand der Batterie (State of Charge, SoC) übernommen wird.  
@@ -68,6 +68,20 @@ Wird nur ein Gerät als Quelle verwendet, bestimmt ausschließlich dessen Wert d
 **Aggregation SoC**  
 Definiert die Methode, mit der der SoC berechnet wird, wenn mehrere Datenquellen gleichzeitig ausgewählt wurden.  
 Mögliche Aggregationsmethoden sind **Mittelwert**, **höchster Wert**, **niedrigster Wert**, **BMS** oder **Kapazitätsgewichtet**. Bei der Auswahl **BMS** wird der SoC des ersten ausgewählten Data-Device an den Wechselrichter übermittelt. Bei **Kapazitätsgewichtet** fließen die SoC-Werte entsprechend der in den [Basisdaten](#basisdaten) hinterlegten Pack-Kapazitäten gewichtet ein.
+
+**Kapazitätsgewichtet im Detail**  
+Bei **Kapazitätsgewichtet** zählt der SoC jedes Packs proportional zu seiner Kapazität: Ein großes Pack beeinflusst den Gesamt-SoC stärker als ein kleines. Der Gesamt-SoC ergibt sich aus der Summe der mit der Kapazität multiplizierten SoC-Werte geteilt durch die Summe der Kapazitäten:  
+
+SoC = Σ (SoC des Packs × Kapazität des Packs) / Σ (Kapazität des Packs)
+
+Beispiel mit zwei Packs: Pack 1 hat 300 Ah und 80 % SoC, Pack 2 hat 100 Ah und 40 % SoC:  
+
+Zum Vergleich: Der **Mittelwert** ergäbe 60 %, der **Maximalwert** 80 %. Intern wird mit hundertstel Prozent gerechnet; das Ergebnis wird auf ganze Prozent gerundet.  
+
+!!! warning "Fehlende Kapazität"
+    Hat ein ausgewähltes Pack in den [Basisdaten](#basisdaten) keine Kapazität hinterlegt (0 Ah), wird sein SoC bei **Kapazitätsgewichtet** nicht berücksichtigt. Haben **alle** ausgewählten Packs keine Kapazität, wird pauschal ein SoC von **100 %** angenommen.
+
+Da in den [Basisdaten](#basisdaten) für jedes Pack standardmäßig **280 Ah** voreingestellt sind, gehen Packs ohne individuelle Anpassung mit diesem Wert in die Berechnung ein. Die übrigen Methoden arbeiten ohne Kapazitätsbezug: **Mittelwert** bildet den Durchschnitt der SoC-Werte der ausgewählten Quellen, **höchster Wert** (Maximalwert) bzw. **niedrigster Wert** (Minimalwert) übernehmen den größten bzw. kleinsten SoC-Wert, und **BMS** verwendet den SoC des ersten ausgewählten Geräts.
 
 **Quelle Gesamtspannung**  
 Bestimmt, von welchem Data Device der Wert für die Gesamtbatteriespannung übernommen wird.  
