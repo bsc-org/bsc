@@ -194,7 +194,7 @@ Bei aktivem Trigger gelten die Werte als Obergrenze. Sie übersteuern die festge
 Die Funktion **Ladespannungsrampe** sorgt dafür, dass Änderungen der Ladespannung – beispielsweise beim Übergang von Float auf Absorption – nicht sprunghaft, sondern in langsamen, definierten Schritten erfolgen. Damit werden abrupte Spannungsänderungen vermieden und Belastungsspitzen an Batterie und System reduziert.
 
 !!! note "Hinweis zur Supporter-Firmware"
-    Die Ladespannungsrampe ist auch Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+    Die Ladespannungsrampe ist Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
 
 ```bsc-settings
 version: v010
@@ -212,13 +212,35 @@ section: UI_SECT_BMSTOINVERTER_LADESPANNUNGSRAMPE
 **Zeit pro Spannungsschritt (s)**  
 Bestimmt, in welchem Intervall die Ladespannung in 100 mV-Schritten angepasst wird (1–240 s, Standard 15 s).
 
+### Auto-Modus im Detail
+
+Im Auto-Modus kombiniert die Rampe beide Verfahren:
+
+- **Aufwärts** – Liegt die neue Ladespannung über dem aktuellen Setpoint, steigt dieser wie bei der Zeitrampe um 0,1 V pro eingestellter *Zeit pro Spannungsschritt*. Der Ladestrom bleibt dabei freigegeben.
+- **Abwärts** – Liegt die neue Ladespannung unter dem aktuellen Setpoint, arbeitet die Rampe **spannungsgeführt**: Der Ladestrom wird auf **0 A** gezwungen, und der Setpoint folgt der gemessenen Batteriespannung, bis die Zielspannung erreicht ist.
+
+Ablauf einer Absenkung:
+
+1. Die Zielspannung ändert sich (z. B. Wechsel in die Float-Spannung oder ein geänderter Sollwert). Die Abwärtsphase startet.
+2. Solange die Batteriespannung über dem Ziel liegt, wird der Ladestrom unabhängig von den übrigen Ladestrombegrenzungen auf 0 A gesetzt.
+3. In jedem Regelzyklus (1 s) wird der Setpoint auf die aktuelle Batteriespannung gesetzt (gerundet auf 0,1 V), aber nie höher als der bisherige Setpoint. So sinkt der Setpoint gemeinsam mit der Batteriespannung.
+4. Sobald die Batteriespannung das Ziel erreicht oder unterschritten hat, wird der Setpoint auf die Zielspannung gesetzt und der Ladestrom wieder freigegeben.
+
+**Beispiel:** Zielwechsel von 56,0 V auf 54,0 V bei einer gemessenen Batteriespannung von 56,0 V. Der Ladestrom wird sofort auf 0 A gesetzt. Da nicht mehr geladen wird, sinkt die Batteriespannung langsam (56,0 V → 55,7 V → 55,4 V → …), und der Setpoint folgt ihr in 0,1-V-Auflösung. Bei 54,0 V ist das Ziel erreicht: Der Setpoint steht auf 54,0 V, der Ladestrom wird freigegeben. Wird das Ziel später wieder angehoben, steigt der Setpoint per Zeitrampe.
+
+!!! note "Sonderfälle"
+    - Liegt **keine gültige Batteriespannungsmessung** vor, wird die Zielspannung sofort übernommen (keine Zwischenschritte).
+    - Liegt die Batteriespannung bereits beim Start der Absenkung unter dem Ziel, wird die Zielspannung direkt übernommen und der Ladestrom bleibt frei.
+    - Auch Änderungen durch den **dynamischen Ladespannungsoffset** zählen als Zieländerung und lösen bei Absenkungen die spannungsgeführte Regelung aus – die Rampe wirkt immer zuletzt auf den bereits angepassten Zielwert.
+    - Die Dauer der Abwärtsphase hängt davon ab, wie schnell die Batteriespannung auf den Zielwert sinkt (Ladestrom 0 A plus ggf. Last).
+
 !!! Hinweis  
     Die Ladespannungsrampe wird bei jeder Änderung der Sollspannung aktiv, sofern diese Funktion aktiviert ist.
 
 
 ## Batterietemperatur
 
-Hier wird festgelegt, von welchem Data Device bzw. welchen erweiterten Sensoren (z. B. OneWire) die Batterietemperatur übernommen und an den Wechselrichter übermittelt werden soll.  
+Hier wird festgelegt, von welchem Data Device bzw. welchen erweiterten Sensoren die Batterietemperatur übernommen und an den Wechselrichter übermittelt werden soll.  
 
 ```bsc-settings
 version: v010
@@ -228,7 +250,7 @@ section: UI_SECT_BMSTOINVERTER_BATTERIETEMPERATUR
 ```
 
 **Quelle**  
-Das Data-Device, dessen Temperatur übertragen wird (`nicht belegt` = 255 deaktiviert die Temperaturübertragung). Sind [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert, wird hier stattdessen ein **Battery-Pack** (Group Device) ausgewählt.
+Das Data-Device, dessen Temperatur übertragen wird (`nicht belegt` = 255 deaktiviert die Temperaturübertragung). Sind [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert, wird hier stattdessen ein Group Device ausgewählt.
 
 **Sensortyp** (nur bei aktivierten Group Devices)  
 Legt fest, ob die **Data-Device Sensoren** (0–5) oder die **Erweiterten Sensoren** (0–31) der Gruppe verwendet werden.
@@ -237,7 +259,7 @@ Legt fest, ob die **Data-Device Sensoren** (0–5) oder die **Erweiterten Sensor
 Nummer des Temperatursensors der gewählten Quelle: Data-Device Sensoren 0–5, Erweiterte Sensoren 0–31.
 
 !!! note "Hinweis zur Standard-Firmware"
-    In der **Standard-Firmware** (der freien Firmware) wird die Temperatur stets von der Masterquelle übernommen.
+    In der **freien Firmware** wird die Temperatur stets von der Masterquelle übernommen.
 
 
 ## Zelltemperatur
@@ -252,7 +274,7 @@ section: UI_SECT_BMSTOINVERTER_ZELLTEMPERATUR
 ```
 
 !!! note "Hinweis zur Supporter-Firmware"
-    Die Zelltemperatur-Auswahl ist auch Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+    Die Zelltemperatur-Auswahl ist Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
 
 
 ## Alarme (Inverter)
