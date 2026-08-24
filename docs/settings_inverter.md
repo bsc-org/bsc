@@ -154,13 +154,15 @@ Setzt den Ladezustand im System auf 100 %, wenn einer der definierten Trigger ak
 Setzt den Ladezustand im System auf 0 %, wenn einer der definierten Trigger aktiviert wird.  
 
 **Batterypack Settings**  
-Mit dieser Funktion können Sie einen Lade- oder Entlade-Überstrom vermeiden, wenn einzelne Battery-Packs im System abgeschaltet werden. 
+In dieser Sektion legst du die Einstellungen für jedes einzelne Battery Pack fest. Pro Pack (in der WebApp aufgeführt als *Data device 1*, *Data device 2*, …) stehen folgende Parameter zur Verfügung:
 
-Das Battery Safety Controller (BSC) sorgt dafür, dass der zuvor definierte maximale Lade- und Entladestrom an den Inverter übermittelt wird. Je nach Anzahl der parallel geschalteten Packs müssen Sie diesen Stromwert individuell festlegen. Sollte nun ein Battery Management System (BMS) eines Packs eingreifen und das Pack vom Netz nehmen, besteht die Möglichkeit, dass die verbleibenden Packs den vollen Strom des ausgefallenen Packs übernehmen. Dies könnte zu einem Überstrom führen.
+- **Charge current per pack** – Maximal zulässiger Ladestrom des Packs (0–500 A).
+- **Discharge current per pack** – Maximal zulässiger Entladestrom des Packs (0–500 A).
+- **Kapazität** – Nennkapazität des Packs (1–1000 Ah). Sie fließt auch in die [kapazitätsgewichtete SoC-Aggregation](#valuehandling-multi-bms) ein.
 
-Um dies zu verhindern, können Sie mit dieser Funktion einen maximalen Strom pro Pack definieren. Das BSC reagiert automatisch auf den Ausfall eines Packs und passt den maximalen Strom an die verbleibenden Packs an.
+Über die hier eingestellten Ströme pro Pack begrenzt der BSC den an den Wechselrichter übermittelten Lade- und Entladestrom: Nimmt das BMS eines Packs das Pack vom Netz, müssen die verbleibenden Packs dessen Stromanteil übernehmen – ohne Begrenzung droht ihnen ein Überstrom. Der BSC passt den übermittelten Maximalstrom deshalb automatisch an die Anzahl der aktiven Packs an; die unter **Max. Ladestrom** und **Max. Entladestrom** festgelegten Werte bilden dabei die Obergrenze.
 
-Beispiel: Angenommen, Sie haben einen maximalen Ladestrom von 180A definiert und drei Packs, bei denen jeweils ein maximaler Strom von 100A festgelegt ist. Sollte nun ein Pack ausfallen, würde der verbleibende Strom von 200A noch innerhalb des zulässigen Rahmens liegen. Fällt ein weiteres Pack aus, würde der Ladecontroller den Strom automatisch auf 100A begrenzen, um das verbleibende Pack vor einem Überstrom zu schützen.
+Beispiel: Bei drei Packs mit jeweils 100 A pro Pack und einem **Max. Ladestrom** von 180 A dürfen die verbleibenden zwei Packs nach dem Ausfall eines Packs zusammen bis zu 200 A liefern – der Ladestrom bleibt daher bei 180 A. Fällt ein weiteres Pack aus, begrenzt der BSC den Ladestrom auf 100 A, damit das verbleibende Pack nicht überlastet wird. Beim Entladen verhält es sich entsprechend.
 
 
 ## Triggerbasierte Begrenzungen
@@ -210,8 +212,8 @@ section: UI_SECT_BMSTOINVERTER_LADESPANNUNGSRAMPE
 **Zeit pro Spannungsschritt (s)**  
 Bestimmt, in welchem Intervall die Ladespannung in 100 mV-Schritten angepasst wird (1–240 s, Standard 15 s).
 
-**Hinweis**:   
-Die Ladespannungsrampe wird bei jeder Änderung der Sollspannung aktiv, sofern diese Funktion aktiviert ist.
+!!! Hinweis  
+    Die Ladespannungsrampe wird bei jeder Änderung der Sollspannung aktiv, sofern diese Funktion aktiviert ist.
 
 
 ## Batterietemperatur
