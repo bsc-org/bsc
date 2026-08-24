@@ -1,3 +1,6 @@
+In diesem Kapitel kannst du das Entladehandling des BSC konfigurieren. Dazu gehören alle Regelungen, die den Entladestrom begrenzen – abhängig von der Zellspannung, der Temperatur oder einem Temperaturprofil – sowie die Begrenzung des Entladestroms pro Batterie-Pack.  
+Die Entladeströme pro Pack werden im Kapitel [Wechselrichter](settings_inverter.md) unter [Basisdaten → Batterypack Settings](settings_inverter.md#basisdaten) hinterlegt. Die Temperaturregeln arbeiten analog zu den Laderegelungen im Kapitel [Laden](settings_inverter_charge.md).
+
 ## Entladestrom pro Pack zu groß
 
 Mit dieser Funktion wird der Entladestrom automatisch und dynamisch angepasst, um sicherzustellen, dass der maximale Entladewert eines jeden Batterie-Packs nicht überschritten wird. Die Regelung schützt die Batterie vor Überstrom – es gelten die unter [Basisdaten → Batterypack Settings](settings_inverter.md#basisdaten) eingestellten Entladeströme pro Pack.

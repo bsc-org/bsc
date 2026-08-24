@@ -1,5 +1,5 @@
-In diesem Kapitel können Sie neben der Definition des angeschlossenen Wechselrichters auch das Lade- und Entladehandling konfigurieren.  
-Alle prozentualen Limitierungen beziehen sich auf die in der Kategorie "[Basisdaten](settings_inverter.md#basisdaten)" eingestellten Werte.
+In diesem Kapitel kannst du das Ladehandling des BSC konfigurieren. Dazu gehören alle Laderegelungen, die den Ladestrom oder die Ladespannung begrenzen – abhängig von Zellspannung, Zelldrift, SoC oder Temperatur – sowie der **Autobalancer** für das regelmäßige Balancieren der Zellen und der **Charge-Current Cut-Off** für den Abschluss des Ladevorgangs.  
+Alle prozentualen Limitierungen beziehen sich auf die in der Kategorie [Basisdaten](settings_inverter.md#basisdaten) eingestellten Werte. Die grundlegenden Wechselrichter-Einstellungen (Kommunikation, Datenquellen, Basisdaten) werden im Kapitel [Wechselrichter](settings_inverter.md) konfiguriert.
 
 Beispiel eines Ladezyklus inkl. Balancing-, Float- und Absorption-Voltage mit Hilfe des BSC und einer Visualisierung über HomeAssistant/Grafana:  
 ![](img/settings/settings_inverter_charge_beispiel.png){  width="1300" }   
@@ -78,7 +78,7 @@ Einstellung **0** = deaktiviert: Es wird dann auch bei Float die maximale Zellsp
 Untergrenze des Ladestroms, auf die bei Erreichen der maximalen Zellspannung reduziert wird.  
   
 !!! warning "Achtung"
-    Ist der **Autobalancer aktiviert** und erreicht den Zustand Aktiv, wird die maximale Zellspannung automatisch durch die *Maximale Zellspannung* aus dem [Autobalance-Abschnitt](#autobalance) ersetzt.
+    Ist der **Autobalancer aktiviert** und erreicht den Zustand *warte auf Start-Zellspannung*, wird die maximale Zellspannung automatisch durch die *Maximale Zellspannung* aus dem [Autobalance-Abschnitt](#autobalance) ersetzt.
 
 
 ## Ladestrom reduzieren bei Zelldrift

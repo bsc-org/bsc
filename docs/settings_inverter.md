@@ -32,6 +32,9 @@ Wichtig: Je nach **aktiver Laderegelung** müssen die ausgewählten Datenquellen
 
 An dieser Stelle werden **nicht** die Datenquellen ausgewählt, die **nur** für **Gesamtspannung**, **Gesamtstrom** oder den **SoC** verwendet werden sollen (z. B. ein **Shunt**) – das erfolgt unter [Valuehandling](#valuehandling-multi-bms).
 
+!!! note "Hinweis zur Standard-Firmware"
+    In der **Standard-Firmware** (der freien Firmware) musst du hier zusätzlich eine **Master-Datenquelle** festlegen. Von dieser wird die **Batteriespannung** übernommen, die anschließend an den Wechselrichter übermittelt wird.
+
 !!! note "Hinweis"
     Sind [Group Devices](settings_bsc_group-devices.md#group-devices-batterie-gruppen) aktiviert, kann hier anstelle der Data-Devices eine **Battery-Pack-Auswahl** (Group Devices) getroffen werden.
 
@@ -47,6 +50,9 @@ file: bmsToInverter.json
 profile: off
 section: UI_SECT_BMSTOINVERTER_VALUEHANDLING
 ```
+
+!!! note "Hinweis zur Standard-Firmware"
+    In der **Standard-Firmware** (der freien Firmware) kannst du hier nur für den **SoC** die Aggregation einstellen.
 
 **Domain**  
 Mit der Domain wird festgelegt, aus welchem Bereich die Quellen stammen:
@@ -196,7 +202,7 @@ Die Ladespannungsrampe wird bei jeder Änderung der Sollspannung aktiv, sofern d
 
 ## Batterietemperatur
 
-Hier wird festgelegt, von welchem Data Device die Batterietemperatur übernommen und an den Wechselrichter übermittelt werden soll.  
+Hier wird festgelegt, von welchem Data Device bzw. welchen erweiterten Sensoren (z. B. OneWire) die Batterietemperatur übernommen und an den Wechselrichter übermittelt werden soll.  
 
 ```bsc-settings
 version: v010
@@ -213,6 +219,9 @@ Legt fest, ob die **Data-Device Sensoren** (0–5) oder die **Erweiterten Sensor
 
 **Sensornummer**  
 Nummer des Temperatursensors der gewählten Quelle: Data-Device Sensoren 0–5, Erweiterte Sensoren 0–31.
+
+!!! note "Hinweis zur Standard-Firmware"
+    In der **Standard-Firmware** (der freien Firmware) wird die Temperatur stets von der Masterquelle übernommen.
 
 
 ## Zelltemperatur
