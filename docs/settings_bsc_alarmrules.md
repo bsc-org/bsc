@@ -256,8 +256,8 @@ Für die Fehlersuche können zusätzlich die Diagnosewerte der Überwachung übe
 
 
 ## Temperatur
-### Alarm bei Sensorfehler
-In diesem Abschnitt können Alarme für Sensorfehler an den Temperatursensoren konfiguriert werden.
+### Alarm bei Onewire-Sensorfehler
+In diesem Abschnitt können Alarme für Sensorfehler an den Onewire-Temperatursensoren konfiguriert werden.
 
 ```bsc-settings
 version: v010
