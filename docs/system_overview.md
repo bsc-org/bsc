@@ -12,7 +12,6 @@ flowchart TD
     BMS[BMS] -- "RS485<br>(Serial 0-2)" --> BSC
     BMS[BMS] -- UART/RS232 --> SDE["Single<br>device<br>extension"] --> BSC
     TEMP_SENSOR[Temperature<br>Sensors] -- Onewire --> BSC
-    NEEY[<s>NEEY<br>Balancer</s>] <-- <s>Bluetooth</s> --> BSC
     VICTRON_SHUNT[Victron<br>SmartShunt] --> VICTRON_SHUNT_CONV["Single<br>device<br>extension"] --> BSC
     BSC -- CAN --> CAN[Inverter]
     BSC <-- MQTT --> MQTT_BROKER[MQTT Broker]
@@ -30,7 +29,6 @@ flowchart TD
     subgraph subGraph0["Battery"]
         BMS
         TEMP_SENSOR
-        NEEY
         VICTRON_SHUNT
     end
 
@@ -64,7 +62,6 @@ Siehe [hier](devices/wechselrichter.md)
 
 ## Verfügbare Schnittstellen
 * **WLAN:** Zugriff auf das BSC-Webinterface, Übertragung von MQTT-Daten
-* **Bluetooth:** ~~Kommunikation mit NEEY-Balancer~~
 * [**RS485:**](hardware.md#rs485-bms) Abruf von BMS-Daten
 * [**CAN Bus:**](hardware.md#canrs485) Kommunikation mit Wechselrichtern
 * [**Onewire:**](hardware.md#onewire) Abruf von Sensordaten, wie z.B. Temperatursensoren
