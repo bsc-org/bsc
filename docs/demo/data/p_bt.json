@@ -9,7 +9,7 @@
           "label_entry": "BT Device",
           "groupsize": 5,
           "type": 12,
-          "help": "Die MAC-Adresse muss klein geschrieben werden!",
+          "help": "The MAC address must be written in lower case!",
           "group": [
             {
               "name": 4,
@@ -20,7 +20,7 @@
                 {
                   "v": 0,
                   "lid": 263,
-                  "l": "nicht belegt"
+                  "l": "not in use"
                 },
                 {
                   "v": 1,
@@ -45,7 +45,7 @@
             {
               "name": 5,
               "lid": 37,
-              "label": "MAC-Adresse",
+              "label": "MAC adress",
               "type": 0,
               "default": "",
               "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$",
@@ -60,7 +60,7 @@
                 {
                   "v": "0",
                   "lid": 257,
-                  "l": "Aus"
+                  "l": "Off"
                 },
                 {
                   "$ref": "comboAlarms"

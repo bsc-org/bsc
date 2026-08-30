@@ -2,15 +2,15 @@
   "page": [
     {
       "lid": 356,
-      "label": "Entladestrom pro Pack zu gro\u00df",
+      "label": "Discharging current per pack too high",
       "type": 13,
-      "help": "Entladestrom drosseln wenn der Entladestrom eines Packs \u00fcberschritten wird",
+      "help": "Throttle discharging current if the discharging current of a pack is exceeded",
       "wiki": "settings_inverter/#ladestrom-pro-pack-zu-gro",
       "items": [
         {
           "name": 219,
           "lid": 144,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "default": "0",
           "dt": 9
@@ -20,14 +20,14 @@
     },
     {
       "lid": 185,
-      "label": "Entladestrom Zell-Spannungsabh\u00e4ngig drosseln",
+      "label": "Throttling the discharge current depending on the cell voltage",
       "type": 13,
       "wiki": "settings_inverter/#entladestrom-zell-spannungsabhangig-drosseln",
       "items": [
         {
           "name": 159,
           "lid": 186,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "enProfile": true,
           "default": "0",
@@ -36,8 +36,8 @@
         {
           "name": 138,
           "lid": 187,
-          "label": "Starten bei Zellspg. kleiner",
-          "help": "Sobald die niedrigste Zellspannung diesen Wert unterschreitet wird die Drosselung aktiv.",
+          "label": "Start at cell voltage lower than",
+          "help": "As soon as the lowest cell voltage falls below this value, throttling becomes active.",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -49,8 +49,8 @@
         {
           "name": 139,
           "lid": 188,
-          "label": "End Zellspannung",
-          "help": "Sobald die niedrigste Zellspannung diesen Wert unterschreitet wird maxmial noch mit dem Mindest-Entladestrom entladen.<br>Hinweis: Der Wert muss kleiner sein als die Zell-Startspannung.",
+          "label": "End cell voltage",
+          "help": "As soon as the lowest cell voltage falls below this value, only the minimum discharge current is discharged.\\nNote: The value must be smaller than the cell starting voltage.",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -62,7 +62,7 @@
         {
           "name": 140,
           "lid": 189,
-          "label": "Mindest Entladestrom",
+          "label": "Minimum discharge current",
           "unit": "A",
           "type": 3,
           "enProfile": true,
@@ -76,21 +76,21 @@
     },
     {
       "lid": 453,
-      "label": "Entladestrom reduzieren - Temperatur",
+      "label": "Reduce discharging current - temperature",
       "type": 13,
-      "help": "Es werden die Quellen aus der aktiven Datenquelle verwendet (Data-Devices oder Group Devices).<br>F\u00fcr die Regelung wird je nach Richtung stets der passende Grenzwert herangezogen: Von warm nach kalt gilt der Minimalwert, von kalt nach warm der Maximalwert.",
+      "help": "The sources from the active data source are used (data devices or battery packs).\\\nFor control, the matching limit is always used depending on direction: warm to cold uses the minimum, cold to warm uses the maximum.",
       "items": [
         {
           "lid": 457,
-          "label": "Temperaturregeln",
-          "label_entry": "Regel",
+          "label": "Temperature rules",
+          "label_entry": "Rules",
           "groupsize": 4,
           "type": 12,
           "group": [
             {
               "name": 281,
               "lid": 186,
-              "label": "Ein/Aus",
+              "label": "On/Off",
               "type": 10,
               "default": "0",
               "dt": 9
@@ -98,7 +98,7 @@
             {
               "name": 282,
               "lid": 454,
-              "label": "Data-Device Sensoren",
+              "label": "Data device sensors",
               "type": 14,
               "options": [
                 {
@@ -111,7 +111,7 @@
             {
               "name": 285,
               "lid": 389,
-              "label": "Erweiterte Sensorquellen",
+              "label": "Sensor type",
               "type": 14,
               "options": [
                 {
@@ -124,7 +124,7 @@
             {
               "name": 286,
               "lid": 390,
-              "label": "Erweiterte Sensoren 0-31",
+              "label": "Data-device sensors",
               "type": 14,
               "options": [
                 {
@@ -137,7 +137,7 @@
             {
               "name": 283,
               "lid": 455,
-              "label": "Reduzieren Start",
+              "label": "Reduce discharging current start",
               "unit": "\u00b0C",
               "type": 17,
               "default": 2000,
@@ -148,7 +148,7 @@
             {
               "name": 284,
               "lid": 456,
-              "label": "Reduzieren Ende",
+              "label": "Reduce discharging current end",
               "unit": "\u00b0C",
               "type": 17,
               "default": 0,
@@ -163,14 +163,14 @@
     },
     {
       "lid": 458,
-      "label": "Entladestrom reduzieren - Temperaturprofil",
+      "label": "Reduce discharging current - temperature profile",
       "type": 13,
-      "help": "Es werden die Quellen aus der aktiven Datenquelle verwendet (Data-Devices oder Group Devices).",
+      "help": "The sources from the active data source are used (data devices or battery packs).",
       "items": [
         {
           "name": 287,
           "lid": 186,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "default": "0",
           "dt": 9
@@ -178,7 +178,7 @@
         {
           "name": 288,
           "lid": 454,
-          "label": "Data-Device Sensoren",
+          "label": "Data device sensors",
           "type": 14,
           "options": [
             {
@@ -191,7 +191,7 @@
         {
           "name": 291,
           "lid": 389,
-          "label": "Erweiterte Sensorquellen",
+          "label": "Sensor type",
           "type": 14,
           "options": [
             {
@@ -204,7 +204,7 @@
         {
           "name": 292,
           "lid": 390,
-          "label": "Erweiterte Sensoren 0-31",
+          "label": "Data-device sensors",
           "type": 14,
           "options": [
             {
@@ -216,14 +216,14 @@
         },
         {
           "lid": 459,
-          "label": "Temperaturprofil",
+          "label": "Temperature profile",
           "groupsize": 10,
           "type": 20,
           "group": [
             {
               "name": 289,
               "lid": 342,
-              "label": "Temperatur",
+              "label": "Temperature",
               "unit": "\u00b0C",
               "type": 16,
               "default": [

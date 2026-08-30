@@ -1,0 +1,3031 @@
+{
+  "batteryPacks": [
+    {
+      "v": "0",
+      "l": "Group device 0",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "l": "Group device 1",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "2",
+      "l": "Group device 2",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "3",
+      "l": "Group device 3",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "4",
+      "l": "Group device 4",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "5",
+      "l": "Group device 5",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "6",
+      "l": "Group device 6",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "7",
+      "l": "Group device 7",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "8",
+      "l": "Group device 8",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "9",
+      "l": "Group device 9",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "10",
+      "l": "Group device 10",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "11",
+      "l": "Group device 11",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "12",
+      "l": "Group device 12",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "13",
+      "l": "Group device 13",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "14",
+      "l": "Group device 14",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "15",
+      "l": "Group device 15",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "16",
+      "l": "Group device 16",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "17",
+      "l": "Group device 17",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "18",
+      "l": "Group device 18",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "19",
+      "l": "Group device 19",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "20",
+      "l": "Group device 20",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "21",
+      "l": "Group device 21",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "22",
+      "l": "Group device 22",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "23",
+      "l": "Group device 23",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "24",
+      "l": "Group device 24",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "25",
+      "l": "Group device 25",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "26",
+      "l": "Group device 26",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "27",
+      "l": "Group device 27",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "28",
+      "l": "Group device 28",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "29",
+      "l": "Group device 29",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "30",
+      "l": "Group device 30",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "31",
+      "l": "Group device 31",
+      "visible_when": [
+        {
+          "param": 224,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    }
+  ],
+  "bmsDeviceAll": [
+    {
+      "v": "0",
+      "l": "Bluetooth 0",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "bte_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "l": "Bluetooth 1",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "bte_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "2",
+      "l": "Bluetooth 2",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "bte_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "3",
+      "l": "Bluetooth 3",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "bte_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "4",
+      "l": "Bluetooth 4",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "bte_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "5",
+      "l": "Bluetooth 5",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "bte_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "6",
+      "l": "Bluetooth 6",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "bte_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "7",
+      "l": "Serial 0"
+    },
+    {
+      "v": "8",
+      "l": "Serial 1"
+    },
+    {
+      "v": "9",
+      "l": "Serial 2"
+    },
+    {
+      "v": "10",
+      "l": "Serial 3",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "se_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "11",
+      "l": "Serial 4",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "se_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "12",
+      "l": "Serial 5",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "se_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "13",
+      "l": "Serial 6",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "se_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "14",
+      "l": "Serial 7",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "se_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "15",
+      "l": "Serial 8",
+      "visible_when": [
+        {
+          "source": "sysvartem",
+          "param": "se_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "16",
+      "l": "Serial 9",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "se_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": "17",
+      "l": "Serial 10",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "se_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "v": 250,
+      "l": "VE.Can",
+      "visible_when": [
+        {
+          "source": "var",
+          "param": "rico_available",
+          "op": "==",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "comboAlarms": [
+    {
+      "v": "1",
+      "l": "Trigger 1",
+      "d": 7488
+    },
+    {
+      "v": "2",
+      "l": "Trigger 2",
+      "d": 7489
+    },
+    {
+      "v": "3",
+      "l": "Trigger 3",
+      "d": 7490
+    },
+    {
+      "v": "4",
+      "l": "Trigger 4",
+      "d": 7491
+    },
+    {
+      "v": "5",
+      "l": "Trigger 5",
+      "d": 7492
+    },
+    {
+      "v": "6",
+      "l": "Trigger 6",
+      "d": 7493
+    },
+    {
+      "v": "7",
+      "l": "Trigger 7",
+      "d": 7494
+    },
+    {
+      "v": "8",
+      "l": "Trigger 8",
+      "d": 7495
+    },
+    {
+      "v": "9",
+      "l": "Trigger 9",
+      "d": 7496
+    },
+    {
+      "v": "10",
+      "l": "Trigger 10",
+      "d": 7497
+    },
+    {
+      "v": "11",
+      "l": "Trigger 11",
+      "d": 7498
+    },
+    {
+      "v": "12",
+      "l": "Trigger 12",
+      "d": 7499
+    },
+    {
+      "v": "13",
+      "l": "Trigger 13",
+      "d": 7500
+    },
+    {
+      "v": "14",
+      "l": "Trigger 14",
+      "d": 7501
+    },
+    {
+      "v": "15",
+      "l": "Trigger 15",
+      "d": 7502
+    },
+    {
+      "v": "16",
+      "l": "Trigger 16",
+      "d": 7503
+    },
+    {
+      "v": "17",
+      "l": "Trigger 17",
+      "d": 7504
+    },
+    {
+      "v": "18",
+      "l": "Trigger 18",
+      "d": 7505
+    },
+    {
+      "v": "19",
+      "l": "Trigger 19",
+      "d": 7506
+    },
+    {
+      "v": "20",
+      "l": "Trigger 20",
+      "d": 7507
+    },
+    {
+      "v": "21",
+      "l": "Trigger 21",
+      "d": 7508
+    },
+    {
+      "v": "22",
+      "l": "Trigger 22",
+      "d": 7509
+    },
+    {
+      "v": "23",
+      "l": "Trigger 23",
+      "d": 7510
+    },
+    {
+      "v": "24",
+      "l": "Trigger 24",
+      "d": 7511
+    },
+    {
+      "v": "25",
+      "l": "Trigger 25",
+      "d": 7512
+    },
+    {
+      "v": "26",
+      "l": "Trigger 26",
+      "d": 7513
+    },
+    {
+      "v": "27",
+      "l": "Trigger 27",
+      "d": 7514
+    }
+  ],
+  "comboVTrigger": [
+    {
+      "v": "0",
+      "l": "vTrigger 1",
+      "d": 7488
+    },
+    {
+      "v": "1",
+      "l": "vTrigger 2",
+      "d": 7489
+    },
+    {
+      "v": "2",
+      "l": "vTrigger 3",
+      "d": 7490
+    },
+    {
+      "v": "3",
+      "l": "vTrigger 4",
+      "d": 7491
+    },
+    {
+      "v": "4",
+      "l": "vTrigger 5",
+      "d": 7492
+    },
+    {
+      "v": "5",
+      "l": "vTrigger 6",
+      "d": 7493
+    },
+    {
+      "v": "6",
+      "l": "vTrigger 7",
+      "d": 7494
+    },
+    {
+      "v": "7",
+      "l": "vTrigger 8",
+      "d": 7495
+    },
+    {
+      "v": "8",
+      "l": "vTrigger 9",
+      "d": 7496
+    },
+    {
+      "v": "9",
+      "l": "vTrigger 10",
+      "d": 7497
+    },
+    {
+      "v": "10",
+      "l": "vTrigger 11",
+      "d": 7498
+    },
+    {
+      "v": "11",
+      "l": "vTrigger 12",
+      "d": 7499
+    },
+    {
+      "v": "12",
+      "l": "vTrigger 13",
+      "d": 7500
+    },
+    {
+      "v": "13",
+      "l": "vTrigger 14",
+      "d": 7501
+    },
+    {
+      "v": "14",
+      "l": "vTrigger 15",
+      "d": 7502
+    },
+    {
+      "v": "15",
+      "l": "vTrigger 16",
+      "d": 7503
+    },
+    {
+      "v": "16",
+      "l": "vTrigger 17",
+      "d": 7504
+    },
+    {
+      "v": "17",
+      "l": "vTrigger 18",
+      "d": 7505
+    },
+    {
+      "v": "18",
+      "l": "vTrigger 19",
+      "d": 7506
+    },
+    {
+      "v": "19",
+      "l": "vTrigger 20",
+      "d": 7507
+    },
+    {
+      "v": "20",
+      "l": "vTrigger 21",
+      "d": 7508
+    },
+    {
+      "v": "21",
+      "l": "vTrigger 22",
+      "d": 7509
+    },
+    {
+      "v": "22",
+      "l": "vTrigger 23",
+      "d": 7510
+    },
+    {
+      "v": "23",
+      "l": "vTrigger 24",
+      "d": 7511
+    },
+    {
+      "v": "24",
+      "l": "vTrigger 25",
+      "d": 7512
+    },
+    {
+      "v": "25",
+      "l": "vTrigger 26",
+      "d": 7513
+    },
+    {
+      "v": "26",
+      "l": "vTrigger 27",
+      "d": 7514
+    }
+  ],
+  "dataDevicesAll": [
+    {
+      "v": "0",
+      "lid": 239,
+      "l": "Data device 0",
+      "d": 10560,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "lid": 240,
+      "l": "Data device 1",
+      "d": 10561,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "2",
+      "lid": 241,
+      "l": "Data device 2",
+      "d": 10562,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "3",
+      "lid": 242,
+      "l": "Data device 3",
+      "d": 10563,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "4",
+      "lid": 243,
+      "l": "Data device 4",
+      "d": 10564,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "5",
+      "lid": 244,
+      "l": "Data device 5",
+      "d": 10565,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "6",
+      "lid": 245,
+      "l": "Data device 6",
+      "d": 10566,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "7",
+      "lid": 246,
+      "l": "Data device 7",
+      "d": 10567,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "8",
+      "lid": 247,
+      "l": "Data device 8",
+      "d": 10568,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "9",
+      "lid": 248,
+      "l": "Data device 9",
+      "d": 10569,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "10",
+      "lid": 249,
+      "l": "Data device 10",
+      "d": 10570,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "11",
+      "lid": 250,
+      "l": "Data device 11",
+      "d": 10571,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "12",
+      "lid": 251,
+      "l": "Data device 12",
+      "d": 10572,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "13",
+      "lid": 252,
+      "l": "Data device 13",
+      "d": 10573,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "14",
+      "lid": 253,
+      "l": "Data device 14",
+      "d": 10574,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "15",
+      "lid": 254,
+      "l": "Data device 15",
+      "d": 10575,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "16",
+      "lid": 255,
+      "l": "Data device 16",
+      "d": 10576,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "17",
+      "lid": 256,
+      "l": "Data device 17",
+      "d": 10577,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "18",
+      "lid": 360,
+      "l": "Data device 18",
+      "d": 10578,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "19",
+      "lid": 361,
+      "l": "Data device 19",
+      "d": 10579,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "20",
+      "lid": 362,
+      "l": "Data device 20",
+      "d": 10580,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "21",
+      "lid": 363,
+      "l": "Data device 21",
+      "d": 10581,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "22",
+      "lid": 364,
+      "l": "Data device 22",
+      "d": 10582,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "23",
+      "lid": 365,
+      "l": "Data device 23",
+      "d": 10583,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "24",
+      "lid": 366,
+      "l": "Data device 24",
+      "d": 10584,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "25",
+      "lid": 367,
+      "l": "Data device 25",
+      "d": 10585,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "26",
+      "lid": 368,
+      "l": "Data device 26",
+      "d": 10586,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "27",
+      "lid": 369,
+      "l": "Data device 27",
+      "d": 10587,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "28",
+      "lid": 370,
+      "l": "Data device 28",
+      "d": 10588,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "29",
+      "lid": 371,
+      "l": "Data device 29",
+      "d": 10589,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "30",
+      "lid": 372,
+      "l": "Data device 30",
+      "d": 10590,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "v": "31",
+      "lid": 373,
+      "l": "Data device 31",
+      "d": 10591,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        }
+      ]
+    }
+  ],
+  "dataDevicesTmp32Cap": [
+    {
+      "v": "0",
+      "lid": 239,
+      "l": "Data device 0",
+      "d": 10560,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "lid": 240,
+      "l": "Data device 1",
+      "d": 10561,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "2",
+      "lid": 241,
+      "l": "Data device 2",
+      "d": 10562,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "3",
+      "lid": 242,
+      "l": "Data device 3",
+      "d": 10563,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "4",
+      "lid": 243,
+      "l": "Data device 4",
+      "d": 10564,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "5",
+      "lid": 244,
+      "l": "Data device 5",
+      "d": 10565,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "6",
+      "lid": 245,
+      "l": "Data device 6",
+      "d": 10566,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "7",
+      "lid": 246,
+      "l": "Data device 7",
+      "d": 10567,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "8",
+      "lid": 247,
+      "l": "Data device 8",
+      "d": 10568,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "9",
+      "lid": 248,
+      "l": "Data device 9",
+      "d": 10569,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "10",
+      "lid": 249,
+      "l": "Data device 10",
+      "d": 10570,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "11",
+      "lid": 250,
+      "l": "Data device 11",
+      "d": 10571,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "12",
+      "lid": 251,
+      "l": "Data device 12",
+      "d": 10572,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "13",
+      "lid": 252,
+      "l": "Data device 13",
+      "d": 10573,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "14",
+      "lid": 253,
+      "l": "Data device 14",
+      "d": 10574,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "15",
+      "lid": 254,
+      "l": "Data device 15",
+      "d": 10575,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "16",
+      "lid": 255,
+      "l": "Data device 16",
+      "d": 10576,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "17",
+      "lid": 256,
+      "l": "Data device 17",
+      "d": 10577,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "18",
+      "lid": 360,
+      "l": "Data device 18",
+      "d": 10578,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "19",
+      "lid": 361,
+      "l": "Data device 19",
+      "d": 10579,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "20",
+      "lid": 362,
+      "l": "Data device 20",
+      "d": 10580,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "21",
+      "lid": 363,
+      "l": "Data device 21",
+      "d": 10581,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "22",
+      "lid": 364,
+      "l": "Data device 22",
+      "d": 10582,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "23",
+      "lid": 365,
+      "l": "Data device 23",
+      "d": 10583,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "24",
+      "lid": 366,
+      "l": "Data device 24",
+      "d": 10584,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "25",
+      "lid": 367,
+      "l": "Data device 25",
+      "d": 10585,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "26",
+      "lid": 368,
+      "l": "Data device 26",
+      "d": 10586,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "27",
+      "lid": 369,
+      "l": "Data device 27",
+      "d": 10587,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "28",
+      "lid": 370,
+      "l": "Data device 28",
+      "d": 10588,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "29",
+      "lid": 371,
+      "l": "Data device 29",
+      "d": 10589,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "30",
+      "lid": 372,
+      "l": "Data device 30",
+      "d": 10590,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    },
+    {
+      "v": "31",
+      "lid": 373,
+      "l": "Data device 31",
+      "d": 10591,
+      "visible_when": [
+        {
+          "param": 163,
+          "group": "$option_v",
+          "op": "!=",
+          "value": 255
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "en",
+          "op": "==",
+          "value": 1,
+          "on_missing_source": "keep"
+        },
+        {
+          "source_url": "/restapi",
+          "array_path": "data_device",
+          "index": "$option_v",
+          "field": "cap",
+          "op": "&!=",
+          "value": 8,
+          "on_missing_source": "keep"
+        }
+      ]
+    }
+  ],
+  "days": [
+    {
+      "v": 0,
+      "l": "Monday",
+      "lid": 322
+    },
+    {
+      "v": 1,
+      "l": "Tuesday",
+      "lid": 323
+    },
+    {
+      "v": 2,
+      "l": "Wednesday",
+      "lid": 324
+    },
+    {
+      "v": 3,
+      "l": "Thursday",
+      "lid": 325
+    },
+    {
+      "v": 4,
+      "l": "Friday",
+      "lid": 326
+    },
+    {
+      "v": 5,
+      "l": "Saturday",
+      "lid": 327
+    },
+    {
+      "v": 6,
+      "l": "Sunday",
+      "lid": 328
+    }
+  ],
+  "month": [
+    {
+      "v": 0,
+      "l": "January",
+      "lid": 310
+    },
+    {
+      "v": 1,
+      "l": "February",
+      "lid": 311
+    },
+    {
+      "v": 2,
+      "l": "March",
+      "lid": 312
+    },
+    {
+      "v": 3,
+      "l": "April",
+      "lid": 313
+    },
+    {
+      "v": 4,
+      "l": "May",
+      "lid": 314
+    },
+    {
+      "v": 5,
+      "l": "June",
+      "lid": 315
+    },
+    {
+      "v": 6,
+      "l": "July",
+      "lid": 316
+    },
+    {
+      "v": 7,
+      "l": "August",
+      "lid": 317
+    },
+    {
+      "v": 8,
+      "l": "September",
+      "lid": 318
+    },
+    {
+      "v": 9,
+      "l": "Oktober",
+      "lid": 319
+    },
+    {
+      "v": 10,
+      "l": "November",
+      "lid": 320
+    },
+    {
+      "v": 11,
+      "l": "December",
+      "lid": 321
+    }
+  ],
+  "serialAddress0To16": [
+    {
+      "v": "0",
+      "l": "0"
+    },
+    {
+      "v": "1",
+      "l": "1"
+    },
+    {
+      "v": "2",
+      "l": "2"
+    },
+    {
+      "v": "3",
+      "l": "3"
+    },
+    {
+      "v": "4",
+      "l": "4"
+    },
+    {
+      "v": "5",
+      "l": "5"
+    },
+    {
+      "v": "6",
+      "l": "6"
+    },
+    {
+      "v": "7",
+      "l": "7"
+    },
+    {
+      "v": "8",
+      "l": "8"
+    },
+    {
+      "v": "9",
+      "l": "9"
+    },
+    {
+      "v": "10",
+      "l": "10"
+    },
+    {
+      "v": "11",
+      "l": "11"
+    },
+    {
+      "v": "12",
+      "l": "12"
+    },
+    {
+      "v": "13",
+      "l": "13"
+    },
+    {
+      "v": "14",
+      "l": "14"
+    },
+    {
+      "v": "15",
+      "l": "15"
+    },
+    {
+      "v": "16",
+      "l": "16"
+    }
+  ],
+  "svcStateSources": [
+    {
+      "v": "0",
+      "l": "BMS Errors"
+    },
+    {
+      "v": "1",
+      "l": "BMS Warnings"
+    },
+    {
+      "v": "2",
+      "l": "System Errors"
+    }
+  ],
+  "tempsensors1": [
+    {
+      "v": 0,
+      "l": "0"
+    },
+    {
+      "v": 1,
+      "l": "1"
+    },
+    {
+      "v": 2,
+      "l": "2"
+    },
+    {
+      "v": 3,
+      "l": "3"
+    },
+    {
+      "v": 4,
+      "l": "4"
+    },
+    {
+      "v": 5,
+      "l": "5"
+    },
+    {
+      "v": 6,
+      "l": "6"
+    },
+    {
+      "v": 7,
+      "l": "7"
+    },
+    {
+      "v": 8,
+      "l": "8"
+    },
+    {
+      "v": 9,
+      "l": "9"
+    },
+    {
+      "v": 10,
+      "l": "10"
+    },
+    {
+      "v": 11,
+      "l": "11"
+    },
+    {
+      "v": 12,
+      "l": "12"
+    },
+    {
+      "v": 13,
+      "l": "13"
+    },
+    {
+      "v": 14,
+      "l": "14"
+    },
+    {
+      "v": 15,
+      "l": "15"
+    },
+    {
+      "v": 16,
+      "l": "16"
+    },
+    {
+      "v": 17,
+      "l": "17"
+    },
+    {
+      "v": 18,
+      "l": "18"
+    },
+    {
+      "v": 19,
+      "l": "19"
+    },
+    {
+      "v": 20,
+      "l": "20"
+    },
+    {
+      "v": 21,
+      "l": "21"
+    },
+    {
+      "v": 22,
+      "l": "22"
+    },
+    {
+      "v": 23,
+      "l": "23"
+    },
+    {
+      "v": 24,
+      "l": "24"
+    },
+    {
+      "v": 25,
+      "l": "25"
+    },
+    {
+      "v": 26,
+      "l": "26"
+    },
+    {
+      "v": 27,
+      "l": "27"
+    },
+    {
+      "v": 28,
+      "l": "28"
+    },
+    {
+      "v": 29,
+      "l": "29"
+    },
+    {
+      "v": 30,
+      "l": "30"
+    },
+    {
+      "v": 31,
+      "l": "31"
+    }
+  ],
+  "tempsensors2": [
+    {
+      "v": 0,
+      "l": "32"
+    },
+    {
+      "v": 1,
+      "l": "33"
+    },
+    {
+      "v": 2,
+      "l": "34"
+    },
+    {
+      "v": 3,
+      "l": "35"
+    },
+    {
+      "v": 4,
+      "l": "36"
+    },
+    {
+      "v": 5,
+      "l": "37"
+    },
+    {
+      "v": 6,
+      "l": "38"
+    },
+    {
+      "v": 7,
+      "l": "39"
+    },
+    {
+      "v": 8,
+      "l": "40"
+    },
+    {
+      "v": 9,
+      "l": "41"
+    },
+    {
+      "v": 10,
+      "l": "42"
+    },
+    {
+      "v": 11,
+      "l": "43"
+    },
+    {
+      "v": 12,
+      "l": "44"
+    },
+    {
+      "v": 13,
+      "l": "45"
+    },
+    {
+      "v": 14,
+      "l": "46"
+    },
+    {
+      "v": 15,
+      "l": "47"
+    },
+    {
+      "v": 16,
+      "l": "48"
+    },
+    {
+      "v": 17,
+      "l": "49"
+    },
+    {
+      "v": 18,
+      "l": "50"
+    },
+    {
+      "v": 19,
+      "l": "51"
+    },
+    {
+      "v": 20,
+      "l": "52"
+    },
+    {
+      "v": 21,
+      "l": "53"
+    },
+    {
+      "v": 22,
+      "l": "54"
+    },
+    {
+      "v": 23,
+      "l": "55"
+    },
+    {
+      "v": 24,
+      "l": "56"
+    },
+    {
+      "v": 25,
+      "l": "57"
+    },
+    {
+      "v": 26,
+      "l": "58"
+    },
+    {
+      "v": 27,
+      "l": "59"
+    },
+    {
+      "v": 28,
+      "l": "60"
+    },
+    {
+      "v": 29,
+      "l": "61"
+    },
+    {
+      "v": 30,
+      "l": "62"
+    },
+    {
+      "v": 31,
+      "l": "63"
+    }
+  ],
+  "tempsensorsBms": [
+    {
+      "v": 0,
+      "l": "0"
+    },
+    {
+      "v": 1,
+      "l": "1"
+    },
+    {
+      "v": 2,
+      "l": "2"
+    },
+    {
+      "v": 3,
+      "l": "3"
+    },
+    {
+      "v": 4,
+      "l": "4"
+    },
+    {
+      "v": 5,
+      "l": "5"
+    }
+  ],
+  "vecanSlotsActive": [
+    {
+      "v": "0",
+      "l": "Slot 0",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 0,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 0,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "l": "Slot 1",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 1,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 1,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "v": "2",
+      "l": "Slot 2",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 2,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 2,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "v": "3",
+      "l": "Slot 3",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 3,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 3,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "v": "4",
+      "l": "Slot 4",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 4,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 4,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "v": "5",
+      "l": "Slot 5",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 5,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 5,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "v": "6",
+      "l": "Slot 6",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 6,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 6,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "v": "7",
+      "l": "Slot 7",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 7,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 7,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "v": "8",
+      "l": "Slot 8",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 8,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 8,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "v": "9",
+      "l": "Slot 9",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 9,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 9,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "v": "10",
+      "l": "Slot 10",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 10,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 10,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "v": "11",
+      "l": "Slot 11",
+      "hidden_when": [
+        {
+          "param": 273,
+          "group": 11,
+          "op": "==",
+          "value": 0
+        },
+        {
+          "param": 274,
+          "group": 11,
+          "op": "==",
+          "value": 0
+        }
+      ]
+    }
+  ]
+}

@@ -2,13 +2,13 @@
   "page": [
     {
       "lid": 337,
-      "label": "Wartungsmodus",
+      "label": "Maintenance mode",
       "type": 13,
       "items": [
         {
           "name": 206,
           "lid": 338,
-          "label": "Data Devices: Wartung aktiv",
+          "label": "Maintenance active",
           "type": 14,
           "options": [
             {
@@ -21,7 +21,7 @@
         {
           "name": 207,
           "lid": 339,
-          "label": "Data Devices: MQTT senden",
+          "label": "Send MQTT",
           "type": 14,
           "options": [
             {

@@ -5,7 +5,7 @@
       "items": [
         {
           "lid": 40,
-          "label": "Serielle Schnittstellen",
+          "label": "Serial interfaces",
           "label_entry": "Serial",
           "help": "<b>To use serial 3-11, the serial extension is required!</b>",
           "groupsize": 11,
@@ -33,7 +33,7 @@
                 {
                   "v": 0,
                   "lid": 263,
-                  "l": "nicht belegt"
+                  "l": "not in use"
                 },
                 {
                   "v": 9,
@@ -203,13 +203,13 @@
     },
     {
       "lid": 42,
-      "label": "Allgemein",
+      "label": "General settings",
       "type": 13,
       "items": [
         {
           "name": 141,
           "lid": 43,
-          "label": "Anzahl Zellen",
+          "label": "Number of cells",
           "type": 3,
           "default": 16,
           "min": 4,
@@ -228,8 +228,8 @@
         {
           "name": 121,
           "lid": 45,
-          "label": "Anzahl RX Fehler",
-          "help": "Gibt an, nach wievielen fehlerhaften Paketen es als Fehler bewertet wird.",
+          "label": "Number of RX errors",
+          "help": "Specifies after how many faulty packets it is considered an error.",
           "type": 3,
           "default": 2,
           "min": 1,
@@ -240,8 +240,8 @@
         {
           "name": 120,
           "lid": 46,
-          "label": "Abweichung Zellspannung",
-          "help": "0=Filter deaktiviert",
+          "label": "Cell voltage deviation",
+          "help": "0=Filter disabled",
           "unit": "%",
           "type": 3,
           "default": 0,

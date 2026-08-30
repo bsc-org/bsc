@@ -2,7 +2,7 @@
   "page": [
     {
       "lid": 31,
-      "label": "Triggername",
+      "label": "Trigger name",
       "type": 13,
       "items": [
         {
@@ -36,7 +36,7 @@
         {
           "lid": 329,
           "label": "Trigger Scheduler",
-          "label_entry": "Scheduler ",
+          "label_entry": "Scheduler",
           "groupsize": 5,
           "type": 12,
           "group": [
@@ -49,7 +49,7 @@
                 {
                   "v": "0",
                   "lid": 257,
-                  "l": "Aus"
+                  "l": "Off"
                 },
                 {
                   "$ref": "comboAlarms"
@@ -61,7 +61,7 @@
             {
               "name": 200,
               "lid": 330,
-              "label": "Monat",
+              "label": "Month",
               "type": 14,
               "options": [
                 {
@@ -74,7 +74,7 @@
             {
               "name": 201,
               "lid": 331,
-              "label": "Wochentag",
+              "label": "Weekday",
               "type": 14,
               "options": [
                 {
@@ -87,21 +87,22 @@
             {
               "name": 202,
               "lid": 332,
-              "label": "von",
+              "label": "from",
               "type": 7,
               "dt": 8
             },
             {
               "name": 203,
               "lid": 333,
-              "label": "bis",
+              "label": "to",
               "type": 7,
               "dt": 8
             }
           ]
         }
       ],
-      "section_id": 1
+      "section_id": 1,
+      "label_entry": "Scheduler"
     }
   ],
   "btn": [

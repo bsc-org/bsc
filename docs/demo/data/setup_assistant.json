@@ -1,0 +1,558 @@
+{
+  "title": "Einrichtungsassistenten",
+  "description": "W\u00e4hle einen Assistenten um das System zu konfigurieren.",
+  "assistants": [
+    {
+      "id": "network",
+      "title": "Netzwerk",
+      "description": "WLAN-Grundkonfiguration",
+      "steps": [
+        {
+          "id": "network-wifi",
+          "title": "WLAN",
+          "description": "SSID und Passwort setzen.",
+          "fields": [
+            {
+              "key": "wifi_ssid",
+              "page": "p_system",
+              "name": 40,
+              "group": 0,
+              "label": "WLAN SSID",
+              "placeholder": "z.B. MeinWLAN"
+            },
+            {
+              "key": "wifi_pwd",
+              "page": "p_system",
+              "name": 41,
+              "group": 0,
+              "label": "WLAN Passwort",
+              "placeholder": "WLAN Passwort"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mqtt",
+      "title": "MQTT",
+      "description": "Gefuehrte MQTT-Einrichtung in mehreren Schritten",
+      "summary_review": true,
+      "steps": [
+        {
+          "id": "mqtt-enable",
+          "title": "Aktivierung",
+          "description": "MQTT global ein- oder ausschalten.",
+          "fields": [
+            {
+              "key": "mqtt_enable",
+              "page": "p_mqtt",
+              "name": 44,
+              "group": 0,
+              "label": "MQTT aktiv"
+            }
+          ]
+        },
+        {
+          "id": "mqtt-connection",
+          "title": "Verbindung",
+          "description": "Broker-Adresse und Port setzen.",
+          "fields": [
+            {
+              "key": "mqtt_host",
+              "page": "p_mqtt",
+              "name": 42,
+              "group": 0,
+              "label": "MQTT Server",
+              "placeholder": "z.B. 192.168.1.10"
+            },
+            {
+              "key": "mqtt_port",
+              "page": "p_mqtt",
+              "name": 43,
+              "group": 0,
+              "label": "MQTT Port"
+            },
+            {
+              "key": "mqtt_device_name",
+              "page": "p_mqtt",
+              "name": 45,
+              "group": 0,
+              "label": "MQTT Device Name",
+              "placeholder": "z.B. bsc"
+            }
+          ]
+        },
+        {
+          "id": "mqtt-auth-topic",
+          "title": "Login und Topic",
+          "description": "Optionale Zugangsdaten und Topic konfigurieren.",
+          "fields": [
+            {
+              "key": "mqtt_username",
+              "page": "p_mqtt",
+              "name": 86,
+              "group": 0,
+              "label": "MQTT Username",
+              "required": false
+            },
+            {
+              "key": "mqtt_pwd",
+              "page": "p_mqtt",
+              "name": 87,
+              "group": 0,
+              "label": "MQTT Passwort",
+              "required": false
+            },
+            {
+              "key": "mqtt_topic",
+              "page": "p_mqtt",
+              "name": 46,
+              "group": 0,
+              "label": "MQTT Topic Name"
+            }
+          ]
+        },
+        {
+          "id": "mqtt-publish",
+          "title": "Sendeverhalten",
+          "description": "Sendeintervall festlegen.",
+          "fields": [
+            {
+              "key": "mqtt_send_delay",
+              "page": "p_mqtt",
+              "name": 133,
+              "group": 0,
+              "label": "Sendeintervall [s]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "serial-setup",
+      "title": "Serielle Schnittstellen",
+      "description": "Konfiguriert die an Serial 0-2 angeschlossenen Ger\u00e4te.",
+      "summary_review": true,
+      "actions": [
+        {
+          "type": "fill_datadevice_from_serial",
+          "target_page": "p_datadevice",
+          "target_iface_base": 163,
+          "target_addr_base": 164,
+          "target_name_base": 165,
+          "max_devices": 32,
+          "mappings": [
+            {
+              "serial_field": "s0_bms",
+              "count_field": "s0_count",
+              "datadevice_source": 7
+            },
+            {
+              "serial_field": "s1_bms",
+              "count_field": "s1_count",
+              "datadevice_source": 8
+            },
+            {
+              "serial_field": "s2_bms",
+              "count_field": "s2_count",
+              "datadevice_source": 9
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "id": "serial-step-0",
+          "title": "Serial 0",
+          "fields": [
+            {
+              "key": "s0_bms",
+              "page": "p_serial",
+              "name": 1,
+              "group": 0,
+              "label": "Was f\u00fcr ein Ger\u00e4t ist angeschlossen?",
+              "type": "select"
+            },
+            {
+              "key": "s0_count",
+              "label": "Wie viele Ger\u00e4te sind an dem Port angeschlossen?",
+              "type": "number",
+              "min": 1,
+              "max": 16,
+              "default": 1,
+              "required": false,
+              "local_only": true,
+              "show_when_chainable_of": "s0_bms"
+            }
+          ]
+        },
+        {
+          "id": "serial-step-1",
+          "title": "Serial 1",
+          "description": "BMS an Serial 1 und Anzahl in Kette.",
+          "fields": [
+            {
+              "key": "s1_bms",
+              "page": "p_serial",
+              "name": 1,
+              "group": 1,
+              "label": "Was f\u00fcr ein Ger\u00e4t ist angeschlossen?",
+              "type": "select"
+            },
+            {
+              "key": "s1_count",
+              "label": "Wie viele Ger\u00e4te sind an dem Port angeschlossen?",
+              "type": "number",
+              "min": 1,
+              "max": 16,
+              "default": 1,
+              "required": false,
+              "local_only": true,
+              "show_when_chainable_of": "s1_bms"
+            }
+          ]
+        },
+        {
+          "id": "serial-step-2",
+          "title": "Serial 2",
+          "description": "BMS an Serial 2 und Anzahl in Kette.",
+          "fields": [
+            {
+              "key": "s2_bms",
+              "page": "p_serial",
+              "name": 1,
+              "group": 2,
+              "label": "Was f\u00fcr ein Ger\u00e4t ist angeschlossen?",
+              "type": "select"
+            },
+            {
+              "key": "s2_count",
+              "label": "Wie viele Ger\u00e4te sind an dem Port angeschlossen?",
+              "type": "number",
+              "min": 1,
+              "max": 16,
+              "default": 1,
+              "required": false,
+              "local_only": true,
+              "show_when_chainable_of": "s2_bms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inverter-setup",
+      "title": "Wechselrichter",
+      "description": "Konfiguration des Wechselrichters und der Basis Laderegelung.",
+      "steps": [
+        {
+          "id": "inverter-step-1",
+          "title": "CAN aktivieren und Protokoll ausw\u00e4hlen",
+          "fields": [
+            {
+              "key": "bms_can_enable",
+              "page": "p_inverter",
+              "name": 60,
+              "group": 0,
+              "label": "BMS Canbus enable",
+              "hidden": true
+            },
+            {
+              "key": "can_protocol",
+              "page": "p_inverter",
+              "name": 2,
+              "group": 0,
+              "label": "CANBUS Protokoll"
+            },
+            {
+              "key": "can_datasource",
+              "page": "p_inverter",
+              "name": 83,
+              "group": 0,
+              "label": "Datenquelle (aktive Data-Devices)",
+              "editable": false,
+              "hidden": false
+            }
+          ],
+          "calculations": [
+            {
+              "id": "calc_can_enable",
+              "expr": 1,
+              "write_to": [
+                "bms_can_enable"
+              ],
+              "force_on_load": true
+            },
+            {
+              "id": "calc_can_datasource_active",
+              "expr": {
+                "op": "active_data_devices_mask"
+              },
+              "write_to": [
+                "can_datasource"
+              ],
+              "force_on_load": true
+            }
+          ]
+        },
+        {
+          "id": "inverter-step-2",
+          "title": "Basisdaten",
+          "fields": [
+            {
+              "key": "cells",
+              "page": "p_serial",
+              "name": 141,
+              "group": 0,
+              "label": "Anzahl Zellen"
+            },
+            {
+              "key": "max_cell_mv",
+              "page": "p_invertercharge",
+              "name": 76,
+              "group": 0,
+              "label": "Maximale Zellspannung [mV]"
+            },
+            {
+              "key": "absorb_v",
+              "page": "p_inverter",
+              "name": 62,
+              "group": 0,
+              "label": "Absorption Ladespannung [V]",
+              "editable": false,
+              "hidden": false
+            },
+            {
+              "key": "float_v",
+              "page": "p_inverter",
+              "name": 156,
+              "group": 0,
+              "label": "Float Ladespannung [V]",
+              "editable": false,
+              "hidden": false
+            },
+            {
+              "key": "float_soc",
+              "page": "p_inverter",
+              "name": 85,
+              "group": 0,
+              "label": "Float Ladespannung SoC [%]",
+              "editable": false,
+              "hidden": true
+            }
+          ],
+          "calculations": [
+            {
+              "id": "calc_absorb",
+              "expr": {
+                "op": "div",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "field": "max_cell_mv"
+                      },
+                      {
+                        "field": "cells"
+                      }
+                    ]
+                  },
+                  1000
+                ]
+              },
+              "round": {
+                "mode": "up",
+                "step": 0.1
+              },
+              "write_to": [
+                "absorb_v"
+              ]
+            },
+            {
+              "id": "calc_float_v",
+              "expr": {
+                "op": "mul",
+                "args": [
+                  3.37,
+                  {
+                    "field": "cells"
+                  }
+                ]
+              },
+              "round": {
+                "mode": "nearest",
+                "decimals": 1
+              },
+              "write_to": [
+                "float_v"
+              ],
+              "force_on_load": true
+            },
+            {
+              "id": "calc_float_soc",
+              "expr": 90,
+              "write_to": [
+                "float_soc"
+              ],
+              "force_on_load": true
+            }
+          ]
+        },
+        {
+          "id": "inverter-step-3",
+          "title": "Zellspannungsabhaengige Drosselung",
+          "fields": [
+            {
+              "key": "zspg_en",
+              "page": "p_invertercharge",
+              "name": 74,
+              "group": 0,
+              "label": "Zellspannungsabhaengige Drosselung Ein/Aus",
+              "editable": false,
+              "hidden": true
+            },
+            {
+              "key": "zspg_start",
+              "page": "p_invertercharge",
+              "name": 75,
+              "group": 0,
+              "label": "Starten bei Zellspg. groesser [mV]",
+              "editable": false,
+              "hidden": true
+            },
+            {
+              "key": "zspg_float",
+              "page": "p_invertercharge",
+              "name": 205,
+              "group": 0,
+              "label": "Maximale Zellspannung (Float) [mV]",
+              "editable": false,
+              "hidden": true
+            },
+            {
+              "key": "zspg_min_current",
+              "page": "p_invertercharge",
+              "name": 78,
+              "group": 0,
+              "label": "Mindest Ladestrom",
+              "editable": false,
+              "hidden": true
+            }
+          ],
+          "calculations": [
+            {
+              "id": "calc_zspg_en",
+              "expr": 1,
+              "write_to": [
+                "zspg_en"
+              ],
+              "force_on_load": true
+            },
+            {
+              "id": "calc_zspg_start",
+              "expr": 3370,
+              "write_to": [
+                "zspg_start"
+              ],
+              "force_on_load": true
+            },
+            {
+              "id": "calc_zspg_float",
+              "expr": 3370,
+              "write_to": [
+                "zspg_float"
+              ],
+              "force_on_load": true
+            },
+            {
+              "id": "calc_zspg_min_current",
+              "expr": 0,
+              "write_to": [
+                "zspg_min_current"
+              ],
+              "force_on_load": true
+            }
+          ]
+        },
+        {
+          "id": "inverter-step-4",
+          "title": "Zelldrift-Drosselung",
+          "fields": [
+            {
+              "key": "drift_en",
+              "page": "p_invertercharge",
+              "name": 68,
+              "group": 0,
+              "label": "Zelldrift-Drosselung Ein/Aus",
+              "editable": false,
+              "hidden": true
+            },
+            {
+              "key": "drift_start_spg",
+              "page": "p_invertercharge",
+              "name": 71,
+              "group": 0,
+              "label": "Starten bei Zellspg. groesser [mV]",
+              "editable": false,
+              "hidden": true
+            },
+            {
+              "key": "drift_start_diff",
+              "page": "p_invertercharge",
+              "name": 69,
+              "group": 0,
+              "label": "Starten bei Drift groesser [mV]",
+              "editable": false,
+              "hidden": true
+            },
+            {
+              "key": "drift_red_per_mv",
+              "page": "p_invertercharge",
+              "name": 70,
+              "group": 0,
+              "label": "Reduzierung pro mV [A]",
+              "editable": false,
+              "hidden": true
+            }
+          ],
+          "calculations": [
+            {
+              "id": "calc_drift_en",
+              "expr": 1,
+              "write_to": [
+                "drift_en"
+              ],
+              "force_on_load": true
+            },
+            {
+              "id": "calc_drift_start_spg",
+              "expr": 3400,
+              "write_to": [
+                "drift_start_spg"
+              ],
+              "force_on_load": true
+            },
+            {
+              "id": "calc_drift_start_diff",
+              "expr": 20,
+              "write_to": [
+                "drift_start_diff"
+              ],
+              "force_on_load": true
+            },
+            {
+              "id": "calc_drift_red_per_mv",
+              "expr": 2,
+              "write_to": [
+                "drift_red_per_mv"
+              ],
+              "force_on_load": true
+            }
+          ]
+        }
+      ],
+      "summary_review": true
+    }
+  ]
+}

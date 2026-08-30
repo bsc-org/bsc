@@ -15,7 +15,7 @@
             {
               "v": "0",
               "lid": 257,
-              "l": "Aus"
+              "l": "Off"
             },
             {
               "$ref": "comboAlarms"
@@ -27,7 +27,7 @@
         {
           "name": 169,
           "lid": 273,
-          "label": "Zu &uuml;berwachende Ger\u00e4te",
+          "label": "Devices to monitor",
           "type": 14,
           "options": [
             {
@@ -40,8 +40,8 @@
         {
           "name": 170,
           "lid": 274,
-          "label": "Strom Schwellwert",
-          "help": "Siehe Hinweis Zeit 1 + 2",
+          "label": "Current threshold",
+          "help": "See note time 1 + 2",
           "unit": "A",
           "type": 17,
           "default": 200,
@@ -52,8 +52,8 @@
         {
           "name": 171,
           "lid": 275,
-          "label": "Zeit 1",
-          "help": "Wenn der Strom im Batterypack gr\u00f6\u00dfer dem Stromschwellwert ist, dann wird diese Zeit f\u00fcr den P-Check genommen.",
+          "label": "Time 1",
+          "help": "If the current in the battery pack is less than the current threshold, this time is taken for the plausibility check.",
           "unit": "s",
           "type": 3,
           "default": 30,
@@ -64,8 +64,8 @@
         {
           "name": 172,
           "lid": 276,
-          "label": "Zeit 2",
-          "help": "Wenn der Strom im Batterypack kleiner dem Stromschwellwert ist, dann wird diese Zeit f\u00fcr den P-Check genommen.",
+          "label": "Time 2",
+          "help": "If the current in the battery pack is greater than the current threshold, this time is taken for the plausibility check.",
           "unit": "s",
           "type": 3,
           "default": 240,
@@ -78,13 +78,13 @@
     },
     {
       "lid": 301,
-      "label": "Wertevergleich",
+      "label": "Value comparison",
       "type": 13,
       "items": [
         {
           "lid": 301,
-          "label": "Wertevergleich",
-          "label_entry": "Wertevergleich",
+          "label": "Value comparison",
+          "label_entry": "Value comparison",
           "groupsize": 10,
           "type": 12,
           "group": [
@@ -97,7 +97,7 @@
                 {
                   "v": "0",
                   "lid": 257,
-                  "l": "Aus"
+                  "l": "Off"
                 },
                 {
                   "$ref": "comboAlarms"
@@ -109,7 +109,7 @@
             {
               "name": 194,
               "lid": 303,
-              "label": "Vergleichen",
+              "label": "Compare",
               "type": 14,
               "options": [
                 {
@@ -122,23 +122,23 @@
             {
               "name": 195,
               "lid": 304,
-              "label": "Werte",
+              "label": "Values",
               "type": 14,
               "options": [
                 {
                   "v": 0,
                   "lid": 305,
-                  "l": "Gesammtspannung"
+                  "l": "Total voltage"
                 },
                 {
                   "v": 1,
                   "lid": 306,
-                  "l": "Zellspannung"
+                  "l": "Cell voltage"
                 },
                 {
                   "v": 2,
                   "lid": 334,
-                  "l": "Batteriestrom"
+                  "l": "Battery power"
                 }
               ],
               "default": "0",
@@ -147,7 +147,7 @@
             {
               "name": 196,
               "lid": 307,
-              "label": "Max. Abweichung Gesamtspg.",
+              "label": "Max. deviation Total volt.",
               "unit": "mV",
               "type": 3,
               "default": 50,
@@ -158,7 +158,7 @@
             {
               "name": 197,
               "lid": 308,
-              "label": "Max. Abweichung Zellspg.",
+              "label": "Max. deviation Cell volt.",
               "unit": "mV",
               "type": 3,
               "default": 5,
@@ -169,7 +169,7 @@
             {
               "name": 204,
               "lid": 335,
-              "label": "Max. Abweichung Batteriestrom",
+              "label": "Max. deviation battery current",
               "unit": "A",
               "type": 3,
               "default": 5,
@@ -180,7 +180,7 @@
             {
               "name": 198,
               "lid": 309,
-              "label": "Verz\u00f6gerung",
+              "label": "Delay",
               "unit": "s",
               "type": 3,
               "default": 5,
@@ -191,17 +191,18 @@
           ]
         }
       ],
-      "section_id": 1
+      "section_id": 1,
+      "label_entry": "Value comparison"
     },
     {
       "lid": 497,
-      "label": "Zellspannung bei Ladestrom",
+      "label": "Cell voltage while charging",
       "type": 13,
       "items": [
         {
           "name": 327,
           "lid": 498,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "default": 0,
           "dt": 9
@@ -209,7 +210,7 @@
         {
           "name": 328,
           "lid": 273,
-          "label": "Zu &uuml;berwachende Ger\u00e4te",
+          "label": "Devices to monitor",
           "type": 14,
           "options": [
             {
@@ -228,7 +229,7 @@
             {
               "v": "0",
               "lid": 257,
-              "l": "Aus"
+              "l": "Off"
             },
             {
               "$ref": "comboAlarms"
@@ -240,7 +241,7 @@
         {
           "name": 330,
           "lid": 500,
-          "label": "Fehler bis manuellem Reset halten",
+          "label": "Hold fault until manual reset",
           "type": 10,
           "default": 0,
           "dt": 9

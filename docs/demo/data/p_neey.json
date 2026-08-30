@@ -35,7 +35,7 @@
             {
               "name": 99,
               "lid": 199,
-              "label": "Cells",
+              "label": "Number of cells",
               "type": 3,
               "default": 16,
               "min": 4,
@@ -46,7 +46,7 @@
             {
               "name": 100,
               "lid": 200,
-              "label": "Differenz Voltage",
+              "label": "Voltage difference",
               "type": 4,
               "default": 0.005,
               "min": 0,

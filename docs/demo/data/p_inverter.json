@@ -20,7 +20,7 @@
             {
               "v": 0,
               "lid": 263,
-              "l": "nicht belegt"
+              "l": "not in use"
             },
             {
               "v": 1,
@@ -53,12 +53,12 @@
           "type": 10,
           "default": "0",
           "dt": 9,
-          "help": "Nicht in Verbindung mit einem CerboGX aktivieren!"
+          "help": "Do not activate in conjunction with a CerboGX!"
         },
         {
           "name": 83,
           "lid": 108,
-          "label": "Datenquelle",
+          "label": "Data sources",
           "type": 14,
           "options": [
             {
@@ -88,7 +88,7 @@
     },
     {
       "lid": 109,
-      "label": "Valuehandling",
+      "label": "Valuehandling Multi-BMS",
       "type": 13,
       "wiki": "settings_inverter/#valuehandling-multi-bms",
       "items": [
@@ -133,7 +133,7 @@
             {
               "name": 142,
               "lid": 111,
-              "label": "Quelle SoC",
+              "label": "BMS for SoC",
               "type": 14,
               "options": [
                 {
@@ -189,17 +189,17 @@
             {
               "v": 1,
               "lid": 265,
-              "l": "Mittelwert"
+              "l": "mean"
             },
             {
               "v": 4,
               "lid": 266,
-              "l": "Minimalwert"
+              "l": "minimal"
             },
             {
               "v": 2,
               "lid": 267,
-              "l": "Maximalwert"
+              "l": "maximal"
             },
             {
               "v": 3,
@@ -217,7 +217,7 @@
         },
         {
           "lid": 376,
-          "label": "Spannung",
+          "label": "Voltage",
           "type": 21,
           "layout": [
             3,
@@ -256,7 +256,7 @@
             {
               "name": 173,
               "lid": 277,
-              "label": "Quelle Gesamtspannung",
+              "label": "Total voltage source",
               "type": 14,
               "options": [
                 {
@@ -312,17 +312,17 @@
             {
               "v": 1,
               "lid": 265,
-              "l": "Mittelwert"
+              "l": "mean"
             },
             {
               "v": 4,
               "lid": 266,
-              "l": "Minimalwert"
+              "l": "minimal"
             },
             {
               "v": 2,
               "lid": 267,
-              "l": "Maximalwert"
+              "l": "maximal"
             }
           ],
           "default": 2,
@@ -330,7 +330,7 @@
         },
         {
           "lid": 381,
-          "label": "Strom",
+          "label": "Current",
           "type": 21,
           "layout": [
             3,
@@ -369,7 +369,7 @@
             {
               "name": 174,
               "lid": 278,
-              "label": "Quelle Gesamtstrom",
+              "label": "Total current source",
               "type": 14,
               "options": [
                 {
@@ -425,22 +425,22 @@
             {
               "v": 1,
               "lid": 265,
-              "l": "Mittelwert"
+              "l": "mean"
             },
             {
               "v": 4,
               "lid": 266,
-              "l": "Minimalwert"
+              "l": "minimal"
             },
             {
               "v": 2,
               "lid": 267,
-              "l": "Maximalwert"
+              "l": "maximal"
             },
             {
               "v": 5,
               "lid": 279,
-              "l": "Summe"
+              "l": "Sum"
             }
           ],
           "default": 5,
@@ -451,14 +451,14 @@
     },
     {
       "lid": 112,
-      "label": "Basisdaten",
+      "label": "Basic data",
       "type": 13,
       "wiki": "settings_inverter/#basisdaten",
       "items": [
         {
           "name": 62,
           "lid": 113,
-          "label": "Absorption Ladespannung",
+          "label": "Absorption charging voltage",
           "unit": "V",
           "type": 16,
           "enProfile": true,
@@ -466,12 +466,12 @@
           "min": 12,
           "max": 66,
           "dt": 3,
-          "help": "Die Absorption Ladespannung entspricht einer erh\u00f6hten Spannung zum Erreichen des Voll-Zustandes."
+          "help": "The absorption charging voltage corresponds to an increased voltage to reach the full state."
         },
         {
           "name": 156,
           "lid": 114,
-          "label": "Float Ladespannung",
+          "label": "Float charging voltage",
           "unit": "V",
           "type": 16,
           "enProfile": true,
@@ -479,12 +479,12 @@
           "min": 12,
           "max": 66,
           "dt": 3,
-          "help": "Die Floatspannung wird nach Erreichen der einstellbaren Cutoff-Funktion angewendet."
+          "help": "The float voltage is applied after the adjustable cutoff function is reached."
         },
         {
           "name": 85,
           "lid": 115,
-          "label": "Float Ladespannung SoC",
+          "label": "Float charging voltage SoC",
           "unit": "%",
           "type": 3,
           "enProfile": true,
@@ -492,12 +492,12 @@
           "min": 1,
           "max": 100,
           "dt": 1,
-          "help": "Beim Unterschreiten des eingestellten SoC wird von der Float in die Absorption Ladespannung gewechselt."
+          "help": "If the SoC falls below the set value, the floating charging voltage switches to absorption charging voltage."
         },
         {
           "name": 64,
           "lid": 116,
-          "label": "Max. Ladestrom",
+          "label": "Max. charging current",
           "unit": "A",
           "type": 3,
           "default": "100",
@@ -508,7 +508,7 @@
         {
           "name": 65,
           "lid": 117,
-          "label": "Max. Entladestrom",
+          "label": "Max. discharging current",
           "unit": "A",
           "type": 3,
           "default": "100",
@@ -519,7 +519,7 @@
         {
           "name": 77,
           "lid": 120,
-          "label": "SoC auf 100",
+          "label": "Set SOC to 100",
           "type": 14,
           "options": [
             {
@@ -532,7 +532,7 @@
         {
           "name": 223,
           "lid": 358,
-          "label": "SoC auf 0",
+          "label": "Set SOC to 0",
           "type": 14,
           "options": [
             {
@@ -574,7 +574,7 @@
             {
               "name": 221,
               "lid": 124,
-              "label": "Kapazit\u00e4t",
+              "label": "Capacity",
               "unit": "Ah",
               "type": 3,
               "default": 280,
@@ -589,13 +589,13 @@
     },
     {
       "lid": 445,
-      "label": "Triggerbasierte Begrenzungen",
+      "label": "Trigger-based limits",
       "type": 13,
       "items": [
         {
           "name": 66,
           "lid": 118,
-          "label": "Ladeleistung auf 0",
+          "label": "Charging power to 0",
           "type": 14,
           "options": [
             {
@@ -608,7 +608,7 @@
         {
           "name": 67,
           "lid": 119,
-          "label": "Entladeleistung auf 0",
+          "label": "Discharging power to 0",
           "type": 14,
           "options": [
             {
@@ -620,11 +620,11 @@
         },
         {
           "lid": 446,
-          "label": "Triggerbasierte Strombegrenzung",
+          "label": "Trigger-based current limiting",
           "label_entry": "Regel",
           "groupsize": 3,
           "type": 12,
-          "help": "Bei aktivem Trigger gelten die Werte als Obergrenze. Sie \u00fcbersteuern die festgelegten Maximalwerte nicht!",
+          "help": "When a trigger is active, these values act as upper limits. They do not override the configured maximum values.",
           "group": [
             {
               "name": 275,
@@ -641,7 +641,7 @@
             },
             {
               "lid": 450,
-              "label": "Stromgrenzen",
+              "label": "Current limits",
               "type": 21,
               "layout": [
                 6,
@@ -651,7 +651,7 @@
                 {
                   "name": 276,
                   "lid": 448,
-                  "label": "Laden max.",
+                  "label": "Charge max.",
                   "unit": "A",
                   "type": 3,
                   "default": 0,
@@ -662,7 +662,7 @@
                 {
                   "name": 277,
                   "lid": 449,
-                  "label": "Entladen max.",
+                  "label": "Discharge max.",
                   "unit": "A",
                   "type": 3,
                   "default": 0,
@@ -679,26 +679,26 @@
     },
     {
       "lid": 298,
-      "label": "Ladespannungsrampe",
+      "label": "Charging voltage ramp",
       "type": 13,
-      "help": "Mit der Funktion wird die Ladespannung auf den neuen Sollwert geregelt.\nModus Zeitrampe: \u00c4nderung pro Schritt zeitbasiert. Pro Schritt wird die Ladespannung um 100 mV ge\u00e4ndert.\nModus Auto: Erh\u00f6hung per Zeitrampe, Absenkung spannungsgef\u00fchrt \u00fcber die aktuelle Batteriespannung; dabei wird der Ladestrom kurzzeitig auf 0 A gesetzt, bis die Zielspannung erreicht ist.",
+      "help": "This function regulates charging voltage to the new target value.\nMode Time ramp: change per step based on time. Per step, charging voltage is changed by 100 mV.\nMode Auto: increase via time ramp, decrease based on current battery voltage; charging current is temporarily set to 0 A until target voltage is reached.",
       "wiki": "settings_inverter/#a_ladespannungsrampe",
       "items": [
         {
           "name": 190,
           "lid": 386,
-          "label": "Modus",
+          "label": "Mode",
           "type": 9,
           "options": [
             {
               "v": 0,
               "lid": 257,
-              "l": "Aus"
+              "l": "Off"
             },
             {
               "v": 1,
               "lid": 387,
-              "l": "Zeitrampe"
+              "l": "Time ramp"
             },
             {
               "v": 2,
@@ -712,7 +712,7 @@
         {
           "name": 191,
           "lid": 299,
-          "label": "Zeit pro Spannungsschritt",
+          "label": "Time per voltage step",
           "unit": "s",
           "type": 3,
           "default": 15,
@@ -725,19 +725,19 @@
     },
     {
       "lid": 134,
-      "label": "Batterietemperatur",
+      "label": "Battery temperature",
       "type": 13,
       "items": [
         {
           "name": 97,
           "lid": 135,
-          "label": "Quelle",
+          "label": "Source for temperature",
           "type": 9,
           "options": [
             {
               "v": 255,
               "lid": 263,
-              "l": "nicht belegt"
+              "l": "not in use"
             },
             {
               "$ref": "dataDevicesAll"
@@ -756,7 +756,7 @@
                 {
                   "v": 255,
                   "lid": 263,
-                  "l": "nicht belegt"
+                  "l": "not in use"
                 },
                 {
                   "$ref": "batteryPacks"
@@ -771,18 +771,18 @@
         {
           "name": 272,
           "lid": 389,
-          "label": "Sensortyp",
+          "label": "Sensor type",
           "type": 9,
           "options": [
             {
               "v": 0,
               "lid": 390,
-              "l": "Data-Device Sensoren"
+              "l": "Data-device sensors"
             },
             {
               "v": 1,
               "lid": 391,
-              "l": "Erweiterte Sensoren"
+              "l": "Extended sensors"
             }
           ],
           "default": 0,
@@ -798,27 +798,27 @@
         {
           "name": 98,
           "lid": 136,
-          "label": "Sensornummer",
+          "label": "Sensor number",
           "type": 3,
           "default": "0",
           "min": 0,
           "max": 31,
           "dt": 1,
-          "help": "Data-Device Sensoren: 0-5<br>Erweiterte Sensoren: 0-31"
+          "help": "Data-device sensors: 0-5\\nExtended sensors: 0-31"
         }
       ],
       "section_id": 3
     },
     {
       "lid": 287,
-      "label": "Zelltemperatur",
+      "label": "Celltemperatur",
       "type": 13,
-      "help": "Es werden die Data Devices genommen, die unter \"Datenquelle\" ausgew\u00e4hlt sind.",
+      "help": "The data devices that are selected under \\\"Data source\\\" are used.",
       "items": [
         {
           "name": 183,
           "lid": 283,
-          "label": "Sensoren",
+          "label": "Data device sensors",
           "type": 14,
           "options": [
             {
@@ -833,7 +833,7 @@
     },
     {
       "lid": 129,
-      "label": "Alarme (Inverter)",
+      "label": "Alarms (Inverter)",
       "type": 13,
       "items": [
         {
@@ -893,9 +893,9 @@
     },
     {
       "lid": 137,
-      "label": "Trigger bei SoC",
+      "label": "Trigger on SoC",
       "type": 13,
-      "help": "Ausl\u00f6sen eines Triggers, wenn ein bestimmter SoC \u00fcber- oder unterschritten wird.",
+      "help": "Trigger when a certain SoC is exceeded or fallen below.",
       "wiki": "settings_inverter/#trigger-bei-soc",
       "items": [
         {
@@ -924,7 +924,7 @@
             {
               "name": 135,
               "lid": 140,
-              "label": "SoC - Trigger ein",
+              "label": "SoC - Trigger high",
               "unit": "%",
               "type": 3,
               "default": 95,
@@ -935,7 +935,7 @@
             {
               "name": 136,
               "lid": 141,
-              "label": "SoC - Trigger aus",
+              "label": "SoC - Trigger low",
               "unit": "%",
               "type": 3,
               "default": 80,

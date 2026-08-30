@@ -11,7 +11,8 @@
           "pattern": "^[^#\\+]*$",
           "default": "BSC",
           "minlen": 3,
-          "dt": 8
+          "dt": 8,
+          "help": "Also used as MQTT device name"
         },
         {
           "name": 144,
@@ -27,12 +28,12 @@
         {
           "name": 278,
           "lid": 451,
-          "label": "Profilumschaltung",
+          "label": "Profile switching",
           "type": 9,
           "options": [
             {
               "v": 0,
-              "l": "Aus",
+              "l": "Off",
               "lid": 257
             },
             {
@@ -54,7 +55,7 @@
         {
           "name": 279,
           "lid": 452,
-          "label": "Profil-Trigger",
+          "label": "Profile trigger",
           "type": 14,
           "options": [
             {
@@ -74,7 +75,7 @@
         {
           "name": 343,
           "lid": 525,
-          "label": "Traceback-Trigger",
+          "label": "Traceback trigger",
           "type": 14,
           "options": [
             {
@@ -83,7 +84,7 @@
           ],
           "default": 0,
           "dt": 5,
-          "help": "Setzt die ausgew\u00e4hlten Trigger, wenn ein Traceback vorhanden ist.",
+          "help": "Sets the selected triggers when a traceback is present.",
           "visible_when": [
             {
               "source": "var",
@@ -97,14 +98,14 @@
     },
     {
       "lid": 533,
-      "label": "Benutzer",
+      "label": "Users",
       "type": 13,
       "section_id": 4,
       "items": [
         {
           "name": 218,
           "lid": 355,
-          "label": "Passwortschutz aktivieren",
+          "label": "login required",
           "type": 10,
           "default": 1,
           "dt": 9
@@ -112,18 +113,18 @@
         {
           "name": 220,
           "lid": 357,
-          "label": "Automatisch abmelden",
+          "label": "Auto-Logout",
           "type": 3,
           "default": 30,
           "min": 0,
           "max": 240,
           "unit": "min",
           "dt": 1,
-          "help": "0 deaktiviert den automatischen Logout."
+          "help": "0 disables automatic logout."
         },
         {
           "lid": 4,
-          "label": "Benutzer",
+          "label": "User",
           "label_entry": "Benutzer",
           "groupsize": 2,
           "type": 12,
@@ -131,7 +132,7 @@
             {
               "name": 160,
               "lid": 5,
-              "label": "Benutzername",
+              "label": "Username",
               "type": 0,
               "default": "[bsc,]",
               "flash": "1",
@@ -140,7 +141,7 @@
             {
               "name": 161,
               "lid": 535,
-              "label": "Passwort",
+              "label": "Password",
               "type": 2,
               "default": "[$sha256$8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918,]",
               "flash": "1",
@@ -149,7 +150,7 @@
             {
               "name": 344,
               "lid": 534,
-              "label": "Rolle",
+              "label": "Role",
               "type": 9,
               "default": "0",
               "dt": 1,
@@ -170,14 +171,14 @@
     },
     {
       "lid": 8,
-      "label": "WLAN",
+      "label": "WIFI",
       "type": 13,
       "wiki": "settings_bsc/#system",
       "items": [
         {
           "name": 40,
           "lid": 9,
-          "label": "WLAN SSID",
+          "label": "WIFI SSID",
           "type": 0,
           "default": "",
           "dt": 8
@@ -185,7 +186,7 @@
         {
           "name": 41,
           "lid": 10,
-          "label": "WLAN Passwort",
+          "label": "WIFI password",
           "type": 2,
           "default": "",
           "dt": 8
@@ -193,14 +194,14 @@
         {
           "name": 96,
           "lid": 11,
-          "label": "WLAN connect Timeout",
+          "label": "WIFI connect Timeout",
           "type": 3,
           "unit": "s",
           "default": 30,
           "min": 0,
           "max": 3600,
           "dt": 3,
-          "help": "Der Timeout gibt an, nach welcher Zeit ein Verbindungsversuch abgebrochen wird und ein Accesspoint erstellt wird.<br>0 deaktiviert den Timeout."
+          "help": "The timeout specifies the time after which a connection attempt is aborted and an access point is created.\\n0 deactivates the timeout."
         },
         {
           "name": 234,
@@ -209,7 +210,7 @@
           "type": 10,
           "default": 1,
           "dt": 9,
-          "help": "Bei aktiviertem Ethernet wird WLAN deaktiviert.",
+          "help": "Enables the Ethernet port. WiFi will be disabled.",
           "visible_when": [
             {
               "source": "var",
@@ -230,13 +231,13 @@
         {
           "name": 36,
           "lid": 13,
-          "label": "IP-Adresse",
+          "label": "IP address",
           "type": 0,
           "pattern": "^((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)$",
           "default": "",
           "dt": 8,
           "flash": "1",
-          "help": "Wenn die IP-Adresse leer ist, dann ist DHCP aktiv"
+          "help": "If the IP address is empty, then DHCP is active"
         },
         {
           "name": 37,
@@ -266,7 +267,7 @@
           "pattern": "^((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)$",
           "default": "",
           "dt": 8,
-          "help": "Optional",
+          "help": "optional",
           "flash": "1"
         }
       ],
@@ -276,12 +277,12 @@
       "lid": 26,
       "label": "NTP",
       "type": 13,
-      "help": "Zum \u00dcbernehmen der Settings, muss der BSC neu gestartet werden!",
+      "help": "To adopt the settings, the BSC must be restarted!",
       "items": [
         {
           "name": 122,
           "lid": 27,
-          "label": "Server Name/IP",
+          "label": "NTP-server name/ip",
           "type": 0,
           "default": "pool.ntp.org",
           "flash": "1",
@@ -290,7 +291,7 @@
         {
           "name": 217,
           "lid": 346,
-          "label": "Zeit-Offset",
+          "label": "Time offset",
           "type": 3,
           "unit": "h",
           "default": 1,

@@ -5,15 +5,15 @@
       "items": [
         {
           "lid": 86,
-          "label": "Relaisausg&#228;nge",
-          "label_entry": "Relaisausgang",
+          "label": "Relay outputs",
+          "label_entry": "Relay output",
           "groupsize": 6,
           "type": 12,
           "group": [
             {
               "name": 30,
               "lid": 87,
-              "label": "Ausl&#246;severhalten",
+              "label": "Trigger behavior",
               "type": 9,
               "options": [
                 {
@@ -24,7 +24,7 @@
                 {
                   "v": "1",
                   "lid": 262,
-                  "l": "Impuls"
+                  "l": "Impulse"
                 }
               ],
               "default": "0",
@@ -33,7 +33,7 @@
             {
               "name": 31,
               "lid": 88,
-              "label": "Impulsdauer",
+              "label": "Pulse duration",
               "unit": "ms",
               "type": 3,
               "default": 500,
@@ -51,7 +51,7 @@
             {
               "name": 33,
               "lid": 89,
-              "label": "Verz&ouml;gerung",
+              "label": "Delay",
               "unit": "s",
               "type": 3,
               "default": 0,
@@ -62,7 +62,7 @@
             {
               "name": 222,
               "lid": 90,
-              "label": "Invertieren",
+              "label": "Invert",
               "type": 10,
               "default": "0",
               "dt": 9
@@ -70,7 +70,7 @@
             {
               "name": 32,
               "lid": 91,
-              "label": "Auswahl Trigger",
+              "label": "Triggered by",
               "type": 14,
               "options": [
                 {
