@@ -40,15 +40,9 @@ Eine Bezugsquelle ist beispielsweise:
 **Hinweise zur Funktionalität**  
 Da das T-CONNECT Board **keine integrierten Relais, Digitaleingänge oder eine redundante Spannungsversorgung** besitzt, kommt es im Vergleich zur originalen BSC-Hardware zu funktionalen Einschränkungen.  
 
-Mit der **Supporter-Firmware** lassen sich diese Einschränkungen jedoch teilweise kompensieren:
-
-- Die Signale für **Relaisausgänge**, **Digitaleingänge** sowie **I²C-Kommunikation** werden auf den **Pin-Header** herausgeführt. Die Belegung des Pin-Headers ist [hier](hardware.md/#belegung-des-pin-headers) zu finden.
-- Darüber können externe Module oder Relais direkt angesteuert werden.
-- Zusätzlich ermöglicht die Supporter-Version den Anschluss des **Displays** über den Header.
-
-Damit bietet die Supporter-Firmware eine flexible Erweiterungsmöglichkeit, um das T-CONNECT Board bei Bedarf zu erweitern.
-
-Weitere Informationen zur Hardware des Lilygo T-CONNECT finden Sie [hier](hardware.md/#lilygo-t-connect).
+Die **Supporter-Version** ermöglicht den Anschluss des **Displays** über den Pin-Header.  
+Die Belegung des Pin-Headers ist [hier](hardware.md/#belegung-des-pin-headers) zu finden.  
+Weitere Informationen zur Hardware des Lilygo T-CONNECT finden Sie [hier](hardware.md/#lilygo-t-connect).  
 
 ### Originales BSC-Mainboard
 Das ursprüngliche BSC-Mainboard wurde speziell für das Projekt entwickelt.  
