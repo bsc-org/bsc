@@ -87,7 +87,7 @@ markdown_extensions:
 nav:
   - User Guide:
     - Systemübersicht: system_overview.md
-    - Versionsvergleich /<br>Version Comparison: comparison_sw.md
+#    - Versionsvergleich /<br>Version Comparison: comparison_sw.md
     - Erste Schritte:
       - Erste Informationen: first_steps.md
       - Programmieren des BSC: first_steps_programming.md
@@ -119,7 +119,7 @@ nav:
     - Integration (MQTT, REST):
       - MQTT: mqtt.md
       - REST-API: restapi.md
-    - Fernwartung (T-Connect): settings_servicelink.md
+#    - Fernwartung (T-Connect): settings_servicelink.md
     - Troubleshooting: troubleshooting.md 
     - Sonstiges: 
       - Test ohne BSC Hardware: BSC_ohne_orig_hardware.md
