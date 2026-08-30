@@ -52,6 +52,7 @@ Die Temperaturreduzierung erfolgt anhand von bis zu **vier konfigurierbaren Temp
 version: v010
 file: inverterDischarge.json
 profile: off
+groups: 1
 section: UI_SECT_INVERTERDISCHARGE_ENTLADESTROM_REDUZIEREN_TEMPERATUR
 ```
 

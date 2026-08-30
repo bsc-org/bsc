@@ -141,12 +141,13 @@ Mit dieser Funktion kann der maximale Ladestrom abhängig von der gemessenen Tem
 Die Temperaturreduzierung erfolgt anhand von bis zu vier konfigurierbaren **Temperaturregeln**. Jede Regel kann individuell aktiviert, deaktiviert und mit eigenen Sensoren sowie Start- und Endwerten konfiguriert werden. 
 
 !!! note "Hinweis zur Supporter-Firmware"
-    Die Temperatur-Reduzierung ist auch Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+    Die Temperatur-Reduzierung ist Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
 
 ```bsc-settings
 version: v010
 file: inverterCharge.json
 profile: off
+groups: 1
 section: UI_SECT_INVERTERCHARGE_LADESTROM_REDUZIEREN_TEMPERATUR
 ```
 
@@ -158,13 +159,13 @@ section: UI_SECT_INVERTERCHARGE_LADESTROM_REDUZIEREN_TEMPERATUR
 In diesem Bereich können die spezifischen Temperatursensoren (0–5) der Data Devices ausgewählt werden, die für die Regelung verwendet werden sollen.
 
 **Erweiterte Sensorquellen / Erweiterte Sensoren 0-31**  
-Zusätzlich können erweiterte Temperatursensoren (z. B. OneWire, Sensoren 0–31) als Quellen ausgewählt werden – die *Erweiterten Sensorquellen* bestimmen die zugehörigen Group Devices bzw. Data-Devices.
+Zusätzlich können erweiterte Temperatursensoren als Quellen ausgewählt werden – die *Erweiterten Sensorquellen* bestimmen die zugehörigen Group Devices bzw. Data-Devices.
 
 **Reduzieren Start**  
-Hier wird die Temperatur definiert, ab der die Stromreduzierung beginnt (Standard: 20,00 °C). Diese kann sowohl höher als auch niedriger als die Endtemperatur sein.
+Hier wird die Temperatur definiert, ab der die Stromreduzierung beginnt. Diese kann sowohl höher als auch niedriger als die Endtemperatur sein.
 
 **Reduzieren Ende**  
-Diese Einstellung legt die Temperatur fest, bei der der Ladestrom vollständig auf 0 A reduziert wird (Standard: 0,00 °C). Liegt dieser Wert unter der Starttemperatur, wird bei fallenden Temperaturen gedrosselt.
+Diese Einstellung legt die Temperatur fest, bei der der Ladestrom vollständig auf 0 A reduziert wird. Liegt dieser Wert unter der Starttemperatur, wird bei fallenden Temperaturen gedrosselt.
 
 ---
 
@@ -238,25 +239,12 @@ Es werden die Quellen der aktiven Datenquelle verwendet (Data-Devices oder Group
 Sind keine Quellen ausgewählt, hat die Funktion keine Wirkung.
 
 **Temperaturprofil**  
-Das Profil besteht aus 10 Punkten mit je **Temperatur** (in °C, einstellbar in 0,1-°C-Schritten, Bereich 0–60 °C) und **C-Rate** (in C, einstellbar in 0,01-C-Schritten, Bereich 0–1 C). Im Standardprofil steigt die C-Rate von 0 °C bis 25 °C an und fällt ab 45 °C bis 60 °C wieder auf 0 C:
-
-| Punkt | Temperatur | C-Rate |
-|-------|-----------|--------|
-| 1 | 0,0 °C | 0,00 C |
-| 2 | 5,0 °C | 0,10 C |
-| 3 | 10,0 °C | 0,20 C |
-| 4 | 15,0 °C | 0,40 C |
-| 5 | 20,0 °C | 0,60 C |
-| 6 | 25,0 °C | 1,00 C |
-| 7 | 45,0 °C | 0,50 C |
-| 8 | 50,0 °C | 0,25 C |
-| 9 | 55,0 °C | 0,20 C |
-| 10 | 60,0 °C | 0,00 C |
+Das Profil besteht aus 10 Punkten mit je **Temperatur** (in °C, einstellbar in 0,1-°C-Schritten, Bereich 0–60 °C) und **C-Rate** (in C, einstellbar in 0,01-C-Schritten, Bereich 0–1 C).
 
 **Funktionsweise**
 
 **Temperaturwahl (Minimum oder Maximum)**  
-Über alle ausgewählten Quellen und Sensoren werden die niedrigste und die höchste Temperatur ermittelt. Welcher der beiden Werte verwendet wird, entscheidet die Temperatur des Profilpunkts mit der höchsten C-Rate (im Standardprofil 25,0 °C mit 1,00 C):
+Über alle ausgewählten Quellen und Sensoren werden die niedrigste und die höchste Temperatur ermittelt. Welcher der beiden Werte verwendet wird, entscheidet die Temperatur des Profilpunkts mit der höchsten C-Rate:
 
 - Liegt die niedrigste Temperatur **unter** dieser Referenztemperatur, gilt der **Minimalwert** – das kälteste Element bestimmt dann die Begrenzung.
 - Andernfalls gilt der **Maximalwert**.
@@ -286,7 +274,7 @@ Sobald die Funktion aktiviert ist, wird die Ladespannung dynamisch angepasst, um
 Die Funktion ermöglicht es z.B., den Akku nur bis zu einem bestimmten SoC zu laden, um seine Lebensdauer zu verlängern.  
 
 !!! note "Hinweis zur Supporter-Firmware"
-    Die Spannungsregelung ist auch Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+    Die Spannungsregelung ist Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
 
 ```bsc-settings
 version: v010
