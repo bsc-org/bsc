@@ -34,35 +34,66 @@ Pin 4: GND
 |  CAN RX/TX     | Rot - blinken  | Versenden einer CAN Nachricht         |
 
 #### Belegung des Pin-Headers
-In der hier dokumentierten Firmware stehen über den Pin-Header **Onewire**, die **Relais-Ausgänge**, die **Digitaleingänge** und **I²C** (z. B. für das [Display](#bsc-display)) zur Verfügung. Die Supporter-Firmware nutzt diese Pins ebenfalls – siehe [Supporter](supporter.md).
 
-| PIN | GPIO | Funktion         |
-|-----|------|------------------|
-|  1  |      | 5V               |
-|  2  |      | 3.3V             |
-|  3  |      | GND              |
-|  4  |      | GND              |
-|  5  |  46  | ---              |
-|  6  |      | GND              |
-|  7  |  12  | I²C SCL          |
-|  8  |  11  | I²C SDA          |
-|  9  |  14  | SE RX            |
-| 10  |  13  | SE TX            |
-| 11  |  47  | ---              |
-| 12  |  21  | Onewire          |
-| 13  |  45  | ---              |
-| 14  |  48  | ---              |
-| 15  |  36  | Digitaleingang 1 |
-| 16  |  35  | Digitaleingang 2 |
-| 17  |  38  | Digitaleingang 3 |
-| 18  |  37  | Digitaleingang 4 |
-| 19  |  40  | Relais 1         |
-| 20  |  39  | Relais 2         |
-| 21  |  42  | Relais 3         |
-| 22  |  41  | Relais 4         |
-| 23  |   1  | Relais 5         |
-| 24  |   2  | Relais 6         |
+=== ">= V0.10.0"
+    In der hier dokumentierten Firmware stehen über den Pin-Header **Onewire** und **I²C** (z. B. für das [Display](#bsc-display)) zur Verfügung.
 
+    | PIN | GPIO | Funktion         |
+    |-----|------|------------------|
+    |  1  |      | 5V               |
+    |  2  |      | 3.3V             |
+    |  3  |      | GND              |
+    |  4  |      | GND              |
+    |  5  |  46  | ---              |
+    |  6  |      | GND              |
+    |  7  |  12  | I²C SCL (Display)|
+    |  8  |  11  | I²C SDA (Display)|
+    |  9  |  14  |                  |
+    | 10  |  13  |                  |
+    | 11  |  47  | ---              |
+    | 12  |  21  |                  |
+    | 13  |  45  | ---              |
+    | 14  |  48  | Onewire          |
+    | 15  |  36  |                  |
+    | 16  |  35  |                  |
+    | 17  |  38  |                  |
+    | 18  |  37  |                  |
+    | 19  |  40  |                  |
+    | 20  |  39  |                  |
+    | 21  |  42  |                  |
+    | 22  |  41  |                  |
+    | 23  |   1  |                  |
+    | 24  |   2  |                  |
+
+=== "< V0.10.0"
+    In der hier dokumentierten Firmware stehen über den Pin-Header **Onewire**, die **Relais-Ausgänge**, die **Digitaleingänge** und **I²C** (z. B. für das [Display](#bsc-display)) zur Verfügung. Die Supporter-Firmware nutzt diese Pins ebenfalls – siehe [Supporter](supporter.md).
+
+    | PIN | GPIO | Funktion         |
+    |-----|------|------------------|
+    |  1  |      | 5V               |
+    |  2  |      | 3.3V             |
+    |  3  |      | GND              |
+    |  4  |      | GND              |
+    |  5  |  46  | ---              |
+    |  6  |      | GND              |
+    |  7  |  12  | I²C SCL          |
+    |  8  |  11  | I²C SDA          |
+    |  9  |  14  | SE RX            |
+    | 10  |  13  | SE TX            |
+    | 11  |  47  | ---              |
+    | 12  |  21  | Onewire          |
+    | 13  |  45  | ---              |
+    | 14  |  48  | ---              |
+    | 15  |  36  | Digitaleingang 1 |
+    | 16  |  35  | Digitaleingang 2 |
+    | 17  |  38  | Digitaleingang 3 |
+    | 18  |  37  | Digitaleingang 4 |
+    | 19  |  40  | Relais 1         |
+    | 20  |  39  | Relais 2         |
+    | 21  |  42  | Relais 3         |
+    | 22  |  41  | Relais 4         |
+    | 23  |   1  | Relais 5         |
+    | 24  |   2  | Relais 6         |
 
 ## BSC Display
 Das Display für den BSC wurde in ein [separates Projekt](https://github.com/shining-man/bsc_display) ausgegliedert in dem auch die Firmware zu finden ist.
