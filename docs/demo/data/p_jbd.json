@@ -1,0 +1,51 @@
+{
+  "page": [
+    {
+      "type": 13,
+      "items": [
+        {
+          "lid": 209,
+          "label": "JBD BMS",
+          "label_entry": "Serial",
+          "groupsize": 11,
+          "type": 12,
+          "group": [
+            {
+              "name": 124,
+              "lid": 210,
+              "label": "Cellvoltage 100%",
+              "type": 3,
+              "default": 3400,
+              "min": 1000,
+              "max": 5000,
+              "unit": "mV",
+              "flash": "1",
+              "dt": 3
+            }
+          ],
+          "visible_when": [
+            {
+              "param": 1,
+              "op": "==",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 211,
+      "label": "Save"
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": 248,
+      "dt": 5,
+      "default": "0u"
+    }
+  }
+}

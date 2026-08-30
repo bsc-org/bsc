@@ -1,0 +1,269 @@
+{
+  "page": [
+    {
+      "lid": 504,
+      "label": "Remote maintenance",
+      "type": 13,
+      "help": "Remote maintenance via a relay server. The controller establishes the outbound connection itself \u2013 no port needs to be opened in the router. If the option is disabled, there is no access; ongoing sessions are terminated immediately.",
+      "items": [
+        {
+          "name": 331,
+          "lid": 505,
+          "label": "Enable remote maintenance",
+          "type": 10,
+          "default": 0,
+          "dt": 9
+        },
+        {
+          "name": 332,
+          "lid": 506,
+          "label": "Server",
+          "type": 0,
+          "pattern": "^[A-Za-z0-9.:-]*$",
+          "dt": 8,
+          "help": "Domain of the relay server (without https:// and without a trailing slash).",
+          "visible_when": [
+            {
+              "param": 331,
+              "op": "==",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": 333,
+          "lid": 507,
+          "label": "Remote-maintenance ID",
+          "type": 0,
+          "dt": 8,
+          "read_only": true,
+          "copy_btn": true,
+          "default": "",
+          "help": "Pass the remote-maintenance ID and remote-maintenance password together to the supporting person (support/service technician).",
+          "visible_when": [
+            {
+              "param": 331,
+              "op": "==",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": 334,
+          "lid": 508,
+          "label": "Remote-maintenance password",
+          "type": 0,
+          "dt": 8,
+          "read_only": true,
+          "copy_btn": true,
+          "default": "",
+          "help": "This is not the WebApp password!",
+          "visible_when": [
+            {
+              "param": 331,
+              "op": "==",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lid": 509,
+      "label": "Log upload",
+      "type": 13,
+      "help": "Uploads the logs encrypted to the relay server every 15 minutes. The server cannot read them \u2013 decryption happens exclusively in the browser of the supporting person using the key shown here.",
+      "items": [
+        {
+          "name": 335,
+          "lid": 510,
+          "label": "Upload logs",
+          "type": 10,
+          "default": 0,
+          "dt": 9,
+          "visible_when": [
+            {
+              "param": 331,
+              "op": "==",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": 336,
+          "lid": 511,
+          "label": "Log key",
+          "type": 0,
+          "dt": 8,
+          "read_only": true,
+          "copy_btn": true,
+          "default": "",
+          "help": "Uploaded logs can only be decrypted with the log key.",
+          "visible_when": [
+            {
+              "param": 335,
+              "op": "==",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lid": 517,
+      "label": "Status evaluation",
+      "type": 13,
+      "help": "Defines which triggers and system states are shown as warning, error, or alarm in remote maintenance.",
+      "items": [
+        {
+          "name": 337,
+          "lid": 518,
+          "label": "Triggers for Warn",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 340,
+          "lid": 521,
+          "label": "Warn applies to",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "svcStateSources"
+            }
+          ],
+          "default": 2,
+          "dt": 3
+        },
+        {
+          "name": 338,
+          "lid": 519,
+          "label": "Triggers for Error",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 341,
+          "lid": 522,
+          "label": "Error applies to",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "svcStateSources"
+            }
+          ],
+          "default": 5,
+          "dt": 3
+        },
+        {
+          "name": 339,
+          "lid": 520,
+          "label": "Triggers for Alarm",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "comboAlarms"
+            }
+          ],
+          "default": 0,
+          "dt": 5
+        },
+        {
+          "name": 342,
+          "lid": 523,
+          "label": "Alarm applies to",
+          "type": 14,
+          "options": [
+            {
+              "$ref": "svcStateSources"
+            }
+          ],
+          "default": 0,
+          "dt": 3
+        }
+      ]
+    },
+    {
+      "lid": 512,
+      "label": "Connection status",
+      "type": 13,
+      "items": [
+        {
+          "lid": 513,
+          "label": "Status",
+          "type": 22,
+          "ui_info_id": "svc_status",
+          "full_width": true,
+          "ui": {
+            "source": {
+              "url": "/restapi/servicelink/status",
+              "array_path": "rows",
+              "hex_field": "id"
+            },
+            "live_table": {
+              "lid": 514,
+              "title": "Remote maintenance connection",
+              "empty_text": "No status available.",
+              "max_rows": 1,
+              "columns": [
+                {
+                  "lid": 515,
+                  "key": "status",
+                  "label": "Status"
+                },
+                {
+                  "lid": 516,
+                  "key": "train",
+                  "label": "Pairing"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 34,
+      "label": "Save"
+    },
+    {
+      "name": "action-btn",
+      "lid": 501,
+      "label": "Start pairing (5 min)",
+      "action": "svcStartPairing"
+    },
+    {
+      "name": "action-btn",
+      "lid": 502,
+      "label": "New remote-maintenance ID",
+      "action": "svcNewDeviceId"
+    },
+    {
+      "name": "action-btn",
+      "lid": 503,
+      "label": "New password",
+      "action": "svcNewPassword"
+    }
+  ],
+  "timer": [
+    {
+      "type": "text",
+      "interval": 3000
+    }
+  ]
+}

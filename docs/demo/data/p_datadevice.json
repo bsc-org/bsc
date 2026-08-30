@@ -12,18 +12,18 @@
           "label_entry": "Data device",
           "groupsize": 32,
           "type": 12,
-          "help": "Der Name darf keine # und \\+ Zeichen enthalten!",
+          "help": "The name cannot contain # and \\+ characters!",
           "group": [
             {
               "name": 163,
               "lid": 193,
-              "label": "Schnittstelle",
+              "label": "Interface",
               "type": 9,
               "options": [
                 {
                   "v": "255",
                   "lid": 263,
-                  "l": "Nicht belegt"
+                  "l": "not in use"
                 },
                 {
                   "$ref": "bmsDeviceAll"
@@ -35,7 +35,7 @@
             {
               "name": 164,
               "lid": 194,
-              "label": "Adresse",
+              "label": "Address",
               "type": 9,
               "options_default": [
                 {
@@ -94,7 +94,7 @@
             {
               "name": 192,
               "lid": 300,
-              "label": "SoC linearisieren",
+              "label": "Linearize SoC",
               "type": 10,
               "default": "0",
               "dt": 9
@@ -109,12 +109,12 @@
                 {
                   "v": 0,
                   "lid": 494,
-                  "l": "Eine Zelle erreicht Schwellwert"
+                  "l": "Any cell reaches threshold"
                 },
                 {
                   "v": 1,
                   "lid": 495,
-                  "l": "Alle Zellen erreichen Schwellwert"
+                  "l": "All cells reach threshold"
                 }
               ],
               "dt": 1
@@ -123,7 +123,7 @@
               "name": 127,
               "lid": 51,
               "label": "Cellvoltage for SoC 100%",
-              "help": "0=deaktiviert",
+              "help": "0=disabled",
               "unit": "mV",
               "type": 3,
               "default": 0,
@@ -135,7 +135,7 @@
               "name": 130,
               "lid": 52,
               "label": "Cellvoltage for SoC 0%",
-              "help": "0=deaktiviert",
+              "help": "0=disabled",
               "unit": "mV",
               "type": 3,
               "default": 0,

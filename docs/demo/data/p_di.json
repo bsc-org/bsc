@@ -5,15 +5,15 @@
       "items": [
         {
           "lid": 93,
-          "label": "Digitaleing&#228;nge",
-          "label_entry": "Digitaleingang",
+          "label": "Digital inputs",
+          "label_entry": "Digital input",
           "groupsize": 4,
           "type": 12,
           "group": [
             {
               "name": 34,
               "lid": 94,
-              "label": "Eingang invertieren",
+              "label": "Invert input",
               "type": 10,
               "default": "0",
               "dt": 9
@@ -21,13 +21,13 @@
             {
               "name": 35,
               "lid": 95,
-              "label": "Weiterleiten an",
+              "label": "Forward to",
               "type": 9,
               "options": [
                 {
                   "v": "0",
                   "lid": 257,
-                  "l": "Aus"
+                  "l": "Off"
                 },
                 {
                   "$ref": "comboAlarms"

@@ -8,7 +8,7 @@
         {
           "name": 236,
           "lid": 384,
-          "label": "Group Devices aktiv",
+          "label": "Group devices active",
           "type": 10,
           "default": 0,
           "dt": 9
@@ -39,7 +39,7 @@
               "options": [
                 {
                   "v": "255",
-                  "l": "Nicht belegt",
+                  "l": "not in use",
                   "lid": 263
                 },
                 {
@@ -52,12 +52,12 @@
             {
               "name": 235,
               "lid": 383,
-              "label": "Second Device",
+              "label": "Second device",
               "type": 9,
               "options": [
                 {
                   "v": "255",
-                  "l": "Nicht belegt",
+                  "l": "not in use",
                   "lid": 263
                 },
                 {
@@ -69,7 +69,7 @@
             },
             {
               "lid": 376,
-              "label": "Spannung",
+              "label": "Voltage",
               "type": 21,
               "layout": [
                 8,
@@ -79,7 +79,7 @@
                 {
                   "name": 228,
                   "lid": 108,
-                  "label": "Quell-Devices",
+                  "label": "Data sources",
                   "type": 14,
                   "options": [
                     {
@@ -97,17 +97,17 @@
                   "options": [
                     {
                       "v": "1",
-                      "l": "Mittelwert",
+                      "l": "mean",
                       "lid": 265
                     },
                     {
                       "v": "2",
-                      "l": "Maximum",
+                      "l": "maximal",
                       "lid": 267
                     },
                     {
                       "v": "3",
-                      "l": "Minimum",
+                      "l": "minimal",
                       "lid": 266
                     }
                   ],
@@ -118,7 +118,7 @@
             },
             {
               "lid": 381,
-              "label": "Strom",
+              "label": "Current",
               "type": 21,
               "layout": [
                 8,
@@ -128,7 +128,7 @@
                 {
                   "name": 230,
                   "lid": 108,
-                  "label": "Quell-Devices",
+                  "label": "Data sources",
                   "type": 14,
                   "options": [
                     {
@@ -146,22 +146,22 @@
                   "options": [
                     {
                       "v": "0",
-                      "l": "Summe",
+                      "l": "Sum",
                       "lid": 279
                     },
                     {
                       "v": "1",
-                      "l": "Mittelwert",
+                      "l": "mean",
                       "lid": 265
                     },
                     {
                       "v": "2",
-                      "l": "Maximum",
+                      "l": "maximal",
                       "lid": 267
                     },
                     {
                       "v": "3",
-                      "l": "Minimum",
+                      "l": "minimal",
                       "lid": 266
                     }
                   ],
@@ -182,7 +182,7 @@
                 {
                   "name": 232,
                   "lid": 108,
-                  "label": "Quell-Devices",
+                  "label": "Data sources",
                   "type": 14,
                   "options": [
                     {
@@ -200,17 +200,17 @@
                   "options": [
                     {
                       "v": "1",
-                      "l": "Mittelwert",
+                      "l": "mean",
                       "lid": 265
                     },
                     {
                       "v": "2",
-                      "l": "Maximum",
+                      "l": "maximal",
                       "lid": 267
                     },
                     {
                       "v": "3",
-                      "l": "Minimum",
+                      "l": "minimal",
                       "lid": 266
                     }
                   ],
@@ -221,7 +221,7 @@
             },
             {
               "lid": 378,
-              "label": "Erweiterte Temperaturen",
+              "label": "Temperatures (32)",
               "type": 21,
               "layout": [
                 6,
@@ -232,12 +232,12 @@
                 {
                   "name": 225,
                   "lid": 382,
-                  "label": "Quelle",
+                  "label": "Data device",
                   "type": 9,
                   "options": [
                     {
                       "v": 255,
-                      "l": "Nicht belegt",
+                      "l": "not in use",
                       "lid": 263
                     },
                     {
@@ -255,7 +255,7 @@
                 {
                   "name": 226,
                   "lid": 379,
-                  "label": "Sensoren 0-31",
+                  "label": "Start index",
                   "type": 14,
                   "options": [
                     {
@@ -268,7 +268,7 @@
                 {
                   "name": 227,
                   "lid": 380,
-                  "label": "Sensoren 32-63",
+                  "label": "Number of sensors",
                   "type": 14,
                   "options": [
                     {
@@ -288,14 +288,14 @@
               ]
             },
             {
-              "label": "Erweiterte Temperaturen - Namen",
+              "label": "Extended temperatures - names",
               "type": 23,
               "default_open": false,
               "items": [
                 {
                   "name": 294,
                   "lid": 461,
-                  "label": "Sensor 0",
+                  "label": "Sensor 1",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -306,7 +306,7 @@
                 {
                   "name": 295,
                   "lid": 462,
-                  "label": "Sensor 1",
+                  "label": "Sensor 2",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -317,7 +317,7 @@
                 {
                   "name": 296,
                   "lid": 463,
-                  "label": "Sensor 2",
+                  "label": "Sensor 3",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -328,7 +328,7 @@
                 {
                   "name": 297,
                   "lid": 464,
-                  "label": "Sensor 3",
+                  "label": "Sensor 4",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -339,7 +339,7 @@
                 {
                   "name": 298,
                   "lid": 465,
-                  "label": "Sensor 4",
+                  "label": "Sensor 5",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -350,7 +350,7 @@
                 {
                   "name": 299,
                   "lid": 466,
-                  "label": "Sensor 5",
+                  "label": "Sensor 6",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -361,7 +361,7 @@
                 {
                   "name": 300,
                   "lid": 467,
-                  "label": "Sensor 6",
+                  "label": "Sensor 7",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -372,7 +372,7 @@
                 {
                   "name": 301,
                   "lid": 468,
-                  "label": "Sensor 7",
+                  "label": "Sensor 8",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -383,7 +383,7 @@
                 {
                   "name": 302,
                   "lid": 469,
-                  "label": "Sensor 8",
+                  "label": "Sensor 9",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -394,7 +394,7 @@
                 {
                   "name": 303,
                   "lid": 470,
-                  "label": "Sensor 9",
+                  "label": "Sensor 10",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -405,7 +405,7 @@
                 {
                   "name": 304,
                   "lid": 471,
-                  "label": "Sensor 10",
+                  "label": "Sensor 11",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -416,7 +416,7 @@
                 {
                   "name": 305,
                   "lid": 472,
-                  "label": "Sensor 11",
+                  "label": "Sensor 12",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -427,7 +427,7 @@
                 {
                   "name": 306,
                   "lid": 473,
-                  "label": "Sensor 12",
+                  "label": "Sensor 13",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -438,7 +438,7 @@
                 {
                   "name": 307,
                   "lid": 474,
-                  "label": "Sensor 13",
+                  "label": "Sensor 14",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -449,7 +449,7 @@
                 {
                   "name": 308,
                   "lid": 475,
-                  "label": "Sensor 14",
+                  "label": "Sensor 15",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -460,7 +460,7 @@
                 {
                   "name": 309,
                   "lid": 476,
-                  "label": "Sensor 15",
+                  "label": "Sensor 16",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -471,7 +471,7 @@
                 {
                   "name": 310,
                   "lid": 477,
-                  "label": "Sensor 16",
+                  "label": "Sensor 17",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -482,7 +482,7 @@
                 {
                   "name": 311,
                   "lid": 478,
-                  "label": "Sensor 17",
+                  "label": "Sensor 18",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -493,7 +493,7 @@
                 {
                   "name": 312,
                   "lid": 479,
-                  "label": "Sensor 18",
+                  "label": "Sensor 19",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -504,7 +504,7 @@
                 {
                   "name": 313,
                   "lid": 480,
-                  "label": "Sensor 19",
+                  "label": "Sensor 20",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -515,7 +515,7 @@
                 {
                   "name": 314,
                   "lid": 481,
-                  "label": "Sensor 20",
+                  "label": "Sensor 21",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -526,7 +526,7 @@
                 {
                   "name": 315,
                   "lid": 482,
-                  "label": "Sensor 21",
+                  "label": "Sensor 22",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -537,7 +537,7 @@
                 {
                   "name": 316,
                   "lid": 483,
-                  "label": "Sensor 22",
+                  "label": "Sensor 23",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -548,7 +548,7 @@
                 {
                   "name": 317,
                   "lid": 484,
-                  "label": "Sensor 23",
+                  "label": "Sensor 24",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -559,7 +559,7 @@
                 {
                   "name": 318,
                   "lid": 485,
-                  "label": "Sensor 24",
+                  "label": "Sensor 25",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -570,7 +570,7 @@
                 {
                   "name": 319,
                   "lid": 486,
-                  "label": "Sensor 25",
+                  "label": "Sensor 26",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -581,7 +581,7 @@
                 {
                   "name": 320,
                   "lid": 487,
-                  "label": "Sensor 26",
+                  "label": "Sensor 27",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -592,7 +592,7 @@
                 {
                   "name": 321,
                   "lid": 488,
-                  "label": "Sensor 27",
+                  "label": "Sensor 28",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -603,7 +603,7 @@
                 {
                   "name": 322,
                   "lid": 489,
-                  "label": "Sensor 28",
+                  "label": "Sensor 29",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -614,7 +614,7 @@
                 {
                   "name": 323,
                   "lid": 490,
-                  "label": "Sensor 29",
+                  "label": "Sensor 30",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -625,7 +625,7 @@
                 {
                   "name": 324,
                   "lid": 491,
-                  "label": "Sensor 30",
+                  "label": "Sensor 31",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",
@@ -636,7 +636,7 @@
                 {
                   "name": 325,
                   "lid": 492,
-                  "label": "Sensor 31",
+                  "label": "Sensor 32",
                   "type": 0,
                   "pattern": "^[^#\\+]*$",
                   "default": "",

@@ -5,15 +5,15 @@
       "items": [
         {
           "lid": 54,
-          "label": "Data device Alarmregeln",
-          "label_entry": "Alarmregel",
+          "label": "BMS alarm rules",
+          "label_entry": "Alarm rule",
           "groupsize": 10,
           "type": 12,
           "group": [
             {
               "name": 9,
               "lid": 55,
-              "label": "Zu &uuml;berwachendes Data device",
+              "label": "BMS to monitor",
               "type": 14,
               "options": [
                 {
@@ -25,7 +25,7 @@
             },
             {
               "lid": 56,
-              "label": "Keine Daten vom BMS",
+              "label": "No data from BMS",
               "type": 13,
               "wiki": "settings_bsc/#alarmregeln",
               "section_id": 0
@@ -33,13 +33,13 @@
             {
               "name": 17,
               "lid": 57,
-              "label": "Aktion bei Trigger",
+              "label": "Forward to",
               "type": 9,
               "options": [
                 {
                   "v": "0",
                   "lid": 257,
-                  "l": "Aus"
+                  "l": "Off"
                 },
                 {
                   "$ref": "comboAlarms"
@@ -51,7 +51,7 @@
             {
               "name": 12,
               "lid": 58,
-              "label": "Trigger keine Daten",
+              "label": "Trigger active after seconds withour data",
               "unit": "s",
               "type": 3,
               "default": 15,
@@ -61,20 +61,20 @@
             },
             {
               "lid": 59,
-              "label": "Spannungs&uuml;berwachung Zelle Min/Max",
+              "label": "Voltage monitoring cell min/max",
               "type": 13,
               "section_id": 1
             },
             {
               "name": 18,
               "lid": 60,
-              "label": "Aktion bei Trigger",
+              "label": "Forward to",
               "type": 9,
               "options": [
                 {
                   "v": "0",
                   "lid": 257,
-                  "l": "Aus"
+                  "l": "Off"
                 },
                 {
                   "$ref": "comboAlarms"
@@ -86,7 +86,7 @@
             {
               "name": 14,
               "lid": 61,
-              "label": "Anzahl Zellen Monitoring",
+              "label": "Number of cells monitoring",
               "type": 3,
               "default": 16,
               "min": 1,
@@ -96,7 +96,7 @@
             {
               "name": 15,
               "lid": 62,
-              "label": "Zellspannung Min",
+              "label": "Cell voltage min",
               "unit": "mV",
               "type": 3,
               "default": 2500,
@@ -107,7 +107,7 @@
             {
               "name": 16,
               "lid": 63,
-              "label": "Zellspannung Max",
+              "label": "Cell voltage max",
               "unit": "mV",
               "type": 3,
               "default": 3650,
@@ -118,7 +118,7 @@
             {
               "name": 166,
               "lid": 64,
-              "label": "Hysterese Min/Max",
+              "label": "Hysteresis min/max",
               "unit": "mV",
               "type": 3,
               "default": 50,
@@ -128,20 +128,20 @@
             },
             {
               "lid": 65,
-              "label": "Spannungs&uuml;berwachung Gesamt Min/Max",
+              "label": "Voltage monitoring battery pack min/max",
               "type": 13,
               "section_id": 2
             },
             {
               "name": 19,
               "lid": 66,
-              "label": "Aktion bei Trigger",
+              "label": "Forward to",
               "type": 9,
               "options": [
                 {
                   "v": "0",
                   "lid": 257,
-                  "l": "Aus"
+                  "l": "Off"
                 },
                 {
                   "$ref": "comboAlarms"
@@ -153,7 +153,7 @@
             {
               "name": 72,
               "lid": 67,
-              "label": "Spannung Min",
+              "label": "Voltage battery pack min",
               "unit": "V",
               "type": 4,
               "default": 48.0,
@@ -164,7 +164,7 @@
             {
               "name": 73,
               "lid": 68,
-              "label": "Spannung Max",
+              "label": "Voltage battery pack max",
               "unit": "V",
               "type": 4,
               "default": 54.0,
@@ -175,7 +175,7 @@
             {
               "name": 131,
               "lid": 69,
-              "label": "Hysterese Min/Max",
+              "label": "Hysteresis min/max",
               "unit": "V",
               "type": 4,
               "default": 0.5,

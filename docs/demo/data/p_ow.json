@@ -5,8 +5,8 @@
       "items": [
         {
           "lid": 101,
-          "label": "Onewire Sensoren",
-          "label_entry": "Sensor",
+          "label": "Onewire sensors",
+          "label_entry": "sensors",
           "groupsize": 64,
           "type": 12,
           "group": [

@@ -2,14 +2,14 @@
   "page": [
     {
       "lid": 125,
-      "label": "Dynamischer Ladespannungsoffset",
+      "label": "Dynamic charge voltage offset",
       "type": 13,
-      "help": "Mit der Funktion kann die Ladespannung dynamisch nach dem Ladestrom angepasst werden.<br>Der Offset ist linear abh\u00e4ngig vom Ladestrom. Als Strom f\u00fcr die Berechnung wird der kleinste Ladestrom der Batterypacks genommen.",
+      "help": "With this function, the charging voltage can be dynamically adjusted according to the charging current.\\nThe offset is linearly dependent on the charging current. The smallest charging current of the battery pack is used as the current for the calculation.",
       "items": [
         {
           "name": 177,
           "lid": 144,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "default": "0",
           "dt": 9
@@ -17,14 +17,14 @@
         {
           "name": 146,
           "lid": 126,
-          "label": "Strom",
+          "label": "Current",
           "unit": "A",
           "type": 17,
           "default": "0",
           "min": 0,
           "max": 500,
           "dt": 3,
-          "help": "Der Strom, bei dem der maximale Offset addiert wird."
+          "help": "0=deactivated\\nThe current at which the maximum offset is added."
         },
         {
           "name": 148,
@@ -53,26 +53,26 @@
     },
     {
       "lid": 143,
-      "label": "Ladestrom pro Pack zu gro\u00df",
+      "label": "Charging current per pack too high",
       "type": 13,
-      "help": "Ladestrom drosseln wenn der Ladestrom eines Packs \u00fcberschritten wird",
+      "help": "Throttle charging current if the charging current of a pack is exceeded",
       "wiki": "settings_inverter/#ladestrom-pro-pack-zu-gro",
       "items": [
         {
           "name": 167,
           "lid": 144,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 9,
           "options": [
             {
               "v": "0",
               "lid": 257,
-              "l": "Aus"
+              "l": "Off"
             },
             {
               "v": "1",
               "lid": 295,
-              "l": "Ein"
+              "l": "On"
             },
             {
               "v": "2",
@@ -87,14 +87,14 @@
     },
     {
       "lid": 145,
-      "label": "Ladestrom Zell-Spannungsabh\u00e4ngig drosseln",
+      "label": "Throttle the charging current depending on the cell voltage",
       "type": 13,
       "wiki": "settings_inverter/#ladestrom-zell-spannungsabhangig-drosseln",
       "items": [
         {
           "name": 74,
           "lid": 146,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "enProfile": true,
           "default": "0",
@@ -103,8 +103,8 @@
         {
           "name": 75,
           "lid": 147,
-          "label": "Starten bei Zellspg. gr&ouml;\u00dfer",
-          "help": "Sobald die h&ouml;chste Zellspannung diesen Wert &uuml;bersteigt wird die Drosselung aktiv.",
+          "label": "Start cell voltage",
+          "help": "As soon as the highest cell voltage exceeds this value, throttling becomes active.",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -116,8 +116,8 @@
         {
           "name": 76,
           "lid": 148,
-          "label": "Maximale Zellspannung",
-          "help": "Sobald die h&ouml;chste Zellspannung diesen Wert &uuml;bersteigt wird nur noch mit dem Mindest-Ladestrom geladen.<br>Hinweis: Der Wert muss gr&ouml;\u00dfer sein als die Zell-Startspannung.<br>Achtung: Bei aktivem Autobalancing wird diese Spannung durch die Maximale Zellspannung des Autobalancers ersetzt!",
+          "label": "Maximum cell voltage",
+          "help": "As soon as the highest cell voltage exceeds this value, charging is only carried out with the minimum charging current.\\nNote: The value must be greater than the cell starting voltage.\\nAttention: When autobalancing is active, this voltage is replaced by the balance cell voltage!",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -129,8 +129,8 @@
         {
           "name": 205,
           "lid": 336,
-          "label": "Maximale Zellspannung (Float)",
-          "help": "0 = deaktiviert: Es wird dann auch bei Float die maximale Zellspannung genommen.",
+          "label": "Maximum cell voltage (float)",
+          "help": "0 = disabled: The maximum cell voltage is then also used for float.",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -142,7 +142,7 @@
         {
           "name": 78,
           "lid": 149,
-          "label": "Mindest Ladestrom",
+          "label": "Minimum charging current",
           "unit": "A",
           "type": 3,
           "enProfile": true,
@@ -156,14 +156,14 @@
     },
     {
       "lid": 150,
-      "label": "Ladestrom reduzieren bei Zelldrift",
+      "label": "Reduce charging current in case of cell drift",
       "type": 13,
       "wiki": "settings_inverter/#ladestrom-reduzieren-bei-zelldrift",
       "items": [
         {
           "name": 68,
           "lid": 151,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "enProfile": true,
           "default": "0",
@@ -172,7 +172,7 @@
         {
           "name": 71,
           "lid": 152,
-          "label": "Starten bei Zellspg. gr&ouml;\u00dfer",
+          "label": "Start cell voltage",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -184,7 +184,7 @@
         {
           "name": 69,
           "lid": 153,
-          "label": "Starten bei Drift gr&ouml;\u00dfer",
+          "label": "Start at cell drift higher than",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -196,7 +196,7 @@
         {
           "name": 70,
           "lid": 154,
-          "label": "Reduzierung pro weiterem mV-Abweichung um",
+          "label": "Reduction per additional mV deviation",
           "unit": "A",
           "type": 3,
           "enProfile": true,
@@ -204,22 +204,22 @@
           "min": 1,
           "max": 200,
           "dt": 1,
-          "help": "Die Reduzierung bezieht sich auf den eingestellten Maximalstrom"
+          "help": "The reduction refers to the set maximum current"
         }
       ],
       "section_id": 3
     },
     {
       "lid": 155,
-      "label": "Ladestrom reduzieren - SoC",
+      "label": "Reduce charging current - SoC",
       "type": 13,
-      "help": "Diese Regel wird deaktiviert, sobald der Autobalancer auf die Start-Zellspannung wartet.",
+      "help": "This rule is deactivated as soon as the autobalancer waits for start cell voltage.",
       "wiki": "settings_inverter/#ladestrom-reduzieren-soc",
       "items": [
         {
           "name": 79,
           "lid": 156,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "enProfile": true,
           "default": "0",
@@ -228,7 +228,7 @@
         {
           "name": 80,
           "lid": 157,
-          "label": "Reduzierung ab SoC",
+          "label": "Start Reduction from SoC",
           "unit": "%",
           "type": 3,
           "enProfile": true,
@@ -240,7 +240,7 @@
         {
           "name": 81,
           "lid": 158,
-          "label": "Pro 1% um x A reduzieren",
+          "label": "Reduce by x A per 1%",
           "unit": "A",
           "type": 16,
           "enProfile": true,
@@ -248,12 +248,12 @@
           "min": 1,
           "max": 1000,
           "dt": 3,
-          "help": "Die Reduzierung bezieht sich auf den eingestellten Maximalstrom"
+          "help": "The reduction refers to the set maximum current"
         },
         {
           "name": 155,
           "lid": 159,
-          "label": "Mindest Ladestrom",
+          "label": "Minimum charging current",
           "unit": "A",
           "type": 3,
           "enProfile": true,
@@ -267,21 +267,21 @@
     },
     {
       "lid": 282,
-      "label": "Ladestrom reduzieren - Temperatur",
+      "label": "Reduce charging current - temperature",
       "type": 13,
-      "help": "Es werden die Quellen aus der aktiven Datenquelle verwendet (Data-Devices oder Group Devices).<br>F\u00fcr die Regelung wird je nach Richtung stets der passende Grenzwert herangezogen: Von warm nach kalt gilt der Minimalwert, von kalt nach warm der Maximalwert.",
+      "help": "The sources from the active data source are used (data devices or battery packs).\\\nFor control, the matching limit is always used depending on direction: warm to cold uses the minimum, cold to warm uses the maximum.",
       "items": [
         {
           "lid": 286,
-          "label": "Temperaturregeln",
-          "label_entry": "Regel",
+          "label": "Temperature rules",
+          "label_entry": "Rules",
           "groupsize": 4,
           "type": 12,
           "group": [
             {
               "name": 178,
               "lid": 156,
-              "label": "Ein/Aus",
+              "label": "On/Off",
               "type": 10,
               "default": "0",
               "dt": 9
@@ -289,7 +289,7 @@
             {
               "name": 180,
               "lid": 283,
-              "label": "Data-Device Sensoren",
+              "label": "Data device sensors",
               "type": 14,
               "options": [
                 {
@@ -328,7 +328,7 @@
             {
               "name": 181,
               "lid": 284,
-              "label": "Reduzieren Start",
+              "label": "Reduce charging current start",
               "unit": "\u00b0C",
               "type": 17,
               "default": 2000,
@@ -339,7 +339,7 @@
             {
               "name": 182,
               "lid": 285,
-              "label": "Reduzieren Ende",
+              "label": "Reduce charging current end",
               "unit": "\u00b0C",
               "type": 17,
               "default": 0,
@@ -354,14 +354,14 @@
     },
     {
       "lid": 345,
-      "label": "Ladestrom reduzieren - Temperaturprofil",
+      "label": "Reduce charging current - temperature profile",
       "type": 13,
-      "help": "Es werden die Quellen aus der aktiven Datenquelle verwendet (Data-Devices oder Group Devices).",
+      "help": "The sources from the active data source are used (data devices or battery packs).",
       "items": [
         {
           "name": 210,
           "lid": 156,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "default": "0",
           "dt": 9
@@ -369,7 +369,7 @@
         {
           "name": 211,
           "lid": 283,
-          "label": "Data-Device Sensoren",
+          "label": "Data device sensors",
           "type": 14,
           "options": [
             {
@@ -407,14 +407,14 @@
         },
         {
           "lid": 344,
-          "label": "Temperaturprofil",
+          "label": "Temperature profile",
           "groupsize": 10,
           "type": 20,
           "group": [
             {
               "name": 212,
               "lid": 342,
-              "label": "Temperatur",
+              "label": "Temperature",
               "unit": "\u00b0C",
               "type": 16,
               "default": [
@@ -462,27 +462,27 @@
     },
     {
       "lid": 292,
-      "label": "Spannungsregelung zur Ladestrombegrenzung",
+      "label": "Voltage regulation for current zero control",
       "type": 13,
-      "help": "Die Funktion regelt die Ladespannung dynamisch, um den Ladestrom innerhalb eines definierten Bereichs zu halten. Gleichzeitig wird ein Ladestrom von 0 A an den Wechselrichter \u00fcbermittelt.<br>Die Regel tritt nur in Kraft, wenn der Autobalancer nicht aktiv ist.",
+      "help": "The function dynamically regulates the charging voltage to keep the charging current within a defined range. At the same time, a charging current of 0 A is transmitted to the inverter.\\\nThe regulation only takes effect if the autobalancer is not active.",
       "wiki": "settings_inverter/#spannungsregelung-zur-ladestrombegrenzung",
       "items": [
         {
           "name": 185,
           "lid": 161,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 9,
           "enProfile": true,
           "options": [
             {
               "v": "0",
               "lid": 257,
-              "l": "Aus"
+              "l": "Off"
             },
             {
               "v": "128",
               "lid": 295,
-              "l": "Ein"
+              "l": "On"
             },
             {
               "$ref": "comboAlarms"
@@ -494,7 +494,7 @@
         {
           "name": 186,
           "lid": 293,
-          "label": "Aktiv ab (SoC)",
+          "label": "Active from (SoC)",
           "unit": "%",
           "type": 3,
           "enProfile": true,
@@ -506,7 +506,7 @@
         {
           "name": 187,
           "lid": 294,
-          "label": "Regelungskorridor (\u00b1)",
+          "label": "Regulation corridor (\u00b1)",
           "unit": "A",
           "type": 16,
           "enProfile": true,
@@ -527,7 +527,7 @@
         {
           "name": 157,
           "lid": 165,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "enProfile": true,
           "default": "0",
@@ -536,14 +536,14 @@
         {
           "name": 188,
           "lid": 296,
-          "label": "Autobal. starten (Trigger)",
+          "label": "Start autobal. (Trigger)",
           "type": 9,
           "enProfile": true,
           "options": [
             {
               "v": "0",
               "lid": 257,
-              "l": "Aus"
+              "l": "Off"
             },
             {
               "$ref": "comboAlarms"
@@ -555,8 +555,8 @@
         {
           "name": 149,
           "lid": 166,
-          "label": "Balance-Intervall",
-          "help": "Gibt die Tage an, nach denen wieder das Balancing gestartet werden soll.<br>Hinweis: Wenn der Autobalancer aktiv, dann ist in der Ballance-Zeit der Charge-Current Cut-Off deaktiviert!<br>Es muss die richtige Anzahl der Zellen in den Serial-Settings eingestellt sein!",
+          "label": "Balance interval",
+          "help": "Specifies the days after which balancing should be started again.\\nNote: If the autobalancer is active, the charge current cut-off is deactivated during the balance time!\\nThe correct number of cells must be set in the serial settings!",
           "unit": "T",
           "type": 3,
           "enProfile": true,
@@ -568,8 +568,8 @@
         {
           "name": 150,
           "lid": 167,
-          "label": "Start Zellspannung",
-          "help": "Zellspannung die erreicht sein muss, damit der Vorgang beginnt.",
+          "label": "Start cell voltage",
+          "help": "Cell voltage to start autobalancing.",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -581,8 +581,8 @@
         {
           "name": 151,
           "lid": 169,
-          "label": "Balance-Ladespannung",
-          "help": "Die Max. Ladespannung wird w\u00e4hrend dem Autobalancing auf diese Spannung angehoben.",
+          "label": "Balance charging voltage",
+          "help": "The maximum charging voltage is increased to this voltage during autobalancing.",
           "unit": "V",
           "type": 16,
           "enProfile": true,
@@ -594,8 +594,8 @@
         {
           "name": 154,
           "lid": 170,
-          "label": "Maximale Zellspannung",
-          "help": "Maximale Zellspannung, bis zu der der Ladestrom w\u00e4hrend des Autobalancing reduziert wird.",
+          "label": "Maximum cell voltage",
+          "help": "Maximum cell voltage up to which the charging current is reduced during autobalancing.",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -607,8 +607,8 @@
         {
           "name": 345,
           "lid": 536,
-          "label": "Balance Zellspannung",
-          "help": "Zellspannung, die zusammen mit der Zelldifferenz (Celldif. fertig) erreicht sein muss, damit das Balancing als fertig gilt und der \u00dcbergang in Step \u201aWarte auf Ladespannung' erfolgt.",
+          "label": "Balance cell voltage",
+          "help": "Cell voltage that, together with the cell difference, must be reached for balancing to count as finished and to enter the step \u201aWait for charge voltage'.",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -620,8 +620,8 @@
         {
           "name": 152,
           "lid": 171,
-          "label": "Celldif. fertig",
-          "help": "Balancing ist fertig, wenn die eingestellte Zelldifferenz erreicht ist.",
+          "label": "Target cell voltage difference",
+          "help": "Balancing is finished when the set cell difference is reached.",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -633,8 +633,8 @@
         {
           "name": 162,
           "lid": 168,
-          "label": "Nachlaufzeit",
-          "help": "Nachdem die Balance-Ladespannung erreicht ist, l\u00e4uft das Balancing noch diese Zeit nach.",
+          "label": "Run-on time",
+          "help": "After the balance charge voltage has been reached, balancing continues for this time.",
           "unit": "Min",
           "type": 3,
           "enProfile": true,
@@ -647,7 +647,7 @@
           "name": 153,
           "lid": 172,
           "label": "Timeout",
-          "help": "Ist in dieser Zeit das Balancing nicht fertig, wird der Vorgang abgebrochen.",
+          "help": "Maximum balancing time, if target cell voltage difference is not reached.",
           "unit": "Min",
           "type": 3,
           "enProfile": true,
@@ -659,24 +659,24 @@
         {
           "name": 184,
           "lid": 289,
-          "label": "Erweiterte Optionen",
+          "label": "Advanced options",
           "type": 14,
           "enProfile": true,
           "options": [
             {
               "v": 1,
               "lid": 291,
-              "l": "Bei Start-Zellspg.-Unterschreitung \u2192 Step \"Warte auf Start-Zellspg.\""
+              "l": "If start cell voltage drops \u2192 Step \\\"Wait for start cell voltage\\\""
             },
             {
               "v": 2,
               "lid": 297,
-              "l": "CutOff ab Step \"Warte auf Start-Zellspg.\" deaktivieren"
+              "l": "CutOff from step \\\"Wait for start cell spg.\\\" deactivate"
             },
             {
               "v": 3,
               "lid": 537,
-              "l": "Step \"Warte auf Lade-Spg.\" \u00fcberspringen"
+              "l": "Skip \"Wait for charge voltage\" step"
             }
           ],
           "default": "0",
@@ -687,15 +687,15 @@
     },
     {
       "lid": 173,
-      "label": "Charge-Current Cut-Off",
+      "label": "Charging current Cut-Off",
       "type": 13,
-      "help": "Liegt der Ladestrom die eingestellte Zeit (Cut-Off Time) unter dem Cut-Off Strom, wird der Ladestrom so lange auf 0 A gesetzt, bis der \"Float Ladespannung SoC\" unterschritten wird.",
+      "help": "If the charging current is below the cut-off current for the set time (cut-off time), the charging current is set to 0 A until the \\\"Float charging voltage SoC\\\" is undercut.",
       "wiki": "settings_inverter/#charge-current-cut-off",
       "items": [
         {
           "name": 158,
           "lid": 174,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "enProfile": true,
           "default": "0",
@@ -704,7 +704,7 @@
         {
           "name": 82,
           "lid": 175,
-          "label": "Cut-Off Time",
+          "label": "Cut-Off time",
           "unit": "s",
           "type": 3,
           "enProfile": true,
@@ -716,7 +716,7 @@
         {
           "name": 84,
           "lid": 176,
-          "label": "Cut-Off Strom",
+          "label": "Cut-Off current",
           "unit": "A",
           "type": 16,
           "enProfile": true,
@@ -728,7 +728,7 @@
         {
           "name": 145,
           "lid": 177,
-          "label": "Start Zellspannung",
+          "label": "Start cell voltage",
           "unit": "mV",
           "type": 3,
           "enProfile": true,
@@ -736,21 +736,21 @@
           "min": 0,
           "max": 3500,
           "dt": 3,
-          "help": "Die Regelung wird erst aktiv, wenn die Zellspannung erreicht ist.<br>0 = Startvoltage deaktiviert"
+          "help": "The control only becomes active when the cell voltage is reached.\\n0 = Start voltage deactivated"
         }
       ],
       "section_id": 10
     },
     {
       "lid": 178,
-      "label": "SoC beim Unterschreiten der Zellspannung",
+      "label": "Set SoC when the cell voltage falls below (wintermode)",
       "type": 13,
-      "help": "Wenn die eingestellte Zellspannung f\u00fcr den Ladebeginn unterschritten wird, dann kann durch das Senden eines beliebigen SoC an den Wechselrichter ein Nachladen veranlasst werden.<br>Es wird so lange nachgeladen, bis die Zellspannung Ladeende \u00fcberschritten wird.",
+      "help": "If the cell voltage falls below the set cell voltage for the start of charging, recharging can be initiated by sending any SoC to the inverter.\\nRecharging continues until the cell voltage reaches the stop cell voltage.",
       "items": [
         {
           "name": 88,
           "lid": 179,
-          "label": "Ein/Aus",
+          "label": "On/Off",
           "type": 10,
           "default": "0",
           "dt": 9
@@ -758,7 +758,7 @@
         {
           "name": 89,
           "lid": 180,
-          "label": "Zellspannung Ladebeginn",
+          "label": "Start cell voltage",
           "unit": "mV",
           "type": 3,
           "default": "3000",
@@ -769,19 +769,19 @@
         {
           "name": 92,
           "lid": 181,
-          "label": "Zellspannung Ladeende",
+          "label": "Stop cell voltage",
           "unit": "mV",
           "type": 3,
           "default": "0",
           "min": 0,
           "max": 4000,
           "dt": 3,
-          "help": "Wenn Zellspannung Ladeende 0, dann wird geladen, bis die Zellspannung Ladebeginn wieder \u00fcberschritten wird."
+          "help": "If the cell voltage at the end of charging is 0, then charging continues until the start cell voltage is exceeded again."
         },
         {
           "name": 90,
           "lid": 182,
-          "label": "SoC",
+          "label": "SoC to send",
           "unit": "%",
           "type": 3,
           "default": "9",
@@ -792,7 +792,7 @@
         {
           "name": 91,
           "lid": 183,
-          "label": "Sperrzeit zwischen zwei Nachladungen",
+          "label": "Lockout time between two reloads",
           "unit": "s",
           "type": 3,
           "default": "600",

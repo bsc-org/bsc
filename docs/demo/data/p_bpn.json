@@ -1,0 +1,350 @@
+{
+  "page": [
+    {
+      "lid": 212,
+      "label": "General",
+      "type": 13,
+      "items": [
+        {
+          "name": 1,
+          "lid": 213,
+          "label": "Number of cells",
+          "type": 3,
+          "default": 16,
+          "min": 0,
+          "max": 18,
+          "unit": ""
+        }
+      ],
+      "section_id": 0
+    },
+    {
+      "lid": 214,
+      "label": "Shunt",
+      "type": 13,
+      "items": [
+        {
+          "name": 16,
+          "lid": 215,
+          "label": "Nominal Capacity",
+          "type": 3,
+          "default": 280,
+          "min": 0,
+          "max": 1000,
+          "unit": "Ah"
+        }
+      ],
+      "section_id": 1
+    },
+    {
+      "lid": 216,
+      "label": "Exits",
+      "type": 13,
+      "items": [
+        {
+          "name": 17,
+          "lid": 217,
+          "label": "Relay 1",
+          "type": 9,
+          "options": [
+            {
+              "v": "0",
+              "l": "Arbeitsstrom"
+            },
+            {
+              "v": "1",
+              "l": "Ruhestrom"
+            }
+          ],
+          "default": "0",
+          "dt": 1
+        },
+        {
+          "name": 18,
+          "lid": 218,
+          "label": "Relay 2",
+          "type": 9,
+          "options": [
+            {
+              "v": "0",
+              "l": "Arbeitsstrom"
+            },
+            {
+              "v": "1",
+              "l": "Ruhestrom"
+            }
+          ],
+          "default": "0",
+          "dt": 1
+        }
+      ],
+      "section_id": 2
+    },
+    {
+      "lid": 219,
+      "label": "Alarm - Cell voltage",
+      "type": 13,
+      "items": [
+        {
+          "name": 2,
+          "lid": 220,
+          "label": "Low Cell Voltage",
+          "type": 3,
+          "default": 2700,
+          "min": 2500,
+          "max": 4000,
+          "unit": "mV"
+        },
+        {
+          "name": 3,
+          "lid": 221,
+          "label": "High Cell Voltage",
+          "type": 3,
+          "default": 3600,
+          "min": 2500,
+          "max": 4000,
+          "unit": "mV"
+        },
+        {
+          "name": 4,
+          "lid": 222,
+          "label": "Alarm Delay - Cell Voltage",
+          "type": 3,
+          "default": 16,
+          "min": 0,
+          "max": 255,
+          "unit": "s"
+        },
+        {
+          "name": 5,
+          "lid": 223,
+          "label": "Exit",
+          "type": 9,
+          "options": [
+            {
+              "v": "0",
+              "l": "Aus"
+            },
+            {
+              "v": "1",
+              "l": "Relais 1"
+            },
+            {
+              "v": "2",
+              "l": "Relais 2"
+            },
+            {
+              "v": "2",
+              "l": "DO"
+            }
+          ],
+          "default": "0",
+          "dt": 1
+        }
+      ],
+      "section_id": 3
+    },
+    {
+      "lid": 224,
+      "label": "Alarm - Battery voltage",
+      "type": 13,
+      "items": [
+        {
+          "name": 6,
+          "lid": 225,
+          "label": "Low Battery Voltage",
+          "type": 4,
+          "step": "0.01",
+          "default": 57.6,
+          "min": 0,
+          "max": 70,
+          "unit": "V"
+        },
+        {
+          "name": 7,
+          "lid": 226,
+          "label": "High Battery Voltage",
+          "type": 4,
+          "step": "0.01",
+          "default": 57.6,
+          "min": 0,
+          "max": 70,
+          "unit": "V"
+        },
+        {
+          "name": 8,
+          "lid": 227,
+          "label": "Alarm Delay - Battery Voltage",
+          "type": 3,
+          "default": 0,
+          "min": 0,
+          "max": 255,
+          "unit": "s"
+        },
+        {
+          "name": 9,
+          "lid": 228,
+          "label": "Exit",
+          "type": 9,
+          "options": [
+            {
+              "v": "0",
+              "l": "Aus"
+            },
+            {
+              "v": "1",
+              "l": "Relais 1"
+            },
+            {
+              "v": "2",
+              "l": "Relais 2"
+            },
+            {
+              "v": "2",
+              "l": "DO"
+            }
+          ],
+          "default": "0",
+          "dt": 1
+        }
+      ],
+      "section_id": 4
+    },
+    {
+      "lid": 229,
+      "label": "Alarm - Charge current",
+      "type": 13,
+      "items": [
+        {
+          "name": 10,
+          "lid": 230,
+          "label": "Max Charge Current",
+          "type": 3,
+          "default": 100,
+          "min": 0,
+          "max": 4000,
+          "unit": "A"
+        },
+        {
+          "name": 11,
+          "lid": 231,
+          "label": "Alarm Delay - Charge Current",
+          "type": 3,
+          "default": 0,
+          "min": 0,
+          "max": 255,
+          "unit": "s"
+        },
+        {
+          "name": 12,
+          "lid": 232,
+          "label": "Exit",
+          "type": 9,
+          "options": [
+            {
+              "v": "0",
+              "l": "Aus"
+            },
+            {
+              "v": "1",
+              "l": "Relais 1"
+            },
+            {
+              "v": "2",
+              "l": "Relais 2"
+            },
+            {
+              "v": "2",
+              "l": "DO"
+            }
+          ],
+          "default": "0",
+          "dt": 1
+        }
+      ],
+      "section_id": 5
+    },
+    {
+      "lid": 233,
+      "label": "Alarm - Discharge current",
+      "type": 13,
+      "items": [
+        {
+          "name": 13,
+          "lid": 234,
+          "label": "Max Discharge Current",
+          "type": 3,
+          "default": 100,
+          "min": 0,
+          "max": 4000,
+          "unit": "A"
+        },
+        {
+          "name": 14,
+          "lid": 235,
+          "label": "Alarm Delay - Discharge Current",
+          "type": 3,
+          "default": 0,
+          "min": 0,
+          "max": 255,
+          "unit": "s"
+        },
+        {
+          "name": 15,
+          "lid": 236,
+          "label": "Exit",
+          "type": 9,
+          "options": [
+            {
+              "v": "0",
+              "l": "Aus"
+            },
+            {
+              "v": "1",
+              "l": "Relais 1"
+            },
+            {
+              "v": "2",
+              "l": "Relais 2"
+            },
+            {
+              "v": "2",
+              "l": "DO"
+            }
+          ],
+          "default": "0",
+          "dt": 1
+        }
+      ],
+      "section_id": 6
+    }
+  ],
+  "sys": {
+    "store": 0
+  },
+  "btn": [
+    {
+      "name": "save-btn",
+      "lid": 237,
+      "label": "Write to BPN"
+    },
+    {
+      "name": "read-btn",
+      "lid": 238,
+      "label": "Read from BPN"
+    }
+  ],
+  "timer": [
+    {
+      "type": "json",
+      "interval": 2000
+    }
+  ],
+  "ui": {
+    "section_state": {
+      "name": 247,
+      "dt": 5,
+      "default": "0u"
+    }
+  }
+}

@@ -17,12 +17,13 @@
         {
           "name": 45,
           "lid": 6,
-          "label": "MQTT Device Name",
+          "label": "Device Name",
           "type": 0,
           "pattern": "^[^#\\+]*$",
           "default": "bsc",
           "minlen": 3,
-          "dt": 8
+          "dt": 8,
+          "help": "Also used as MQTT device name"
         },
         {
           "name": 42,
@@ -46,7 +47,7 @@
         {
           "name": 86,
           "lid": 21,
-          "label": "Username",
+          "label": "MQTT user",
           "type": 0,
           "pattern": "^[^#\\+]*$",
           "default": "",
@@ -55,7 +56,7 @@
         {
           "name": 87,
           "lid": 22,
-          "label": "Passwort",
+          "label": "MQTT password",
           "type": 2,
           "default": "",
           "dt": 8
@@ -63,7 +64,7 @@
         {
           "name": 46,
           "lid": 23,
-          "label": "MQTT Topic Name",
+          "label": "MQTT topic",
           "type": 0,
           "pattern": "^[^#\\+]*$",
           "default": "bsc",
@@ -72,7 +73,7 @@
         {
           "name": 133,
           "lid": 24,
-          "label": "MQTT Sendeintervall",
+          "label": "MQTT Send interval",
           "unit": "s",
           "type": 3,
           "default": 60,
@@ -83,7 +84,7 @@
         {
           "name": 168,
           "lid": 25,
-          "label": "Remanenz vTrigger",
+          "label": "Retain virtual-trigger",
           "type": 14,
           "options": [
             {
@@ -92,7 +93,7 @@
           ],
           "default": 0,
           "dt": 5,
-          "help": "V-Trigger behalten dadurch ihren Zustand, auch wenn Spannung unterbrochen wurde."
+          "help": "This means that virtual-triggers retain their status even if voltage is interrupted."
         }
       ]
     },
@@ -244,14 +245,14 @@
       ]
     },
     {
-      "label": "Weitere Daten",
+      "label": "Additional data",
       "lid": 532,
       "type": 13,
       "items": [
         {
           "name": 268,
           "lid": 526,
-          "label": "MQTT-Daten senden",
+          "label": "Send MQTT data",
           "type": 14,
           "options": [
             {
@@ -277,7 +278,7 @@
             {
               "v": 4,
               "lid": 531,
-              "l": "Zellspannungsabfall (Debug)"
+              "l": "Cell voltage sag (debug)"
             }
           ],
           "default": "((1u << MQTT_FILTER_TOPIC_OW_POS) | (1u << MQTT_FILTER_TOPIC_INVERTER_POS) | (1u << MQTT_FILTER_TOPIC_ALARM_POS) | (1u << MQTT_FILTER_TOPIC_SYS_POS))",
@@ -295,7 +296,7 @@
     {
       "name": "action-btn",
       "lid": 496,
-      "label": "HA Discovery senden",
+      "label": "Send HA Discovery",
       "action": "mqttHaDiscovery"
     }
   ]

@@ -2,19 +2,19 @@
   "page": [
     {
       "lid": 71,
-      "label": "Alarm bei Sensorfehler",
+      "label": "OneWire sensor error alarm",
       "type": 13,
       "items": [
         {
           "name": 109,
           "lid": 72,
-          "label": "Trigger",
+          "label": "Forward to",
           "type": 9,
           "options": [
             {
               "v": "0",
               "lid": 257,
-              "l": "Aus"
+              "l": "Off"
             },
             {
               "$ref": "comboAlarms"
@@ -39,34 +39,34 @@
     },
     {
       "lid": 74,
-      "label": "Temperatur &#220;berwachung",
+      "label": "Temperature monitoring",
       "type": 13,
       "wiki": "settings_bsc/#temperatur",
       "items": [
         {
           "name": 20,
           "lid": 75,
-          "label": "Temperatur &#220;berwachung",
-          "label_entry": "&#220;berwachung",
+          "label": "Temperature monitoring",
+          "label_entry": "Monitoring",
           "groupsize": 10,
           "type": 12,
           "group": [
             {
               "name": 128,
               "lid": 76,
-              "label": "Quelle",
-              "help": "M\u00f6gliche Sensoren:<br>Data Device/Group Device:0-5<br>Erweiterte Sensoren:0-31",
+              "label": "Source",
+              "help": "Possible values:\\nBMS:0-5\\nExtended sensors:0-31",
               "type": 9,
               "options": [
                 {
                   "v": "1",
                   "lid": 382,
-                  "l": "Data Device"
+                  "l": "Data device"
                 },
                 {
                   "v": "2",
                   "lid": 392,
-                  "l": "Data Device - Erweiterte Sensoren"
+                  "l": "Data device - extended sensors"
                 }
               ],
               "options_cases": [
@@ -82,22 +82,22 @@
                     {
                       "v": "1",
                       "lid": 382,
-                      "l": "Data Device"
+                      "l": "Data device"
                     },
                     {
                       "v": "2",
                       "lid": 392,
-                      "l": "Data Device - Erweiterte Sensoren"
+                      "l": "Data device - extended sensors"
                     },
                     {
                       "v": "3",
                       "lid": 393,
-                      "l": "Group Device"
+                      "l": "Group device"
                     },
                     {
                       "v": "4",
                       "lid": 394,
-                      "l": "Group Device - Erweiterte Sensoren"
+                      "l": "Group device - extended sensors"
                     }
                   ]
                 }
@@ -108,7 +108,7 @@
             {
               "name": 129,
               "lid": 77,
-              "label": "Zu &uuml;berwachende Quellen",
+              "label": "Sources to be monitored",
               "type": 14,
               "options": [
                 {
@@ -151,7 +151,7 @@
             {
               "name": 21,
               "lid": 78,
-              "label": "Sensoren 0-31",
+              "label": "Sensor 0-31",
               "type": 14,
               "options": [
                 {
@@ -194,43 +194,43 @@
             {
               "name": 27,
               "lid": 80,
-              "label": "&Uuml;berwachung",
+              "label": "Monitoring",
               "type": 9,
               "options": [
                 {
                   "v": 0,
                   "lid": 263,
-                  "l": "nicht belegt"
+                  "l": "not in use"
                 },
                 {
                   "v": 1,
                   "lid": 269,
-                  "l": "Maximalwert-&Uuml;berschreitung"
+                  "l": "Maximum value exceeded"
                 },
                 {
                   "v": 4,
                   "lid": 270,
-                  "l": "Minimalwert-Unterschreitung"
+                  "l": "Minimum value undershot"
                 },
                 {
                   "v": 2,
                   "lid": 271,
-                  "l": "Maximalwert-&Uuml;berschreitung (Referenz)"
+                  "l": "Maximum value exceeded (reference)"
                 },
                 {
                   "v": 3,
                   "lid": 272,
-                  "l": "Differenzwert-&Uuml;berwachung"
+                  "l": "Difference value monitoring"
                 }
               ],
               "default": 0,
               "dt": 1,
-              "help": "Maximalwert-&Uuml;berschreitung: Wert1=Maximale Temperatur<br>Maximalwert-&Uuml;berschreitung (Referenz): Wert1=Temperatur Offset<br>Differenzwert-&Uuml;berwachung: Wert1=Maximal erlaubte Differenz"
+              "help": "Maximum value exceeded: Value 1=Maximum Temperature\\nMaximum value exceeded (reference): Value 1=Temperature Offset\\nDifference value monitoring: Value 1=Maximum allowed difference"
             },
             {
               "name": 23,
               "lid": 81,
-              "label": "Referenzsensor",
+              "label": "Reference sensor",
               "type": 3,
               "default": "",
               "min": 0,
@@ -240,7 +240,7 @@
             {
               "name": 24,
               "lid": 82,
-              "label": "Wert 1",
+              "label": "Value 1",
               "type": 4,
               "default": "",
               "min": -20,
@@ -250,7 +250,7 @@
             {
               "name": 25,
               "lid": 83,
-              "label": "Hysterese",
+              "label": "Hysteresis",
               "type": 4,
               "default": "",
               "min": -20,
@@ -260,13 +260,13 @@
             {
               "name": 26,
               "lid": 84,
-              "label": "Ausl&ouml;sung",
+              "label": "Forward to",
               "type": 9,
               "options": [
                 {
                   "v": "0",
                   "lid": 257,
-                  "l": "Aus"
+                  "l": "Off"
                 },
                 {
                   "$ref": "comboAlarms"
