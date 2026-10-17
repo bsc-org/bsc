@@ -546,7 +546,7 @@ Während des Balancevorgangs setzt der BSC gezielt andere Laderegelungen aus ode
     Mit dieser Option wird die CutOff-Funktion bereits im Schritt *„Warte auf Start-Zellspg.“* deaktiviert.  
 
         !!! note "Hinweis"
-            Die erweiterten Optionen stehen nur in der **Sponsoren Version** zur Verfügung
+            Die erweiterten Optionen sind nicht in allen Firmware-Versionen verfügbar.
 
     !!! note "Nach dem Balancing"
         Nach Abschluss des Balancierungsprozesses wird die Ladespannung auf das Floating-Niveau abgesenkt, um den Akku im geladenen Zustand zu halten, ohne ihn weiter zu belasten.
