@@ -140,8 +140,8 @@ Mit dieser Funktion kann der maximale Ladestrom abhängig von der gemessenen Tem
 
 Die Temperaturreduzierung erfolgt anhand von bis zu vier konfigurierbaren **Temperaturregeln**. Jede Regel kann individuell aktiviert, deaktiviert und mit eigenen Sensoren sowie Start- und Endwerten konfiguriert werden. 
 
-!!! note "Hinweis zur Supporter-Firmware"
-    Die Temperatur-Reduzierung ist Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+!!! note "Hinweis zur Firmware-Version"
+    Die Temperatur-Reduzierung ist nicht in allen Firmware-Versionen verfügbar.
 
 ```bsc-settings
 version: v010
@@ -273,8 +273,8 @@ Sobald die Funktion aktiviert ist, wird die Ladespannung dynamisch angepasst, um
 
 Die Funktion ermöglicht es z.B., den Akku nur bis zu einem bestimmten SoC zu laden, um seine Lebensdauer zu verlängern.  
 
-!!! note "Hinweis zur Supporter-Firmware"
-    Die Spannungsregelung ist Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+!!! note "Hinweis zur Firmware-Version"
+    Die Spannungsregelung ist nicht in allen Firmware-Versionen verfügbar.
 
 ```bsc-settings
 version: v010
@@ -509,7 +509,8 @@ Während des Balancevorgangs setzt der BSC gezielt andere Laderegelungen aus ode
 
     Im Folgenden werden die wichtigsten Einstellungen und Abläufe beschrieben:
 
-    **Autobal. starten (Trigger)** *(Diese Option steht nur Supportern zur Verfügung)*  
+    **Autobal. starten (Trigger)** *(Diese Option ist nicht in allen Firmware-Versionen verfügbar)*
+
     Der hier konfigurierte Trigger ermöglicht es, den Autobalancer unmittelbar zu starten, wenn er sich aktuell in der Wartezeit bis zum nächsten Intervall befindet. Zu beachten ist, dass der Trigger nach dem Starten des Autobalancers manuell wieder auf „Low“ gesetzt werden muss.
 
     **Balance-Intervall**   

@@ -40,7 +40,8 @@ Eine Bezugsquelle ist beispielsweise:
 **Hinweise zur Funktionalität**  
 Da das T-CONNECT Board **keine integrierten Relais, Digitaleingänge oder eine redundante Spannungsversorgung** besitzt, kommt es im Vergleich zur originalen BSC-Hardware zu funktionalen Einschränkungen.  
 
-Die **Supporter-Version** ermöglicht den Anschluss des **Displays** über den Pin-Header.  
+In der freien Firmware wird das **Display** am T-CONNECT nicht unterstützt.
+
 Die Belegung des Pin-Headers ist [hier](hardware.md/#belegung-des-pin-headers) zu finden.  
 Weitere Informationen zur Hardware des Lilygo T-CONNECT finden Sie [hier](hardware.md/#lilygo-t-connect).  
 

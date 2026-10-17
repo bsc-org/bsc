@@ -56,8 +56,8 @@ section: UI_SECT_TRIGGER_TRIGGER_SCHEDULER
 Der Trigger Scheduler ermöglicht die zeitgesteuerte Ausführung von Triggern im BSC.  
 Es stehen insgesamt **5 Scheduler** zur Verfügung, die unabhängig voneinander konfiguriert werden können.  
 
-!!! note "Hinweis zur Supporter-Firmware"
-    Der Trigger Scheduler ist ein Feature der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+!!! note "Hinweis zur Firmware-Version"
+    Der Trigger Scheduler ist nicht in allen Firmware-Versionen verfügbar.
 
 Folgende Parameter stehen zur Verfügung:  
 

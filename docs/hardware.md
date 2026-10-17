@@ -68,7 +68,7 @@ Pin 4: GND
     | –   | 44   |                  | SE RX          |                          |
 
 === "< V0.10.0"
-    In der hier dokumentierten Firmware stehen über den Pin-Header **Onewire**, die **Relais-Ausgänge**, die **Digitaleingänge** und **I²C** (z. B. für das [Display](#bsc-display)) zur Verfügung. Die Supporter-Firmware nutzt diese Pins ebenfalls – siehe [Supporter](supporter.md).
+    In der hier dokumentierten Firmware stehen über den Pin-Header **Onewire**, die **Relais-Ausgänge**, die **Digitaleingänge** und **I²C** (z. B. für das [Display](#bsc-display)) zur Verfügung.
 
     | PIN | GPIO | Funktion         |
     |-----|------|------------------|

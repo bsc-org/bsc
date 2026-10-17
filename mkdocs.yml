@@ -36,9 +36,6 @@ watch:
   - bsc_settings
 
 plugins:
-  - blog:
-      blog_toc: true
-      post_url_format: "{file}"
   - search
 
   - git-revision-date-localized:
@@ -87,7 +84,6 @@ markdown_extensions:
 nav:
   - User Guide:
     - Systemübersicht: system_overview.md
-#    - Versionsvergleich /<br>Version Comparison: comparison_sw.md
     - Erste Schritte:
       - Erste Informationen: first_steps.md
       - Programmieren des BSC: first_steps_programming.md
@@ -126,12 +122,9 @@ nav:
       - Bestückung Varianten: bestückung_varianten.md
 
   - Ressourcen:
-    - Donate: supporter.md
-    - Demo (Supporter-Version): demo/app.html
+    - Donate: donate.md
+    - Demo: demo/app.html
     - Issues:
       - Issues: https://github.com/shining-man/bsc_fw/issues
-      - Issues (Nur für Supporter): https://github.com/bsc-org/bsc_fw_insider/issues
-    - Blog:
-      - blog/index.md
     - About:
       - Release Notes: https://github.com/shining-man/bsc_fw/releases

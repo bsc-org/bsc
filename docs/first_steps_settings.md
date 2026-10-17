@@ -1,6 +1,6 @@
 # Einstellungen für den Betrieb des BSC
 Dieses Kapitel gibt einen Überblick über die erforderlichen Einstellungen für den Betrieb des BSC.  
-Abweichungen können je nach Firmware-Version auftreten. Die hier beschriebenen Einstellungen beziehen sich auf die **Supporter-Firmware** (siehe [Supporter](supporter.md)). 
+Die verfügbaren Einstellungen können je nach Firmware-Version abweichen.
 
 !!! tip "Einrichtungsassistenten"
     Für die Erstkonfiguration bietet die WebApp [Einrichtungsassistenten](setup_assistant.md) für Netzwerk, MQTT, die seriellen Schnittstellen und den Wechselrichter an. Die Assistenten führen durch die wichtigsten Schritte und befüllen das Data-Device-Mapping automatisch.

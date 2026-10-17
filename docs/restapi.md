@@ -72,7 +72,7 @@ Dies ist nur ein Auszug aus der Antwort und nicht vollständig!
 ```
 
 ### 2. Alle Active-Errors [GET] 
-> Hinweis: Dieser Endpunkt ist Bestandteil der [Supporter-Firmware](supporter.md).
+> Hinweis: Dieser Endpunkt ist nicht in allen Firmware-Versionen verfügbar.
 
 Endpunkt: `/restapi/errors/all`
 
@@ -91,7 +91,7 @@ Dieser Endpunkt gibt alle möglichen Fehler des Systems zurück, inklusive einer
 ```
 
 ### 3. Aktive Active-Errors [GET]
-> Hinweis: Dieser Endpunkt ist Bestandteil der [Supporter-Firmware](supporter.md).
+> Hinweis: Dieser Endpunkt ist nicht in allen Firmware-Versionen verfügbar.
 
 Endpunkt: `/restapi/errors/active`
 
@@ -108,7 +108,7 @@ Dieser Endpunkt gibt nur die aktuell aktiven Active-Errors des Systems zurück. 
 ```
 
 ### 4. IO-Daten [GET]
-> Hinweis: Dieser Endpunkt ist Bestandteil der [Supporter-Firmware](supporter.md).
+> Hinweis: Dieser Endpunkt ist nicht in allen Firmware-Versionen verfügbar.
 
 Endpunkt: `/restapi/io`
 
@@ -124,7 +124,7 @@ Dieser Endpunkt gibt den Zustand der digitalen Eingänge (DI) und Relais zurück
 ```
 
 ### 5. vTrigger [POST]
-> Hinweis: Dieser Endpunkt ist Bestandteil der [Supporter-Firmware](supporter.md).
+> Hinweis: Dieser Endpunkt ist nicht in allen Firmware-Versionen verfügbar.
 
 Endpunkt: `/restapi/vTrigger`
 

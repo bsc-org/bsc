@@ -193,8 +193,8 @@ Bei aktivem Trigger gelten die Werte als Obergrenze. Sie übersteuern die festge
 
 Die Funktion **Ladespannungsrampe** sorgt dafür, dass Änderungen der Ladespannung – beispielsweise beim Übergang von Float auf Absorption – nicht sprunghaft, sondern in langsamen, definierten Schritten erfolgen. Damit werden abrupte Spannungsänderungen vermieden und Belastungsspitzen an Batterie und System reduziert.
 
-!!! note "Hinweis zur Supporter-Firmware"
-    Die Ladespannungsrampe ist Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+!!! note "Hinweis zur Firmware-Version"
+    Die Ladespannungsrampe ist nicht in allen Firmware-Versionen verfügbar.
 
 ```bsc-settings
 version: v010
@@ -273,8 +273,8 @@ profile: off
 section: UI_SECT_BMSTOINVERTER_ZELLTEMPERATUR
 ```
 
-!!! note "Hinweis zur Supporter-Firmware"
-    Die Zelltemperatur-Auswahl ist Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+!!! note "Hinweis zur Firmware-Version"
+    Die Zelltemperatur-Auswahl ist nicht in allen Firmware-Versionen verfügbar.
 
 
 ## Alarme (Inverter)

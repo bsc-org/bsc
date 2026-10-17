@@ -53,7 +53,7 @@ Gibt den Typ des Logeintrags an:
 
 Die aktuell aktiven Fehler (SET) können über die REST-API abgefragt werden. Zusätzlich werden sie im Dashboard im Bereich „Active Errors“ übersichtlich dargestellt.
 
-> Hinweis: Der Status (SET/RES) ist ebenfalls Bestandteil der [Supporter-Firmware](supporter.md).  
+> Hinweis: Der Status (SET/RES) ist nicht in allen Firmware-Versionen verfügbar.
 
 **B – Schweregrad**  
 Kennzeichnet die Einstufung des Logeintrags:  
@@ -71,8 +71,3 @@ Bezeichnet die Komponente oder Klasse, die den Eintrag generiert hat.
 
 **E – Lognachricht**  
 Die eigentliche Nachricht bzw. Beschreibung des Ereignisses.
-
-
-
-
-

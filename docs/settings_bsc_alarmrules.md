@@ -58,8 +58,8 @@ Hier wird festgelegt, für welches Data-Device die Alarmregel gilt.
 ## Plausibility check
 ### Plausibility check
 
-!!! note "Hinweis zur Supporter-Firmware"
-    Der Plausibility Check ist auch Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+!!! note "Hinweis zur Firmware-Version"
+    Der Plausibility Check ist nicht in allen Firmware-Versionen verfügbar.
 
 Der "Plausibility Check" ist eine wichtige Funktion, die kontinuierlich den Stromfluss sowie die Zellspannungen der an das System angeschlossenen Data-Devices überwacht.  
 
@@ -109,8 +109,8 @@ In der Regel wird hier eine längere Zeit eingestellt, um Fehlalarme bei geringe
 
 ### Wertevergleich
 
-!!! note "Hinweis zur Supporter-Firmware"
-    Der Wertevergleich ist auch Bestandteil der **Supporter-Firmware**. Weitere Informationen: [Supporter](supporter.md).
+!!! note "Hinweis zur Firmware-Version"
+    Der Wertevergleich ist nicht in allen Firmware-Versionen verfügbar.
 
 Mit dieser Funktion können die Werte ausgewählter Data Devices überwacht und miteinander verglichen werden. Bei Überschreiten der definierten Abweichungen wird der zugewiesene Trigger aktiviert.  
 Es stehen **10 Wertevergleichs-Regeln** zur Verfügung.
