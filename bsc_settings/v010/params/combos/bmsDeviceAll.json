@@ -99,7 +99,7 @@
     "v": "15",
     "l": "Serial 8",
     "visible_when": [
-      {"source": "sysvartem", "param": "se_available", "op": "==", "value": 1}
+      {"source": "var", "param": "se_available", "op": "==", "value": 1}
     ]
   },
   {
@@ -120,7 +120,7 @@
     "v": "OPTION_DEVICE_MAPPING_INTERFACE_VECAN",
     "l": "VE.Can",
     "visible_when": [
-      {"source": "var", "param": "rico_available", "op": "==", "value": 1}
+      {"source": "var", "param": "mcp2518_available", "op": "==", "value": 1}
     ]
   }
 ]

@@ -15,6 +15,7 @@
               "lid": 55,
               "label": "Zu &uuml;berwachendes Data device",
               "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
+              "show_selected_unavailable": true,
               "options": [
                 {
                   "$ref": "dataDevicesAll"

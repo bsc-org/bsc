@@ -49,6 +49,7 @@
               "type": "HTML_INPUTTEXT",
               "default": "",
               "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$",
+              "maxlen": 17,
               "dt": "PARAM_DT_ST"
             },
             {

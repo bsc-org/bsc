@@ -178,7 +178,7 @@
             },
             {
               "v": "OPTION_MULTI_BMS_VALUE_WEIGHT",
-              "lid": 0,
+              "lid": 539,
               "l": "Kapazitätsgewichtet"
             }
           ],
@@ -819,7 +819,8 @@
               "options": [
                 {
                   "v": "0",
-                  "l": "Aus"
+                  "l": "Aus",
+                  "lid": 257
                 },
                 {
                   "$ref": "comboAlarms"

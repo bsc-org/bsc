@@ -11,6 +11,7 @@
           "pattern": "^[^#\\+]*$",
           "default": "BSC",
           "minlen": 3,
+          "maxlen": 32,
           "dt": "PARAM_DT_ST"
         },
         {
@@ -33,7 +34,7 @@
             {"v": 0, "l": "Aus", "lid": 257},
             {"v": 1, "l": "P1"},
             {"v": 2, "l": "P2"},
-            {"v": 3, "l": "Trigger"}
+            {"v": 3, "l": "Trigger", "lid": 139}
           ],
           "default": 0,
           "dt": "PARAM_DT_U8"
@@ -112,7 +113,8 @@
               "lid": 5,
               "label": "Benutzername",
               "type": "HTML_INPUTTEXT",
-              "default": "[bsc,]",
+              "maxlen": 32,
+              "default": "[bsc,user]",
               "flash": "1",
               "dt": "PARAM_DT_ST"
             },
@@ -121,7 +123,7 @@
               "lid": 535,
               "label": "Passwort",
               "type": "HTML_INPUTPASSWORD",
-              "default": "[$sha256$8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918,]",
+              "default": "[admin,user]",
               "flash": "1",
               "dt": "PARAM_DT_ST"
             },
@@ -133,8 +135,8 @@
               "default": "0",
               "dt": "PARAM_DT_U8",
               "options": [
-                {"v": "0", "l": "Admin"},
-                {"v": "1", "l": "ReadOnly"}
+                {"v": "0", "l": "Admin", "lid": 650},
+                {"v": "1", "l": "Nur lesen", "lid": 651}
               ]
             }
           ]
@@ -185,7 +187,7 @@
           "dt": "PARAM_DT_BO",
           "help": "Bei aktiviertem Ethernet wird WLAN deaktiviert.",
           "visible_when": [
-            { "source":"var","param":"rico_available", "op": "==", "value": 1 }
+            { "source":"var","param":"w5500_available", "op": "==", "value": 1 }
           ]
         }
       ],

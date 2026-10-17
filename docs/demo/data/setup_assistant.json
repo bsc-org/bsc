@@ -1,32 +1,37 @@
 {
-  "title": "Einrichtungsassistenten",
-  "description": "W\u00e4hle einen Assistenten um das System zu konfigurieren.",
+  "lid": 613,
+  "title": "Setup assistants",
+  "description": "Choose an assistant to configure the system.",
   "assistants": [
     {
       "id": "network",
-      "title": "Netzwerk",
-      "description": "WLAN-Grundkonfiguration",
+      "lid": 614,
+      "title": "Network",
+      "description": "Basic Wi-Fi configuration",
       "steps": [
         {
           "id": "network-wifi",
-          "title": "WLAN",
-          "description": "SSID und Passwort setzen.",
+          "lid": 615,
+          "title": "Wi-Fi",
+          "description": "Set SSID and password.",
           "fields": [
             {
               "key": "wifi_ssid",
+              "lid": 616,
               "page": "p_system",
               "name": 40,
               "group": 0,
-              "label": "WLAN SSID",
-              "placeholder": "z.B. MeinWLAN"
+              "label": "WIFI SSID",
+              "placeholder": "e.g. MyWLAN"
             },
             {
               "key": "wifi_pwd",
+              "lid": 617,
               "page": "p_system",
               "name": 41,
               "group": 0,
-              "label": "WLAN Passwort",
-              "placeholder": "WLAN Passwort"
+              "label": "WIFI password",
+              "placeholder": "WIFI password"
             }
           ]
         }
@@ -34,36 +39,41 @@
     },
     {
       "id": "mqtt",
+      "lid": 618,
       "title": "MQTT",
-      "description": "Gefuehrte MQTT-Einrichtung in mehreren Schritten",
+      "description": "Guided MQTT setup in several steps",
       "summary_review": true,
       "steps": [
         {
           "id": "mqtt-enable",
-          "title": "Aktivierung",
-          "description": "MQTT global ein- oder ausschalten.",
+          "lid": 619,
+          "title": "Activation",
+          "description": "Enable or disable MQTT globally.",
           "fields": [
             {
               "key": "mqtt_enable",
+              "lid": 620,
               "page": "p_mqtt",
               "name": 44,
               "group": 0,
-              "label": "MQTT aktiv"
+              "label": "MQTT active"
             }
           ]
         },
         {
           "id": "mqtt-connection",
-          "title": "Verbindung",
-          "description": "Broker-Adresse und Port setzen.",
+          "lid": 621,
+          "title": "Connection",
+          "description": "Set the broker address and port.",
           "fields": [
             {
               "key": "mqtt_host",
+              "lid": 622,
               "page": "p_mqtt",
               "name": 42,
               "group": 0,
               "label": "MQTT Server",
-              "placeholder": "z.B. 192.168.1.10"
+              "placeholder": "e.g. 192.168.1.10"
             },
             {
               "key": "mqtt_port",
@@ -74,18 +84,20 @@
             },
             {
               "key": "mqtt_device_name",
+              "lid": 623,
               "page": "p_mqtt",
               "name": 45,
               "group": 0,
-              "label": "MQTT Device Name",
-              "placeholder": "z.B. bsc"
+              "label": "Device Name",
+              "placeholder": "e.g. bsc"
             }
           ]
         },
         {
           "id": "mqtt-auth-topic",
-          "title": "Login und Topic",
-          "description": "Optionale Zugangsdaten und Topic konfigurieren.",
+          "lid": 624,
+          "title": "Login and topic",
+          "description": "Configure optional credentials and topic.",
           "fields": [
             {
               "key": "mqtt_username",
@@ -97,10 +109,11 @@
             },
             {
               "key": "mqtt_pwd",
+              "lid": 625,
               "page": "p_mqtt",
               "name": 87,
               "group": 0,
-              "label": "MQTT Passwort",
+              "label": "MQTT password",
               "required": false
             },
             {
@@ -114,15 +127,17 @@
         },
         {
           "id": "mqtt-publish",
-          "title": "Sendeverhalten",
-          "description": "Sendeintervall festlegen.",
+          "lid": 626,
+          "title": "Send behaviour",
+          "description": "Set the send interval.",
           "fields": [
             {
               "key": "mqtt_send_delay",
+              "lid": 627,
               "page": "p_mqtt",
               "name": 133,
               "group": 0,
-              "label": "Sendeintervall [s]"
+              "label": "Send interval [s]"
             }
           ]
         }
@@ -130,8 +145,9 @@
     },
     {
       "id": "serial-setup",
-      "title": "Serielle Schnittstellen",
-      "description": "Konfiguriert die an Serial 0-2 angeschlossenen Ger\u00e4te.",
+      "lid": 628,
+      "title": "Serial interfaces",
+      "description": "Configures the devices connected to Serial 0-2.",
       "summary_review": true,
       "actions": [
         {
@@ -167,15 +183,17 @@
           "fields": [
             {
               "key": "s0_bms",
+              "lid": 629,
               "page": "p_serial",
               "name": 1,
               "group": 0,
-              "label": "Was f\u00fcr ein Ger\u00e4t ist angeschlossen?",
+              "label": "What kind of device is connected?",
               "type": "select"
             },
             {
               "key": "s0_count",
-              "label": "Wie viele Ger\u00e4te sind an dem Port angeschlossen?",
+              "lid": 630,
+              "label": "How many devices are connected to this port?",
               "type": "number",
               "min": 1,
               "max": 16,
@@ -188,20 +206,23 @@
         },
         {
           "id": "serial-step-1",
+          "lid": 631,
           "title": "Serial 1",
-          "description": "BMS an Serial 1 und Anzahl in Kette.",
+          "description": "BMS on Serial 1 and number in the chain.",
           "fields": [
             {
               "key": "s1_bms",
+              "lid": 629,
               "page": "p_serial",
               "name": 1,
               "group": 1,
-              "label": "Was f\u00fcr ein Ger\u00e4t ist angeschlossen?",
+              "label": "What kind of device is connected?",
               "type": "select"
             },
             {
               "key": "s1_count",
-              "label": "Wie viele Ger\u00e4te sind an dem Port angeschlossen?",
+              "lid": 630,
+              "label": "How many devices are connected to this port?",
               "type": "number",
               "min": 1,
               "max": 16,
@@ -214,20 +235,23 @@
         },
         {
           "id": "serial-step-2",
+          "lid": 632,
           "title": "Serial 2",
-          "description": "BMS an Serial 2 und Anzahl in Kette.",
+          "description": "BMS on Serial 2 and number in the chain.",
           "fields": [
             {
               "key": "s2_bms",
+              "lid": 629,
               "page": "p_serial",
               "name": 1,
               "group": 2,
-              "label": "Was f\u00fcr ein Ger\u00e4t ist angeschlossen?",
+              "label": "What kind of device is connected?",
               "type": "select"
             },
             {
               "key": "s2_count",
-              "label": "Wie viele Ger\u00e4te sind an dem Port angeschlossen?",
+              "lid": 630,
+              "label": "How many devices are connected to this port?",
               "type": "number",
               "min": 1,
               "max": 16,
@@ -242,12 +266,14 @@
     },
     {
       "id": "inverter-setup",
-      "title": "Wechselrichter",
-      "description": "Konfiguration des Wechselrichters und der Basis Laderegelung.",
+      "lid": 633,
+      "title": "Inverter",
+      "description": "Configuration of the inverter and the basic charge control.",
       "steps": [
         {
           "id": "inverter-step-1",
-          "title": "CAN aktivieren und Protokoll ausw\u00e4hlen",
+          "lid": 634,
+          "title": "Enable CAN and select the protocol",
           "fields": [
             {
               "key": "bms_can_enable",
@@ -259,17 +285,19 @@
             },
             {
               "key": "can_protocol",
+              "lid": 635,
               "page": "p_inverter",
               "name": 2,
               "group": 0,
-              "label": "CANBUS Protokoll"
+              "label": "CANBUS protocol"
             },
             {
               "key": "can_datasource",
+              "lid": 636,
               "page": "p_inverter",
               "name": 83,
               "group": 0,
-              "label": "Datenquelle (aktive Data-Devices)",
+              "label": "Data source (active Data devices)",
               "editable": false,
               "hidden": false
             }
@@ -297,46 +325,52 @@
         },
         {
           "id": "inverter-step-2",
-          "title": "Basisdaten",
+          "lid": 637,
+          "title": "Basic data",
           "fields": [
             {
               "key": "cells",
+              "lid": 213,
               "page": "p_serial",
               "name": 141,
               "group": 0,
-              "label": "Anzahl Zellen"
+              "label": "Number of cells"
             },
             {
               "key": "max_cell_mv",
+              "lid": 638,
               "page": "p_invertercharge",
               "name": 76,
               "group": 0,
-              "label": "Maximale Zellspannung [mV]"
+              "label": "Maximum cell voltage [mV]"
             },
             {
               "key": "absorb_v",
+              "lid": 639,
               "page": "p_inverter",
               "name": 62,
               "group": 0,
-              "label": "Absorption Ladespannung [V]",
+              "label": "Absorption charging voltage [V]",
               "editable": false,
               "hidden": false
             },
             {
               "key": "float_v",
+              "lid": 640,
               "page": "p_inverter",
               "name": 156,
               "group": 0,
-              "label": "Float Ladespannung [V]",
+              "label": "Float charging voltage [V]",
               "editable": false,
               "hidden": false
             },
             {
               "key": "float_soc",
+              "lid": 641,
               "page": "p_inverter",
               "name": 85,
               "group": 0,
-              "label": "Float Ladespannung SoC [%]",
+              "label": "Float charging voltage SoC [%]",
               "editable": false,
               "hidden": true
             }
@@ -401,43 +435,49 @@
         },
         {
           "id": "inverter-step-3",
-          "title": "Zellspannungsabhaengige Drosselung",
+          "lid": 642,
+          "title": "Cell voltage dependent throttling",
           "fields": [
             {
               "key": "zspg_en",
+              "lid": 643,
               "page": "p_invertercharge",
               "name": 74,
               "group": 0,
-              "label": "Zellspannungsabhaengige Drosselung Ein/Aus",
+              "label": "Cell voltage dependent throttling on/off",
               "editable": false,
               "hidden": true
             },
             {
               "key": "zspg_start",
+              "lid": 644,
               "page": "p_invertercharge",
               "name": 75,
               "group": 0,
-              "label": "Starten bei Zellspg. groesser [mV]",
+              "label": "Start at cell voltage above [mV]",
               "editable": false,
               "hidden": true
             },
             {
               "key": "zspg_float",
+              "lid": 645,
               "page": "p_invertercharge",
               "name": 205,
               "group": 0,
-              "label": "Maximale Zellspannung (Float) [mV]",
+              "label": "Maximum cell voltage (float) [mV]",
               "editable": false,
               "hidden": true
             },
             {
               "key": "zspg_min_current",
+              "lid": 149,
               "page": "p_invertercharge",
               "name": 78,
               "group": 0,
-              "label": "Mindest Ladestrom",
+              "label": "Minimum charging current",
               "editable": false,
-              "hidden": true
+              "hidden": true,
+              "unit": "A"
             }
           ],
           "calculations": [
@@ -477,41 +517,46 @@
         },
         {
           "id": "inverter-step-4",
-          "title": "Zelldrift-Drosselung",
+          "lid": 646,
+          "title": "Cell drift throttling",
           "fields": [
             {
               "key": "drift_en",
+              "lid": 647,
               "page": "p_invertercharge",
               "name": 68,
               "group": 0,
-              "label": "Zelldrift-Drosselung Ein/Aus",
+              "label": "Cell drift throttling on/off",
               "editable": false,
               "hidden": true
             },
             {
               "key": "drift_start_spg",
+              "lid": 644,
               "page": "p_invertercharge",
               "name": 71,
               "group": 0,
-              "label": "Starten bei Zellspg. groesser [mV]",
+              "label": "Start at cell voltage above [mV]",
               "editable": false,
               "hidden": true
             },
             {
               "key": "drift_start_diff",
+              "lid": 648,
               "page": "p_invertercharge",
               "name": 69,
               "group": 0,
-              "label": "Starten bei Drift groesser [mV]",
+              "label": "Start at drift above [mV]",
               "editable": false,
               "hidden": true
             },
             {
               "key": "drift_red_per_mv",
+              "lid": 649,
               "page": "p_invertercharge",
               "name": 70,
               "group": 0,
-              "label": "Reduzierung pro mV [A]",
+              "label": "Reduction per mV [A]",
               "editable": false,
               "hidden": true
             }

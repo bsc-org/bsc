@@ -1,9 +1,10 @@
 {
   "page": [
     {
-      "label": "MQTT Allgemein",
+      "lid": 596,
+      "label": "MQTT general",
       "type": 13,
-      "help": "Zum \u00dcbernehmen der Settings, muss der BSC neu gestartet werden!",
+      "help": "The BSC must be restarted to apply the settings.",
       "wiki": "settings_bsc/#mqtt",
       "items": [
         {
@@ -20,6 +21,7 @@
           "label": "Device Name",
           "type": 0,
           "pattern": "^[^#\\+]*$",
+          "maxlen": 32,
           "default": "bsc",
           "minlen": 3,
           "dt": 8,
@@ -50,6 +52,7 @@
           "label": "MQTT user",
           "type": 0,
           "pattern": "^[^#\\+]*$",
+          "maxlen": 32,
           "default": "",
           "dt": 8
         },
@@ -67,6 +70,7 @@
           "label": "MQTT topic",
           "type": 0,
           "pattern": "^[^#\\+]*$",
+          "maxlen": 32,
           "default": "bsc",
           "dt": 8
         },
@@ -106,6 +110,7 @@
           "label": "Home Assistant Discovery Prefix",
           "type": 0,
           "pattern": "^[^#\\+]*$",
+          "maxlen": 32,
           "default": "homeassistant",
           "dt": 8
         }
@@ -117,14 +122,16 @@
       "items": [
         {
           "name": 262,
-          "label": "Data Devices senden",
+          "lid": 597,
+          "label": "Send Data Devices",
           "type": 10,
           "default": 1,
           "dt": 9
         },
         {
           "name": 263,
-          "label": "Data Devices Auswahl",
+          "lid": 598,
+          "label": "Data Devices selection",
           "type": 14,
           "options": [
             {
@@ -136,24 +143,29 @@
         },
         {
           "name": 264,
-          "label": "Datenklassen",
+          "lid": 599,
+          "label": "Data classes",
           "type": 14,
           "options": [
             {
               "v": 0,
-              "l": "Gesamtspannung/Strom, SoC, FET-State"
+              "l": "Total voltage/current, SoC, FET state",
+              "lid": 602
             },
             {
               "v": 1,
-              "l": "Zellspannungen"
+              "l": "Cell voltages",
+              "lid": 603
             },
             {
               "v": 2,
-              "l": "Restliche Zelldaten"
+              "l": "Remaining cell data",
+              "lid": 604
             },
             {
               "v": 3,
-              "l": "Balancerdaten (inkl. Balance-Status)"
+              "l": "Balancer data (incl. balance status)",
+              "lid": 605
             },
             {
               "v": 4,
@@ -161,16 +173,18 @@
             },
             {
               "v": 5,
-              "l": "Temperaturen"
+              "l": "Temperatures",
+              "lid": 606
             },
             {
               "v": 6,
-              "l": "Kapazit\u00e4t/Energie/Statistik"
+              "l": "Capacity/energy/statistics",
+              "lid": 607
             }
           ],
           "default": "(MQTT_FILTER_CLASS_TOTAL_MAIN | MQTT_FILTER_CLASS_CELL_VOLTAGES | MQTT_FILTER_CLASS_CELL_REST | MQTT_FILTER_CLASS_BALANCER | MQTT_FILTER_CLASS_ERR_WARN | MQTT_FILTER_CLASS_TEMPERATURES | MQTT_FILTER_CLASS_ENERGY_STATS)",
           "dt": 5,
-          "help": "valid und maintenance werden immer gesendet."
+          "help": "valid and maintenance are always sent."
         }
       ]
     },
@@ -180,14 +194,16 @@
       "items": [
         {
           "name": 265,
-          "label": "Group Devices senden",
+          "lid": 600,
+          "label": "Send Group Devices",
           "type": 10,
           "default": 1,
           "dt": 9
         },
         {
           "name": 266,
-          "label": "Group Devices Auswahl",
+          "lid": 601,
+          "label": "Group Devices selection",
           "type": 14,
           "options": [
             {
@@ -199,24 +215,29 @@
         },
         {
           "name": 267,
-          "label": "Datenklassen",
+          "lid": 599,
+          "label": "Data classes",
           "type": 14,
           "options": [
             {
               "v": 0,
-              "l": "Gesamtspannung/Strom, SoC, FET-State"
+              "l": "Total voltage/current, SoC, FET state",
+              "lid": 602
             },
             {
               "v": 1,
-              "l": "Zellspannungen"
+              "l": "Cell voltages",
+              "lid": 603
             },
             {
               "v": 2,
-              "l": "Restliche Zelldaten"
+              "l": "Remaining cell data",
+              "lid": 604
             },
             {
               "v": 3,
-              "l": "Balancerdaten (inkl. Balance-Status)"
+              "l": "Balancer data (incl. balance status)",
+              "lid": 605
             },
             {
               "v": 4,
@@ -224,16 +245,18 @@
             },
             {
               "v": 5,
-              "l": "Temperaturen"
+              "l": "Temperatures",
+              "lid": 606
             },
             {
               "v": 6,
-              "l": "Kapazit\u00e4t/Energie/Statistik"
+              "l": "Capacity/energy/statistics",
+              "lid": 607
             }
           ],
           "default": "(MQTT_FILTER_CLASS_TOTAL_MAIN | MQTT_FILTER_CLASS_CELL_VOLTAGES | MQTT_FILTER_CLASS_CELL_REST | MQTT_FILTER_CLASS_BALANCER | MQTT_FILTER_CLASS_ERR_WARN | MQTT_FILTER_CLASS_TEMPERATURES | MQTT_FILTER_CLASS_ENERGY_STATS)",
           "dt": 5,
-          "help": "valid und maintenance werden immer gesendet."
+          "help": "valid and maintenance are always sent."
         }
       ],
       "visible_when": [

@@ -38,32 +38,34 @@ Pin 4: GND
 === ">= V0.10.0"
     In der hier dokumentierten Firmware stehen über den Pin-Header **Onewire** und **I²C** (z. B. für das [Display](#bsc-display)) zur Verfügung.
 
-    | PIN | GPIO | Funktion         |
-    |-----|------|------------------|
-    |  1  |      | 5V               |
-    |  2  |      | 3.3V             |
-    |  3  |      | GND              |
-    |  4  |      | GND              |
-    |  5  |  46  | ---              |
-    |  6  |      | GND              |
-    |  7  |  12  | I²C SCL (Display)|
-    |  8  |  11  | I²C SDA (Display)|
-    |  9  |  14  |                  |
-    | 10  |  13  |                  |
-    | 11  |  47  | ---              |
-    | 12  |  21  |                  |
-    | 13  |  45  | ---              |
-    | 14  |  48  | Onewire          |
-    | 15  |  36  |                  |
-    | 16  |  35  |                  |
-    | 17  |  38  |                  |
-    | 18  |  37  |                  |
-    | 19  |  40  |                  |
-    | 20  |  39  |                  |
-    | 21  |  42  |                  |
-    | 22  |  41  |                  |
-    | 23  |   1  |                  |
-    | 24  |   2  |                  |
+    | Pin | GPIO | Standard         | W5500          | MCP2518                  |
+    |----:|-----:|------------------|----------------|--------------------------|
+    | 1   |      | 5 V              | 5 V            | 5 V                      |
+    | 2   |      | 3,3 V            | 3,3 V          | 3,3 V                    |
+    | 3   |      | GND              | GND            | GND                      |
+    | 4   |      | GND              | GND            | GND                      |
+    | 5   | 46   |                  |                | INT                      |
+    | 6   |      | GND              | GND            | GND                      |
+    | 7   | 12   | I²C SCL          | SPI SCK        |                          |
+    | 8   | 11   | I²C SDA          | SPI MOSI       |                          |
+    | 9   | 14   | SE RX            |                | SE RX (Nur ohne W5500)   |
+    | 10  | 13   | SE TX            | SPI MISO       | SE TX (Nur ohne W5500)   |
+    | 11  | 47   |                  |                | SPI MISO                 |
+    | 12  | 21   |                  | INT            |                          |
+    | 13  | 45   |                  |                | SPI SCK                  |
+    | 14  | 48   |                  |                | SPI MOSI                 |
+    | 15  | 36   |                  |                |                          |
+    | 16  | 35   |                  |                |                          |
+    | 17  | 38   | OneWire          | OneWire        | OneWire                  |
+    | 18  | 37   |                  |                |                          |
+    | 19  | 40   |                  |                |                          |
+    | 20  | 39   |                  | I²C SDA        |                          |
+    | 21  | 42   |                  |                |                          |
+    | 22  | 41   |                  | I²C SCL        |                          |
+    | 23  | 1    |                  |                | CS                       |
+    | 24  | 2    |                  | CS             |                          |
+    | –   | 43   |                  | SE TX          |                          |
+    | –   | 44   |                  | SE RX          |                          |
 
 === "< V0.10.0"
     In der hier dokumentierten Firmware stehen über den Pin-Header **Onewire**, die **Relais-Ausgänge**, die **Digitaleingänge** und **I²C** (z. B. für das [Display](#bsc-display)) zur Verfügung. Die Supporter-Firmware nutzt diese Pins ebenfalls – siehe [Supporter](supporter.md).

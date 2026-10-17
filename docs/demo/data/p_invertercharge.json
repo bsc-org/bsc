@@ -301,8 +301,8 @@
             },
             {
               "name": 208,
-              "lid": 0,
-              "label": "Erweiterte Sensorquellen",
+              "lid": 540,
+              "label": "Extended sensor sources",
               "type": 14,
               "options": [
                 {
@@ -314,8 +314,8 @@
             },
             {
               "name": 209,
-              "lid": 0,
-              "label": "Erweiterte Sensoren 0-31",
+              "lid": 541,
+              "label": "Extended sensors 0-31",
               "type": 14,
               "options": [
                 {
@@ -381,8 +381,8 @@
         },
         {
           "name": 214,
-          "lid": 0,
-          "label": "Erweiterte Sensorquellen",
+          "lid": 540,
+          "label": "Extended sensor sources",
           "type": 14,
           "options": [
             {
@@ -394,8 +394,8 @@
         },
         {
           "name": 215,
-          "lid": 0,
-          "label": "Erweiterte Sensoren 0-31",
+          "lid": 541,
+          "label": "Extended sensors 0-31",
           "type": 14,
           "options": [
             {
@@ -666,12 +666,12 @@
             {
               "v": 1,
               "lid": 291,
-              "l": "If start cell voltage drops \u2192 Step \\\"Wait for start cell voltage\\\""
+              "l": "If start cell voltage drops \u2192 Step \"Wait for start cell voltage\""
             },
             {
               "v": 2,
               "lid": 297,
-              "l": "CutOff from step \\\"Wait for start cell spg.\\\" deactivate"
+              "l": "CutOff from step \"Wait for start cell spg.\" deactivate"
             },
             {
               "v": 3,
@@ -689,7 +689,7 @@
       "lid": 173,
       "label": "Charging current Cut-Off",
       "type": 13,
-      "help": "If the charging current is below the cut-off current for the set time (cut-off time), the charging current is set to 0 A until the \\\"Float charging voltage SoC\\\" is undercut.",
+      "help": "If the charging current is below the cut-off current for the set time (cut-off time), the charging current is set to 0 A until the \"Float charging voltage SoC\" is undercut.",
       "wiki": "settings_inverter/#charge-current-cut-off",
       "items": [
         {

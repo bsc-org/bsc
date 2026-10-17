@@ -33,6 +33,7 @@
         },
         {
           "name": "ID_PARAM_GROUP_DEVICE_MAINTENANCE",
+          "lid": 608,
           "label": "Group Devices: Wartung aktiv",
           "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
           "options": [
@@ -45,6 +46,7 @@
         },
         {
           "name": "ID_PARAM_GROUP_DEVICE_MAINTENANCE_MQTT",
+          "lid": 609,
           "label": "Group Devices: MQTT senden",
           "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
           "options": [

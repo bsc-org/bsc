@@ -18,11 +18,13 @@
               "options": [
                 {
                   "v": "0",
-                  "l": "Aus"
+                  "l": "Off",
+                  "lid": 257
                 },
                 {
                   "v": "110",
-                  "l": "Ein"
+                  "l": "On",
+                  "lid": 295
                 },
                 {
                   "$ref": "comboAlarms"

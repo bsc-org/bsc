@@ -208,8 +208,8 @@
             },
             {
               "v": 6,
-              "lid": 0,
-              "l": "Kapazit\u00e4tsgewichtet"
+              "lid": 539,
+              "l": "Capacity weighted"
             }
           ],
           "default": "0",
@@ -813,7 +813,7 @@
       "lid": 287,
       "label": "Celltemperatur",
       "type": 13,
-      "help": "The data devices that are selected under \\\"Data source\\\" are used.",
+      "help": "The data devices that are selected under \"Data source\" are used.",
       "items": [
         {
           "name": 183,
@@ -912,7 +912,8 @@
               "options": [
                 {
                   "v": "0",
-                  "l": "Aus"
+                  "l": "Off",
+                  "lid": 257
                 },
                 {
                   "$ref": "comboAlarms"

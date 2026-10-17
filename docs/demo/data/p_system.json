@@ -11,6 +11,7 @@
           "pattern": "^[^#\\+]*$",
           "default": "BSC",
           "minlen": 3,
+          "maxlen": 32,
           "dt": 8,
           "help": "Also used as MQTT device name"
         },
@@ -46,7 +47,8 @@
             },
             {
               "v": 3,
-              "l": "Trigger"
+              "l": "Trigger",
+              "lid": 139
             }
           ],
           "default": 0,
@@ -125,7 +127,7 @@
         {
           "lid": 4,
           "label": "User",
-          "label_entry": "Benutzer",
+          "label_entry": "User",
           "groupsize": 2,
           "type": 12,
           "group": [
@@ -134,7 +136,8 @@
               "lid": 5,
               "label": "Username",
               "type": 0,
-              "default": "[bsc,]",
+              "maxlen": 32,
+              "default": "[bsc,user]",
               "flash": "1",
               "dt": 8
             },
@@ -143,7 +146,7 @@
               "lid": 535,
               "label": "Password",
               "type": 2,
-              "default": "[$sha256$8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918,]",
+              "default": "[admin,user]",
               "flash": "1",
               "dt": 8
             },
@@ -157,11 +160,13 @@
               "options": [
                 {
                   "v": "0",
-                  "l": "Admin"
+                  "l": "Admin",
+                  "lid": 650
                 },
                 {
                   "v": "1",
-                  "l": "ReadOnly"
+                  "l": "Read only",
+                  "lid": 651
                 }
               ]
             }

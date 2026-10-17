@@ -1,19 +1,23 @@
 {
+  "lid": 613,
   "title": "Einrichtungsassistenten",
   "description": "Wähle einen Assistenten um das System zu konfigurieren.",
   "assistants": [
     {
       "id": "network",
+      "lid": 614,
       "title": "Netzwerk",
       "description": "WLAN-Grundkonfiguration",
       "steps": [
         {
           "id": "network-wifi",
+          "lid": 615,
           "title": "WLAN",
           "description": "SSID und Passwort setzen.",
           "fields": [
             {
               "key": "wifi_ssid",
+              "lid": 616,
               "page": "p_system",
               "name": "ID_PARAM_WLAN_SSID",
               "group": 0,
@@ -22,6 +26,7 @@
             },
             {
               "key": "wifi_pwd",
+              "lid": 617,
               "page": "p_system",
               "name": "ID_PARAM_WLAN_PWD",
               "group": 0,
@@ -35,17 +40,20 @@
 
     {
       "id": "mqtt",
+      "lid": 618,
       "title": "MQTT",
       "description": "Gefuehrte MQTT-Einrichtung in mehreren Schritten",
       "summary_review": true,
       "steps": [
         {
           "id": "mqtt-enable",
+          "lid": 619,
           "title": "Aktivierung",
           "description": "MQTT global ein- oder ausschalten.",
           "fields": [
             {
               "key": "mqtt_enable",
+              "lid": 620,
               "page": "p_mqtt",
               "name": "ID_PARAM_MQTT_SERVER_ENABLE",
               "group": 0,
@@ -55,11 +63,13 @@
         },
         {
           "id": "mqtt-connection",
+          "lid": 621,
           "title": "Verbindung",
           "description": "Broker-Adresse und Port setzen.",
           "fields": [
             {
               "key": "mqtt_host",
+              "lid": 622,
               "page": "p_mqtt",
               "name": "ID_PARAM_MQTT_SERVER_IP",
               "group": 0,
@@ -75,6 +85,7 @@
             },
             {
               "key": "mqtt_device_name",
+              "lid": 623,
               "page": "p_mqtt",
               "name": "ID_PARAM_MQTT_DEVICE_NAME",
               "group": 0,
@@ -85,6 +96,7 @@
         },
         {
           "id": "mqtt-auth-topic",
+          "lid": 624,
           "title": "Login und Topic",
           "description": "Optionale Zugangsdaten und Topic konfigurieren.",
           "fields": [
@@ -98,6 +110,7 @@
             },
             {
               "key": "mqtt_pwd",
+              "lid": 625,
               "page": "p_mqtt",
               "name": "ID_PARAM_MQTT_PWD",
               "group": 0,
@@ -115,11 +128,13 @@
         },
         {
           "id": "mqtt-publish",
+          "lid": 626,
           "title": "Sendeverhalten",
           "description": "Sendeintervall festlegen.",
           "fields": [
             {
               "key": "mqtt_send_delay",
+              "lid": 627,
               "page": "p_mqtt",
               "name": "ID_PARAM_MQTT_SEND_DELAY",
               "group": 0,
@@ -132,6 +147,7 @@
 
     {
       "id": "serial-setup",
+      "lid": 628,
       "title": "Serielle Schnittstellen",
       "description": "Konfiguriert die an Serial 0-2 angeschlossenen Geräte.",
       "summary_review": true,
@@ -169,6 +185,7 @@
           "fields": [
             {
               "key": "s0_bms",
+              "lid": 629,
               "page": "p_serial",
               "name": "ID_PARAM_SERIAL_CONNECT_DEVICE",
               "group": 0,
@@ -177,6 +194,7 @@
             },
             {
               "key": "s0_count",
+              "lid": 630,
               "label": "Wie viele Geräte sind an dem Port angeschlossen?",
               "type": "number",
               "min": 1,
@@ -190,11 +208,13 @@
         },
         {
           "id": "serial-step-1",
+          "lid": 631,
           "title": "Serial 1",
           "description": "BMS an Serial 1 und Anzahl in Kette.",
           "fields": [
             {
               "key": "s1_bms",
+              "lid": 629,
               "page": "p_serial",
               "name": "ID_PARAM_SERIAL_CONNECT_DEVICE",
               "group": 1,
@@ -203,6 +223,7 @@
             },
             {
               "key": "s1_count",
+              "lid": 630,
               "label": "Wie viele Geräte sind an dem Port angeschlossen?",
               "type": "number",
               "min": 1,
@@ -216,11 +237,13 @@
         },
         {
           "id": "serial-step-2",
+          "lid": 632,
           "title": "Serial 2",
           "description": "BMS an Serial 2 und Anzahl in Kette.",
           "fields": [
             {
               "key": "s2_bms",
+              "lid": 629,
               "page": "p_serial",
               "name": "ID_PARAM_SERIAL_CONNECT_DEVICE",
               "group": 2,
@@ -229,6 +252,7 @@
             },
             {
               "key": "s2_count",
+              "lid": 630,
               "label": "Wie viele Geräte sind an dem Port angeschlossen?",
               "type": "number",
               "min": 1,
@@ -245,11 +269,13 @@
 
     {
       "id": "inverter-setup",
+      "lid": 633,
       "title": "Wechselrichter",
       "description": "Konfiguration des Wechselrichters und der Basis Laderegelung.",
       "steps": [
         {
           "id": "inverter-step-1",
+          "lid": 634,
           "title": "CAN aktivieren und Protokoll auswählen",
           "fields": [
             {
@@ -262,6 +288,7 @@
             },
             {
               "key": "can_protocol",
+              "lid": 635,
               "page": "p_inverter",
               "name": "ID_PARAM_SS_CAN",
               "group": 0,
@@ -269,6 +296,7 @@
             },
             {
               "key": "can_datasource",
+              "lid": 636,
               "page": "p_inverter",
               "name": "ID_PARAM_BMS_CAN_DATASOURCE_SS1",
               "group": 0,
@@ -294,10 +322,12 @@
         },
         {
           "id": "inverter-step-2",
+          "lid": 637,
           "title": "Basisdaten",
           "fields": [
             {
               "key": "cells",
+              "lid": 213,
               "page": "p_serial",
               "name": "ID_PARAM_SERIAL_NUMBER_OF_CELLS",
               "group": 0,
@@ -305,6 +335,7 @@
             },
             {
               "key": "max_cell_mv",
+              "lid": 638,
               "page": "p_invertercharge",
               "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLSPG_ENDSPG",
               "group": 0,
@@ -312,6 +343,7 @@
             },
             {
               "key": "absorb_v",
+              "lid": 639,
               "page": "p_inverter",
               "name": "ID_PARAM_BMS_MAX_CHARGE_SPG",
               "group": 0,
@@ -321,6 +353,7 @@
             },
             {
               "key": "float_v",
+              "lid": 640,
               "page": "p_inverter",
               "name": "ID_PARAM_BMS_FLOAT_CHARGE_SPG",
               "group": 0,
@@ -330,6 +363,7 @@
             },
             {
               "key": "float_soc",
+              "lid": 641,
               "page": "p_inverter",
               "name": "ID_PARAM_INVERTER_CHARGE_CURRENT_CUT_OFF_SOC",
               "group": 0,
@@ -380,10 +414,12 @@
         },
         {
           "id": "inverter-step-3",
+          "lid": 642,
           "title": "Zellspannungsabhaengige Drosselung",
           "fields": [
             {
               "key": "zspg_en",
+              "lid": 643,
               "page": "p_invertercharge",
               "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLSPG_EN",
               "group": 0,
@@ -393,6 +429,7 @@
             },
             {
               "key": "zspg_start",
+              "lid": 644,
               "page": "p_invertercharge",
               "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLSPG_STARTSPG",
               "group": 0,
@@ -402,6 +439,7 @@
             },
             {
               "key": "zspg_float",
+              "lid": 645,
               "page": "p_invertercharge",
               "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLSPG_ENDSPG_FLOAT",
               "group": 0,
@@ -411,6 +449,7 @@
             },
             {
               "key": "zspg_min_current",
+              "lid": 149,
               "page": "p_invertercharge",
               "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLSPG_MINDEST_STROM",
               "group": 0,
@@ -456,10 +495,12 @@
         },
         {
           "id": "inverter-step-4",
+          "lid": 646,
           "title": "Zelldrift-Drosselung",
           "fields": [
             {
               "key": "drift_en",
+              "lid": 647,
               "page": "p_invertercharge",
               "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_ZELLDRIFT_EN",
               "group": 0,
@@ -469,6 +510,7 @@
             },
             {
               "key": "drift_start_spg",
+              "lid": 644,
               "page": "p_invertercharge",
               "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_STARTSPG_ZELLE",
               "group": 0,
@@ -478,6 +520,7 @@
             },
             {
               "key": "drift_start_diff",
+              "lid": 648,
               "page": "p_invertercharge",
               "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_STARTABWEICHUNG",
               "group": 0,
@@ -487,6 +530,7 @@
             },
             {
               "key": "drift_red_per_mv",
+              "lid": 649,
               "page": "p_invertercharge",
               "name": "ID_PARAM_INVERTER_LADESTROM_REDUZIEREN_A_PRO_MV",
               "group": 0,

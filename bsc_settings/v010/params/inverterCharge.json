@@ -301,7 +301,7 @@
             },
             {
               "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_TEMP32_SOURCES",
-              "lid": 0,
+              "lid": 540,
               "label": "Erweiterte Sensorquellen",
               "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
               "options": [
@@ -314,7 +314,7 @@
             },
             {
               "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_TEMP32_SENSORS",
-              "lid": 0,
+              "lid": 541,
               "label": "Erweiterte Sensoren 0-31",
               "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
               "options": [
@@ -381,7 +381,7 @@
         },
         {
           "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_PROFILE_TEMP32_SOURCES",
-          "lid": 0,
+          "lid": 540,
           "label": "Erweiterte Sensorquellen",
           "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
           "options": [
@@ -394,7 +394,7 @@
         },
         {
           "name": "ID_PARAM_INVERTER_LADESTROM_TEMPERATUR_PROFILE_TEMP32_SENSORS",
-          "lid": 0,
+          "lid": 541,
           "label": "Erweiterte Sensoren 0-31",
           "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
           "options": [

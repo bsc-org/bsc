@@ -1,6 +1,7 @@
 {
   "page": [
     {
+      "lid": 596,
       "label": "MQTT Allgemein",
       "type": "HTML_SEPARATION",
       "help": "Zum Übernehmen der Settings, muss der BSC neu gestartet werden!",
@@ -20,6 +21,7 @@
           "label": "MQTT Device Name",
           "type": "HTML_INPUTTEXT",
           "pattern": "^[^#\\+]*$",
+          "maxlen": 32,
           "default": "bsc",
           "minlen": 3,
           "dt": "PARAM_DT_ST"
@@ -49,6 +51,7 @@
           "label": "Username",
           "type": "HTML_INPUTTEXT",
           "pattern": "^[^#\\+]*$",
+          "maxlen": 32,
           "default": "",
           "dt": "PARAM_DT_ST"
         },
@@ -66,6 +69,7 @@
           "label": "MQTT Topic Name",
           "type": "HTML_INPUTTEXT",
           "pattern": "^[^#\\+]*$",
+          "maxlen": 32,
           "default": "bsc",
           "dt": "PARAM_DT_ST"
         },
@@ -106,6 +110,7 @@
           "label": "Home Assistant Discovery Prefix",
           "type": "HTML_INPUTTEXT",
           "pattern": "^[^#\\+]*$",
+          "maxlen": 32,
           "default": "homeassistant",
           "dt": "PARAM_DT_ST"
         }
@@ -118,6 +123,7 @@
       "items": [
         {
           "name": "ID_PARAM_MQTT_FILTER_DATADEVICE_ENABLE",
+          "lid": 597,
           "label": "Data Devices senden",
           "type": "HTML_INPUTCHECKBOX",
           "default": 1,
@@ -125,6 +131,7 @@
         },
         {
           "name": "ID_PARAM_MQTT_FILTER_DATADEVICE_MASK",
+          "lid": 598,
           "label": "Data Devices Auswahl",
           "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
           "options": [
@@ -137,24 +144,29 @@
         },
         {
           "name": "ID_PARAM_MQTT_FILTER_CLASS_DATA",
+          "lid": 599,
           "label": "Datenklassen",
           "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
           "options": [
             {
               "v": "MQTT_FILTER_CLASS_TOTAL_MAIN_POS",
-              "l": "Gesamtspannung/Strom, SoC, FET-State"
+              "l": "Gesamtspannung/Strom, SoC, FET-State",
+              "lid": 602
             },
             {
               "v": "MQTT_FILTER_CLASS_CELL_VOLTAGES_POS",
-              "l": "Zellspannungen"
+              "l": "Zellspannungen",
+              "lid": 603
             },
             {
               "v": "MQTT_FILTER_CLASS_CELL_REST_POS",
-              "l": "Restliche Zelldaten"
+              "l": "Restliche Zelldaten",
+              "lid": 604
             },
             {
               "v": "MQTT_FILTER_CLASS_BALANCER_POS",
-              "l": "Balancerdaten (inkl. Balance-Status)"
+              "l": "Balancerdaten (inkl. Balance-Status)",
+              "lid": 605
             },
             {
               "v": "MQTT_FILTER_CLASS_ERR_WARN_POS",
@@ -162,11 +174,13 @@
             },
             {
               "v": "MQTT_FILTER_CLASS_TEMPERATURES_POS",
-              "l": "Temperaturen"
+              "l": "Temperaturen",
+              "lid": 606
             },
             {
               "v": "MQTT_FILTER_CLASS_ENERGY_STATS_POS",
-              "l": "Kapazität/Energie/Statistik"
+              "l": "Kapazität/Energie/Statistik",
+              "lid": 607
             }
           ],
           "default": "MQTT_FILTER_CLASS_ALL_DEFAULT",
@@ -181,6 +195,7 @@
       "items": [
         {
           "name": "ID_PARAM_MQTT_FILTER_GROUPDEVICE_ENABLE",
+          "lid": 600,
           "label": "Group Devices senden",
           "type": "HTML_INPUTCHECKBOX",
           "default": 1,
@@ -188,6 +203,7 @@
         },
         {
           "name": "ID_PARAM_MQTT_FILTER_GROUPDEVICE_MASK",
+          "lid": 601,
           "label": "Group Devices Auswahl",
           "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
           "options": [
@@ -200,24 +216,29 @@
         },
         {
           "name": "ID_PARAM_MQTT_FILTER_CLASS_GROUP",
+          "lid": 599,
           "label": "Datenklassen",
           "type": "HTML_INPUTMULTICHECK_COLLAPSIBLE",
           "options": [
             {
               "v": "MQTT_FILTER_CLASS_TOTAL_MAIN_POS",
-              "l": "Gesamtspannung/Strom, SoC, FET-State"
+              "l": "Gesamtspannung/Strom, SoC, FET-State",
+              "lid": 602
             },
             {
               "v": "MQTT_FILTER_CLASS_CELL_VOLTAGES_POS",
-              "l": "Zellspannungen"
+              "l": "Zellspannungen",
+              "lid": 603
             },
             {
               "v": "MQTT_FILTER_CLASS_CELL_REST_POS",
-              "l": "Restliche Zelldaten"
+              "l": "Restliche Zelldaten",
+              "lid": 604
             },
             {
               "v": "MQTT_FILTER_CLASS_BALANCER_POS",
-              "l": "Balancerdaten (inkl. Balance-Status)"
+              "l": "Balancerdaten (inkl. Balance-Status)",
+              "lid": 605
             },
             {
               "v": "MQTT_FILTER_CLASS_ERR_WARN_POS",
@@ -225,11 +246,13 @@
             },
             {
               "v": "MQTT_FILTER_CLASS_TEMPERATURES_POS",
-              "l": "Temperaturen"
+              "l": "Temperaturen",
+              "lid": 606
             },
             {
               "v": "MQTT_FILTER_CLASS_ENERGY_STATS_POS",
-              "l": "Kapazität/Energie/Statistik"
+              "l": "Kapazität/Energie/Statistik",
+              "lid": 607
             }
           ],
           "default": "MQTT_FILTER_CLASS_ALL_DEFAULT",
@@ -275,11 +298,6 @@
               "v": "MQTT_FILTER_TOPIC_SYS_POS",
               "lid": 530,
               "l": "System"
-            },
-            {
-              "v": "MQTT_FILTER_TOPIC_CELL_VOLTAGE_SAG_DEBUG_POS",
-              "lid": 531,
-              "l": "Zellspannungsabfall (Debug)"
             }
           ],
           "default": "MQTT_FILTER_TOPIC_DEFAULT",
