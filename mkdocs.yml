@@ -186,9 +186,8 @@ nav:
       - Bestückung Varianten: bestückung_varianten.md
 
   - Ressourcen:
-    - Donate: donate.md
     - Demo: demo/app.html
-    - Issues:
-      - Issues: https://github.com/shining-man/bsc_fw/issues
-    - About:
-      - Release Notes: https://github.com/shining-man/bsc_fw/releases
+    - Issues: https://github.com/shining-man/bsc_fw/issues
+    - Donate: donate.md
+#    - About:
+#      - Release Notes: https://github.com/shining-man/bsc_fw/releases
