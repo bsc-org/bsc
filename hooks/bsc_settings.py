@@ -69,6 +69,48 @@ PROFILE_NO_PAIR_TYPES = {12, 13, 15, 20, 21, 23}
 _JSON_CACHE = {}
 _TYPE_MAP_CACHE = {}
 _GROUPSIZES_CACHE = {}
+_TRANSLATABLE_KEYS = {"label", "label_entry", "help", "l", "unit", "placeholder"}
+
+
+def load_translations(root, version, locale):
+    if locale == "de":
+        return {}
+    path = Path(root) / "bsc_settings" / version / "locales" / f"{locale}.json"
+    try:
+        with path.open(encoding="utf-8") as source:
+            translations = json.load(source)
+    except (OSError, json.JSONDecodeError) as exc:
+        raise RenderError(f"Cannot load settings translations: {path}: {exc}")
+    if not isinstance(translations, dict) or not translations or not all(
+            isinstance(key, str) and isinstance(value, str) and value.strip()
+            for key, value in translations.items()):
+        raise RenderError(f"Invalid settings translation catalogue: {path}")
+    return translations
+
+
+def localize_settings(node, translations):
+    if isinstance(node, list):
+        return [localize_settings(value, translations) for value in node]
+    if not isinstance(node, dict):
+        return node
+    localized = {}
+    for key, value in node.items():
+        if translations and key in _TRANSLATABLE_KEYS and isinstance(value, str) and value.strip():
+            source = html_mod.unescape(value)
+            lookup = f"{key}:{source}" if f"{key}:{source}" in translations else source
+            if lookup not in translations:
+                raise RenderError(f"Missing settings translation: {source!r}")
+            localized[key] = translations[lookup]
+        else:
+            localized[key] = localize_settings(value, translations)
+    return localized
+
+
+def validate_translations(root, version, locale):
+    translations = load_translations(root, version, locale)
+    for path in (Path(root) / "bsc_settings" / version / "params").rglob("*.json"):
+        with path.open(encoding="utf-8") as source:
+            localize_settings(json.load(source), translations)
 
 
 def _escape_inline(value):
@@ -260,7 +302,7 @@ class _IdCounter:
 
 class RenderContext:
     def __init__(self, root, version, data, type_map, page_path,
-                 profiles_enabled=True, groups_limit=2, id_counter=None):
+                 profiles_enabled=True, groups_limit=2, id_counter=None, locale="de"):
         self.root = root
         self.version = version
         self.data = data
@@ -268,6 +310,8 @@ class RenderContext:
         self.groupsizes = load_groupsizes(root, version)
         self.page_path = page_path
         self.groups_limit = groups_limit
+        self.locale = locale
+        self.translations = load_translations(root, version, locale)
         # Marker-Parameter 'profile: off' deaktiviert das P1/P2-Rendering
         # (enProfile-Felder werden dann wie normale Felder gerendert).
         self.profiles_enabled = profiles_enabled
@@ -336,7 +380,7 @@ class RenderContext:
             except json.JSONDecodeError as exc:
                 raise RenderError(f"Combo '{ref}' defekt ({sub}/{ref}.json): {exc}")
             if isinstance(combo, list):
-                return combo
+                return localize_settings(combo, self.translations)
             raise RenderError(f"Combo '{ref}' ist keine Liste ({sub}/{ref}.json)")
         return None
 
@@ -607,7 +651,7 @@ class RenderContext:
         limit = max(int(self.groups_limit or 2), 1)
         n = min(total, limit)
         truncated = total > limit
-        label_entry = data.get("label_entry") or "Eintrag"
+        label_entry = data.get("label_entry") or ("Entry" if self.locale == "en" else "Eintrag")
         try:
             label_offset = int(data.get("label_offset") or 0)
         except (TypeError, ValueError):
@@ -986,7 +1030,7 @@ class RenderContext:
         x_head = f"X ({escape_text(x_unit)})" if x_unit else "X"
         y_head = f"Y ({escape_text(y_unit)})" if y_unit else "Y"
         table = (f"<details class='profile-points-toggle'>"
-                 f"<summary>Werte anzeigen</summary>"
+                 f"<summary>{'Show values' if self.locale == 'en' else 'Werte anzeigen'}</summary>"
                  f"<table class='points-table'><thead><tr><th>{x_head}</th>"
                  f"<th>{y_head}</th></tr></thead><tbody>{''.join(rows)}</tbody></table>"
                  f"</details>")
@@ -1067,24 +1111,24 @@ def parse_marker_body(body):
     return version, filename, entries, errors, profile_value, groups_value
 
 
-def replace_fence(match, root, page_path, id_counter=None):
+def replace_fence(match, root, page_path, id_counter=None, locale="de"):
     """Ersetzt einen ```bsc-settings```-Block in Spalte 0. Das Ergebnis endet
     immer mit einem Zeilenumbruch: Python-Markdown beendet einen HTML-Block
     erst bei einer Leerzeile – ohne sie wuerde direkt folgendes Markdown
     (z.B. eine Liste) Teil des HTML-Blocks werden und nicht mehr geparst."""
-    html = _replace_fence_body(match.group(1), root, page_path, id_counter)
+    html = _replace_fence_body(match.group(1), root, page_path, id_counter, locale)
     if not html.endswith("\n"):
         html += "\n"
     return html
 
 
-def replace_indented_fence(match, root, page_path, id_counter=None):
+def replace_indented_fence(match, root, page_path, id_counter=None, locale="de"):
     """Ersetzt einen EINGERUECKTEN ```bsc-settings```-Block (z.B. innerhalb
     von Tabs/Admonitions/Listen). Das generierte HTML wird mit derselben
     Einrueckung eingefuegt, damit der Block Teil des umgebenden Markdown-
     Blocks bleibt."""
     indent = match.group(1)
-    html = _replace_fence_body(match.group(2), root, page_path, id_counter)
+    html = _replace_fence_body(match.group(2), root, page_path, id_counter, locale)
     if not html.endswith("\n"):
         html += "\n"
     lines = []
@@ -1093,7 +1137,7 @@ def replace_indented_fence(match, root, page_path, id_counter=None):
     return "\n".join(lines) + "\n"
 
 
-def _replace_fence_body(body, root, page_path, id_counter=None):
+def _replace_fence_body(body, root, page_path, id_counter=None, locale="de"):
     version, filename, entries, errors, profile_value, groups_value = parse_marker_body(body)
     if errors:
         for err in errors:
@@ -1137,7 +1181,7 @@ def _replace_fence_body(body, root, page_path, id_counter=None):
     ctx = RenderContext(root, version, data, type_map, page_path,
                         profiles_enabled=profiles_enabled,
                         groups_limit=groups_limit,
-                        id_counter=id_counter)
+                        id_counter=id_counter, locale=locale)
 
     html_parts = []
     for kind, value in entries:
@@ -1151,7 +1195,7 @@ def _replace_fence_body(body, root, page_path, id_counter=None):
                     f"section_id '{escape_text(value)}' nicht gefunden</div></li>")
                 continue
             try:
-                html_parts.append(ctx.render_entry(section))
+                html_parts.append(ctx.render_entry(localize_settings(section, ctx.translations)))
             except RenderError as exc:
                 log.warning(f"[bsc-settings] {exc} ({value}) (Seite: {page_path})")
                 html_parts.append(
@@ -1168,7 +1212,7 @@ def _replace_fence_body(body, root, page_path, id_counter=None):
                     f"{kind} '{escape_text(value)}' nicht gefunden</div></li>")
                 continue
             try:
-                html_parts.append(ctx.render_entry(section))
+                html_parts.append(ctx.render_entry(localize_settings(section, ctx.translations)))
             except RenderError as exc:
                 log.warning(f"[bsc-settings] {exc} ({kind} {value}) (Seite: {page_path})")
                 html_parts.append(
@@ -1183,7 +1227,7 @@ def _replace_fence_body(body, root, page_path, id_counter=None):
                     f"<li><div class=\"bsc-settings-error\">BSC-Settings-Renderer: "
                     f"name '{escape_text(value)}' nicht gefunden</div></li>")
                 continue
-            html_parts.append(ctx.render_entry(found))
+            html_parts.append(ctx.render_entry(localize_settings(found, ctx.translations)))
 
     return (f"<div class=\"bsc-settings-{escape_attr(version)}\">\n"
             f"  <div class=\"listview\">\n"
@@ -1201,6 +1245,8 @@ def on_config(config):
     """Traegt vorhandene docs/css/bsc-settings-v*.css als docs-relative
     Pfade in config.extra_css ein (sortiert, deterministisch)."""
     config_root = os.path.dirname(config.config_file_path)
+    for catalogue in (Path(config_root) / "bsc_settings").glob("*/locales/*.json"):
+        validate_translations(config_root, catalogue.parent.parent.name, catalogue.stem)
     docs_dir = config.get("docs_dir") or "docs"
     if not os.path.isabs(docs_dir):
         docs_dir = os.path.join(config_root, docs_dir)
@@ -1227,15 +1273,16 @@ def on_page_markdown(markdown, page, config, files):
     root = os.path.dirname(config.config_file_path)
     page_path = getattr(page, "file", None)
     page_path = getattr(page_path, "src_path", None) or getattr(page, "src_path", "?")
+    locale = getattr(getattr(page, "file", None), "locale", None) or config["theme"]["language"]
 
     # Seitenweit EIN gemeinsamer ID-Zaehler fuer alle bsc-settings-Bloecke
     # dieser Seite, damit generierte IDs (z.B. Multicheck-Toggles) nicht
     # zwischen zwei Bloecken kollidieren.
     id_counter = _IdCounter()
     markdown = FENCE_RE.sub(
-        lambda m: replace_fence(m, root, page_path, id_counter), markdown)
+        lambda m: replace_fence(m, root, page_path, id_counter, locale), markdown)
     markdown = INDENTED_FENCE_RE.sub(
-        lambda m: replace_indented_fence(m, root, page_path, id_counter), markdown)
+        lambda m: replace_indented_fence(m, root, page_path, id_counter, locale), markdown)
 
     for m in INDENTED_FENCE_OPEN_RE.finditer(markdown):
         line_no = markdown[:m.start()].count("\n") + 1

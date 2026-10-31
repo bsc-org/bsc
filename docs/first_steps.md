@@ -1,24 +1,30 @@
+# Erste Schritte und Inbetriebnahme
+
+Diese Reihenfolge führt dich von der Prüfung deiner Geräte bis zur ersten Datenverbindung. Die Anleitung zum Flashen unterscheidet zwischen den Hardware-Varianten; wähle dort den Abschnitt, der zu deinem Board passt.
+
+## Empfohlener Ablauf
+
+1. **Kompatibilität und Hardware prüfen:** Prüfe, ob dein [BMS](devices/bms.md) und dein [Wechselrichter](devices/wechselrichter.md) unterstützt werden. Informationen zur aktuell empfohlenen Hardware findest du unter [Beschaffung der Hardware](#beschaffung-der-hardware).
+2. **Firmware installieren und mit dem BSC verbinden:** Folge der [Flash- und Verbindungsanleitung](first_steps_programming.md). Achte darauf, den Abschnitt für deine Hardware zu verwenden.
+3. **BMS anschließen:** Folge der [Anschlussanleitung](first_steps_hardware.md), um das BMS mit dem BSC zu verbinden.
+4. **BSC konfigurieren und Messwerte prüfen:** Verbinde dich wieder mit der Weboberfläche. Richte Netzwerk und Grundeinstellungen ein, konfiguriere die BMS-Schnittstelle und Gerätezuordnung anhand der [Einstellungen für den Betrieb](first_steps_settings.md) und prüfe im [Dashboard](dashboard.md), ob Messwerte ankommen.
+5. **Optional: Wechselrichter und weitere Funktionen einrichten:** Wenn die BMS-Daten korrekt angezeigt werden, kannst du den Wechselrichter anschließen und konfigurieren. MQTT, REST, Alarmregeln und Sensoren lassen sich danach je nach Bedarf ergänzen.
+
+Die Konfiguration hängt von den angeschlossenen Geräten ab. Übernimm Beispielwerte nicht ungeprüft; die [Beispielkonfigurationen](beispiel_konfigurationen.md) sind ausdrücklich als Orientierung und nicht als allgemeingültige Vorgabe gedacht.
+
+## Weitere Hilfe
+
+- [Systemübersicht](system_overview.md)
+- [Hardware-Details](hardware.md)
+- [Test ohne Originalhardware](BSC_ohne_orig_hardware.md): nur als Testaufbau, nicht für den produktiven Einsatz empfohlen
+- [Troubleshooting](troubleshooting.md)
+
 ## Info-Videos
-[www.youtube.com/@shining-man](http://www.youtube.com/@shining-man)  
+
+[www.youtube.com/@shining-man](http://www.youtube.com/@shining-man)
 
 !!! note "Bitte beachten"
-    Aufgrund der Weiterentwicklung des BSC, ist nicht mehr alles im Video aktuell!  
-
-
-## Weiterführende Informationen
-Für erste Informationen und die Inbetriebnahme zuerst folgende weitere Kapitel lesen:  
-[Programmieren des BSC](first_steps_programming.md)  
-[Hardware anschließen](first_steps_hardware.md)  
-[Einstellungen für den Betrieb des BSC](first_steps_settings.md)  
-
-Weiterführende Informationen:   
-[Hardware](hardware.md)   
-[Konfiguration des BSC](settings_bsc.md)  
-
-Wer die BSC Software ohne orginale Hardware testen möchte, sollte das Kapitel 
-[Test ohne orig. Hardware](BSC_ohne_orig_hardware.md) lesen.  
-
-Hochrüstungen oder häufige Probleme sind im Kapitel [Troubleshooting](troubleshooting.md) beschrieben.
+     Aufgrund der Weiterentwicklung des BSC sind nicht mehr alle Inhalte der Videos aktuell.
 
 
 ## Beschaffung der Hardware

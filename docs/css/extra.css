@@ -42,6 +42,71 @@ img {
     margin-top: 4px !important;
 }
 
+[data-md-color-scheme="default"] {
+    --md-primary-fg-color: #006c69;
+    --md-primary-fg-color--light: #338a86;
+    --md-primary-fg-color--dark: #005652;
+    --md-primary-bg-color: #f9fbfb;
+    --md-primary-bg-color--light: #dceee9;
+    --md-accent-fg-color: #006c69;
+    --md-accent-fg-color--transparent: rgba(0, 108, 105, 0.1);
+    --md-default-bg-color: #f9fbfb;
+    --md-default-fg-color: #192b2d;
+    --md-default-fg-color--light: #526568;
+    --md-default-fg-color--lighter: #879697;
+    --md-default-fg-color--lightest: #cdd9d9;
+    --md-code-bg-color: #edf2f2;
+    --md-code-fg-color: #192b2d;
+    --md-typeset-a-color: #006c69;
+    --bsc-doc-search-surface: #005652;
+    --bsc-doc-search-border: #338a86;
+    --md-footer-bg-color: #edf2f2;
+    --md-footer-bg-color--dark: #e3ebeb;
+    --md-footer-fg-color: #192b2d;
+    --md-footer-fg-color--light: #526568;
+}
+
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #151a1b;
+    --md-primary-fg-color--light: #1c2324;
+    --md-primary-fg-color--dark: #151a1b;
+    --md-primary-bg-color: #edf4f2;
+    --md-primary-bg-color--light: #b0c1bf;
+    --md-accent-fg-color: #83d8c6;
+    --md-accent-fg-color--transparent: rgba(131, 216, 198, 0.12);
+    --md-default-bg-color: #151a1b;
+    --md-default-fg-color: #edf4f2;
+    --md-default-fg-color--light: #b0c1bf;
+    --md-default-fg-color--lighter: #819492;
+    --md-default-fg-color--lightest: #3c4c4d;
+    --md-code-bg-color: #222c2d;
+    --md-code-fg-color: #edf4f2;
+    --md-typeset-a-color: #83d8c6;
+    --bsc-doc-search-surface: #222c2d;
+    --bsc-doc-search-border: #3c4c4d;
+    --md-footer-bg-color: #1c2324;
+    --md-footer-bg-color--dark: #222c2d;
+    --md-footer-fg-color: #edf4f2;
+    --md-footer-fg-color--light: #b0c1bf;
+}
+
+.md-header,
+.md-tabs {
+    box-shadow: none;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-nav__link--active,
+.md-nav__link:hover,
+.md-header__button:hover {
+    color: var(--md-accent-fg-color);
+}
+
+.md-search__form {
+    background-color: var(--bsc-doc-search-surface);
+    border: 1px solid var(--bsc-doc-search-border);
+    border-radius: 4px;
+}
 
 .bsc_content {
     .md-typeset__scrollwrap{margin:15px 0px 0px 0px !important}

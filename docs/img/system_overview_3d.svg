@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="740" viewBox="0 0 1440 740">
+  <defs>
+    <filter id="filter-1" filterUnits="userSpaceOnUse" x="48" y="39" width="394" height="276" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/><feOffset dx="0" dy="10" result="shadow"/><feFlood flood-color="#1c3935" flood-opacity="0.12"/><feComposite in2="shadow" operator="in" result="paint"/><feMerge><feMergeNode in="paint"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="linear-gradient-1" x1="90" y1="110" x2="90" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f9fcfa"/>
+      <stop offset="1" stop-color="#e8f0ec"/>
+    </linearGradient>
+    <filter id="filter-2" filterUnits="userSpaceOnUse" x="48" y="244" width="394" height="276" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/><feOffset dx="0" dy="10" result="shadow"/><feFlood flood-color="#1c3935" flood-opacity="0.12"/><feComposite in2="shadow" operator="in" result="paint"/><feMerge><feMergeNode in="paint"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="linear-gradient-2" x1="90" y1="315" x2="90" y2="455" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f9fcfa"/>
+      <stop offset="1" stop-color="#e8f0ec"/>
+    </linearGradient>
+    <filter id="filter-3" filterUnits="userSpaceOnUse" x="571" y="120.943" width="418" height="328.057" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/><feOffset dx="0" dy="10" result="shadow"/><feFlood flood-color="#1c3935" flood-opacity="0.12"/><feComposite in2="shadow" operator="in" result="paint"/><feMerge><feMergeNode in="paint"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="linear-gradient-3" x1="630" y1="195" x2="630" y2="375" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#234b4a"/>
+      <stop offset="1" stop-color="#17383b"/>
+    </linearGradient>
+    <filter id="filter-4" filterUnits="userSpaceOnUse" x="1021" y="130.879" width="398" height="320.121" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/><feOffset dx="0" dy="10" result="shadow"/><feFlood flood-color="#1c3935" flood-opacity="0.12"/><feComposite in2="shadow" operator="in" result="paint"/><feMerge><feMergeNode in="paint"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="filter-5" filterUnits="userSpaceOnUse" x="660" y="-24" width="700" height="186" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/><feOffset dx="0" dy="10" result="shadow"/><feFlood flood-color="#1c3935" flood-opacity="0.12"/><feComposite in2="shadow" operator="in" result="paint"/><feMerge><feMergeNode in="paint"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <title>system_overview_3d.svg</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <path d="M105 226 L55 226 L55 610 L1122 610 L1122 385" fill="none" stroke="#e58b3e" stroke-width="8"/>
+    <path d="M105 430 L55 430" fill="none" stroke="#e58b3e" stroke-width="8"/>
+    <g filter="url(#filter-1)">
+      <g>
+        <path d="M403 259 C403 268.389 332.261 276 245 276 C157.739 276 87 268.389 87 259 C87 249.611 157.739 242 245 242 C332.261 242 403 249.611 403 259 Z" fill="#b8c9c1" opacity="0.35"/>
+        <path d="M90 110 L130 80 L390 80 L350 110 Z" fill="#d5e3dc" stroke="#9db5aa" stroke-width="2"/>
+        <path d="M90 110 L350 110 L350 250 L90 250 Z" fill="url(#linear-gradient-1)" stroke="#9db5aa" stroke-width="2"/>
+        <path d="M350 110 L390 80 L390 220 L350 250 Z" fill="#c0d2c9" stroke="#9db5aa" stroke-width="2"/>
+        <path d="M124 134 L316 134 C320.418 134 324 137.582 324 142 L324 160 C324 164.418 320.418 168 316 168 L124 168 C119.582 168 116 164.418 116 160 L116 142 C116 137.582 119.582 134 124 134 Z" fill="#ffffff" stroke="#d8e3dd"/>
+        <text transform="matrix(1 0 0 1 132 156)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="21" font-weight="bold" fill="#233f40"><tspan x="0" y="0">BATTERIEPACK A</tspan></text>
+        <path d="M123 186 L201 186 C204.866 186 208 189.134 208 193 L208 221 C208 224.866 204.866 228 201 228 L123 228 C119.134 228 116 224.866 116 221 L116 193 C116 189.134 119.134 186 123 186 Z" fill="#214c4c"/>
+        <text transform="matrix(1 0 0 1 132 212)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="18" font-weight="bold" fill="#ffffff"><tspan x="0" y="0">BMS A</tspan></text>
+        <path d="M230 192 L235 192 C237.209 192 239 193.791 239 196 L239 217 C239 219.209 237.209 221 235 221 L230 221 C227.791 221 226 219.209 226 217 L226 196 C226 193.791 227.791 192 230 192 Z" fill="#72b598"/>
+        <path d="M251 192 L256 192 C258.209 192 260 193.791 260 196 L260 217 C260 219.209 258.209 221 256 221 L251 221 C248.791 221 247 219.209 247 217 L247 196 C247 193.791 248.791 192 251 192 Z" fill="#72b598"/>
+        <path d="M272 192 L277 192 C279.209 192 281 193.791 281 196 L281 217 C281 219.209 279.209 221 277 221 L272 221 C269.791 221 268 219.209 268 217 L268 196 C268 193.791 269.791 192 272 192 Z" fill="#72b598"/>
+        <path d="M293 192 L298 192 C300.209 192 302 193.791 302 196 L302 217 C302 219.209 300.209 221 298 221 L293 221 C290.791 221 289 219.209 289 217 L289 196 C289 193.791 290.791 192 293 192 Z" fill="#72b598"/>
+        <text transform="matrix(1 0 0 1 225 240)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="18" fill="#596f68"><tspan x="0" y="0">ZELLEN</tspan></text>
+        <path d="M112 226 C112 229.866 108.866 233 105 233 C101.134 233 98 229.866 98 226 C98 222.134 101.134 219 105 219 C108.866 219 112 222.134 112 226 Z" fill="#e58b3e" stroke="#ffffff" stroke-width="3"/>
+        <path d="M383 216 C383 219.866 379.866 223 376 223 C372.134 223 369 219.866 369 216 C369 212.134 372.134 209 376 209 C379.866 209 383 212.134 383 216 Z" fill="#168c91" stroke="#ffffff" stroke-width="3"/>
+      </g>
+    </g>
+    <g filter="url(#filter-2)">
+      <g>
+        <path d="M403 464 C403 473.389 332.261 481 245 481 C157.739 481 87 473.389 87 464 C87 454.611 157.739 447 245 447 C332.261 447 403 454.611 403 464 Z" fill="#b8c9c1" opacity="0.35"/>
+        <path d="M90 315 L130 285 L390 285 L350 315 Z" fill="#d5e3dc" stroke="#9db5aa" stroke-width="2"/>
+        <path d="M90 315 L350 315 L350 455 L90 455 Z" fill="url(#linear-gradient-2)" stroke="#9db5aa" stroke-width="2"/>
+        <path d="M350 315 L390 285 L390 425 L350 455 Z" fill="#c0d2c9" stroke="#9db5aa" stroke-width="2"/>
+        <path d="M124 339 L316 339 C320.418 339 324 342.582 324 347 L324 365 C324 369.418 320.418 373 316 373 L124 373 C119.582 373 116 369.418 116 365 L116 347 C116 342.582 119.582 339 124 339 Z" fill="#ffffff" stroke="#d8e3dd"/>
+        <text transform="matrix(1 0 0 1 132 361)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="21" font-weight="bold" fill="#233f40"><tspan x="0" y="0">BATTERIEPACK B</tspan></text>
+        <path d="M123 391 L201 391 C204.866 391 208 394.134 208 398 L208 426 C208 429.866 204.866 433 201 433 L123 433 C119.134 433 116 429.866 116 426 L116 398 C116 394.134 119.134 391 123 391 Z" fill="#214c4c"/>
+        <text transform="matrix(1 0 0 1 132 417)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="18" font-weight="bold" fill="#ffffff"><tspan x="0" y="0">BMS B</tspan></text>
+        <path d="M230 397 L235 397 C237.209 397 239 398.791 239 401 L239 422 C239 424.209 237.209 426 235 426 L230 426 C227.791 426 226 424.209 226 422 L226 401 C226 398.791 227.791 397 230 397 Z" fill="#72b598"/>
+        <path d="M251 397 L256 397 C258.209 397 260 398.791 260 401 L260 422 C260 424.209 258.209 426 256 426 L251 426 C248.791 426 247 424.209 247 422 L247 401 C247 398.791 248.791 397 251 397 Z" fill="#72b598"/>
+        <path d="M272 397 L277 397 C279.209 397 281 398.791 281 401 L281 422 C281 424.209 279.209 426 277 426 L272 426 C269.791 426 268 424.209 268 422 L268 401 C268 398.791 269.791 397 272 397 Z" fill="#72b598"/>
+        <path d="M293 397 L298 397 C300.209 397 302 398.791 302 401 L302 422 C302 424.209 300.209 426 298 426 L293 426 C290.791 426 289 424.209 289 422 L289 401 C289 398.791 290.791 397 293 397 Z" fill="#72b598"/>
+        <text transform="matrix(1 0 0 1 225 445)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="18" fill="#596f68"><tspan x="0" y="0">ZELLEN</tspan></text>
+        <path d="M112 430 C112 433.866 108.866 437 105 437 C101.134 437 98 433.866 98 430 C98 426.134 101.134 423 105 423 C108.866 423 112 426.134 112 430 Z" fill="#e58b3e" stroke="#ffffff" stroke-width="3"/>
+        <path d="M383 420 C383 423.866 379.866 427 376 427 C372.134 427 369 423.866 369 420 C369 416.134 372.134 413 376 413 C379.866 413 383 416.134 383 420 Z" fill="#168c91" stroke="#ffffff" stroke-width="3"/>
+      </g>
+    </g>
+    <path d="M383 216 C445 216 488 220 528 227 C568 234 590 236 622 238" fill="none" stroke="#087a88" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+    <path d="M383 420 C446 420 482 398 523 370 C564 342 588 325 622 314" fill="none" stroke="#087a88" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+    <path d="M436 162 L610 162 C614.418 162 618 165.582 618 170 L618 188 C618 192.418 614.418 196 610 196 L436 196 C431.582 196 428 192.418 428 188 L428 170 C428 165.582 431.582 162 436 162 Z" fill="#e7f4f2" stroke="#b7d9d3"/>
+    <text transform="matrix(1 0 0 1 442 186)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#244b4b"><tspan x="0" y="0">RS485 · BMS A</tspan></text>
+    <path d="M436 272 L610 272 C614.418 272 618 275.582 618 280 L618 298 C618 302.418 614.418 306 610 306 L436 306 C431.582 306 428 302.418 428 298 L428 280 C428 275.582 431.582 272 436 272 Z" fill="#e7f4f2" stroke="#b7d9d3"/>
+    <text transform="matrix(1 0 0 1 442 296)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#244b4b"><tspan x="0" y="0">RS485 · BMS B</tspan></text>
+    <g filter="url(#filter-3)">
+      <g>
+        <path d="M950 392 C950 401.941 873.888 410 780 410 C686.112 410 610 401.941 610 392 C610 382.059 686.112 374 780 374 C873.888 374 950 382.059 950 392 Z" fill="#9db9b0" opacity="0.38"/>
+        <path d="M630 195 L672 162 L940 162 L898 195 Z" fill="#356d68" stroke="#214c4c" stroke-width="2"/>
+        <path d="M630 195 L898 195 L898 375 L630 375 Z" fill="url(#linear-gradient-3)" stroke="#214c4c" stroke-width="2"/>
+        <path d="M898 195 L940 162 L940 342 L898 375 Z" fill="#102e33" stroke="#214c4c" stroke-width="2"/>
+        <path d="M653 218 L875 218" fill="#000000" stroke="#5d8980" stroke-width="1.5" opacity="0.7"/>
+        <text transform="matrix(1 0 0 1 656 256)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="30" font-weight="bold" fill="#ffffff"><tspan x="0" y="0">BSC</tspan></text>
+        <text transform="matrix(1 0 0 1 656 281)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="18" fill="#b8d5ca"><tspan x="0" y="0">BATTERY SAFETY </tspan><tspan x="0" y="21.6">CONTROLLER</tspan></text>
+        <path d="M670 350 C670 352.761 667.761 355 665 355 C662.239 355 660 352.761 660 350 C660 347.239 662.239 345 665 345 C667.761 345 670 347.239 670 350 Z" fill="#79d2a0"/>
+        <path d="M687 350 C687 352.761 684.761 355 682 355 C679.239 355 677 352.761 677 350 C677 347.239 679.239 345 682 345 C684.761 345 687 347.239 687 350 Z" fill="#6b9086"/>
+        <path d="M704 350 C704 352.761 701.761 355 699 355 C696.239 355 694 352.761 694 350 C694 347.239 696.239 345 699 345 C701.761 345 704 347.239 704 350 Z" fill="#6b9086"/>
+        <path d="M849 317 L869 317 C870.657 317 872 318.343 872 320 L872 334 C872 335.657 870.657 337 869 337 L849 337 C847.343 337 846 335.657 846 334 L846 320 C846 318.343 847.343 317 849 317 Z" fill="#153036" stroke="#70a197"/>
+        <path d="M813 317 L833 317 C834.657 317 836 318.343 836 320 L836 334 C836 335.657 834.657 337 833 337 L813 337 C811.343 337 810 335.657 810 334 L810 320 C810 318.343 811.343 317 813 317 Z" fill="#153036" stroke="#70a197"/>
+      </g>
+    </g>
+    <path d="M940 270 L1084 270" fill="none" stroke="#087a88" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+    <path d="M993 202 L1037 202 C1041.418 202 1045 205.582 1045 210 L1045 228 C1045 232.418 1041.418 236 1037 236 L993 236 C988.582 236 985 232.418 985 228 L985 210 C985 205.582 988.582 202 993 202 Z" fill="#e7f4f2" stroke="#b7d9d3"/>
+    <text transform="matrix(1 0 0 1 995 226)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#244b4b"><tspan x="0" y="0">CAN</tspan></text>
+    <g filter="url(#filter-4)">
+      <g>
+        <path d="M1380 394 C1380 403.941 1308.366 412 1220 412 C1131.634 412 1060 403.941 1060 394 C1060 384.059 1131.634 376 1220 376 C1308.366 376 1380 384.059 1380 394 Z" fill="#b8c9c1" opacity="0.32"/>
+        <path d="M1090 205 L1130 172 L1370 172 L1330 205 Z" fill="#e1e6e2" stroke="#9facaa" stroke-width="2"/>
+        <path d="M1090 205 L1330 205 L1330 375 L1090 375 Z" fill="#f8faf8" stroke="#9facaa" stroke-width="2"/>
+        <path d="M1330 205 L1370 172 L1370 342 L1330 375 Z" fill="#d2d9d5" stroke="#9facaa" stroke-width="2"/>
+        <path d="M1114 229 L1306 229 C1310.418 229 1314 232.582 1314 237 L1314 276 C1314 280.418 1310.418 284 1306 284 L1114 284 C1109.582 284 1106 280.418 1106 276 L1106 237 C1106 232.582 1109.582 229 1114 229 Z" fill="#1c383c"/>
+        <text transform="matrix(1 0 0 1 1124 254)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="18" font-weight="bold" fill="#bfe8d2"><tspan x="0" y="0">WECHSELRICHTER</tspan></text>
+        <text transform="matrix(1 0 0 1 1124 274)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="16" fill="#ffffff"><tspan x="0" y="0">nutzt die BSC-Vorgaben</tspan></text>
+        <path d="M1153 321 C1153 323.761 1150.761 326 1148 326 C1145.239 326 1143 323.761 1143 321 C1143 318.239 1145.239 316 1148 316 C1150.761 316 1153 318.239 1153 321 Z" fill="#61b791"/>
+        <path d="M1170 321 L1298 321" fill="#000000" stroke="#c9d5d0" stroke-width="5" stroke-linecap="round"/>
+        <path d="M1170 339 L1262 339" fill="#000000" stroke="#d7e0dc" stroke-width="5" stroke-linecap="round"/>
+      </g>
+    </g>
+    <path d="M1122 385 L1122 360" fill="none" stroke="#e58b3e" stroke-width="8"/>
+    <path d="M1129 360 C1129 363.866 1125.866 367 1122 367 C1118.134 367 1115 363.866 1115 360 C1115 356.134 1118.134 353 1122 353 C1125.866 353 1129 356.134 1129 360 Z" fill="#e58b3e" stroke="#ffffff" stroke-width="3"/>
+    <g filter="url(#filter-5)">
+      <g>
+        <path d="M716 16 L1304 16 C1312.837 16 1320 23.163 1320 32 L1320 106 C1320 114.837 1312.837 122 1304 122 L716 122 C707.163 122 700 114.837 700 106 L700 32 C700 23.163 707.163 16 716 16 Z" fill="#ffffff" stroke="#cbdad4" stroke-width="2"/>
+        <text transform="matrix(1 0 0 1 725 43)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="21" font-weight="bold" fill="#233f40"><tspan x="0" y="0">DATENWEITERGABE</tspan></text>
+        <path d="M733 58 L922 58 C926.418 58 930 61.582 930 66 L930 92 C930 96.418 926.418 100 922 100 L733 100 C728.582 100 725 96.418 725 92 L725 66 C725 61.582 728.582 58 733 58 Z" fill="#e7f4f2"/>
+        <text transform="matrix(1 0 0 1 750 85)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#244b4b"><tspan x="0" y="0">Weboberfläche</tspan></text>
+        <path d="M968 58 L1082 58 C1086.418 58 1090 61.582 1090 66 L1090 92 C1090 96.418 1086.418 100 1082 100 L968 100 C963.582 100 960 96.418 960 92 L960 66 C960 61.582 963.582 58 968 58 Z" fill="#f1f5ec"/>
+        <text transform="matrix(1 0 0 1 995 85)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#244b4b"><tspan x="0" y="0">MQTT</tspan></text>
+        <path d="M1128 58 L1242 58 C1246.418 58 1250 61.582 1250 66 L1250 92 C1250 96.418 1246.418 100 1242 100 L1128 100 C1123.582 100 1120 96.418 1120 92 L1120 66 C1120 61.582 1123.582 58 1128 58 Z" fill="#f1f5ec"/>
+        <text transform="matrix(1 0 0 1 1158 85)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#244b4b"><tspan x="0" y="0">REST</tspan></text>
+      </g>
+    </g>
+    <path d="M780 162 L780 132" fill="none" stroke="#087a88" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+    <path d="M774 132 L780 122 L786 132 Z" fill="#087a88"/>
+    <g>
+      <path d="M441 444 L709 444 C717.837 444 725 451.163 725 460 L725 520 C725 528.837 717.837 536 709 536 L441 536 C432.163 536 425 528.837 425 520 L425 460 C425 451.163 432.163 444 441 444 Z" fill="#f8fcf8" stroke="#c8ddd0" stroke-width="2"/>
+      <text transform="matrix(1 0 0 1 447 473)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="21" font-weight="bold" fill="#233f40"><tspan x="0" y="0">TEMPERATURSENSOREN</tspan></text>
+      <text transform="matrix(1 0 0 1 447 501)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="18" fill="#71857e"><tspan x="0" y="0">optional</tspan></text>
+      <path d="M645 514 L645 525 M665 509 L665 525 M685 514 L685 525" fill="#000000" stroke="#35784d" stroke-width="3"/>
+      <path d="M649 510 C649 512.209 647.209 514 645 514 C642.791 514 641 512.209 641 510 C641 507.791 642.791 506 645 506 C647.209 506 649 507.791 649 510 Z" fill="#55936e"/>
+      <path d="M669 505 C669 507.209 667.209 509 665 509 C662.791 509 661 507.209 661 505 C661 502.791 662.791 501 665 501 C667.209 501 669 502.791 669 505 Z" fill="#55936e"/>
+      <path d="M689 510 C689 512.209 687.209 514 685 514 C682.791 514 681 512.209 681 510 C681 507.791 682.791 506 685 506 C687.209 506 689 507.791 689 510 Z" fill="#55936e"/>
+    </g>
+    <path d="M725 492 C760 492 752 430 742 375" fill="none" stroke="#28693f" stroke-width="5" stroke-linecap="round" stroke-dasharray="4 6"/>
+    <path d="M736 381 L742 371 L748 381 Z" fill="#35784d"/>
+    <path d="M622 238 L630 238" fill="none" stroke="#087a88" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+    <path d="M622 314 L630 314" fill="none" stroke="#087a88" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 8"/>
+    <path d="M1084 264 L1094 270 L1084 276 Z" fill="#087a88"/>
+    <path d="M622 232 L632 238 L622 244 Z" fill="#087a88"/>
+    <path d="M622 308 L632 314 L622 320 Z" fill="#087a88"/>
+    <path d="M508 560 L942 560 C946.418 560 950 563.582 950 568 L950 590 C950 594.418 946.418 598 942 598 L508 598 C503.582 598 500 594.418 500 590 L500 568 C500 563.582 503.582 560 508 560 Z" fill="#e7f4f2" stroke="#b7d9d3"/>
+    <text transform="matrix(1 0 0 1 518 586)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#244b4b"><tspan x="0" y="0">DC-Leistung: Batterie ↔ Wechselrichter</tspan></text>
+    <path d="M82 652 L142 652" fill="#000000" stroke="#087a88" stroke-width="5" stroke-dasharray="10 8"/>
+    <text transform="matrix(1 0 0 1 158 658)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="18" fill="#71857e"><tspan x="0" y="0">Mess- und Steuerdaten</tspan></text>
+    <path d="M430 652 L490 652" fill="#000000" stroke="#28693f" stroke-width="5" stroke-linecap="round" stroke-dasharray="4 6"/>
+    <text transform="matrix(1 0 0 1 506 658)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="18" fill="#71857e"><tspan x="0" y="0">optionale Sensordaten</tspan></text>
+    <path d="M820 652 L880 652" fill="#000000" stroke="#e58b3e" stroke-width="7"/>
+    <text transform="matrix(1 0 0 1 896 658)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="18" fill="#71857e"><tspan x="0" y="0">DC-Leistung</tspan></text>
+    <text transform="matrix(1 0 0 1 82 692)" x="0" y="0" xml:space="preserve" font-family="Inter, sans-serif" font-size="18" fill="#71857e"><tspan x="0" y="0">Schematische Darstellung: Anschlüsse und Funktionen hängen von der Hardware ab.</tspan></text>
+  </g>
+</svg>

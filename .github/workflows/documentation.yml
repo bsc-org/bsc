@@ -26,6 +26,7 @@ jobs:
             docs
             hooks
             bsc_settings
+            tests
 
       - name: Set up Python runtime
         uses: actions/setup-python@v5
@@ -53,7 +54,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          mkdocs build --clean
+          python -m unittest discover -s tests
+          mkdocs build --clean --strict
+          python hooks/i18n.py site
           mkdocs --version
 
       - name: Adjust permissions

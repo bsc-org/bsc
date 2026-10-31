@@ -1,52 +1,48 @@
-# Battery Safety Controller (BSC) – <br>Der flexible Controller für DIY-Batterien
+# Battery Safety Controller (BSC)
 <img src="img/bsc_display.png" width="600">
 
-Der **Battery Safety Controller (BSC)** ist ein frei konfigurierbarer Controller, der für eine Vielzahl von Steuerungs- und Überwachungsaufgaben in DIY-Batteriesystemen eingesetzt werden kann. Der BSC übernimmt die zentrale Steuerung des Energy-Sorange-Systems.
+Ein **Batterie-Management-System (BMS)** überwacht die Batteriezellen und übernimmt deren Schutzfunktionen. Der **Battery Safety Controller (BSC)** ergänzt das BMS, indem er unterstützte BMS und Sensoren mit einem kompatiblen Wechselrichter verbindet.
 
-## Der BSC besteht aus zwei Komponenten:
-1. **BSC-Hardware** – Sie fungiert als Middleware zwischen dem BMS und dem Wechselrichter. Ein Vorteil der BSC-Hardware ist ihr sicherer Betrieb: Alle physischen Schnittstellen sind galvanisch isoliert.
-2. **BSC-Software** – Diese macht die BSC-Hardware zu einem frei konfigurierbaren Controller, der für eine Vielzahl von Steuerungs- und Überwachungsaufgaben in DIY-Batteriesystemen verwendet werden kann.  
+Der BSC besteht aus passender Hardware und der darauf laufenden BSC-Software. Welche Anschlüsse und Funktionen verfügbar sind, hängt von der verwendeten Hardware ab.
 
-[Hier](#informationen-zu-beschaffung-und-inbetriebnahme) gehts zum Kapitel "**Informationen zu Beschaffung und Inbetriebnahme**".
+!!! important "Der BSC ersetzt kein BMS"
+	Der BSC liest Daten aus dem BMS, schreibt aber keine Einstellungen dorthin. Die Schutzfunktionen des BMS bleiben davon unabhängig. Die Konfiguration des BSC muss trotzdem zu Batterie und Wechselrichter passen; Beispielwerte sollten nicht ungeprüft übernommen werden.
 
-## Einsatzmöglichkeiten des BSC
+## Was macht der BSC?
 
-### 1. Überwachung von verbundenen Geräten (seriell, Bluetooth)
-Der BSC kann die Daten von angeschlossenen Geräten (BMS, Balancer, Temperatursensoren) via MQTT an einen Broker senden, um sie grafisch darzustellen (z.B. in Grafana) oder weiter zu verarbeiten, z.B. in einem Automatisierungssystem wie **ioBroker**, **NodeRed** oder **Home Assistant**.
+Der BSC sitzt bei einem unterstützten System zwischen den Batterie-Management-Systemen (BMS) und dem Wechselrichter. Er erhält Informationen über den Zustand der Batteriepakete, verarbeitet diese nach den eingerichteten Regeln und gibt passende Vorgaben an den Wechselrichter weiter. Zusätzliche Sensoren und Ausgänge können je nach Hardware ebenfalls eingebunden werden. Die Grafik zeigt dabei zwei getrennte Wege: Messwerte und Steuersignale laufen über den BSC, während der Strom zwischen Batterie und Wechselrichter über den Leistungspfad fließt.
 
-### 2. Lade-Steuerung
-Der BSC nutzt die Daten der angeschlossenen Geräte, um den Wechselrichter (Victron, Solis, DEYE, etc.) zu steuern, der über den CAN-Bus verbunden ist. Hierbei stehen mehrere Funktionen zur Verfügung, um die Lade-Steuerung an das eigene DIY-Batteriesystem anzupassen:
+![Systemübersicht mit Batteriepaketen, BMS, BSC, Wechselrichter sowie getrennten Daten- und DC-Leistungspfaden](img/system_overview_3d.svg){ width="100%" }
 
-- Zellspannungsabhängige Drosselung des Ladestroms
-- Reduzierung des Ladestroms bei Zellabweichungen
-- SoC-abhängige Reduktion des Ladestroms
-- Ladeabschaltung: Verhindert kontinuierliches Nachladen, wenn die Batterie voll ist
-- Zusammenführung der Daten aus den einzelnen physischen Batteriepaketen zu einem virtuellen Gesamtbatteriepaket unter Berücksichtigung zahlreicher Parameter, z.B. ob das Batteriepaket überhaupt lädt oder entlädt.
-- Und noch einges mehr ...
+- **Messwerte anzeigen:** Der BSC liest die vom jeweiligen BMS unterstützten Werte aus, zum Beispiel Zellspannungen, Temperaturen und Ladezustand. Du kannst sie in der Weboberfläche ansehen oder an andere Programme weitergeben.
+- **Ladung und Entladung begrenzen:** Eingerichtete Regeln können zum Beispiel bei hoher Zellspannung den maximalen Ladestrom reduzieren. Den Grenzwert übermittelt der BSC an einen kompatiblen Wechselrichter.
+- **Weitere Geräte überwachen:** Mit geeigneter Hardware lassen sich unter anderem Temperatursensoren und digitale Ein- oder Ausgänge einbinden.
 
-### 3. Überwachung der Werte des BMS
-Der BSC kann verschiedene konfigurierbare Parameter auf den angeschlossenen Geräten überwachen und darauf reagieren. Überwachte Parameter umfassen z.B.:
+## Vergleich: mit und ohne BSC
 
-- Regelmäßige Antwort des angeschlossenen BMS
-- Zellspannungen (min/max)
-- Gesamte Spannung (min/max)
-- Temperaturen
+Eine direkte Verbindung kann ausreichen, wenn BMS und Wechselrichter miteinander kompatibel sind und ihre Funktionen genügen. Der BSC ergänzt diese Geräte um eine zentrale Stelle zum Auslesen und Verarbeiten unterstützter Batteriedaten. Dafür werden zusätzliche Hardware und Konfiguration benötigt.
 
-Diese Daten können verwendet werden, um beispielsweise Relaisausgänge zu steuern und einen Lasttrennschalter auszulösen.
+| Aufgabe | Ohne BSC | Mit BSC |
+| --- | --- | --- |
+| BMS und Wechselrichter verbinden | Beide Geräte müssen direkt miteinander kommunizieren können | Der BSC verbindet unterstützte BMS mit kompatiblen Wechselrichtern |
+| Messwerte mehrerer Batterien nutzen | Möglichkeiten hängen von BMS und Wechselrichter ab | Der BSC kann ausgewählte Werte wie Spannung, Strom und Ladezustand (SoC) mehrerer unterstützter BMS zusammenführen. Stromwerte lassen sich zum Beispiel summieren; der gemeinsame SoC kann nach Batteriekapazität gewichtet werden. Welche Optionen verfügbar sind, hängt von Firmware und Konfiguration ab. |
+| Batteriedaten überwachen und weitergeben | Hängt von den Funktionen der Geräte ab | Anzeige in der Weboberfläche; Weitergabe über MQTT oder REST, zum Beispiel an Home Assistant |
+| Regeln für Laden und Entladen | Hängt von den Funktionen der Geräte ab | Beim Laden kann der BSC den Strom z. B. anhand von Zellspannung, Zellabweichung, Ladezustand oder Temperatur begrenzen. Zusätzlich lassen sich Höchstströme pro Batteriepaket einstellen; den Grenzwert übermittelt der BSC an den Wechselrichter. |
 
-### 4. Temperaturüberwachung
-Es können bis zu **64 OneWire-Temperatursensoren** (DS18B20) angeschlossen und überwacht werden. Verschiedene Regelungen sind möglich:
+## Häufige Fragen
 
-- Überwachung des Maximalwerts
-- Überwachung des Minimalwerts
-- Überwachung des Maximalwerts mit einem Sensor als Referenzwert
-- Überwachung der Differenzwerte
+### Kann ich Batteriepakete unterschiedlicher Kapazität und mit BMS verschiedener Hersteller kombinieren?
 
-Alle Einstellungen können flexibel über eine Web-Oberfläche parametriert werden.
+Der BSC kann ausgewählte Messwerte mehrerer Batteriepakete zusammenführen, sofern jedes BMS unterstützt wird. Für eine gemeinsame elektrische Verschaltung müssen Zellchemie, Zellzahl und Batteriespannung technisch kompatibel sein. Die maximal zulässigen Lade- und Entladeströme können je Paket unterschiedlich sein und müssen korrekt eingestellt werden. Sind die Kapazitäten eingetragen und ist die kapazitätsgewichtete Berechnung aktiviert, fließt ein größeres Pack stärker in den gemeinsamen Ladezustand (SoC) ein. Der BSC prüft nicht, ob die elektrische Verschaltung geeignet ist, und ersetzt keine Schutzfunktion des BMS.
 
-Der **Battery Safety Controller** bietet eine vielseitige und anpassbare Lösung für die Überwachung und Steuerung von DIY-Batteriesystemen. Ideal für anspruchsvolle Anwendungen, die umfangreiche Steuerungsmöglichkeiten benötigen.
+## Beispiel: Zwei Batteriepakete beim Laden
 
-## Informationen zu Beschaffung und Inbetriebnahme
-Detaillierte Informationen zur Beschaffung sowie zur Inbetriebnahme finden Sie in den folgenden Kapiteln dieses Handbuchs:  
-[Erste Schritte](first_steps.md)  
-[Hardware](hardware.md)  
+Pack A hat eine größere Kapazität als Pack B. Beide Packs haben ein vom BSC unterstütztes BMS. Beim Laden berücksichtigt die Zellspannungsregel die höchsten gemeldeten Zellspannungen beider Packs. Erreicht eine Zelle in Pack B zuerst die konfigurierte Schwelle, reduziert der BSC den erlaubten Ladestrom für den Speicher und übermittelt den niedrigeren Grenzwert an den Wechselrichter. Dieser reduziert daraufhin den Ladestrom. Ist zusätzlich die kapazitätsgewichtete SoC-Berechnung aktiviert, fließt Pack A wegen seiner größeren Kapazität stärker in den gemeinsamen Ladezustand ein.
+
+Vor dem Kauf solltest du prüfen, ob dein **BMS** und gegebenenfalls dein **Wechselrichter** unterstützt werden. Die verfügbaren Funktionen unterscheiden sich je nach Hardware: Das aktuell empfohlene LILYGO T-CONNECT hat zum Beispiel keine integrierten Relais oder Digitaleingänge; die freie Firmware unterstützt dort kein Display.
+
+## Erste Schritte
+
+Für die Einrichtung gibt es eine eigene Schritt-für-Schritt-Anleitung. Sie führt von der Prüfung der unterstützten Geräte über die Hardwareauswahl bis zum Anschließen und Konfigurieren des BMS: [Erste Schritte und Inbetriebnahme](first_steps.md).
+
+Weitere Informationen: [Systemübersicht](system_overview.md) · [Hardware](hardware.md) · [Beispielkonfigurationen](beispiel_konfigurationen.md)

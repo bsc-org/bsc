@@ -1,4 +1,5 @@
 site_name: Battery Safety Controller
+# site_url: https://bsc-org.github.io/bsc/
 repo_url: https://github.com/shining-man/bsc_fw
 edit_uri: https://github.com/bsc-org/bsc/edit/main/docs
 
@@ -12,18 +13,22 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: Zu dunklem Modus wechseln
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Zu hellem Modus wechseln
 
   features:
     - content.action.edit
-    - navigation.indexes
+#    - navigation.indexes
     - navigation.sections
 
   icon:
@@ -31,15 +36,73 @@ theme:
 
 hooks:
   - hooks/bsc_settings.py
+  - hooks/i18n.py
 
 watch:
   - bsc_settings
 
 plugins:
   - search
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      languages:
+        - locale: de
+          default: true
+          name: Deutsch
+          build: true
+        - locale: en
+          name: English
+          build: true
+          theme:
+            palette:
+              - media: "(prefers-color-scheme: light)"
+                scheme: default
+                primary: custom
+                accent: custom
+                toggle:
+                  icon: material/weather-night
+                  name: Switch to dark mode
+              - media: "(prefers-color-scheme: dark)"
+                scheme: slate
+                primary: custom
+                accent: custom
+                toggle:
+                  icon: material/weather-sunny
+                  name: Switch to light mode
+          nav_translations:
+            User Guide: User Guide
+            Startseite: Home
+            Erste Schritte: Getting Started
+            Erste Informationen: Before You Start
+            Programmieren des BSC: Flashing the BSC
+            Hardware anschließen: Connecting the Hardware
+            Einstellungen im BSC: Configuring the BSC
+            Systemübersicht: System Overview
+            Unterstüzte Geräte: Supported Devices
+            Wechselrichter: Inverters
+            Externe Shunts: External Shunts
+            Weitere Geräte: Other Devices
+            Konfiguration: Configuration
+            Allgemeines & Dashboard: General & Dashboard
+            Schnittstellen: Interfaces
+            Wartung: Maintenance
+            Wechselrichter & Laderegelung: Inverter & Charge Control
+            Allgemein: General
+            Laden: Charging
+            Entladen: Discharging
+            Alarmregeln: Alarm Rules
+            Das Log des BSC: BSC Log
+            Einrichtungsassistenten: Setup Assistant
+            Beispielkonfigurationen: Example Configurations
+            Sonstiges: Other Topics
+            Test ohne BSC Hardware: Testing Without BSC Hardware
+            Bestückung Varianten: Assembly Variants
+            Ressourcen: Resources
 
   - git-revision-date-localized:
       enable_creation_date: false
+      strict: false
 
 extra_css:
   - css/extra.css
@@ -83,12 +146,13 @@ markdown_extensions:
       
 nav:
   - User Guide:
-    - Systemübersicht: system_overview.md
+    - Startseite: index.md
     - Erste Schritte:
       - Erste Informationen: first_steps.md
       - Programmieren des BSC: first_steps_programming.md
       - Hardware anschließen: first_steps_hardware.md
       - Einstellungen im BSC: first_steps_settings.md
+    - Systemübersicht: system_overview.md
     - Hardware: hardware.md
     - Unterstüzte Geräte:
       - BMS: devices/bms.md
