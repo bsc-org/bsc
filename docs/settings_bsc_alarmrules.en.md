@@ -76,7 +76,19 @@ Examples: check even current sharing across data devices, or compare cell voltag
 
 ### Cell Voltage During Charging {#zellspannung-bei-ladestrom}
 
-The plausibility principle is: **during charging, cell voltage should not fall**. A repeatable drop with sufficient charging current may indicate a weak cell, loose/corroded connection or measurement contact, or unusual BMS measurements. This checks **voltage direction relative to charging current**, not fixed voltage limits; see [Min/Max Comparison](#abgrenzung-zu-den-minmax-alarmen).
+This monitor warns when the voltage of an individual cell or many cells in a battery pack drops abnormally during charging, even though the charging current is sufficiently stable. It can detect such changes within the normal voltage range and therefore complements the [min/max alarms](#bms).
+
+An alarm is a reason to check the cells, cell connectors, sense wires and BMS measurements, but **not conclusive evidence of a defective cell**. This function does not replace the BMS protection functions or monitoring for missing data.
+
+#### Setting Up Monitoring {#uberwachung-einrichten}
+
+1. Select the required **Data Devices** under **Monitored devices**. Detection operates separately for each device; Group Devices are not supported.
+2. Select a **Trigger** (1-27). Monitoring is inactive if the selection is "Off".
+3. Configure **the action this trigger should activate** in the relevant function. The cell voltage monitor does not stop charging on its own.
+4. Use **Hold until manual reset** to choose whether an alarm may clear automatically or must remain stored until manually acknowledged. The reset conditions are [described below](#rucksetzen-eines-fehlers).
+5. Enable **On/Off** and save the settings.
+
+By default, monitoring and manual holding are disabled, no device is selected and the trigger is set to "Off".
 
 ```bsc-settings
 version: v010
@@ -85,49 +97,120 @@ profile: off
 section: 2
 ```
 
-#### Detection Logic {#so-funktioniert-die-erkennung}
+#### When Is Monitoring Active? {#wann-wird-uberwacht}
 
-**Charging window:** Evaluate only while charging at **at least 5 A**. A window must remain valid for **30 seconds** before a confirmed drop can alarm, ignoring startup transients. Below 5 A or during discharging, discard the window; a new charge starts with fresh references.
+- The selected device must be recognized as a **BMS** and supply valid cell voltages. Balancers, shunts and devices in maintenance mode are not evaluated.
+- At least **4 A of charging current must flow at the individual Data Device**. The combined charging current of several battery packs is not used for this threshold.
+- After the first three valid data updates, detection requires a **120-second warm-up period**. An alarm therefore cannot occur immediately after charging starts.
+- New BMS data updates must arrive regularly. Below 4 A, with invalid cell voltages or after an excessive gap between updates, the charging window is discarded. Detection of new alarms then restarts with initial values and a new warm-up period.
 
-**Per-cell reference:** Build a reference from the **median of 5 consecutive measurements**. If voltage rises, increase the reference only after **5 readings above the previous reference**, again using their median. **Never lower the reference** in response to a falling value.
+!!! warning "Check the Cell Count"
+    Monitoring uses the cell count from the **serial configuration**. It must match the BMS data being evaluated and be between **1 and 24 cells**. Check this setting even when monitoring several Data Devices.
 
-**Confirming a drop:** A value **more than 5 mV below reference** is a candidate. Require **3 consecutive measurements** and a window at least **30 s** old. Values within 5 mV or above reference reset the confirmation counter.
+#### Understanding Alarm Messages {#alarmmeldung-verstehen}
 
-**Trigger and message:** A confirmed drop sets the selected trigger each second. Example: `D0 C3, 3302/3310 mV` identifies device 0, cell 3, current **3302 mV**, reference **3310 mV**. If multiple cells drop, retain the worst drop per device. The trigger remains active while at least one monitored device has a confirmed drop.
+A detected drop is stored. While monitoring is enabled and at least one stored fault exists, this alarm rule activates the selected trigger.
 
-**Automatic reset:** Without latching, clear the fault after all cells stay within **5 mV** of reference for **60 seconds**. Also clear it if charging current stays below **5 A for more than 60 seconds**. This reset delay prevents chatter.
+| Example message | Meaning |
+| --- | --- |
+| `D0 C3, 3290/3300 mV` | Abnormal drop at **Data Device 0, cell 3**. The smoothed current voltage is 3290 mV and the reference is 3300 mV. |
+| `D0 Pack, 3316/3330 mV` | Common drop affecting many cells at **Data Device 0**. The values describe the pack's typical cell voltage level, **not its total voltage**. |
 
-**Hold until manual reset:** With latching enabled, recovery or the end of charging does not clear the fault. Reset it in the web app under **Expert Actions / Manual Actions / Reset cell voltage drop / Reset**. The next charge then builds fresh references. Disabling monitoring always resets the trigger.
+**Data Device numbering starts at 0**, whereas **cell numbering in the message starts at 1**. The voltages belong to the stored detection event; they are not continuously updated raw measurements.
 
-#### Requirements {#voraussetzungen}
+#### What to Do When an Alarm Occurs {#was-tun-bei-einem-alarm}
 
-Only **data devices**, not groups, are supported. Evaluation requires monitoring enabled, a trigger selected, the device selected, recognition as a **BMS** (not balancer/shunt), no maintenance mode, a valid **1–24-cell** count with at least one cell voltage, and charging current **>= 5 A**.
+1. Identify the Data Device and the cell or pack named in the message.
+2. Check the BMS measurements and any BMS warnings. Was the charging current actually stable, and are its direction and measurement plausible?
+3. If abnormalities recur, have the affected cells, cell connectors and sense wires checked by a qualified person. An alarm alone does not justify replacing a cell.
+4. After checking, clear a manually held fault using the action described below. If it occurs again, investigate the cause further.
 
-#### Parameters {#parameter}
+#### Resetting a Fault {#rucksetzen-eines-fehlers}
 
-- **On/Off:** Default **off**.
-- **Monitored devices:** Default **none**.
-- **Trigger:** **1–27**, default **off**. A selection is required for operation.
-- **Hold until manual reset:** Default **off**.
+**Automatic reset**
 
-Detection constants are fixed: **5 A**, **30 s**, **5 mV**, **3 confirmations**, **60 s reset time**.
+With "Hold until manual reset" disabled, a fault clears when the detector remains **without an active drop condition for at least 60 seconds**. If a condition becomes active again, this reset delay starts over. Returning fully to the earlier reference voltage is not required, because the moving references also change.
 
-#### Example Sequence {#beispielablauf}
+New data updates showing less than 4 A of charging current also discard the charging window and allow the fault to clear after this reset delay. **Resetting is evaluated with new BMS data updates, not by an independent timer.** If data stops arriving completely, automatic clearing after 60 seconds is therefore not guaranteed. With unstable current, a previously active local drop condition is initially retained; a current change alone does not confirm recovery.
 
-!!! example "Internal Default Thresholds"
-    1. At **10:00**, charging starts at **20 A** and opens the window.
-    2. Cell 3 reports **3300, 3301, 3300, 3302, 3301 mV**; median/reference = **3301 mV**.
-    3. Five later readings above reference raise its median to **3310 mV**.
-    4. At **10:05**, readings **3304**, **3303**, **3302 mV** are 6, 7 and 8 mV below reference. The third confirms the drop; message: `D0 C3, 3302/3310 mV`.
-    5. The cell recovers to **3305 mV or higher**. After **60 s** without a qualifying drop, the fault resets, unless manual-reset latching is enabled.
+**Hold until manual reset**
 
-#### Difference from Min/Max Alarms {#abgrenzung-zu-den-minmax-alarmen}
+If this option is enabled when the fault is detected, the fault remains stored even if the voltage recovers, charging ends or the device is later removed from monitoring. In the web app, open **Expert Actions / Manual Actions / Reset cell voltage drop** and select **Reset**. This resets the faults and detection histories of **all Data Devices**. If sufficient charging current is still flowing, detection then starts with new initial values and a new warm-up period; a new charging session is not required.
 
-[BMS min/max rules](#bms) use absolute thresholds such as **2500/3650 mV**, regardless of charging. This rule compares with the cell's **own charging reference**, catching small millivolt drops well above the minimum threshold, but only while charging at least **5 A**.
+!!! warning "Disabling Is Not a Manual Reset"
+    When monitoring is disabled or the trigger is set to "Off", this rule no longer activates the associated trigger. However, a manually held fault remains stored and can activate the trigger again after monitoring is re-enabled. Use the reset action to clear it explicitly.
 
-#### Interpreting a Fault {#hinweise-zur-bewertung}
+#### Examples from Real Measurements {#beispiele-aus-echten-messdaten}
 
-A drop is **not proof** of a defective cell. Check whether it repeatedly affects the same cell, whether connectors and sense wires are sound, and whether the BMS reports warnings. Repeated faults warrant closer examination of that cell and its wiring. MQTT diagnostics are available through **Cell voltage drop (Debug)**, default off, under `cell_sag`. See [MQTT](mqtt.md).
+The following screenshots show **real measurements, not artificially generated curves**. Cell voltages and the pack median are shown at the top, with battery current below. The examples illustrate why a voltage drop must be evaluated in relation to charging current. A trace without an alarm does not automatically mean the battery is fault-free!
+
+**No alarm: Voltage drop during a current change**
+
+[![Real measurements without an alarm: Several cell voltages drop at the same time as a substantial reduction in charging current.](img/settings/cell_sag_ohne_alarm_stromwechsel.png)](img/settings/cell_sag_ohne_alarm_stromwechsel.png)
+
+The pronounced downward voltage step coincides with a sharp current reduction. The cell voltages then rise again as charging current increases. No alarm was detected in this example; the voltage step alone is not evidence of a cell fault.
+
+**No alarm: Different cell voltage trends as charging current decreases**
+
+[![Real measurements without an alarm: Some cell voltages fall as charging current gradually decreases, while others rise.](img/settings/cell_sag_ohne_alarm_sinkender_strom.png)](img/settings/cell_sag_ohne_alarm_sinkender_strom.png)
+
+Charging current decreases significantly over time. Some cell voltages fall, while others remain approximately constant or rise. No alarm was detected here either. Different voltage levels or individual falling curves alone are not sufficient.
+
+**Alarm: One cell drops while charging current remains nearly constant**
+
+[![Real measurements with an alarm: Cell C1 drops relative to the other cells while charging current initially remains nearly constant; a red vertical line marks the alarm.](img/settings/cell_sag_alarm_einzelzelle.png)](img/settings/cell_sag_alarm_einzelzelle.png)
+
+The red **C1** trace already falls substantially while the other cell voltages and charging current initially remain largely stable. The **red vertical line** marks the detected alarm. Only later does charging current fall sharply, followed by the other cell voltages. The image alone does not establish what caused this later current reduction.
+
+Click an image to open it at full size.
+
+#### Technical Details {#technische-details}
+
+**Charging window and gaps between updates**
+
+A gap discards the charging window if the interval between two updates exceeds **10 seconds or three times the learned typical update interval**, whichever is greater. A change in cell count also restarts detection. All evaluated cells must have voltage values that are not marked as invalid. An existing stored fault remains subject to the [reset conditions](#rucksetzen-eines-fehlers), independently of the charging window restarting.
+
+**Smoothed voltage trends**
+
+First, the median of the last **three measurements** is calculated for each cell and for current. The median is the middle value of a list sorted by magnitude, reducing the effect of individual outliers. Fast, medium and slow voltage trends are then calculated, with time constants of **10, 60 and 120 seconds**. These are moving filters, not fixed time windows or additional waiting periods.
+
+The slow trend serves as the reference and the fast trend as the current voltage level. **Both can rise and fall.** For each trend, a median across all cells is also calculated. This pack median describes the pack's typical cell voltage level, not its total voltage. With an even number of values, the average of the two middle values is used.
+
+**Detection path 1: An individual abnormal cell**
+
+For a new local drop, all of the following conditions must be met simultaneously after the warm-up period:
+
+- The fast cell voltage is at least **8 mV below that cell's slow reference**.
+- This drop is at least **8 mV greater than the corresponding drop in the pack median**. The cell must therefore stand out relative to the rest of the pack.
+- The comparison between the medium and fast trends also shows at least **4 mV of additional drop relative to the pack median**. This checks whether the drop is still apparent in the more recent trend.
+- The fast cell voltage is **at or below the fast pack median**.
+- Charging current is stable: The fast and slow smoothed currents differ by no more than **0.5 A or 10% of their average**, whichever tolerance is greater.
+
+A cell that merely rises less strongly than the others does not automatically meet the alarm conditions. An alarm is triggered as soon as all the stated conditions are met simultaneously after the warm-up period.
+
+**Detection path 2: A common drop across the pack**
+
+A common drop can also be detected when no individual cell stands out relative to the others. All of the following conditions must be met after the warm-up period:
+
+- The fast pack median is at least **12 mV below the slow pack median**.
+- For at least approximately **three quarters of the cells**, the fast trend is also at least **12 mV below the respective slow trend**. The required cell count is rounded to a whole number; for 16 cells, it is 12.
+- The difference between the medium and fast pack medians is at least **4 mV greater** than the difference between the slow and medium pack medians. The drop must therefore become stronger in the more recent trend.
+- The range between the lowest and highest charging currents over approximately the last **120 to 160 seconds** is within a tolerance of **0.5 A or 10% of the average of the fast and slow smoothed currents**, whichever is greater. This detection path therefore checks more than just the difference between two smoothed current values.
+
+**Stored fault values and fixed thresholds**
+
+One fault record is retained per Data Device; a later new detection event with a larger voltage drop can replace it. For an individual cell, the alarm message shows the fast and slow cell voltages; for a common drop, it shows the fast and slow pack medians.
+
+Minimum charging current, warm-up period, filter time constants, current tolerances, drop thresholds and reset delay are **fixed in the firmware** and cannot be changed through these settings.
+
+**Worked example**
+
+!!! example "An Individual Abnormal Cell"
+    1. Data Device 0 is charged continuously at **20 A** and supplies valid cell voltages. After the initial measurements and the 120-second warm-up period, detection is ready.
+    2. Later, cell 3 has these smoothed values: slow **3300 mV**, medium **3296 mV**, fast **3290 mV**. All three pack medians remain at **3300 mV**, and current is stable.
+    3. The absolute drop is **10 mV**, and the additional drop relative to the pack is also **10 mV**. The more recent trend still shows **6 mV** of additional drop. The fast cell voltage is below the pack median. The local detection conditions are therefore met.
+    4. The trigger activates; the message is `D0 C3, 3290/3300 mV`.
+    5. Without manual holding, the fault clears after at least **60 seconds without an active drop condition**, provided further BMS updates arrive. With manual holding enabled, it remains stored until reset.
 
 ## Temperature {#temperatur}
 

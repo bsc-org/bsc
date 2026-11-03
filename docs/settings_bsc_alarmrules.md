@@ -164,13 +164,19 @@ Der Wertevergleich prüft nicht, ob die **Data Devices** tatsächlich online sin
 
 ### Zellspannung bei Ladestrom
 
-Diese Überwachung beruht auf einer einfachen Plausibilitätsregel: **Wird die Batterie gerade geladen, dürfen die Zellspannungen nicht fallen.** Während eines aktiven Ladevorgangs mit ausreichendem Ladestrom sollten die Zellspannungen stabil bleiben oder steigen. Sinkt die Spannung einer Zelle trotzdem reproduzierbar ab, ist das ein Hinweis auf ein Problem, zum Beispiel:
+Diese Überwachung warnt, wenn die Spannung einer einzelnen Zelle oder vieler Zellen eines Batteriepacks während der Ladung auffällig abfällt, obwohl der Ladestrom ausreichend stabil ist. Sie kann solche Veränderungen auch innerhalb des normalen Spannungsbereichs erkennen und ergänzt damit die [Min/Max-Alarme](#bms).
 
-- eine schwache oder defekte Zelle,
-- einen lockeren oder korrodierten Zellverbinder bzw. Messkontakt,
-- auffällige Messwerte des BMS während des Ladens.
+Ein Alarm ist ein Anlass, Zellen, Zellverbinder, Messleitungen und die BMS-Messwerte zu prüfen, aber **kein sicherer Nachweis einer defekten Zelle**. Die Funktion ersetzt weder die Schutzfunktionen des BMS noch die Überwachung auf ausbleibende Daten.
 
-Die Überwachung prüft dabei keine festen Spannungsgrenzen, sondern die **Spannungsrichtung im Verhältnis zum Ladestrom**. Zur Abgrenzung zu den normalen Min/Max-Alarmen siehe [unten](#abgrenzung-zu-den-minmax-alarmen).
+#### Überwachung einrichten
+
+1. Wählen Sie unter **Zu überwachende Geräte** die gewünschten **Data-Devices** aus. Die Erkennung arbeitet für jedes Device getrennt; Group Devices werden nicht unterstützt.
+2. Wählen Sie einen **Trigger** (1–27). Mit der Auswahl „Aus“ ist die Überwachung nicht aktiv.
+3. Legen Sie an der gewünschten Funktion fest, **welche Reaktion dieser Trigger auslösen soll**. Die Zellspannungsüberwachung allein schaltet den Ladestrom nicht ab.
+4. Entscheiden Sie mit **Fehler bis manuellem Reset halten**, ob ein Alarm automatisch verschwinden darf oder bis zur manuellen Bestätigung gespeichert bleiben soll. Die Rücksetzbedingungen sind [unten beschrieben](#rucksetzen-eines-fehlers).
+5. Aktivieren Sie **Ein/Aus** und speichern Sie die Einstellungen.
+
+Standardmäßig sind die Funktion und das manuelle Halten ausgeschaltet, kein Gerät ist ausgewählt und der Trigger steht auf „Aus“.
 
 ```bsc-settings
 version: v010
@@ -179,79 +185,119 @@ profile: off
 section: 2
 ```
 
-#### So funktioniert die Erkennung
+#### Wann wird überwacht?
 
-**Ladefenster und Mindest-Ladestrom**  
-Die Auswertung läuft nur, solange das überwachte Data-Device mit mindestens **5 A** geladen wird. Bei geringerem Ladestrom (oder bei Entladung) ist ein Spannungsabfall nicht aussagekräftig und wird nicht bewertet. Sobald der Ladestrom über der Schwelle liegt, startet ein Ladefenster. Erst nach **30 Sekunden** ununterbrochen gültigem Ladefenster kann ein erkannter Einbruch überhaupt einen Alarm auslösen – so werden Einschwingvorgänge direkt nach Ladestart ignoriert. Fällt der Ladestrom unter 5 A, wird das Ladefenster verworfen; der nächste Ladevorgang beginnt mit komplett frischen Referenzwerten.
+- Das ausgewählte Device muss als **BMS** erkannt sein und gültige Zellspannungen liefern. Balancer, Shunts und Geräte im Wartungsmodus werden nicht ausgewertet.
+- Es müssen mindestens **4 A Ladestrom am jeweiligen Data-Device** fließen. Der Gesamtladestrom mehrerer Batteriepacks ist dafür nicht maßgeblich.
+- Nach den ersten drei gültigen Datensätzen benötigt die Erkennung **120 Sekunden Einlaufzeit**. Ein Alarm ist daher nicht sofort nach Ladestart möglich.
+- Neue BMS-Datensätze müssen regelmäßig eintreffen. Bei weniger als 4 A, ungültigen Zellspannungen oder einer zu großen Messlücke wird das Ladefenster verworfen. Für neue Alarme beginnt die Erkennung danach erneut mit Anfangswerten und Einlaufzeit.
 
-**Referenzspannung pro Zelle**  
-Für jede Zelle baut die Überwachung während des Ladens eine Referenzspannung auf – das bisher beste Spannungsniveau dieser Zelle. Die Referenz entsteht nicht aus einem einzelnen Messwert, sondern aus dem **Median von 5 aufeinanderfolgenden Messwerten**. Steigt die Zellspannung im weiteren Verlauf, wird die Referenz ebenfalls erst nach 5 Messwerten oberhalb der bisherigen Referenz angehoben (wieder als Median). Die Referenz wird **nie gesenkt**: Ein fallender Messwert zieht die Referenz also nicht nach unten, sondern wird als möglicher Einbruch gewertet.
+!!! warning "Zellanzahl prüfen"
+    Die Überwachung verwendet die Zellanzahl aus der **seriellen Konfiguration**. Sie muss zu den ausgewerteten BMS-Daten passen und zwischen **1 und 24 Zellen** liegen. Prüfen Sie diese Einstellung auch dann, wenn Sie mehrere Data-Devices überwachen.
 
-**Einbruch bestätigen**  
-Liegt eine Zellspannung um **mehr als 5 mV** unter ihrer Referenz, gilt das als möglicher Einbruch. Ein einzelner niedriger Messwert löst noch nichts aus: Der Einbruch muss in **3 aufeinanderfolgenden Messungen** bestätigt werden und das Ladefenster mindestens 30 Sekunden alt sein. Messwerte innerhalb der 5-mV-Toleranz oder oberhalb der Referenz setzen den Bestätigungszähler wieder zurück. Einzelne Ausreißer und das übliche Zellspannungsrauschen bleiben dadurch ohne Folgen.
+#### Alarmmeldung verstehen
 
-**Trigger setzen und Alarmmeldung**  
-Ist ein Einbruch bestätigt, setzt die Alarmregel im Sekundentakt den ausgewählten Trigger. Die Alarmmeldung zeigt Device, Zelle sowie aktuelle und Referenzspannung, zum Beispiel `D0 C3, 3302/3310 mV` (Device 0, Zelle 3: 3302 mV statt 3310 mV). Haben mehrere Zellen gleichzeitig eingebrochen, wird pro Device die Zelle mit dem größten Einbruch festgehalten. Der Trigger bleibt aktiv, solange mindestens ein überwachtes Device einen bestätigten Einbruch hat.
+Ein erkannter Einbruch wird gespeichert. Solange die Funktion eingeschaltet ist und mindestens ein gespeicherter Fehler vorliegt, aktiviert diese Alarmregel den ausgewählten Trigger.
 
-**Hysterese und automatisches Rücksetzen**  
-Ohne die Option „Fehler bis manuellem Reset halten“ wird der Fehler automatisch zurückgesetzt, sobald sich alle Zellen erholt haben: Liegt keine Zelle mehr um mehr als 5 mV unter ihrer Referenz und bleibt dieser Zustand **60 Sekunden** lang stabil, wird der Fehler gelöscht und der Trigger zurückgesetzt. Dasselbe gilt, wenn der Ladestrom länger als 60 Sekunden unter 5 A bleibt. Die 60-Sekunden-Rückstellzeit verhindert, dass kurzzeitige Messwertschwankungen den Alarm ständig flackern lassen.
+| Beispielmeldung | Bedeutung |
+| --- | --- |
+| `D0 C3, 3290/3300 mV` | Auffälliger Einbruch an **Data-Device 0, Zelle 3**. Der geglättete aktuelle Spannungswert beträgt 3290 mV, der Vergleichswert 3300 mV. |
+| `D0 Pack, 3316/3330 mV` | Gemeinsamer Einbruch vieler Zellen an **Data-Device 0**. Die Werte beschreiben das typische Zellspannungsniveau des Packs, **nicht dessen Gesamtspannung**. |
 
-**Fehler bis manuellem Reset halten**  
-Ist diese Option aktiviert, bleibt ein einmal erkannter Fehler dauerhaft bestehen – auch wenn sich die Zellspannung erholt hat oder die Ladung beendet ist. Der Trigger bleibt dann aktiv, bis der Fehler in der WebApp (Expert Actions, „Manuelle Aktionen“, Button **Reset** bei „Zellspannungsabfall zurücksetzen“) manuell gelöscht wird. Danach beginnt die Überwachung beim nächsten Ladevorgang wieder mit neuen Referenzwerten. Wird die Überwachung selbst ausgeschaltet, wird der Trigger in jedem Fall zurückgesetzt.
+Die **Data-Device-Nummer beginnt bei 0**, die **Zellnummer in der Meldung bei 1**. Die Spannungen gehören zum gespeicherten Erkennungsereignis und sind keine laufend aktualisierten Rohmesswerte.
 
-#### Voraussetzungen
+#### Was tun bei einem Alarm?
 
-Überwacht werden ausschließlich Data-Devices (Group Devices werden nicht unterstützt). Ein Device wird nur dann ausgewertet, wenn alle folgenden Bedingungen erfüllt sind:
+1. Ordnen Sie die Meldung dem Data-Device und der genannten Zelle bzw. dem Pack zu.
+2. Prüfen Sie die BMS-Messwerte und vorhandene BMS-Warnungen. War der Ladestrom tatsächlich stabil, und sind Stromrichtung und Strommessung plausibel?
+3. Lassen Sie bei wiederholten Auffälligkeiten die betroffenen Zellen, Zellverbinder und Messleitungen fachgerecht prüfen. Ein Alarm allein rechtfertigt noch keinen Zellentausch.
+4. Setzen Sie einen manuell gehaltenen Fehler nach der Prüfung mit der unten beschriebenen Aktion zurück. Tritt er erneut auf, sollte die Ursache weiter untersucht werden.
 
-- Die Überwachung ist eingeschaltet und ein Trigger ist ausgewählt.
-- Das Device ist unter „Zu überwachende Geräte“ ausgewählt.
-- Das Device ist als BMS erkannt – Balancer und Shunts werden nicht ausgewertet.
-- Das Device befindet sich nicht im Wartungsmodus.
-- Die Zellanzahl des BMS ist gültig (1–24 Zellen) und mindestens eine Zellspannung wird geliefert.
-- Es fließt ein Ladestrom von mindestens 5 A.
+#### Rücksetzen eines Fehlers
 
-#### Parameter
+**Automatisch zurücksetzen**
 
-**Ein/Aus**  
-Schaltet die Überwachung ein (Standard: **Aus**).
+Ist „Fehler bis manuellem Reset halten“ ausgeschaltet, wird ein Fehler gelöscht, wenn der Detektor **mindestens 60 Sekunden ohne aktive Einbruchbedingung** bleibt. Bei erneut aktiver Bedingung beginnt diese Rückstellzeit von vorn. Eine vollständige Rückkehr auf die frühere Referenzspannung ist nicht erforderlich, weil sich auch die gleitenden Referenzen verändern.
 
-**Zu überwachende Geräte**  
-Data-Devices, deren Zellspannungen überwacht werden sollen (Standard: **keine**).
-
-**Trigger**  
-Trigger (Trigger 1–27), der bei einem bestätigten Einbruch gesetzt wird (Standard: **Aus**). Erst wenn hier ein Trigger gewählt ist, ist die Überwachung aktiv.
+Auch neue Datensätze mit weniger als 4 A Ladestrom verwerfen das Ladefenster und ermöglichen nach dieser Rückstellzeit das Löschen. **Das Rücksetzen wird mit neuen BMS-Datensätzen ausgewertet, nicht durch einen unabhängigen Zeitschalter.** Bleiben Daten vollständig aus, ist nach 60 Sekunden deshalb kein automatisches Löschen garantiert. Bei instabilem Strom bleibt eine zuvor aktive lokale Einbruchbedingung zunächst erhalten; allein eine Stromänderung ist keine bestätigte Erholung.
 
 **Fehler bis manuellem Reset halten**  
-Ist die Option aktiviert (Standard: **Aus**), bleibt ein erkannter Fehler bestehen, bis er in der WebApp manuell zurückgesetzt wird (siehe oben).
+Ist diese Option bei der Fehlererkennung aktiviert, bleibt der Fehler gespeichert, auch wenn sich die Spannung erholt, die Ladung endet oder das Device später aus der Überwachung genommen wird. Löschen Sie ihn in der WebApp unter **Expert Actions → Manuelle Aktionen → Zellspannungsabfall zurücksetzen** mit dem Button **Zurücksetzen**. Dieser Reset löscht die Fehler und die Erkennungsverläufe **aller Data-Devices**. Bei weiterhin ausreichendem Ladestrom beginnt die Erkennung danach mit neuen Anfangswerten und neuer Einlaufzeit; ein neuer Ladevorgang ist dafür nicht nötig.
 
-Die Erkennungsschwellen selbst (5 A Mindest-Ladestrom, 30 s Ladefenster, 5 mV Einbruch, 3 Bestätigungen, 60 s Rückstellzeit) sind fest eingestellt und nicht konfigurierbar.
+!!! warning "Ausschalten ist kein manueller Reset"
+    Wird die Funktion ausgeschaltet oder der Trigger auf „Aus“ gestellt, wird der zugehörige Trigger nicht mehr durch diese Regel aktiviert. Ein manuell gehaltener Fehler bleibt jedoch gespeichert und kann nach erneutem Aktivieren wieder den Trigger setzen. Zum gezielten Löschen verwenden Sie die Reset-Aktion.
 
-#### Beispielablauf
+#### Beispiele aus echten Messdaten
 
-!!! example "Beispiel mit den internen Standardwerten"
-    1. Um 10:00 Uhr beginnt die Ladung mit **20 A**. Der Ladestrom liegt über 5 A, das Ladefenster startet.
-    2. Zelle 3 liefert nacheinander **3300, 3301, 3300, 3302, 3301 mV**. Der Median dieser 5 Messwerte ist **3301 mV** – die Referenzspannung dieser Zelle.
-    3. Die Zellspannung steigt im weiteren Verlauf. Nach 5 Messwerten oberhalb der bisherigen Referenz wird diese angehoben; der Median der 5 Werte ergibt die neue Referenz **3310 mV**.
-    4. Um 10:05 Uhr (Ladefenster längst über 30 Sekunden) bricht die Zelle ein: **3304 mV** (6 mV unter Referenz) → erste Bestätigung, **3303 mV** (7 mV) → zweite, **3302 mV** (8 mV) → dritte. Der Einbruch ist bestätigt, der Trigger wird gesetzt. Die Alarmmeldung lautet `D0 C3, 3302/3310 mV`.
-    5. Die Zelle erholt sich wieder auf Werte von mindestens 3305 mV. Nach **60 Sekunden** ohne bestätigten Einbruch wird der Fehler gelöscht und der Trigger zurückgesetzt. Mit aktivierter Option „Fehler bis manuellem Reset halten“ bliebe der Trigger dagegen aktiv.
+Die folgenden Screenshots zeigen **echte Messdaten, keine künstlich erzeugten Kurven**. Oben sind die Zellspannungen und der Packmedian dargestellt, darunter der Batteriestrom. Die Beispiele zeigen, warum ein Spannungsabfall im Zusammenhang mit dem Ladestrom bewertet werden muss. Ein Verlauf ohne Alarm bedeutet nicht automatisch, dass die Batterie fehlerfrei ist!
 
-#### Abgrenzung zu den Min/Max-Alarmen
+**Ohne Alarm: Spannungsabfall bei einem Stromwechsel**
 
-Die normalen Min/Max-Alarme ([BMS-Alarmregeln](#bms)) vergleichen jede Zellspannung mit festen, absoluten Grenzwerten (z. B. 2500 mV und 3650 mV) – unabhängig davon, ob gerade geladen wird. Sie erkennen Über- und Unterspannung.
+[![Echte Messdaten ohne Alarm: Mehrere Zellspannungen fallen gleichzeitig mit einem deutlichen Rückgang des Ladestroms.](img/settings/cell_sag_ohne_alarm_stromwechsel.png)](img/settings/cell_sag_ohne_alarm_stromwechsel.png)
 
-Die Überwachung „Zellspannung bei Ladestrom“ arbeitet dagegen **relativ**: Sie vergleicht die Zellspannung mit der eigenen, während der Ladung aufgebauten Referenz. Dadurch erkennt sie auch kleine Einbrüche von wenigen Millivolt weit oberhalb der Min-Schwelle – ein typisches Frühwarnzeichen für einen beginnenden Zell- oder Kontaktfehler, das die Min/Max-Alarme erst bemerken würden, wenn die Spannung tief gefallen ist. Die Funktion ist außerdem nur während des Ladens mit mindestens 5 A aktiv.
+Der deutliche Spannungssprung nach unten fällt mit einem starken Stromrückgang zusammen. Anschließend steigen die Zellspannungen mit zunehmendem Ladestrom wieder an. In diesem Beispiel wurde kein Alarm erkannt; der Spannungssprung allein ist kein Nachweis eines Zellfehlers.
 
-#### Hinweise zur Bewertung
+**Ohne Alarm: Unterschiedliche Zellverläufe bei sinkendem Ladestrom**
 
-Ein erkannter Einbruch ist kein sicherer Beweis für eine defekte Zelle. Prüfe bei einem Alarm zuerst:
+[![Echte Messdaten ohne Alarm: Einige Zellspannungen sinken bei allmählich abnehmendem Ladestrom, während andere steigen.](img/settings/cell_sag_ohne_alarm_sinkender_strom.png)](img/settings/cell_sag_ohne_alarm_sinkender_strom.png)
 
-- Tritt der Fehler wiederholt bei derselben Zelle auf?
-- Sind Zellverbinder und Messleitungen in Ordnung?
-- Zeigt das BMS selbst Warnungen oder Fehler?
+Der Ladestrom nimmt im Verlauf deutlich ab. Einige Zellspannungen sinken, andere bleiben ungefähr gleich oder steigen. Auch hier wurde kein Alarm erkannt. Unterschiedliche Spannungsniveaus oder einzelne fallende Kurven reichen allein nicht aus.
 
-Tritt der Einbruch wiederholt bei derselben Zelle auf, sollte diese Zelle bzw. ihre Verschaltung genauer geprüft werden.
+**Mit Alarm: Eine Zelle fällt bei nahezu konstantem Ladestrom ab**
 
-Für die Fehlersuche können zusätzlich die Diagnosewerte der Überwachung über MQTT ausgegeben werden: Filteroption **„Zellspannungsabfall (Debug)“** (standardmäßig aus), Werte unter dem Topic `cell_sag`. Weitere Informationen: [MQTT](mqtt.md).
+[![Echte Messdaten mit Alarm: Zelle C1 fällt gegenüber den übrigen Zellen ab, während der Ladestrom zunächst nahezu konstant bleibt; eine rote senkrechte Linie markiert den Alarm.](img/settings/cell_sag_alarm_einzelzelle.png)](img/settings/cell_sag_alarm_einzelzelle.png)
+
+Die rote Kurve **C1** fällt bereits deutlich ab, während die übrigen Zellspannungen und der Ladestrom zunächst weitgehend stabil bleiben. Die **rote senkrechte Linie** markiert den erkannten Alarm. Erst später sinkt der Ladestrom stark, woraufhin auch die übrigen Zellspannungen fallen. Aus dem Bild allein lässt sich nicht ableiten, wodurch dieser spätere Stromrückgang ausgelöst wurde.
+
+Die Bilder lassen sich durch Anklicken in voller Größe öffnen.
+
+#### Technische Details
+
+**Ladefenster und Messlücken**
+
+Eine Messlücke verwirft das Ladefenster, wenn der Abstand zwischen zwei Datensätzen größer ist als **10 Sekunden oder das Dreifache des erlernten üblichen Messabstands**, je nachdem, welcher Wert größer ist. Eine geänderte Zellanzahl startet die Erkennung ebenfalls neu. Für alle ausgewerteten Zellen müssen Spannungswerte vorliegen, die nicht als ungültig markiert sind. Ein bereits gespeicherter Fehler unterliegt unabhängig vom Neustart des Ladefensters den [Rücksetzbedingungen](#rucksetzen-eines-fehlers).
+
+**Geglättete Spannungsverläufe**
+
+Zunächst wird für jede Zelle und den Strom der Median der letzten **drei Messwerte** gebildet. Der Median ist der mittlere Wert einer nach Größe sortierten Liste; einzelne Ausreißer wirken sich dadurch weniger aus. Anschließend werden schnelle, mittlere und langsame Spannungsverläufe berechnet. Deren Zeitkonstanten betragen **10, 60 und 120 Sekunden**. Das sind gleitende Filter, keine starren Zeitfenster und keine zusätzlichen Wartezeiten.
+
+Der langsame Verlauf dient als Referenz, der schnelle als aktuelles Spannungsniveau. **Beide können steigen und fallen.** Zusätzlich wird für jeden Verlauf der Median über alle Zellen gebildet. Dieser Packmedian beschreibt das typische Zellspannungsniveau des Packs, nicht dessen Gesamtspannung. Bei einer geraden Anzahl von Werten wird der Mittelwert der beiden mittleren Werte verwendet.
+
+**Erkennungsweg 1: Einzelne auffällige Zelle**
+
+Für einen neuen lokalen Einbruch müssen nach der Einlaufzeit alle folgenden Bedingungen gleichzeitig erfüllt sein:
+
+- Die schnelle Zellspannung liegt mindestens **8 mV unter der langsamen Referenz** dieser Zelle.
+- Dieser Abfall ist mindestens **8 mV größer als der entsprechende Abfall des Packmedians**. Die Zelle muss also gegenüber dem übrigen Pack auffällig sein.
+- Auch der Vergleich zwischen mittlerem und schnellem Verlauf zeigt gegenüber dem Packmedian noch mindestens **4 mV zusätzlichen Abfall**. So wird geprüft, ob der Einbruch auch im jüngeren Verlauf erkennbar ist.
+- Die schnelle Zellspannung liegt **auf oder unter dem schnellen Packmedian**.
+- Der Ladestrom ist stabil: Schneller und langsamer geglätteter Strom unterscheiden sich um höchstens **0,5 A oder 10 % ihres Mittelwerts**, wobei der größere Toleranzwert gilt.
+
+Eine Zelle, die lediglich weniger stark steigt als die anderen, erfüllt damit noch nicht automatisch die Alarmbedingungen. Ein Alarm wird ausgelöst, sobald nach der Einlaufzeit alle genannten Bedingungen gleichzeitig erfüllt sind.
+
+**Erkennungsweg 2: Gemeinsamer Einbruch des Packs**
+
+Ein gemeinsamer Einbruch kann auch dann erkannt werden, wenn keine einzelne Zelle gegenüber den anderen auffällt. Dafür müssen nach der Einlaufzeit alle folgenden Bedingungen erfüllt sein:
+
+- Der schnelle Packmedian liegt mindestens **12 mV unter dem langsamen Packmedian**.
+- Bei mindestens rund **drei Vierteln der Zellen** liegt der schnelle Verlauf ebenfalls mindestens **12 mV unter dem jeweiligen langsamen Verlauf**. Die erforderliche Zellanzahl wird auf eine ganze Zahl gerundet; bei 16 Zellen sind es 12.
+- Der Abstand zwischen mittlerem und schnellem Packmedian ist mindestens **4 mV größer** als der Abstand zwischen langsamem und mittlerem Packmedian. Damit muss sich der Abfall im jüngeren Verlauf verstärken.
+- Die Spanne zwischen kleinstem und größtem Ladestrom der letzten ungefähr **120 bis 160 Sekunden** liegt innerhalb der Toleranz von **0,5 A oder 10 % des Mittelwerts aus schnellem und langsamem geglättetem Strom**. Auch hier gilt der größere Toleranzwert. Für diesen Erkennungsweg wird somit nicht nur der Unterschied zweier geglätteter Stromwerte geprüft.
+
+**Gespeicherte Fehlerwerte und feste Schwellen**
+
+Pro Data-Device wird ein Fehlerdatensatz gehalten; ein späteres neues Erkennungsereignis mit größerem Spannungsabfall kann ihn ersetzen. In der Alarmmeldung stehen bei einer einzelnen Zelle der schnelle und langsame Zellspannungswert, bei einem gemeinsamen Einbruch der schnelle und langsame Packmedian.
+
+Mindest-Ladestrom, Einlaufzeit, Filterzeiten, Stromtoleranzen, Einbruchschwellen und Rückstellzeit sind **fest in der Firmware eingestellt** und nicht über diese Parameter veränderbar.
+
+**Rechenbeispiel**
+
+!!! example "Einzelne auffällige Zelle"
+    1. Data-Device 0 wird kontinuierlich mit **20 A** geladen und liefert gültige Zellspannungen. Nach den Anfangsmessungen und 120 Sekunden Einlaufzeit ist die Erkennung bereit.
+    2. Später ergeben sich für Zelle 3 folgende geglättete Werte: langsam **3300 mV**, mittel **3296 mV**, schnell **3290 mV**. Die Packmediane bleiben bei allen drei Verläufen bei **3300 mV**, der Strom ist stabil.
+    3. Der absolute Abfall beträgt **10 mV**, der zusätzliche Abfall gegenüber dem Pack ebenfalls **10 mV**. Auch im jüngeren Verlauf bleiben **6 mV** zusätzlicher Abfall. Die schnelle Zellspannung liegt unter dem Packmedian. Damit sind die lokalen Erkennungsbedingungen erfüllt.
+    4. Der Trigger wird gesetzt; die Meldung lautet `D0 C3, 3290/3300 mV`.
+    5. Ohne manuelles Halten wird der Fehler nach mindestens **60 Sekunden ohne aktive Einbruchbedingung** und mit weiteren BMS-Datensätzen gelöscht. Mit manuellem Halten bleibt er bis zum Reset gespeichert.
 
 
 
