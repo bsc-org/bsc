@@ -160,7 +160,7 @@ Charging current decreases significantly over time. Some cell voltages fall, whi
 
 [![Real measurements with an alarm: Cell C1 drops relative to the other cells while charging current initially remains nearly constant; a red vertical line marks the alarm.](img/settings/cell_sag_alarm_einzelzelle.png)](img/settings/cell_sag_alarm_einzelzelle.png)
 
-The red **C1** trace already falls substantially while the other cell voltages and charging current initially remain largely stable. The **red vertical line** marks the detected alarm. Only later does charging current fall sharply, followed by the other cell voltages. The image alone does not establish what caused this later current reduction.
+The red **C1** trace already falls substantially while the other cell voltages and charging current initially remain largely stable. The **red vertical line** marks the detected alarm. Only later does charging current fall sharply, followed by the other cell voltages.
 
 Click an image to open it at full size.
 

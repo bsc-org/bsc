@@ -247,7 +247,7 @@ Der Ladestrom nimmt im Verlauf deutlich ab. Einige Zellspannungen sinken, andere
 
 [![Echte Messdaten mit Alarm: Zelle C1 fällt gegenüber den übrigen Zellen ab, während der Ladestrom zunächst nahezu konstant bleibt; eine rote senkrechte Linie markiert den Alarm.](img/settings/cell_sag_alarm_einzelzelle.png)](img/settings/cell_sag_alarm_einzelzelle.png)
 
-Die rote Kurve **C1** fällt bereits deutlich ab, während die übrigen Zellspannungen und der Ladestrom zunächst weitgehend stabil bleiben. Die **rote senkrechte Linie** markiert den erkannten Alarm. Erst später sinkt der Ladestrom stark, woraufhin auch die übrigen Zellspannungen fallen. Aus dem Bild allein lässt sich nicht ableiten, wodurch dieser spätere Stromrückgang ausgelöst wurde.
+Die rote Kurve **C1** fällt bereits deutlich ab, während die übrigen Zellspannungen und der Ladestrom zunächst weitgehend stabil bleiben. Die **rote senkrechte Linie** markiert den erkannten Alarm. Erst später sinkt der Ladestrom stark, woraufhin auch die übrigen Zellspannungen fallen.
 
 Die Bilder lassen sich durch Anklicken in voller Größe öffnen.
 
